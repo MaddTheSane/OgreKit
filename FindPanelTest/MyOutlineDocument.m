@@ -47,7 +47,7 @@
 	} else {
 		//_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
         
-        int         result;
+        NSInteger   result;
         NSOpenPanel *openPanel;
         
         openPanel = [NSOpenPanel openPanel];

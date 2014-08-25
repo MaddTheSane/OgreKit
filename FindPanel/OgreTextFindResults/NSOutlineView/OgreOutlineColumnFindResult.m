@@ -43,7 +43,7 @@
 
 - (void)endAddition
 {
-    int i = 0;
+    NSUInteger i = 0;
     while (i < [_components count]) {
         if ([[_components objectAtIndex:i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
@@ -106,7 +106,7 @@
     
     if (![outlineView allowsColumnSelection]) return YES;
     
-    int columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+    NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
     if (columnIndex != -1) {
         [outlineView selectColumnIndexes:[NSIndexSet indexSetWithIndex:columnIndex] byExtendingSelection:NO];
         [outlineView scrollColumnToVisible:columnIndex];

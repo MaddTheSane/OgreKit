@@ -72,7 +72,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
     if (numberOfChildren == 0) return nil;
     
     NSMutableArray  *children = [NSMutableArray arrayWithCapacity:numberOfChildren];
-    int i;
+    NSUInteger i;
     for (i = 0; i < numberOfChildren; i++) [children addObject:[self childAtIndex:i]];
     
     return children;

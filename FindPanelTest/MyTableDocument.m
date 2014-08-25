@@ -57,8 +57,8 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	NSMutableString *aString = [NSMutableString string];
     NSArray         *columnArray = [tableView tableColumns];
     OgreTableColumn   *column;
-    int             columnIndex, numberOfColumns = [columnArray count];
-    int             rowIndex, numberOfRows = [self numberOfRows];
+    NSInteger       columnIndex, numberOfColumns = [columnArray count];
+    NSInteger       rowIndex, numberOfRows = [self numberOfRows];
     NSArray         *array;
     NSMutableArray  *identifierArray = [NSMutableArray arrayWithCapacity:numberOfColumns];
     
@@ -239,7 +239,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSEnumerator    *arrayEnumerator;
    
     id              anObject;
-    int             overwrapCount = 0, anIndex;
+    NSInteger       overwrapCount = 0, anIndex;
     
     if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) {
         
@@ -247,7 +247,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         
         pEnumerator = [rowIndexArray reverseObjectEnumerator];
         while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
-            anIndex = [rowIndexNumber intValue];
+            anIndex = [rowIndexNumber integerValue];
             if (anIndex < row) overwrapCount++;
         }
         
@@ -305,7 +305,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSMutableArray  *columnArray;
     NSEnumerator    *columnEnumerator = [_dict objectEnumerator];
     
-    int selectedRow = [tableView selectedRow], newRowIndex;
+    NSInteger selectedRow = [tableView selectedRow], newRowIndex;
     if (selectedRow >= 0) {
         newRowIndex = selectedRow + 1;
     } else {
@@ -369,8 +369,8 @@ static NSString *gMyTableRowPropertyType = @"rows";
     [tableView addTableColumn:aColumn];
     
     // move and select
-    int selectIndex;
-    int selectedColumn = [tableView selectedColumn];
+    NSInteger selectIndex;
+    NSInteger selectedColumn = [tableView selectedColumn];
     if (selectedColumn >= 0) {
         [tableView moveColumn:(_numberOfColumns - 1) toColumn:(selectedColumn + 1)];
         selectIndex = selectedColumn + 1;
@@ -387,7 +387,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (IBAction)removeColumn:(id)sender
 {
-    int selectedColumn = [tableView selectedColumn];
+    NSInteger selectedColumn = [tableView selectedColumn];
     if (selectedColumn == -1) {
         // no column is selected
         NSBeep();
@@ -416,8 +416,8 @@ static NSString *gMyTableRowPropertyType = @"rows";
 // 
 - (void)tableViewDoubleClicked
 {
-	int	clickedRowIndex = [tableView clickedRow];
-    int selectedColumn = [tableView selectedColumn];
+	NSInteger clickedRowIndex = [tableView clickedRow];
+    NSInteger selectedColumn = [tableView selectedColumn];
 	if ((clickedRowIndex != -1) || (selectedColumn == -1)) return;
     
     NSArray         *columnArray = [tableView tableColumns];

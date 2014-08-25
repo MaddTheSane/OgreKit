@@ -245,7 +245,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	
 	// UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから)
 	NSString        *compileTimeString;
-    unsigned int    lengthOfCompileTimeString;
+    NSUInteger      lengthOfCompileTimeString;
     
 	if (syntax == OgreSimpleMatchingSyntax) {
 		compileTimeString = [[self class] regularizeString:_expressionString];
@@ -312,7 +312,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		NSMutableArray	*array;
 		int 			i, maxGroupIndex = 0;
 		while ((name = [keyEnumerator nextObject]) != nil) {
-            unsigned int    lengthOfName = [name length];
+            NSUInteger      lengthOfName = [name length];
 			unichar         *UTF16Name = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * lengthOfName);
             if (UTF16Name == NULL) {
                 [self release];
@@ -410,7 +410,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	escapeCharacter:(NSString*)character
 {
 	int 			r;
-    unsigned int    length;
+    NSUInteger      length;
 	unichar         *UTF16Str;
 	OnigErrorInfo	einfo;
 	regex_t			*regexBuffer;

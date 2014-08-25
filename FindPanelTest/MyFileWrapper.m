@@ -44,7 +44,7 @@
                 [_info appendFormat:@"Modif Date: %@,\t", [moddate description]];   
                 
             if ((fsize = [fattrs objectForKey:NSFileSize]) != nil)
-                [_info appendFormat:@"Size: %d", [fsize intValue]];
+                [_info appendFormat:@"Size: %llu", [fsize unsignedLongLongValue]];
         }
     }
     return self;
