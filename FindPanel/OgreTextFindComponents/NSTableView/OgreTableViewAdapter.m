@@ -206,10 +206,10 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection && (count > 0))];
     if ([self isTerminal]) [enumerator setTerminalIndex:[_tableView ogreSelectedColumn]];
     
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes

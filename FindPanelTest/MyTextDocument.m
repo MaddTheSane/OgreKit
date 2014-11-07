@@ -91,6 +91,8 @@
 	
     [self setString:aString];
     
+    [aString release];
+    
     return YES;
 }
 

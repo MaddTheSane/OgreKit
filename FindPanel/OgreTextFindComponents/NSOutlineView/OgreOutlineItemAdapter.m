@@ -151,7 +151,7 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     
     if ([self isTerminal]) {
         int terminal;
@@ -162,7 +162,7 @@
         [enumerator setTerminalIndex:terminal];
     }
     
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes
