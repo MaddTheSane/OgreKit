@@ -52,7 +52,7 @@
 	[progressBar startAnimation:self];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-sheetDidEnd: of %@", [self className]);

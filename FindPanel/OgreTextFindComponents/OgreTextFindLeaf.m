@@ -206,12 +206,12 @@
     return nil; 
 }
 
-- (int)index
+- (NSInteger)index
 {
     return _index;
 }
 
-- (void)setIndex:(int)index
+- (void)setIndex:(NSInteger)index
 {
     _index = index;
 }

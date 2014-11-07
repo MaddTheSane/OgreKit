@@ -97,12 +97,12 @@
     return _ogrePathComponents;
 }
 
-- (int)ogreSelectedColumn
+- (NSInteger)ogreSelectedColumn
 {
     return (_ogreSelectedColumn == -1? 0 : _ogreSelectedColumn);
 }
 
-- (void)ogreSetSelectedColumn:(int)column
+- (void)ogreSetSelectedColumn:(NSInteger)column
 {
     _ogreSelectedColumn = column;
 }

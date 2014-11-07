@@ -76,7 +76,7 @@
     return nil;
 }
 
-- (int)index
+- (NSInteger)index
 {
     return 0;
 }

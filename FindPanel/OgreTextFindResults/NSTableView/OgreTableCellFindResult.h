@@ -24,7 +24,7 @@
     int             _rowIndex;
 }
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex;
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;
 
 // index番目にマッチした文字列のある行番号
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;

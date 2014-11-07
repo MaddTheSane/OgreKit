@@ -204,7 +204,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [self numberOfRows];
 }
 
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     NSString    *identifier = [aTableColumn identifier];
     NSArray     *array = [_dict objectForKey:identifier];
@@ -212,7 +212,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [array objectAtIndex:rowIndex];
 }
 
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     NSString        *identifier = [aTableColumn identifier];
     NSMutableArray  *array = [_dict objectForKey:identifier];
@@ -225,7 +225,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 }
 
 /* drag&drop rows */
-- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)operation
+- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     NSEnumerator    *pEnumerator;
@@ -281,7 +281,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     }
 }
 
-- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)operation
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard *pboard=[info draggingPasteboard];
     if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;

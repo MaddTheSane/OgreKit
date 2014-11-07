@@ -24,8 +24,8 @@
     NSMutableArray  *_ogrePathComponents;
 }
 
-- (int)ogreSelectedColumn;
-- (void)ogreSetSelectedColumn:(int)column;
+- (NSInteger)ogreSelectedColumn;
+- (void)ogreSetSelectedColumn:(NSInteger)column;
 
 - (NSArray*)ogrePathComponentsOfSelectedItem;
 - (void)ogreSetSelectedItem:(id)item;

@@ -583,7 +583,7 @@ extern NSString	* const OgreException;
 - (NSArray*)splitString:(NSString*)aString 
 	options:(NSUInteger)searchOptions 
 	range:(NSRange)searchRange
-	limit:(int)limit;
+	limit:(NSInteger)limit;
 
 
 /*************

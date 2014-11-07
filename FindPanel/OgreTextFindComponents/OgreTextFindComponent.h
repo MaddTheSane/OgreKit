@@ -44,8 +44,8 @@
 - (OgreTextFindBranch*)parent;
 - (void)setParent:(OgreTextFindBranch*)parent;
 - (void)setParentNoRetain:(OgreTextFindBranch*)parent;
-- (int)index;
-- (void)setIndex:(int)index;
+- (NSInteger)index;
+- (void)setIndex:(NSInteger)index;
 - (OgreTextFindLeaf*)selectedLeaf;
 
 - (BOOL)isTerminal;

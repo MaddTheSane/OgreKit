@@ -32,7 +32,7 @@
 - (void)awakeFromNib
 {
 	[liveUpdateCheckBox setTitle:OgreTextFinderLocalizedString(@"Live Update")];
-	[liveUpdateCheckBox setState:(int)_liveUpdate];
+	[liveUpdateCheckBox setState:(NSInteger)_liveUpdate];
 	
 	[self setupFindResultView];
 }
@@ -163,7 +163,7 @@
 	return [aItem isBranch];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_textFindResult == nil) return 0;
 	
@@ -178,7 +178,7 @@
 	return [aItem numberOfChildrenInSelection:NO];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_textFindResult == nil) return nil;
 	

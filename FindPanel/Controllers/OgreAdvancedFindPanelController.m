@@ -673,7 +673,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	_isAlertSheetOpen = YES;
 }
 
-- (void)clearFindPeplaceHistoriesSheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo{
+- (void)clearFindPeplaceHistoriesSheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo{
 	if (returnCode == NSAlertDefaultReturn) {
 		[_findHistory release];
 		[_replaceHistory release];
@@ -1019,7 +1019,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	_isAlertSheetOpen = YES;
 }
 
-- (void)sheetDidDismiss:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidDismiss:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
 	//NSLog(@"sheetDidDismiss");
 	[findPanel makeKeyAndOrderFront:self];

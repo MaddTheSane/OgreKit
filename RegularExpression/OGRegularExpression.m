@@ -1768,7 +1768,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 - (NSArray*)splitString:(NSString*)aString 
 	options:(NSUInteger)options 
 	range:(NSRange)searchRange
-	limit:(int)limit 
+	limit:(NSInteger)limit 
 {
 	NSMutableArray	*words = [NSMutableArray arrayWithCapacity:1];
 	

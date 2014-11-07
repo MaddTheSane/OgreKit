@@ -23,7 +23,7 @@
 
 @implementation OgreTableCellFindResult
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
     self = [super init];
     if (self != nil) {

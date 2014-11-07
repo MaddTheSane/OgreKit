@@ -153,23 +153,23 @@
 
 
 // -matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限)
-- (int)maximumLeftMargin
+- (NSInteger)maximumLeftMargin
 {
     return _maxLeftMargin;
 }
 
-- (void)setMaximumLeftMargin:(int)leftMargin
+- (void)setMaximumLeftMargin:(NSInteger)leftMargin
 {
 	_maxLeftMargin = leftMargin;
 }
 
 // -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-- (int)maximumMatchedStringLength
+- (NSInteger)maximumMatchedStringLength
 {
     return _maxMatchedStringLength;
 }
 
-- (void)setMaximumMatchedStringLength:(int)aLength
+- (void)setMaximumMatchedStringLength:(NSInteger)aLength
 {
 	_maxMatchedStringLength = aLength;
 }

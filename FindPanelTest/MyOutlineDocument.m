@@ -110,7 +110,7 @@
     return [item numberOfComponents];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_fileWrapper == nil) return nil;
     //NSLog(@"child:%d ofItem:%@", index, [item name]);
@@ -148,7 +148,7 @@
 }
 
 /* drop */
-- (NSUInteger)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(int)childIndex
+- (NSUInteger)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
@@ -159,7 +159,7 @@
     return NSDragOperationNone;
 }
 
-- (BOOL)outlineView:(NSOutlineView*)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(int)childIndex
+- (BOOL)outlineView:(NSOutlineView*)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
