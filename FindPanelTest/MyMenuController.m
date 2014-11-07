@@ -61,7 +61,7 @@
 
 - (void)awakeFromNib
 {
-    [NSApp setDelegate:self];
+    [[NSApplication sharedApplication] setDelegate:self];
 }
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication*)sender
