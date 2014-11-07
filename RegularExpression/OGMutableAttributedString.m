@@ -359,7 +359,7 @@
 {
 	NSUInteger	attrIndex;
 	if (index > 0) {
-		attrIndex = index -1;
+		attrIndex = index - 1;
 	} else {
 		attrIndex = index;
 	}
