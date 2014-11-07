@@ -135,7 +135,7 @@ extern NSString	* const OgreMatchException;
 // 名前がnameの部分文字列のindex
 // 存在しない名前の場合は -1 を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (NSUInteger)indexOfSubstringNamed:(NSString*)name;
+- (int)indexOfSubstringNamed:(NSString*)name;
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。

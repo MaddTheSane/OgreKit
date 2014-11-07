@@ -627,7 +627,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 名前がnameの部分文字列のindex
 // 存在しない場合は-1を返す
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (NSUInteger)indexOfSubstringNamed:(NSString*)name
+- (int)indexOfSubstringNamed:(NSString*)name
 {
 	int	index = [[_enumerator regularExpression] groupIndexForName:name];
 	if (index == -2) {
