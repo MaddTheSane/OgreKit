@@ -30,30 +30,30 @@
 
 /* constants */
 // compile time options:
-const unsigned	OgreNoneOption				= ONIG_OPTION_NONE;
-const unsigned	OgreSingleLineOption		= ONIG_OPTION_SINGLELINE;
-const unsigned	OgreMultilineOption			= ONIG_OPTION_MULTILINE;
-const unsigned	OgreIgnoreCaseOption		= ONIG_OPTION_IGNORECASE;
-const unsigned	OgreExtendOption			= ONIG_OPTION_EXTEND;
-const unsigned	OgreFindLongestOption		= ONIG_OPTION_FIND_LONGEST;
-const unsigned	OgreFindNotEmptyOption		= ONIG_OPTION_FIND_NOT_EMPTY;
-const unsigned	OgreNegateSingleLineOption	= ONIG_OPTION_NEGATE_SINGLELINE;
-const unsigned	OgreDontCaptureGroupOption	= ONIG_OPTION_DONT_CAPTURE_GROUP;
-const unsigned	OgreCaptureGroupOption		= ONIG_OPTION_CAPTURE_GROUP;
+const NSUInteger	OgreNoneOption				= ONIG_OPTION_NONE;
+const NSUInteger	OgreSingleLineOption		= ONIG_OPTION_SINGLELINE;
+const NSUInteger	OgreMultilineOption			= ONIG_OPTION_MULTILINE;
+const NSUInteger	OgreIgnoreCaseOption		= ONIG_OPTION_IGNORECASE;
+const NSUInteger	OgreExtendOption			= ONIG_OPTION_EXTEND;
+const NSUInteger	OgreFindLongestOption		= ONIG_OPTION_FIND_LONGEST;
+const NSUInteger	OgreFindNotEmptyOption		= ONIG_OPTION_FIND_NOT_EMPTY;
+const NSUInteger	OgreNegateSingleLineOption	= ONIG_OPTION_NEGATE_SINGLELINE;
+const NSUInteger	OgreDontCaptureGroupOption	= ONIG_OPTION_DONT_CAPTURE_GROUP;
+const NSUInteger	OgreCaptureGroupOption		= ONIG_OPTION_CAPTURE_GROUP;
 // (ONIG_OPTION_POSIX_REGIONは使用しない)
 // OgreDelimitByWhitespaceOptionはOgreSimpleMatchingSyntaxの使用時に、空白文字を単語の区切りとみなすかどうか
 // 例: @"AAA BBB CCC" -> @"(AAA)|(BBB)|(CCC)"
-const unsigned	OgreDelimitByWhitespaceOption	= ONIG_OPTION_POSIX_REGION;
+const NSUInteger	OgreDelimitByWhitespaceOption	= ONIG_OPTION_POSIX_REGION;
 
 // search time options:
-const unsigned	OgreNotBOLOption			= ONIG_OPTION_NOTBOL;
-const unsigned	OgreNotEOLOption			= ONIG_OPTION_NOTEOL;
-const unsigned	OgreFindEmptyOption			= ONIG_OPTION_POSIX_REGION << 1;
+const NSUInteger	OgreNotBOLOption			= ONIG_OPTION_NOTBOL;
+const NSUInteger	OgreNotEOLOption			= ONIG_OPTION_NOTEOL;
+const NSUInteger	OgreFindEmptyOption			= ONIG_OPTION_POSIX_REGION << 1;
 
 // replace time options:
-const unsigned	OgreReplaceWithAttributesOption	= ONIG_OPTION_POSIX_REGION << 2;
-const unsigned	OgreReplaceFontsOption		= ONIG_OPTION_POSIX_REGION << 3;
-const unsigned	OgreMergeAttributesOption	= ONIG_OPTION_POSIX_REGION << 4;
+const NSUInteger	OgreReplaceWithAttributesOption	= ONIG_OPTION_POSIX_REGION << 2;
+const NSUInteger	OgreReplaceFontsOption		= ONIG_OPTION_POSIX_REGION << 3;
+const NSUInteger	OgreMergeAttributesOption	= ONIG_OPTION_POSIX_REGION << 4;
 
 // exception name
 NSString * const	OgreException = @"OGRegularExpressionException";
@@ -142,7 +142,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 + (id)regularExpressionWithString:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [[[self alloc]
 		initWithString: expressionString
@@ -152,7 +152,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 + (id)regularExpressionWithString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
@@ -173,7 +173,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (id)initWithString:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self initWithString: expressionString 
 		options: options 
@@ -182,7 +182,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (id)initWithString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
@@ -205,7 +205,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	// オプション
 	// OgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionを別に扱う。
 	_options = OgreCompileTimeOptionMask(options);
-	unsigned	compileTimeOptions = _options & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
+	NSUInteger	compileTimeOptions = _options & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
 	
 	// 構文
 	_syntax = syntax;
@@ -370,7 +370,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // 現在有効なオプション
-- (unsigned)options
+- (NSUInteger)options
 {
 	return _options;
 }
@@ -396,7 +396,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		escapeCharacter: [[self class] defaultEscapeCharacter]];
 }
 
-+ (BOOL)isValidExpressionString:(NSString*)expressionString options:(unsigned)options
++ (BOOL)isValidExpressionString:(NSString*)expressionString options:(NSUInteger)options
 {
 	return [self isValidExpressionString: expressionString 
 		options: options 
@@ -405,7 +405,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 + (BOOL)isValidExpressionString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
@@ -439,7 +439,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
 		
 	// オプション(ONIG_OPTION_POSIX_REGIONとOgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionが立っている場合は下げる)
-	unsigned	compileTimeOptions = OgreCompileTimeOptionMask(options) & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
+	NSUInteger	compileTimeOptions = OgreCompileTimeOptionMask(options) & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
 	
 	// UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから)
 	NSString	*compileTimeString;
@@ -506,7 +506,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (OGRegularExpressionMatch*)matchInString:(NSString*)string 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self matchInString:string 
 		options:options 
@@ -514,7 +514,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (OGRegularExpressionMatch*)matchInString:(NSString*)string 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return [[self matchEnumeratorInString:string 
@@ -539,7 +539,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (OGRegularExpressionMatch*)matchInAttributedString:(NSAttributedString*)string 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self matchInAttributedString:string 
 		options:options 
@@ -547,7 +547,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (OGRegularExpressionMatch*)matchInAttributedString:(NSAttributedString*)string 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return [[self matchEnumeratorInAttributedString:string 
@@ -556,7 +556,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (OGRegularExpressionMatch*)matchInOGString:(NSObject<OGStringProtocol>*)string 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return [[self matchEnumeratorInOGString:string 
@@ -572,7 +572,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		range:NSMakeRange(0,[string length])];
 }
 
-- (NSEnumerator*)matchEnumeratorInString:(NSString*)string options:(unsigned)options
+- (NSEnumerator*)matchEnumeratorInString:(NSString*)string options:(NSUInteger)options
 {
 	return [self matchEnumeratorInString:string 
 		options:options 
@@ -586,7 +586,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		range:searchRange];
 }
 
-- (NSEnumerator*)matchEnumeratorInString:(NSString*)string options:(unsigned)options range:(NSRange)searchRange
+- (NSEnumerator*)matchEnumeratorInString:(NSString*)string options:(NSUInteger)options range:(NSRange)searchRange
 {
 	return [self matchEnumeratorInOGString:[OGPlainString stringWithString:string] 
 		options:options 
@@ -602,7 +602,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSEnumerator*)matchEnumeratorInAttributedString:(NSAttributedString*)string 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self matchEnumeratorInAttributedString:string 
 		options:options 
@@ -618,7 +618,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSEnumerator*)matchEnumeratorInAttributedString:(NSAttributedString*)string 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return [self matchEnumeratorInOGString:[OGAttributedString stringWithAttributedString:string] 
@@ -629,7 +629,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 //
 - (NSEnumerator*)matchEnumeratorInOGString:(NSObject<OGStringProtocol>*)string 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	if(string == nil) {
@@ -657,7 +657,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSArray*)allMatchesInString:(NSString*)string
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self allMatchesInString:string
 		options:options 
@@ -673,7 +673,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSArray*)allMatchesInString:(NSString*)string
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return	[[self matchEnumeratorInString:string 
@@ -690,7 +690,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSArray*)allMatchesInAttributedString:(NSAttributedString*)string
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self allMatchesInAttributedString:string
 		options:options 
@@ -706,7 +706,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSArray*)allMatchesInAttributedString:(NSAttributedString*)string
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return	[[self matchEnumeratorInAttributedString:string 
@@ -716,7 +716,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 
 - (NSArray*)allMatchesInOGString:(NSObject<OGStringProtocol>*)string
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)searchRange
 {
 	return	[[self matchEnumeratorInOGString:string 
@@ -739,7 +739,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSString*)replaceFirstMatchInString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceString: targetString 
 		withString: replaceString 
@@ -751,7 +751,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSString*)replaceFirstMatchInString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceString: targetString 
@@ -776,7 +776,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAttributedString: targetString 
 		withAttributedString: replaceString 
@@ -788,7 +788,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceAttributedString: targetString 
@@ -814,7 +814,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSString*)replaceAllMatchesInString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceString:targetString 
 		withString:replaceString 
@@ -826,7 +826,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSString*)replaceAllMatchesInString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceString:targetString 
@@ -851,7 +851,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAttributedString:targetString 
 		withAttributedString:replaceString 
@@ -863,7 +863,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceAttributedString:targetString 
@@ -878,7 +878,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 // マッチした部分を置換
 - (NSString*)replaceString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 {
@@ -892,7 +892,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 {
@@ -906,7 +906,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSString*)replaceString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 	numberOfReplacement:(unsigned*)numberOfReplacement 
@@ -921,7 +921,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 	numberOfReplacement:(unsigned*)numberOfReplacement 
@@ -936,7 +936,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 - (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 	numberOfReplacement:(unsigned*)numberOfReplacement 
@@ -953,7 +953,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	NSObject<OGStringProtocol,OGMutableStringProtocol>	*replacedString;
 	replacedString = [[[[targetString mutableClass] alloc] init] autorelease];
 	
-	unsigned					matches = 0;
+	NSUInteger					matches = 0;
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
@@ -1017,7 +1017,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceString:targetString 
 		delegate:aDelegate 
@@ -1033,7 +1033,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceString:targetString 
@@ -1065,7 +1065,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAttributedString:targetString 
 		delegate:aDelegate 
@@ -1081,7 +1081,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceAttributedString:targetString 
@@ -1098,7 +1098,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceOGString:targetString 
@@ -1132,7 +1132,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceString: targetString 
 		delegate:aDelegate 
@@ -1148,7 +1148,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceString: targetString 
@@ -1181,7 +1181,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAttributedString: targetString 
 		delegate:aDelegate 
@@ -1197,7 +1197,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceAttributedString: targetString 
@@ -1215,7 +1215,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
-	options:(unsigned)options
+	options:(NSUInteger)options
 	range:(NSRange)replaceRange
 {
 	return [self replaceOGString:targetString 
@@ -1234,7 +1234,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 {
@@ -1252,10 +1252,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	return [[self replaceOGString:[OGPlainString stringWithString:targetString] 
 		delegate:aDelegate 
@@ -1272,7 +1272,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
 {
@@ -1290,10 +1290,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	return [[self replaceOGString:[OGAttributedString stringWithAttributedString:targetString] 
 		delegate:aDelegate 
@@ -1310,10 +1310,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	NSEnumerator	*enumerator = [self matchEnumeratorInOGString:targetString 
 		options:options 
@@ -1323,7 +1323,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	replacedString = [[[[targetString mutableClass] alloc] init] autorelease];
 	
 	id			returnedString;
-	unsigned	matches = 0;
+	NSUInteger	matches = 0;
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	
 	// NSInvocationのセットアップ
@@ -1476,7 +1476,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 	// NSString			*_escapeCharacter;
 	// NSString			*_expressionString;
-	// unsigned		_options;
+	// NSUInteger		_options;
 	// OnigSyntaxType		*_syntax;
 	// onig_t				*_regexBuffer;はencodeしない。
 
@@ -1501,7 +1501,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	NSString		*escapeCharacter;
 	NSString		*expressionString;
 	id				anObject;
-	unsigned		options;
+	NSUInteger		options;
 	OgreSyntax		syntax = 0;
 	
 	BOOL			allowsKeyedCoding = [decoder allowsKeyedCoding];
@@ -1529,7 +1529,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 
-	// unsigned		_options;
+	// NSUInteger		_options;
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey:OgreOptionsKey];
 	} else {
@@ -1598,13 +1598,13 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // capture groupの数
-- (unsigned)numberOfGroups
+- (NSUInteger)numberOfGroups
 {
     return onig_number_of_captures(_regexBuffer);
 }
 
 // name groupの数
-- (unsigned)numberOfNames
+- (NSUInteger)numberOfNames
 {
 	return onig_number_of_names(_regexBuffer);
 }
@@ -1665,7 +1665,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // Optionsを表す文字列の配列
-+ (NSArray*)stringsForOptions:(unsigned)options
++ (NSArray*)stringsForOptions:(NSUInteger)options
 {
 	NSMutableArray	*array = [NSMutableArray arrayWithCapacity:0];
 	
@@ -1741,7 +1741,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 - (NSArray*)splitString:(NSString*)aString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self splitString:aString 
 		options:options 
@@ -1750,7 +1750,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 	
 - (NSArray*)splitString:(NSString*)aString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange
 {
 	return [self splitString:aString 
@@ -1766,7 +1766,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	limit <  0:				最後が空文字列でも含める。@"a,b,c," -> (@"a", @"b", @"c", @"")
  */
 - (NSArray*)splitString:(NSString*)aString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange
 	limit:(int)limit 
 {

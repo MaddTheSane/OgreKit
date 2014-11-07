@@ -57,15 +57,15 @@ extern NSString	* const OgreReplaceException;
 - (id)initWithString:(NSString*)replaceString;
 
 - (id)initWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 - (id)initWithAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)replaceOptions;
+	options:(NSUInteger)replaceOptions;
 - (id)initWithAttributedString:(NSAttributedString*)replaceString;
 
 - (id)initWithOGString:(NSObject<OGStringProtocol>*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 
@@ -77,15 +77,15 @@ extern NSString	* const OgreReplaceException;
 + (id)replaceExpressionWithString:(NSString*)replaceString;
 
 + (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 + (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options;
+	options:(NSUInteger)options;
 + (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString;
 
 + (id)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 

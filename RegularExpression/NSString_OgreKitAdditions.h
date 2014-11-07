@@ -52,9 +52,9 @@
  **********/
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString;
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options;
+	options:(NSUInteger)options;
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange;
 
 /*********
@@ -78,7 +78,7 @@
  ***********/
 - (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange;
 
 /*********************

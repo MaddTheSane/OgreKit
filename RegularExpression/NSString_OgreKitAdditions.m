@@ -27,7 +27,7 @@
 }
 
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self rangeOfRegularExpressionString:expressionString 
 		options:options 
@@ -35,7 +35,7 @@
 }
 
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange
 {
 	OGRegularExpressionMatch	*match = 
@@ -78,7 +78,7 @@
  ***********/
 - (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange
 {
 	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:expressionString

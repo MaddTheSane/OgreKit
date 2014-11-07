@@ -42,9 +42,9 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	[super dealloc];
 }
 
-- (unsigned)options
+- (NSUInteger)options
 {
-	unsigned	options = OgreNoneOption;
+	NSUInteger	options = OgreNoneOption;
 	if ([optionIgnoreCase state] == NSOnState) options |= OgreIgnoreCaseOption;
 	
 	return options;
@@ -232,7 +232,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	
 	anObject = [history objectForKey:MyOptionsKey];
 	if (anObject != nil) {
-		unsigned	options = [anObject unsignedIntValue];
+		NSUInteger	options = [anObject unsignedIntValue];
 		[optionIgnoreCase setState:((options & OgreIgnoreCaseOption)? NSOnState : NSOffState)];
 	}
 	

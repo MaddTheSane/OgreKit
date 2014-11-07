@@ -342,7 +342,7 @@
 	_highlightColor = [highlightColor retain];
 }
 
-- (void)setOptions:(unsigned)options
+- (void)setOptions:(NSUInteger)options
 {
 	_searchOptions = options;
 }

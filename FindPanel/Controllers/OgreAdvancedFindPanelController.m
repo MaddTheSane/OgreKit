@@ -424,7 +424,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	id	anObject = [history objectForKey:OgreAFPCOptionsKey];
 	if (anObject != nil) {
-		unsigned	options = [anObject unsignedIntValue];
+		NSUInteger	options = [anObject unsignedIntValue];
 		
 		[self setSingleLineOption          : ((options & OgreSingleLineOption) != 0)];
 		[self setMultilineOption           : ((options & OgreMultilineOption) != 0)];

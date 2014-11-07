@@ -80,7 +80,7 @@
 - (void)setRegularExpression:(OGRegularExpression*)regex;
 - (void)setReplaceExpression:(OGReplaceExpression*)repex;
 - (void)setHighlightColor:(NSColor*)highlightColor;
-- (void)setOptions:(unsigned)options;
+- (void)setOptions:(NSUInteger)options;
 - (void)setInSelection:(BOOL)inSelection;
 - (void)setAsynchronous:(BOOL)asynchronou;
 

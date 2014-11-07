@@ -467,7 +467,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 /* Find/Replace/Highlight... */
 
 - (OgreTextFindResult*)find:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	fromTop:(BOOL)isFromTop
 	forward:(BOOL)forward
 	wrap:(BOOL)isWrap
@@ -516,7 +516,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)findAll:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -574,7 +574,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAndFind:[OGPlainString stringWithString:expressionString]
 		withString:[OGPlainString stringWithString:replaceString] 
@@ -585,7 +585,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAndFind:[OGPlainString stringWithString:expressionString]
 		withOGString:[OGAttributedString stringWithAttributedString:replaceString] 
@@ -596,7 +596,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self replaceAndFind:expressionString
 		withOGString:replaceString 
@@ -607,7 +607,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
 {
@@ -620,7 +620,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
 {
@@ -633,7 +633,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
 {
@@ -690,7 +690,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection
 {
 	return [self replaceAll:[OGPlainString stringWithString:expressionString] 
@@ -701,7 +701,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection
 {
 	return [self replaceAll:[OGPlainString stringWithString:expressionString] 
@@ -712,7 +712,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -812,7 +812,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)hightlight:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL

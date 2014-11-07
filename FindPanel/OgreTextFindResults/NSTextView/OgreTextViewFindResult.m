@@ -297,8 +297,8 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	
 	NSMutableArray *target;
 	NSRange		range, updatedRange;
-	unsigned	a, b, c, d, b2;
-	unsigned	i, j, 
+	NSUInteger	a, b, c, d, b2;
+	NSUInteger	i, j,
 				count = [self count], 
 				numberOfSubranges = [[_matchRangeArray objectAtIndex:1] count];
 	

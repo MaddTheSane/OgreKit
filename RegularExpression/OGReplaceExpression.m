@@ -64,7 +64,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 // 初期化
 - (id)initWithOGString:(NSObject<OGStringProtocol>*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
@@ -268,7 +268,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 
 - (id)initWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
@@ -279,7 +279,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 - (id)initWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options  
+	options:(NSUInteger)options  
 {
 	return [self initWithAttributedString:replaceString 
 		options:options 
@@ -322,7 +322,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 
 + (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
@@ -333,7 +333,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 + (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 {
 	return [[[[self class] alloc] initWithAttributedString:replaceString 
 		options:options 
@@ -350,7 +350,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 + (id)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {

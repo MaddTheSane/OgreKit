@@ -32,7 +32,7 @@
 	_nameArray = [nameArray retain];
 }
 
-- (void)_setOptions:(unsigned)options
+- (void)_setOptions:(NSUInteger)options
 {
 	_options = options;
 }

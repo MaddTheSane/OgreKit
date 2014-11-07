@@ -200,7 +200,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-- (id)initWithOptions:(unsigned)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
+- (id)initWithOptions:(NSUInteger)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithOptions: of %@", [self className]);
@@ -250,7 +250,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	return _options;
 }
 
-- (void)setOptions:(unsigned)options
+- (void)setOptions:(NSUInteger)options
 {
 	_options = options;
 }

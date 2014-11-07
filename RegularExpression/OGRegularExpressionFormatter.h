@@ -36,7 +36,7 @@ extern NSString	* const OgreFormatterException;
 	errorDescription:(NSString**)error;
 
 - (id)init;
-- (id)initWithOptions:(unsigned)options 
+- (id)initWithOptions:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 
@@ -44,7 +44,7 @@ extern NSString	* const OgreFormatterException;
 - (void)setEscapeCharacter:(NSString*)character;
 
 - (unsigned)options;
-- (void)setOptions:(unsigned)options;
+- (void)setOptions:(NSUInteger)options;
 
 - (OgreSyntax)syntax;
 - (void)setSyntax:(OgreSyntax)syntax;

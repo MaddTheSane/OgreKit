@@ -35,7 +35,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
  * 諸情報 *
  *********/
 // グループ番号
-- (unsigned)groupIndex
+- (NSUInteger)groupIndex
 {
     return _captureNode->group;
 }

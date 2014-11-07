@@ -89,58 +89,58 @@
 
 /* Find/Replace/Highlight... */
 - (OgreTextFindResult*)find:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	fromTop:(BOOL)isTop
 	forward:(BOOL)forward
 	wrap:(BOOL)isWrap;
 
 - (OgreTextFindResult*)findAll:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options;
+	options:(NSUInteger)options;
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options;
+	options:(NSUInteger)options;
 - (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options;
+	options:(NSUInteger)options;
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options 
+	options:(NSUInteger)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options 
+	options:(NSUInteger)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 - (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options 
+	options:(NSUInteger)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)hightlight:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)unhightlight;

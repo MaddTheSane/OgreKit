@@ -34,7 +34,7 @@
 - (IBAction)jumpToSelection:(id)sender;
 - (IBAction)useSelectionForFind:(id)sender;
 
-- (unsigned)options;
+- (NSUInteger)options;
 - (OgreSyntax)syntax;
 - (BOOL)isEntire;
 
