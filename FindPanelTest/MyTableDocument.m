@@ -116,7 +116,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSMutableArray              *array;
     NSString                    *identifier;
     
-     NSMutableArray  *dictArray = nil;;
+    NSMutableArray  *dictArray = nil;
     
     if ((match = [matchEnumerator nextObject]) != nil) {
         capture = [match captureHistory];
