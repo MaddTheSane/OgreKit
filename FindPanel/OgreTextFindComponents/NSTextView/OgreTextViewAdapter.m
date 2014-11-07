@@ -20,7 +20,7 @@
 @implementation OgreTextViewAdapter
 
 /* Creating and initializing */
-- (id)initWithTarget:(id)aTextView
+- (instancetype)initWithTarget:(id)aTextView
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTextView: of %@", [self className]);
