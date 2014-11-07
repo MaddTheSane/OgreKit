@@ -256,10 +256,10 @@
 		4DC410F0091512C90029A2A6 /* OGMutableAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D7209150CEC0029A2A6 /* OGMutableAttributedString.h */; };
 		4DC410F1091512C90029A2A6 /* OGAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D7109150CEC0029A2A6 /* OGAttributedString.m */; };
 		4DC410F2091512CA0029A2A6 /* OGAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D7009150CEB0029A2A6 /* OGAttributedString.h */; };
-		4DC4116D091514030029A2A6 /* OgreTextFindProgressSheet.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.nib */; };
+		4DC4116D091514030029A2A6 /* OgreTextFindProgressSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.xib */; };
 		4DC4116E091514030029A2A6 /* OgreAPFCLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */; };
-		4DC4116F091514030029A2A6 /* OgreFindResultWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41167091514030029A2A6 /* OgreFindResultWindow.nib */; };
-		4DC41170091514030029A2A6 /* OgreAdvancedFindPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.nib */; };
+		4DC4116F091514030029A2A6 /* OgreFindResultWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */; };
+		4DC41170091514030029A2A6 /* OgreAdvancedFindPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */; };
 		4DC41171091514030029A2A6 /* OgreTextFinderLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */; };
 		4DC411C9091514D70029A2A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC411C7091514D70029A2A6 /* InfoPlist.strings */; };
 		4DC411D5091515930029A2A6 /* ReadMe.rtf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40D4B09150CEA0029A2A6 /* ReadMe.rtf */; };
@@ -274,24 +274,24 @@
 		4DC412AB0915192A0029A2A6 /* OgreKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40BFC09150BDB0029A2A6 /* OgreKit.framework */; };
 		4DC412AE0915193C0029A2A6 /* OgreKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40BFC09150BDB0029A2A6 /* OgreKit.framework */; };
 		4DC412B10915194C0029A2A6 /* OgreKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40BFC09150BDB0029A2A6 /* OgreKit.framework */; };
-		4DC4134309151C2E0029A2A6 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4133F09151C2D0029A2A6 /* MainMenu.nib */; };
+		4DC4134309151C2E0029A2A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4133F09151C2D0029A2A6 /* MainMenu.xib */; };
 		4DC4134409151C2E0029A2A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4134109151C2E0029A2A6 /* InfoPlist.strings */; };
-		4DC4135609151CA60029A2A6 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135009151CA60029A2A6 /* MainMenu.nib */; };
+		4DC4135609151CA60029A2A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135009151CA60029A2A6 /* MainMenu.xib */; };
 		4DC4135709151CA60029A2A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135209151CA60029A2A6 /* InfoPlist.strings */; };
 		4DC4135809151CA60029A2A6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135409151CA60029A2A6 /* Credits.rtf */; };
-		4DC4135B09151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.nib */; };
-		4DC4136009151CD80029A2A6 /* MyTableDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135C09151CD80029A2A6 /* MyTableDocument.nib */; };
-		4DC4136109151CD80029A2A6 /* MyTableColumnSheet.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.nib */; };
-		4DC4136409151CE50029A2A6 /* MyOutlineDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136209151CE50029A2A6 /* MyOutlineDocument.nib */; };
-		4DC4136909151CF40029A2A6 /* MyRTFDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136509151CF40029A2A6 /* MyRTFDocument.nib */; };
-		4DC4136A09151CF40029A2A6 /* MyTextDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136709151CF40029A2A6 /* MyTextDocument.nib */; };
-		4DC4136D09151D1A0029A2A6 /* MyFindPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136B09151D1A0029A2A6 /* MyFindPanel.nib */; };
+		4DC4135B09151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib */; };
+		4DC4136009151CD80029A2A6 /* MyTableDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135C09151CD80029A2A6 /* MyTableDocument.xib */; };
+		4DC4136109151CD80029A2A6 /* MyTableColumnSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.xib */; };
+		4DC4136409151CE50029A2A6 /* MyOutlineDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136209151CE50029A2A6 /* MyOutlineDocument.xib */; };
+		4DC4136909151CF40029A2A6 /* MyRTFDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136509151CF40029A2A6 /* MyRTFDocument.xib */; };
+		4DC4136A09151CF40029A2A6 /* MyTextDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136709151CF40029A2A6 /* MyTextDocument.xib */; };
+		4DC4136D09151D1A0029A2A6 /* MyFindPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136B09151D1A0029A2A6 /* MyFindPanel.xib */; };
 		4DC4137409151D320029A2A6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4136E09151D320029A2A6 /* Credits.rtf */; };
-		4DC4137509151D320029A2A6 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4137009151D320029A2A6 /* MainMenu.nib */; };
-		4DC4137609151D320029A2A6 /* MyDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4137209151D320029A2A6 /* MyDocument.nib */; };
+		4DC4137509151D320029A2A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4137009151D320029A2A6 /* MainMenu.xib */; };
+		4DC4137609151D320029A2A6 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4137209151D320029A2A6 /* MyDocument.xib */; };
 		4DF530C00915221700475575 /* ReplaceWithAttributesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */; };
 		4DF530C20915221700475575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BD0915221700475575 /* main.m */; };
-		4DF530D30915226200475575 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530D00915226200475575 /* MainMenu.nib */; };
+		4DF530D30915226200475575 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530D00915226200475575 /* MainMenu.xib */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -701,58 +701,58 @@
 		4DC4108B09150D650029A2A6 /* MyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuController.m; path = MyFindPanelExample/MyMenuController.m; sourceTree = SOURCE_ROOT; };
 		4DC4108C09150D650029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyFindPanelExample/main.m; sourceTree = SOURCE_ROOT; };
 		4DC4108D09150D650029A2A6 /* MyFindPanelExample_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFindPanelExample_Prefix.h; path = MyFindPanelExample/MyFindPanelExample_Prefix.h; sourceTree = SOURCE_ROOT; };
-		4DC41164091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/OgreTextFindProgressSheet.nib; sourceTree = "<group>"; };
+		4DC41164091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OgreTextFindProgressSheet.xib; sourceTree = "<group>"; };
 		4DC41166091514030029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC41168091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/OgreFindResultWindow.nib; sourceTree = "<group>"; };
-		4DC4116A091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC41168091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OgreFindResultWindow.xib; sourceTree = "<group>"; };
+		4DC4116A091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC4116C091514030029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC41175091514240029A2A6 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC41175091514240029A2A6 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = Dutch.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC411770915142C0029A2A6 /* Dutch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC411780915142C0029A2A6 /* Dutch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4117A0915143A0029A2A6 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC4117A0915143A0029A2A6 /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC4117B0915143A0029A2A6 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC4117C0915143A0029A2A6 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4117E091514450029A2A6 /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC4117E091514450029A2A6 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC4117F091514450029A2A6 /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC41180091514450029A2A6 /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC41182091514510029A2A6 /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC41182091514510029A2A6 /* Italian */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Italian; path = Italian.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC41183091514510029A2A6 /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC41184091514510029A2A6 /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC411860915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC411860915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = Japanese.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC411870915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC411880915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4118A091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Portuguese; path = Portuguese.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC4118A091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Portuguese; path = Portuguese.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC4118B091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Portuguese; path = Portuguese.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC4118C091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Portuguese; path = Portuguese.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4118E091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Romanian; path = Romanian.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC4118E091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Romanian; path = Romanian.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC4118F091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Romanian; path = Romanian.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC41190091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Romanian; path = Romanian.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC411920915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4DC411920915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Spanish; path = Spanish.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
 		4DC411930915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC411940915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
 		4DC411C8091514D70029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = RegularExpression/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4DC4134009151C2D0029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = RegularExpressionTest/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4DC4134009151C2D0029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = RegularExpressionTest/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4DC4134209151C2E0029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = RegularExpressionTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4DC4135109151CA60029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4DC4135109151CA60029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4DC4135309151CA60029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = FindPanelTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DC4135509151CA60029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = FindPanelTest/English.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4DC4135A09151CC50029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MyTableDocumentWithCocoaBinding.nib; sourceTree = "<group>"; };
-		4DC4135D09151CD80029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MyTableDocument.nib; sourceTree = "<group>"; };
-		4DC4135F09151CD80029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MyTableColumnSheet.nib; sourceTree = "<group>"; };
-		4DC4136309151CE50029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MyOutlineDocument.nib; sourceTree = "<group>"; };
-		4DC4136609151CF40029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MyRTFDocument.nib; sourceTree = "<group>"; };
-		4DC4136809151CF40029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FindPanelTest/English.lproj/MyTextDocument.nib; sourceTree = "<group>"; };
-		4DC4136C09151D1A0029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = MyFindPanelExample/English.lproj/MyFindPanel.nib; sourceTree = "<group>"; };
+		4DC4135A09151CC50029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MyTableDocumentWithCocoaBinding.xib; sourceTree = "<group>"; };
+		4DC4135D09151CD80029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MyTableDocument.xib; sourceTree = "<group>"; };
+		4DC4135F09151CD80029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MyTableColumnSheet.xib; sourceTree = "<group>"; };
+		4DC4136309151CE50029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MyOutlineDocument.xib; sourceTree = "<group>"; };
+		4DC4136609151CF40029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MyRTFDocument.xib; sourceTree = "<group>"; };
+		4DC4136809151CF40029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = FindPanelTest/English.lproj/MyTextDocument.xib; sourceTree = "<group>"; };
+		4DC4136C09151D1A0029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MyFindPanelExample/English.lproj/MyFindPanel.xib; sourceTree = "<group>"; };
 		4DC4136F09151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = MyFindPanelExample/English.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4DC4137109151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = MyFindPanelExample/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		4DC4137309151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = MyFindPanelExample/English.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		4DC4137109151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MyFindPanelExample/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4DC4137309151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MyFindPanelExample/English.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		4DF530BA0915221700475575 /* ReplaceWithAttributesTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplaceWithAttributesTest_Prefix.h; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest_Prefix.h; sourceTree = "<group>"; };
 		4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplaceWithAttributesTest.m; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest.m; sourceTree = "<group>"; };
 		4DF530BC0915221700475575 /* ReplaceWithAttributesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplaceWithAttributesTest.h; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest.h; sourceTree = "<group>"; };
 		4DF530BD0915221700475575 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReplaceWithAttributesTest/main.m; sourceTree = "<group>"; };
 		4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ReplaceWithAttributesTest-Info.plist"; path = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist"; sourceTree = "<group>"; };
 		4DF530CF0915226200475575 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = ReplaceWithAttributesTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4DF530D10915226200475575 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ReplaceWithAttributesTest/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4DF530D10915226200475575 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ReplaceWithAttributesTest/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -1278,10 +1278,10 @@
 		4DC40DF909150CF00029A2A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.nib */,
+				4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.xib */,
 				4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */,
-				4DC41167091514030029A2A6 /* OgreFindResultWindow.nib */,
-				4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.nib */,
+				4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */,
+				4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */,
 				4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */,
 			);
 			name = Resources;
@@ -1326,7 +1326,7 @@
 		4DC4104509150D0E0029A2A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DC4133F09151C2D0029A2A6 /* MainMenu.nib */,
+				4DC4133F09151C2D0029A2A6 /* MainMenu.xib */,
 				4DC4134109151C2E0029A2A6 /* InfoPlist.strings */,
 			);
 			name = Resources;
@@ -1368,8 +1368,8 @@
 				4DC4105E09150D550029A2A6 /* MyTextDocument.m */,
 				4DC4105F09150D550029A2A6 /* MyRTFDocument.h */,
 				4DC4106009150D550029A2A6 /* MyRTFDocument.m */,
-				4DC4136509151CF40029A2A6 /* MyRTFDocument.nib */,
-				4DC4136709151CF40029A2A6 /* MyTextDocument.nib */,
+				4DC4136509151CF40029A2A6 /* MyRTFDocument.xib */,
+				4DC4136709151CF40029A2A6 /* MyTextDocument.xib */,
 			);
 			name = TextView;
 			sourceTree = SOURCE_ROOT;
@@ -1381,8 +1381,8 @@
 				4DC4106309150D550029A2A6 /* MyTableDocument.m */,
 				4DC4106409150D550029A2A6 /* MyTableColumnSheet.h */,
 				4DC4106509150D550029A2A6 /* MyTableColumnSheet.m */,
-				4DC4135C09151CD80029A2A6 /* MyTableDocument.nib */,
-				4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.nib */,
+				4DC4135C09151CD80029A2A6 /* MyTableDocument.xib */,
+				4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.xib */,
 			);
 			name = TableView;
 			sourceTree = SOURCE_ROOT;
@@ -1396,7 +1396,7 @@
 				4DC4106A09150D550029A2A6 /* MyFileWrapper.m */,
 				4DC4106B09150D550029A2A6 /* MyOutlineView.h */,
 				4DC4106C09150D550029A2A6 /* MyOutlineView.m */,
-				4DC4136209151CE50029A2A6 /* MyOutlineDocument.nib */,
+				4DC4136209151CE50029A2A6 /* MyOutlineDocument.xib */,
 			);
 			name = OutlineView;
 			sourceTree = SOURCE_ROOT;
@@ -1408,7 +1408,7 @@
 				4DC4106F09150D550029A2A6 /* MyTableDocumentWithCocoaBinding.m */,
 				4DC4107009150D550029A2A6 /* MyTableRowModel.h */,
 				4DC4107109150D550029A2A6 /* MyTableRowModel.m */,
-				4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.nib */,
+				4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib */,
 			);
 			name = "TableView with Cocoa Binding";
 			sourceTree = SOURCE_ROOT;
@@ -1416,7 +1416,7 @@
 		4DC4107209150D550029A2A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DC4135009151CA60029A2A6 /* MainMenu.nib */,
+				4DC4135009151CA60029A2A6 /* MainMenu.xib */,
 				4DC4135209151CA60029A2A6 /* InfoPlist.strings */,
 				4DC4135409151CA60029A2A6 /* Credits.rtf */,
 			);
@@ -1447,7 +1447,7 @@
 		4DC4108609150D640029A2A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DC4136B09151D1A0029A2A6 /* MyFindPanel.nib */,
+				4DC4136B09151D1A0029A2A6 /* MyFindPanel.xib */,
 			);
 			name = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -1470,8 +1470,8 @@
 			isa = PBXGroup;
 			children = (
 				4DC4136E09151D320029A2A6 /* Credits.rtf */,
-				4DC4137009151D320029A2A6 /* MainMenu.nib */,
-				4DC4137209151D320029A2A6 /* MyDocument.nib */,
+				4DC4137009151D320029A2A6 /* MainMenu.xib */,
+				4DC4137209151D320029A2A6 /* MyDocument.xib */,
 			);
 			name = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -1480,7 +1480,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF530CE0915226200475575 /* InfoPlist.strings */,
-				4DF530D00915226200475575 /* MainMenu.nib */,
+				4DF530D00915226200475575 /* MainMenu.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1822,7 +1822,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC4134309151C2E0029A2A6 /* MainMenu.nib in Resources */,
+				4DC4134309151C2E0029A2A6 /* MainMenu.xib in Resources */,
 				4DC4134409151C2E0029A2A6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1831,15 +1831,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC4135609151CA60029A2A6 /* MainMenu.nib in Resources */,
+				4DC4135609151CA60029A2A6 /* MainMenu.xib in Resources */,
 				4DC4135709151CA60029A2A6 /* InfoPlist.strings in Resources */,
 				4DC4135809151CA60029A2A6 /* Credits.rtf in Resources */,
-				4DC4135B09151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.nib in Resources */,
-				4DC4136009151CD80029A2A6 /* MyTableDocument.nib in Resources */,
-				4DC4136109151CD80029A2A6 /* MyTableColumnSheet.nib in Resources */,
-				4DC4136409151CE50029A2A6 /* MyOutlineDocument.nib in Resources */,
-				4DC4136909151CF40029A2A6 /* MyRTFDocument.nib in Resources */,
-				4DC4136A09151CF40029A2A6 /* MyTextDocument.nib in Resources */,
+				4DC4135B09151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib in Resources */,
+				4DC4136009151CD80029A2A6 /* MyTableDocument.xib in Resources */,
+				4DC4136109151CD80029A2A6 /* MyTableColumnSheet.xib in Resources */,
+				4DC4136409151CE50029A2A6 /* MyOutlineDocument.xib in Resources */,
+				4DC4136909151CF40029A2A6 /* MyRTFDocument.xib in Resources */,
+				4DC4136A09151CF40029A2A6 /* MyTextDocument.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1847,10 +1847,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC4136D09151D1A0029A2A6 /* MyFindPanel.nib in Resources */,
+				4DC4136D09151D1A0029A2A6 /* MyFindPanel.xib in Resources */,
 				4DC4137409151D320029A2A6 /* Credits.rtf in Resources */,
-				4DC4137509151D320029A2A6 /* MainMenu.nib in Resources */,
-				4DC4137609151D320029A2A6 /* MyDocument.nib in Resources */,
+				4DC4137509151D320029A2A6 /* MainMenu.xib in Resources */,
+				4DC4137609151D320029A2A6 /* MyDocument.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1859,7 +1859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4F202D1142243700CD9C2F /* InfoPlist.strings in Resources */,
-				4DF530D30915226200475575 /* MainMenu.nib in Resources */,
+				4DF530D30915226200475575 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1867,10 +1867,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC4116D091514030029A2A6 /* OgreTextFindProgressSheet.nib in Resources */,
+				4DC4116D091514030029A2A6 /* OgreTextFindProgressSheet.xib in Resources */,
 				4DC4116E091514030029A2A6 /* OgreAPFCLocalizable.strings in Resources */,
-				4DC4116F091514030029A2A6 /* OgreFindResultWindow.nib in Resources */,
-				4DC41170091514030029A2A6 /* OgreAdvancedFindPanel.nib in Resources */,
+				4DC4116F091514030029A2A6 /* OgreFindResultWindow.xib in Resources */,
+				4DC41170091514030029A2A6 /* OgreAdvancedFindPanel.xib in Resources */,
 				4DC41171091514030029A2A6 /* OgreTextFinderLocalizable.strings in Resources */,
 				4DC411C9091514D70029A2A6 /* InfoPlist.strings in Resources */,
 			);
@@ -2127,12 +2127,12 @@
 			name = MainMenu.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.nib */ = {
+		4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC41164091514030029A2A6 /* English */,
 			);
-			name = OgreTextFindProgressSheet.nib;
+			name = OgreTextFindProgressSheet.xib;
 			path = FindPanel/Resources;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -2153,16 +2153,16 @@
 			path = FindPanel/Resources;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC41167091514030029A2A6 /* OgreFindResultWindow.nib */ = {
+		4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC41168091514030029A2A6 /* English */,
 			);
-			name = OgreFindResultWindow.nib;
+			name = OgreFindResultWindow.xib;
 			path = FindPanel/Resources;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.nib */ = {
+		4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4116A091514030029A2A6 /* English */,
@@ -2175,7 +2175,7 @@
 				4DC4118E091514710029A2A6 /* Romanian */,
 				4DC411920915147B0029A2A6 /* Spanish */,
 			);
-			name = OgreAdvancedFindPanel.nib;
+			name = OgreAdvancedFindPanel.xib;
 			path = FindPanel/Resources;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -2204,12 +2204,12 @@
 			name = InfoPlist.strings;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4133F09151C2D0029A2A6 /* MainMenu.nib */ = {
+		4DC4133F09151C2D0029A2A6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4134009151C2D0029A2A6 /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4134109151C2E0029A2A6 /* InfoPlist.strings */ = {
@@ -2220,12 +2220,12 @@
 			name = InfoPlist.strings;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4135009151CA60029A2A6 /* MainMenu.nib */ = {
+		4DC4135009151CA60029A2A6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4135109151CA60029A2A6 /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4135209151CA60029A2A6 /* InfoPlist.strings */ = {
@@ -2244,60 +2244,60 @@
 			name = Credits.rtf;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.nib */ = {
+		4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4135A09151CC50029A2A6 /* English */,
 			);
-			name = MyTableDocumentWithCocoaBinding.nib;
+			name = MyTableDocumentWithCocoaBinding.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4135C09151CD80029A2A6 /* MyTableDocument.nib */ = {
+		4DC4135C09151CD80029A2A6 /* MyTableDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4135D09151CD80029A2A6 /* English */,
 			);
-			name = MyTableDocument.nib;
+			name = MyTableDocument.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.nib */ = {
+		4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4135F09151CD80029A2A6 /* English */,
 			);
-			name = MyTableColumnSheet.nib;
+			name = MyTableColumnSheet.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4136209151CE50029A2A6 /* MyOutlineDocument.nib */ = {
+		4DC4136209151CE50029A2A6 /* MyOutlineDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4136309151CE50029A2A6 /* English */,
 			);
-			name = MyOutlineDocument.nib;
+			name = MyOutlineDocument.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4136509151CF40029A2A6 /* MyRTFDocument.nib */ = {
+		4DC4136509151CF40029A2A6 /* MyRTFDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4136609151CF40029A2A6 /* English */,
 			);
-			name = MyRTFDocument.nib;
+			name = MyRTFDocument.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4136709151CF40029A2A6 /* MyTextDocument.nib */ = {
+		4DC4136709151CF40029A2A6 /* MyTextDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4136809151CF40029A2A6 /* English */,
 			);
-			name = MyTextDocument.nib;
+			name = MyTextDocument.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4136B09151D1A0029A2A6 /* MyFindPanel.nib */ = {
+		4DC4136B09151D1A0029A2A6 /* MyFindPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4136C09151D1A0029A2A6 /* English */,
 			);
-			name = MyFindPanel.nib;
+			name = MyFindPanel.xib;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4136E09151D320029A2A6 /* Credits.rtf */ = {
@@ -2308,20 +2308,20 @@
 			name = Credits.rtf;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4137009151D320029A2A6 /* MainMenu.nib */ = {
+		4DC4137009151D320029A2A6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4137109151D320029A2A6 /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DC4137209151D320029A2A6 /* MyDocument.nib */ = {
+		4DC4137209151D320029A2A6 /* MyDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DC4137309151D320029A2A6 /* English */,
 			);
-			name = MyDocument.nib;
+			name = MyDocument.xib;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DF530CE0915226200475575 /* InfoPlist.strings */ = {
@@ -2332,12 +2332,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4DF530D00915226200475575 /* MainMenu.nib */ = {
+		4DF530D00915226200475575 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DF530D10915226200475575 /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
