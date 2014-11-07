@@ -27,7 +27,7 @@
 }
 - (IBAction)replace:(id)sender;
 
-- (unsigned)options;
+- (NSUInteger)options;
 - (BOOL)attributedReplace;
 - (void)setAttributedReplace:(BOOL)yesOrNo;
 

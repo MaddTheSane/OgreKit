@@ -245,7 +245,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	_escapeCharacter = [character copy];
 }
 
-- (unsigned)options
+- (NSUInteger)options
 {
 	return _options;
 }

@@ -118,8 +118,8 @@
 - (BOOL)shouldEquateYenWithBackslash;
 - (BOOL)isStartFromTop;
 - (BOOL)isWrap;
-- (unsigned)options;
-- (unsigned)_options;
+- (NSUInteger)options;
+- (NSUInteger)_options;
 - (OgreSyntax)syntax;
 
 /* find/replace history */

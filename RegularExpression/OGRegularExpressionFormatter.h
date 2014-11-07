@@ -43,7 +43,7 @@ extern NSString	* const OgreFormatterException;
 - (NSString*)escapeCharacter;
 - (void)setEscapeCharacter:(NSString*)character;
 
-- (unsigned)options;
+- (NSUInteger)options;
 - (void)setOptions:(NSUInteger)options;
 
 - (OgreSyntax)syntax;

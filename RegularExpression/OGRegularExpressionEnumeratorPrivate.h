@@ -51,7 +51,7 @@ static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
  * 初期化 *
  *********/
 - (id)initWithOGString:(NSObject<OGStringProtocol>*)targetString 
-	options:(unsigned)searchOptions 
+	options:(NSUInteger)searchOptions
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex;
 

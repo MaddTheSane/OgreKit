@@ -819,9 +819,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	}
 }
 
-- (unsigned)_options
+- (NSUInteger)_options
 {
-	unsigned	options = OgreNoneOption;
+	NSUInteger	options = OgreNoneOption;
 	
 	if ([self singleLineOption]) options |= OgreSingleLineOption;
 	if ([self multilineOption]) options |= OgreMultilineOption;
@@ -843,9 +843,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	return options;
 }
 
-- (unsigned)options
+- (NSUInteger)options
 {
-	unsigned	options = [self _options];
+	NSUInteger	options = [self _options];
 	if ([toggleStyleOptionsButton state] == NSOffState) {
 		options = OgreCompileTimeOptionMask(options) | OgreSearchTimeOptionMask(options);
 	}
