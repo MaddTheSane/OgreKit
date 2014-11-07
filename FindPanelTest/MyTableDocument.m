@@ -91,7 +91,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
 {
 	// ファイルから読み込む。(UTF8決めうち。)
-	NSMutableString *aString = [[[NSMutableString alloc] initWithData:data encoding:NSShiftJISStringEncoding] autorelease];
+    NSMutableString *aString = nil;
+    aString = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if (aString == nil) {
+        aString = [[NSMutableString alloc] initWithData:data encoding:NSShiftJISStringEncoding];
+    }
+    [aString autorelease];
     
 	// 改行コードの種類を得る。
 	_newlineCharacter = [aString newlineCharacter];
