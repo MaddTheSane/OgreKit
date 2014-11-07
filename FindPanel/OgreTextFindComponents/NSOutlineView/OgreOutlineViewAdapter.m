@@ -80,7 +80,7 @@
     // table column
     columnAdapter = [enumerator nextObject];
     enumerator = [columnAdapter componentEnumeratorInSelection:[aThread inSelection]];
-    index = [[path objectAtIndex:level] intValue];
+    index = [[path objectAtIndex:level] integerValue];
     [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:index];
     [aThread pushEnumerator:enumerator];
     [aThread pushBranch:columnAdapter];
@@ -92,7 +92,7 @@
     while (level < [path count]) {
         itemAdapter = [enumerator nextObject];
         enumerator = [itemAdapter componentEnumeratorInSelection:[aThread inSelection]];
-        index = [[path objectAtIndex:level] intValue] + 1 /* item's cell */;
+        index = [[path objectAtIndex:level] integerValue] + 1 /* item's cell */;
         [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:index];
         [aThread pushEnumerator:enumerator];
         [aThread pushBranch:itemAdapter];
@@ -270,14 +270,14 @@
     
     // table column
     branch = [self childAtIndex:[_outlineView ogreSelectedColumn] inSelection:NO];
-    index = [[path objectAtIndex:level] intValue];
+    index = [[path objectAtIndex:level] integerValue];
     [branch willProcessFinding:nil];
     level++;
     
     // outline items
     while (level < [path count]) {
         branch = [branch childAtIndex:index inSelection:NO];
-        index = [[path objectAtIndex:level] intValue] + 1 /* item's cell */;
+        index = [[path objectAtIndex:level] integerValue] + 1 /* item's cell */;
         [branch willProcessFinding:nil];
         level++;
     }

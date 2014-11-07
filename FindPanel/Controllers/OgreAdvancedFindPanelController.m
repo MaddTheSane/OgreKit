@@ -463,7 +463,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCEscapeCharacterKey];
 	if (anObject != nil) {
-		[escapeCharacterPopUpButton selectItemAtIndex:[anObject intValue]];
+		[escapeCharacterPopUpButton selectItemAtIndex:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCHighlightColorKey];
@@ -485,27 +485,27 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCWrapKey];
 	if (anObject != nil) {
-		[self setWrapSearchOption: ([anObject intValue] == NSOnState)];
+		[self setWrapSearchOption: ([anObject integerValue] == NSOnState)];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCCloseWhenDoneKey];
 	if (anObject != nil) {
-		[self setCloseWhenDoneOption: ([anObject intValue] == NSOnState)];
+		[self setCloseWhenDoneOption: ([anObject integerValue] == NSOnState)];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCMaxNumOfFindHistoryKey];
 	if (anObject != nil) {
-		[maxNumOfFindHistoryTextField setIntValue:[anObject intValue]];
+		[maxNumOfFindHistoryTextField setIntValue:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCMaxNumOfReplaceHistoryKey];
 	if (anObject != nil) {
-		[maxNumOfReplaceHistoryTextField setIntValue:[anObject intValue]];
+		[maxNumOfReplaceHistoryTextField setIntValue:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCEnableStyleOptionsKey];
 	if (anObject != nil) {
-		[toggleStyleOptionsButton setState:[anObject intValue]];
+		[toggleStyleOptionsButton setState:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCOpenProgressSheetKey];
@@ -547,8 +547,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[NSNumber numberWithInt:([self inSelectionScopeOption]? 1 : 0)], 
 			[NSNumber numberWithInt:([self wrapSearchOption]? NSOnState : NSOffState)], 
 			[NSNumber numberWithInt:([self closeWhenDoneOption]? NSOnState : NSOffState)], 
-			[NSNumber numberWithInt:[maxNumOfFindHistoryTextField intValue]], 
-			[NSNumber numberWithInt:[maxNumOfReplaceHistoryTextField intValue]], 
+			[NSNumber numberWithInt:[maxNumOfFindHistoryTextField integerValue]],
+			[NSNumber numberWithInt:[maxNumOfReplaceHistoryTextField integerValue]],
 			[NSNumber numberWithInt:[toggleStyleOptionsButton state]], 
 			[NSNumber numberWithBool:[self openSheetOption]], 
 			nil]
@@ -610,7 +610,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[menu insertItem:item atIndex:1];
 	[item release];
 	
-	int	maxNumOfHistory = [maxNumOfFindHistoryTextField intValue];
+	int	maxNumOfHistory = [maxNumOfFindHistoryTextField integerValue];
 	while ([_findHistory count] > maxNumOfHistory) {
 		[_findHistory removeObjectAtIndex:maxNumOfHistory];
 		[menu removeItemAtIndex:(maxNumOfHistory + 1)];
@@ -653,7 +653,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[menu insertItem:item atIndex:1];
 	[item release];
 	
-	int	maxNumOfHistory = [maxNumOfReplaceHistoryTextField intValue];
+	int	maxNumOfHistory = [maxNumOfReplaceHistoryTextField integerValue];
 	while ([_replaceHistory count] > maxNumOfHistory) {
 		[_replaceHistory removeObjectAtIndex:maxNumOfHistory];
 		[menu removeItemAtIndex:(maxNumOfHistory + 1)];
@@ -972,7 +972,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)updateMaxNumOfFindHistory:(NSNotification*)aNotification
 {
 	NSMenu	*menu = [findPopUpButton menu];
-	int	maxNumOfHistory = [maxNumOfFindHistoryTextField intValue];
+	NSUInteger	maxNumOfHistory = [maxNumOfFindHistoryTextField integerValue];
 	while ([_findHistory count] > maxNumOfHistory) {
 		[_findHistory removeObjectAtIndex:maxNumOfHistory];
 		[menu removeItemAtIndex:(maxNumOfHistory + 1)];
@@ -982,7 +982,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)updateMaxNumOfReplaceHistory:(NSNotification*)aNotification
 {
 	NSMenu	*menu = [replacePopUpButton menu];
-	int	maxNumOfHistory = [maxNumOfReplaceHistoryTextField intValue];
+	NSUInteger	maxNumOfHistory = [maxNumOfReplaceHistoryTextField integerValue];
 	while ([_replaceHistory count] > maxNumOfHistory) {
 		[_replaceHistory removeObjectAtIndex:maxNumOfHistory];
 		[menu removeItemAtIndex:(maxNumOfHistory + 1)];
@@ -1193,7 +1193,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		closeProgressWindow = NO;
 	} else {
 		// success or failure
-		//int	numOfReplace = [[textFindResult resultInfo] intValue];
+		//NSUInteger	numOfReplace = [[textFindResult resultInfo] integerValue];
 		//NSLog(@"didEndReplaceAll: %d", numOfReplace);
 		closeProgressWindow = [self closeWhenDoneOption];
 	}
@@ -1235,7 +1235,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		closeProgressWindow = NO;
 	} else {
 		// success or failure
-		//int	numberOfMatch = [[textFindResult resultInfo] intValue];
+		//NSUInteger	numberOfMatch = [[textFindResult resultInfo] integerValue];
 		//NSLog(@"didEndHighlight: %d", numberOfMatch);
 		closeProgressWindow =  [self closeWhenDoneOption];
 	}
