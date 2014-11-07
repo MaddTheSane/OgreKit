@@ -156,7 +156,7 @@
     return NO; 
 }
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
     return [[[OgreOutlineCellFindResult alloc] initWithOutlineColumn:[self outlineColumn] item:[self target]] autorelease]; 
 }

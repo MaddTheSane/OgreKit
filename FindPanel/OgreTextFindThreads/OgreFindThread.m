@@ -14,8 +14,9 @@
 #import <OgreKit/OgreFindThread.h>
 #import <OgreKit/OgreFindResultLeaf.h>
 #import <OgreKit/OgreFindResultBranch.h>
-#import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
+
+#import <OgreKit/OgreTextFindResult.h>
 
 
 @implementation OgreFindThread

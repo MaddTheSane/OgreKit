@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreTextFindLeaf.h>
 #import <OgreKit/OgreTextFindBranch.h>
+#import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreFindResultLeaf.h>
 
 
@@ -40,6 +41,20 @@
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor // visitor pattern
 {
     [aVisitor visitLeaf:self];
+}
+
+
+- (void)addMatch:(OGRegularExpressionMatch*)aMatch
+{
+#ifdef DEBUG_OGRE_FIND_PANEL
+    NSLog(@" -addMatch: of %@ (BUG!!!)", [self className]);
+#endif
+    /* do nothing */
+}
+
+- (void)endAddition
+{
+    /* do nothing */
 }
 
 
@@ -198,7 +213,7 @@
 }
 
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThrea
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThrea
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultLeafWithThread: of %@ (BUG!!!)", [self className]);

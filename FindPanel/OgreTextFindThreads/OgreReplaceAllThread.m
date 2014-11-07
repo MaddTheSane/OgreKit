@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreReplaceAllThread.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OgreTextFindResult.h>
 
 
 @implementation OgreReplaceAllThread

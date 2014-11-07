@@ -13,7 +13,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class OgreTextFinder, OgreFindResult;
+@class OgreTextFinder;
 
 @interface OgreFindPanelController : NSResponder
 {

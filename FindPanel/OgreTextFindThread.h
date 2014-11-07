@@ -11,19 +11,13 @@
  * Tabsize: 4
  */
 
-#import <Cocoa/Cocoa.h>
-#import <OgreKit/OGRegularExpression.h>
-#import <OgreKit/OGReplaceExpression.h>
-//#import <OgreKit/OgreTextFinder.h>
-#import <OgreKit/OgreTextFindProgressSheet.h>
-#import <OgreKit/OgreTextFindResult.h>
+#import <Foundation/Foundation.h>
+
 #import <OgreKit/OgreTextFindComponent.h>
-#import <OgreKit/OgreTextFindLeaf.h>
-#import <OgreKit/OgreTextFindBranch.h>
 #import <OgreKit/OgreTextFindProgressDelegate.h>
 
-
-@class OgreTextFindRoot;
+@class OgreTextFindRoot, OgreTextFindResult;
+@class OGRegularExpression, OGReplaceExpression;
 
 @interface OgreTextFindThread : NSObject <OgreTextFindVisitor>
 {

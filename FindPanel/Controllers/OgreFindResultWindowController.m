@@ -11,6 +11,8 @@
  * Tabsize: 4
  */
 
+#import <OgreKit/OgreTextFindResult.h>
+
 #import <OgreKit/OgreFindResultWindowController.h>
 #import <OgreKit/OgreAttachableWindowMediator.h>
 

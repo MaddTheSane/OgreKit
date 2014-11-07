@@ -11,12 +11,18 @@
  * Tabsize: 4
  */
 
+#import <Foundation/Foundation.h>
+
 #import <OgreKit/OgreTextFindComponent.h>
-#import <OgreKit/OGString.h>
 
-@class OgreFindResultLeaf, OgreTextFindThread;
+#import <OgreKit/OGRegularExpressionMatch.h>
 
-@interface OgreTextFindLeaf : NSObject <OgreTextFindComponent>
+@protocol OgreFindResultCorrespondingToTextFindLeaf
+- (void)addMatch:(OGRegularExpressionMatch*)aMatch;
+- (void)endAddition;
+@end
+
+@interface OgreTextFindLeaf : NSObject <OgreTextFindComponent, OgreFindResultCorrespondingToTextFindLeaf>
 {
     OgreTextFindBranch      *_parent;
     NSInteger               _index;
@@ -44,7 +50,7 @@
 - (void)unhighlight;
 - (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor;
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread;
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread;
 
 - (BOOL)isFirstLeaf;
 - (void)setFirstLeaf:(BOOL)isFirstLeaf;

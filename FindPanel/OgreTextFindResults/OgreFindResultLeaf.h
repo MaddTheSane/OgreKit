@@ -12,7 +12,6 @@
  */
 
 #import <OgreKit/OgreTextFindLeaf.h>
-#import <OgreKit/OGRegularExpressionMatch.h>
 
 @class OgreTextFindResult;
 

@@ -12,8 +12,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <OgreKit/OgreTextFindResult.h>
 
+@class OgreTextFindResult;
 @class OgreAttachableWindowMediator;
 
 @interface OgreFindResultWindowController : NSObject

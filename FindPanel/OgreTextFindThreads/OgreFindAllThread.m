@@ -12,9 +12,11 @@
  */
 
 #import <OgreKit/OgreFindAllThread.h>
-#import <OgreKit/OgreFindResultLeaf.h>
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
+
+#import <OgreKit/OgreTextFindResult.h>
+#import <OgreKit/OgreTextFindThread.h>
 
 
 @implementation OgreFindAllThread
@@ -68,7 +70,7 @@
     matchEnumerator = [[regex matchEnumeratorInOGString:string 
 			options: [self options] 
 			range: searchRange] retain];
-    result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
+    result = [aLeaf findResultLeafWithThread:self];
     [self addResultLeaf:result];
 }
 

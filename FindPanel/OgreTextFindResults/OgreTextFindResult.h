@@ -22,11 +22,6 @@
 - (void)didUpdateTextFindResult:(id)textFindResult;
 @end
 
-@protocol OgreFindResultCorrespondingToTextFindLeaf
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch;
-- (void)endAddition;
-@end
-
 
 typedef enum {
 	OgreTextFindResultFailure = 0, 

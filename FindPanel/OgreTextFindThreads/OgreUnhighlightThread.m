@@ -12,6 +12,8 @@
  */
 
 #import <OgreKit/OgreUnhighlightThread.h>
+#import <OgreKit/OgreTextFindLeaf.h>
+#import <OgreKit/OgreTextFindResult.h>
 
 
 @implementation OgreUnhighlightThread

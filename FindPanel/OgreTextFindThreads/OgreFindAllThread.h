@@ -12,15 +12,15 @@
  */
 
 #import <OgreKit/OgreTextFindThread.h>
+#import <OgreKit/OgreTextFindLeaf.h>
 
 @class OGRegularExpressionMatch, OGRegularExpressionEnumerator, OgreFindResult;
-@class OgreTextFindThread;
 
-@interface OgreFindAllThread : OgreTextFindThread 
+@interface OgreFindAllThread : OgreTextFindThread
 {
     OGRegularExpressionMatch        *match, *lastMatch;
     NSEnumerator                    *matchEnumerator;
-    OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>    *result;
+    id <OgreFindResultCorrespondingToTextFindLeaf> result;
     NSUInteger                      searchLength;
     
     NSString                        *progressMessage, *progressMessagePlural, *remainingTimeMesssage;

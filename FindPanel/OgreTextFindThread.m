@@ -12,6 +12,7 @@
  */
 
 #import <OgreKit/OgreTextFindThread.h>
+#import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreTextFindRoot.h>
 
 #import<OgreKit/OgreTextFindComponentEnumerator.h>

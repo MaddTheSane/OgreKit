@@ -14,6 +14,11 @@
 #import <OgreKit/OgreHighlightThread.h>
 #import <OgreKit/OGString.h>
 
+#import <OgreKit/OGRegularExpression.h>
+#import <OgreKit/OGRegularExpressionMatch.h>
+
+#import <OgreKit/OgreTextFindResult.h>
+
 
 @implementation OgreHighlightThread
 
