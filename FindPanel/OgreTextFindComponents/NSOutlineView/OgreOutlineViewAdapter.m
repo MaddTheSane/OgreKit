@@ -228,7 +228,7 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [enumerator initWithBranch:self inSelection:(inSelection && (count > 0))];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection && (count > 0))];
     if ([self isTerminal]) [enumerator setTerminalIndex:[_outlineView ogreSelectedColumn]];
     
     return [enumerator autorelease];
