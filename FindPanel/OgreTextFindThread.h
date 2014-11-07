@@ -98,7 +98,7 @@
 - (NSTimeInterval)processTime;
 
 /* Protected methods */
-- (unsigned)numberOfMatches;		 // number of matches
+- (NSUInteger)numberOfMatches;		 // number of matches
 - (void)incrementNumberOfMatches;	// _numberofMatches++
 - (void)finishingUp:(id)sender;
 - (void)exceptionRaised:(NSException*)exception;

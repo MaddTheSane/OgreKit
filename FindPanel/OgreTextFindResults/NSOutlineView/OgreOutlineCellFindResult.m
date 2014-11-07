@@ -100,13 +100,13 @@
 }
 
 // index番目にマッチした文字列のある行番号
-- (id)nameOfMatchedStringAtIndex:(unsigned)index
+- (id)nameOfMatchedStringAtIndex:(NSUInteger)index
 {
     return [self name];
 }
 
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
     
@@ -124,7 +124,7 @@
 }
 
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
     OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
@@ -134,7 +134,7 @@
 }
 
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
     OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];

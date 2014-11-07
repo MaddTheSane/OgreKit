@@ -27,13 +27,13 @@
 - (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex;
 
 // index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index;
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index;
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index;
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index;
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 
 - (void)targetIsMissing;
 

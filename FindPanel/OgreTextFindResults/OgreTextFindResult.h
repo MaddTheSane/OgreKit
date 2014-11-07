@@ -73,8 +73,8 @@ typedef enum {
 - (void)endGrafting;
 - (void)addLeaf:(id)aLeaf;
 
-- (unsigned)numberOfMatches;
-- (void)setNumberOfMatches:(unsigned)aNumber;
+- (NSUInteger)numberOfMatches;
+- (void)setNumberOfMatches:(NSUInteger)aNumber;
 
 - (NSString*)title;
 - (void)setTitle:(NSString*)title;
@@ -89,8 +89,8 @@ typedef enum {
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
 - (NSAttributedString*)missingString;
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches;
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches;
 
 // delegate
 - (id)delegate;

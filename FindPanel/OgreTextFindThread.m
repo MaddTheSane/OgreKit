@@ -478,7 +478,7 @@
 
 
 /* Protected methods */
-- (unsigned)numberOfMatches
+- (NSUInteger)numberOfMatches
 {
 	return _numberOfMatches;
 }

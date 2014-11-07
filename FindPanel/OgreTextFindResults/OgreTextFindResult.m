@@ -280,17 +280,17 @@
     [(id <OgreTextFindResultDelegateProtocol>)_delegate didUpdateTextFindResult:self];
 }
 
-- (unsigned)numberOfMatches
+- (NSUInteger)numberOfMatches
 {
     return _numberOfMatches;
 }
 
-- (void)setNumberOfMatches:(unsigned)aNumber
+- (void)setNumberOfMatches:(NSUInteger)aNumber
 {
     _numberOfMatches = aNumber;
 }
 
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -301,7 +301,7 @@
     return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
 }
 
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {

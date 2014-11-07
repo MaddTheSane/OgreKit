@@ -91,13 +91,13 @@
 
 
 // index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     return [NSNumber numberWithInt:_rowIndex + 1];
 }
 
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return [[self textFindResult] missingString];
     
@@ -115,7 +115,7 @@
 }
 
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
     OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
@@ -125,7 +125,7 @@
 }
 
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
     OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];
