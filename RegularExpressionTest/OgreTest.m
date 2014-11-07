@@ -92,7 +92,7 @@
 
 		for (i = 0; i < [match count]; i++) {
 			NSRange	subexpRange = [match rangeOfSubstringAtIndex:i];
-			[resultTextView insertText: [NSString stringWithFormat:@"#%d.%d", [match index], i]];
+			[resultTextView insertText: [NSString stringWithFormat:@"#%lu.%d", (unsigned long)[match index], i]];
 			if([match nameOfSubstringAtIndex:i] != nil) {
 				[resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [match nameOfSubstringAtIndex:i]]];
 			}
@@ -254,7 +254,7 @@
 - (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture
 {
     NSMutableString *indent = [NSMutableString string];
-    int i;
+    NSUInteger i;
     for (i = 0; i < [aCapture level]; i++) [indent appendString:@"  "];
     NSRange matchRange = [aCapture range];
     
@@ -264,7 +264,7 @@
     NSLog(@"capture2: %@", [capture2 description]);
     aCapture = capture2;*/
     
-    [resultTextView insertText:[NSString stringWithFormat:@" %@#%d", indent, [aCapture groupIndex]]];
+    [resultTextView insertText:[NSString stringWithFormat:@" %@#%lu", indent, (unsigned long)[aCapture groupIndex]]];
     if([aCapture groupName] != nil) {
         [resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [aCapture groupName]]];
     }
