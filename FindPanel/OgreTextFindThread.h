@@ -91,7 +91,7 @@
 - (OGRegularExpression*)regularExpression;
 - (OGReplaceExpression*)replaceExpression;
 - (NSColor*)highlightColor;
-- (unsigned)options;
+- (NSUInteger)options;
 - (BOOL)inSelection;
 - (NSObject <OgreTextFindProgressDelegate>*)progressDelegate;
 - (BOOL)isTerminated;

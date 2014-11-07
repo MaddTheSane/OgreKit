@@ -393,7 +393,7 @@
 }
 
 
-- (unsigned)options
+- (NSUInteger)options
 {
 	return _searchOptions;
 }
