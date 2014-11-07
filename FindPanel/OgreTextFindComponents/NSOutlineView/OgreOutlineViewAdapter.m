@@ -158,7 +158,7 @@
 - (BOOL)isHighlightable { return NO; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
@@ -169,14 +169,14 @@
     return [_outlineView numberOfColumns];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex: of %@", [self className]);
 #endif
     OgreOutlineColumnAdapter    *outlineColumnAdapter;
     OgreOutlineColumn           *column;
-    unsigned                    concreteIndex;
+    NSUInteger                  concreteIndex;
     
     if (!inSelection) {
         concreteIndex = index;
@@ -190,7 +190,7 @@
 #ifdef MAC_OS_X_VERSION_10_6
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedColumnIndexes count]);
 #else
-            unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
+            NSUInteger  *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
 #endif
             if (indexes == NULL) {
                 // エラー

@@ -76,7 +76,7 @@
 /***********
  * Replace *
  ***********/
-- (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
+- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString
 	withString:(NSString*)replaceString 
 	options:(NSUInteger)options 
 	range:(NSRange)searchRange;

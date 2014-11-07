@@ -38,7 +38,7 @@ typedef enum {
 {
 	OgreTextFindResultType		_resultType;
 	id							_target;
-    unsigned                    _numberOfMatches;           // number of the matches
+    NSUInteger                  _numberOfMatches;           // number of the matches
     OGRegularExpression         *_regex;
     
     OgreFindResultBranch        *_resultTree, *_branch;

@@ -109,7 +109,7 @@
 - (IBAction)toggleStyleOptions:(id)sender;
 
 /* delegate methods of OgreAdvancedFindPanel */
-- (void)findPanelFlagsChanged:(unsigned)modifierFlags;
+- (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags;
 - (void)findPanelDidAddChildWindow:(NSWindow*)childWindow;
 - (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow;
 

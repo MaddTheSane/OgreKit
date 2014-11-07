@@ -69,7 +69,7 @@
         alpha: &alpha];
     
     numberOfGroups = [regex numberOfGroups];
-    unsigned    i;
+    NSUInteger  i;
     BOOL        simple = ([regex syntax] == OgreSimpleMatchingSyntax);
     double      dummy;
     
@@ -104,7 +104,7 @@
     [lastMatch release];
     lastMatch = [match retain];
     
-    unsigned    i;
+    NSUInteger  i;
     NSRange     aRange;
     
     for(i = 0; i <= numberOfGroups; i++) {
@@ -178,7 +178,7 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings highlighted. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();

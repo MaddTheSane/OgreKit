@@ -37,12 +37,12 @@
 - (BOOL)isHighlightable { return YES; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return 1; 
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return _component; 
 }

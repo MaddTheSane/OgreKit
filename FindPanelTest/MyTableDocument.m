@@ -112,7 +112,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     OGRegularExpressionMatch    *match;
     OGRegularExpressionCapture  *capture;
     NSEnumerator                *matchEnumerator = [regex matchEnumeratorInString:aString];
-    unsigned                    numberOfCaptures = 0, colIndex;
+    NSUInteger                  numberOfCaptures = 0, colIndex;
     NSMutableArray              *array;
     NSString                    *identifier;
     
@@ -127,7 +127,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         dictArray = [NSMutableArray arrayWithCapacity:numberOfCaptures];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
             array = [NSMutableArray arrayWithCapacity:50];
-            identifier = [NSString stringWithFormat:@"%d", colIndex + 1];
+            identifier = [NSString stringWithFormat:@"%lu", colIndex + 1];
             [_dict setObject:array forKey:identifier];
             [dictArray addObject:array];
         }
@@ -154,11 +154,11 @@ static NSString *gMyTableRowPropertyType = @"rows";
 {
 	if (_dict != nil) {
         //NSLog(@"%@", [_dict description]);
-        unsigned    numberOfColumns = [_dict count], i;
+        NSUInteger  numberOfColumns = [_dict count], i;
         NSString    *identifier;
         for (i = 0; i < numberOfColumns; i++) {
             // add columns
-            identifier = [NSString stringWithFormat:@"%d", i + 1];
+            identifier = [NSString stringWithFormat:@"%lu", i + 1];
             OgreTableColumn   *aColumn = [[[OgreTableColumn alloc] initWithIdentifier:identifier] autorelease];
             NSTableHeaderCell   *headerCell=[[[NSTableHeaderCell alloc] initTextCell:[_titleArray objectAtIndex:i]] autorelease];
             NSTextFieldCell *dataCell=[[[NSTextFieldCell alloc] initTextCell:@""] autorelease];
@@ -186,7 +186,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	_newlineCharacter = aNewlineCharacter;
 }
 
-- (unsigned)numberOfRows
+- (NSInteger)numberOfRows
 {
     NSEnumerator *enumerator = [_dict objectEnumerator];
     id value;
@@ -199,7 +199,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 }
 
 /* NSTableDataSource */
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
     return [self numberOfRows];
 }
@@ -350,10 +350,10 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (IBAction)addColumn:(id)sender
 {
-    NSString    *identifier = [NSString stringWithFormat:@"%d", ++_numberOfColumns];
+    NSString    *identifier = [NSString stringWithFormat:@"%lu", (unsigned long)++_numberOfColumns];
     
     // create the data source corresponding to new column
-    unsigned    i, numberOfRows = [self numberOfRows];
+    NSInteger    i, numberOfRows = [self numberOfRows];
     NSMutableArray  *array = [NSMutableArray arrayWithCapacity:numberOfRows];
     for (i = 0; i < numberOfRows; i++) [array addObject:[NSString string]];
     [_dict setObject:array forKey:identifier];

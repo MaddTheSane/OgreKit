@@ -102,7 +102,7 @@
 	}
 	
 	NSString	*plainString = [string string];
-	unsigned	strLength = [plainString length];
+	NSUInteger	strLength = [plainString length];
 	NSRange		scanRange = NSMakeRange(0, strLength);	// スキャンする範囲
 	NSRange		matchRange;					// escapeの発見された範囲(lengthは常に1)
 	
@@ -113,12 +113,12 @@
 	NSObject<OGStringProtocol,OGMutableStringProtocol>	*resultString;
 	resultString = [[[[string mutableClass] alloc] init] autorelease];
 	
-	unsigned			counterOfAutorelease = 0;
+	NSUInteger			counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
 	while ( matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange], 
 			matchRange.length > 0 ) {
-		unsigned	lastMatchLocation = scanRange.location;
+		NSUInteger	lastMatchLocation = scanRange.location;
 		[resultString appendOGString:[string substringWithRange:NSMakeRange(lastMatchLocation, matchRange.location - lastMatchLocation)]];
 		
 		if ([[plainString substringWithRange:matchRange] isEqualToString:OgreBackslashCharacter]) {
@@ -197,7 +197,7 @@
 	NSScanner	*scanner = [NSScanner scannerWithString:string];
 	NSCharacterSet	*whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
 	
-	unsigned	counterOfAutorelease = 0;
+	NSUInteger	counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 
 	while (![scanner isAtEnd]) {
@@ -245,7 +245,7 @@
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
-- (NSString*)nameForGroupIndex:(unsigned)index
+- (NSString*)nameForGroupIndex:(NSUInteger)index
 {
 	if ( (_nameForGroupIndexArray == nil) || (index < 1) || (index > [_nameForGroupIndexArray count])) {
 		return nil;

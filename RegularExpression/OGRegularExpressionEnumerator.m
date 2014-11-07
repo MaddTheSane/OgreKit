@@ -244,11 +244,11 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	//OGRegularExpression	*_regex;							// 正規表現オブジェクト
 	//NSString				*_TargetString;				// 検索対象文字列
 	//NSRange				_searchRange;						// 検索範囲
-	//unsigned              _searchOptions;						// 検索オプション
+	//NSUInteger            _searchOptions;						// 検索オプション
 	//int					_terminalOfLastMatch;               // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
-	//unsigned              _startLocation;						// マッチ開始位置
+	//NSUInteger            _startLocation;						// マッチ開始位置
 	//BOOL					_isLastMatchEmpty;					// 前回のマッチが空文字列だったかどうか
-    //unsigned              _numberOfMatches;                   // マッチした数
+    //NSUInteger            _numberOfMatches;                   // マッチした数
     
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: _regex forKey: OgreRegexKey];
@@ -298,7 +298,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	
 	//NSString			*_targetString;				// 検索対象文字列。¥が入れ替わっている(事がある)ので注意
 	//unichar           *_UTF16TargetString;			// UTF16での検索対象文字列
-	//unsigned          _lengthOfTargetString;       // [_targetString length]
+	//NSUInteger        _lengthOfTargetString;       // [_targetString length]
     if (allowsKeyedCoding) {
 		_targetString = [[decoder decodeObjectForKey: OgreSwappedTargetStringKey] retain];	// [self targetString]ではない。
 	} else {

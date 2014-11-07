@@ -191,7 +191,7 @@
         
     BOOL    isSimple = ([regex syntax] == OgreSimpleMatchingSyntax && ([regex options] & OgreDelimitByWhitespaceOption) != 0);
     
-    unsigned    numberOfGroups = [_regex numberOfGroups], i;
+    NSUInteger  numberOfGroups = [_regex numberOfGroups], i;
     
     _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {

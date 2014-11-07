@@ -64,7 +64,7 @@
     NSTextStorage       *textStorage = [aTarget textStorage];
     NSRange             aRange, newRange;
     NSAttributedString  *aString;
-    unsigned            i;
+    NSUInteger          i;
     OgreTextViewUndoer    *redoArray = [[OgreTextViewUndoer alloc] initWithCapacity:_count];
     
     [textStorage beginEditing];

@@ -89,7 +89,7 @@
 - (BOOL)isHighlightable { return NO; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
@@ -101,7 +101,7 @@
     return 0;
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);

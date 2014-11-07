@@ -81,7 +81,7 @@
 {
     if ([_outlineColumn ogreIsItemExpandable:_item]) {
         NSArray     *children = [aBranch children];
-        unsigned    count = [children count];
+        NSUInteger  count = [children count];
         if (count > 0) {
             [_simplifiedComponents replaceObjectsInRange:NSMakeRange(0, 1) withObjectsFromArray:[children subarrayWithRange:NSMakeRange(1, count - 1)]];
             _outlineDelegateLeaf = [children objectAtIndex:0];
@@ -117,12 +117,12 @@
     return [[self textFindResult] messageOfItemsFound:[_components count]]; 
 }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection 
 {
     return [_simplifiedComponents count];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
     return [_simplifiedComponents objectAtIndex:index];
 }

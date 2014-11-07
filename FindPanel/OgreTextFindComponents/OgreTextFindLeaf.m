@@ -94,9 +94,9 @@
 /* Getting structural detail */
 - (BOOL)isLeaf { return YES; }
 - (BOOL)isBranch { return NO; }
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection { return 0; }
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection { return 0; }
 - (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection { return 0; }
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection { return nil; }
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection { return nil; }
 
 - (OgreTextFindBranch*)parent
 {

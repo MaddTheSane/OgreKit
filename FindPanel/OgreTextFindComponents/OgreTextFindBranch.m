@@ -109,7 +109,7 @@
 - (BOOL)isLeaf { return NO; }
 - (BOOL)isBranch { return YES; }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@ (BUG!!!)", [self className]);
@@ -119,7 +119,7 @@
 
 - (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection
 { 
-    unsigned            numberOfDescendants = 0;
+    NSUInteger          numberOfDescendants = 0;
     NSEnumerator        *enumerator = (NSEnumerator*)[self componentEnumeratorInSelection:inSelection];
     OgreTextFindLeaf    *aChild;
     
@@ -134,7 +134,7 @@
     return numberOfDescendants;
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex: of %@ (BUG!!!)", [self className]);

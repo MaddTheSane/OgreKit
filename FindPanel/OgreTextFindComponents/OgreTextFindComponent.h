@@ -37,9 +37,9 @@
 /* Getting and setting structural detail */
 - (BOOL)isLeaf;
 - (BOOL)isBranch;
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection;
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection;
 - (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection;
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection;
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection;
 
 - (OgreTextFindBranch*)parent;
 - (void)setParent:(OgreTextFindBranch*)parent;

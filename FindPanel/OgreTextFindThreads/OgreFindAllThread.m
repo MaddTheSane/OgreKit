@@ -147,7 +147,7 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings found. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();

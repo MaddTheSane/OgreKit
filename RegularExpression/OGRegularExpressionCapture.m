@@ -47,19 +47,19 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 // 何番目の子要素であるか 0,1,2,...
-- (unsigned)index
+- (NSUInteger)index
 {
     return _index;
 }
 
 // 深さ
-- (unsigned)level
+- (NSUInteger)level
 {
     return _level;
 }
 
 // 子要素の数
-- (unsigned)numberOfChildren
+- (NSUInteger)numberOfChildren
 {
     return _captureNode->num_childs;
 }
@@ -68,7 +68,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 // return nil in the case of numberOfChildren == 0
 - (NSArray*)children
 {
-    unsigned    numberOfChildren = _captureNode->num_childs;
+    NSUInteger    numberOfChildren = _captureNode->num_childs;
     if (numberOfChildren == 0) return nil;
     
     NSMutableArray  *children = [NSMutableArray arrayWithCapacity:numberOfChildren];
@@ -80,7 +80,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 
 // index番目の子要素
-- (OGRegularExpressionCapture*)childAtIndex:(unsigned)index
+- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index
 {
     if (index >= _captureNode->num_childs) {
         return nil;
@@ -222,7 +222,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	BOOL			allowsKeyedCoding = [decoder allowsKeyedCoding];
 	
 	id  anObject;
-	// unsigned                    _index,             // マッチした順番
+	// NSUInteger                    _index,             // マッチした順番
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreIndexKey];
 	} else {
@@ -235,7 +235,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	}
 	_index = [anObject unsignedIntValue];	
 	
-    // unsigned                   _level;             // 深さ
+    // NSUInteger                   _level;             // 深さ
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreLevelKey];
 	} else {

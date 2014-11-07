@@ -300,7 +300,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	NSUInteger	a, b, c, d, b2;
 	NSUInteger	i, j,
 				count = [self count], 
-				numberOfSubranges = [[_matchRangeArray objectAtIndex:1] count];
+				numberOfSubranges = [(NSArray *)[_matchRangeArray objectAtIndex:1] count];
 	
 	a = oldRange.location;
 	b = NSMaxRange(oldRange);
@@ -515,12 +515,12 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 }
 
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 { 
     return [self count]; 
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
     if (!inSelection) return [_childArray objectAtIndex:index];
     

@@ -100,7 +100,7 @@
     return [item isDirectory];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_fileWrapper == nil) return 0;
     //NSLog(@"numberOfChildrenOfItem:%@", [item name]);
@@ -148,7 +148,7 @@
 }
 
 /* drop */
-- (unsigned int)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(int)childIndex
+- (NSUInteger)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(int)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
@@ -179,7 +179,7 @@
 - (void)deleteKeyDownInOutlineView:(NSOutlineView*)outlineView
 {
     NSIndexSet  *selectedRowIndexes = [myOutlineView selectedRowIndexes];
-    unsigned    count = [selectedRowIndexes count], i;
+    NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
 #ifdef MAC_OS_X_VERSION_10_6

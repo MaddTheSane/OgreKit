@@ -50,7 +50,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 @implementation OgreAdvancedFindPanelController
 
-- (OgreSyntax)syntaxForIndex:(unsigned)index
+- (OgreSyntax)syntaxForIndex:(NSUInteger)index
 {
 	if (index == 0) return OgreSimpleMatchingSyntax;
 	if (index == 1) return OgrePOSIXBasicSyntax;
@@ -203,7 +203,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	if (history == nil) return;
 	
 	NSAutoreleasePool	*pool;
-	unsigned			countOfAutorelease = 0;
+	NSUInteger			countOfAutorelease = 0;
 	
 	NSMutableArray	*findHistory = [NSMutableArray arrayWithArray:[history objectForKey:OgreAFPCFindHistoryKey]];
 	if ((findHistory != nil) && ([findHistory count] > 0)) {
@@ -473,13 +473,13 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCOriginKey];
 	if (anObject != nil) {
-		unsigned	origin = [anObject unsignedIntValue];
+		NSUInteger	origin = [anObject unsignedIntValue];
 		[self setAtTopOriginOption: (origin == 0)];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCScopeKey];
 	if (anObject != nil) {
-		unsigned	scope = [anObject unsignedIntValue];
+		NSUInteger	scope = [anObject unsignedIntValue];
 		[self setInSelectionScopeOption: (scope != 0)];
 	}
 	
@@ -705,7 +705,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)selectFindHistory:(id)sender
 {
 	NSMenu				*menu = [findPopUpButton menu];
-	unsigned			selectedIndex = [menu indexOfItem:sender];
+	NSInteger			selectedIndex = [menu indexOfItem:sender];
 	NSAttributedString	*attrString = [_findHistory objectAtIndex:(selectedIndex - 1)];
 	[self setFindString:attrString];
 }
@@ -713,7 +713,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)selectReplaceHistory:(id)sender
 {
 	NSMenu				*menu = [replacePopUpButton menu];
-	unsigned			selectedIndex = [menu indexOfItem:sender];
+	NSInteger			selectedIndex = [menu indexOfItem:sender];
 	NSAttributedString	*attrString = [_replaceHistory objectAtIndex:(selectedIndex - 1)];
 	[self setReplaceString:attrString];
 }
@@ -1426,7 +1426,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 }
 
 /* delegate method of OgreAdvancedFindPanel */
-- (void)findPanelFlagsChanged:(unsigned)modifierFlags  
+- (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags
 {
     if ((modifierFlags & NSAlternateKeyMask) != 0) {
         // alt key pressed

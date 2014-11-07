@@ -46,7 +46,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
-    unsigned    i, n = [aMatch count];
+    NSUInteger  i, n = [aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
@@ -84,12 +84,12 @@
     return [[self textFindResult] messageOfStringsFound:[_matchRangeArray count]];
 }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection 
 {
     return [_matchComponents count];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
     return [_matchComponents objectAtIndex:index];
 }

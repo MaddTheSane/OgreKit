@@ -109,13 +109,13 @@
     return _components;
 }
 
-- (id)componentAtIndex:(unsigned)index
+- (id)componentAtIndex:(NSUInteger)index
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
     return [_components objectAtIndex:index];
 }
 
-- (unsigned)numberOfComponents
+- (NSUInteger)numberOfComponents
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
     return [_components count];

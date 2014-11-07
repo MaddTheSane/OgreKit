@@ -909,7 +909,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(NSUInteger)options
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement 
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	return [[self replaceOGString:[OGPlainString stringWithString:targetString] 
 		withOGString:[OGPlainString stringWithString:replaceString] 
@@ -924,7 +924,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(NSUInteger)options
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement 
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	return [[self replaceOGString:[OGAttributedString stringWithAttributedString:targetString] 
 		withOGString:[OGAttributedString stringWithAttributedString:replaceString]  
@@ -939,7 +939,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(NSUInteger)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement 
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	OGReplaceExpression	*repex = [[OGReplaceExpression alloc] initWithOGString:replaceString 
 		options:options 
@@ -1698,10 +1698,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 	NSMutableString	*regularizedString = [NSMutableString stringWithString:string];
 	
-	unsigned	counterOfAutorelease = 0;
+	NSUInteger	counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-	unsigned	strlen;
+	NSUInteger	strlen;
 	NSRange 	searchRange, matchRange;
 	strlen = [regularizedString length];
 	searchRange = NSMakeRange(0, strlen);
@@ -1776,7 +1776,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		options:options 
 		range:searchRange];
 	
-	unsigned	matches = 0;
+	NSUInteger	matches = 0;
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	NSString	*remainingString;
 	
@@ -1837,10 +1837,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
 	
 	/* 改行コードを置換する */
-	unsigned			counterOfAutorelease = 0;
+	NSUInteger			counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-	unsigned	strlen = [aString length], 
+	NSUInteger	strlen = [aString length],
 				matchLocation, 
 				copyLocation = 0;
 	NSRange 	searchRange = NSMakeRange(0, strlen), 
@@ -1891,7 +1891,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	OgreNewlineCharacter	newlineCharacter = OgreNonbreakingNewlineCharacter;	// no linefeeds
 	
 	/* search newline characters */
-	unsigned	strlen = [aString length], matchLocation;
+	NSUInteger	strlen = [aString length], matchLocation;
 	NSRange 	searchRange = NSMakeRange(0, strlen), matchRange;
 	if ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {

@@ -533,7 +533,7 @@ extern NSString	* const OgreException;
 	options:(NSUInteger)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 - (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
 	delegate:(id)aDelegate 
@@ -549,7 +549,7 @@ extern NSString	* const OgreException;
 	options:(NSUInteger)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 - (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
 	delegate:(id)aDelegate 
@@ -558,7 +558,7 @@ extern NSString	* const OgreException;
 	options:(NSUInteger)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 
 /*********

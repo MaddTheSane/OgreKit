@@ -50,7 +50,7 @@ static NSArray *Ogre_arrayWithOnigRegion(OnigRegion *region)
 	if (region == NULL) return nil;
 	
 	NSMutableArray      *regionArray = [NSMutableArray arrayWithCapacity:1];
-	unsigned            i = 0, n = region->num_regs;
+	NSUInteger          i = 0, n = region->num_regs;
 	
 	for( i = 0; i < n; i++ ) {
 		[regionArray addObject:[NSArray arrayWithObjects:
@@ -97,7 +97,7 @@ static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
 {
 	if (cap == NULL) return [NSArray array];
 	
-	unsigned            i, n = cap->num_childs;
+	NSUInteger          i, n = cap->num_childs;
 	NSMutableArray      *children = nil;
     
     if (n > 0) {
@@ -132,7 +132,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
     
     if ([captureArray count] >= 4) {
         NSArray     *children = (NSArray*)[captureArray objectAtIndex:3];
-        unsigned    i, n = [children count];
+        NSUInteger  i, n = [children count];
         capture->childs = (OnigCaptureTreeNode**)malloc(n * sizeof(OnigCaptureTreeNode*));
         if (capture->childs == NULL) {
             // メモリを確保できなかった場合、例外を発生させる。
