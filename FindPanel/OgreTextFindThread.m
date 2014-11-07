@@ -102,7 +102,7 @@
 	
 	NS_DURING
 	
-		_numberOfTotalLeaves = [_rootAdapter numberOfDescendantsInSelection:_inSelection];  // <= 0: indeterminate
+		_numberOfTotalLeaves = [_rootAdapter numberOfDescendantsInSelection:_inSelection];  // NSNotFound: indeterminate
 		_numberOfDoneLeaves = 0;
 		
 		[self willProcessFindingAll];

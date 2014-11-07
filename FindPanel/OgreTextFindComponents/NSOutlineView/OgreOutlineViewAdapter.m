@@ -299,7 +299,7 @@
 
 - (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 {
-    return -1;  // indeterminate
+    return NSNotFound;  // indeterminate
 }
 
 - (void)moveHomePosition
