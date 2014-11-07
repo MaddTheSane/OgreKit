@@ -495,12 +495,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCMaxNumOfFindHistoryKey];
 	if (anObject != nil) {
-		[maxNumOfFindHistoryTextField setIntValue:[anObject integerValue]];
+		[maxNumOfFindHistoryTextField setIntegerValue:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCMaxNumOfReplaceHistoryKey];
 	if (anObject != nil) {
-		[maxNumOfReplaceHistoryTextField setIntValue:[anObject integerValue]];
+		[maxNumOfReplaceHistoryTextField setIntegerValue:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCEnableStyleOptionsKey];
