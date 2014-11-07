@@ -40,7 +40,7 @@ static NSString	* const OgreIndexOfMatchKey        = @"OgreMatchIndexOfMatch";
 static NSString	* const OgreCaptureHistoryKey      = @"OgreMatchCaptureHistory";
 
 
-inline unsigned Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end)
+inline NSUInteger Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end)
 {
 	return end - aUTF16string;
 }
@@ -54,8 +54,8 @@ static NSArray *Ogre_arrayWithOnigRegion(OnigRegion *region)
 	
 	for( i = 0; i < n; i++ ) {
 		[regionArray addObject:[NSArray arrayWithObjects:
-			[NSNumber numberWithInt:region->beg[i]], 
-			[NSNumber numberWithInt:region->end[i]], 
+			[NSNumber numberWithInteger:region->beg[i]], 
+			[NSNumber numberWithInteger:region->end[i]], 
 			nil]];
 	}
 	
@@ -73,7 +73,7 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 	}
 	NSUInteger		i = 0, n = [regionArray count];
 	NSArray			*anObject;
-	int				r;
+	NSInteger				r;
 	
 	r = onig_region_resize(region, [regionArray count]);
 	if (r != ONIG_NORMAL) {
@@ -84,8 +84,8 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 
 	for (i = 0; i < n; i++) {
         anObject = [regionArray objectAtIndex:i];
-		region->beg[i] = [[anObject objectAtIndex:0] unsignedIntValue];
-		region->end[i] = [[anObject objectAtIndex:1] unsignedIntValue];
+		region->beg[i] = [[anObject objectAtIndex:0] unsignedIntegerValue];
+		region->end[i] = [[anObject objectAtIndex:1] unsignedIntegerValue];
 	}
     
     region->history_root = NULL;
@@ -106,9 +106,9 @@ static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
     }
     
     return [NSArray arrayWithObjects:
-        [NSNumber numberWithInt:cap->group], 
-        [NSNumber numberWithInt:cap->beg], 
-        [NSNumber numberWithInt:cap->end], 
+        [NSNumber numberWithInteger:cap->group], 
+        [NSNumber numberWithInteger:cap->beg], 
+        [NSNumber numberWithInteger:cap->end], 
         children, 
         nil];
 }
@@ -125,15 +125,15 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[NSException raise:NSMallocException format:@"fail to memory allocation"];
 	}
     
-    capture->group     = [[captureArray objectAtIndex:0] unsignedIntValue];
-    capture->beg       = [[captureArray objectAtIndex:1] unsignedIntValue];
-    capture->end       = [[captureArray objectAtIndex:2] unsignedIntValue];
+    capture->group     = [[captureArray objectAtIndex:0] unsignedIntegerValue];
+    capture->beg       = [[captureArray objectAtIndex:1] unsignedIntegerValue];
+    capture->end       = [[captureArray objectAtIndex:2] unsignedIntegerValue];
     
     
     if ([captureArray count] >= 4) {
         NSArray     *children = (NSArray*)[captureArray objectAtIndex:3];
         NSUInteger  i, n = [children count];
-        capture->childs = (OnigCaptureTreeNode**)malloc(n * sizeof(OnigCaptureTreeNode*));
+        capture->childs = (OnigCaptureTreeNode**)malloc(n * sizeof(OnigCaptureTreeNode *));
         if (capture->childs == NULL) {
             // メモリを確保できなかった場合、例外を発生させる。
             free(capture);
@@ -440,14 +440,14 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
    if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: Ogre_arrayWithOnigRegion(_region) forKey: OgreRegionKey];
 		[encoder encodeObject: _enumerator forKey: OgreEnumeratorKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: _terminalOfLastMatch] forKey: OgreTerminalOfLastMatchKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: _index] forKey: OgreIndexOfMatchKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_terminalOfLastMatch] forKey: OgreTerminalOfLastMatchKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index] forKey: OgreIndexOfMatchKey];
 		[encoder encodeObject: Ogre_arrayWithOnigCaptureTreeNode(_region->history_root) forKey: OgreCaptureHistoryKey];
 	} else {
 		[encoder encodeObject: Ogre_arrayWithOnigRegion(_region)];
 		[encoder encodeObject: _enumerator];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: _terminalOfLastMatch]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: _index]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_terminalOfLastMatch]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index]];
 		[encoder encodeObject: Ogre_arrayWithOnigCaptureTreeNode(_region->history_root)];
 	}
 }
@@ -502,7 +502,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_terminalOfLastMatch = [anObject unsignedIntValue];
+	_terminalOfLastMatch = [anObject unsignedIntegerValue];
 
 	
 	// 	NSUInteger		_index;		// マッチした順番
@@ -516,7 +516,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntValue];
+	_index = [anObject unsignedIntegerValue];
 
 	
 	// _region->history_root    // capture history
@@ -570,8 +570,8 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 			Ogre_arrayWithOnigRegion(_region), 
 			Ogre_arrayWithOnigCaptureTreeNode(_region->history_root), 
 			_enumerator, 
-			[NSNumber numberWithUnsignedInt: _terminalOfLastMatch], 
-			[NSNumber numberWithUnsignedInt: _index], 
+			[NSNumber numberWithUnsignedInteger:_terminalOfLastMatch],
+			[NSNumber numberWithUnsignedInteger:_index],
 			nil]
 		forKeys:[NSArray arrayWithObjects: 
 			@"Range of Substrings", 
@@ -591,7 +591,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
 - (NSObject<OGStringProtocol>*)ogSubstringNamed:(NSString*)name
 {
-	int	index = [self indexOfSubstringNamed:name];
+	NSInteger	index = [self indexOfSubstringNamed:name];
 	if (index == -1) return nil;
 		
 	return [self ogSubstringAtIndex:index];
@@ -599,7 +599,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 - (NSString*)substringNamed:(NSString*)name
 {
-	int	index = [self indexOfSubstringNamed:name];
+	NSInteger	index = [self indexOfSubstringNamed:name];
 	if (index == -1) return nil;
 		
 	return [self substringAtIndex:index];
@@ -607,7 +607,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 - (NSAttributedString*)attributedSubstringNamed:(NSString*)name
 {
-	int	index = [self indexOfSubstringNamed:name];
+	NSInteger	index = [self indexOfSubstringNamed:name];
 	if (index == -1) return nil;
 		
 	return [self attributedSubstringAtIndex:index];
@@ -618,7 +618,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
 - (NSRange)rangeOfSubstringNamed:(NSString*)name
 {
-	int	index = [self indexOfSubstringNamed:name];
+	NSInteger	index = [self indexOfSubstringNamed:name];
 	if (index == -1) return NSMakeRange(NSNotFound, 0);
 	
 	return [self rangeOfSubstringAtIndex:index];
@@ -627,9 +627,9 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 名前がnameの部分文字列のindex
 // 存在しない場合は-1を返す
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (int)indexOfSubstringNamed:(NSString*)name
+- (NSInteger)indexOfSubstringNamed:(NSString*)name
 {
-	int	index = [[_enumerator regularExpression] groupIndexForName:name];
+	NSInteger	index = [[_enumerator regularExpression] groupIndexForName:name];
 	if (index == -2) {
 		// 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
 		[NSException raise:OgreMatchException format:@"multiplex definition name <%@> call", name];

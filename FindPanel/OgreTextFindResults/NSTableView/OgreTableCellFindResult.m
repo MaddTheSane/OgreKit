@@ -43,7 +43,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
-    int     i, n = [aMatch count];
+    NSInteger     i, n = [aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
@@ -91,7 +91,7 @@
 // index番目にマッチした文字列のある行番号
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
-    return [NSNumber numberWithInt:_rowIndex + 1];
+    return [NSNumber numberWithInteger:_rowIndex + 1];
 }
 
 // index番目にマッチした文字列
@@ -129,7 +129,7 @@
     OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];
     
     if (![tableView allowsColumnSelection]) {
-        int columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
+        NSInteger columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
         if (columnIndex != -1) {
             [tableView scrollColumnToVisible:columnIndex];
         } else {

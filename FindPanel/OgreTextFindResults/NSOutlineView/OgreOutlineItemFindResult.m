@@ -52,7 +52,7 @@
 
 - (void)endAddition
 {
-    int i = 0;
+    NSInteger i = 0;
     while (i < [_components count]) {
         if ([[_components objectAtIndex:i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
@@ -98,7 +98,7 @@
 
 - (void)replaceFindResult:(OgreOutlineItemFindResult*)aBranch withFindResultsFromArray:(NSArray*)resultsArray
 {
-    int branchIndex = [_simplifiedComponents indexOfObject:aBranch];
+    NSInteger branchIndex = [_simplifiedComponents indexOfObject:aBranch];
     [_simplifiedComponents replaceObjectsInRange:NSMakeRange(branchIndex, 1) withObjectsFromArray:resultsArray];
 }
 
@@ -149,7 +149,7 @@
     OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
     
     if ([outlineView allowsColumnSelection]) {
-        int columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+        NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
         if (columnIndex != -1) {
             [outlineView scrollColumnToVisible:columnIndex];
         } else {
@@ -159,7 +159,7 @@
     }
     
     [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
-    int rowIndex = [outlineView rowForItem:_item];
+    NSInteger rowIndex = [outlineView rowForItem:_item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
         [outlineView scrollRowToVisible:rowIndex];

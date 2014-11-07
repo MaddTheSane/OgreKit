@@ -110,7 +110,7 @@
 
 /* accessors */
 // private
-- (void)_setTerminalOfLastMatch:(int)location
+- (void)_setTerminalOfLastMatch:(NSInteger)location
 {
 	_terminalOfLastMatch = location;
 }

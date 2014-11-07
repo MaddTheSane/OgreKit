@@ -32,11 +32,11 @@ extern NSString	* const OgreMatchException;
 {
 	OnigRegion		*_region;						// match result region
 	OGRegularExpressionEnumerator	*_enumerator;	// matcher
-	unsigned		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
+	NSUInteger		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
 	
 	NSObject<OGStringProtocol>	*_targetString;		// 検索対象文字列
 	NSRange			_searchRange;					// 検索範囲
-	unsigned		_index;							// マッチした順番
+	NSUInteger		_index;							// マッチした順番
 }
 
 /*********
@@ -135,7 +135,7 @@ extern NSString	* const OgreMatchException;
 // 名前がnameの部分文字列のindex
 // 存在しない名前の場合は -1 を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (int)indexOfSubstringNamed:(NSString*)name;
+- (NSInteger)indexOfSubstringNamed:(NSString*)name;
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
@@ -239,4 +239,4 @@ number of capture history: 2
 @end
 
 // UTF16文字列の長さを得る
-inline unsigned Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end);
+inline NSUInteger Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end);

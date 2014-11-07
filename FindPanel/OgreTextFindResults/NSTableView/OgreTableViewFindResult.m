@@ -59,7 +59,7 @@
 		name: NSWindowWillCloseNotification
 		object: [_tableView window]];
 	
-    int columnIndex = 0;
+    NSInteger columnIndex = 0;
     OgreTableColumnFindResult  *columnFindResult;
     
     while (columnIndex < [_components count]) {

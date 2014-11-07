@@ -210,7 +210,7 @@
 
 - (void)grepOutlineViewDoubleClicked
 {
-	int	clickedRowIndex = [grepOutlineView clickedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView clickedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];
@@ -221,7 +221,7 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification*)aNotification
 {
-	int	clickedRowIndex = [grepOutlineView selectedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView selectedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];

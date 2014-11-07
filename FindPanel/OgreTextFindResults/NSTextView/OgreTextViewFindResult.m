@@ -17,7 +17,7 @@
 #import <OgreKit/OgreTextFinder.h>
 #import <OgreKit/OgreTextFindResult.h>
 
-static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
+static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 
 @implementation OgreTextViewFindResult
 
@@ -36,7 +36,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 		_searchLineRangeLocation = _lineRange.location + _lineRange.length;
 		
 		_lineOfMatchedStrings = [[NSMutableArray alloc] initWithCapacity:OgreTextViewFindResultInitialCapacity];
-		[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInt:0]];
+		[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInteger:0]];
 		_matchRangeArray = [[NSMutableArray alloc] initWithCapacity:OgreTextViewFindResultInitialCapacity];
 		[_matchRangeArray addObject:[NSArray arrayWithObject:[NSValue valueWithRange:NSMakeRange(0, 0)]]];
 		_count = 0;
@@ -107,14 +107,14 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 - (void)addMatch:(OGRegularExpressionMatch*)match
 {
 	NSRange			range = [match rangeOfMatchedString];
-	unsigned		newAbsoluteLocation = range.location;
+	NSUInteger		newAbsoluteLocation = range.location;
 	
 	_count++;
 	
 	// マッチの相対位置
 	// 0番目の部分文字列は前のマッチとの相対位置
 	// 1番目以降の部分文字列は0番目の部分文字列との相対位置
-	int				i, n = [match count];
+	NSInteger				i, n = [match count];
 	NSMutableArray	*rangeArray = [NSMutableArray arrayWithCapacity:n];
 	range = [match rangeOfSubstringAtIndex:0];
 	[rangeArray addObject:[NSValue valueWithRange:NSMakeRange(range.location - _cacheAbsoluteLocation, range.length)]];
@@ -136,7 +136,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	}
 	
 	// マッチした文字列の先頭が_line行目にある場合
-	[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInt:_line]];
+	[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInteger:_line]];
 	[_matchRangeArray addObject:rangeArray];
 }
 
@@ -252,8 +252,8 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return [[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
 			_lineOfMatchedStrings, 
 			_matchRangeArray, 
-			[NSNumber numberWithUnsignedInt:_line], 
-			[NSNumber numberWithUnsignedInt:_count], 
+			[NSNumber numberWithUnsignedInteger:_line],
+			[NSNumber numberWithUnsignedInteger:_count],
 		nil] forKeys:[NSArray arrayWithObjects:
 			@"Match Line", 
 			@"Match Range", 
@@ -266,7 +266,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 {
 	NSTextStorage   *textStorage = [aNotification object];
 	NSRange			editedRange = [textStorage editedRange];
-	int				changeInLength = [textStorage changeInLength];
+	NSInteger				changeInLength = [textStorage changeInLength];
 	
 	if ([textStorage editedMask] & NSTextStorageEditedCharacters) {
 		// 文字の変更の場合
@@ -437,7 +437,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-updateSubranges: of %@", [self className]);
 #endif
-	unsigned	i, a, b, b2, c, d;
+	NSUInteger	i, a, b, b2, c, d;
 	NSRange		range, updatedRange;
 	a = oldRange.location;
 	b = NSMaxRange(oldRange);

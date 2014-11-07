@@ -228,7 +228,7 @@
 // 名前がnameのgroup number
 // 存在しない名前の場合は-1を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は-2を返す。
-- (int)groupIndexForName:(NSString*)name
+- (NSInteger)groupIndexForName:(NSString*)name
 {
 	if (name == nil) {
 		[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
@@ -240,7 +240,7 @@
 	if (array == nil) return -1;
 	if ([array count] != 1) return -2;
 	
-	return [[array objectAtIndex:0] unsignedIntValue];
+	return [[array objectAtIndex:0] unsignedIntegerValue];
 }
 
 // index番目の部分文字列の名前

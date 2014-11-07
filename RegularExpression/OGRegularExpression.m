@@ -1483,13 +1483,13 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
 		[encoder encodeObject: [self expressionString] forKey: OgreExpressionStringKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]] forKey: OgreOptionsKey];
-		[encoder encodeObject: [NSNumber numberWithInt: [self syntax]] forKey: OgreSyntaxKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:[self options]] forKey: OgreOptionsKey];
+		[encoder encodeObject: [NSNumber numberWithInteger:[self syntax]] forKey: OgreSyntaxKey];
 	} else {
 		[encoder encodeObject: [self escapeCharacter]];
 		[encoder encodeObject: [self expressionString]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]]];
-		[encoder encodeObject: [NSNumber numberWithInt: [self syntax]]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:[self options]]];
+		[encoder encodeObject: [NSNumber numberWithInteger:[self syntax]]];
 	}
 }
 
@@ -1616,7 +1616,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // OgreSyntaxとintの相互変換
-+ (int)intValueForSyntax:(OgreSyntax)syntax
++ (NSInteger)intValueForSyntax:(OgreSyntax)syntax
 {
 	if(syntax == OgreSimpleMatchingSyntax) return 0;
 	if(syntax == OgrePOSIXBasicSyntax) return 1;

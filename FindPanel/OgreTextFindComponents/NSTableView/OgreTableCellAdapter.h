@@ -20,7 +20,7 @@
 @interface OgreTableCellAdapter : OgreTextFindLeaf
 {
     OgreTableColumn *_tableColumn;
-    int             _rowIndex;
+    NSInteger       _rowIndex;
 }
 
 - (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;

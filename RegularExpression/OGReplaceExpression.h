@@ -23,7 +23,7 @@ extern NSString	* const OgreReplaceException;
 	NSMutableArray	*_compiledReplaceString;
 	NSMutableArray	*_compiledReplaceStringType;
 	NSMutableArray	*_nameArray;
-	unsigned		_options;
+	NSUInteger		_options;
 }
 
 /*********

@@ -21,7 +21,7 @@
 {
     OgreTableColumn *_tableColumn;
     NSMutableArray  *_matchRangeArray, *_childArray;
-    int             _rowIndex;
+    NSInteger       _rowIndex;
 }
 
 - (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;

@@ -590,7 +590,7 @@ extern NSString	* const OgreException;
  * Utilities *
  *************/
 // OgreSyntaxとintの相互変換
-+ (int)intValueForSyntax:(OgreSyntax)syntax;
++ (NSInteger)intValueForSyntax:(OgreSyntax)syntax;
 + (OgreSyntax)syntaxForIntValue:(int)intValue;
 // OgreSyntaxを表す文字列
 + (NSString*)stringForSyntax:(OgreSyntax)syntax;

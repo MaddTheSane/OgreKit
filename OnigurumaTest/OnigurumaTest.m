@@ -21,7 +21,7 @@
 	NSString	*targetString = [targetField stringValue];
 	NSString	*regexString = [regexField stringValue];
 	
-	int r;
+	NSInteger r;
 	unichar *start, *range, *end;
 	regex_t* reg;
 	OnigErrorInfo einfo;
@@ -50,7 +50,7 @@
 	r = onig_search(reg, (unsigned char*)str, (unsigned char*)end, (unsigned char*)start, (unsigned char*)range, region, ONIG_OPTION_NONE);
 	
 	if (r >= 0) {
-		int i;
+		NSInteger i;
 		
 		[resultTextView insertText:[NSString stringWithFormat:@"match at %d\n", r]];
 		for (i = 0; i < region->num_regs; i++) {

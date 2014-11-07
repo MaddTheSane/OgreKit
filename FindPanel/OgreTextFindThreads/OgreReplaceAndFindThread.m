@@ -36,8 +36,8 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -preprocessFindingInFirstLeaf: of %@", [self className]);
 #endif
-	unsigned	options = [self options];
-	unsigned	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。
+	NSUInteger	options = [self options];
+	NSUInteger	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。
 	
     OGRegularExpressionMatch    *match;
     NSObject<OGStringProtocol>                    *string = [aLeaf ogString];

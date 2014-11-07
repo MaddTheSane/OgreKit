@@ -20,7 +20,7 @@
 {
 	OGRegularExpression			*rx;
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
-	int	i;
+	NSInteger	i;
 	
 	// キャレットを最後に。
 	[resultTextView setSelectedRange: NSMakeRange([[resultTextView string] length], 0)];
@@ -80,7 +80,7 @@
 	[resultTextView insertText: [NSString stringWithFormat:@"OgreKit version: %@, OniGuruma version: %@\n", [OGRegularExpression version], [OGRegularExpression onigurumaVersion]]];
 	[resultTextView insertText: [NSString stringWithFormat:@"target string: \"%@\", escape character: \"%@\"\n", str, [OGRegularExpression defaultEscapeCharacter]]];
 	
-	int	matches = 0;
+	NSInteger	matches = 0;
 	while((match = [enumerator nextObject]) != nil) {
 		if(matches == 0) {
 			NSRange	range = [match rangeOfPrematchString];
@@ -226,7 +226,7 @@
 	NSString	*string = @"36.5C, 3.8C, -195.8C";
 	NSLog(@"%@", [[string componentsSeparatedByRegularExpressionString:@"\\s*,\\s*"] description]);
 	NSMutableString *mstr = [NSMutableString stringWithString:string];
-	unsigned	numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
+	NSUInteger	numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
 		withString:@"F" options:OgreNoneOption range:NSMakeRange(0, [string length])];
 	NSLog(@"%d %@", numberOfReplacement, mstr);
 	NSRange matchRange = [string rangeOfRegularExpressionString:@"\\s*,\\s*"];

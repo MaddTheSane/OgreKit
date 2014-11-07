@@ -36,7 +36,7 @@
         
         _ogreModelKeyPathOfValueBinding = [[NSMutableString alloc] init];
         
-        int i, count = [keyPathComponents count];
+        NSInteger i, count = [keyPathComponents count];
         for (i = 1; i < count; i++) {
             if (i > 1) [_ogreModelKeyPathOfValueBinding appendString:@"."];
             [_ogreModelKeyPathOfValueBinding appendString:[keyPathComponents objectAtIndex:i]];

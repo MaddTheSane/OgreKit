@@ -17,7 +17,7 @@
 
 @interface OgreOutlineView : NSOutlineView <OgreView>
 {
-    int     _ogreSelectedColumn;
+    NSInteger     _ogreSelectedColumn;
     id      _ogreSelectedItem;
     NSRange _ogreSelectedRange;
     

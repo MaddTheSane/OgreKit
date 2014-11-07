@@ -170,7 +170,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
 #endif
-    unsigned count = [self numberOfChildrenInSelection:YES];
+    NSUInteger count = [self numberOfChildrenInSelection:YES];
     
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, count)];
 }

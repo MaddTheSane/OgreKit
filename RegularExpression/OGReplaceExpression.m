@@ -83,13 +83,13 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	_options = options;
 	
     NSString    *escCharacter = [NSString stringWithString:character];
-	int			specialKey = 0;
-	unsigned	matchIndex = 0;
+	NSInteger	specialKey = 0;
+	NSUInteger	matchIndex = 0;
 	NSString	*controlCharacter = nil;
 	NSObject<OGStringProtocol>	*compileTimeString;
-	unsigned	numberOfMatches = 0;
+	NSUInteger	numberOfMatches = 0;
 	unichar		unic[ONIG_MAX_CAPTURE_HISTORY_GROUP + 1];
-	unsigned	numberOfHistory, indexOfHistory;
+	NSUInteger	numberOfHistory, indexOfHistory;
 	
 	NSEnumerator				*matchEnumerator;
 	OGRegularExpressionMatch	*match;
@@ -117,7 +117,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	
 	if (syntax == OgreSimpleMatchingSyntax) {
 		_compiledReplaceString     = [[NSMutableArray alloc] initWithObjects:replaceString, nil];
-		_compiledReplaceStringType = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInt:OgreNonEscapedNormalCharacters], nil];
+		_compiledReplaceStringType = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInteger:OgreNonEscapedNormalCharacters], nil];
 	} else {
 		_compiledReplaceString     = [[NSMutableArray alloc] initWithCapacity:0];
 		_compiledReplaceStringType = [[NSMutableArray alloc] initWithCapacity:0];
@@ -158,7 +158,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 					controlCharacter = [NSString stringWithCharacters:unic length:numberOfHistory];
 					break;
 				case 3: // \[0-9]
-					specialKey = [[match substringAtIndex:matchIndex] intValue];
+					specialKey = [[match substringAtIndex:matchIndex] integerValue];
 					break;
 				case 4: // \&
 					specialKey = 0;
@@ -176,7 +176,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 					specialKey = OgreEscapeMinus;
 					break;
 				case 9: // \g<number>
-					specialKey = [[match substringAtIndex:matchIndex] intValue];
+					specialKey = [[match substringAtIndex:matchIndex] integerValue];
 					break;
 				case 10: // \g<name>
 					specialKey = OgreEscapeNamedGroup;
@@ -220,7 +220,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 				[_compiledReplaceString addObject:[compileTimeString substringWithRange:
 					[match rangeOfMatchedString]]];
 			}
-			[_compiledReplaceStringType addObject:[NSNumber numberWithInt:specialKey]];
+			[_compiledReplaceStringType addObject:[NSNumber numberWithInteger:specialKey]];
 			
 			if ((numberOfMatches % 100) == 0) {
 				[pool release];
@@ -411,19 +411,19 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	NSNumber		*type;
 	
 	NSString	*name;
-	unsigned	numOfNames = 0;
-	int			specialKey;
+	NSUInteger	numOfNames = 0;
+	NSInteger	specialKey;
 	
 	BOOL		attributedReplace = ((_options & OgreReplaceWithAttributesOption) != 0);
 	BOOL		replaceFonts = ((_options & OgreReplaceFontsOption) != 0);
 	BOOL		mergeAttributes = ((_options & OgreMergeAttributesOption) != 0);
 	
 	//[resultString setAttributesOfOGString:[match targetOGString] atIndex:[match rangeOfMatchedString].location];
-	unsigned	headIndex = [match rangeOfMatchedString].location - [match _searchRange].location;
+	NSUInteger	headIndex = [match rangeOfMatchedString].location - [match _searchRange].location;
 	[resultString setAttributesOfOGString:[match targetOGString] atIndex:headIndex];
 	
 	while ( (string = [strEnumerator nextObject]) != nil && (type = [typeEnumerator nextObject]) != nil ) {
-		specialKey = [type intValue];
+		specialKey = [type integerValue];
 		switch (specialKey) {
 			case OgreNonEscapedNormalCharacters:	// [^\]+
 				if (!attributedReplace) {
@@ -530,12 +530,12 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		[encoder encodeObject: _compiledReplaceString forKey: OgreCompiledReplaceStringKey];
 		[encoder encodeObject: _compiledReplaceStringType forKey: OgreCompiledReplaceStringTypeKey];
 		[encoder encodeObject: _nameArray forKey: OgreNameArrayKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt:_options] forKey: OgreReplaceOptionsKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_options] forKey: OgreReplaceOptionsKey];
 	} else {
 		[encoder encodeObject: _compiledReplaceString];
 		[encoder encodeObject: _compiledReplaceStringType];
 		[encoder encodeObject: _nameArray];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt:_options]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_options]];
 	}
 }
 
@@ -593,7 +593,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_options = [aNumber unsignedIntValue];
+	_options = [aNumber unsignedIntegerValue];
 	
 	return self;
 }

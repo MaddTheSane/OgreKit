@@ -65,7 +65,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	return 0;
 }
 
-- (int)indexForSyntax:(OgreSyntax)syntax
+- (NSInteger)indexForSyntax:(OgreSyntax)syntax
 {
 	if (syntax == OgreSimpleMatchingSyntax) return 0;
 	if (syntax == OgrePOSIXBasicSyntax) return 1;
@@ -214,7 +214,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		
 		NSMenu			*menu = [findPopUpButton menu];
 		NSMenuItem		*item;
-		int	i;
+		NSInteger	i;
 		for (i = 0; i < [_findHistory count]; i++) {
 			NSAttributedString	*attrString;
 			id	aString = [_findHistory objectAtIndex:i];
@@ -272,7 +272,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		_findHistory = [[NSMutableArray alloc] initWithCapacity:[attrFindHistory count]];
 		
 		NSAttributedString	*attrString;
-		int	i;
+		NSInteger	i;
 		for (i = 0; i < [attrFindHistory count]; i++) {
 			attrString = [[NSAttributedString alloc] initWithRTFD:[attrFindHistory objectAtIndex:i] documentAttributes:nil];
 			[_findHistory addObject:attrString];
@@ -322,7 +322,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		
 		NSMenu			*menu = [replacePopUpButton menu];
 		NSMenuItem		*item;
-		int	i;
+		NSInteger	i;
 		for (i = 0; i < [_replaceHistory count]; i++) {
 			NSAttributedString	*attrString;
 			id aString = [_replaceHistory objectAtIndex:i];
@@ -381,7 +381,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		_replaceHistory = [[NSMutableArray alloc] initWithCapacity:[attrFindHistory count]];
 		
 		NSAttributedString	*attrString;
-		int	i;
+		NSInteger	i;
 		for (i = 0; i < [attrReplaceHistory count]; i++) {
 			attrString = [[NSAttributedString alloc] initWithRTFD:[attrReplaceHistory objectAtIndex:i] documentAttributes:nil];
 			[_replaceHistory addObject:attrString];
@@ -423,7 +423,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	id	anObject = [history objectForKey:OgreAFPCOptionsKey];
 	if (anObject != nil) {
-		NSUInteger	options = [anObject unsignedIntValue];
+		NSUInteger	options = [anObject unsignedIntegerValue];
 		
 		[self setSingleLineOption          : ((options & OgreSingleLineOption) != 0)];
 		[self setMultilineOption           : ((options & OgreMultilineOption) != 0)];
@@ -445,13 +445,13 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCSyntaxKey];
 	if (anObject != nil) {
-		OgreSyntax	syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
+		OgreSyntax	syntax = [OGRegularExpression syntaxForIntValue:[anObject integerValue]];
 		
 		[syntaxPopUpButton selectItemAtIndex:[self indexForSyntax:syntax]];
 		
 		[self setRegularExpressionsOption: (syntax != OgreSimpleMatchingSyntax)];
 		
-		int	i, syntaxValue = [OGRegularExpression intValueForSyntax:syntax];
+		NSInteger	i, syntaxValue = [OGRegularExpression intValueForSyntax:syntax];
 		for (i = 0; i <= 8; i++) {
 			if ([[syntaxPopUpButton itemAtIndex:i] tag] == syntaxValue) {
 				[syntaxPopUpButton selectItemAtIndex:i];
@@ -472,13 +472,13 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCOriginKey];
 	if (anObject != nil) {
-		NSUInteger	origin = [anObject unsignedIntValue];
+		NSUInteger	origin = [anObject unsignedIntegerValue];
 		[self setAtTopOriginOption: (origin == 0)];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCScopeKey];
 	if (anObject != nil) {
-		NSUInteger	scope = [anObject unsignedIntValue];
+		NSUInteger	scope = [anObject unsignedIntegerValue];
 		[self setInSelectionScopeOption: (scope != 0)];
 	}
 	
@@ -538,17 +538,17 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
 			encodedFindHistory, 
 			encodedReplaceHistory, 
-			[NSNumber numberWithUnsignedInt:[self _options]], 
-			[NSNumber numberWithInt:[[syntaxPopUpButton selectedItem] tag]], 
-			[NSNumber numberWithInt:[[escapeCharacterPopUpButton selectedItem] tag]], 
+			[NSNumber numberWithUnsignedInteger:[self _options]], 
+			[NSNumber numberWithInteger:[[syntaxPopUpButton selectedItem] tag]], 
+			[NSNumber numberWithInteger:[[escapeCharacterPopUpButton selectedItem] tag]], 
 			[NSArchiver archivedDataWithRootObject:[highlightColorWell color]], 
-			[NSNumber numberWithInt:([self atTopOriginOption]? 0 : 1)], 
-			[NSNumber numberWithInt:([self inSelectionScopeOption]? 1 : 0)], 
-			[NSNumber numberWithInt:([self wrapSearchOption]? NSOnState : NSOffState)], 
-			[NSNumber numberWithInt:([self closeWhenDoneOption]? NSOnState : NSOffState)], 
-			[NSNumber numberWithInt:[maxNumOfFindHistoryTextField integerValue]],
-			[NSNumber numberWithInt:[maxNumOfReplaceHistoryTextField integerValue]],
-			[NSNumber numberWithInt:[toggleStyleOptionsButton state]], 
+			[NSNumber numberWithInteger:([self atTopOriginOption]? 0 : 1)], 
+			[NSNumber numberWithInteger:([self inSelectionScopeOption]? 1 : 0)], 
+			[NSNumber numberWithInteger:([self wrapSearchOption]? NSOnState : NSOffState)], 
+			[NSNumber numberWithInteger:([self closeWhenDoneOption]? NSOnState : NSOffState)], 
+			[NSNumber numberWithInteger:[maxNumOfFindHistoryTextField integerValue]],
+			[NSNumber numberWithInteger:[maxNumOfReplaceHistoryTextField integerValue]],
+			[NSNumber numberWithInteger:[toggleStyleOptionsButton state]], 
 			[NSNumber numberWithBool:[self openSheetOption]], 
 			nil]
 		forKeys:[NSArray arrayWithObjects:
@@ -577,7 +577,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[self loadFindStringToPasteboard];	// load to Paseteboad
 	
 	NSMenu		*menu = [findPopUpButton menu];
-	int			i, n = [_findHistory count];
+	NSInteger			i, n = [_findHistory count];
 	NSString	*string = [attrString string];
 	for (i = 0; i < n; i++) {
 		if ([[_escapeCharacterFormatter stringForObjectValue:[[_findHistory objectAtIndex:i] string]]  isEqualToString:string]) {
@@ -593,7 +593,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 #ifdef MAC_OS_X_VERSION_10_6
 	NSUInteger	start, end, contentsEnd;
 #else
-	unsigned	start, end, contentsEnd;
+	NSUInteger	start, end, contentsEnd;
 #endif
 	[string getLineStart:&start 
 		end:&end 
@@ -609,7 +609,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[menu insertItem:item atIndex:1];
 	[item release];
 	
-	int	maxNumOfHistory = [maxNumOfFindHistoryTextField integerValue];
+	NSInteger	maxNumOfHistory = [maxNumOfFindHistoryTextField integerValue];
 	while ([_findHistory count] > maxNumOfHistory) {
 		[_findHistory removeObjectAtIndex:maxNumOfHistory];
 		[menu removeItemAtIndex:(maxNumOfHistory + 1)];
@@ -619,7 +619,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)addReplaceHistory:(NSAttributedString*)string
 {
 	NSMenu	*menu = [replacePopUpButton menu];
-	int		i, n = [_replaceHistory count];
+	NSInteger		i, n = [_replaceHistory count];
 	for (i = 0; i < n; i++) {
 		if ([[_escapeCharacterFormatter attributedStringForObjectValue:[_replaceHistory objectAtIndex:i] 
 				withDefaultAttributes:nil] isEqualToAttributedString:string]) {
@@ -652,7 +652,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[menu insertItem:item atIndex:1];
 	[item release];
 	
-	int	maxNumOfHistory = [maxNumOfReplaceHistoryTextField integerValue];
+	NSInteger	maxNumOfHistory = [maxNumOfReplaceHistoryTextField integerValue];
 	while ([_replaceHistory count] > maxNumOfHistory) {
 		[_replaceHistory removeObjectAtIndex:maxNumOfHistory];
 		[menu removeItemAtIndex:(maxNumOfHistory + 1)];
@@ -947,7 +947,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[self setRegularExpressionsOption:([[syntaxPopUpButton selectedItem] tag] != [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax])];
 	} else {
 		if ([self regularExpressionsOption]) {
-			int	i, syntaxValue = [OGRegularExpression intValueForSyntax:OgreRubySyntax];
+			NSInteger	i, syntaxValue = [OGRegularExpression intValueForSyntax:OgreRubySyntax];
 			for (i = 0; i <= 8; i++) {
 				if ([[syntaxPopUpButton itemAtIndex:i] tag] == syntaxValue) {
 					[syntaxPopUpButton selectItemAtIndex:i];
@@ -955,7 +955,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 				}
 			}
 		} else {
-			int	i, syntaxValue = [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax];
+			NSInteger	i, syntaxValue = [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax];
 			for (i = 0; i <= 8; i++) {
 				if ([[syntaxPopUpButton itemAtIndex:i] tag] == syntaxValue) {
 					[syntaxPopUpButton selectItemAtIndex:i];

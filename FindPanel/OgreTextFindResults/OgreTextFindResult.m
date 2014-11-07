@@ -207,7 +207,7 @@
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString
 {
-	int							i, n = [aRangeArray count], delta = 0;
+	NSInteger							i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
 	NSMutableAttributedString	*highlightedString;
     

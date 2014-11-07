@@ -95,7 +95,7 @@
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
     if ([_tableColumn isKindOfClass:[OgreTableColumn class]]) {
-        int count = [[_tableColumn tableView] numberOfSelectedRows];
+        NSInteger count = [[_tableColumn tableView] numberOfSelectedRows];
         if (inSelection && (count > 0)) return count;
         
         return [[_tableColumn tableView] numberOfRows];
@@ -153,7 +153,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [[_tableColumn tableView] numberOfSelectedRows];
+    NSInteger count = [[_tableColumn tableView] numberOfSelectedRows];
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {

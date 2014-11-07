@@ -62,12 +62,12 @@
     [super dealloc];
 }
 
-- (void)setTerminalIndex:(int)index
+- (void)setTerminalIndex:(NSInteger)index
 {
     _terminalIndex = index;
 }
 
-- (void)setStartIndex:(int)index
+- (void)setStartIndex:(NSInteger)index
 {
     _nextIndex = index;
 }

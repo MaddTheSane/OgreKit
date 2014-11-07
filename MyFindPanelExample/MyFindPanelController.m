@@ -198,8 +198,8 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	return [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
 			_findHistory, 
 			_replaceHistory, 
-			[NSNumber numberWithUnsignedInt:[self options]], 
-			[NSNumber numberWithInt:[OGRegularExpression intValueForSyntax:[self syntax]]], 
+			[NSNumber numberWithUnsignedInteger:[self options]], 
+			[NSNumber numberWithInteger:[OGRegularExpression intValueForSyntax:[self syntax]]], 
 			[NSNumber numberWithBool:[self isEntire]], 
 			nil]
 		forKeys: [NSArray arrayWithObjects:
@@ -232,13 +232,13 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	
 	anObject = [history objectForKey:MyOptionsKey];
 	if (anObject != nil) {
-		NSUInteger	options = [anObject unsignedIntValue];
+		NSUInteger	options = [anObject unsignedIntegerValue];
 		[optionIgnoreCase setState:((options & OgreIgnoreCaseOption)? NSOnState : NSOffState)];
 	}
 	
 	anObject = [history objectForKey:MySyntaxKey];
 	if (anObject != nil) {
-		int	syntax = [anObject intValue];
+		NSInteger	syntax = [anObject integerValue];
 		[optionRegex setState:((syntax != [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax])? NSOnState : NSOffState)];
 	}
 	

@@ -65,7 +65,7 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 // 名前がnameのgroup number
 // 存在しない名前の場合は-1を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は-2を返す。
-- (int)groupIndexForName:(NSString*)name;
+- (NSInteger)groupIndexForName:(NSString*)name;
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
 - (NSString*)nameForGroupIndex:(NSUInteger)index;
