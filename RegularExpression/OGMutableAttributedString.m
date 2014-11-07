@@ -125,8 +125,8 @@
 	NSFont			*srcFont, *font;
 	NSString		*appendantFontFamilyName = nil, *srcFontFamilyName;
 	NSFontTraitMask	appendantFontTraits, srcFontTraits, newFontTraits = 0;
-	float			appendantFontWeight = 0, srcFontWeight;
-	float			appendantFontPointSize = 0, srcFontPointSize;
+	CGFloat			appendantFontWeight = 0, srcFontWeight;
+	CGFloat			appendantFontPointSize = 0, srcFontPointSize;
 	NSFont			*newFont;
 	NSDictionary	*srcAttributes;
 	NSAttributedString	*srcAttributedString = [srcString attributedString];
@@ -256,8 +256,8 @@
 	NSFont			*font;
 	NSString		*appendantFontFamilyName = nil;
 	NSFontTraitMask	appendantFontTraits, newFontTraits = 0;
-	float			appendantFontWeight = 0;
-	float			appendantFontPointSize = 0;
+	CGFloat			appendantFontWeight = 0;
+	CGFloat			appendantFontPointSize = 0;
 	NSFont			*newFont;
 	
 	if (mergeAttributes) {

@@ -94,7 +94,7 @@ typedef enum {
 
 // setting of result outline view
 - (NSCell*)nameCell;
-- (float)rowHeight;
+- (CGFloat)rowHeight;
 // delegate method of the find result outline view
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 

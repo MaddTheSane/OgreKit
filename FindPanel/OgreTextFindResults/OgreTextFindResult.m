@@ -15,6 +15,8 @@
 #import <OgreKit/OgreTextFindProgressSheet.h>
 #import <OgreKit/OgreTextFindThread.h>
 
+#import <tgmath.h>
+
 @implementation OgreTextFindResult
 
 + (id)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
@@ -180,7 +182,7 @@
 #else
     float   hue, saturation, brightness, alpha;
 #endif
-    double  dummy;
+    CGFloat  dummy;
     
     [[aColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
         getHue: &hue 
@@ -195,7 +197,7 @@
     _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
         [_highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
-            modf(hue + (isSimple? (float)(i - 1) : (float)i) / (isSimple? (float)numberOfGroups : (float)(numberOfGroups + 1)), &dummy) 
+            modf(hue + (isSimple? (CGFloat)(i - 1) : (CGFloat)i) / (isSimple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
@@ -343,7 +345,7 @@
     return nameCell;
 }
 
-- (float)rowHeight
+- (CGFloat)rowHeight
 {
     if ([_target isKindOfClass:[NSOutlineView class]]) {
         return [(NSOutlineView*)_target rowHeight];

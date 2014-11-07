@@ -19,6 +19,7 @@
 
 #import <OgreKit/OgreTextFindResult.h>
 
+#import <tgmath.h>
 
 @implementation OgreHighlightThread
 
@@ -76,13 +77,13 @@
     numberOfGroups = [regex numberOfGroups];
     NSUInteger  i;
     BOOL        simple = ([regex syntax] == OgreSimpleMatchingSyntax);
-    double      dummy;
+    CGFloat     dummy;
     
     highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
         [highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
-            modf(hue + (simple? (float)(i - 1) : (float)i) / 
-                (simple? (float)numberOfGroups : (float)(numberOfGroups + 1)), &dummy)
+            modf(hue + (simple? (CGFloat)(i - 1) : (CGFloat)i) /
+                (simple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
