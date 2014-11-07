@@ -368,6 +368,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	} else {
 		//[replaceTextView setString:@""];
 	}
+    [replaceHistory release];
 	
 	NSMutableArray	*attrReplaceHistory = [NSMutableArray arrayWithArray:[history objectForKey:OgreAFPCAttributedReplaceHistoryKey]];
 	if ((attrReplaceHistory != nil) && ([attrReplaceHistory count] > 0)) {
