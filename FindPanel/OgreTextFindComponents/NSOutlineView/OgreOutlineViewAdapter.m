@@ -57,7 +57,7 @@
     OgreOutlineCellAdapter      *cellAdapter;
     
     if ([_outlineView numberOfColumns] == 0 || [_outlineView numberOfRows] == 0) return nil;
-    int     level = 0, index;
+    NSInteger level = 0, index;
     NSArray *path = [_outlineView ogrePathComponentsOfSelectedItem];
     
     // root
@@ -262,7 +262,7 @@
     OgreOutlineCellAdapter      *cellAdapter;
     
     if ([_outlineView numberOfColumns] == 0 || [_outlineView numberOfRows] == 0) return nil;
-    int     level = 0, index;
+    NSInteger level = 0, index;
     NSArray *path = [_outlineView ogrePathComponentsOfSelectedItem];
     
     // outline view

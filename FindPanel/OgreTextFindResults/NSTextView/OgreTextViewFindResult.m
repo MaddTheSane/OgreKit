@@ -74,7 +74,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	_updateCacheAbsoluteLocation = 0;
     
     // result leaf array
-    int index, count = [self count];
+    NSUInteger index, count = [self count];
     _childArray = [[NSMutableArray alloc] initWithCapacity:count];
     for (index = 0; index < count; index++) {
         OgreTextViewMatchFindResult *child = [[[OgreTextViewMatchFindResult alloc] init] autorelease];
@@ -153,10 +153,10 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	
 	NSArray         *matchArray = [_matchRangeArray objectAtIndex:(index + 1)];   // 0番目はダミー
     NSMutableArray  *rangeArray;
-	int             i, n = [matchArray count];
+	NSUInteger      i, n = [matchArray count];
 	NSString        *text = [_textView string];
     NSRange         range, matchRange;
-    int             matchLocation = 0;
+    NSUInteger      matchLocation = 0;
     
 	// キャッシュを更新
 	if (index > _cacheIndex) {

@@ -22,8 +22,8 @@
     
     OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:@"a"];
     
-    int count = 0;
-    int i;
+    NSUInteger count = 0;
+    NSUInteger i;
     for (i = 0; i < 1000000000; i++) {
         NSEnumerator  *matcher = [regex matchEnumeratorInString:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
         OGRegularExpressionMatch  *match;

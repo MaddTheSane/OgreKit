@@ -104,7 +104,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    NSUInteger  count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
+    NSInteger  count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
     
     return 1 /* self cell */ + count;
 }
@@ -154,7 +154,7 @@
     enumerator = [enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     
     if ([self isTerminal]) {
-        int terminal;
+        NSInteger terminal;
         OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
         NSArray *path = [outlineView ogrePathComponentsOfSelectedItem];
         terminal = [[path objectAtIndex:[self level] + 1] intValue] + 1;
@@ -204,12 +204,12 @@
     return _outlineColumn;
 }
 
-- (void)setLevel:(int)level
+- (void)setLevel:(NSInteger)level
 {
     _level = level;
 }
 
-- (int)level
+- (NSInteger)level
 {
     return _level;
 }

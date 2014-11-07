@@ -208,7 +208,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 			
 	NSAutoreleasePool   *pool = [[NSAutoreleasePool alloc] init];
 	OGRegularExpressionMatch	*match;
-	int matches = 0;
+	NSUInteger matches = 0;
 	while ( (match = [self nextObject]) != nil ) {
 		[matchArray addObject:match];
 		matches++;

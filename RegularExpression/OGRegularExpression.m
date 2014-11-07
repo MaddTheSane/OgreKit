@@ -240,7 +240,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			break;
 	}
 	
-	int 			r;
+	NSInteger		r;
 	OnigErrorInfo	einfo;
 	
 	// UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから)
@@ -310,7 +310,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		NSEnumerator	*keyEnumerator = [groupIndexForNameDictionary keyEnumerator];
 		NSString		*name;
 		NSMutableArray	*array;
-		int 			i, maxGroupIndex = 0;
+		NSInteger		i, maxGroupIndex = 0;
 		while ((name = [keyEnumerator nextObject]) != nil) {
             NSUInteger      lengthOfName = [name length];
 			unichar         *UTF16Name = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * lengthOfName);
@@ -409,7 +409,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
-	int 			r;
+	NSInteger 		r;
     NSUInteger      length;
 	unichar         *UTF16Str;
 	OnigErrorInfo	einfo;

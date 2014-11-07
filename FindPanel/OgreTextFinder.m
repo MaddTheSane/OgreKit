@@ -271,7 +271,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-	int i, n;
+	NSUInteger i, n;
 	NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
 	while ([menuArray count] > 0) {
 		NSMenu      *aMenu = [menuArray objectAtIndex:0];

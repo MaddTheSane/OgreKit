@@ -38,7 +38,7 @@
 - (void)ogreSelectionDidChange:(NSNotification*)aNotification
 {
     _ogreSelectedColumn = [self selectedColumn];
-    int selectedRow = [self selectedRow];
+    NSInteger selectedRow = [self selectedRow];
     
     if (_ogreSelectedColumn == -1 && selectedRow == -1) {
         _ogreSelectedRange = NSMakeRange(0, 0);
@@ -69,14 +69,14 @@
         return _ogrePathComponents;
     }
     
-    int level = [self levelForItem:_ogreSelectedItem];
-    int row = [self rowForItem:_ogreSelectedItem];
+    NSInteger level = [self levelForItem:_ogreSelectedItem];
+    NSInteger row = [self rowForItem:_ogreSelectedItem];
     if (level == -1 || row == -1) return nil;
     
     _ogrePathComponents = [[NSMutableArray alloc] initWithCapacity:level + 1];
     
-    int index = 0;
-    int targetLevel;
+    NSInteger index = 0;
+    NSInteger targetLevel;
     while (row > 0) {
         row--;
         targetLevel = [self levelForRow:row];

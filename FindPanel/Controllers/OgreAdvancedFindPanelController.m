@@ -20,8 +20,8 @@
 #import <OgreKit/OgreAttachableWindowMediator.h>
 
 // 諸設定
-static const int  OgreAFPCMaximumLeftMargin = 30;   // 検索結果の左側の最大文字数 (マッチ結果が隠れてしまうことを防ぐ)
-static const int  OgreAFPCMaximumMatchedStringLength = 250; // 検索結果の最大文字数
+static const NSInteger  OgreAFPCMaximumLeftMargin = 30;   // 検索結果の左側の最大文字数 (マッチ結果が隠れてしまうことを防ぐ)
+static const NSInteger  OgreAFPCMaximumMatchedStringLength = 250; // 検索結果の最大文字数
 
 // OgreAPFCLocalizable.stringsを使用したローカライズ
 #define OgreAPFCLocalizedString(key)	[[OgreTextFinder ogreKitBundle] localizedStringForKey:(key) value:(key) table:@"OgreAPFCLocalizable"]
@@ -88,7 +88,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	// initialize
 	// syntaxを見分けるtagを設定
-	int i;
+	NSInteger i;
 	for (i=0; i<=8; i++) {
 		[[syntaxPopUpButton itemAtIndex:i] setTag:[OGRegularExpression intValueForSyntax:[self syntaxForIndex:i]]];
 	}
@@ -791,7 +791,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (NSString*)escapeCharacter
 {
-	int tag = [[escapeCharacterPopUpButton selectedItem] tag];
+	NSInteger tag = [[escapeCharacterPopUpButton selectedItem] tag];
 	// 0: ＼
 	// 1: ￥
 	// 2: ＼ (Convert ￥ to ＼)
@@ -806,7 +806,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (BOOL)shouldEquateYenWithBackslash
 {
-	int tag = [[escapeCharacterPopUpButton selectedItem] tag];
+	NSInteger tag = [[escapeCharacterPopUpButton selectedItem] tag];
 	// 0: ＼
 	// 1: ￥
 	// 2: ＼ (Convert ￥ to ＼)

@@ -21,13 +21,13 @@
 {
     OgreOutlineColumn   *_outlineColumn;
     id              _item;
-    int             _level;
+    NSInteger       _level;
 }
 
 - (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
 - (OgreOutlineColumn*)outlineColumn;
-- (void)setLevel:(int)level;
-- (int)level;
+- (void)setLevel:(NSInteger)level;
+- (NSInteger)level;
 - (void)expandItemEnclosingItem:(id)item;
 
 @end

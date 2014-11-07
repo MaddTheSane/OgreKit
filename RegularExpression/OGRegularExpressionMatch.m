@@ -377,7 +377,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 最後にマッチした部分文字列 ¥+
 - (NSObject<OGStringProtocol>*)lastMatchOGSubstring
 {
-	int i = [self count] - 1;
+	NSUInteger i = [self count] - 1;
 	while ( (i > 0) && (_region->beg[i] == -1) ) {
 		i--;
 	}
@@ -390,7 +390,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 - (NSString*)lastMatchSubstring
 {
-	int i = [self count] - 1;
+	NSUInteger i = [self count] - 1;
 	while ( (i > 0) && (_region->beg[i] == -1) ) {
 		i--;
 	}
@@ -403,7 +403,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 - (NSAttributedString*)lastMatchAttributedSubstring
 {
-	int i = [self count] - 1;
+	NSUInteger i = [self count] - 1;
 	while ( (i > 0) && (_region->beg[i] == -1) ) {
 		i--;
 	}
@@ -417,7 +417,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 最後にマッチした部分文字列の範囲 ¥+
 - (NSRange)rangeOfLastMatchSubstring
 {
-	int i = [self count] - 1;
+	NSUInteger i = [self count] - 1;
 	while ( (i > 0) && (_region->beg[i] == -1) ) {
 		i--;
 	}
