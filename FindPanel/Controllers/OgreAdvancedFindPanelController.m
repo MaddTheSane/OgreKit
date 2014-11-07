@@ -663,13 +663,14 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)clearFindReplaceHistories:(id)sender
 {
 	[findPanel makeKeyAndOrderFront:self];
+    NSString *clearHistoryMessage = OgreAPFCLocalizedString(@"Do you really want to clear find/replace histories?");
 	NSBeginAlertSheet(OgreAPFCLocalizedString(@"Clear"), 
 		OgreAPFCLocalizedString(@"Yes"), 
 		OgreAPFCLocalizedString(@"No"), 
 		nil, findPanel, self, 
 		@selector(clearFindPeplaceHistoriesSheetDidEnd:returnCode:contextInfo:), 
 		@selector(sheetDidDismiss:returnCode:contextInfo:), nil, 
-		OgreAPFCLocalizedString(@"Do you really want to clear find/replace histories?"));
+		@"%@", clearHistoryMessage);
 	_isAlertSheetOpen = YES;
 }
 
@@ -1015,7 +1016,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 {
 	NSBeep();
 	[findPanel makeKeyAndOrderFront:self];
-	NSBeginAlertSheet(title, OgreAPFCLocalizedString(@"OK"), nil, nil, findPanel, self, nil, @selector(sheetDidDismiss:returnCode:contextInfo:), nil, message);
+	NSBeginAlertSheet(title, OgreAPFCLocalizedString(@"OK"), nil, nil, findPanel, self, nil, @selector(sheetDidDismiss:returnCode:contextInfo:), nil, @"%@", message);
 	_isAlertSheetOpen = YES;
 }
 
