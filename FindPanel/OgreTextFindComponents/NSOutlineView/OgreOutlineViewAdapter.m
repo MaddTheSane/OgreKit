@@ -297,7 +297,7 @@
     return [_outlineView window];
 }
 
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 {
     return -1;  // indeterminate
 }

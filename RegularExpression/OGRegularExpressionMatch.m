@@ -71,7 +71,7 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 		// メモリを確保できなかった場合、例外を発生させる。
 		[NSException raise:NSMallocException format:@"fail to memory allocation"];
 	}
-	unsigned		i = 0, n = [regionArray count];
+	NSUInteger		i = 0, n = [regionArray count];
 	NSArray			*anObject;
 	int				r;
 	
@@ -156,13 +156,13 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 @implementation OGRegularExpressionMatch
 
 // マッチした順番
-- (unsigned)index
+- (NSUInteger)index
 {
 	return _index;
 }
 
 // 部分文字列の数 + 1
-- (unsigned)count
+- (NSUInteger)count
 {
 	return _region->num_regs;
 }
@@ -190,7 +190,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // index番目のsubstringの範囲
-- (NSRange)rangeOfSubstringAtIndex:(unsigned)index
+- (NSRange)rangeOfSubstringAtIndex:(NSUInteger)index
 {
 	if ( (index >= _region->num_regs) || (_region->beg[index] == -1) ) {
 		// index番目のsubstringが存在しない場合
@@ -202,7 +202,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // index番目のsubstring \n
-- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(unsigned)index
+- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(NSUInteger)index
 {
 	// index番目のsubstringが存在しない時には nil を返す
 	if ( (index >= _region->num_regs) || (_region->beg[index] == -1) ){
@@ -212,7 +212,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	return [_targetString substringWithRange:NSMakeRange(_region->beg[index] / sizeof(unichar), (_region->end[index] - _region->beg[index]) / sizeof(unichar))];
 }
 
-- (NSString*)substringAtIndex:(unsigned)index
+- (NSString*)substringAtIndex:(NSUInteger)index
 {
 	// index番目のsubstringが存在しない時には nil を返す
 	if ( (index >= _region->num_regs) || (_region->beg[index] == -1) ){
@@ -222,7 +222,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	return [[_targetString string] substringWithRange:NSMakeRange(_region->beg[index] / sizeof(unichar), (_region->end[index] - _region->beg[index]) / sizeof(unichar))];
 }
 
-- (NSAttributedString*)attributedSubstringAtIndex:(unsigned)index
+- (NSAttributedString*)attributedSubstringAtIndex:(NSUInteger)index
 {
 	// index番目のsubstringが存在しない時には nil を返す
 	if ( (index >= _region->num_regs) || (_region->beg[index] == -1) ){
@@ -491,7 +491,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 	
 	
-	// unsigned	_terminalOfLastMatch;	// 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
+	// NSUInteger	_terminalOfLastMatch;	// 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreTerminalOfLastMatchKey];
 	} else {
@@ -505,7 +505,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	_terminalOfLastMatch = [anObject unsignedIntValue];
 
 	
-	// 	unsigned		_index;		// マッチした順番
+	// 	NSUInteger		_index;		// マッチした順番
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreIndexOfMatchKey];
 	} else {
@@ -627,7 +627,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 名前がnameの部分文字列のindex
 // 存在しない場合は-1を返す
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (unsigned)indexOfSubstringNamed:(NSString*)name
+- (NSUInteger)indexOfSubstringNamed:(NSString*)name
 {
 	int	index = [[_enumerator regularExpression] groupIndexForName:name];
 	if (index == -2) {
@@ -640,7 +640,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
-- (NSString*)nameOfSubstringAtIndex:(unsigned)index
+- (NSString*)nameOfSubstringAtIndex:(NSUInteger)index
 {
 	return [[_enumerator regularExpression] nameForGroupIndex:index];
 }
@@ -648,9 +648,9 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 
 // マッチした部分文字列のうちグループ番号が最小のもの
-- (unsigned)indexOfFirstMatchedSubstringInRange:(NSRange)aRange
+- (NSUInteger)indexOfFirstMatchedSubstringInRange:(NSRange)aRange
 {
-	unsigned	index, count = [self count];
+	NSUInteger	index, count = [self count];
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 	
 	for (index = aRange.location; index < count; index++) {
@@ -667,9 +667,9 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 
 // マッチした部分文字列のうちグループ番号が最大のもの
-- (unsigned)indexOfLastMatchedSubstringInRange:(NSRange)aRange
+- (NSUInteger)indexOfLastMatchedSubstringInRange:(NSRange)aRange
 {
-	unsigned	index, count = [self count];
+	NSUInteger	index, count = [self count];
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 
 	for (index = count - 1; index >= aRange.location; index--) {
@@ -686,11 +686,11 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 
 // マッチした部分文字列のうち最長のもの
-- (unsigned)indexOfLongestSubstringInRange:(NSRange)aRange
+- (NSUInteger)indexOfLongestSubstringInRange:(NSRange)aRange
 {
 	BOOL		matched = NO;
-	unsigned	maxLength = 0;
-	unsigned	maxIndex = 0, i, count = [self count];
+	NSUInteger	maxLength = 0;
+	NSUInteger	maxIndex = 0, i, count = [self count];
 	NSRange		range;
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 
@@ -713,11 +713,11 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 
 // マッチした部分文字列のうち最短のもの
-- (unsigned)indexOfShortestSubstringInRange:(NSRange)aRange
+- (NSUInteger)indexOfShortestSubstringInRange:(NSRange)aRange
 {
 	BOOL		matched = NO;
-	unsigned	minLength = 0;
-	unsigned	minIndex = 0, i, count = [self count];
+	NSUInteger	minLength = 0;
+	NSUInteger	minIndex = 0, i, count = [self count];
 	NSRange		range;
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 	
@@ -739,17 +739,17 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // マッチした部分文字列のうちグループ番号が最小のもの (ない場合は0を返す)
-- (unsigned)indexOfFirstMatchedSubstring
+- (NSUInteger)indexOfFirstMatchedSubstring
 {
 	return [self indexOfFirstMatchedSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (unsigned)indexOfFirstMatchedSubstringBeforeIndex:(unsigned)anIndex
+- (NSUInteger)indexOfFirstMatchedSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self indexOfFirstMatchedSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (unsigned)indexOfFirstMatchedSubstringAfterIndex:(unsigned)anIndex
+- (NSUInteger)indexOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self indexOfFirstMatchedSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
@@ -760,29 +760,29 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	return [self nameOfFirstMatchedSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (NSString*)nameOfFirstMatchedSubstringBeforeIndex:(unsigned)anIndex
+- (NSString*)nameOfFirstMatchedSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self nameOfFirstMatchedSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (NSString*)nameOfFirstMatchedSubstringAfterIndex:(unsigned)anIndex
+- (NSString*)nameOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self nameOfFirstMatchedSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
 
 
 // マッチした部分文字列のうちグループ番号が最大のもの (ない場合は0を返す)
-- (unsigned)indexOfLastMatchedSubstring
+- (NSUInteger)indexOfLastMatchedSubstring
 {
 	return [self indexOfLastMatchedSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (unsigned)indexOfLastMatchedSubstringBeforeIndex:(unsigned)anIndex
+- (NSUInteger)indexOfLastMatchedSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self indexOfLastMatchedSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (unsigned)indexOfLastMatchedSubstringAfterIndex:(unsigned)anIndex
+- (NSUInteger)indexOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self indexOfLastMatchedSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
@@ -793,29 +793,29 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	return [self nameOfLastMatchedSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (NSString*)nameOfLastMatchedSubstringBeforeIndex:(unsigned)anIndex
+- (NSString*)nameOfLastMatchedSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self nameOfLastMatchedSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (NSString*)nameOfLastMatchedSubstringAfterIndex:(unsigned)anIndex
+- (NSString*)nameOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self nameOfLastMatchedSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
 
 
 // マッチした部分文字列のうち最長のもの (ない場合は0を返す。同じ長さの物が複数あれば、番号の小さい物が優先される)
-- (unsigned)indexOfLongestSubstring
+- (NSUInteger)indexOfLongestSubstring
 {
 	return [self indexOfLongestSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (unsigned)indexOfLongestSubstringBeforeIndex:(unsigned)anIndex
+- (NSUInteger)indexOfLongestSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self indexOfLongestSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (unsigned)indexOfLongestSubstringAfterIndex:(unsigned)anIndex
+- (NSUInteger)indexOfLongestSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self indexOfLongestSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
@@ -826,29 +826,29 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	return [self nameOfLongestSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (NSString*)nameOfLongestSubstringBeforeIndex:(unsigned)anIndex
+- (NSString*)nameOfLongestSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self nameOfLongestSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (NSString*)nameOfLongestSubstringAfterIndex:(unsigned)anIndex
+- (NSString*)nameOfLongestSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self nameOfLongestSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
 
 
 // マッチした部分文字列のうち最短のもの (ない場合は0を返す。同じ長さの物が複数あれば、番号の小さい物が優先される)
-- (unsigned)indexOfShortestSubstring
+- (NSUInteger)indexOfShortestSubstring
 {
 	return [self indexOfShortestSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (unsigned)indexOfShortestSubstringBeforeIndex:(unsigned)anIndex
+- (NSUInteger)indexOfShortestSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self indexOfShortestSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (unsigned)indexOfShortestSubstringAfterIndex:(unsigned)anIndex
+- (NSUInteger)indexOfShortestSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self indexOfShortestSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }
@@ -859,12 +859,12 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	return [self nameOfShortestSubstringInRange:NSMakeRange(1, [self count] - 1)];
 }
 
-- (NSString*)nameOfShortestSubstringBeforeIndex:(unsigned)anIndex
+- (NSString*)nameOfShortestSubstringBeforeIndex:(NSUInteger)anIndex
 {
 	return [self nameOfShortestSubstringInRange:NSMakeRange(1, anIndex - 1)];
 }
 
-- (NSString*)nameOfShortestSubstringAfterIndex:(unsigned)anIndex
+- (NSString*)nameOfShortestSubstringAfterIndex:(NSUInteger)anIndex
 {
 	return [self nameOfShortestSubstringInRange:NSMakeRange(anIndex, [self count] - anIndex)];
 }

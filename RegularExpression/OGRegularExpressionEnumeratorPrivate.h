@@ -60,8 +60,8 @@ static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
  *********************/
 - (void)_setTerminalOfLastMatch:(int)location;
 - (void)_setIsLastMatchEmpty:(BOOL)yesOrNo;
-- (void)_setStartLocation:(unsigned)location;
-- (void)_setNumberOfMatches:(unsigned)aNumber;
+- (void)_setStartLocation:(NSUInteger)location;
+- (void)_setNumberOfMatches:(NSUInteger)aNumber;
 
 - (NSObject<OGStringProtocol>*)targetString;
 - (unichar*)UTF16TargetString;

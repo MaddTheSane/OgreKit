@@ -95,7 +95,7 @@
 - (BOOL)isLeaf { return YES; }
 - (BOOL)isBranch { return NO; }
 - (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection { return 0; }
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection { return 0; }
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection { return 0; }
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection { return nil; }
 
 - (OgreTextFindBranch*)parent
@@ -123,7 +123,7 @@
 /* Accessor methods */
 - (void)beginEditing { /* do nothing */ }
 - (void)endEditing { /* do nothing */ }
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity { /* do nothing */ }
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity { /* do nothing */ }
 - (void)endRegisteringUndo { /* do nothing */ }
 
 - (BOOL)isSelected

@@ -38,7 +38,7 @@
 - (BOOL)isLeaf;
 - (BOOL)isBranch;
 - (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection;
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection;
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection;
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection;
 
 - (OgreTextFindBranch*)parent;

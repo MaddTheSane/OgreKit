@@ -116,7 +116,7 @@
 #endif
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
 }
 

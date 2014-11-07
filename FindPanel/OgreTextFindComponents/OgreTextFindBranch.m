@@ -117,7 +117,7 @@
     return 0; 
 }
 
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 { 
     NSUInteger          numberOfDescendants = 0;
     NSEnumerator        *enumerator = (NSEnumerator*)[self componentEnumeratorInSelection:inSelection];
