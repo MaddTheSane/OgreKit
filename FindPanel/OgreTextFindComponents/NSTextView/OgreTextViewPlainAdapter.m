@@ -195,7 +195,7 @@
 - (BOOL)isEditable { return YES; }
 - (BOOL)isHighlightable { return YES; }
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread {
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread {
     return [[[OgreTextViewFindResult alloc] initWithTextView:_textView] autorelease]; 
 }
 
