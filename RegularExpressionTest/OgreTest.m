@@ -87,12 +87,12 @@
 			[resultTextView insertText: [NSString stringWithFormat:@"prematch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [match prematchString]]];
 		} else {
 			NSRange	range = [match rangeOfStringBetweenMatchAndLastMatch];
-			[resultTextView insertText: [NSString stringWithFormat:@"string between match #%d and match #%d: (%lu-%lu) \"%@\"\n", matches - 1, matches, (unsigned long)range.location, (unsigned long)range.location + range.length, [match stringBetweenMatchAndLastMatch]]];
+			[resultTextView insertText: [NSString stringWithFormat:@"string between match #%ld and match #%ld: (%lu-%lu) \"%@\"\n", matches - 1, (long)matches, (unsigned long)range.location, (unsigned long)range.location + range.length, [match stringBetweenMatchAndLastMatch]]];
 		}
 
 		for (i = 0; i < [match count]; i++) {
 			NSRange	subexpRange = [match rangeOfSubstringAtIndex:i];
-			[resultTextView insertText: [NSString stringWithFormat:@"#%lu.%d", (unsigned long)[match index], i]];
+			[resultTextView insertText: [NSString stringWithFormat:@"#%lu.%ld", (unsigned long)[match index], (long)i]];
 			if([match nameOfSubstringAtIndex:i] != nil) {
 				[resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [match nameOfSubstringAtIndex:i]]];
 			}
@@ -228,7 +228,7 @@
 	NSMutableString *mstr = [NSMutableString stringWithString:string];
 	NSUInteger	numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
 		withString:@"F" options:OgreNoneOption range:NSMakeRange(0, [string length])];
-	NSLog(@"%d %@", numberOfReplacement, mstr);
+	NSLog(@"%lu %@", (unsigned long)numberOfReplacement, mstr);
 	NSRange matchRange = [string rangeOfRegularExpressionString:@"\\s*,\\s*"];
 	NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
 }

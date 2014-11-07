@@ -169,7 +169,7 @@
 				/* coffee break */
 				if (shouldContinue) {
 					[_progressDelegate setProgress:[self progressPercentage] message:[self progressMessage]];
-					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%d/%@", _numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%d", _numberOfTotalLeaves])]];
+					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%ld/%@", (long)_numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%ld", (long)_numberOfTotalLeaves])]];
 				}
 				[_metronome release];
 				_metronome = [[NSDate alloc] init];
@@ -250,7 +250,7 @@
 		} else {
 			/* finish up */
 			[_progressDelegate done:[self donePercentage] message:[self doneMessage]];
-			[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%d/%@", _numberOfDoneLeaves, (_numberOfTotalLeaves == -1? @"???" : [NSString stringWithFormat:@"%d", _numberOfTotalLeaves])]];
+			[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%ld/%@", (long)_numberOfDoneLeaves, (_numberOfTotalLeaves == -1? @"???" : [NSString stringWithFormat:@"%ld", (long)_numberOfTotalLeaves])]];
 			
 			[self didProcessFindingAll];
 			
