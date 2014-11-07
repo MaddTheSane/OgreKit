@@ -32,15 +32,15 @@
 #endif
 	self = [super init];
 	if (self) {
-		// �����Ώە������ێ�
-		// target string��UTF16������ɕϊ�����B
+		// 検索対象文字列を保持
+		// target stringをUTF16文字列に変換する。
 		_targetString = [targetString copy];
 		NSString	*targetPlainString = [_targetString string];
         _lengthOfTargetString = [_targetString length];
         
-        _UTF16TargetString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * (_lengthOfTargetString + 4));	// +4��oniguruma��memory access violation���ւ̑Ώ��Ö@
+        _UTF16TargetString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * (_lengthOfTargetString + 4));	// +4はonigurumaのmemory access violation問題への対処療法
         if (_UTF16TargetString == NULL) {
-            // ���������m�ۂł��Ȃ������ꍇ�A��O�𔭐�������B
+            // メモリを確保できなかった場合、例外を発生させる。
             [self release];
             [NSException raise:NSMallocException format:@"fail to allocate a memory"];
         }
@@ -56,29 +56,29 @@
             }
         }*/
         
-		// �����͈�
+		// 検索範囲
 		_searchRange = searchRange;
 		
-		// ���K�\���I�u�W�F�N�g��ێ�
+		// 正規表現オブジェクトを保持
 		_regex = [regex retain];
 		
-		// �����I�v�V����
+		// 検索オプション
 		_searchOptions = searchOptions;
 		
-		/* �����l�ݒ� */
-		// �Ō�Ƀ}�b�`����������̏I�[�ʒu
-		// �����l 0
-		// �l >=  0 �I�[�ʒu
-		// �l == -1 �}�b�`�I��
+		/* 初期値設定 */
+		// 最後にマッチした文字列の終端位置
+		// 初期値 0
+		// 値 >=  0 終端位置
+		// 値 == -1 マッチ終了
 		_terminalOfLastMatch = 0;
 		
-		// �}�b�`�J�n�ʒu
+		// マッチ開始位置
 		_startLocation = 0;
 	
-		// �O��̃}�b�`���󕶎��񂾂������ǂ���
+		// 前回のマッチが空文字列だったかどうか
 		_isLastMatchEmpty = NO;
 		
-		// �}�b�`������
+		// マッチした数
 		_numberOfMatches = 0;
 	}
 	
