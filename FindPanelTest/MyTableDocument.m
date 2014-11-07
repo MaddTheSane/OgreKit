@@ -262,7 +262,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
             middleArray = [NSMutableArray arrayWithCapacity:1];
             pEnumerator = [rowIndexArray reverseObjectEnumerator];
             while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
-                anIndex = [rowIndexNumber intValue];
+                anIndex = [rowIndexNumber integerValue];
                 [middleArray addObject:[columnArray objectAtIndex:anIndex]];
                 [columnArray removeObjectAtIndex:anIndex];
             }
