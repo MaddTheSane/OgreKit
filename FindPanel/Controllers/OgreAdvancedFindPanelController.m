@@ -15,7 +15,6 @@
 #import <OgreKit/OgreTextFinder.h>
 #import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreAFPCEscapeCharacterFormatter.h>
-#import <OgreKit/OgreTextFindProgressSheet.h>
 #import <OgreKit/OgreFindResultWindowController.h>
 #import <OgreKit/OgreAttachableWindowMediator.h>
 

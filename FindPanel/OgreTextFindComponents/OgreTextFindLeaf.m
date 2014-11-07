@@ -14,7 +14,6 @@
 #import <OgreKit/OgreTextFindLeaf.h>
 #import <OgreKit/OgreTextFindBranch.h>
 #import <OgreKit/OgreTextFindResult.h>
-#import <OgreKit/OgreFindResultLeaf.h>
 
 
 @implementation OgreTextFindLeaf

@@ -12,7 +12,6 @@
  */
 
 #import <OgreKit/OGMutableAttributedString.h>
-#import <AppKit/AppKit.h>
 
 @implementation OGMutableAttributedString
 

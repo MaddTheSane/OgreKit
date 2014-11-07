@@ -17,7 +17,6 @@
 #import <OgreKit/OGRegularExpressionMatchPrivate.h>
 #import <OgreKit/OGRegularExpressionCapture.h>
 #import <OgreKit/OGRegularExpressionCapturePrivate.h>
-#import <OgreKit/OGString.h>
 
 
 NSString	* const OgreCaptureException = @"OGRegularExpressionCaptureException";

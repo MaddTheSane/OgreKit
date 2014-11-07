@@ -12,7 +12,6 @@
  */
 
 #import <OgreKit/OgreTextFindProgressSheet.h>
-#import <OgreKit/OgreTextFindThread.h>
 
 @implementation OgreTextFindProgressSheet
 

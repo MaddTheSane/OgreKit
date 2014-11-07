@@ -19,8 +19,6 @@
 #import <OgreKit/OgreTableView.h>
 #import <OgreKit/OgreTableColumn.h>
 
-#import <OgreKit/OGRegularExpressionMatch.h>
-
 @implementation OgreTableCellFindResult
 
 - (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex

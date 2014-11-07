@@ -12,7 +12,6 @@
  */
 
 #import <OgreKit/OgreTableColumn.h>
-#import <OgreKit/NSString_OgreKitAdditions.h>
 
 @implementation OgreTableColumn
 

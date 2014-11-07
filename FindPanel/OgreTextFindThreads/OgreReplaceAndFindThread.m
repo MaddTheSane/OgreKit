@@ -13,8 +13,9 @@
 
 #import <OgreKit/OgreReplaceAndFindThread.h>
 #import <OgreKit/OgreFindResultLeaf.h>
-#import <OgreKit/OgreFindResultBranch.h>
+#import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OGReplaceExpression.h>
 
 
 @implementation OgreReplaceAndFindThread

@@ -15,8 +15,6 @@
 #import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreTextFindRoot.h>
 
-#import<OgreKit/OgreTextFindComponentEnumerator.h>
-
 @implementation OgreTextFindThread
 
 /* Creating and initializing */
