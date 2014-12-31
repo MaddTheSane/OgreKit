@@ -24,10 +24,9 @@
     int             _level;
 }
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
-- (OgreOutlineColumn*)outlineColumn;
-- (void)setLevel:(int)level;
-- (int)level;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
+@property (strong, readonly) OgreOutlineColumn *outlineColumn;
+@property int level;
 - (void)expandItemEnclosingItem:(id)item;
 
 @end

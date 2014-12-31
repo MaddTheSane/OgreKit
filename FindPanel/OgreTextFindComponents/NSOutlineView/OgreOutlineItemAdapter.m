@@ -22,6 +22,8 @@
 #import <OgreKit/OgreOutlineColumn.h>
 
 @implementation OgreOutlineItemAdapter
+@synthesize level = _level;
+@synthesize outlineColumn = _outlineColumn;
 
 - (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item
 {
@@ -99,7 +101,7 @@
 - (BOOL)isHighlightable { return NO; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
@@ -109,7 +111,7 @@
     return 1 /* self cell */ + count;
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);
@@ -124,7 +126,7 @@
         /* child item */
         id  childItem = [_outlineColumn ogreChild:(index - 1) ofItem:_item];
         adapter = [[[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:childItem] autorelease];
-        [adapter setLevel:[self level] + 1];
+        [(OgreOutlineItemAdapter*)adapter setLevel:[self level] + 1];
         
     }
     
@@ -197,21 +199,6 @@
 	NSLog(@"  -window of %@", [self className]);
 #endif
     return [[_outlineColumn tableView] window];
-}
-
-- (OgreOutlineColumn*)outlineColumn
-{
-    return _outlineColumn;
-}
-
-- (void)setLevel:(int)level
-{
-    _level = level;
-}
-
-- (int)level
-{
-    return _level;
 }
 
 - (void)expandItemEnclosingItem:(id)item

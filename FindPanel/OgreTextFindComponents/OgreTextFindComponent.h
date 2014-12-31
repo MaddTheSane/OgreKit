@@ -12,11 +12,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <AppKit/NSWindow.h>
 
 @protocol OgreTextFindVisitor;
 @class OgreTextFindLeaf, OgreTextFindBranch, OgreTextFindThread;
 
-@protocol OgreTextFindComponent
+@protocol OgreTextFindComponent <NSObject>
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor; // visitor pattern
 
 /* Delegate methods of the OgreTextFindThread */
@@ -31,36 +32,33 @@
 - (NSWindow*)window;
 
 /* Examing behavioral attributes */
-- (BOOL)isEditable;
-- (BOOL)isHighlightable;
+@property (readonly, getter=isEditable) BOOL editable;
+@property (readonly, getter=isHighlightable) BOOL highlightable;
 
 /* Getting and setting structural detail */
-- (BOOL)isLeaf;
-- (BOOL)isBranch;
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection;
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection;
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection;
+@property (readonly, getter=isLeaf) BOOL leaf;
+@property (readonly, getter=isBranch) BOOL branch;
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection;
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection;
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection;
 
-- (OgreTextFindBranch*)parent;
-- (void)setParent:(OgreTextFindBranch*)parent;
+@property (readwrite, retain) OgreTextFindBranch *parent;
 - (void)setParentNoRetain:(OgreTextFindBranch*)parent;
-- (int)index;
-- (void)setIndex:(int)index;
+@property NSInteger index;
+//@property (readonly) OgreTextFindLeaf *selectedLeaf;
 - (OgreTextFindLeaf*)selectedLeaf;
 
-- (BOOL)isTerminal;
-- (void)setTerminal:(BOOL)isTerminal;
-- (BOOL)isReversed;
-- (void)setReversed:(BOOL)isReversed;
+@property (getter=isTerminal) BOOL terminal;
+@property (getter=isReversed) BOOL reversed;
 
 @end
 
-@protocol OgreTextFindVisitor
+@protocol OgreTextFindVisitor <NSObject>
 - (void)visitLeaf:(OgreTextFindLeaf*)aLeaf;
 - (void)visitBranch:(OgreTextFindBranch*)aBranch;
 @end
 
-@protocol OgreTextFindTargetAdapter
+@protocol OgreTextFindTargetAdapter <NSObject>
 - (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread;
 - (void)moveHomePosition;
 @end

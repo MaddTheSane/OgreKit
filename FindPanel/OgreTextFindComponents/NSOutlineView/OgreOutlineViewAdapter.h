@@ -22,6 +22,6 @@
     OgreOutlineView *_outlineView;
 }
 
-- (id)initWithTarget:(id)anOutlineView;
+- (instancetype)initWithTarget:(id)anOutlineView;
 
 @end

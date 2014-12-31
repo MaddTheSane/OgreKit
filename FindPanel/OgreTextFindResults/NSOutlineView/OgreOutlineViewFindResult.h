@@ -21,6 +21,6 @@
     NSMutableArray  *_components;
 }
 
-- (id)initWithOutlineView:(OgreOutlineView*)outlineView;
+- (instancetype)initWithOutlineView:(OgreOutlineView*)outlineView;
 
 @end

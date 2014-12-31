@@ -29,7 +29,7 @@
 	OgreAttachableWindowMediator	*_attachedWindowMediator;
 }
 
-- (id)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate;
+- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
 - (NSWindow*)window;
 

@@ -23,7 +23,7 @@
 
 @implementation OgreTableCellAdapter
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTextView: of %@", [self className]);

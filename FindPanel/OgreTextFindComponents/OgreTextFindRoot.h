@@ -19,6 +19,6 @@
     NSObject <OgreTextFindComponent>    *_component;
 }
 
-- (id)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent;
+- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent;
 
 @end

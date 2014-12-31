@@ -46,45 +46,45 @@ extern NSString	* const OgreReplaceException;
   \x{HHHH}		16-bit Unicode character U+HHHH
   \その他の文字	\その他の文字
  */
-- (id)initWithString:(NSString*)replaceString 
+- (instancetype)initWithString:(NSString*)replaceString
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
-- (id)initWithString:(NSString*)replaceString 
+- (instancetype)initWithString:(NSString*)replaceString
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
-- (id)initWithString:(NSString*)replaceString 
+- (instancetype)initWithString:(NSString*)replaceString
 	escapeCharacter:(NSString*)character;
-- (id)initWithString:(NSString*)replaceString;
+- (instancetype)initWithString:(NSString*)replaceString;
 
-- (id)initWithAttributedString:(NSAttributedString*)replaceString 
+- (instancetype)initWithAttributedString:(NSAttributedString*)replaceString
 	options:(unsigned)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
-- (id)initWithAttributedString:(NSAttributedString*)replaceString
+- (instancetype)initWithAttributedString:(NSAttributedString*)replaceString
 	options:(unsigned)replaceOptions;
-- (id)initWithAttributedString:(NSAttributedString*)replaceString;
+- (instancetype)initWithAttributedString:(NSAttributedString*)replaceString;
 
-- (id)initWithOGString:(NSObject<OGStringProtocol>*)replaceString 
+- (instancetype)initWithOGString:(NSObject<OGStringProtocol>*)replaceString
 	options:(unsigned)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 
-+ (id)replaceExpressionWithString:(NSString*)replaceString 
++ (instancetype)replaceExpressionWithString:(NSString*)replaceString
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
-+ (id)replaceExpressionWithString:(NSString*)replaceString 
++ (instancetype)replaceExpressionWithString:(NSString*)replaceString
 	escapeCharacter:(NSString*)character;
-+ (id)replaceExpressionWithString:(NSString*)replaceString;
++ (instancetype)replaceExpressionWithString:(NSString*)replaceString;
 
-+ (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
++ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString
 	options:(unsigned)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
-+ (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
++ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString
 	options:(unsigned)options;
-+ (id)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString;
++ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString;
 
-+ (id)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
++ (instancetype)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
 	options:(unsigned)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;

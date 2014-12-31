@@ -18,6 +18,6 @@
 {
 }
 
-- (id)initWithTarget:(id)aTextView;
+- (instancetype)initWithTarget:(id)aTextView;
 
 @end

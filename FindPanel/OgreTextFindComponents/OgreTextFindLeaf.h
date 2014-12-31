@@ -19,7 +19,7 @@
 @interface OgreTextFindLeaf : NSObject <OgreTextFindComponent>
 {
     OgreTextFindBranch      *_parent;
-    int                     _index;
+    NSInteger               _index;
     BOOL                    _isParentRetained;
     
     BOOL                    _isTerminal;
@@ -46,7 +46,6 @@
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread;
 
-- (BOOL)isFirstLeaf;
-- (void)setFirstLeaf:(BOOL)isFirstLeaf;
+@property (getter=isFirstLeaf) BOOL firstLeaf;
 
 @end

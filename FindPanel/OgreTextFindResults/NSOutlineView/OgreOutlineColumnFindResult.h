@@ -21,7 +21,7 @@
     NSMutableArray      *_components;
 }
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn;
 - (void)targetIsMissing;
 - (void)expandItemEnclosingItem:(id)item;
 

@@ -16,6 +16,8 @@
 
 
 @implementation OgreTextFindComponentEnumerator
+@synthesize terminalIndex = _terminalIndex;
+@synthesize startIndex = _nextIndex;
 
 - (id)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
 {
@@ -28,11 +30,7 @@
         _terminalIndex = _count - 1;
         
         if (inSelection) {
-#ifdef MAC_OS_X_VERSION_10_6
-            _indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * _count);
-#else
-            _indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * _count);
-#endif
+            _indexes = (NSUInteger*)malloc(sizeof(NSUInteger) * _count);
             if (_indexes == NULL) {
                 // Error
                 [self release];
@@ -50,26 +48,16 @@
 #ifdef MAC_OS_X_VERSION_10_6
 - (void)finalize
 {
-    if (_indexes != NULL) NSZoneFree([self zone], _indexes);
+    if (_indexes != NULL) free(_indexes);
     [super finalize];
 }
 #endif
 
 - (void)dealloc
 {
-    if (_indexes != NULL) NSZoneFree([self zone], _indexes);
+    if (_indexes != NULL) free(_indexes);
     [_branch release];
     [super dealloc];
-}
-
-- (void)setTerminalIndex:(int)index
-{
-    _terminalIndex = index;
-}
-
-- (void)setStartIndex:(int)index
-{
-    _nextIndex = index;
 }
 
 - (id)nextObject

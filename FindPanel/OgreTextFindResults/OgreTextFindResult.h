@@ -28,13 +28,13 @@
 @end
 
 
-typedef enum {
+typedef NS_ENUM(int, OgreTextFindResultType) {
 	OgreTextFindResultFailure = 0, 
 	OgreTextFindResultSuccess = 1, 
 	OgreTextFindResultError = 2
-} OgreTextFindResultType;
+};
 
-@interface OgreTextFindResult : NSObject
+@interface OgreTextFindResult : NSObject <NSOutlineViewDelegate>
 {
 	OgreTextFindResultType		_resultType;
 	id							_target;
@@ -58,8 +58,8 @@ typedef enum {
     NSMutableArray              *_highlightColorArray;   // variations
 }
 
-+ (id)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
-- (id)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
++ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
 
 - (void)setType:(OgreTextFindResultType)resultType;
 - (BOOL)isSuccess;				/* success or failure(including error) */
@@ -73,18 +73,14 @@ typedef enum {
 - (void)endGrafting;
 - (void)addLeaf:(id)aLeaf;
 
-- (unsigned)numberOfMatches;
-- (void)setNumberOfMatches:(unsigned)aNumber;
+@property unsigned numberOfMatches;
 
-- (NSString*)title;
-- (void)setTitle:(NSString*)title;
+@property (nonatomic, copy) NSString *title;
 
 // マッチした文字列の左側の最大文字数 (-1: 無制限)
-- (int)maximumLeftMargin;
-- (void)setMaximumLeftMargin:(int)leftMargin;
+@property int maximumLeftMargin;
 // 最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。
-- (int)maximumMatchedStringLength;
-- (void)setMaximumMatchedStringLength:(int)aLength;
+@property int maximumMatchedStringLength;
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
@@ -93,8 +89,7 @@ typedef enum {
 - (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
 
 // delegate
-- (id)delegate;
-- (void)setDelegate:(id)aDelegate;
+@property (assign) id delegate;
 - (void)didUpdate;
 
 // setting of result outline view

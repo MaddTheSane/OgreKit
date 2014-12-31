@@ -17,6 +17,13 @@
 #import <OgreKit/OgreTextFindThread.h>
 
 @implementation OgreTextFindResult
+@synthesize delegate = _delegate;
+@synthesize numberOfMatches = _numberOfMatches;
+@synthesize title = _title;
+// -matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限)
+@synthesize maximumLeftMargin = _maxLeftMargin;
+// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
+@synthesize maximumMatchedStringLength = _maxMatchedStringLength;
 
 + (id)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
 {
@@ -151,29 +158,6 @@
     return _resultTree;
 }
 
-
-// -matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限)
-- (int)maximumLeftMargin
-{
-    return _maxLeftMargin;
-}
-
-- (void)setMaximumLeftMargin:(int)leftMargin
-{
-	_maxLeftMargin = leftMargin;
-}
-
-// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-- (int)maximumMatchedStringLength
-{
-    return _maxMatchedStringLength;
-}
-
-- (void)setMaximumMatchedStringLength:(int)aLength
-{
-	_maxMatchedStringLength = aLength;
-}
-
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 {
 #ifdef MAC_OS_X_VERSION_10_6
@@ -264,30 +248,9 @@
 }
 
 
-// delegate
-- (void)setDelegate:(id)aDelegate
-{
-	_delegate = aDelegate;
-}
-
-- (id)delegate
-{
-    return _delegate;
-}
-
 - (void)didUpdate
 {
     [(id <OgreTextFindResultDelegateProtocol>)_delegate didUpdateTextFindResult:self];
-}
-
-- (unsigned)numberOfMatches
-{
-    return _numberOfMatches;
-}
-
-- (void)setNumberOfMatches:(unsigned)aNumber
-{
-    _numberOfMatches = aNumber;
 }
 
 - (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches
@@ -364,12 +327,6 @@
 	}
 	
 	return _title;
-}
-
-- (void)setTitle:(NSString*)title
-{
-	[_title autorelease];
-	_title = [title retain];
 }
 
 @end

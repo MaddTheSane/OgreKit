@@ -37,7 +37,7 @@ extern NSString	*OgreTextViewFindResultException;
 												//  1番目以降の部分文字列は0番目の部分文字列との相対位置
                         *_childArray;           // マッチした文字列のresult leaf array
 
-	unsigned			_count;					// マッチした文字列の数
+	NSUInteger			_count;					// マッチした文字列の数
 	
 	int					_cacheIndex;			// 表示用キャッシュ
 	unsigned			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
@@ -47,7 +47,7 @@ extern NSString	*OgreTextViewFindResultException;
 }
 
 // 初期化
-- (id)initWithTextView:(NSTextView*)textView;
+- (instancetype)initWithTextView:(NSTextView*)textView;
 
 /* pseudo-OgreFindResultLeaf  */
 // マッチを追加
@@ -64,7 +64,7 @@ extern NSString	*OgreTextViewFindResultException;
 // index番目にマッチした文字列を選択する
 - (BOOL)selectMatchedStringAtIndex:(unsigned)index;
 // マッチ数
-- (unsigned)count;
+- (NSUInteger)count;
 
 // 結果の更新
 - (void)updateOldRange:(NSRange)oldRange newRange:(NSRange)newRange;

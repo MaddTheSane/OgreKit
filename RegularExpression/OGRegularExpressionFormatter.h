@@ -35,18 +35,13 @@ extern NSString	* const OgreFormatterException;
 - (BOOL)getObjectValue:(id*)obj forString:(NSString*)string 
 	errorDescription:(NSString**)error;
 
-- (id)init;
-- (id)initWithOptions:(unsigned)options 
+- (instancetype)init;
+- (instancetype)initWithOptions:(unsigned)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 
-- (NSString*)escapeCharacter;
-- (void)setEscapeCharacter:(NSString*)character;
-
-- (unsigned)options;
-- (void)setOptions:(unsigned)options;
-
-- (OgreSyntax)syntax;
-- (void)setSyntax:(OgreSyntax)syntax;
+@property (copy) NSString *escapeCharacter;
+@property unsigned options;
+@property OgreSyntax syntax;
 
 @end

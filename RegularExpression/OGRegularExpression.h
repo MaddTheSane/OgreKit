@@ -59,7 +59,7 @@ extern const unsigned	OgreMergeAttributesOption;
 #define OgreReplaceTimeOptionMask(x)		((x) & (OgreReplaceWithAttributesOption | OgreReplaceFontsOption | OgreMergeAttributesOption))
 
 // compile time syntax
-typedef enum {
+typedef NS_ENUM(int, OgreSyntax) {
 	OgreSimpleMatchingSyntax = 0, 
 	OgrePOSIXBasicSyntax, 
 	OgrePOSIXExtendedSyntax, 
@@ -69,7 +69,7 @@ typedef enum {
 	OgreJavaSyntax, 
 	OgrePerlSyntax, 
 	OgreRubySyntax
-} OgreSyntax;
+};
 
 // @"\\"
 #define	OgreBackslashCharacter			@"\\"
@@ -79,14 +79,14 @@ typedef enum {
 #define	OgreGUIYenCharacter				[NSString stringWithUTF8String:"\xc2\xa5"]
 
 // newline character
-typedef enum {
+typedef NS_ENUM(int, OgreNewlineCharacter) {
 	OgreNonbreakingNewlineCharacter = -1, 
 	OgreUnixNewlineCharacter = 0,		OgreLfNewlineCharacter = 0, 
 	OgreMacNewlineCharacter = 1,		OgreCrNewlineCharacter = 1, 
 	OgreWindowsNewlineCharacter = 2,	OgreCrLfNewlineCharacter = 2, 
 	OgreUnicodeLineSeparatorNewlineCharacter,
 	OgreUnicodeParagraphSeparatorNewlineCharacter
-} OgreNewlineCharacter;
+};
 
 
 // exception name
@@ -153,18 +153,18 @@ extern NSString	* const OgreException;
   OgreGUIYenCharacter			[NSString stringWithUTF8String:"\xc2\xa5"] Yen Mark
  */
 
-+ (id)regularExpressionWithString:(NSString*)expressionString;
-+ (id)regularExpressionWithString:(NSString*)expressionString 
++ (instancetype)regularExpressionWithString:(NSString*)expressionString;
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
 	options:(unsigned)options;
-+ (id)regularExpressionWithString:(NSString*)expressionString 
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
 	options:(unsigned)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 	
-- (id)initWithString:(NSString*)expressionString;
-- (id)initWithString:(NSString*)expressionString 
+- (instancetype)initWithString:(NSString*)expressionString;
+- (instancetype)initWithString:(NSString*)expressionString
 	options:(unsigned)options;
-- (id)initWithString:(NSString*)expressionString 
+- (instancetype)initWithString:(NSString*)expressionString 
 	options:(unsigned)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;

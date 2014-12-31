@@ -36,17 +36,17 @@ extern NSString	* const OgreMatchException;
 	
 	NSObject<OGStringProtocol>	*_targetString;		// 検索対象文字列
 	NSRange			_searchRange;					// 検索範囲
-	unsigned		_index;							// マッチした順番
+	NSUInteger		_index;							// マッチした順番
 }
 
 /*********
  * 諸情報 *
  *********/
 // マッチした順番 0,1,2,...
-- (unsigned)index;
+- (NSUInteger)index;
 
 // 部分文字列の数 + 1
-- (unsigned)count;
+- (NSUInteger)count;
 
 // description
 - (NSString*)description;

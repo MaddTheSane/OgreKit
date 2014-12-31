@@ -22,6 +22,6 @@
     OgreTableView   *_tableView;
 }
 
-- (id)initWithTarget:(id)aTableView;
+- (instancetype)initWithTarget:(id)aTableView;
 
 @end

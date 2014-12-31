@@ -230,7 +230,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return YES;
 }
 
-- (unsigned)count
+- (NSUInteger)count
 {
 	return _count;
 }
@@ -515,12 +515,12 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 }
 
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 { 
     return [self count]; 
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     if (!inSelection) return [_childArray objectAtIndex:index];
     

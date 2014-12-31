@@ -13,7 +13,7 @@
 
 #import <OgreKit/OGRegularExpressionFormatter.h>
 
-// ©g‚ğencode/decode‚·‚é‚Ì‚É•K—v‚Èkey
+// è‡ªèº«ã‚’encode/decodeã™ã‚‹ã®ã«å¿…è¦ãªkey
 static NSString	* const OgreOptionsKey            = @"OgreFormatterOptions";
 static NSString	* const OgreSyntaxKey             = @"OgreFormatterSyntax";
 static NSString	* const OgreEscapeCharacterKey    = @"OgreFormatterEscapeCharacter";
@@ -22,6 +22,9 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 
 
 @implementation OGRegularExpressionFormatter
+@synthesize syntax = _syntax;
+@synthesize escapeCharacter = _escapeCharacter;
+@synthesize options = _options;
 
 - (NSString*)stringForObjectValue:(id)anObject
 {
@@ -29,7 +32,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		return nil;
     }
 	
-	//NSLog(@"stringForObjectValue \"%@\"", [anObject expressionString]); 
+	//NSLog(@"stringForObjectValue Â¥"%@Â¥"", [anObject expressionString]); 
 	return [anObject expressionString];
 }
 
@@ -40,7 +43,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		return nil;
     }
 	
-	//NSLog(@"stringForObjectValue \"%@\"", [anObject expressionString]); 
+	//NSLog(@"stringForObjectValue Â¥"%@Â¥"", [anObject expressionString]); 
 	return [[[NSAttributedString alloc] initWithString: [anObject expressionString] 
 		attributes: attributes] autorelease];
 }
@@ -51,7 +54,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		return nil;
     }
 	
-	//NSLog(@"editingStringForObjectValue \"%@\"", [anObject expressionString]); 
+	//NSLog(@"editingStringForObjectValue Â¥"%@Â¥"", [anObject expressionString]); 
 	return [anObject expressionString];
 }
 
@@ -60,7 +63,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 {
 	BOOL	retval;
 	
-	//NSLog(@"getObjectValue \"%@\"", string); 
+	//NSLog(@"getObjectValue Â¥"%@Â¥"", string); 
 	NS_DURING
 		*obj = [OGRegularExpression regularExpressionWithString: string
 			options: [self options] 
@@ -69,13 +72,13 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 			];
 		retval = YES;
 	NS_HANDLER
-		// —áŠOˆ—
+		// ä¾‹å¤–å‡¦ç†
 		NSString	*name = [localException name];
-		//NSLog(@"\"%@\" caught in getObjectValue", name);
+		//NSLog(@"Â¥"%@Â¥" caught in getObjectValue", name);
 		
 		if ([name isEqualToString:OgreFormatterException]) {
 			NSString	*reason = [localException reason];
-			//NSLog(@"reason: \"%@\"", reason); 
+			//NSLog(@"reason: Â¥"%@Â¥"", reason); 
 			
 			if (error != nil) {
 				*error = reason;
@@ -104,8 +107,8 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 
 	int	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
 	if (syntaxType == -1) {
-		// ƒGƒ‰[B“Æ©‚Ìsyntax‚Íencode‚Å‚«‚È‚¢B
-		// —áŠO‚ğ”­¶‚³‚¹‚éB—v‰ü‘P
+		// ã‚¨ãƒ©ãƒ¼ã€‚ç‹¬è‡ªã®syntaxã¯encodeã§ããªã„ã€‚
+		// ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚è¦æ”¹å–„
 		[NSException raise:NSInvalidArchiveOperationException format:
 			@"fail to encode. (cannot encode a user defined syntax)"];
 	}
@@ -142,7 +145,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		_escapeCharacter = [[decoder decodeObject] retain];
 	}
 	if(_escapeCharacter == nil) {
-		// ƒGƒ‰[B—áŠO‚ğ”­¶‚³‚¹‚éB
+		// ã‚¨ãƒ©ãƒ¼ã€‚ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
@@ -154,27 +157,27 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
-		// ƒGƒ‰[B—áŠO‚ğ”­¶‚³‚¹‚éB
+		// ã‚¨ãƒ©ãƒ¼ã€‚ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_options = [anObject unsignedIntValue];
 
 	// OnigSyntaxType		*_syntax;
-	// —v‰ü‘P“_B“Æ©‚Ìsyntax‚ğ—pˆÓ‚µ‚½ê‡‚Íencode‚Å‚«‚È‚¢B
+	// è¦æ”¹å–„ç‚¹ã€‚ç‹¬è‡ªã®syntaxã‚’ç”¨æ„ã—ãŸå ´åˆã¯encodeã§ããªã„ã€‚
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreSyntaxKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
-		// ƒGƒ‰[B—áŠO‚ğ”­¶‚³‚¹‚éB
+		// ã‚¨ãƒ©ãƒ¼ã€‚ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	syntaxType = [anObject intValue];
 	if (syntaxType == -1) {
-		// ƒGƒ‰[B—áŠO‚ğ”­¶‚³‚¹‚éB
+		// ã‚¨ãƒ©ãƒ¼ã€‚ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
@@ -195,12 +198,12 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		escapeCharacter: _escapeCharacter];
 }
 
-- (id)init
+- (instancetype)init
 {
 	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-- (id)initWithOptions:(unsigned)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
+- (instancetype)initWithOptions:(unsigned)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithOptions: of %@", [self className]);
@@ -233,37 +236,5 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	[_escapeCharacter release];
 	[super dealloc];
 }
-
-- (NSString*)escapeCharacter
-{
-	return _escapeCharacter;
-}
-
-- (void)setEscapeCharacter:(NSString*)character
-{
-	[_escapeCharacter autorelease];
-	_escapeCharacter = [character copy];
-}
-
-- (unsigned)options
-{
-	return _options;
-}
-
-- (void)setOptions:(unsigned)options
-{
-	_options = options;
-}
-
-- (OgreSyntax)syntax
-{
-	return _syntax;
-}
-
-- (void)setSyntax:(OgreSyntax)syntax
-{
-	_syntax = syntax;
-}
-
 
 @end

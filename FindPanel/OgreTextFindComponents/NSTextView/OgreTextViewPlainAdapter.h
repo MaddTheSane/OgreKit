@@ -26,7 +26,7 @@
 	OgreTextViewUndoer	*_undoer;
 }
 
-- (id)initWithTarget:(id)aTextView;
+- (instancetype)initWithTarget:(id)aTextView;
 - (NSTextStorage*)textStorage;
 
 @end

@@ -17,6 +17,10 @@
 
 
 @implementation OgreTextFindLeaf
+@synthesize index = _index;
+@synthesize firstLeaf = _isFirstLeaf;
+@synthesize terminal = _isTerminal;
+@synthesize reversed = _isReversed;
 
 #ifdef MAC_OS_X_VERSION_10_6
 - (void)finalize
@@ -94,9 +98,9 @@
 /* Getting structural detail */
 - (BOOL)isLeaf { return YES; }
 - (BOOL)isBranch { return NO; }
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection { return 0; }
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection { return 0; }
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection { return nil; }
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection { return 0; }
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection { return 0; }
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection { return nil; }
 
 - (OgreTextFindBranch*)parent
 {
@@ -204,16 +208,6 @@
 	NSLog(@"  -findResultLeafWithThread: of %@ (BUG!!!)", [self className]);
 #endif
     return nil; 
-}
-
-- (int)index
-{
-    return _index;
-}
-
-- (void)setIndex:(int)index
-{
-    _index = index;
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

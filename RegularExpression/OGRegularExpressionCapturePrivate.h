@@ -19,7 +19,7 @@
 
 @interface OGRegularExpressionCapture (Private)
 
-- (id)initWithTreeNode:(OnigCaptureTreeNode*)captureNode 
+- (instancetype)initWithTreeNode:(OnigCaptureTreeNode*)captureNode 
     index:(unsigned)index 
     level:(unsigned)level 
     parentNode:(OGRegularExpressionCapture*)parentNode 
