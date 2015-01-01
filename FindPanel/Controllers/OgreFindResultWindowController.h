@@ -16,7 +16,7 @@
 
 @class OgreAttachableWindowMediator;
 
-@interface OgreFindResultWindowController : NSObject
+@interface OgreFindResultWindowController : NSObject<OgreTextFindResultDelegateProtocol> 
 {
     IBOutlet NSOutlineView		*grepOutlineView;
     IBOutlet NSButton			*liveUpdateCheckBox;
@@ -29,9 +29,9 @@
 	OgreAttachableWindowMediator	*_attachedWindowMediator;
 }
 
-- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate;
+- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
-- (NSWindow*)window;
+@property (readonly, strong) NSWindow *window;
 
 - (IBAction)updateLiveUpdate:(id)sender;
 

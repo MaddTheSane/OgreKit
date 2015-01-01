@@ -77,7 +77,7 @@
 
 - (void)appendOGStringLeaveImprint:(NSObject<OGStringProtocol>*)string
 {
-	unsigned	length = [string length];
+	NSUInteger	length = [string length];
 	if (length == 0) {
 		return;
 	}
@@ -121,19 +121,19 @@
 	NSMutableAttributedString	*attrString = (NSMutableAttributedString*)[self _attributedString];
 	
 	NSMutableAttributedString	*aString = [[[NSMutableAttributedString alloc] initWithAttributedString:appendant] autorelease];
-	unsigned		length = [appendant length];
+	NSUInteger		length = [appendant length];
 	NSRange			effectiveRange = NSMakeRange(0, 0);
 	NSFont			*srcFont, *font;
 	NSString		*appendantFontFamilyName = nil, *srcFontFamilyName;
 	NSFontTraitMask	appendantFontTraits, srcFontTraits, newFontTraits = 0;
-	float			appendantFontWeight = 0, srcFontWeight;
-	float			appendantFontPointSize = 0, srcFontPointSize;
+	CGFloat			appendantFontWeight = 0, srcFontWeight;
+	CGFloat			appendantFontPointSize = 0, srcFontPointSize;
 	NSFont			*newFont;
 	NSDictionary	*srcAttributes;
 	NSAttributedString	*srcAttributedString = [srcString attributedString];
 	
 	srcAttributes = [srcAttributedString attributesAtIndex:0 effectiveRange:NULL];
-	srcFont = [srcAttributes objectForKey:NSFontAttributeName];
+	srcFont = srcAttributes[NSFontAttributeName];
 	if (srcFont == nil) {
 		srcFont = [NSFont systemFontOfSize:[NSFont systemFontSize]];
 	}
@@ -152,7 +152,7 @@
 		NSEnumerator	*keyEnumerator = [srcAttributes keyEnumerator];
 		NSString		*attrKey;
 		while ((attrKey = [keyEnumerator nextObject]) != nil) {
-			id	attr = [srcAttributes objectForKey:attrKey];
+			id	attr = srcAttributes[attrKey];
 			//if (attr != nil) {
 				[aString addAttribute:attrKey 
 					value:attr 
@@ -253,12 +253,12 @@
 	
 	NSMutableAttributedString	*aString = [[[NSMutableAttributedString alloc] initWithAttributedString:appendant] autorelease];
 	NSRange			effectiveRange;
-	unsigned		length = [appendant length];
+	NSUInteger		length = [appendant length];
 	NSFont			*font;
 	NSString		*appendantFontFamilyName = nil;
 	NSFontTraitMask	appendantFontTraits, newFontTraits = 0;
-	float			appendantFontWeight = 0;
-	float			appendantFontPointSize = 0;
+	CGFloat			appendantFontWeight = 0;
+	CGFloat			appendantFontPointSize = 0;
 	NSFont			*newFont;
 	
 	if (mergeAttributes) {
@@ -270,8 +270,8 @@
 			NSEnumerator	*keyEnumerator = [_currentAttributes keyEnumerator];
 			NSString		*attrKey;
 			while ((attrKey = [keyEnumerator nextObject]) != nil) {
-				if ([attr objectForKey:attrKey] == nil) {
-					id	attr = [_currentAttributes objectForKey:attrKey];
+				if (attr[attrKey] == nil) {
+					id	attr = _currentAttributes[attrKey];
 					//if (attr != nil) {
 						[aString addAttribute:attrKey 
 							value:attr 
@@ -355,9 +355,9 @@
 	[pool release];
 }
 
-- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(unsigned)index
+- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(NSUInteger)index
 {
-	unsigned	attrIndex;
+	NSUInteger	attrIndex;
 	if (index > 0) {
 		attrIndex = index -1;
 	} else {

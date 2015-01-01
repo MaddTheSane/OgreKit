@@ -118,8 +118,8 @@
 - (BOOL)shouldEquateYenWithBackslash;
 - (BOOL)isStartFromTop;
 - (BOOL)isWrap;
-- (unsigned)options;
-- (unsigned)_options;
+- (OgreOption)options;
+- (OgreOption)_options;
 - (OgreSyntax)syntax;
 
 /* find/replace history */

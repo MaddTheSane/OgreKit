@@ -23,7 +23,7 @@
 @implementation OGRegularExpressionEnumerator (Private)
 
 - (id) initWithOGString:(NSObject<OGStringProtocol>*)targetString 
-	options:(unsigned)searchOptions 
+	options:(OgreOption)searchOptions 
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex
 {

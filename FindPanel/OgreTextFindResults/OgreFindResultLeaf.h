@@ -16,16 +16,15 @@
 
 @class OgreTextFindResult;
 
-@interface OgreFindResultLeaf : OgreTextFindLeaf
+@interface OgreFindResultLeaf : OgreTextFindLeaf 
 {
     OgreTextFindResult  *_textFindResult;
 }
 
 /* methods overridden by subclass of OgreFindResultLeaf  */
-- (OgreTextFindResult*)textFindResult;
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
+@property (strong) OgreTextFindResult *textFindResult;
 
-- (BOOL)showMatchedString;
-- (BOOL)selectMatchedString;
+@property (readonly) BOOL showMatchedString;
+@property (readonly) BOOL selectMatchedString;
 
 @end

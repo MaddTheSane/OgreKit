@@ -45,7 +45,7 @@
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
 {
-    return [[NSArray arrayWithObject:_component] objectEnumerator]; 
+    return [@[_component] objectEnumerator]; 
 }
 
 

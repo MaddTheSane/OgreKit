@@ -24,12 +24,8 @@
 - (IBAction)showFindPanel:(id)sender;
 - (void)close;
 
-- (OgreTextFinder*)textFinder;
-- (void)setTextFinder:(OgreTextFinder*)aTextFinder;
-
-- (NSPanel*)findPanel;
-- (void)setFindPanel:(NSPanel*)aPanel;
-
-- (NSDictionary*)history;
+@property (strong) OgreTextFinder *textFinder;
+@property (strong) NSPanel *findPanel;
+@property (readonly, copy) NSDictionary *history;
 
 @end

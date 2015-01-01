@@ -90,7 +90,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return theBundle;
 }
 
-+ (id)sharedTextFinder
++ (OgreTextFinder*)sharedTextFinder
 {
 	if (_sharedTextFinder == nil) {
 		_sharedTextFinder = [[[self class] alloc] init];
@@ -99,7 +99,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return _sharedTextFinder;
 }
 
-- (id)init
+- (instancetype)init
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-init of %@", [self className]);
@@ -117,16 +117,16 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		NSDictionary	*fullHistory = [defaults dictionaryForKey:@"OgreTextFinder"];	// 履歴等
 		
 		if (fullHistory != nil) {
-			_history = [[fullHistory objectForKey: OgreTextFinderHistoryKey] retain];
+			_history = [fullHistory[OgreTextFinderHistoryKey] retain];
 
-			id		anObject = [fullHistory objectForKey: OgreTextFinderSyntaxKey];
+			id		anObject = fullHistory[OgreTextFinderSyntaxKey];
 			if(anObject == nil) {
 				[self setSyntax:[OGRegularExpression defaultSyntax]];
 			} else {
 				_syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
 			}
 				
-			_escapeCharacter = [[fullHistory objectForKey: OgreTextFinderEscapeCharacterKey] retain];
+			_escapeCharacter = [fullHistory[OgreTextFinderEscapeCharacterKey] retain];
 			if(_escapeCharacter == nil) {
 				[self setEscapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 			}
@@ -274,7 +274,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	int i, n;
 	NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
 	while ([menuArray count] > 0) {
-		NSMenu      *aMenu = [menuArray objectAtIndex:0];
+		NSMenu      *aMenu = menuArray[0];
 		NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
 		if (aMenuItem != nil) {
 			// 見つかった場合
@@ -307,16 +307,9 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		object: NSApp];
 	
 	// 検索履歴等の保存
-	NSDictionary	*fullHistory = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: 
-			[findPanelController history],
-			[NSNumber numberWithInt:[OGRegularExpression intValueForSyntax:_syntax]], 
-			_escapeCharacter, 
-			nil]
-		forKeys:[NSArray arrayWithObjects: 
-			OgreTextFinderHistoryKey, 
-			OgreTextFinderSyntaxKey,
-			OgreTextFinderEscapeCharacterKey,
-			nil]];
+	NSDictionary	*fullHistory = @{OgreTextFinderHistoryKey: [findPanelController history], 
+			OgreTextFinderSyntaxKey: @([OGRegularExpression intValueForSyntax:_syntax]),
+			OgreTextFinderEscapeCharacterKey: _escapeCharacter};
 	
 	NSUserDefaults	*defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:fullHistory forKey:@"OgreTextFinder"];
@@ -467,7 +460,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 /* Find/Replace/Highlight... */
 
 - (OgreTextFindResult*)find:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(OgreOption)options
 	fromTop:(BOOL)isFromTop
 	forward:(BOOL)forward
 	wrap:(BOOL)isWrap
@@ -516,7 +509,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)findAll:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -574,7 +567,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 {
 	return [self replaceAndFind:expressionString
 		withString:replaceString
@@ -585,7 +578,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 {
 	return [self replaceAndFind:[OGPlainString stringWithString:expressionString]
 		withOGString:[OGAttributedString stringWithAttributedString:replaceString] 
@@ -596,7 +589,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 {
 	return [self replaceAndFind:expressionString
 		withOGString:replaceString 
@@ -607,7 +600,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
 {
@@ -620,7 +613,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
 {
@@ -633,7 +626,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
 {
@@ -690,7 +683,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection
 {
 	return [self replaceAll:[OGPlainString stringWithString:expressionString] 
@@ -701,7 +694,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection
 {
 	return [self replaceAll:[OGPlainString stringWithString:expressionString] 
@@ -712,7 +705,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -812,7 +805,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (OgreTextFindResult*)hightlight:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -1030,8 +1023,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		/* Searching in the adapter-target array */
 		int	index, count = [_adapterClassArray count];
 		for (index = count - 1; index >= 0; index--) {
-			if ([aTargetToFindIn isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
-				anAdapterClass = [_adapterClassArray objectAtIndex:index];
+			if ([aTargetToFindIn isKindOfClass:_targetClassArray[index]]) {
+				anAdapterClass = _adapterClassArray[index];
 				break;
 			}
 		}
@@ -1064,7 +1057,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	int	index, count = [_targetClassArray count];
 	for (index = count - 1; index >= 0; index--) {
-		if ([anObject isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
+		if ([anObject isKindOfClass:_targetClassArray[index]]) {
 			return YES;
 			break;
 		}

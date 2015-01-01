@@ -23,10 +23,9 @@
 /* methods overridden by subclass of OgreFindResultLeaf  */
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent;
 - (void)endAddition;
-- (OgreTextFindResult*)textFindResult;
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
+@property (strong) OgreTextFindResult *textFindResult;
 
-- (BOOL)showMatchedString;
-- (BOOL)selectMatchedString;
+@property (readonly) BOOL showMatchedString;
+@property (readonly) BOOL selectMatchedString;
 
 @end

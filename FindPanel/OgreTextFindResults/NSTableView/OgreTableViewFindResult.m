@@ -63,7 +63,7 @@
     OgreTableColumnFindResult  *columnFindResult;
     
     while (columnIndex < [_components count]) {
-        columnFindResult = [_components objectAtIndex:columnIndex];
+        columnFindResult = _components[columnIndex];
         if ([columnFindResult numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:columnIndex];
         } else {
@@ -91,7 +91,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_components objectAtIndex:index];
+    return _components[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 

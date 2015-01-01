@@ -53,7 +53,7 @@
     OgreTableCellFindResult  *rowFindResult;
     
     while (rowIndex < [_components count]) {
-        rowFindResult = [_components objectAtIndex:rowIndex];
+        rowFindResult = _components[rowIndex];
         matchCount = [rowFindResult numberOfChildrenInSelection:NO];
         if (matchCount > 0) {
             for (i = 0; i < matchCount; i++) [_flattenedComponents addObject:[rowFindResult childAtIndex:i inSelection:NO]];
@@ -83,7 +83,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_flattenedComponents objectAtIndex:index];
+    return _flattenedComponents[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 

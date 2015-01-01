@@ -32,7 +32,7 @@ extern NSString	* const OgreMatchException;
 {
 	OnigRegion		*_region;						// match result region
 	OGRegularExpressionEnumerator	*_enumerator;	// matcher
-	unsigned		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
+	NSUInteger		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
 	
 	NSObject<OGStringProtocol>	*_targetString;		// 検索対象文字列
 	NSRange			_searchRange;					// 検索範囲
@@ -43,78 +43,78 @@ extern NSString	* const OgreMatchException;
  * 諸情報 *
  *********/
 // マッチした順番 0,1,2,...
-- (NSUInteger)index;
+@property (readonly) NSUInteger index;
 
 // 部分文字列の数 + 1
-- (NSUInteger)count;
+@property (readonly) NSUInteger count;
 
 // description
-- (NSString*)description;
+@property (readonly, copy) NSString *description;
 
 
 /*********
  * 文字列 *
  *********/
 // マッチの対象になった文字列
-- (NSObject<OGStringProtocol>*)targetOGString;
-- (NSString*)targetString;
-- (NSAttributedString*)targetAttributedString;
+@property (readonly, strong) NSObject<OGStringProtocol> *targetOGString;
+@property (readonly, copy) NSString *targetString;
+@property (readonly, copy) NSAttributedString *targetAttributedString;
 
 // マッチした文字列 \&, \0
-- (NSObject<OGStringProtocol>*)matchedOGString;
-- (NSString*)matchedString;
-- (NSAttributedString*)matchedAttributedString;
+@property (readonly, strong) NSObject<OGStringProtocol> *matchedOGString;
+@property (readonly, copy) NSString *matchedString;
+@property (readonly, copy) NSAttributedString *matchedAttributedString;
 
 // index番目のsubstring \index
 //  index番目のsubstringが存在しない時には nil を返す。
-- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(unsigned)index;
-- (NSString*)substringAtIndex:(unsigned)index;
-- (NSAttributedString*)attributedSubstringAtIndex:(unsigned)index;
+- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(NSUInteger)index;
+- (NSString*)substringAtIndex:(NSUInteger)index;
+- (NSAttributedString*)attributedSubstringAtIndex:(NSUInteger)index;
 
 // マッチした部分より前の文字列 \`
-- (NSObject<OGStringProtocol>*)prematchOGString;
-- (NSString*)prematchString;
-- (NSAttributedString*)prematchAttributedString;
+@property (readonly, strong) NSObject<OGStringProtocol> *prematchOGString;
+@property (readonly, copy) NSString *prematchString;
+@property (readonly, copy) NSAttributedString *prematchAttributedString;
 
 // マッチした部分より後ろの文字列 \'
-- (NSObject<OGStringProtocol>*)postmatchOGString;
-- (NSString*)postmatchString;
-- (NSAttributedString*)postmatchAttributedString;
+@property (readonly, strong) NSObject<OGStringProtocol> *postmatchOGString;
+@property (readonly, copy) NSString *postmatchString;
+@property (readonly, copy) NSAttributedString *postmatchAttributedString;
 
 // 最後にマッチした部分文字列 \+
 // 存在しないときには nil を返す。
-- (NSObject<OGStringProtocol>*)lastMatchOGSubstring;
-- (NSString*)lastMatchSubstring;
-- (NSAttributedString*)lastMatchAttributedSubstring;
+@property (readonly, strong) NSObject<OGStringProtocol> *lastMatchOGSubstring;
+@property (readonly, copy) NSString *lastMatchSubstring;
+@property (readonly, copy) NSAttributedString *lastMatchAttributedSubstring;
 
 // マッチした部分と一つ前にマッチした部分の間の文字列 \- (独自に追加)
-- (NSObject<OGStringProtocol>*)ogStringBetweenMatchAndLastMatch;
-- (NSString*)stringBetweenMatchAndLastMatch;
-- (NSAttributedString*)attributedStringBetweenMatchAndLastMatch;
+@property (readonly, strong) NSObject<OGStringProtocol> *ogStringBetweenMatchAndLastMatch;
+@property (readonly, copy) NSString *stringBetweenMatchAndLastMatch;
+@property (readonly, copy) NSAttributedString *attributedStringBetweenMatchAndLastMatch;
 
 
 /*******
  * 範囲 *
  *******/
 // マッチした文字列の範囲
-- (NSRange)rangeOfMatchedString;
+@property (readonly) NSRange rangeOfMatchedString;
 
 // index番目のsubstringの範囲
 //  index番目のsubstringが存在しない時には {-1, 0} を返す。
-- (NSRange)rangeOfSubstringAtIndex:(unsigned)index;
+- (NSRange)rangeOfSubstringAtIndex:(NSUInteger)index;
 
 // マッチした部分より前の文字列の範囲
-- (NSRange)rangeOfPrematchString;
+@property (readonly) NSRange rangeOfPrematchString;
 
 // マッチした部分より後ろの文字列の範囲
-- (NSRange)rangeOfPostmatchString;
+@property (readonly) NSRange rangeOfPostmatchString;
 
 // 最後にマッチした部分文字列の範囲
 // 存在しないときには {-1,0} を返す。
-- (NSRange)rangeOfLastMatchSubstring;
+@property (readonly) NSRange rangeOfLastMatchSubstring;
 
 // マッチした部分と一つ前にマッチした部分の間の文字列の範囲
-- (NSRange)rangeOfStringBetweenMatchAndLastMatch;
+@property (readonly) NSRange rangeOfStringBetweenMatchAndLastMatch;
 
 
 /***************************************************************
@@ -135,11 +135,11 @@ extern NSString	* const OgreMatchException;
 // 名前がnameの部分文字列のindex
 // 存在しない名前の場合は -1 を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (unsigned)indexOfSubstringNamed:(NSString*)name;
+- (NSUInteger)indexOfSubstringNamed:(NSString*)name;
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
-- (NSString*)nameOfSubstringAtIndex:(unsigned)index;
+- (NSString*)nameOfSubstringAtIndex:(NSUInteger)index;
 
 /***********************
 * マッチした部分文字列を得る *
@@ -161,47 +161,47 @@ extern NSString	* const OgreMatchException;
 	}
 */
 // マッチした部分文字列のうちグループ番号が最小のもの (ない場合は0を返す)
-- (unsigned)indexOfFirstMatchedSubstring;
-- (unsigned)indexOfFirstMatchedSubstringBeforeIndex:(unsigned)anIndex;
-- (unsigned)indexOfFirstMatchedSubstringAfterIndex:(unsigned)anIndex;
-- (unsigned)indexOfFirstMatchedSubstringInRange:(NSRange)aRange;
+@property (readonly) NSUInteger indexOfFirstMatchedSubstring;
+- (NSUInteger)indexOfFirstMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfFirstMatchedSubstringInRange:(NSRange)aRange;
 // その名前
-- (NSString*)nameOfFirstMatchedSubstring;
-- (NSString*)nameOfFirstMatchedSubstringBeforeIndex:(unsigned)anIndex;
-- (NSString*)nameOfFirstMatchedSubstringAfterIndex:(unsigned)anIndex;
+@property (readonly, copy) NSString *nameOfFirstMatchedSubstring;
+- (NSString*)nameOfFirstMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSString*)nameOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSString*)nameOfFirstMatchedSubstringInRange:(NSRange)aRange;
 
 // マッチした部分文字列のうちグループ番号が最大のもの (ない場合は0を返す)
-- (unsigned)indexOfLastMatchedSubstring;
-- (unsigned)indexOfLastMatchedSubstringBeforeIndex:(unsigned)anIndex;
-- (unsigned)indexOfLastMatchedSubstringAfterIndex:(unsigned)anIndex;
-- (unsigned)indexOfLastMatchedSubstringInRange:(NSRange)aRange;
+@property (readonly) NSUInteger indexOfLastMatchedSubstring;
+- (NSUInteger)indexOfLastMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfLastMatchedSubstringInRange:(NSRange)aRange;
 // その名前
-- (NSString*)nameOfLastMatchedSubstring;
-- (NSString*)nameOfLastMatchedSubstringBeforeIndex:(unsigned)anIndex;
-- (NSString*)nameOfLastMatchedSubstringAfterIndex:(unsigned)anIndex;
+@property (readonly, copy) NSString *nameOfLastMatchedSubstring;
+- (NSString*)nameOfLastMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSString*)nameOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSString*)nameOfLastMatchedSubstringInRange:(NSRange)aRange;
 
 // マッチした部分文字列のうち最長のもの (ない場合は0を返す。同じ長さの物が複数あれば、番号の小さい物が優先される)
-- (unsigned)indexOfLongestSubstring;
-- (unsigned)indexOfLongestSubstringBeforeIndex:(unsigned)anIndex;
-- (unsigned)indexOfLongestSubstringAfterIndex:(unsigned)anIndex;
-- (unsigned)indexOfLongestSubstringInRange:(NSRange)aRange;
+@property (readonly) NSUInteger indexOfLongestSubstring;
+- (NSUInteger)indexOfLongestSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfLongestSubstringAfterIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfLongestSubstringInRange:(NSRange)aRange;
 // その名前
-- (NSString*)nameOfLongestSubstring;
-- (NSString*)nameOfLongestSubstringBeforeIndex:(unsigned)anIndex;
-- (NSString*)nameOfLongestSubstringAfterIndex:(unsigned)anIndex;
+@property (readonly, copy) NSString *nameOfLongestSubstring;
+- (NSString*)nameOfLongestSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSString*)nameOfLongestSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSString*)nameOfLongestSubstringInRange:(NSRange)aRange;
 
 // マッチした部分文字列のうち最短のもの (ない場合は0を返す。同じ長さの物が複数あれば、番号の小さい物が優先される)
-- (unsigned)indexOfShortestSubstring;
-- (unsigned)indexOfShortestSubstringBeforeIndex:(unsigned)anIndex;
-- (unsigned)indexOfShortestSubstringAfterIndex:(unsigned)anIndex;
-- (unsigned)indexOfShortestSubstringInRange:(NSRange)aRange;
+@property (readonly) NSUInteger indexOfShortestSubstring;
+- (NSUInteger)indexOfShortestSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfShortestSubstringAfterIndex:(NSUInteger)anIndex;
+- (NSUInteger)indexOfShortestSubstringInRange:(NSRange)aRange;
 // その名前
-- (NSString*)nameOfShortestSubstring;
-- (NSString*)nameOfShortestSubstringBeforeIndex:(unsigned)anIndex;
-- (NSString*)nameOfShortestSubstringAfterIndex:(unsigned)anIndex;
+@property (readonly, copy) NSString *nameOfShortestSubstring;
+- (NSString*)nameOfShortestSubstringBeforeIndex:(NSUInteger)anIndex;
+- (NSString*)nameOfShortestSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSString*)nameOfShortestSubstringInRange:(NSRange)aRange;
 
 /******************
@@ -234,7 +234,7 @@ number of capture history: 2
 
 // 捕獲履歴
 // 履歴がない場合はnilを返す。
-- (OGRegularExpressionCapture*)captureHistory;
+@property (readonly, copy) OGRegularExpressionCapture *captureHistory;
 
 @end
 

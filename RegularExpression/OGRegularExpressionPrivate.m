@@ -236,11 +236,11 @@
 	
 	if (_groupIndexForNameDictionary == nil) return -1;
 	
-	NSArray	*array = [_groupIndexForNameDictionary objectForKey:name];
+	NSArray	*array = _groupIndexForNameDictionary[name];
 	if (array == nil) return -1;
 	if ([array count] != 1) return -2;
 	
-	return [[array objectAtIndex:0] unsignedIntValue];
+	return [array[0] unsignedIntValue];
 }
 
 // index番目の部分文字列の名前
@@ -251,7 +251,7 @@
 		return nil;
 	}
 	
-	NSString	*name = [_nameForGroupIndexArray objectAtIndex:(index - 1)];
+	NSString	*name = _nameForGroupIndexArray[(index - 1)];
 	if ([name length] == 0) return nil;	// @"" は nil に読み替える。
 	
 	return name;

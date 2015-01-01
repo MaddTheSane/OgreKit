@@ -19,7 +19,7 @@
 @implementation OgreTextFindThread
 
 /* Creating and initializing */
-- (id)initWithComponent:(NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)aComponent;
+- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)aComponent;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-initWithComponent: of %@", [self className]);
@@ -478,7 +478,7 @@
 
 
 /* Protected methods */
-- (unsigned)numberOfMatches
+- (NSUInteger)numberOfMatches
 {
 	return _numberOfMatches;
 }

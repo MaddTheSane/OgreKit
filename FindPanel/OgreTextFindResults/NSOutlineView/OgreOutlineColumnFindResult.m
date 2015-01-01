@@ -45,7 +45,7 @@
 {
     int i = 0;
     while (i < [_components count]) {
-        if ([[_components objectAtIndex:i] numberOfChildrenInSelection:NO] == 0) {
+        if ([_components[i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
         } else {
             i++;
@@ -82,7 +82,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_components objectAtIndex:index];
+    return _components[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 

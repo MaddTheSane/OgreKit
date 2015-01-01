@@ -91,7 +91,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_matchComponents objectAtIndex:index];
+    return _matchComponents[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
@@ -120,7 +120,7 @@
         fullString = [dataCell stringValue];
     }
    
-    return [[self textFindResult] highlightedStringInRange:[_matchRangeArray objectAtIndex:index] ofString:fullString];
+    return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
 // index番目にマッチした文字列を選択・表示する
@@ -157,7 +157,7 @@
         
         [outlineView ogreSetSelectedColumn:[outlineView columnWithIdentifier:[_outlineColumn identifier]]];
         [outlineView ogreSetSelectedItem:_item];
-        NSRange matchRange = [[[_matchRangeArray objectAtIndex:index] objectAtIndex:0] rangeValue];
+        NSRange matchRange = [_matchRangeArray[index][0] rangeValue];
         [outlineView ogreSetSelectedRange:matchRange];
     } else {
         [_item release];

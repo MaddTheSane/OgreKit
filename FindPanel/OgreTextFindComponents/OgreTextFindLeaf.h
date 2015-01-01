@@ -32,12 +32,11 @@
 - (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity;  // begin resistering undo oprations
 - (void)endRegisteringUndo;  // end resistering undo oprations
 
-- (BOOL)isSelected;
-- (NSRange)selectedRange;
-- (void)setSelectedRange:(NSRange)aRange;
+@property (getter=isSelected, readonly) BOOL selected;
+@property  NSRange selectedRange;
 - (void)jumpToSelection;
 
-- (NSObject<OGStringProtocol>*)ogString;
+@property (readonly, strong) NSObject<OGStringProtocol> *ogString;
 - (void)setOGString:(NSObject<OGStringProtocol>*)aString;
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString;
 

@@ -52,106 +52,100 @@
 + (NSBundle*)ogreKitBundle;
 
 /* Shared instance */
-+ (id)sharedTextFinder;
++ (OgreTextFinder*)sharedTextFinder;
 
 /* nib name of Find Panel/Find Panel Controller */
-- (NSString*)findPanelNibName;
+@property (readonly, copy) NSString *findPanelNibName;
 
 /* Show Find Panel */
 - (IBAction)showFindPanel:(id)sender;
 
 /* Startup time configurations */
 - (void)setShouldHackFindMenu:(BOOL)hack;
-- (void)setUseStylesInFindPanel:(BOOL)use;
-- (BOOL)useStylesInFindPanel;
+@property  BOOL useStylesInFindPanel;
 
 /*************
  * Accessors *
  *************/
 // target to find in
-- (void)setTargetToFindIn:(id)target;
-- (id)targetToFindIn;
+@property (strong) id targetToFindIn;
 
-- (void)setAdapterClassForTargetToFindIn:(Class)adapterClass;
-- (Class)adapterClassForTargetToFindIn;
+@property (strong) Class adapterClassForTargetToFindIn;
 
 // Find Panel Controller
-- (void)setFindPanelController:(OgreFindPanelController*)findPanelController;
-- (OgreFindPanelController*)findPanelController;
+@property (strong) OgreFindPanelController *findPanelController;
 
 // escape character
-- (void)setEscapeCharacter:(NSString*)character;
-- (NSString*)escapeCharacter;
+@property (copy) NSString *escapeCharacter;
 
 // syntax
-- (void)setSyntax:(OgreSyntax)syntax;
-- (OgreSyntax)syntax;
+@property  OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
 - (OgreTextFindResult*)find:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(OgreOption)options
 	fromTop:(BOOL)isTop
 	forward:(BOOL)forward
 	wrap:(BOOL)isWrap;
 
 - (OgreTextFindResult*)findAll:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options;
+	options:(OgreOption)options;
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options;
+	options:(OgreOption)options;
 - (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options;
+	options:(OgreOption)options;
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options 
+	options:(OgreOption)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options 
+	options:(OgreOption)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 - (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options 
+	options:(OgreOption)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withString:(NSString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)hightlight:(NSString*)expressionString 
 	color:(NSColor*)highlightColor 
-	options:(unsigned)options
+	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 
-- (OgreTextFindResult*)unhightlight;
+@property (readonly, strong) OgreTextFindResult *unhightlight;
 
-- (NSString*)selectedString;
-- (NSAttributedString*)selectedAttributedString;
-- (NSObject<OGStringProtocol>*)selectedOGString;
+@property (readonly, copy) NSString *selectedString;
+@property (readonly, copy) NSAttributedString *selectedAttributedString;
+@property (readonly, strong) NSObject<OGStringProtocol> *selectedOGString;
 
-- (BOOL)isSelectionEmpty;
+@property (getter=isSelectionEmpty, readonly) BOOL selectionEmpty;
 
-- (BOOL)jumpToSelection;
+@property (readonly) BOOL jumpToSelection;
 
 /* creating an alert sheet */
 - (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTerget;
@@ -165,7 +159,7 @@
  * Private Methods *
  *******************/
 // 前回保存された履歴
-- (NSDictionary*)history;
+@property (readonly, copy) NSDictionary *history;
 // currentを起点に名前がnameのmenu itemを探す。
 - (NSMenuItem*)findMenuItemNamed:(NSString*)name startAt:(NSMenu*)current;
 

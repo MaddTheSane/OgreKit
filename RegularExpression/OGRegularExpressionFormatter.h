@@ -21,7 +21,7 @@ extern NSString	* const OgreFormatterException;
 @interface OGRegularExpressionFormatter : NSFormatter <NSCopying, NSCoding>
 {
 	NSString			*_escapeCharacter;		// \の代替文字
-	unsigned			_options;				// コンパイルオプション
+	OgreOption			_options;				// コンパイルオプション
 	OgreSyntax			_syntax;				// 正規表現の構文
 }
 
@@ -38,7 +38,7 @@ extern NSString	* const OgreFormatterException;
 - (instancetype)init;
 - (instancetype)initWithOptions:(unsigned)options
 	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character;
+	escapeCharacter:(NSString*)character NS_DESIGNATED_INITIALIZER;
 
 @property (copy) NSString *escapeCharacter;
 @property unsigned options;

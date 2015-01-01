@@ -59,14 +59,14 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 }
 
 + (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
-- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread NS_DESIGNATED_INITIALIZER;
 
 - (void)setType:(OgreTextFindResultType)resultType;
-- (BOOL)isSuccess;				/* success or failure(including error) */
-- (NSObject <OgreTextFindComponent>*)result;
-- (NSString*)findString;
+@property (getter=isSuccess, readonly) BOOL success;				/* success or failure(including error) */
+@property (readonly, strong) NSObject<OgreTextFindComponent> *result;
+@property (readonly, copy) NSString *findString;
 
-- (BOOL)alertIfErrorOccurred;
+@property (readonly) BOOL alertIfErrorOccurred;
 - (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException;
 
 - (void)beginGraftingToBranch:(OgreFindResultBranch*)aBranch;
@@ -84,7 +84,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
-- (NSAttributedString*)missingString;
+@property (readonly, copy) NSAttributedString *missingString;
 - (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches;
 - (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
 
@@ -93,8 +93,8 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 - (void)didUpdate;
 
 // setting of result outline view
-- (NSCell*)nameCell;
-- (float)rowHeight;
+@property (readonly, copy) NSCell *nameCell;
+@property (readonly) float rowHeight;
 // delegate method of the find result outline view
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 

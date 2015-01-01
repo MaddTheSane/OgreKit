@@ -20,6 +20,9 @@ static NSString	* const OgreEscapeCharacterKey    = @"OgreFormatterEscapeCharact
 
 NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterException";
 
+@interface OGRegularExpressionFormatter ()
+- (instancetype)initWithCoder:(NSCoder*)decoder NS_DESIGNATED_INITIALIZER;
+@end
 
 @implementation OGRegularExpressionFormatter
 @synthesize syntax = _syntax;
@@ -115,16 +118,16 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]] forKey: OgreOptionsKey];
-		[encoder encodeObject: [NSNumber numberWithInt: syntaxType] forKey: OgreSyntaxKey];
+		[encoder encodeObject: @([self options]) forKey: OgreOptionsKey];
+		[encoder encodeObject: @(syntaxType) forKey: OgreSyntaxKey];
 	} else {
 		[encoder encodeObject: [self escapeCharacter]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]]];
-		[encoder encodeObject: [NSNumber numberWithInt: syntaxType]];
+		[encoder encodeObject: @([self options])];
+		[encoder encodeObject: @(syntaxType)];
 	}
 }
 
-- (id)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);

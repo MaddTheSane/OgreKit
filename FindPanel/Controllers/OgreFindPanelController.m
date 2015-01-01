@@ -63,7 +63,7 @@
 - (NSDictionary*)history
 {
 	/* 履歴等を保存したい場合は、NSDictionaryで返す。 */
-	return [NSDictionary dictionary];
+	return @{};
 }
 
 @end

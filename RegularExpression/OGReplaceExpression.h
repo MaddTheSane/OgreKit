@@ -23,7 +23,7 @@ extern NSString	* const OgreReplaceException;
 	NSMutableArray	*_compiledReplaceString;
 	NSMutableArray	*_compiledReplaceStringType;
 	NSMutableArray	*_nameArray;
-	unsigned		_options;
+	OgreOption		_options;
 }
 
 /*********
@@ -57,17 +57,17 @@ extern NSString	* const OgreReplaceException;
 - (instancetype)initWithString:(NSString*)replaceString;
 
 - (instancetype)initWithAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options
+	options:(OgreOption)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 - (instancetype)initWithAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)replaceOptions;
+	options:(OgreOption)replaceOptions;
 - (instancetype)initWithAttributedString:(NSAttributedString*)replaceString;
 
 - (instancetype)initWithOGString:(NSObject<OGStringProtocol>*)replaceString
-	options:(unsigned)options 
+	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character;
+	escapeCharacter:(NSString*)character NS_DESIGNATED_INITIALIZER;
 
 + (instancetype)replaceExpressionWithString:(NSString*)replaceString
 	syntax:(OgreSyntax)syntax 
@@ -77,15 +77,15 @@ extern NSString	* const OgreReplaceException;
 + (instancetype)replaceExpressionWithString:(NSString*)replaceString;
 
 + (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options 
+	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 + (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString
-	options:(unsigned)options;
+	options:(OgreOption)options;
 + (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString;
 
 + (instancetype)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
-	options:(unsigned)options 
+	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 

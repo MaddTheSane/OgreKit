@@ -24,7 +24,7 @@
     BOOL				_inSelection;
 }
 
-- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection;
+- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection NS_DESIGNATED_INITIALIZER;
 @property NSInteger terminalIndex;
 @property NSInteger startIndex;
 

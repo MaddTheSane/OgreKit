@@ -16,7 +16,7 @@
 #import <OgreKit/OGString.h>
 
 // aUTF16StringのUTF16文字長
-static inline unsigned Ogre_UTF16charlen(unichar *const aUTF16String)
+static inline NSUInteger Ogre_UTF16charlen(unichar *const aUTF16String)
 {
 	unichar UTF16Char = *aUTF16String;
 	
@@ -30,7 +30,7 @@ static inline unsigned Ogre_UTF16charlen(unichar *const aUTF16String)
 }
 
 // aUTF16Stringより１文字前のUTF16文字長
-static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
+static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 {
     unichar UTF16Char = *(aUTF16String - 1);
 	if ((UTF16Char <= 0x9FFF) || (UTF16Char >= 0xE000)) return 1;       // 1 code point
@@ -51,7 +51,7 @@ static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
  * 初期化 *
  *********/
 - (instancetype)initWithOGString:(NSObject<OGStringProtocol>*)targetString 
-	options:(unsigned)searchOptions 
+	options:(OgreOption)searchOptions 
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex;
 

@@ -16,7 +16,7 @@
 
 @implementation OgreFindResultWindowController
 
-- (id)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
+- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
 {
 	self = [super init];
 	if (self != nil) {

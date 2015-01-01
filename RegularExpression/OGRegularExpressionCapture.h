@@ -53,7 +53,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @interface OGRegularExpressionCapture : NSObject <NSCopying, NSCoding>
 {
 	OnigCaptureTreeNode         *_captureNode;      // Oniguruma capture tree node
-	unsigned                    _index,             // マッチした順番
+	NSUInteger                  _index,             // マッチした順番
                                 _level;             // 深さ
 	OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト
 	OGRegularExpressionCapture	*_parent;           // 親
@@ -63,50 +63,50 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
  * 諸情報 *
  *********/
 // グループ番号
-- (unsigned)groupIndex;
+@property (readonly) NSUInteger groupIndex;
 
 // グループ名
-- (NSString*)groupName;
+@property (readonly, copy) NSString *groupName;
 
 // 何番目の子要素であるか 0,1,2,...
-- (unsigned)index;
+@property (readonly) NSUInteger index;
 
 // 深さ
 // 0: root
-- (unsigned)level;
+@property (readonly) NSUInteger level;
 
 // 子要素の数
-- (unsigned)numberOfChildren;
+@property (readonly) NSUInteger numberOfChildren;
 
 // 子要素たち
 // return nil in the case of numberOfChildren == 0
-- (NSArray*)children;
+@property (readonly, copy) NSArray *children;
 
 // index番目の子要素
-- (OGRegularExpressionCapture*)childAtIndex:(unsigned)index;
+- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
 
 // match
-- (OGRegularExpressionMatch*)match;
+@property (readonly, copy) OGRegularExpressionMatch *match;
 
 // description
-- (NSString*)description;
+@property (readonly, copy) NSString *description;
 
 /*********
  * 文字列 *
  *********/
 // マッチの対象になった文字列
-- (NSString*)targetString;
-- (NSAttributedString*)targetAttributedString;
+@property (readonly, copy) NSString *targetString;
+@property (readonly, copy) NSAttributedString *targetAttributedString;
 
 // マッチした文字列
-- (NSString*)string;
-- (NSAttributedString*)attributedString;
+@property (readonly, copy) NSString *string;
+@property (readonly, copy) NSAttributedString *attributedString;
 
 /*******
  * 範囲 *
  *******/
 // マッチした文字列の範囲
-- (NSRange)range;
+@property (readonly) NSRange range;
 
 /************************
 * adapt Visitor pattern *

@@ -21,7 +21,7 @@
     NSMutableString *_ogreModelKeyPathOfValueBinding;
 }
 
-- (int)ogreNumberOfRows;
+@property (readonly) int ogreNumberOfRows;
 - (id)ogreObjectValueForRow:(int)row;
 - (void)ogreSetObjectValue:(id)anObject forRow:(int)row;
 

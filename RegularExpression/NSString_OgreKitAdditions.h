@@ -52,9 +52,9 @@
  **********/
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString;
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options;
+	options:(OgreOption)options;
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(OgreOption)options 
 	range:(NSRange)searchRange;
 
 /*********
@@ -67,7 +67,7 @@
  * Newline Character *
  *********************/
 // 改行コードが何か調べる
-- (OgreNewlineCharacter)newlineCharacter;
+@property (readonly) OgreNewlineCharacter newlineCharacter;
 
 @end
 
@@ -76,9 +76,9 @@
 /***********
  * Replace *
  ***********/
-- (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
+- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString
 	withString:(NSString*)replaceString 
-	options:(unsigned)options 
+	options:(OgreOption)options 
 	range:(NSRange)searchRange;
 
 /*********************

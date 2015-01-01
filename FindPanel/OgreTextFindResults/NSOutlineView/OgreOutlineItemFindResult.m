@@ -54,7 +54,7 @@
 {
     int i = 0;
     while (i < [_components count]) {
-        if ([[_components objectAtIndex:i] numberOfChildrenInSelection:NO] == 0) {
+        if ([_components[i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
         } else {
             i++;
@@ -63,7 +63,7 @@
     
     i = 0;
     while (i < [_simplifiedComponents count]) {
-        id <OgreTextFindComponent>  aComponent = [_simplifiedComponents objectAtIndex:i];
+        id <OgreTextFindComponent>  aComponent = _simplifiedComponents[i];
         if ([aComponent isBranch] && [aComponent numberOfChildrenInSelection:NO] == 0) {
             [_simplifiedComponents removeObjectAtIndex:i];
         } else {
@@ -84,7 +84,7 @@
         unsigned    count = [children count];
         if (count > 0) {
             [_simplifiedComponents replaceObjectsInRange:NSMakeRange(0, 1) withObjectsFromArray:[children subarrayWithRange:NSMakeRange(1, count - 1)]];
-            _outlineDelegateLeaf = [children objectAtIndex:0];
+            _outlineDelegateLeaf = children[0];
         }
     } else {
         if ([[aBranch children] count] > 0) {
@@ -124,7 +124,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_simplifiedComponents objectAtIndex:index];
+    return _simplifiedComponents[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
