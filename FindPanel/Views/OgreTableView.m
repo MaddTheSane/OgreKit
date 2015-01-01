@@ -16,6 +16,7 @@
 
 
 @implementation OgreTableView
+@synthesize ogreSelectedRange = _ogreSelectedRange;
 
 - (NSObject <OgreTextFindComponent>*)ogreAdapter
 {
@@ -40,16 +41,6 @@
 - (void)ogreSetSelectedRow:(NSInteger)row
 {
     _ogreSelectedRow = row;
-}
-
-- (NSRange)ogreSelectedRange
-{
-    return _ogreSelectedRange;
-}
-
-- (void)ogreSetSelectedRange:(NSRange)aRange
-{
-    _ogreSelectedRange = aRange;
 }
 
 

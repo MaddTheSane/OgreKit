@@ -16,9 +16,9 @@
 
 @interface OgreTextFindRoot : OgreTextFindBranch
 {
-    NSObject <OgreTextFindComponent>    *_component;
+    id <OgreTextFindComponent>    _component;
 }
 
-- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent;
+- (instancetype)initWithComponent:(id <OgreTextFindComponent>)aComponent;
 
 @end

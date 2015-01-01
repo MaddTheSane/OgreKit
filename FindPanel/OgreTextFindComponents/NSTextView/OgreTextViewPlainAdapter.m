@@ -99,17 +99,17 @@
     return [_textView selectedRange];
 }
 
-- (NSObject<OGStringProtocol>*)ogString
+- (id<OGStringProtocol>)ogString
 {
     return [[[OGPlainString alloc] initWithString:[_textView string]] autorelease];
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString
+- (void)setOGString:(id<OGStringProtocol>)aString
 {
     [_textView setString:[aString string]];
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
     // Undo操作の登録
     if (_allowsUndo) {
@@ -140,7 +140,7 @@
     }
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
     // Undo操作の登録開始
     _allowsUndo = [_textView allowsUndo];

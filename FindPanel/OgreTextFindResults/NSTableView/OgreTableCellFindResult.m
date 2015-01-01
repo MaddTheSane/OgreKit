@@ -23,7 +23,7 @@
 
 @implementation OgreTableCellFindResult
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
     self = [super init];
     if (self != nil) {
@@ -45,7 +45,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
-    int     i, n = [aMatch count];
+    NSInteger     i, n = [aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
@@ -91,13 +91,13 @@
 
 
 // index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     return @(_rowIndex + 1);
 }
 
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return [[self textFindResult] missingString];
     
@@ -115,7 +115,7 @@
 }
 
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
     OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
@@ -125,7 +125,7 @@
 }
 
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
     OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];

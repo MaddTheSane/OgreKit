@@ -48,7 +48,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	return self;
 }
 
-- (id)initWithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString
+- (id)initWithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	if (string == nil || ogString == nil) {
 		[super release];
@@ -69,7 +69,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	return [[[[self class] alloc] initWithAttributedString:attributedString] autorelease];
 }
 
-+ (id)stringithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString
++ (id)stringithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	return [[[[self class] alloc] initWithString:string hasAttributesOfOGString:ogString] autorelease];
 }
@@ -107,7 +107,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	return [_attrString length];
 }
 
-- (NSObject<OGStringProtocol>*)substringWithRange:(NSRange)aRange
+- (id<OGStringProtocol>)substringWithRange:(NSRange)aRange
 {
 	return [[self class] stringWithAttributedString:[_attrString attributedSubstringFromRange:aRange]];
 }

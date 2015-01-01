@@ -552,7 +552,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		range:searchRange] nextObject];
 }
 
-- (OGRegularExpressionMatch*)matchInOGString:(NSObject<OGStringProtocol>*)string 
+- (OGRegularExpressionMatch*)matchInOGString:(id<OGStringProtocol>)string 
 	options:(OgreOption)options 
 	range:(NSRange)searchRange
 {
@@ -625,7 +625,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 
 //
-- (NSEnumerator*)matchEnumeratorInOGString:(NSObject<OGStringProtocol>*)string 
+- (NSEnumerator*)matchEnumeratorInOGString:(id<OGStringProtocol>)string 
 	options:(OgreOption)options 
 	range:(NSRange)searchRange
 {
@@ -712,7 +712,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (NSArray*)allMatchesInOGString:(NSObject<OGStringProtocol>*)string
+- (NSArray*)allMatchesInOGString:(id<OGStringProtocol>)string
 	options:(OgreOption)options 
 	range:(NSRange)searchRange
 {
@@ -931,8 +931,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		numberOfReplacement:numberOfReplacement] attributedString];
 }
 
-- (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString 
+- (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
+	withOGString:(id<OGStringProtocol>)replaceString 
 	options:(OgreOption)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
@@ -1091,7 +1091,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		numberOfReplacement:NULL];
 }
 
-- (NSObject<OGStringProtocol>*)replaceFirstMatchInOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceFirstMatchInOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
@@ -1208,7 +1208,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (NSObject<OGStringProtocol>*)replaceAllMatchesInOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceAllMatchesInOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
@@ -1303,7 +1303,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -1584,13 +1584,13 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // capture groupの数
-- (unsigned)numberOfGroups
+- (NSUInteger)numberOfGroups
 {
     return onig_number_of_captures(_regexBuffer);
 }
 
 // name groupの数
-- (unsigned)numberOfNames
+- (NSUInteger)numberOfNames
 {
 	return onig_number_of_names(_regexBuffer);
 }
@@ -1754,7 +1754,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 - (NSArray*)splitString:(NSString*)aString 
 	options:(OgreOption)options 
 	range:(NSRange)searchRange
-	limit:(int)limit 
+	limit:(NSInteger)limit
 {
 	NSMutableArray	*words = [NSMutableArray arrayWithCapacity:1];
 	

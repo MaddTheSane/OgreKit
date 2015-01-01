@@ -15,13 +15,10 @@
 
 @protocol OgreAttachableWindowAcceptorProtocol;
 
-@protocol OgreAttachableWindowAccepteeProtocol
-- (BOOL)dragging;
-- (void)setDragging:(BOOL)dragging;
-- (BOOL)resizing;
-- (void)setResizing:(BOOL)resizing;
-- (NSPoint)difference;
-- (void)setDifference:(NSPoint)difference;
+@protocol OgreAttachableWindowAccepteeProtocol <NSObject>
+@property BOOL dragging;
+@property BOOL resizing;
+@property NSPoint difference;
 - (BOOL)isAttachableAccepteeEdge:(NSRectEdge)edge toAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor;
 @end
 

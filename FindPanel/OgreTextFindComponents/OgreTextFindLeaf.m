@@ -127,7 +127,7 @@
 /* Accessor methods */
 - (void)beginEditing { /* do nothing */ }
 - (void)endEditing { /* do nothing */ }
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity { /* do nothing */ }
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity { /* do nothing */ }
 - (void)endRegisteringUndo { /* do nothing */ }
 
 - (BOOL)isSelected
@@ -160,7 +160,7 @@
 }
 
 
-- (NSObject<OGStringProtocol>*)ogString 
+- (id<OGStringProtocol>)ogString 
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -string of %@ (BUG!!!)", [self className]);
@@ -168,7 +168,7 @@
     return nil; 
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString 
+- (void)setOGString:(id<OGStringProtocol>)aString 
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -setOGString: of %@ (BUG?)", [self className]);
@@ -176,7 +176,7 @@
     /* do nothing */ 
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -replaceCharactersInRange:withOGString: of %@ (BUG?)", [self className]);
@@ -244,16 +244,6 @@
 {
     if (isFirstLeaf) _isTerminal = NO;
     _isFirstLeaf = isFirstLeaf;
-}
-
-- (BOOL)isReversed
-{
-    return _isReversed;
-}
-
-- (void)setReversed:(BOOL)isReversed
-{
-    _isReversed = isReversed;
 }
 
 - (void)finalizeFinding

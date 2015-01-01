@@ -25,7 +25,7 @@
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
 	terminalOfLastMatch:(unsigned)terminalOfLastMatch;
 
-- (NSObject<OGStringProtocol>*)_targetString;
+- (id<OGStringProtocol>)_targetString;
 - (NSRange)_searchRange;
 - (OnigRegion*)_region;
 

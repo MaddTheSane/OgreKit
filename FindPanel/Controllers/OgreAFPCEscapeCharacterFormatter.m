@@ -17,6 +17,7 @@
 
 
 @implementation OgreAFPCEscapeCharacterFormatter
+@synthesize delegate = _delegate;
 
 - (id)init
 {
@@ -95,11 +96,6 @@
 	}
 	
 	return YES;
-}
-
-- (void)setDelegate:(id)aDelegate
-{
-	_delegate = aDelegate;  // 注意! retainしない。
 }
 
 - (NSString*)equateInString:(NSString*)string

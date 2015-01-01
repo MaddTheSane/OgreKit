@@ -16,7 +16,7 @@
 @class OGRegularExpression, OGRegularExpressionMatch;
 
 /* 入力された文字列を頭の1文字にするformatter */
-@protocol OgreAFPCEscapeCharacterFormatterDelegate
+@protocol OgreAFPCEscapeCharacterFormatterDelegate <NSObject>
 - (NSString*)escapeCharacter;
 - (BOOL)shouldEquateYenWithBackslash;
 @end
@@ -35,7 +35,7 @@
 //- (BOOL)getObjectValue:(id*)obj forString:(NSString*)string errorDescription:(NSString**)error;
 
 // delegate
-- (void)setDelegate:(id)aDelegate;
+@property (assign) id<OgreAFPCEscapeCharacterFormatterDelegate> delegate;
 // 変換
 - (NSString*)equateInString:(NSString*)string;
 - (NSAttributedString*)equateInAttributedString:(NSAttributedString*)string;

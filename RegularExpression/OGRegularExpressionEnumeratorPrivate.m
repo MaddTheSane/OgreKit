@@ -22,7 +22,7 @@
 
 @implementation OGRegularExpressionEnumerator (Private)
 
-- (id) initWithOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id) initWithOGString:(NSObject<OGStringProtocol>*)targetString
 	options:(OgreOption)searchOptions 
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex
@@ -120,12 +120,12 @@
 	_isLastMatchEmpty = yesOrNo;
 }
 
-- (void)_setStartLocation:(unsigned)location
+- (void)_setStartLocation:(NSUInteger)location
 {
 	_startLocation = location;
 }
 
-- (void)_setNumberOfMatches:(unsigned)aNumber
+- (void)_setNumberOfMatches:(NSUInteger)aNumber
 {
 	_numberOfMatches = aNumber;
 }
@@ -143,7 +143,7 @@
 }
 
 // public?
-- (NSObject<OGStringProtocol>*)targetString
+- (id<OGStringProtocol>)targetString
 {
 	return _targetString;
 }

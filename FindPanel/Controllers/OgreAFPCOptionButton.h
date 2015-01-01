@@ -14,6 +14,5 @@
 #import <AppKit/AppKit.h>
 
 @interface OgreAFPCOptionButton : NSButton 
-{
-}
+
 @end

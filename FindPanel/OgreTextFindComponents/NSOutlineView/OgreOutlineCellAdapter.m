@@ -42,7 +42,7 @@
 
 
 /* Accessor methods */
-- (NSObject<OGStringProtocol>*)ogString
+- (id<OGStringProtocol>)ogString
 {
     OgreOutlineColumn               *outlineColumn = [self outlineColumn];
     id                              item = [self target];
@@ -58,7 +58,7 @@
     return nil;
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString
+- (void)setOGString:(id<OGStringProtocol>)aString
 {
     OgreOutlineColumn *outlineColumn = [self outlineColumn];
     if ([outlineColumn isEditable]) {
@@ -72,7 +72,7 @@
     }
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
     OgreOutlineColumn *outlineColumn = [self outlineColumn];
     if ([outlineColumn isEditable]) {
@@ -101,7 +101,7 @@
 #endif
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
 }
 

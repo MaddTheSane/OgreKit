@@ -18,11 +18,11 @@
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OgreTextFindProgressDelegate.h>
 
-@protocol OgreTextFindResultDelegateProtocol
+@protocol OgreTextFindResultDelegateProtocol <NSObject>
 - (void)didUpdateTextFindResult:(id)textFindResult;
 @end
 
-@protocol OgreFindResultCorrespondingToTextFindLeaf
+@protocol OgreFindResultCorrespondingToTextFindLeaf <NSObject>
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch;
 - (void)endAddition;
 @end

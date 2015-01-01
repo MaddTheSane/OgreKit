@@ -31,7 +31,7 @@
 
 - (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
-@property (readonly, strong) NSWindow *window;
+@property (readonly, assign) NSWindow *window;
 
 - (IBAction)updateLiveUpdate:(id)sender;
 

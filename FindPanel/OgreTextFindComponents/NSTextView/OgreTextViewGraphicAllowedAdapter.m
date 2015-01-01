@@ -23,17 +23,17 @@
 @implementation OgreTextViewGraphicAllowedAdapter
 
 /* Accessor methods */
-- (NSObject<OGStringProtocol>*)ogString
+- (id<OGStringProtocol>)ogString
 {
     return [[[OGAttributedString alloc] initWithAttributedString:[self textStorage]] autorelease];
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString
+- (void)setOGString:(id<OGStringProtocol>)aString
 {
     [_textStorage setAttributedString:[aString attributedString]];
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
     // Undo操作の登録
     if (_allowsUndo) {

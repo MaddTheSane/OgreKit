@@ -185,9 +185,9 @@ extern NSString	* const OgreException;
 @property (readonly, copy) NSString *escapeCharacter;
 
 // capture groupの数
-@property (readonly) unsigned int numberOfGroups;
+@property (readonly) NSUInteger numberOfGroups;
 // named groupの数
-@property (readonly) unsigned int numberOfNames;
+@property (readonly) NSUInteger numberOfNames;
 // nameの配列
 // named groupを使用していない場合はnilを返す。
 @property (readonly, copy) NSArray *names;
@@ -276,7 +276,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (OGRegularExpressionMatch*)matchInOGString:(NSObject<OGStringProtocol>*)string 
+- (OGRegularExpressionMatch*)matchInOGString:(id<OGStringProtocol>)string 
 	options:(OgreOption)options 
 	range:(NSRange)searchRange;
 
@@ -300,7 +300,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (NSEnumerator*)matchEnumeratorInOGString:(NSObject<OGStringProtocol>*)string 
+- (NSEnumerator*)matchEnumeratorInOGString:(id<OGStringProtocol>)string 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 	
@@ -326,7 +326,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (NSArray*)allMatchesInOGString:(NSObject<OGStringProtocol>*)string
+- (NSArray*)allMatchesInOGString:(id<OGStringProtocol>)string
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
@@ -410,8 +410,8 @@ extern NSString	* const OgreException;
 	replaceAll:(BOOL)replaceAll
 	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
-- (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString 
+- (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
+	withOGString:(id<OGStringProtocol>)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
@@ -468,7 +468,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
-- (NSObject<OGStringProtocol>*)replaceFirstMatchInOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceFirstMatchInOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -508,7 +508,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
-- (NSObject<OGStringProtocol>*)replaceAllMatchesInOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceAllMatchesInOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -553,7 +553,7 @@ extern NSString	* const OgreException;
 	replaceAll:(BOOL)isReplaceAll
 	numberOfReplacement:(unsigned*)numberOfReplacement;
 
-- (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -585,7 +585,7 @@ extern NSString	* const OgreException;
 - (NSArray*)splitString:(NSString*)aString 
 	options:(OgreOption)searchOptions 
 	range:(NSRange)searchRange
-	limit:(int)limit;
+	limit:(NSInteger)limit;
 
 
 /*************

@@ -18,14 +18,12 @@
 @interface OgreAttachableWindowMediator : NSObject
 {
 	NSMutableArray	*_acceptors;
-	float			_tolerance;
+	CGFloat			_tolerance;
 	BOOL			_processing;
 }
 
-+ (id)sharedMediator;
-
-- (float)tolerance;
-- (void)setTolerance:(float)tolerance;
++ (instancetype)sharedMediator;
+@property CGFloat tolerance;
 
 - (void)addAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor;
 - (void)removeAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor;

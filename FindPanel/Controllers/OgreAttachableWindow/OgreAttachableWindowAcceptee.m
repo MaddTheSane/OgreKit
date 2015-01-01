@@ -16,36 +16,9 @@
 
 
 @implementation OgreAttachableWindowAcceptee
-
-- (BOOL)dragging
-{
-	return _dragging;
-}
-
-- (void)setDragging:(BOOL)dragging
-{
-	_dragging = dragging;
-}
-
-- (BOOL)resizing
-{
-	return _resizing;
-}
-
-- (void)setResizing:(BOOL)resizing
-{
-	_resizing = resizing;
-}
-
-- (NSPoint)difference
-{
-	return _diff;
-}
-
-- (void)setDifference:(NSPoint)difference
-{
-	_diff = difference;
-}
+@synthesize dragging = _dragging;
+@synthesize resizing = _resizing;
+@synthesize difference = _diff;
 
 - (void)miniaturize:(id)sender
 {

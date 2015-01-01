@@ -44,7 +44,7 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 + (OnigSyntaxType*)onigSyntaxTypeForSyntax:(OgreSyntax)syntax;
 
 // string中の\をcharacterに置き換えた文字列を返す。characterがnilの場合、stringを返す。
-+ (NSObject<OGStringProtocol>*)changeEscapeCharacterInOGString:(NSObject<OGStringProtocol>*)string toCharacter:(NSString*)character;
++ (id<OGStringProtocol>)changeEscapeCharacterInOGString:(id<OGStringProtocol>)string toCharacter:(NSString*)character;
 
 // characterの文字種を返す。
 /*

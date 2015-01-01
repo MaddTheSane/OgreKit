@@ -28,7 +28,7 @@ extern NSString	* const OgreCaptureException;
 @class OGRegularExpression, OGRegularExpressionEnumerator, OGRegularExpressionMatch, OGRegularExpressionCapture;
 
 
-@protocol OGRegularExpressionCaptureVisitor
+@protocol OGRegularExpressionCaptureVisitor <NSObject>
 - (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture;
 - (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture;
 @end

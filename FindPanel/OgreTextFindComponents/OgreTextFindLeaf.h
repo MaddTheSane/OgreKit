@@ -29,16 +29,15 @@
 
 - (void)beginEditing;       // begin editing
 - (void)endEditing;         // end editing
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity;  // begin resistering undo oprations
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity;  // begin resistering undo oprations
 - (void)endRegisteringUndo;  // end resistering undo oprations
 
 @property (getter=isSelected, readonly) BOOL selected;
 @property  NSRange selectedRange;
 - (void)jumpToSelection;
 
-@property (readonly, strong) NSObject<OGStringProtocol> *ogString;
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString;
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString;
+@property (strong, setter=setOGString:) NSObject<OGStringProtocol> *ogString;
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString;
 
 - (void)unhighlight;
 - (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor;

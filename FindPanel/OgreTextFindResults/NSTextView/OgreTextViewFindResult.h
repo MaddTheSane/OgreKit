@@ -39,11 +39,11 @@ extern NSString	*OgreTextViewFindResultException;
 
 	NSUInteger			_count;					// マッチした文字列の数
 	
-	int					_cacheIndex;			// 表示用キャッシュ
-	unsigned			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
+	NSInteger			_cacheIndex;			// 表示用キャッシュ
+	NSUInteger			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
 	
-	int					_updateCacheIndex;				// 更新用キャッシュ
-	unsigned			_updateCacheAbsoluteLocation;	// _updateCacheIndex番目のマッチの絶対位置
+	NSInteger			_updateCacheIndex;				// 更新用キャッシュ
+	NSUInteger			_updateCacheAbsoluteLocation;	// _updateCacheIndex番目のマッチの絶対位置
 }
 
 // 初期化
@@ -56,18 +56,18 @@ extern NSString	*OgreTextViewFindResultException;
 //- (void)endAddition;
 
 // index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index;
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index;
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index;
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index;
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 // マッチ数
 - (NSUInteger)count;
 
 // 結果の更新
 - (void)updateOldRange:(NSRange)oldRange newRange:(NSRange)newRange;
-- (void)updateSubranges:(NSMutableArray*)target count:(unsigned)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(unsigned)origin leftAlign:(BOOL)leftAlign;
+- (void)updateSubranges:(NSMutableArray*)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign;
 
 @end

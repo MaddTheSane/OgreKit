@@ -82,7 +82,7 @@
 	[super dealloc];
 }
 
-- (NSObject<OGStringProtocol>*)_targetString
+- (id<OGStringProtocol>)_targetString
 {
     return _targetString;
 }

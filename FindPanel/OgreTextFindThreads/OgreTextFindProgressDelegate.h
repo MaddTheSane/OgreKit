@@ -13,7 +13,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol OgreTextFindProgressDelegate 
+@protocol OgreTextFindProgressDelegate <NSObject>
 // show progress
 - (void)setProgress:(double)progression message:(NSString*)message; // progression < 0: indeterminate
 - (void)setDonePerTotalMessage:(NSString*)message;

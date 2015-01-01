@@ -67,7 +67,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 // 初期化
-- (instancetype)initWithOGString:(NSObject<OGStringProtocol>*)replaceString 
+- (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString 
 	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
@@ -353,7 +353,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:[OGRegularExpression defaultEscapeCharacter]] autorelease];
 }
 
-+ (instancetype)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
++ (instancetype)replaceExpressionWithOGString:(id<OGStringProtocol>)replaceString 
 	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
@@ -396,7 +396,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	return [[self replaceMatchedOGStringOf:match] attributedString];
 }
 
-- (NSObject<OGStringProtocol>*)replaceMatchedOGStringOf:(OGRegularExpressionMatch*)match 
+- (id<OGStringProtocol>)replaceMatchedOGStringOf:(OGRegularExpressionMatch*)match 
 {
 	if (match == nil) {
 		[NSException raise:NSInvalidArgumentException format: @"nil string (or other) argument"];

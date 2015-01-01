@@ -16,12 +16,12 @@
 // exception name
 extern NSString	* const OgreStringException;
 
-@protocol OGStringProtocol
+@protocol OGStringProtocol <NSObject>
 - (NSString*)string;
 - (NSAttributedString*)attributedString;
 - (NSUInteger)length;
 
-- (NSObject<OGStringProtocol>*)substringWithRange:(NSRange)aRange;
+- (id<OGStringProtocol>)substringWithRange:(NSRange)aRange;
 
 - (Class)mutableClass;
 @end

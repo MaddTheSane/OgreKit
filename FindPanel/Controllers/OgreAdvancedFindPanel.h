@@ -17,7 +17,5 @@
 
 
 @interface OgreAdvancedFindPanel : OgreAttachableWindowAcceptor
-{
-}
 
 @end

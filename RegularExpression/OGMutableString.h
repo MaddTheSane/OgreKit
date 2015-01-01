@@ -14,23 +14,23 @@
 #import <Foundation/Foundation.h>
 #import <OgreKit/OGString.h>
 
-@protocol OGMutableStringProtocol
+@protocol OGMutableStringProtocol <NSObject>
 - (void)appendString:(NSString*)string;
 - (void)appendString:(NSString*)string 
-	hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
+	hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
 - (void)appendAttributedString:(NSAttributedString*)string;
 
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string;
-- (void)appendOGStringLeaveImprint:(NSObject<OGStringProtocol>*)string;
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string 
+- (void)appendOGString:(id<OGStringProtocol>)string;
+- (void)appendOGStringLeaveImprint:(id<OGStringProtocol>)string;
+- (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes;
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string 
+- (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes 
-	ofOGString:(NSObject<OGStringProtocol>*)srcString;
+	ofOGString:(id<OGStringProtocol>)srcString;
 
-- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string 
+- (void)setAttributesOfOGString:(id<OGStringProtocol>)string 
 	atIndex:(NSUInteger)index;
 @end

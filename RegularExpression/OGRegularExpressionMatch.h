@@ -56,39 +56,39 @@ extern NSString	* const OgreMatchException;
  * 文字列 *
  *********/
 // マッチの対象になった文字列
-@property (readonly, strong) NSObject<OGStringProtocol> *targetOGString;
+@property (readonly, strong) id<OGStringProtocol> targetOGString;
 @property (readonly, copy) NSString *targetString;
 @property (readonly, copy) NSAttributedString *targetAttributedString;
 
 // マッチした文字列 \&, \0
-@property (readonly, strong) NSObject<OGStringProtocol> *matchedOGString;
+@property (readonly, strong) id<OGStringProtocol> matchedOGString;
 @property (readonly, copy) NSString *matchedString;
 @property (readonly, copy) NSAttributedString *matchedAttributedString;
 
 // index番目のsubstring \index
 //  index番目のsubstringが存在しない時には nil を返す。
-- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(NSUInteger)index;
+- (id<OGStringProtocol>)ogSubstringAtIndex:(NSUInteger)index;
 - (NSString*)substringAtIndex:(NSUInteger)index;
 - (NSAttributedString*)attributedSubstringAtIndex:(NSUInteger)index;
 
 // マッチした部分より前の文字列 \`
-@property (readonly, strong) NSObject<OGStringProtocol> *prematchOGString;
+@property (readonly, strong) id<OGStringProtocol> prematchOGString;
 @property (readonly, copy) NSString *prematchString;
 @property (readonly, copy) NSAttributedString *prematchAttributedString;
 
 // マッチした部分より後ろの文字列 \'
-@property (readonly, strong) NSObject<OGStringProtocol> *postmatchOGString;
+@property (readonly, strong) id<OGStringProtocol> postmatchOGString;
 @property (readonly, copy) NSString *postmatchString;
 @property (readonly, copy) NSAttributedString *postmatchAttributedString;
 
 // 最後にマッチした部分文字列 \+
 // 存在しないときには nil を返す。
-@property (readonly, strong) NSObject<OGStringProtocol> *lastMatchOGSubstring;
+@property (readonly, strong) id<OGStringProtocol> lastMatchOGSubstring;
 @property (readonly, copy) NSString *lastMatchSubstring;
 @property (readonly, copy) NSAttributedString *lastMatchAttributedSubstring;
 
 // マッチした部分と一つ前にマッチした部分の間の文字列 \- (独自に追加)
-@property (readonly, strong) NSObject<OGStringProtocol> *ogStringBetweenMatchAndLastMatch;
+@property (readonly, strong) id<OGStringProtocol> ogStringBetweenMatchAndLastMatch;
 @property (readonly, copy) NSString *stringBetweenMatchAndLastMatch;
 @property (readonly, copy) NSAttributedString *attributedStringBetweenMatchAndLastMatch;
 
@@ -123,7 +123,7 @@ extern NSString	* const OgreMatchException;
 // 名前(ラベル)がnameの部分文字列
 // 存在しない名前の場合は nil を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (NSObject<OGStringProtocol>*)ogSubstringNamed:(NSString*)name;
+- (id<OGStringProtocol>)ogSubstringNamed:(NSString*)name;
 - (NSString*)substringNamed:(NSString*)name;
 - (NSAttributedString*)attributedSubstringNamed:(NSString*)name;
 

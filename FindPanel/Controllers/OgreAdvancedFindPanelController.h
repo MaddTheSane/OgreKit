@@ -147,53 +147,31 @@
 - (void)loadFindStringToPasteboard;
 
 /* accessors */
-- (BOOL)singleLineOption;
-- (void)setSingleLineOption:(BOOL)singleLineOption;
-- (BOOL)multilineOption;
-- (void)setMultilineOption:(BOOL)multilineOption;
-- (BOOL)ignoreCaseOption;
-- (void)setIgnoreCaseOption:(BOOL)ignoreCaseOption;
-- (BOOL)extendOption;
-- (void)setExtendOption:(BOOL)extendOption;
-- (BOOL)findLongestOption;
-- (void)setFindLongestOption:(BOOL)findLongestOption;
-- (BOOL)findNotEmptyOption;
-- (void)setFindNotEmptyOption:(BOOL)findNotEmptyOption;
-- (BOOL)findEmptyOption;
-- (void)setFindEmptyOption:(BOOL)findEmptyOption;
-- (BOOL)negateSingleLineOption;
-- (void)setNegateSingleLineOption:(BOOL)negateSingleLineOption;
-- (BOOL)captureGroupOption;
-- (void)setCaptureGroupOption:(BOOL)captureGroupOption;
-- (BOOL)dontCaptureGroupOption;
-- (void)setDontCaptureGroupOption:(BOOL)dontCaptureGroupOption;
-- (BOOL)delimitByWhitespaceOption;
-- (void)setDelimitByWhitespaceOption:(BOOL)delimitByWhitespaceOption;
-- (BOOL)notBeginOfLineOption;
-- (void)setNotBeginOfLineOption:(BOOL)notBeginOfLineOption;
-- (BOOL)notEndOfLineOption;
-- (void)setNotEndOfLineOption:(BOOL)notEndOfLineOption;
-- (BOOL)replaceWithStylesOption;
-- (void)setReplaceWithStylesOption:(BOOL)replaceWithStylesOption;
-- (BOOL)replaceFontsOption;
-- (void)setReplaceFontsOption:(BOOL)replaceFontsOption;
-- (BOOL)mergeStylesOption;
-- (void)setMergeStylesOption:(BOOL)mergeStylesOption;
-	
-- (BOOL)regularExpressionsOption;
-- (void)setRegularExpressionsOption:(BOOL)regularExpressionsOption;
-	
-- (BOOL)wrapSearchOption;
-- (void)setWrapSearchOption:(BOOL)wrapSearchOption;
-	
-- (BOOL)openSheetOption;
-- (void)setOpenSheetOption:(BOOL)openSheetOption;
-- (BOOL)closeWhenDoneOption;
-- (void)setCloseWhenDoneOption:(BOOL)closeWhenDoneOption;
-	
-- (BOOL)atTopOriginOption;
-- (void)setAtTopOriginOption:(BOOL)atTopOriginOption;
-- (BOOL)inSelectionScopeOption;
-- (void)setInSelectionScopeOption:(BOOL)inSelectionScopeOption;
+@property BOOL singleLineOption;
+@property BOOL multilineOption;
+@property BOOL ignoreCaseOption;
+@property BOOL extendOption;
+@property BOOL findLongestOption;
+@property BOOL findNotEmptyOption;
+@property BOOL findEmptyOption;
+@property BOOL negateSingleLineOption;
+@property BOOL captureGroupOption;
+@property BOOL dontCaptureGroupOption;
+@property BOOL delimitByWhitespaceOption;
+@property BOOL notBeginOfLineOption;
+@property BOOL notEndOfLineOption;
+@property BOOL replaceWithStylesOption;
+@property BOOL replaceFontsOption;
+@property BOOL mergeStylesOption;
+
+@property BOOL regularExpressionsOption;
+
+@property BOOL wrapSearchOption;
+
+@property BOOL openSheetOption;
+@property BOOL closeWhenDoneOption;
+
+@property BOOL atTopOriginOption;
+@property BOOL inSelectionScopeOption;
 
 @end

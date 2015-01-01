@@ -16,7 +16,7 @@
 #import <OgreKit/OgreTextFindBranch.h>
 #import <OgreKit/OgreTextFindLeaf.h>
 
-@protocol OgreView
+@protocol OgreView <NSObject>
 
 - (NSObject <OgreTextFindComponent>*)ogreAdapter;
 

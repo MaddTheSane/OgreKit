@@ -64,7 +64,7 @@ extern NSString	* const OgreReplaceException;
 	options:(OgreOption)replaceOptions;
 - (instancetype)initWithAttributedString:(NSAttributedString*)replaceString;
 
-- (instancetype)initWithOGString:(NSObject<OGStringProtocol>*)replaceString
+- (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character NS_DESIGNATED_INITIALIZER;
@@ -84,7 +84,7 @@ extern NSString	* const OgreReplaceException;
 	options:(OgreOption)options;
 + (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString;
 
-+ (instancetype)replaceExpressionWithOGString:(NSObject<OGStringProtocol>*)replaceString 
++ (instancetype)replaceExpressionWithOGString:(id<OGStringProtocol>)replaceString 
 	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
@@ -92,7 +92,7 @@ extern NSString	* const OgreReplaceException;
 /*******
  * 置換 *
  *******/
-- (NSObject<OGStringProtocol>*)replaceMatchedOGStringOf:(OGRegularExpressionMatch*)match;
+- (id<OGStringProtocol>)replaceMatchedOGStringOf:(OGRegularExpressionMatch*)match;
 - (NSString*)replaceMatchedStringOf:(OGRegularExpressionMatch*)match;
 - (NSAttributedString*)replaceMatchedAttributedStringOf:(OGRegularExpressionMatch*)match;
 

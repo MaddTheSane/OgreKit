@@ -21,7 +21,7 @@
 
 @class OgreTextFinder, OgreFindPanelController, OgreTextFindResult, OgreTextFindThread, OgreTextFindProgressSheet;
 
-@protocol OgreTextFindDataSource
+@protocol OgreTextFindDataSource <NSObject>
 /* OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる 
    document windowのdelegateがimplementすることを想定している */
 - (void)tellMeTargetToFindIn:(id)sender;
@@ -99,8 +99,8 @@
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
 	options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options;
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
@@ -113,8 +113,8 @@
 	options:(OgreOption)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
@@ -127,8 +127,8 @@
 	withAttributedString:(NSAttributedString*)replaceString
 	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
-- (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replaceAll:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 

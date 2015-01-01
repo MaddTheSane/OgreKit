@@ -140,13 +140,13 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	[_matchRangeArray addObject:rangeArray];
 }
 
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     //NSLog(@"lineOfMatchedStringAtIndex:%d", index);
 	return _lineOfMatchedStrings[(index + 1)];   // 0番目はダミー
 }
 
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     //NSLog(@"matchedStringAtIndex:%d", index);
 	if (_textView == nil) return [[self textFindResult] missingString];
@@ -191,7 +191,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return [[self textFindResult] highlightedStringInRange:rangeArray ofString:text];
 }
 
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
 	if (_textView == nil) return NO;
 	
@@ -199,7 +199,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return [self selectMatchedStringAtIndex:index];
 }
 
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
 	if (_textView == nil) return NO;
 	
@@ -425,7 +425,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
     [[self textFindResult] didUpdate];
 }
 
-- (void)updateSubranges:(NSMutableArray*)target count:(unsigned)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(unsigned)origin leftAlign:(BOOL)leftAlign
+- (void)updateSubranges:(NSMutableArray*)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-updateSubranges: of %@", [self className]);

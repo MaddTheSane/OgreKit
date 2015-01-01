@@ -39,7 +39,7 @@
 }
 
 /* OGMutableStringProtocol */
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string
+- (void)appendOGString:(id<OGStringProtocol>)string
 {
 	[(NSMutableString*)[self _string] appendString:[string string]];
 }
@@ -49,7 +49,7 @@
 	[(NSMutableString*)[self _string] appendString:string];
 }
 
-- (void)appendString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString
+- (void)appendString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	[(NSMutableString*)[self _string] appendString:string];
 }
@@ -59,20 +59,20 @@
 	[(NSMutableString*)[self _string] appendString:[string string]];
 }
 
-- (void)appendOGStringLeaveImprint:(NSObject<OGStringProtocol>*)string
+- (void)appendOGStringLeaveImprint:(id<OGStringProtocol>)string
 {
 	[(NSMutableString*)[self _string] appendString:[string string]];
 }
 
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string 
+- (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes 
-	ofOGString:(NSObject<OGStringProtocol>*)srcString
+	ofOGString:(id<OGStringProtocol>)srcString
 {
 	[(NSMutableString*)[self _string] appendString:[string string]];
 }
 
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string 
+- (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes 
 {
@@ -80,7 +80,7 @@
 }
 
 
-- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(NSUInteger)index
+- (void)setAttributesOfOGString:(id<OGStringProtocol>)string atIndex:(NSUInteger)index
 {
 	/* do nothing */
 }

@@ -63,7 +63,7 @@
 
 
 /* Accessor methods */
-- (NSObject<OGStringProtocol>*)ogString
+- (id<OGStringProtocol>)ogString
 {
     NSCell          *dataCell = [_tableColumn dataCell];
     id              anObject = nil;
@@ -77,7 +77,7 @@
     return nil;
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString
+- (void)setOGString:(id<OGStringProtocol>)aString
 {
     if ([_tableColumn isEditable]) {
         NSCell          *dataCell = [_tableColumn dataCell];
@@ -89,7 +89,7 @@
     }
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
     if ([_tableColumn isEditable]) {
         NSCell          *dataCell = [_tableColumn dataCell];

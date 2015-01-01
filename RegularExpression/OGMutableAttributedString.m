@@ -41,7 +41,7 @@
 	return self;
 }
 
-- (id)initWithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString
+- (id)initWithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	if (string == nil || ogString == nil) {
 		[super release];
@@ -65,7 +65,7 @@
 }
 
 /* OGMutableStringProtocol */
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string
+- (void)appendOGString:(id<OGStringProtocol>)string
 {
 	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:[string attributedString]];
 }
@@ -75,7 +75,7 @@
 	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:string];
 }
 
-- (void)appendOGStringLeaveImprint:(NSObject<OGStringProtocol>*)string
+- (void)appendOGStringLeaveImprint:(id<OGStringProtocol>)string
 {
 	NSUInteger	length = [string length];
 	if (length == 0) {
@@ -97,7 +97,7 @@
 	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:[[[NSAttributedString alloc] initWithString:string attributes:_currentAttributes] autorelease]];
 }
 
-- (void)appendString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString
+- (void)appendString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	if ([string length] == 0) {
 		return;
@@ -106,10 +106,10 @@
 	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:[[[NSAttributedString alloc] initWithString:string attributes:[[ogString attributedString] attributesAtIndex:0 effectiveRange:NULL]] autorelease]];
 }
 
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string 
+- (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes 
-	ofOGString:(NSObject<OGStringProtocol>*)srcString
+	ofOGString:(id<OGStringProtocol>)srcString
 {
 	if ([string length] == 0) {
 		return;
@@ -238,7 +238,7 @@
 	[pool release];
 }
 
-- (void)appendOGString:(NSObject<OGStringProtocol>*)string 
+- (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes 
 {
@@ -355,7 +355,7 @@
 	[pool release];
 }
 
-- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(NSUInteger)index
+- (void)setAttributesOfOGString:(id<OGStringProtocol>)string atIndex:(NSUInteger)index
 {
 	NSUInteger	attrIndex;
 	if (index > 0) {

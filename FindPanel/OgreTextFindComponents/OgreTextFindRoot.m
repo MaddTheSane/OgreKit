@@ -17,7 +17,7 @@
 
 @implementation OgreTextFindRoot
 
-- (id)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent
+- (id)initWithComponent:(id <OgreTextFindComponent>)aComponent
 {
     self = [super init];
     if (self != nil) {
