@@ -56,7 +56,6 @@
 		4DC40E6209150CF50029A2A6 /* OGRegularExpressionEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E6309150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */; };
 		4DC40E6409150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */; };
-		4DC40E6509150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5709150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.m */; };
 		4DC40E6609150CF50029A2A6 /* OGRegularExpressionMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E6709150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */; };
 		4DC40E6809150CF50029A2A6 /* OGRegularExpressionMatchPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */; };
@@ -205,7 +204,6 @@
 		4DC40F5309150CF50029A2A6 /* OGRegularExpressionEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F5409150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */; };
 		4DC40F5509150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */; };
-		4DC40F5609150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5709150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.m */; };
 		4DC40F5709150CF50029A2A6 /* OGRegularExpressionMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F5809150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */; };
 		4DC40F5909150CF50029A2A6 /* OGRegularExpressionMatchPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */; };
@@ -519,7 +517,6 @@
 		4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumerator.h; path = RegularExpression/OGRegularExpressionEnumerator.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionEnumerator.m; path = RegularExpression/OGRegularExpressionEnumerator.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumeratorPrivate.h; path = RegularExpression/OGRegularExpressionEnumeratorPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5709150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionEnumeratorPrivate.m; path = RegularExpression/OGRegularExpressionEnumeratorPrivate.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionMatch.h; path = RegularExpression/OGRegularExpressionMatch.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionMatch.m; path = RegularExpression/OGRegularExpressionMatch.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionMatchPrivate.h; path = RegularExpression/OGRegularExpressionMatchPrivate.h; sourceTree = SOURCE_ROOT; };
@@ -953,7 +950,6 @@
 				4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */,
 				4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */,
 				4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */,
-				4DC40D5709150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.m */,
 				4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */,
 				4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */,
 				4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */,
@@ -1894,7 +1890,6 @@
 				4DC40F5009150CF50029A2A6 /* OGRegularExpression.m in Sources */,
 				4DC40F5209150CF50029A2A6 /* OGRegularExpressionPrivate.m in Sources */,
 				4DC40F5409150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */,
-				4DC40F5609150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.m in Sources */,
 				4DC40F5809150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */,
 				4DC40F5A09150CF50029A2A6 /* OGRegularExpressionMatchPrivate.m in Sources */,
 				4DC40F5C09150CF50029A2A6 /* OGRegularExpressionCapture.m in Sources */,
@@ -1967,7 +1962,6 @@
 				4DC40E5F09150CF50029A2A6 /* OGRegularExpression.m in Sources */,
 				4DC40E6109150CF50029A2A6 /* OGRegularExpressionPrivate.m in Sources */,
 				4DC40E6309150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */,
-				4DC40E6509150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.m in Sources */,
 				4DC40E6709150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */,
 				4DC40E6909150CF50029A2A6 /* OGRegularExpressionMatchPrivate.m in Sources */,
 				4DC40E6B09150CF50029A2A6 /* OGRegularExpressionCapture.m in Sources */,

@@ -48,9 +48,6 @@ extern NSString	* const OgreMatchException;
 // 部分文字列の数 + 1
 @property (readonly) NSUInteger count;
 
-// description
-@property (readonly, copy) NSString *description;
-
 
 /*********
  * 文字列 *
