@@ -38,10 +38,9 @@
 		NSString	*targetPlainString = [_targetString string];
         _lengthOfTargetString = [_targetString length];
         
-        _UTF16TargetString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * (_lengthOfTargetString + 4));	// +4はonigurumaのmemory access violation問題への対処療法
+        _UTF16TargetString = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * (_lengthOfTargetString + 4));	// +4はonigurumaのmemory access violation問題への対処療法
         if (_UTF16TargetString == NULL) {
             // メモリを確保できなかった場合、例外を発生させる。
-            [self release];
             [NSException raise:NSMallocException format:@"fail to allocate a memory"];
         }
         [targetPlainString getCharacters:_UTF16TargetString range:NSMakeRange(0, _lengthOfTargetString)];
@@ -60,7 +59,7 @@
 		_searchRange = searchRange;
 		
 		// 正規表現オブジェクトを保持
-		_regex = [regex retain];
+		_regex = regex;
 		
 		// 検索オプション
 		_searchOptions = searchOptions;
@@ -91,8 +90,7 @@
 #ifdef DEBUG_OGRE
 	NSLog(@"-finalize of %@", [self className]);
 #endif
-	NSZoneFree([self zone], _UTF16TargetString);
-    [super finalize];
+	NSZoneFree(nil, _UTF16TargetString);
 }
 #endif
 
@@ -101,11 +99,8 @@
 #ifdef DEBUG_OGRE
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
-	[_regex release];
-	NSZoneFree([self zone], _UTF16TargetString);
-	[_targetString release];
+	NSZoneFree(nil, _UTF16TargetString);
 	
-	[super dealloc];
 }
 
 /* accessors */
@@ -128,18 +123,6 @@
 - (void)_setNumberOfMatches:(NSUInteger)aNumber
 {
 	_numberOfMatches = aNumber;
-}
-
-- (OGRegularExpression*)regularExpression
-{
-	return _regex;
-}
-
-- (void)setRegularExpression:(OGRegularExpression*)regularExpression
-{
-	[regularExpression retain];
-	[_regex release];
-	_regex = regularExpression;
 }
 
 // public?

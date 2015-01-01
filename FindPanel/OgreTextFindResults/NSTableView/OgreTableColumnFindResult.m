@@ -24,19 +24,12 @@
 {
     self = [super init];
     if (self != nil) {
-        _tableColumn = [tableColumn retain];
+        _tableColumn = tableColumn;
         _components = [[NSMutableArray alloc] initWithCapacity:[[_tableColumn tableView] numberOfColumns]];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_tableColumn release];
-    [_components release];
-    [_flattenedComponents release];
-    [super dealloc];
-}
 
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
 {
@@ -121,7 +114,6 @@
 
 - (void)targetIsMissing
 {
-    [_tableColumn release];
     _tableColumn = nil;
     [_components makeObjectsPerformSelector:@selector(targetIsMissing)];
 }

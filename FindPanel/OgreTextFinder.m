@@ -81,7 +81,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 #ifdef DEBUG_OGRE_FIND_PANEL
 				NSLog(@"Find out OgreKit: %@", [aBundle bundlePath]);
 #endif
-				theBundle = [aBundle retain];
+				theBundle = aBundle;
 				break;
 			}
 		}
@@ -105,7 +105,6 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSLog(@"-init of %@", [self className]);
 #endif
 	if (_sharedTextFinder != nil) {
-		[super release];
 		return _sharedTextFinder;
 	}
 	
@@ -117,7 +116,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		NSDictionary	*fullHistory = [defaults dictionaryForKey:@"OgreTextFinder"];	// 履歴等
 		
 		if (fullHistory != nil) {
-			_history = [fullHistory[OgreTextFinderHistoryKey] retain];
+			_history = fullHistory[OgreTextFinderHistoryKey];
 
 			id		anObject = fullHistory[OgreTextFinderSyntaxKey];
 			if(anObject == nil) {
@@ -126,7 +125,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 				_syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
 			}
 				
-			_escapeCharacter = [fullHistory[OgreTextFinderEscapeCharacterKey] retain];
+			_escapeCharacter = fullHistory[OgreTextFinderEscapeCharacterKey];
 			if(_escapeCharacter == nil) {
 				[self setEscapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 			}
@@ -241,7 +240,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		// Findメニューの初期化
 		[findMenu setTitle:titleOfFindMenu];
-        NSMenuItem  *newFindMenuItem = [[[NSMenuItem allocWithZone:[NSMenu menuZone]] init] autorelease];
+        NSMenuItem  *newFindMenuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] init];
 		[newFindMenuItem setTitle:titleOfFindMenu];
 		[newFindMenuItem setSubmenu:findMenu];
 		
@@ -269,32 +268,32 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSMenuItem  *foundMenuItem = nil;
 	if (current == nil) return nil;
 	
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
-	int i, n;
-	NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
-	while ([menuArray count] > 0) {
-		NSMenu      *aMenu = menuArray[0];
-		NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
-		if (aMenuItem != nil) {
-			// 見つかった場合
-			foundMenuItem = [aMenuItem retain];
-			break;
+		int i, n;
+		NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
+		while ([menuArray count] > 0) {
+			NSMenu      *aMenu = menuArray[0];
+			NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
+			if (aMenuItem != nil) {
+				// 見つかった場合
+				foundMenuItem = aMenuItem;
+				break;
+			}
+			
+			// 見つからなかった場合
+			n = [aMenu numberOfItems];
+			for (i=0; i<n; i++) {
+				aMenuItem = [aMenu itemAtIndex:i];
+				//NSLog(@"%@", [aMenuItem title]);
+				if ([aMenuItem hasSubmenu]) [menuArray addObject:[aMenuItem submenu]];
+			}
+			[menuArray removeObjectAtIndex:0];
 		}
-		
-		// 見つからなかった場合
-		n = [aMenu numberOfItems];
-		for (i=0; i<n; i++) {
-			aMenuItem = [aMenu itemAtIndex:i];
-			//NSLog(@"%@", [aMenuItem title]);
-			if ([aMenuItem hasSubmenu]) [menuArray addObject:[aMenuItem submenu]];
-		}
-		[menuArray removeObjectAtIndex:0];
+	
 	}
 	
-	[pool release];
-	
-	return [foundMenuItem autorelease];
+	return foundMenuItem;
 }
 
 - (void)appWillTerminate:(NSNotification*)aNotification
@@ -326,20 +325,10 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSDictionary	*history = _history;
 	_history = nil;
 	
-	return [history autorelease];
+	return history;
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"CAUTION! -finalize of %@", [self className]);
-#endif
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	if (_saved == NO) [self appWillTerminate:nil];	// 履歴の保存がまだならば保存する。
-	_sharedTextFinder = nil;
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
@@ -351,15 +340,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 	if (_saved == NO) [self appWillTerminate:nil];	// 履歴の保存がまだならば保存する。
 	
-	[_targetClassArray release];
-	[_adapterClassArray release];
-	[findPanelController release];
-	[_history release];
-	[_escapeCharacter release];
-	[_busyTargetArray release];
 	_sharedTextFinder = nil;
 	
-	[super dealloc];
 }
 
 - (IBAction)showFindPanel:(id)sender
@@ -376,8 +358,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (void)setFindPanelController:(OgreFindPanelController*)aFindPanelController
 {
-	[findPanelController autorelease];
-	findPanelController = [aFindPanelController retain];
+	findPanelController = aFindPanelController;
 }
 
 - (OgreFindPanelController*)findPanelController
@@ -387,8 +368,6 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (void)setEscapeCharacter:(NSString*)character
 {
-	[character retain];
-	[_escapeCharacter release];
 	_escapeCharacter = character;
 }
 
@@ -482,7 +461,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* スレッドの生成 */
 		id	adapter = [self adapterForTarget:target];
-		thread = [[[OgreFindThread alloc] initWithComponent:adapter] autorelease];
+		thread = [[OgreFindThread alloc] initWithComponent:adapter];
 		[thread setRegularExpression:regex];
 		[thread setOptions:options];
 		[thread setWrap:isWrap];
@@ -540,7 +519,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* スレッドの生成 */
 		id	adapter = [self adapterForTarget:target];
-		thread = [[[OgreFindAllThread alloc] initWithComponent:adapter] autorelease];
+		thread = [[OgreFindAllThread alloc] initWithComponent:adapter];
 		[thread setRegularExpression:regex];
 		[thread setHighlightColor:highlightColor];
 		[thread setOptions:options];
@@ -656,7 +635,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		// スレッドの生成
 		id	adapter = [self adapterForTarget:target];
-		thread = [[[OgreReplaceAndFindThread alloc] initWithComponent:adapter] autorelease];
+		thread = [[OgreReplaceAndFindThread alloc] initWithComponent:adapter];
 		[thread setRegularExpression:regex];
 		[thread setReplaceExpression:repex];
 		[thread setOptions:options];
@@ -741,7 +720,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* スレッドの生成 */
 		id	adapter = [self adapterForTarget:target];
-		thread = [[[OgreReplaceAllThread alloc] initWithComponent:adapter] autorelease];
+		thread = [[OgreReplaceAllThread alloc] initWithComponent:adapter];
 		[thread setRegularExpression:regex];
 		[thread setReplaceExpression:repex];
 		[thread setOptions:options];
@@ -784,7 +763,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 		/* スレッドの生成 */
 		id	adapter = [self adapterForTarget:target];
-		thread = [[[OgreUnhighlightThread alloc] initWithComponent:adapter] autorelease];
+		thread = [[OgreUnhighlightThread alloc] initWithComponent:adapter];
 		[thread setAsynchronous:NO];
 		
 		[thread detach];
@@ -836,7 +815,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* スレッドの生成 */
 		id	adapter = [self adapterForTarget:target];
-		thread = [[[OgreHighlightThread alloc] initWithComponent:adapter] autorelease];
+		thread = [[OgreHighlightThread alloc] initWithComponent:adapter];
 		[thread setRegularExpression:regex];
 		[thread setHighlightColor:highlightColor];
 		[thread setOptions:options];
@@ -992,7 +971,6 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		[(id <OgreTextFindProgressDelegate>)sheet setReleaseWhenOKButtonClicked:NO];
 		[sheet performSelector:@selector(close:) withObject:self];
 	}
-	[sheet release];
 }
 
 /* alert sheet */
@@ -1030,7 +1008,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		}
 	}
 	
-	return [[[anAdapterClass alloc] initWithTarget:aTargetToFindIn] autorelease];
+	return [[anAdapterClass alloc] initWithTarget:aTargetToFindIn];
 }
 
 - (void)registeringAdapterClass:(Class)anAdapterClass forTargetClass:(Class)aTargetClass

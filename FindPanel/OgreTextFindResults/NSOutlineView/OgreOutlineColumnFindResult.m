@@ -23,18 +23,12 @@
 {
     self = [super init];
     if (self != nil) {
-        _outlineColumn = [outlineColumn retain];
+        _outlineColumn = outlineColumn;
         _components = [[NSMutableArray alloc] initWithCapacity:[[_outlineColumn tableView] numberOfColumns]];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_outlineColumn release];
-    [_components release];
-    [super dealloc];
-}
 
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
 {
@@ -120,7 +114,6 @@
 
 - (void)targetIsMissing
 {
-    [_outlineColumn release];
     _outlineColumn = nil;
     [_components makeObjectsPerformSelector:@selector(targetIsMissing)];
 }

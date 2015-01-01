@@ -29,9 +29,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = [OgreTextFinderLocalizedString(@"%d string replaced.") retain];
-    progressMessagePlural = [OgreTextFinderLocalizedString(@"%d strings replaced.") retain];
-    remainingTimeMesssage = [OgreTextFinderLocalizedString(@"(%dsec remaining)") retain];
+    progressMessage = OgreTextFinderLocalizedString(@"%d string replaced.");
+    progressMessagePlural = OgreTextFinderLocalizedString(@"%d strings replaced.");
+    remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -61,9 +61,9 @@
 		selectedRange = NSMakeRange(0, stringLength);
 	}
     
-    matchArray = [[[self regularExpression] allMatchesInOGString:string 
+    matchArray = [[self regularExpression] allMatchesInOGString:string 
 			options: [self options] 
-			range: selectedRange] retain];
+			range: selectedRange];
     aNumberOfMatches = [matchArray count];
     aNumberOfReplaces = 0;
     
@@ -98,7 +98,6 @@
     if (aNumberOfMatches != 0) {
         [aLeaf endEditing];
         [aLeaf endRegisteringUndo];
-        [matchArray release];
     }
 }
 
@@ -114,9 +113,6 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingAll of %@", [self className]);
 #endif
-    [remainingTimeMesssage release];
-    [progressMessage release];
-    [progressMessagePlural release];
     
     if ([self numberOfMatches] > 0) [[self result] setType:OgreTextFindResultSuccess];
     

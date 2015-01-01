@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self != nil) {
-        _tableColumn = [tableColumn retain];
+        _tableColumn = tableColumn;
         _rowIndex = rowIndex;
         _matchRangeArray = [[NSMutableArray alloc] initWithCapacity:1];
         _childArray = [[NSMutableArray alloc] initWithCapacity:1];
@@ -35,13 +35,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_tableColumn release];
-    [_matchRangeArray release];
-    [_childArray release];
-    [super dealloc];
-}
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
@@ -51,7 +44,7 @@
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
     
     [_matchRangeArray addObject:rangeArray];
-    OgreTableCellMatchFindResult    *child = [[[OgreTableCellMatchFindResult alloc] init] autorelease];
+    OgreTableCellMatchFindResult    *child = [[OgreTableCellMatchFindResult alloc] init];
     [child setIndex:[_matchRangeArray count] - 1];
     [child setParentNoRetain:self];
     [_childArray addObject:child];
@@ -152,7 +145,6 @@
 
 - (void)targetIsMissing
 {
-    [_tableColumn release];
     _tableColumn = nil;
 }
 

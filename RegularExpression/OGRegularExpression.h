@@ -556,7 +556,7 @@ extern NSString	* const OgreException;
 - (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
-	contextInfo:(id)contextInfo 
+	contextInfo:(__unsafe_unretained id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll

@@ -23,27 +23,19 @@
 {
     self = [super init];
     if (self != nil) {
-        _tableView = [tableView retain];
+        _tableView = tableView;
         _components = [[NSMutableArray alloc] initWithCapacity:[_tableView numberOfColumns]];
     }
     return self;
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
-    [_tableView release];
-    [_components release];
-    [super dealloc];
 }
 
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
@@ -118,7 +110,6 @@
 	NSLog(@"-windowWillClose: of %@", [self className]);
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_tableView release];
 	_tableView = nil;
     [_components makeObjectsPerformSelector:@selector(targetIsMissing)];
     [[self textFindResult] didUpdate];

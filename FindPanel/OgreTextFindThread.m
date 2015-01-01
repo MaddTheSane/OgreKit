@@ -26,7 +26,7 @@
 #endif
 	self = [super init];
 	if (self != nil) {
-		_targetAdapter = [aComponent retain];
+		_targetAdapter = aComponent;
 		_enumeratorStack = [[NSMutableArray alloc] initWithCapacity:10];
 		_branchStack = [[NSMutableArray alloc] initWithCapacity:10];
 		_terminated = NO;
@@ -42,52 +42,27 @@
 	return self;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"-finalize of %@", [self className]);
-#endif
-	[self finalizeFindingAll];
-    [super finalize];
-}
-#endif
-
 - (void)dealloc
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
 	[self finalizeFindingAll];
-	
-	[_targetAdapter release];
-	[_rootAdapter release];
-	[_metronome release];
-	[_processTime release];
-	[_textFindResult release];
-	[_didEndTarget release];
-	[_highlightColor release];
-	[_repex release];
-	[_regex release];
-	[super dealloc];
 }
 
 - (void)finalizeFindingAll
 {
 	if (_leafProcessing != nil) {
 		[_leafProcessing finalizeFinding];
-		[_leafProcessing release];
 		_leafProcessing = nil;
 	} else {
 		[(OgreTextFindBranch*)[_branchStack lastObject] finalizeFinding];
 	}
 	
 	while ([self popBranch] != nil);
-	[_branchStack release];
 	_branchStack = nil;
 	
 	while ([self popEnumerator] != nil);
-	[_enumeratorStack release];
 	_enumeratorStack = nil;
 }
 
@@ -142,12 +117,12 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-visitLeaf: of %@", [self className]);
 #endif
-	NSAutoreleasePool   *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	if (aLeaf != nil) {
 		/* begin */
 		_numberOfDoneLeaves++;
-		_leafProcessing = [aLeaf retain];
+		_leafProcessing = aLeaf;
 		[_leafProcessing willProcessFinding:self];
 		[self willProcessFindingInLeaf:_leafProcessing];
 	}
@@ -162,24 +137,20 @@
 		BOOL	shouldContinue;
 		while (!_shouldFinish) {
 			shouldContinue = [self shouldContinueFindingInLeaf:_leafProcessing];
-			if (_numberOfMatches % 40 == 0) {
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-			}
+
 			if (_asynchronous && (-[_metronome timeIntervalSinceNow] >= 1.0)) {
 				/* coffee break */
 				if (shouldContinue) {
 					[_progressDelegate setProgress:[self progressPercentage] message:[self progressMessage]];
 					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%d/%@", _numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%d", _numberOfTotalLeaves])]];
 				}
-				[_metronome release];
 				_metronome = [[NSDate alloc] init];
 				
 	#ifdef DEBUG_OGRE_FIND_PANEL
 				NSLog(@"BREAK of %@", [self className]);
 	#endif
 				[self performSelector:@selector(visitLeaf:) withObject:nil afterDelay:0];
-				[pool release];
+
 				NS_VOIDRETURN;
 			}
 			if (!shouldContinue) break;
@@ -188,10 +159,7 @@
 		/* end */
 		[_leafProcessing didProcessFinding:self];
 		[self didProcessFindingInLeaf:_leafProcessing];
-		[_leafProcessing release];
 		_leafProcessing = nil;
-		
-		[pool release];
 		
 		if (aLeaf == nil) [self visitBranch:nil];
 		
@@ -202,13 +170,12 @@
 		
 		[_leafProcessing didProcessFinding:self];
 		[self didProcessFindingInLeaf:_leafProcessing];
-		
-		[pool release];
-		
+				
 		[self didProcessFindingAll];
 		[self finishingUp:nil];
 		
 	NS_ENDHANDLER
+	}
 }
 
 - (void)visitBranch:(OgreTextFindBranch*)aBranch
@@ -271,14 +238,12 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-finishingUp: of %@", [self className]);
 #endif
-	[_metronome release];
 	_metronome = nil;
 	
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"processTime: %lf", -[_processTime timeIntervalSinceNow]);
 #endif
 	
-	[_processTime release];
 	_processTime = nil;
 	
 	[_textFindResult setNumberOfMatches:_numberOfMatches];
@@ -326,20 +291,17 @@
 /* Configuration */
 - (void)setRegularExpression:(OGRegularExpression*)regex
 {
-	[_regex autorelease];
-	_regex = [regex retain];
+	_regex = regex;
 }
 
 - (void)setReplaceExpression:(OGReplaceExpression*)repex
 {
-	[_repex autorelease];
-	_repex = [repex retain];
+	_repex = repex;
 }
 
 - (void)setHighlightColor:(NSColor*)highlightColor
 {
-	[_highlightColor autorelease];
-	_highlightColor = [highlightColor retain];
+	_highlightColor = highlightColor;
 }
 
 - (void)setOptions:(unsigned)options
@@ -355,8 +317,7 @@
 - (void)setDidEndSelector:(SEL)aSelector toTarget:(id)aTarget
 {
 	_didEndSelector = aSelector;
-	[_didEndTarget autorelease];
-	_didEndTarget = [aTarget retain];
+	_didEndTarget = aTarget;
 }
 
 - (void)setProgressDelegate:(NSObject <OgreTextFindProgressDelegate>*)aDelegate
@@ -519,10 +480,10 @@
 {
 	if ([_enumeratorStack count] == 0) return nil;
 	
-	NSEnumerator  *anObject = [[_enumeratorStack lastObject] retain];
+	NSEnumerator  *anObject = [_enumeratorStack lastObject];
 	[_enumeratorStack removeLastObject];
 	
-	return [anObject autorelease];
+	return anObject;
 }
 
 - (OgreTextFindBranch*)rootAdapter
@@ -549,17 +510,16 @@
 {
 	if ([_branchStack count] == 0) return nil;
 	
-	OgreTextFindBranch  *anObject = [[_branchStack lastObject] retain];
+	OgreTextFindBranch  *anObject = [_branchStack lastObject];
 	[_branchStack removeLastObject];
 	
-	return [anObject autorelease];
+	return anObject;
 }
 
 
 - (void)_setLeafProcessing:(OgreTextFindLeaf*)aLeaf
 {
-	[_leafProcessing autorelease];
-	_leafProcessing = [aLeaf retain];
+	_leafProcessing = aLeaf;
 }
 
 

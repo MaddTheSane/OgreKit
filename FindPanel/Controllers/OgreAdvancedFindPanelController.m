@@ -47,6 +47,9 @@ static NSString	*OgreAFPCOpenProgressSheetKey        = @"AFPC Open Progress Shee
 static NSString	*OgreAFPCAttributedFindHistoryKey    = @"AFPC Attributed Find History";
 static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace History";
 
+@interface OgreAdvancedFindPanelController () <OgreAFPCEscapeCharacterFormatterDelegate>
+
+@end
 
 @implementation OgreAdvancedFindPanelController
 
@@ -105,21 +108,16 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[menuItem setTitle:@""];
 	[menu addItem:menuItem];
 	[findPopUpButton setMenu:menu];
-	[menuItem release];
-	[menu release];
 	
 	menu = [[NSMenu alloc] initWithTitle:@""];
 	menuItem = [[NSMenuItem alloc] init];
 	[menuItem setTitle:@""];
 	[menu addItem:menuItem];
 	[replacePopUpButton setMenu:menu];
-	[menuItem release];
-	[menu release];
 	
 	// escape characterのformatter
-	_escapeCharacterFormatter = [[[OgreAFPCEscapeCharacterFormatter alloc] init] autorelease];
+	_escapeCharacterFormatter = [[OgreAFPCEscapeCharacterFormatter alloc] init];
 	[_escapeCharacterFormatter setDelegate:self];
-	[_escapeCharacterFormatter retain];
 	
 	// default settings
 	[self setIgnoreCaseOption:YES];
@@ -177,22 +175,13 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 }*/
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-	[_replaceHistory release];
-	[_findHistory release];
-	[_escapeCharacterFormatter release];
 	
-	[super dealloc];
 }
 
 
@@ -202,16 +191,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 {
 	if (history == nil) return;
 	
-	NSAutoreleasePool	*pool;
-	unsigned			countOfAutorelease = 0;
-	
 	NSMutableArray	*findHistory = [NSMutableArray arrayWithArray:history[OgreAFPCFindHistoryKey]];
 	if ((findHistory != nil) && ([findHistory count] > 0)) {
-		countOfAutorelease = 0;
-		pool = [[NSAutoreleasePool alloc] init];
+		@autoreleasepool {
 		
-		[_findHistory release];
-		_findHistory = [findHistory retain];
+		_findHistory = findHistory;
 		
 		NSMenu			*menu = [findPopUpButton menu];
 		NSMenuItem		*item;
@@ -222,7 +206,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			if (![aString isKindOfClass:[NSAttributedString class]]) {
 				attrString = [[NSAttributedString alloc] initWithString:aString];
 				_findHistory[i] = attrString;
-				[attrString release];
 			} else {
 				attrString = (NSAttributedString*)aString;
 			}
@@ -241,31 +224,21 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[item setTarget:self];
 			[item setAction:@selector(selectFindHistory:)];
 			[menu addItem:item];
-			[item release];
-			
-			countOfAutorelease++;
-			if (countOfAutorelease == 10) {
-				countOfAutorelease = 0;
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-			}
 		}
 		
 		[self setFindString:_findHistory[0]];
-		[pool release];
+		}
 	} else {
 		//[findTextView setString:@""];
 	}
 	
 	NSMutableArray	*attrFindHistory = [NSMutableArray arrayWithArray:history[OgreAFPCAttributedFindHistoryKey]];
 	if ((attrFindHistory != nil) && ([attrFindHistory count] > 0)) {
-		countOfAutorelease = 0;
-		pool = [[NSAutoreleasePool alloc] init];
+		@autoreleasepool {
 		
 		NSMenu			*menu = [findPopUpButton menu];
 		NSMenuItem		*item;
 		
-		[_findHistory release];
 		_findHistory = [[NSMutableArray alloc] initWithCapacity:[attrFindHistory count]];
 		
 		NSAttributedString	*attrString;
@@ -273,7 +246,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		for (i = 0; i < [attrFindHistory count]; i++) {
 			attrString = [[NSAttributedString alloc] initWithRTFD:attrFindHistory[i] documentAttributes:nil];
 			[_findHistory addObject:attrString];
-			[attrString release];
 			
 			item = [[NSMenuItem alloc] init];
 			NSUInteger  start, end, contentsEnd;
@@ -289,29 +261,20 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[item setTarget:self];
 			[item setAction:@selector(selectFindHistory:)];
 			[menu addItem:item];
-			[item release];
 			
-			countOfAutorelease++;
-			if (countOfAutorelease == 10) {
-				countOfAutorelease = 0;
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-			}
 		}
 		
 		[self setFindString:_findHistory[0]];
-		[pool release];
+		}
 	} else {
 		//[findTextView setString:@""];
 	}
 	
-	NSMutableArray	*replaceHistory = [[NSMutableArray arrayWithArray:history[OgreAFPCReplaceHistoryKey]] retain];
+	NSMutableArray	*replaceHistory = [NSMutableArray arrayWithArray:history[OgreAFPCReplaceHistoryKey]];
 	if ((replaceHistory != nil) && ([replaceHistory count] > 0)) {
-		countOfAutorelease = 0;
-		pool = [[NSAutoreleasePool alloc] init];
+		@autoreleasepool {
 		
-		[_replaceHistory release];
-		_replaceHistory = [replaceHistory retain];
+		_replaceHistory = replaceHistory;
 		
 		NSMenu			*menu = [replacePopUpButton menu];
 		NSMenuItem		*item;
@@ -322,7 +285,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			if (![aString isKindOfClass:[NSAttributedString class]]) {
 				attrString = [[NSAttributedString alloc] initWithString:aString];
 				_replaceHistory[i] = attrString;
-				[attrString release];
 			} else {
 				attrString = (NSAttributedString*)aString;
 			}
@@ -341,31 +303,22 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[item setTarget:self];
 			[item setAction:@selector(selectReplaceHistory:)];
 			[menu addItem:item];
-			[item release];
 			
-			countOfAutorelease++;
-			if (countOfAutorelease == 10) {
-				countOfAutorelease = 0;
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-			}
 		}
 		
 		[self setReplaceString:_replaceHistory[0]];
-		[pool release];
+		}
 	} else {
 		//[replaceTextView setString:@""];
 	}
 	
 	NSMutableArray	*attrReplaceHistory = [NSMutableArray arrayWithArray:history[OgreAFPCAttributedReplaceHistoryKey]];
 	if ((attrReplaceHistory != nil) && ([attrReplaceHistory count] > 0)) {
-		countOfAutorelease = 0;
-		pool = [[NSAutoreleasePool alloc] init];
+		@autoreleasepool {
 		
 		NSMenu			*menu = [replacePopUpButton menu];
 		NSMenuItem		*item;
 		
-		[_replaceHistory release];
 		_replaceHistory = [[NSMutableArray alloc] initWithCapacity:[attrFindHistory count]];
 		
 		NSAttributedString	*attrString;
@@ -373,7 +326,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		for (i = 0; i < [attrReplaceHistory count]; i++) {
 			attrString = [[NSAttributedString alloc] initWithRTFD:attrReplaceHistory[i] documentAttributes:nil];
 			[_replaceHistory addObject:attrString];
-			[attrString release];
 			
 			item = [[NSMenuItem alloc] init];
 			NSUInteger  start, end, contentsEnd;
@@ -389,18 +341,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[item setTarget:self];
 			[item setAction:@selector(selectReplaceHistory:)];
 			[menu addItem:item];
-			[item release];
 			
-			countOfAutorelease++;
-			if (countOfAutorelease == 10) {
-				countOfAutorelease = 0;
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-			}
 		}
 		
 		[self setReplaceString:_replaceHistory[0]];
-		[pool release];
+		}
 	} else {
 		//[replaceTextView setString:@""];
 	}
@@ -504,14 +449,14 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	NSEnumerator		*enumerator;
 	NSAttributedString	*attrString;
 	
-	encodedFindHistory = [[[NSMutableArray alloc] initWithCapacity:[_findHistory count]] autorelease];
+	encodedFindHistory = [[NSMutableArray alloc] initWithCapacity:[_findHistory count]];
 	enumerator = [_findHistory objectEnumerator];
 	while ((attrString = [enumerator nextObject]) != nil) {
 		[encodedFindHistory addObject:[attrString RTFDFromRange:NSMakeRange(0, [attrString length]) 
 			documentAttributes:nil]];
 	}
 	
-	encodedReplaceHistory = [[[NSMutableArray alloc] initWithCapacity:[_replaceHistory count]] autorelease];
+	encodedReplaceHistory = [[NSMutableArray alloc] initWithCapacity:[_replaceHistory count]];
 	enumerator = [_replaceHistory objectEnumerator];
 	while ((attrString = [enumerator nextObject]) != nil) {
 		[encodedReplaceHistory addObject:[attrString RTFDFromRange:NSMakeRange(0, [attrString length]) 
@@ -553,7 +498,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		}
 	}
 	
-	[_findHistory insertObject:[[attrString copy] autorelease] atIndex:0];
+	[_findHistory insertObject:[attrString copy] atIndex:0];
 	
 	NSMenuItem	*item = [[NSMenuItem alloc] init];
 	NSUInteger	start, end, contentsEnd;
@@ -569,7 +514,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[item setTarget:self];
 	[item setAction:@selector(selectFindHistory:)];
 	[menu insertItem:item atIndex:1];
-	[item release];
 	
 	int	maxNumOfHistory = [maxNumOfFindHistoryTextField intValue];
 	while ([_findHistory count] > maxNumOfHistory) {
@@ -592,7 +536,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		}
 	}
 	
-	[_replaceHistory insertObject:[[string copy] autorelease] atIndex:0];
+	[_replaceHistory insertObject:[string copy] atIndex:0];
 	
 	NSMenuItem	*item = [[NSMenuItem alloc] init];
 	NSUInteger	start, end, contentsEnd;
@@ -608,7 +552,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[item setTarget:self];
 	[item setAction:@selector(selectReplaceHistory:)];
 	[menu insertItem:item atIndex:1];
-	[item release];
 	
 	int	maxNumOfHistory = [maxNumOfReplaceHistoryTextField intValue];
 	while ([_replaceHistory count] > maxNumOfHistory) {
@@ -632,8 +575,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (void)clearFindPeplaceHistoriesSheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo{
 	if (returnCode == NSAlertDefaultReturn) {
-		[_findHistory release];
-		[_replaceHistory release];
 		_findHistory = [[NSMutableArray alloc] initWithCapacity:0];
 		_replaceHistory = [[NSMutableArray alloc] initWithCapacity:0];
 		[findTextView setString:@""];
@@ -646,16 +587,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[menuItem setTitle:@""];
 		[menu addItem:menuItem];
 		[findPopUpButton setMenu:menu];
-		[menuItem release];
-		[menu release];
 		
 		menu = [[NSMenu alloc] initWithTitle:@""];
 		menuItem = [[NSMenuItem alloc] init];
 		[menuItem setTitle:@""];
 		[menu addItem:menuItem];
 		[replacePopUpButton setMenu:menu];
-		[menuItem release];
-		[menu release];
 	}
 }
 
@@ -689,7 +626,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[undoManager beginUndoGrouping];
 		[[undoManager prepareWithInvocationTarget:self] 
 			undoableReplaceCharactersInRange:newRange 
-			withAttributedString:[[[NSAttributedString alloc] initWithAttributedString:textStorage] autorelease] 
+			withAttributedString:[[NSAttributedString alloc] initWithAttributedString:textStorage] 
 			inTarget:findTextView];
 		[undoManager endUndoGrouping];
 	}
@@ -713,7 +650,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[undoManager beginUndoGrouping];
 		[[undoManager prepareWithInvocationTarget:self] 
 			undoableReplaceCharactersInRange:newRange 
-			withAttributedString:[[[NSAttributedString alloc] initWithAttributedString:textStorage] autorelease] 
+			withAttributedString:[[NSAttributedString alloc] initWithAttributedString:textStorage] 
 			inTarget:replaceTextView];
 		[undoManager endUndoGrouping];
 	}
@@ -736,7 +673,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		NSRange		newRange = NSMakeRange(oldRange.location, [replaceString length]);
 		[[[aTextView undoManager] prepareWithInvocationTarget:self] 
 			undoableReplaceCharactersInRange:newRange 
-			withAttributedString:[[[NSAttributedString alloc] initWithAttributedString:[textStorage attributedSubstringFromRange:oldRange]] autorelease] 
+			withAttributedString:[[NSAttributedString alloc] initWithAttributedString:[textStorage attributedSubstringFromRange:oldRange]] 
 			inTarget:aTextView];
 	}
 	// undo
@@ -1319,7 +1256,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)clearFindStringStyles:(id)sender
 {
 	NSString			*string = [findTextView string];
-	NSAttributedString	*newString = [[[NSAttributedString alloc] initWithString:string] autorelease];
+	NSAttributedString	*newString = [[NSAttributedString alloc] initWithString:string];
 	if ([string length] == 0) {
 		[[findTextView textStorage] replaceCharactersInRange:NSMakeRange(0, 0) withString:@" "];
 		[[findTextView textStorage] replaceCharactersInRange:NSMakeRange(0, 1) withAttributedString:newString];
@@ -1331,7 +1268,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)clearReplaceStringStyles:(id)sender
 {
 	NSString			*string = [replaceTextView string];
-	NSAttributedString	*newString = [[[NSAttributedString alloc] initWithString:string] autorelease];
+	NSAttributedString	*newString = [[NSAttributedString alloc] initWithString:string];
 	if ([string length] == 0) {
 		[[replaceTextView textStorage] replaceCharactersInRange:NSMakeRange(0, 0) withString:@" "];
 		[[replaceTextView textStorage] replaceCharactersInRange:NSMakeRange(0, 1) withAttributedString:newString];
@@ -1451,7 +1388,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			NSRange			newRange = NSMakeRange(affectedCharRange.location, [convertedString length]);
 			[[undoManager prepareWithInvocationTarget:self] 
 				undoableReplaceCharactersInRange:newRange 
-				withAttributedString:[[[NSAttributedString alloc] initWithAttributedString:[[aTextView textStorage] attributedSubstringFromRange:affectedCharRange]] autorelease] 
+				withAttributedString:[[NSAttributedString alloc] initWithAttributedString:[[aTextView textStorage] attributedSubstringFromRange:affectedCharRange]] 
 				inTarget:aTextView];
 		}
 		[aTextView replaceCharactersInRange:affectedCharRange withString:convertedString];

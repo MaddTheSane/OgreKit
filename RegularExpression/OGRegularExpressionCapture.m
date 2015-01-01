@@ -86,11 +86,11 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
         return nil;
     }
     
-    return [[[[self class] alloc] initWithTreeNode:_captureNode->childs[index] 
+    return [[[self class] alloc] initWithTreeNode:_captureNode->childs[index] 
         index:index 
         level:_level + 1 
         parentNode:self 
-        match:_match] autorelease];
+        match:_match];
 }
 
 
@@ -167,13 +167,13 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 *************************/
 - (void)acceptVisitor:(id <OGRegularExpressionCaptureVisitor>)aVisitor 
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    [aVisitor visitAtFirstCapture:self];
-    
-    [[self children] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:aVisitor];
-    
-    [aVisitor visitAtLastCapture:self];
-    [pool release];
+    @autoreleasepool {
+        [aVisitor visitAtFirstCapture:self];
+        
+        [[self children] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:aVisitor];
+        
+        [aVisitor visitAtLastCapture:self];
+    }
 }
 
 
@@ -217,7 +217,6 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_index = [anObject unsignedIntValue];	
@@ -230,7 +229,6 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_level = [anObject unsignedIntValue];	
@@ -244,10 +242,8 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	}
 	if (_match == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-    [_match retain];
 	
 	// OGRegularExpressionCapture	*_parent;           // 親
     if (allowsKeyedCoding) {
@@ -260,7 +256,6 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		[self release];
 		[NSException raise:OgreCaptureException format:@"fail to decode"];
 	}*/
-    [_parent retain];
     
     
 	// OnigCaptureTreeNode         *_captureNode;      // Oniguruma capture tree node

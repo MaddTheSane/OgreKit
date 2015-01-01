@@ -28,10 +28,10 @@
 		_cancelTarget = nil;
 		_cancelArgument = nil;
 		_didEndSelector = aSelector;
-		_didEndTarget = [aTarget retain];
-		_didEndArgument = ((anObject != self)? [anObject retain] : self);
+		_didEndTarget = aTarget;
+		_didEndArgument = ((anObject != self)? anObject : self);
 		_shouldRelease = YES;
-		_title = [aTitle retain];
+		_title = aTitle;
 		[NSBundle loadNibNamed:@"OgreTextFindProgressSheet" owner:self];
 	}
 	
@@ -40,7 +40,7 @@
 
 -(void)awakeFromNib
 {
-	[[self retain] retain]; // close:とsheetDidEnd:のときに一度ずつreleaseされる
+	 // close:とsheetDidEnd:のときに一度ずつreleaseされる
 	[titleTextField setStringValue:_title];
 	[button setTitle:OgreTextFinderLocalizedString(@"Cancel")];
 	[NSApp beginSheet: progressWindow 
@@ -58,18 +58,9 @@
 	NSLog(@"-sheetDidEnd: of %@", [self className]);
 #endif
 	[_didEndTarget performSelector:_didEndSelector withObject:_didEndArgument];
-	[self release];
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"-finalize of %@", [self className]);
-#endif
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
@@ -79,21 +70,14 @@
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-	[progressWindow release];
-	[_title release];
-	[_didEndTarget release];
-	if (_didEndArgument != self) [_cancelArgument release];
-	[_cancelTarget release];
-	if (_cancelArgument != self) [_cancelArgument release];
 	
-	[super dealloc];
 }
 
 - (void)setCancelSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject
 {
 	_cancelSelector = aSelector;
-	_cancelTarget = [aTarget retain];
-	_cancelArgument = ((anObject != self)? [anObject retain] : self);
+	_cancelTarget = aTarget;
+	_cancelArgument = ((anObject != self)? anObject : self);
 }
 
 - (IBAction)cancel:(id)sender
@@ -114,7 +98,6 @@
 		}
 		if (_shouldRelease) {
 			_shouldRelease = NO;
-			[self release];
 		}
 	}
 }
@@ -153,11 +136,9 @@
 		[progressWindow close];
 		[NSApp endSheet:progressWindow returnCode:0];
 		[_parentWindow flushWindow];
-		[progressWindow release];
 		progressWindow = nil;
 	}
 	_shouldRelease = NO;
-	[self release];
 }
 
 - (void)setProgress:(double)progression message:(NSString*)message

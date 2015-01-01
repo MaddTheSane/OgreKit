@@ -18,17 +18,11 @@
 
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
 {
-    [_component autorelease];
-    _component = [aFindResultComponent retain];
+    _component = aFindResultComponent;
 }
 
 - (void)endAddition { /* do nothing */ }
 
-- (void)dealloc
-{
-    [_component release];
-    [super dealloc];
-}
 
 - (id)name { return @"Root"; }
 - (id)outline { return @""; }

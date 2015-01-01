@@ -44,13 +44,12 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 - (id)init
 {
 	if (gSharedInstance != nil) {
-		[super release];
 		return gSharedInstance;
 	}
 	
 	self = [super init];
 	if (self != nil) {
-		_acceptors = (NSMutableArray*)CFArrayCreateMutable(kCFAllocatorDefault, 0, &noRetainArrayCallbacks);
+		_acceptors = (NSMutableArray*)CFBridgingRelease(CFArrayCreateMutable(kCFAllocatorDefault, 0, &noRetainArrayCallbacks));
 		[self setTolerance:10];
 		_processing = NO;
 	}
@@ -58,11 +57,6 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	return self;
 }
 
-- (void)dealloc
-{
-	[_acceptors release];
-	[super dealloc];
-}
 
 - (void)addAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 {

@@ -28,19 +28,12 @@
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self];
-	[[OgreAttachableWindowMediator sharedMediator] removeAcceptor:self];	// 必須
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self];
 	[[OgreAttachableWindowMediator sharedMediator] removeAcceptor:self];	// 必須
-    [super dealloc];
 }
 
 - (BOOL)isAttachableAcceptorEdge:(NSRectEdge)edge toAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee

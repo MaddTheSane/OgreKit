@@ -30,18 +30,13 @@
 #endif
     self = [super init];
     if (self != nil) {
-        _tableColumn = [tableColumn retain];
+        _tableColumn = tableColumn;
         _rowIndex = rowIndex;
     }
     
     return self;
 }
 
-- (void)dealloc
-{
-    [_tableColumn release];
-    [super dealloc];
-}
 
 /* protocol of OgreTextFindComponent */
 /* Delegate methods of the OgreTextFindVisitor */
@@ -71,7 +66,7 @@
     if ([dataCell type] == NSTextCellType) {
         anObject = [_tableColumn ogreObjectValueForRow:_rowIndex];
         [dataCell setObjectValue:anObject];
-        return [[[OGPlainString alloc] initWithString:[dataCell stringValue]] autorelease];
+        return [[OGPlainString alloc] initWithString:[dataCell stringValue]];
     }
     
     return nil;
@@ -116,7 +111,7 @@
 #endif
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
 }
 
@@ -147,7 +142,7 @@
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
-    return [[[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex] autorelease]; 
+    return [[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex]; 
 }
 
 - (BOOL)isSelected

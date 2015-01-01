@@ -32,18 +32,12 @@
 #endif
     self = [super init];
     if (self != nil) {
-        _outlineColumn = [anOutlineColumn retain];
-        _item = [item retain];
+        _outlineColumn = anOutlineColumn;
+        _item = item;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_outlineColumn release];
-    [_item release];
-    [super dealloc];
-}
 
 /* Delegate methods of the OgreTextFindThread */
 - (void)willProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor 
@@ -121,11 +115,11 @@
     
     if (index == 0) {
         /* self cell */
-        adapter = [[[OgreOutlineCellAdapter alloc] init] autorelease];
+        adapter = [[OgreOutlineCellAdapter alloc] init];
     } else {
         /* child item */
         id  childItem = [_outlineColumn ogreChild:(index - 1) ofItem:_item];
-        adapter = [[[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:childItem] autorelease];
+        adapter = [[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:childItem];
         [(OgreOutlineItemAdapter*)adapter setLevel:[self level] + 1];
         
     }
@@ -149,11 +143,11 @@
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
-        enumerator = [OgreTextFindReverseComponentEnumerator alloc];
+        enumerator = [[OgreTextFindReverseComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     } else {
-        enumerator = [OgreTextFindComponentEnumerator alloc];
+        enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
+    //[[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
     
     if ([self isTerminal]) {
         int terminal;
@@ -182,7 +176,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
 #endif
-    return [[[OgreOutlineItemFindResult alloc] initWithOutlineColumn:_outlineColumn item:_item] autorelease];
+    return [[OgreOutlineItemFindResult alloc] initWithOutlineColumn:_outlineColumn item:_item];
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

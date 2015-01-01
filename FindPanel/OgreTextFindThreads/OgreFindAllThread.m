@@ -31,9 +31,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = [OgreTextFinderLocalizedString(@"%d string found.") retain];
-    progressMessagePlural = [OgreTextFinderLocalizedString(@"%d strings found.") retain];
-    remainingTimeMesssage = [OgreTextFinderLocalizedString(@"(%dsec remaining)") retain];
+    progressMessage = OgreTextFinderLocalizedString(@"%d string found.");
+    progressMessagePlural = OgreTextFinderLocalizedString(@"%d strings found.");
+    remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -65,9 +65,9 @@
     searchLength = searchRange.length;
     
     OGRegularExpression *regex = [self regularExpression];
-    matchEnumerator = [[regex matchEnumeratorInOGString:string 
+    matchEnumerator = [regex matchEnumeratorInOGString:string 
 			options: [self options] 
-			range: searchRange] retain];
+			range: searchRange];
     result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
     [self addResultLeaf:result];
 }
@@ -76,8 +76,7 @@
 {
     if ((match = [matchEnumerator nextObject]) == nil) return NO;   // stop
     
-    [lastMatch release];
-    lastMatch = [match retain];
+    lastMatch = match;
     
     [self incrementNumberOfMatches];
     [result addMatch:match];
@@ -91,7 +90,7 @@
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
     [result endAddition];
-    [matchEnumerator release];
+	matchEnumerator = nil;
 }
 
 - (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -107,10 +106,6 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingAll of %@", [self className]);
 #endif
-    [lastMatch release];
-    [remainingTimeMesssage release];
-    [progressMessage release];
-    [progressMessagePlural release];
     
     if ([self numberOfMatches] > 0) {
         [[self result] setType:OgreTextFindResultSuccess];

@@ -27,22 +27,14 @@
 {
     self = [super init];
     if (self != nil) {
-        _outlineColumn = [outlineColumn retain];
-        _item = [item retain];
+        _outlineColumn = outlineColumn;
+        _item = item;
         _matchRangeArray = [[NSMutableArray alloc] init];
         _matchComponents = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_item release];
-    [_outlineColumn release];
-    [_matchRangeArray release];
-    [_matchComponents release];
-    [super dealloc];
-}
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
@@ -52,7 +44,7 @@
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
     
     [_matchRangeArray addObject:rangeArray];
-    OgreOutlineCellMatchFindResult   *child = [[[OgreOutlineCellMatchFindResult alloc] init] autorelease];
+    OgreOutlineCellMatchFindResult   *child = [[OgreOutlineCellMatchFindResult alloc] init];
     [child setIndex:[_matchRangeArray count] - 1];
     [child setParentNoRetain:self];
     [_matchComponents addObject:child];
@@ -160,7 +152,6 @@
         NSRange matchRange = [_matchRangeArray[index][0] rangeValue];
         [outlineView ogreSetSelectedRange:matchRange];
     } else {
-        [_item release];
         _item = nil;
     }
     
@@ -169,9 +160,7 @@
 
 - (void)targetIsMissing
 {
-    [_outlineColumn release];
     _outlineColumn = nil;
-    [_item release];
     _item = nil;
 }
 

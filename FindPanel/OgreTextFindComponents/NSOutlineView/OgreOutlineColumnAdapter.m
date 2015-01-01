@@ -30,16 +30,11 @@
 #endif
     self = [super init];
     if (self != nil) {
-        _outlineColumn = [anOutlineColumn retain];
+        _outlineColumn = anOutlineColumn;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_outlineColumn release];
-    [super dealloc];
-}
 
 /* Delegate methods of the OgreTextFindThread */
 - (void)willProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor 
@@ -109,7 +104,7 @@
     id  item = [_outlineColumn ogreChild:index ofItem:nil /* root */];
     
     OgreOutlineItemAdapter  *outlineItemAdapter;
-    outlineItemAdapter = [[[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:item] autorelease];
+    outlineItemAdapter = [[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:item];
     [outlineItemAdapter setParent:self];
     [outlineItemAdapter setIndex:index];
     [outlineItemAdapter setLevel:0];
@@ -131,11 +126,10 @@
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
-        enumerator = [OgreTextFindReverseComponentEnumerator alloc];
+        enumerator = [[OgreTextFindReverseComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     } else {
-        enumerator = [OgreTextFindComponentEnumerator alloc];
+        enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
     if ([self isTerminal]) [enumerator setTerminalIndex:[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] intValue]];
 
     return enumerator;
@@ -156,7 +150,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
 #endif
-    return [[[OgreOutlineColumnFindResult alloc] initWithOutlineColumn:_outlineColumn] autorelease];
+    return [[OgreOutlineColumnFindResult alloc] initWithOutlineColumn:_outlineColumn];
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

@@ -27,11 +27,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 /* Examing behavioral attributes */
 - (BOOL)isEditable { return YES; }
 - (BOOL)isHighlightable { return YES; }
@@ -68,7 +63,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
 #endif
-    return [[[OgreFindResultRoot alloc] init] autorelease]; 
+    return [[OgreFindResultRoot alloc] init]; 
 }
 
 - (OgreTextFindBranch*)parent

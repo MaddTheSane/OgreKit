@@ -21,7 +21,7 @@
     if (self != nil) {
         _tail = 0;
         _count = aCapacity;
-        _rangeArray = (NSRange*)NSZoneMalloc([self zone], sizeof(NSRange) * aCapacity);
+        _rangeArray = (NSRange*)NSZoneMalloc(nil, sizeof(NSRange) * aCapacity);
         if (_rangeArray == NULL) {
             // ERROR!
         }
@@ -30,20 +30,10 @@
     return self;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-    NSZoneFree([self zone], _rangeArray);
-    [super finalize];
-}
-#endif
-
 - (void)dealloc
 {
     //NSLog(@"dealloc %@", self);
-    [_attributedStringArray release];
-    NSZoneFree([self zone], _rangeArray);
-    [super dealloc];
+    NSZoneFree(nil, _rangeArray);
 }
 
 - (void)addRange:(NSRange)aRange attributedString:(NSAttributedString*)anAttributedString
@@ -66,9 +56,9 @@
     OgreTextViewUndoer    *redoArray = [[OgreTextViewUndoer alloc] initWithCapacity:_count];
     
     [textStorage beginEditing];
-    
-    NSAutoreleasePool   *pool = [[NSAutoreleasePool alloc] init];
-    
+	
+	@autoreleasepool {
+		
     i = _count;
     while (i > 0) {
         i--;
@@ -77,16 +67,12 @@
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [aString string]);
         
         newRange = NSMakeRange(aRange.location, [aString length]);
-        [redoArray addRange:newRange attributedString:[[[NSAttributedString alloc] initWithAttributedString:[textStorage attributedSubstringFromRange:aRange]] autorelease]];
+        [redoArray addRange:newRange attributedString:[[NSAttributedString alloc] initWithAttributedString:[textStorage attributedSubstringFromRange:aRange]]];
         
         // undo
         [textStorage replaceCharactersInRange:aRange withAttributedString:aString];
         if (jumpToSelection) [aTarget scrollRangeToVisible:newRange];
         
-        if ((_count - i) % 1000 == 0) {
-            [pool release];
-            pool = [[NSAutoreleasePool alloc] init];
-        }
     }
     
     // redo　registeration
@@ -94,9 +80,8 @@
         undoTextView:aTarget jumpToSelection:jumpToSelection
         invocationTarget:redoArray];
         
-    [redoArray release];
-    [pool release];
-    
+	}
+	
     [textStorage endEditing];
     [aTarget setSelectedRange:newRange];
 }

@@ -27,7 +27,7 @@
 
 + (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
 {
-	return [[[[self class] alloc] initWithTarget:targetFindingIn thread:aThread] autorelease];
+	return [[[self class] alloc] initWithTarget:targetFindingIn thread:aThread];
 }
 
 - (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
@@ -45,35 +45,14 @@
         
         _numberOfMatches = 0;
 
-        _regex = [[aThread regularExpression] retain];
+        _regex = [aThread regularExpression];
 	}
 	return self;
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@" -finalize of %@", [self className]);
-#endif
-    [super finalize];
-}
 #endif
 
-- (void)dealloc
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@" -dealloc of %@", [self className]);
-#endif
-	[_title release];
-    [_regex release];
-    [_branchStack release];
-    [_resultTree release];
-	[_exception release];
-	[_alertSheet release];
-    [_highlightColorArray release];
-	[super dealloc];
-}
 
 - (void)setType:(OgreTextFindResultType)resultType
 {
@@ -100,11 +79,9 @@
 /* result Informaion (OgreFindResult instance, error reason)*/
 - (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException
 {
-    [_alertSheet autorelease];
-	_alertSheet = [aSheet retain];
+	_alertSheet = aSheet;
     
-    [_exception autorelease];
-	_exception = [anException retain];
+	_exception = anException;
 }
 
 - (BOOL)alertIfErrorOccurred;
@@ -131,7 +108,7 @@
         [_branchStack addObject:_branch];
         _branch = aFindResultBranch;
     } else {
-        _resultTree = _branch = [aFindResultBranch retain];
+        _resultTree = _branch = aFindResultBranch;
     }
 }
 
@@ -198,31 +175,31 @@
 	matchRange = [aRangeArray[0] rangeValue];
 	if ([aString length] < NSMaxRange(matchRange)) {
 		// matchRangeの範囲の文字列が存在しない場合
-		return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}] autorelease];
+		return [[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}];
 	}
 	lineRange = [aString lineRangeForRange:NSMakeRange(matchRange.location, 0)];
     
-	highlightedString = [[[NSMutableAttributedString alloc] initWithString:@""] autorelease];
+	highlightedString = [[NSMutableAttributedString alloc] initWithString:@""];
 	if ((_maxLeftMargin >= 0) && (matchRange.location > lineRange.location + _maxLeftMargin)) {
 		// MatchedStringの左側の文字数を制限する
 		delta = matchRange.location - (lineRange.location + _maxLeftMargin);
 		lineRange.location += delta;
 		lineRange.length   -= delta;
-		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
+		[highlightedString appendAttributedString:[[NSAttributedString alloc] 
 			initWithString:@"..." 
-			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}] autorelease]];
+			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}]];
 	}
 	if ((_maxMatchedStringLength >= 0) && (lineRange.length > _maxMatchedStringLength)) {
 		// 全文字数を制限する
 		lineRange.length = _maxMatchedStringLength;
-		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
-			initWithString:[aString substringWithRange:lineRange]] autorelease]];
-		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
+		[highlightedString appendAttributedString:[[NSAttributedString alloc] 
+			initWithString:[aString substringWithRange:lineRange]]];
+		[highlightedString appendAttributedString:[[NSAttributedString alloc] 
 			initWithString:@"..." 
-			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}] autorelease]];
+			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}]];
 	} else {
-		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
-			initWithString:[aString substringWithRange:lineRange]] autorelease]];
+		[highlightedString appendAttributedString:[[NSAttributedString alloc] 
+			initWithString:[aString substringWithRange:lineRange]]];
 	}
 	
 	/* 彩色 */
@@ -244,7 +221,7 @@
 
 - (NSAttributedString*)missingString
 {
-    return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}] autorelease];
+    return [[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}];
 }
 
 
@@ -261,7 +238,7 @@
     } else {
         message = OgreTextFinderLocalizedString(@"%d string found.");
     }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}] autorelease];
+    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
 - (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches
@@ -272,7 +249,7 @@
     } else {
         message = OgreTextFinderLocalizedString(@"Found in %d item.");
     }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}] autorelease];
+    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
 
@@ -298,9 +275,9 @@
 {
     NSCell  *nameCell;
     if ([_target isKindOfClass:[NSOutlineView class]]) {
-        nameCell = [[[[(NSOutlineView*)_target outlineTableColumn] dataCell] copy] autorelease];
+        nameCell = [[[(NSOutlineView*)_target outlineTableColumn] dataCell] copy];
     } else {
-        nameCell = [[[NSTextFieldCell alloc] init] autorelease];
+        nameCell = [[NSTextFieldCell alloc] init];
         [nameCell setEditable:NO];
     }
     

@@ -28,9 +28,9 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 #endif	
 	self = [super init];
 	if (self) {
-        _textView = [textView retain];
+        _textView = textView;
 		/* 1行目の範囲を得る */
-		_text = [[_textView string] retain];
+		_text = [_textView string];
 		_textLength = [_text length];
 		_lineRange = [_text lineRangeForRange:NSMakeRange(0, 0)];
 		_searchLineRangeLocation = _lineRange.location + _lineRange.length;
@@ -50,7 +50,6 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 
 - (void)endAddition
 {
-	[_text release];
 	
 	if ([self count] == 0) return;	// マッチしなかった場合
 	//targetのあるwindowのcloseを検出する。
@@ -77,30 +76,16 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
     int index, count = [self count];
     _childArray = [[NSMutableArray alloc] initWithCapacity:count];
     for (index = 0; index < count; index++) {
-        OgreTextViewMatchFindResult *child = [[[OgreTextViewMatchFindResult alloc] init] autorelease];
+        OgreTextViewMatchFindResult *child = [[OgreTextViewMatchFindResult alloc] init];
         [child setIndex:index];
         [child setParentNoRetain:self];
         [_childArray addObject:child];
     }
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super finalize];
-}
-#endif
-
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-    [_childArray release];
-    [_textView release];
-	[_lineOfMatchedStrings release];
-	[_matchRangeArray release];
-    [super dealloc];
 }
 
 /* addMatch */
@@ -242,7 +227,6 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	NSLog(@"-windowWillClose: of %@", [self className]);
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_textView release];
 	_textView = nil;
     [[self textFindResult] didUpdate];
 }

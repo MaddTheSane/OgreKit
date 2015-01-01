@@ -35,12 +35,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[_backslashRegex release];
-	[_yenRegex release];
-	[super dealloc];
-}
 
 - (NSString*)stringForObjectValue:(id)anObject
 {
@@ -75,7 +69,7 @@
 		} else {
 			string = anObject;
 		}
-		attrString = [[[NSAttributedString alloc] initWithString:string attributes:attributes] autorelease];
+		attrString = [[NSAttributedString alloc] initWithString:string attributes:attributes];
 	} else if ([anObject isKindOfClass:[NSAttributedString class]]) {
 		if ([_delegate shouldEquateYenWithBackslash]) {
 			attrString = [self equateInAttributedString:(NSAttributedString*)anObject];
@@ -142,8 +136,8 @@
 	NSString	*string = (NSString*)contextInfo;
 	NSAttributedString	*matchedString = [aMatch matchedAttributedString];
 	
-	return [[[NSAttributedString alloc] initWithString:string 
-		attributes:[matchedString attributesAtIndex:0 effectiveRange:NULL]] autorelease];
+	return [[NSAttributedString alloc] initWithString:string 
+		attributes:[matchedString attributesAtIndex:0 effectiveRange:NULL]];
 }
 
 @end

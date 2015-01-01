@@ -28,17 +28,10 @@
         _captureNode = captureNode;
         _index = index;
         _level = level;
-        _parent = [parentNode retain];
-        _match = [match retain];
+        _parent = parentNode;
+        _match = match;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [_parent release];
-    [_match release];
-    [super dealloc];
 }
 
 - (OnigCaptureTreeNode*)_captureNode

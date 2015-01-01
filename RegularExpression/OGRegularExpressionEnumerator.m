@@ -33,6 +33,7 @@ static NSString	* const OgreNumberOfMatchesKey     = @"OgreEnumeratorNumberOfMat
 NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorException";
 
 @implementation OGRegularExpressionEnumerator
+@synthesize regularExpression = _regex;
 
 // 次を検索
 - (id)nextObject
@@ -87,8 +88,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	/* 検索 */
 	regex_t*	regexBuffer = [_regex patternBuffer];
 	
-	int	counterOfAutorelease = 0;
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	if (!findNotEmpty) {
 		/* 空文字列へのマッチを許す場合 */
@@ -121,11 +121,6 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 				break;
 			}
 		
-			counterOfAutorelease++;
-			if (counterOfAutorelease % 100 == 0) {
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-			}
 		}
 		if ((r >= 0) && (region->beg[0] == region->end[0]) && (start >= range)) {
 			// 最後に空文字列にマッチした場合。ミスマッチ扱いとする。
@@ -133,17 +128,17 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 		}
 	}
 	
-	[pool release];
+	}
 	
 	if (r >= 0) {
 		// マッチした場合
 		// matchオブジェクトの作成
-		match = [[[OGRegularExpressionMatch allocWithZone:[self zone]] 
+		match = [[OGRegularExpressionMatch allocWithZone:nil] 
 				initWithRegion: region 
 				index: _numberOfMatches
 				enumerator: self
 				terminalOfLastMatch: _terminalOfLastMatch
-			] autorelease];
+			];
 		
 		_numberOfMatches++;	// マッチ数を増加
 		
@@ -205,19 +200,14 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	_isLastMatchEmpty = NO;
 	_startLocation = 0;
 	_numberOfMatches = 0;
-			
-	NSAutoreleasePool   *pool = [[NSAutoreleasePool alloc] init];
+	
+	@autoreleasepool {
 	OGRegularExpressionMatch	*match;
-	int matches = 0;
+	NSInteger matches = 0;
 	while ( (match = [self nextObject]) != nil ) {
 		[matchArray addObject:match];
 		matches++;
-		if ((matches % 100) == 0) {
-			[pool release];
-			pool = [[NSAutoreleasePool alloc] init];
-		}
 	}
-	[pool release];
 	
 	_terminalOfLastMatch = orgTerminalOfLastMatch;
 	_isLastMatchEmpty = orgIsLastMatchEmpty;
@@ -230,6 +220,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	} else {
 		// found something
 		return matchArray;
+	}
 	}
 }
 
@@ -285,13 +276,12 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 
 	//OGRegularExpression	*_regex;							// 正規表現オブジェクト
     if (allowsKeyedCoding) {
-		_regex = [[decoder decodeObjectForKey: OgreRegexKey] retain];
+		_regex = [decoder decodeObjectForKey: OgreRegexKey];
 	} else {
-		_regex = [[decoder decodeObject] retain];
+		_regex = [decoder decodeObject];
 	}
 	if (_regex == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	
@@ -300,38 +290,35 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	//unichar           *_UTF16TargetString;			// UTF16での検索対象文字列
 	//unsigned          _lengthOfTargetString;       // [_targetString length]
     if (allowsKeyedCoding) {
-		_targetString = [[decoder decodeObjectForKey: OgreSwappedTargetStringKey] retain];	// [self targetString]ではない。
+		_targetString = [decoder decodeObjectForKey: OgreSwappedTargetStringKey];	// [self targetString]ではない。
 	} else {
-		_targetString = [[decoder decodeObject] retain];
+		_targetString = [decoder decodeObject];
 	}
 	if (_targetString == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	NSString	*targetPlainString = [_targetString string];
 	_lengthOfTargetString = [targetPlainString length];
     
-	_UTF16TargetString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * _lengthOfTargetString);
+	_UTF16TargetString = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * _lengthOfTargetString);
     if (_UTF16TargetString == NULL) {
 		// エラー。例外を発生させる。
-        [self release];
         [NSException raise:NSInvalidUnarchiveOperationException format:@"fail to allocate a memory"];
     }
     [targetPlainString getCharacters:_UTF16TargetString range:NSMakeRange(0, _lengthOfTargetString)];
 	
 	// NSRange				_searchRange;						// 検索範囲
     if (allowsKeyedCoding) {
-		anObject = [decoder decodeIntegerForKey: OgreStartOffsetKey];
+		_searchRange.location = [decoder decodeIntegerForKey: OgreStartOffsetKey];
 	} else {
 		anObject = [decoder decodeObject];
+		if (anObject == nil) {
+			// エラー。例外を発生させる。
+			[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		}
+		_searchRange.location = [anObject unsignedIntValue];
 	}
-	if (anObject == nil) {
-		// エラー。例外を発生させる。
-		[self release];
-		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
-	}
-	_searchRange.location = [anObject unsignedIntValue];
 	_searchRange.length = _lengthOfTargetString;
 	
 	
@@ -344,7 +331,6 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_searchOptions = [anObject unsignedIntValue];
@@ -358,7 +344,6 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_terminalOfLastMatch = [anObject intValue];
@@ -372,7 +357,6 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_startLocation = [anObject unsignedIntValue];
@@ -386,7 +370,6 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_isLastMatchEmpty = [anObject boolValue];
@@ -400,7 +383,6 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_numberOfMatches = [anObject unsignedIntValue];

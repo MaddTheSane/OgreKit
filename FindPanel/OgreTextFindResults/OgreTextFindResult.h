@@ -52,7 +52,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 	NSString					*_title;					// target window title
 	int                         _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
 	int                         _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
-	id                          _delegate;                  // 更新連絡先
+	id                          __unsafe_unretained _delegate;                  // 更新連絡先
     
     /* highlight color */
     NSMutableArray              *_highlightColorArray;   // variations
@@ -89,7 +89,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 - (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
 
 // delegate
-@property (assign) id delegate;
+@property (unsafe_unretained) id delegate;
 - (void)didUpdate;
 
 // setting of result outline view

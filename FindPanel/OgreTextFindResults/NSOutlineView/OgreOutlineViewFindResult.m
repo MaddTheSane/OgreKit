@@ -22,27 +22,19 @@
 {
     self = [super init];
     if (self != nil) {
-        _outlineView = [outlineView retain];
+        _outlineView = outlineView;
         _components = [[NSMutableArray alloc] initWithCapacity:[_outlineView numberOfColumns]];
     }
     return self;
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-    [_outlineView release];
-    [_components release];
-    [super dealloc];
 }
 
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
@@ -105,7 +97,6 @@
 	NSLog(@"-windowWillClose: of %@", [self className]);
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_outlineView release];
 	_outlineView = nil;
     [_components makeObjectsPerformSelector:@selector(targetIsMissing)];
     [[self textFindResult] didUpdate];

@@ -22,8 +22,8 @@
     
     if ([binding isEqualToString:@"value"]) {
         _ogreObservableController = observableController; // no retain
-        [_ogreControllerKeyOfValueBinding autorelease];
-        [_ogreModelKeyPathOfValueBinding autorelease];
+        //[_ogreControllerKeyOfValueBinding autorelease];
+        //[_ogreModelKeyPathOfValueBinding autorelease];
         
         // input
         //  keyPath: arrangedObjects.somePropaties.aModelKey
@@ -33,7 +33,7 @@
         
         NSArray *keyPathComponents = [keyPath componentsSeparatedByString:@"."];
         
-        _ogreControllerKeyOfValueBinding = [keyPathComponents[0] retain];
+        _ogreControllerKeyOfValueBinding = keyPathComponents[0];
         
         _ogreModelKeyPathOfValueBinding = [[NSMutableString alloc] init];
         
@@ -54,19 +54,11 @@
     
     if ([binding isEqualToString:@"value"]) {
         _ogreObservableController = nil;
-        [_ogreControllerKeyOfValueBinding release];
         _ogreControllerKeyOfValueBinding = nil;
-        [_ogreModelKeyPathOfValueBinding release];
         _ogreModelKeyPathOfValueBinding = nil;
     }
 }
 
-- (void)dealloc
-{
-    [_ogreModelKeyPathOfValueBinding release];
-    [_ogreControllerKeyOfValueBinding release];
-    [super dealloc];
-}
 
 - (NSInteger)ogreNumberOfRows
 {

@@ -47,8 +47,8 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
     }
 	
 	//NSLog(@"stringForObjectValue ¥"%@¥"", [anObject expressionString]); 
-	return [[[NSAttributedString alloc] initWithString: [anObject expressionString] 
-		attributes: attributes] autorelease];
+	return [[NSAttributedString alloc] initWithString: [anObject expressionString] 
+		attributes: attributes];
 }
 
 - (NSString*)editingStringForObjectValue:(id)anObject
@@ -142,14 +142,13 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 
     if (allowsKeyedCoding) {
 		// NSString			*_escapeCharacter;
-		_escapeCharacter = [[decoder decodeObjectForKey: OgreEscapeCharacterKey] retain];
+		_escapeCharacter = [decoder decodeObjectForKey: OgreEscapeCharacterKey];
 	} else {
 		// NSString			*_escapeCharacter;
-		_escapeCharacter = [[decoder decodeObject] retain];
+		_escapeCharacter = [decoder decodeObject];
 	}
 	if(_escapeCharacter == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 
@@ -161,7 +160,6 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	}
 	if(anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_options = [anObject unsignedIntValue];
@@ -175,13 +173,11 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	}
 	if(anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	syntaxType = [anObject intValue];
 	if (syntaxType == -1) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_syntax = [OGRegularExpression syntaxForIntValue:syntaxType];
@@ -215,29 +211,10 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	if (self) {
 		_options = options;
 		_syntax = syntax;
-		_escapeCharacter = [character retain];
+		_escapeCharacter = character;
 	}
 	
 	return self;
-}
-
-#ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE
-	NSLog(@"-finalize of %@", [self className]);
-#endif
-    [super finalize];
-}
-#endif
-
-- (void)dealloc
-{
-#ifdef DEBUG_OGRE
-	NSLog(@"-dealloc of %@", [self className]);
-#endif
-	[_escapeCharacter release];
-	[super dealloc];
 }
 
 @end

@@ -25,7 +25,7 @@
 /* Accessor methods */
 - (id<OGStringProtocol>)ogString
 {
-    return [[[OGAttributedString alloc] initWithAttributedString:[self textStorage]] autorelease];
+    return [[OGAttributedString alloc] initWithAttributedString:[self textStorage]];
 }
 
 - (void)setOGString:(id<OGStringProtocol>)aString
@@ -44,8 +44,8 @@
     if (_allowsUndo) {
         //[_textView setSelectedRange:aRange];
         [_undoer addRange:NSMakeRange(aRange.location, appendantLength) 
-			attributedString:[[[NSAttributedString alloc] 
-				initWithAttributedString:[textStorage attributedSubstringFromRange:aRange]] autorelease]];
+			attributedString:[[NSAttributedString alloc] 
+				initWithAttributedString:[textStorage attributedSubstringFromRange:aRange]]];
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [[textStorage attributedSubstringFromRange:aRange] string]);
     }
     

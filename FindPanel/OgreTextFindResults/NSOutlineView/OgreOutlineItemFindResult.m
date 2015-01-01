@@ -27,22 +27,14 @@
 {
     self = [super init];
     if (self != nil) {
-        _outlineColumn = [outlineColumn retain];
-        _item = [item retain];
+        _outlineColumn = outlineColumn;
+        _item = item;
         _components = [[NSMutableArray alloc] init];
         _simplifiedComponents = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_item release];
-    [_outlineColumn release];
-    [_components release];
-    [_simplifiedComponents release];
-    [super dealloc];
-}
 
 - (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
 {
@@ -164,7 +156,6 @@
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
         [outlineView scrollRowToVisible:rowIndex];
     } else {
-        [_item release];
         _item = nil;
     }
     
@@ -174,9 +165,7 @@
 
 - (void)targetIsMissing
 {
-    [_outlineColumn release];
     _outlineColumn = nil;
-    [_item release];
     _item = nil;
     
     [_components makeObjectsPerformSelector:@selector(targetIsMissing)];

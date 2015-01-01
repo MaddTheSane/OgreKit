@@ -468,7 +468,6 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 	if (regionArray == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_region = Ogre_onigRegionWithArray(regionArray);	
@@ -476,13 +475,12 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
     
 	// OGRegularExpressionEnumerator*	_enumerator;	// 生成主
     if (allowsKeyedCoding) {
-		_enumerator = [[decoder decodeObjectForKey: OgreEnumeratorKey] retain];
+		_enumerator = [decoder decodeObjectForKey: OgreEnumeratorKey];
 	} else {
-		_enumerator = [[decoder decodeObject] retain];
+		_enumerator = [decoder decodeObject];
 	}
 	if (_enumerator == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	
@@ -495,7 +493,6 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_terminalOfLastMatch = [anObject unsignedIntValue];
@@ -509,7 +506,6 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 	if (anObject == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_index = [anObject unsignedIntValue];
@@ -524,7 +520,6 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 	if (captureArray == nil) {
 		// エラー。例外を発生させる。
-		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	_region->history_root = Ogre_onigCaptureTreeNodeWithArray(captureArray);
@@ -863,12 +858,12 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 {
 	if (_region->history_root == NULL) return nil;
 	
-	return [[[OGRegularExpressionCapture allocWithZone:[self zone]] 
+	return [[OGRegularExpressionCapture allocWithZone:nil] 
         initWithTreeNode:_region->history_root 
         index:0 
         level:0 
         parentNode:nil 
-        match:self] autorelease];
+        match:self];
 }
 
 @end

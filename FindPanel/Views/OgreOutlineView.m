@@ -19,7 +19,7 @@
 
 - (NSObject <OgreTextFindComponent>*)ogreAdapter
 {
-    return [[[OgreOutlineViewAdapter alloc] initWithTarget:self] autorelease];
+    return [[OgreOutlineViewAdapter alloc] initWithTarget:self];
 }
 
 - (void)awakeFromNib
@@ -51,7 +51,6 @@
     } else {
         _ogreSelectedItem = nil;
     }
-    [_ogrePathComponents release];
     _ogrePathComponents = nil;
     
     //NSLog(@"column:%d, row:%d", _ogreSelectedColumn, selectedRow);
@@ -110,7 +109,6 @@
 - (void)ogreSetSelectedItem:(id)item
 {
     _ogreSelectedItem = item;
-    [_ogrePathComponents release];
     _ogrePathComponents = nil;
 }
 
@@ -125,13 +123,6 @@
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self 
-                                                    name:NSOutlineViewSelectionDidChangeNotification 
-                                                  object:self];
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
@@ -139,8 +130,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self 
                                                     name:NSOutlineViewSelectionDidChangeNotification 
                                                   object:self];
-    [_ogrePathComponents release];
-    [super dealloc];
 }
 
 @end

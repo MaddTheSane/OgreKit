@@ -39,8 +39,7 @@
 	if (_regexBuffer != NULL) onig_free(_regexBuffer);
 	
 	// 正規表現を表す文字列
-    NSZoneFree([self zone], _UTF16ExpressionString);
-    [super finalize];
+    NSZoneFree(nil, _UTF16ExpressionString);
 }
 #endif
 
@@ -50,20 +49,15 @@
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
 	// named group(逆引き)辞書
-	[_groupIndexForNameDictionary release];
-	[_nameForGroupIndexArray release];
 	
 	// 鬼車正規表現オブジェクト
 	if (_regexBuffer != NULL) onig_free(_regexBuffer);
 	
 	// 正規表現を表す文字列
-    NSZoneFree([self zone], _UTF16ExpressionString);
-	[_expressionString release];
+    NSZoneFree(nil, _UTF16ExpressionString);
 	
 	// ¥の代替文字
-	[_escapeCharacter release];
 	
-	[super dealloc];
 }
 
 // oniguruma regular expression buffer
@@ -111,10 +105,9 @@
 		[OgreBackslashCharacter stringByAppendingString:character]];
 	
 	NSObject<OGStringProtocol,OGMutableStringProtocol>	*resultString;
-	resultString = [[[[string mutableClass] alloc] init] autorelease];
+	resultString = [[[string mutableClass] alloc] init];
 	
-	unsigned			counterOfAutorelease = 0;
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	while ( matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange], 
 			matchRange.length > 0 ) {
@@ -139,18 +132,12 @@
 		}
 		scanRange.length = strLength - scanRange.location;
 		
-		counterOfAutorelease++;
-		if (counterOfAutorelease % 100 == 0) {
-			[pool release];
-			pool = [[NSAutoreleasePool alloc] init];
-		}
 	}
 	[resultString appendOGString:[string substringWithRange:NSMakeRange(scanRange.location, scanRange.length)]];
 	
-	[pool release];
-	
 	//NSLog(@"%@", resultString);
 	return resultString;
+	}
 }
 
 // characterの文字種を返す。
@@ -197,8 +184,7 @@
 	NSScanner	*scanner = [NSScanner scannerWithString:string];
 	NSCharacterSet	*whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
 	
-	unsigned	counterOfAutorelease = 0;
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 
 	while (![scanner isAtEnd]) {
         if ([scanner scanUpToCharactersFromSet:whitespaceCharacterSet intoString:&scannedName]) {
@@ -212,17 +198,11 @@
         }
         [scanner scanCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:nil];
 		
-		counterOfAutorelease++;
-		if (counterOfAutorelease % 100 == 0) {
-			[pool release];
-			pool = [[NSAutoreleasePool alloc] init];
-		}
     }
-	
-	[pool release];
-	
+		
 	//NSLog(@"%@", expressionString);
 	return expressionString;
+	}
 }
 
 // 名前がnameのgroup number

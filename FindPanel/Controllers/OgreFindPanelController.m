@@ -54,8 +54,6 @@
 
 - (void)setFindPanel:(NSPanel*)aPanel
 {
-	[aPanel retain];
-	[findPanel release];
 	findPanel = aPanel;
 }
 

@@ -19,7 +19,7 @@
 {
 	self = [super init];
 	if (self != nil) {
-		[self _setString:[[[NSMutableString alloc] init] autorelease]];
+		[self _setString:[[NSMutableString alloc] init]];
 	}
 	return self;
 }
@@ -27,13 +27,12 @@
 - (id)initWithString:(NSString*)string
 {
 	if (string == nil) {
-		[super release];
 		[NSException raise:NSInvalidArgumentException format: @"nil string argument"];
 	}
 	
 	self = [super init];
 	if (self != nil) {
-		[self _setString:[[[NSMutableString alloc] initWithString:string] autorelease]];
+		[self _setString:[[NSMutableString alloc] initWithString:string]];
 	}
 	return self;
 }

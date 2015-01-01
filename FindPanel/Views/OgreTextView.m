@@ -19,7 +19,7 @@
 
 - (NSObject <OgreTextFindComponent>*)ogreAdapter
 {
-    return [[[OgreTextViewAdapter alloc] initWithTarget:self] autorelease];
+    return [[OgreTextViewAdapter alloc] initWithTarget:self];
 }
 
 - (void)bind:(NSString *)binding toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary *)options
@@ -28,12 +28,10 @@
     
     if ([binding isEqualToString:@"data"]) {
         _observableControllerForDataBinding = observableController; // no retain
-        [_keyPathForDataBinding autorelease];
-        _keyPathForDataBinding = [keyPath retain];
+        _keyPathForDataBinding = keyPath;
     } else if ([binding isEqualToString:@"value"]) {
         _observableControllerForValueBinding = observableController; // no retain
-        [_keyPathForValueBinding autorelease];
-        _keyPathForValueBinding = [keyPath retain];
+        _keyPathForValueBinding = keyPath;
     }
     
     [super bind:binding toObject:observableController withKeyPath:keyPath options:options];
@@ -45,20 +43,11 @@
     
     if ([binding isEqualToString:@"data"]) {
         _observableControllerForDataBinding = nil;
-        [_keyPathForDataBinding release];
         _keyPathForDataBinding = nil;
     } else if ([binding isEqualToString:@"value"]) {
         _observableControllerForValueBinding = nil;
-        [_keyPathForValueBinding release];
         _keyPathForValueBinding = nil;
     }
-}
-
-- (void)dealloc
-{
-    [_keyPathForDataBinding release];
-    [_keyPathForValueBinding release];
-    [super dealloc];
 }
 
 - (void)ogreDidEndEditing

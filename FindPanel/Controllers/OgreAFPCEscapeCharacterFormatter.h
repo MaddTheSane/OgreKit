@@ -23,7 +23,7 @@
 
 @interface OgreAFPCEscapeCharacterFormatter : NSFormatter
 {
-	id <OgreAFPCEscapeCharacterFormatterDelegate> _delegate;
+	id <OgreAFPCEscapeCharacterFormatterDelegate> __unsafe_unretained _delegate;
 	
 	OGRegularExpression *_backslashRegex, *_yenRegex;
 }
@@ -35,7 +35,7 @@
 //- (BOOL)getObjectValue:(id*)obj forString:(NSString*)string errorDescription:(NSString**)error;
 
 // delegate
-@property (assign) id<OgreAFPCEscapeCharacterFormatterDelegate> delegate;
+@property (unsafe_unretained) id<OgreAFPCEscapeCharacterFormatterDelegate> delegate;
 // 変換
 - (NSString*)equateInString:(NSString*)string;
 - (NSAttributedString*)equateInAttributedString:(NSAttributedString*)string;

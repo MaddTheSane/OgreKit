@@ -45,7 +45,8 @@ static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 
 @class OGRegularExpression, OGRegularExpressionEnumerator;
 
-@interface OGRegularExpressionEnumerator (Private)
+@interface OGRegularExpressionEnumerator ()
+@property (strong) OGRegularExpression *regularExpression;
 
 /*********
  * 初期化 *

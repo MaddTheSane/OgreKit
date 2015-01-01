@@ -25,7 +25,6 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTextView: of %@", [self className]);
 #endif
-    [super release];
 	NSTextView	*textView = (NSTextView*)aTextView;
     if (![textView isRichText]) {
 		return [[OgreTextViewPlainAdapter alloc] initWithTarget:textView];

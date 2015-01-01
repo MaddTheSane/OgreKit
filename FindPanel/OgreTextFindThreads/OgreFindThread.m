@@ -103,9 +103,9 @@
     }
     
     OGRegularExpression *regex = [self regularExpression];
-    matchEnumerator = [[regex matchEnumeratorInOGString:string 
+    matchEnumerator = [regex matchEnumeratorInOGString:string 
 			options: [self options] 
-			range: searchRange] retain];
+			range: searchRange];
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
@@ -136,7 +136,6 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
-    [matchEnumerator release];
 }
 
 - (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;

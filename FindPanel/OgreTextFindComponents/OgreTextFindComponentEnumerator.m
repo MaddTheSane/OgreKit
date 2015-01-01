@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self != nil) {
-        _branch = [aBranch retain];
+        _branch = aBranch;
         _count = [_branch numberOfChildrenInSelection:inSelection];
         _inSelection = inSelection;
         _nextIndex = 0;
@@ -33,7 +33,6 @@
             _indexes = (NSUInteger*)malloc(sizeof(NSUInteger) * _count);
             if (_indexes == NULL) {
                 // Error
-                [self release];
                 return nil;
             }
             NSIndexSet  *selectedColumns = [_branch selectedIndexes];
@@ -46,18 +45,11 @@
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-    if (_indexes != NULL) free(_indexes);
-    [super finalize];
-}
 #endif
 
 - (void)dealloc
 {
     if (_indexes != NULL) free(_indexes);
-    [_branch release];
-    [super dealloc];
 }
 
 - (id)nextObject

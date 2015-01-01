@@ -22,7 +22,7 @@
     NSString    *name = [[(OgreTableCellFindResult*)[self parent] lineOfMatchedStringAtIndex:[self index]] stringValue];
     if ([self index] == 0) return name;
     
-    return [[[NSAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName: [NSColor lightGrayColor]}] autorelease]; 
+    return [[NSAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName: [NSColor lightGrayColor]}]; 
 }
 
 - (id)outline

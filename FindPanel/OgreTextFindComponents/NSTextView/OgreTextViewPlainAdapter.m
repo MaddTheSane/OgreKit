@@ -35,21 +35,13 @@
 #endif
     self = [super init];
     if (self != nil) {
-        _textView = [aTextView retain];
+        _textView = aTextView;
 		_textStorage = [_textView textStorage];
         _storageLocked = NO;
         _allowsUndo = NO;
     }
     
     return self;
-}
-
-
-- (void)dealloc
-{
-    [_undoer release];
-    [_textView release];
-    [super dealloc];
 }
 
 /* protocol of OgreTextFindComponent */
@@ -101,7 +93,7 @@
 
 - (id<OGStringProtocol>)ogString
 {
-    return [[[OGPlainString alloc] initWithString:[_textView string]] autorelease];
+    return [[OGPlainString alloc] initWithString:[_textView string]];
 }
 
 - (void)setOGString:(id<OGStringProtocol>)aString
@@ -115,8 +107,8 @@
     if (_allowsUndo) {
         //[_textView setSelectedRange:aRange];
         [_undoer addRange:NSMakeRange(aRange.location, [aString length]) 
-			attributedString:[[[NSAttributedString alloc] 
-				initWithAttributedString:[_textStorage attributedSubstringFromRange:aRange]] autorelease]];
+			attributedString:[[NSAttributedString alloc] 
+				initWithAttributedString:[_textStorage attributedSubstringFromRange:aRange]]];
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [[_textStorage attributedSubstringFromRange:aRange] string]);
     }
     
@@ -155,7 +147,7 @@
 {
      if (_allowsUndo) {
         // registeration undo
-        [[_undoManager prepareWithInvocationTarget:[_undoer autorelease]] undoTextView:_textView jumpToSelection:NO invocationTarget:_undoer];
+        [[_undoManager prepareWithInvocationTarget:_undoer] undoTextView:_textView jumpToSelection:NO invocationTarget:_undoer];
         _undoer = nil;
         // Undo操作の登録完了
         [_undoManager setActionName:OgreTextFinderLocalizedString(@"Replace All")];
@@ -196,7 +188,7 @@
 - (BOOL)isHighlightable { return YES; }
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread {
-    return [[[OgreTextViewFindResult alloc] initWithTextView:_textView] autorelease]; 
+    return [[OgreTextViewFindResult alloc] initWithTextView:_textView]; 
 }
 
 - (BOOL)isSelected

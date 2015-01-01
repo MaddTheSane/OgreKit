@@ -30,16 +30,11 @@
 #endif
     self = [super init];
     if (self != nil) {
-        _tableColumn = [aTableColumn retain];
+        _tableColumn = aTableColumn;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_tableColumn release];
-    [super dealloc];
-}
 
 /* Delegate methods of the OgreTextFindThread */
 - (void)willProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor 
@@ -122,7 +117,7 @@
             if (index >= [selectedRowIndexes count]) return nil;
             
 #ifdef MAC_OS_X_VERSION_10_6
-            NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedRowIndexes count]);
+            NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedRowIndexes count]);
 #else
             unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedRowIndexes count]);
 #endif
@@ -132,11 +127,11 @@
             }
             [selectedRowIndexes getIndexes:indexes maxCount:[selectedRowIndexes count] inIndexRange:NULL];
             rowIndex = *(indexes + index);
-            NSZoneFree([self zone], indexes);
+            NSZoneFree(nil, indexes);
         }
     }
     
-    tableCellAdapter = [[[OgreTableCellAdapter alloc] initWithTableColumn:_tableColumn row:rowIndex] autorelease];
+    tableCellAdapter = [[OgreTableCellAdapter alloc] initWithTableColumn:_tableColumn row:rowIndex];
     [tableCellAdapter setParent:self];
     [tableCellAdapter setIndex:index];
     [tableCellAdapter setReversed:[self isReversed]];
@@ -157,11 +152,11 @@
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
-        enumerator = [OgreTextFindReverseComponentEnumerator alloc];
+        enumerator = [[OgreTextFindReverseComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection && (count > 0))];
     } else {
-        enumerator = [OgreTextFindComponentEnumerator alloc];
+        enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection && (count > 0))];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
+    //[[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
     if ([self isTerminal]) [enumerator setTerminalIndex:[(OgreTableView*)[_tableColumn tableView] ogreSelectedRow]];
     
     return enumerator;
@@ -183,7 +178,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
 #endif
-    return [[[OgreTableColumnFindResult alloc] initWithTableColumn:_tableColumn] autorelease];
+    return [[OgreTableColumnFindResult alloc] initWithTableColumn:_tableColumn];
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

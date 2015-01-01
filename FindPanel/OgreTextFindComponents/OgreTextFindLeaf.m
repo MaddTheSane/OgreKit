@@ -23,23 +23,8 @@
 @synthesize reversed = _isReversed;
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"  -finalize of %@", [self className]);
-#endif
-    [super finalize];
-}
 #endif
 
-- (void)dealloc
-{
-#ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"  -dealloc of %@", [self className]);
-#endif
-    if (_isParentRetained) [_parent release];
-    [super dealloc];
-}
 
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor // visitor pattern
 {
@@ -112,16 +97,14 @@
 
 - (void)setParent:(OgreTextFindBranch*)parent
 {
-    if (_isParentRetained) [_parent autorelease];
-    _parent = [parent retain];
+    _parent = parent;
     _isParentRetained = YES;
 }
 
 - (void)setParentNoRetain:(OgreTextFindBranch*)parent
 {
-    if (_isParentRetained) [_parent autorelease];
     _parent = parent;
-    _isParentRetained = NO;
+    _isParentRetained = YES;
 }
 
 /* Accessor methods */

@@ -29,9 +29,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = [OgreTextFinderLocalizedString(@"%d string highlighted.") retain];
-    progressMessagePlural = [OgreTextFinderLocalizedString(@"%d strings highlighted.") retain];
-    remainingTimeMesssage = [OgreTextFinderLocalizedString(@"(%dsec remaining)") retain];
+    progressMessage = OgreTextFinderLocalizedString(@"%d string highlighted.");
+    progressMessagePlural = OgreTextFinderLocalizedString(@"%d strings highlighted.");
+    remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -90,9 +90,9 @@
 	}
     searchLength = searchRange.length;
     
-    matchEnumerator = [[regex matchEnumeratorInOGString:string 
+    matchEnumerator = [regex matchEnumeratorInOGString:string 
 			options: [self options] 
-			range: searchRange] retain];
+			range: searchRange];
     
     [aLeaf unhighlight];
 }
@@ -101,8 +101,7 @@
 {
     if ((match = [matchEnumerator nextObject]) == nil) return NO;   // stop
     
-    [lastMatch release];
-    lastMatch = [match retain];
+    lastMatch = match;
     
     unsigned    i;
     NSRange     aRange;
@@ -124,7 +123,6 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
-    [matchEnumerator release];
 }
 
 - (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -139,11 +137,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingAll of %@", [self className]);
 #endif
-    [lastMatch release];
     
-    [remainingTimeMesssage release];
-    [progressMessage release];
-    [progressMessagePlural release];
     
     if ([self numberOfMatches] > 0) [[self result] setType:OgreTextFindResultSuccess];
     

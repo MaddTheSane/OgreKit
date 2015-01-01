@@ -52,7 +52,7 @@
     if ([dataCell type] == NSTextCellType) {
         anObject = [outlineColumn ogreObjectValueForItem:item];
         [dataCell setObjectValue:anObject];
-        return [[[OGPlainString alloc] initWithString:[dataCell stringValue]] autorelease];
+        return [[OGPlainString alloc] initWithString:[dataCell stringValue]];
     }
     
     return nil;
@@ -158,7 +158,7 @@
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
-    return [[[OgreOutlineCellFindResult alloc] initWithOutlineColumn:[self outlineColumn] item:[self target]] autorelease]; 
+    return [[OgreOutlineCellFindResult alloc] initWithOutlineColumn:[self outlineColumn] item:[self target]]; 
 }
 
 - (BOOL)isSelected

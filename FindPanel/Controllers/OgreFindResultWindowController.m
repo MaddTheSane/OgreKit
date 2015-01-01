@@ -20,7 +20,7 @@
 {
 	self = [super init];
 	if (self != nil) {
-		_textFindResult = [textFindResult retain];
+		_textFindResult = textFindResult;
 		[_textFindResult setDelegate:self]; // 検索結果の更新通知を受け取るようにする。
 		_liveUpdate = liveUpdate;
 		[NSBundle loadNibNamed:@"OgreFindResultWindow" owner:self];
@@ -85,31 +85,21 @@
 - (void)windowWillClose:(NSNotification*)aNotification
 {
 	[_textFindResult setDelegate:nil];
-	[_textFindResult release];
 	_textFindResult = nil;
 	[grepOutlineView reloadData];
-	[self release];
 }
 
 #ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-	[_textFindResult setDelegate:nil];
-    [super finalize];
-}
 #endif
 - (void)dealloc
 {
 	[_textFindResult setDelegate:nil];
-	[_textFindResult release];
-	[super dealloc];
 }
 
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult
 {
 	[_textFindResult setDelegate:nil];
-	[_textFindResult autorelease];
-	_textFindResult = [textFindResult retain];
+	_textFindResult = textFindResult;
 	[_textFindResult setDelegate:self];
 	
 	[self setupFindResultView];
