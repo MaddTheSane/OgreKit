@@ -15,7 +15,7 @@
 #import <OgreKit/OGRegularExpressionMatch.h>
 #import <OgreKit/OGString.h>
 
-@interface OGRegularExpressionMatch (Private)
+@interface OGRegularExpressionMatch ()
 
 /*********
  * 初期化 *

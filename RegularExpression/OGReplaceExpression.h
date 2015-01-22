@@ -50,9 +50,6 @@ extern NSString	* const OgreReplaceException;
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 - (instancetype)initWithString:(NSString*)replaceString
-	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character;
-- (instancetype)initWithString:(NSString*)replaceString
 	escapeCharacter:(NSString*)character;
 - (instancetype)initWithString:(NSString*)replaceString;
 

@@ -490,27 +490,15 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	return self;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-#ifdef DEBUG_OGRE
-	NSLog(@"-finalize of %@", [self className]);
-#endif
-	NSZoneFree(nil, _UTF16TargetString);
-}
-#endif
-
 - (void)dealloc
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
 	NSZoneFree(nil, _UTF16TargetString);
-	
 }
 
-/* accessors */
-// private
+#pragma mark - private functions
 - (void)_setTerminalOfLastMatch:(int)location
 {
 	_terminalOfLastMatch = location;

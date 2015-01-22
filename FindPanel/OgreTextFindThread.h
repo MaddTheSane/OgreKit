@@ -45,7 +45,7 @@
 	SEL					_didEndSelector;	// selector for sending a finish message
 	id					_didEndTarget;		// target for sending a finish message
 	
-	NSObject <OgreTextFindProgressDelegate>	*_progressDelegate;	// progress checker
+	NSObject <OgreTextFindProgressDelegate>	* __weak _progressDelegate;	// progress checker
 	
 	volatile BOOL		_shouldFinish;		// finish flag
 	
@@ -85,9 +85,9 @@
 @property (copy) OGRegularExpression *regularExpression;
 @property (copy) OGReplaceExpression *replaceExpression;
 @property (copy) NSColor *highlightColor;
-@property  unsigned int options;
-@property  BOOL inSelection;
-@property (strong) NSObject<OgreTextFindProgressDelegate> *progressDelegate;
+@property unsigned int options;
+@property BOOL inSelection;
+@property (weak) NSObject<OgreTextFindProgressDelegate> *progressDelegate;
 @property (getter=isTerminated, readonly) BOOL terminated;
 @property (readonly) NSTimeInterval processTime;
 

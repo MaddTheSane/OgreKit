@@ -36,7 +36,7 @@ OnigSyntaxType  OgrePrivatePerlSyntax;
 OnigSyntaxType  OgrePrivateRubySyntax;
 
 
-@interface OGRegularExpression (Private)
+@interface OGRegularExpression ()
 
 /* 非公開メソッド */
 

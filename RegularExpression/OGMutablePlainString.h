@@ -15,6 +15,5 @@
 #import <OgreKit/OGPlainString.h>
 
 @interface OGMutablePlainString : OGPlainString <OGMutableStringProtocol>
-{
-}
+
 @end

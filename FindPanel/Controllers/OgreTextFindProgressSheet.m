@@ -60,17 +60,12 @@
 	[_didEndTarget performSelector:_didEndSelector withObject:_didEndArgument];
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
-
 - (void)dealloc
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	
 }
 
 - (void)setCancelSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject

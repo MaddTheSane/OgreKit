@@ -866,4 +866,66 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
         match:self];
 }
 
+#pragma mark - Private methods
+/* 非公開メソッド */
+- (id)initWithRegion:(OnigRegion*)region
+			   index:(unsigned)anIndex
+		  enumerator:(OGRegularExpressionEnumerator*)enumerator
+	terminalOfLastMatch:(unsigned)terminalOfLastMatch
+{
+#ifdef DEBUG_OGRE
+	NSLog(@"-initWithRegion: of %@", [self className]);
+#endif
+	self = [super init];
+	if (self) {
+		// match result region
+		_region = region;	// retain
+		
+		// 生成主
+		_enumerator = enumerator;
+		
+		// 最後にマッチした文字列の終端位置
+		_terminalOfLastMatch = terminalOfLastMatch;
+		// マッチした順番
+		_index = anIndex;
+		
+		// 頻繁に利用するものはキャッシュする。保持はしない。
+		// 検索対象文字列
+		_targetString     = [_enumerator targetString];
+		// 検索範囲
+		NSRange	searchRange = [_enumerator searchRange];
+		_searchRange.location = searchRange.location;
+		_searchRange.length   = searchRange.length;
+	}
+	
+	return self;
+}
+
+- (void)dealloc
+{
+#ifdef DEBUG_OGRE
+	NSLog(@"-dealloc of %@", [self className]);
+#endif
+	
+	if (_region != NULL) {
+		onig_region_free(_region, 1 /* free self */);
+	}
+	
+}
+
+- (id<OGStringProtocol>)_targetString
+{
+	return _targetString;
+}
+
+- (NSRange)_searchRange
+{
+	return _searchRange;
+}
+
+- (OnigRegion*)_region
+{
+	return _region;
+}
+
 @end

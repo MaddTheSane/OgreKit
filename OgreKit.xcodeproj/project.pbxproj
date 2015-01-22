@@ -52,22 +52,18 @@
 		4DC40E5E09150CF50029A2A6 /* OGRegularExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E5F09150CF50029A2A6 /* OGRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */; };
 		4DC40E6009150CF50029A2A6 /* OGRegularExpressionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */; };
-		4DC40E6109150CF50029A2A6 /* OGRegularExpressionPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5309150CEB0029A2A6 /* OGRegularExpressionPrivate.m */; };
 		4DC40E6209150CF50029A2A6 /* OGRegularExpressionEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E6309150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */; };
 		4DC40E6409150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */; };
 		4DC40E6609150CF50029A2A6 /* OGRegularExpressionMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E6709150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */; };
 		4DC40E6809150CF50029A2A6 /* OGRegularExpressionMatchPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */; };
-		4DC40E6909150CF50029A2A6 /* OGRegularExpressionMatchPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5B09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.m */; };
 		4DC40E6A09150CF50029A2A6 /* OGRegularExpressionCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5C09150CEB0029A2A6 /* OGRegularExpressionCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E6B09150CF50029A2A6 /* OGRegularExpressionCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5D09150CEB0029A2A6 /* OGRegularExpressionCapture.m */; };
 		4DC40E6C09150CF50029A2A6 /* OGRegularExpressionCapturePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5E09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.h */; };
-		4DC40E6D09150CF50029A2A6 /* OGRegularExpressionCapturePrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5F09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.m */; };
 		4DC40E6E09150CF50029A2A6 /* OGReplaceExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6009150CEB0029A2A6 /* OGReplaceExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E6F09150CF50029A2A6 /* OGReplaceExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */; };
 		4DC40E7009150CF50029A2A6 /* OGReplaceExpressionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */; };
-		4DC40E7109150CF50029A2A6 /* OGReplaceExpressionPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D6309150CEB0029A2A6 /* OGReplaceExpressionPrivate.m */; };
 		4DC40E7209150CF50029A2A6 /* OGRegularExpressionFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E7309150CF50029A2A6 /* OGRegularExpressionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */; };
 		4DC40E7409150CF50029A2A6 /* OGString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6709150CEB0029A2A6 /* OGString.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -200,22 +196,18 @@
 		4DC40F4F09150CF50029A2A6 /* OGRegularExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F5009150CF50029A2A6 /* OGRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */; };
 		4DC40F5109150CF50029A2A6 /* OGRegularExpressionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */; };
-		4DC40F5209150CF50029A2A6 /* OGRegularExpressionPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5309150CEB0029A2A6 /* OGRegularExpressionPrivate.m */; };
 		4DC40F5309150CF50029A2A6 /* OGRegularExpressionEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F5409150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */; };
 		4DC40F5509150CF50029A2A6 /* OGRegularExpressionEnumeratorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */; };
 		4DC40F5709150CF50029A2A6 /* OGRegularExpressionMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F5809150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */; };
 		4DC40F5909150CF50029A2A6 /* OGRegularExpressionMatchPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */; };
-		4DC40F5A09150CF50029A2A6 /* OGRegularExpressionMatchPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5B09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.m */; };
 		4DC40F5B09150CF50029A2A6 /* OGRegularExpressionCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5C09150CEB0029A2A6 /* OGRegularExpressionCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F5C09150CF50029A2A6 /* OGRegularExpressionCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5D09150CEB0029A2A6 /* OGRegularExpressionCapture.m */; };
 		4DC40F5D09150CF50029A2A6 /* OGRegularExpressionCapturePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5E09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.h */; };
-		4DC40F5E09150CF50029A2A6 /* OGRegularExpressionCapturePrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D5F09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.m */; };
 		4DC40F5F09150CF50029A2A6 /* OGReplaceExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6009150CEB0029A2A6 /* OGReplaceExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F6009150CF50029A2A6 /* OGReplaceExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */; };
 		4DC40F6109150CF50029A2A6 /* OGReplaceExpressionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */; };
-		4DC40F6209150CF50029A2A6 /* OGReplaceExpressionPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D6309150CEB0029A2A6 /* OGReplaceExpressionPrivate.m */; };
 		4DC40F6309150CF50029A2A6 /* OGRegularExpressionFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40F6409150CF50029A2A6 /* OGRegularExpressionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */; };
 		4DC40F7009150CF50029A2A6 /* NSString_OgreKitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D7409150CEC0029A2A6 /* NSString_OgreKitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -513,22 +505,18 @@
 		4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpression.h; path = RegularExpression/OGRegularExpression.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpression.m; path = RegularExpression/OGRegularExpression.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionPrivate.h; path = RegularExpression/OGRegularExpressionPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5309150CEB0029A2A6 /* OGRegularExpressionPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionPrivate.m; path = RegularExpression/OGRegularExpressionPrivate.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumerator.h; path = RegularExpression/OGRegularExpressionEnumerator.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionEnumerator.m; path = RegularExpression/OGRegularExpressionEnumerator.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumeratorPrivate.h; path = RegularExpression/OGRegularExpressionEnumeratorPrivate.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionMatch.h; path = RegularExpression/OGRegularExpressionMatch.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionMatch.m; path = RegularExpression/OGRegularExpressionMatch.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionMatchPrivate.h; path = RegularExpression/OGRegularExpressionMatchPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5B09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionMatchPrivate.m; path = RegularExpression/OGRegularExpressionMatchPrivate.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5C09150CEB0029A2A6 /* OGRegularExpressionCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionCapture.h; path = RegularExpression/OGRegularExpressionCapture.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5D09150CEB0029A2A6 /* OGRegularExpressionCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionCapture.m; path = RegularExpression/OGRegularExpressionCapture.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5E09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionCapturePrivate.h; path = RegularExpression/OGRegularExpressionCapturePrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5F09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionCapturePrivate.m; path = RegularExpression/OGRegularExpressionCapturePrivate.m; sourceTree = SOURCE_ROOT; };
 		4DC40D6009150CEB0029A2A6 /* OGReplaceExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGReplaceExpression.h; path = RegularExpression/OGReplaceExpression.h; sourceTree = SOURCE_ROOT; };
 		4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGReplaceExpression.m; path = RegularExpression/OGReplaceExpression.m; sourceTree = SOURCE_ROOT; };
 		4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGReplaceExpressionPrivate.h; path = RegularExpression/OGReplaceExpressionPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6309150CEB0029A2A6 /* OGReplaceExpressionPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGReplaceExpressionPrivate.m; path = RegularExpression/OGReplaceExpressionPrivate.m; sourceTree = SOURCE_ROOT; };
 		4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionFormatter.h; path = RegularExpression/OGRegularExpressionFormatter.h; sourceTree = SOURCE_ROOT; };
 		4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionFormatter.m; path = RegularExpression/OGRegularExpressionFormatter.m; sourceTree = SOURCE_ROOT; };
 		4DC40D6709150CEB0029A2A6 /* OGString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGString.h; path = RegularExpression/OGString.h; sourceTree = SOURCE_ROOT; };
@@ -846,6 +834,7 @@
 			);
 			name = OgreKit;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -947,22 +936,18 @@
 				4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */,
 				4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */,
 				4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */,
-				4DC40D5309150CEB0029A2A6 /* OGRegularExpressionPrivate.m */,
 				4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */,
 				4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */,
 				4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */,
 				4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */,
 				4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */,
 				4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */,
-				4DC40D5B09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.m */,
 				4DC40D5C09150CEB0029A2A6 /* OGRegularExpressionCapture.h */,
 				4DC40D5D09150CEB0029A2A6 /* OGRegularExpressionCapture.m */,
 				4DC40D5E09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.h */,
-				4DC40D5F09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.m */,
 				4DC40D6009150CEB0029A2A6 /* OGReplaceExpression.h */,
 				4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */,
 				4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */,
-				4DC40D6309150CEB0029A2A6 /* OGReplaceExpressionPrivate.m */,
 				4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */,
 				4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */,
 				4DC40D6609150CEB0029A2A6 /* OGString */,
@@ -1890,14 +1875,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DC40F5009150CF50029A2A6 /* OGRegularExpression.m in Sources */,
-				4DC40F5209150CF50029A2A6 /* OGRegularExpressionPrivate.m in Sources */,
 				4DC40F5409150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */,
 				4DC40F5809150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */,
-				4DC40F5A09150CF50029A2A6 /* OGRegularExpressionMatchPrivate.m in Sources */,
 				4DC40F5C09150CF50029A2A6 /* OGRegularExpressionCapture.m in Sources */,
-				4DC40F5E09150CF50029A2A6 /* OGRegularExpressionCapturePrivate.m in Sources */,
 				4DC40F6009150CF50029A2A6 /* OGReplaceExpression.m in Sources */,
-				4DC40F6209150CF50029A2A6 /* OGReplaceExpressionPrivate.m in Sources */,
 				4DC40F6409150CF50029A2A6 /* OGRegularExpressionFormatter.m in Sources */,
 				4DC40F7109150CF50029A2A6 /* NSString_OgreKitAdditions.m in Sources */,
 				4DC410E9091512C20029A2A6 /* OGString.m in Sources */,
@@ -1962,14 +1943,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DC40E5F09150CF50029A2A6 /* OGRegularExpression.m in Sources */,
-				4DC40E6109150CF50029A2A6 /* OGRegularExpressionPrivate.m in Sources */,
 				4DC40E6309150CF50029A2A6 /* OGRegularExpressionEnumerator.m in Sources */,
 				4DC40E6709150CF50029A2A6 /* OGRegularExpressionMatch.m in Sources */,
-				4DC40E6909150CF50029A2A6 /* OGRegularExpressionMatchPrivate.m in Sources */,
 				4DC40E6B09150CF50029A2A6 /* OGRegularExpressionCapture.m in Sources */,
-				4DC40E6D09150CF50029A2A6 /* OGRegularExpressionCapturePrivate.m in Sources */,
 				4DC40E6F09150CF50029A2A6 /* OGReplaceExpression.m in Sources */,
-				4DC40E7109150CF50029A2A6 /* OGReplaceExpressionPrivate.m in Sources */,
 				4DC40E7309150CF50029A2A6 /* OGRegularExpressionFormatter.m in Sources */,
 				4DC40E7509150CF50029A2A6 /* OGString.m in Sources */,
 				4DC40E7809150CF50029A2A6 /* OGPlainString.m in Sources */,
@@ -2448,6 +2425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
@@ -2471,7 +2449,6 @@
 					0x32000000,
 				);
 				PRODUCT_NAME = OgreKit;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2481,6 +2458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
@@ -2502,7 +2480,6 @@
 					0x32000000,
 				);
 				PRODUCT_NAME = OgreKit;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2512,6 +2489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2532,7 +2510,6 @@
 					0x32000000,
 				);
 				PRODUCT_NAME = OgreKit;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2595,7 +2572,6 @@
 					0x32000000,
 				);
 				PRODUCT_NAME = OgreKit;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -2634,7 +2610,6 @@
 					0x32000000,
 				);
 				PRODUCT_NAME = OgreKit;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -2672,7 +2647,6 @@
 					0x32000000,
 				);
 				PRODUCT_NAME = OgreKit;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WARNING_CFLAGS = (
 					"-Wmost",

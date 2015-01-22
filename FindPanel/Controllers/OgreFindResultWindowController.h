@@ -16,11 +16,10 @@
 
 @class OgreAttachableWindowMediator;
 
-@interface OgreFindResultWindowController : NSObject<OgreTextFindResultDelegateProtocol> 
+@interface OgreFindResultWindowController : NSObject <OgreTextFindResultDelegate, NSWindowDelegate>
 {
     IBOutlet NSOutlineView		*grepOutlineView;
     IBOutlet NSButton			*liveUpdateCheckBox;
-    IBOutlet NSWindow			*window;
     IBOutlet NSTextField		*findStringField;
     IBOutlet NSTextField		*messageField;
     
@@ -31,7 +30,7 @@
 
 - (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
-@property (readonly, weak) NSWindow *window;
+@property (weak) IBOutlet NSWindow *window;
 
 - (IBAction)updateLiveUpdate:(id)sender;
 

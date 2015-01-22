@@ -328,9 +328,6 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return history;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
-
 - (void)dealloc
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -341,7 +338,6 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	if (_saved == NO) [self appWillTerminate:nil];	// 履歴の保存がまだならば保存する。
 	
 	_sharedTextFinder = nil;
-	
 }
 
 - (IBAction)showFindPanel:(id)sender

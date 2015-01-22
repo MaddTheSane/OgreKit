@@ -122,9 +122,6 @@
     _ogreSelectedRange = aRange;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
-
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self 

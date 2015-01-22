@@ -17,7 +17,7 @@
 #import <OgreKit/OGRegularExpressionMatchPrivate.h>
 
 
-@interface OGRegularExpressionCapture (Private)
+@interface OGRegularExpressionCapture ()
 
 - (instancetype)initWithTreeNode:(OnigCaptureTreeNode*)captureNode 
     index:(NSUInteger)index

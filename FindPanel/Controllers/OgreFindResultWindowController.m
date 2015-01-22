@@ -15,6 +15,7 @@
 #import <OgreKit/OgreAttachableWindowMediator.h>
 
 @implementation OgreFindResultWindowController
+@synthesize window;
 
 - (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
 {
@@ -89,8 +90,6 @@
 	[grepOutlineView reloadData];
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
 - (void)dealloc
 {
 	[_textFindResult setDelegate:nil];
@@ -103,11 +102,6 @@
 	[_textFindResult setDelegate:self];
 	
 	[self setupFindResultView];
-}
-
-- (NSWindow*)window
-{
-	return window;
 }
 
 /*- (void)tellMeTargetToFindIn:(id)textFinder

@@ -13,7 +13,7 @@
 
 @class OGReplaceExpression;
 
-@interface OGReplaceExpression (Private)
+@interface OGReplaceExpression ()
 
 /*********************
  * private accessors *

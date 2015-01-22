@@ -50,10 +50,6 @@
 	return self;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
-
-
 - (void)setType:(OgreTextFindResultType)resultType
 {
     _resultType = resultType;
@@ -137,11 +133,7 @@
 
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 {
-#ifdef MAC_OS_X_VERSION_10_6
     CGFloat hue, saturation, brightness, alpha;
-#else
-    float   hue, saturation, brightness, alpha;
-#endif
     double  dummy;
     
     [[aColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
@@ -227,7 +219,7 @@
 
 - (void)didUpdate
 {
-    [(id <OgreTextFindResultDelegateProtocol>)_delegate didUpdateTextFindResult:self];
+    [_delegate didUpdateTextFindResult:self];
 }
 
 - (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches
@@ -256,7 +248,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
     if (tableColumn != [outlineView outlineTableColumn]) return;
-    id  delegate;
+    id  adelegate;
     if ([item target] == nil) {
         [cell setImage:nil];
         if ([cell isKindOfClass:[NSBrowserCell class]]) [cell setLeaf:YES];
@@ -264,9 +256,9 @@
     }
     
     if ([_target isKindOfClass:[NSOutlineView class]]) {
-        delegate = [_target delegate];
-        if ([delegate respondsToSelector:@selector(outlineView:willDisplayCell:forTableColumn:item:)]) {
-            [delegate outlineView:outlineView willDisplayCell:cell forTableColumn:tableColumn item:[(id <OgreTextFindComponent>)item target]];
+        adelegate = [_target delegate];
+        if ([adelegate respondsToSelector:@selector(outlineView:willDisplayCell:forTableColumn:item:)]) {
+            [adelegate outlineView:outlineView willDisplayCell:cell forTableColumn:tableColumn item:[(id <OgreTextFindComponent>)item target]];
         }
     }
 }

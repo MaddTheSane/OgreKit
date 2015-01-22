@@ -282,5 +282,27 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
         match:_match];
 }
 
+#pragma mark - Private methods
+- (id)initWithTreeNode:(OnigCaptureTreeNode*)captureNode
+				 index:(NSUInteger)index
+				 level:(NSUInteger)level
+			parentNode:(OGRegularExpressionCapture*)parentNode
+				 match:(OGRegularExpressionMatch*)match
+{
+	self = [super init];
+	if (self != nil) {
+		_captureNode = captureNode;
+		_index = index;
+		_level = level;
+		_parent = parentNode;
+		_match = match;
+	}
+	return self;
+}
+
+- (OnigCaptureTreeNode*)_captureNode
+{
+	return _captureNode;
+}
 
 @end

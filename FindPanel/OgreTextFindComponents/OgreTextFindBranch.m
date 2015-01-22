@@ -36,10 +36,6 @@
 #endif
 */
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
-
-
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor // visitor pattern
 {
     [aVisitor visitBranch:self];

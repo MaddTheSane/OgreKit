@@ -356,10 +356,6 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:character];
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-#endif
-
-
 // 置換
 - (NSString*)replaceMatchedStringOf:(OGRegularExpressionMatch*)match
 {
@@ -596,6 +592,28 @@ static OGRegularExpression  *gReplaceRegex = nil;
 			@"Compiled Replace String Type": _compiledReplaceStringType, 
 			@"Names": _nameArray,
 			@"Replace Options": [OGRegularExpression stringsForOptions:OgreReplaceTimeOptionMask(_options)]} description];
+}
+
+
+#pragma mark - Private methods
+- (void)_setCompiledReplaceString:(NSMutableArray*)compiledReplaceString
+{
+	_compiledReplaceString = compiledReplaceString;
+}
+
+- (void)_setCompiledReplaceStringType:(NSMutableArray*)compiledReplaceStringType
+{
+	_compiledReplaceStringType = compiledReplaceStringType;
+}
+
+- (void)_setNameArray:(NSMutableArray*)nameArray
+{
+	_nameArray = nameArray;
+}
+
+- (void)_setOptions:(unsigned)options
+{
+	_options = options;
 }
 
 @end
