@@ -750,6 +750,7 @@
 		4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ReplaceWithAttributesTest-Info.plist"; path = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist"; sourceTree = "<group>"; };
 		4DF530CF0915226200475575 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = ReplaceWithAttributesTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DF530D10915226200475575 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ReplaceWithAttributesTest/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		55C3FE5C1A71976700F1EC1A /* OgreKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OgreKit-Info.plist"; path = "RegularExpression/OgreKit-Info.plist"; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -1299,6 +1300,7 @@
 		4DC40E5409150CF30029A2A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55C3FE5C1A71976700F1EC1A /* OgreKit-Info.plist */,
 				4DC411C7091514D70029A2A6 /* InfoPlist.strings */,
 			);
 			name = Resources;
