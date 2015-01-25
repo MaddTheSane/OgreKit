@@ -8,11 +8,13 @@ INTEL_DIR=intel
 INTEL_64_CONFIGURE_FLAGS=--disable-dependency-tracking --host=x86_64-apple-darwin$(OS_VERSION) --build=x86_64-apple-darwin$(OS_VERSION)
 INTEL_CONFIGURE_FLAGS=--disable-dependency-tracking --host=i686-apple-darwin$(OS_VERSION) --build=i686-apple-darwin$(OS_VERSION)
 
-INTEL_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+INTEL_64_SDK=$(SDKROOT)
 INTEL_64_CC=/usr/bin/gcc -arch x86_64
 
-INTEL_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+INTEL_SDK=$(SDKROOT)
 INTEL_CC=/usr/bin/gcc -arch i686
+
+ONIGCFLAGS=-mmacosx-version-min=$(MACOSX_DEPLOYMENT_TARGET)
 
 ONIG_TARGET=libonig.la
 LIBS_DIR=.libs
@@ -25,14 +27,14 @@ $(UNIVERSAL_DIR)/$(ONIGURUMA): $(UNIVERSAL_DIR) $(INTEL_DIR)/$(ONIG_TARGET) $(IN
 
 $(INTEL_64_DIR)/$(ONIG_TARGET): $(INTEL_64_DIR)
 	cd $(@D);\
-	CC="$(INTEL_64_CC)" ./configure $(INTEL_64_CONFIGURE_FLAGS);\
+	CFLAGS="$(ONIGCFLAGS)" CC="$(INTEL_64_CC)" ./configure $(INTEL_64_CONFIGURE_FLAGS);\
 	perl -pi -e 's@CFLAGS = -isysroot /Developer/SDKs/MacOSX10.7.sdk -arch x86_64@CFLAGS = -isysroot $(INTEL_SDK) -arch x86_64@' Makefile;\
 	perl -pi -e 's@-dynamiclib@-dynamiclib -arch x86_64@g' libtool;\
 	make $(@F)
 
 $(INTEL_DIR)/$(ONIG_TARGET): $(INTEL_DIR)
 	cd $(@D);\
-	CC="$(INTEL_CC)" ./configure $(INTEL_CONFIGURE_FLAGS);\
+	CFLAGS="$(ONIGCFLAGS)" CC="$(INTEL_CC)" ./configure $(INTEL_CONFIGURE_FLAGS);\
 	perl -pi -e 's@CFLAGS = -isysroot /Developer/SDKs/MacOSX10.7.sdk -arch x86_64@CFLAGS = -isysroot $(INTEL_SDK) -arch i686@' Makefile;\
 	perl -pi -e 's@-dynamiclib@-dynamiclib -arch i686@g' libtool;\
 	make $(@F)
