@@ -96,17 +96,16 @@ static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
 	if (cap == NULL) return @[];
 	
 	unsigned            i, n = cap->num_childs;
-	NSMutableArray      *children = nil;
+	NSMutableArray      *children = [[NSMutableArray alloc] initWithCapacity:n];
     
     if (n > 0) {
-        children = [NSMutableArray arrayWithCapacity:n];
         for(i = 0; i < n; i++) [children addObject:Ogre_arrayWithOnigCaptureTreeNode(cap->childs[i])];
     }
     
-    return @[@(cap->group), 
-        @(cap->beg),
-        @(cap->end),
-        children];
+    return @[@(cap->group),
+             @(cap->beg),
+             @(cap->end),
+             children];
 }
 
 static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureArray)
@@ -495,7 +494,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_terminalOfLastMatch = [anObject unsignedIntValue];
+	_terminalOfLastMatch = [anObject unsignedIntegerValue];
 
 	
 	// 	unsigned		_index;		// マッチした順番
@@ -508,7 +507,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntValue];
+	_index = [anObject unsignedIntegerValue];
 
 	
 	// _region->history_root    // capture history

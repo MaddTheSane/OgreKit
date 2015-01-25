@@ -81,7 +81,7 @@ static NSString			*OgrePrivateUnicodeParagraphSeparator = nil;
 static int namedGroupCallback(const unsigned char *name, const unsigned char *name_end, int numberOfGroups, int* listOfGroupNumbers, regex_t* reg, void* nameDict)
 {
 	// 名前 -> グループ個数
-	((__bridge NSMutableDictionary*)nameDict)[[NSString stringWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]] = @(numberOfGroups);
+	((__bridge NSMutableDictionary*)nameDict)[[[NSString alloc] initWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]] = @(numberOfGroups);
     
 	return 0;  /* 0: continue, otherwise: stop(break) */
 }
@@ -304,7 +304,6 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		_groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
 		r = onig_foreach_name(_regexBuffer, namedGroupCallback, (__bridge void *)(groupIndexForNameDictionary));	// nameの一覧を得る
 		
-		NSEnumerator	*keyEnumerator = [groupIndexForNameDictionary keyEnumerator];
 		NSMutableArray	*array;
 		NSInteger		i, maxGroupIndex = 0;
 		for (NSString *name in groupIndexForNameDictionary) {
@@ -337,7 +336,6 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			[_nameForGroupIndexArray addObject:@""];
 		}
 		
-		keyEnumerator = [_groupIndexForNameDictionary keyEnumerator];
 		for (NSString *name in _groupIndexForNameDictionary) {
 			array = _groupIndexForNameDictionary[name];
 			for (NSNumber *index in array) {

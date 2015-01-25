@@ -346,7 +346,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_terminalOfLastMatch = [anObject intValue];
+	_terminalOfLastMatch = [anObject unsignedIntegerValue];
 	
 	
 	//			_startLocation;						// マッチ開始位置
@@ -359,7 +359,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_startLocation = [anObject unsignedIntValue];
+	_startLocation = [anObject unsignedIntegerValue];
     	
 
 	//BOOL				_isLastMatchEmpty;					// 前回のマッチが空文字列だったかどうか
@@ -385,7 +385,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_numberOfMatches = [anObject unsignedIntValue];
+	_numberOfMatches = [anObject unsignedIntegerValue];
 	
 	
 	return self;

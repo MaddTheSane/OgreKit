@@ -26,7 +26,7 @@ extern NSString	* const OgreEnumeratorException;
 	NSUInteger			_lengthOfTargetString;	// [_targetString length]
 	NSRange				_searchRange;			// 検索範囲
 	unsigned			_searchOptions;			// 検索オプション
-	int					_terminalOfLastMatch;	// 前回にマッチした文字列の終端位置  (_region->end[0] / sizeof(unichar))
+	NSUInteger			_terminalOfLastMatch;	// 前回にマッチした文字列の終端位置  (_region->end[0] / sizeof(unichar))
 	NSUInteger			_startLocation;			// マッチ開始位置
 	BOOL				_isLastMatchEmpty;		// 前回のマッチが空文字列だったかどうか
 	

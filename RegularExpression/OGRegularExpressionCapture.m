@@ -219,7 +219,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntValue];	
+	_index = [anObject unsignedIntegerValue];
 	
     // unsigned                   _level;             // 深さ
     if (allowsKeyedCoding) {
@@ -231,7 +231,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		// エラー。例外を発生させる。
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_level = [anObject unsignedIntValue];	
+	_level = [anObject unsignedIntegerValue];
 	
 	
 	// OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト

@@ -25,9 +25,6 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 @end
 
 @implementation OGRegularExpressionFormatter
-@synthesize syntax = _syntax;
-@synthesize escapeCharacter = _escapeCharacter;
-@synthesize options = _options;
 
 - (NSString*)stringForObjectValue:(id)anObject
 {
