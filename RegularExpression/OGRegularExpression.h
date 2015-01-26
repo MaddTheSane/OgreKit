@@ -78,7 +78,7 @@ typedef NS_ENUM(int, OgreSyntax) {
 // "\\"
 //#define	OgreCStringBackslashCharacter	[NSString stringWithCString:"\\"]
 // GUI中の￥マーク
-#define	OgreGUIYenCharacter				[NSString stringWithUTF8String:"\xc2\xa5"]
+#define	OgreGUIYenCharacter				@"\u00A5"
 
 // newline character
 typedef NS_ENUM(int, OgreNewlineCharacter) {

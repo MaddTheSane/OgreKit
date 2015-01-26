@@ -116,8 +116,8 @@
 /* settings */
 - (NSString*)escapeCharacter;
 - (BOOL)shouldEquateYenWithBackslash;
-- (BOOL)isStartFromTop;
-- (BOOL)isWrap;
+@property (readonly, getter=isStartFromTop) BOOL startFromTop;
+@property (readonly, getter=isWrap) BOOL wrap;
 - (OgreOption)options;
 - (OgreOption)_options;
 - (OgreSyntax)syntax;

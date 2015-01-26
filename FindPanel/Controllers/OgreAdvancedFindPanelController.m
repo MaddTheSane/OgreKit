@@ -680,7 +680,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (NSString*)escapeCharacter
 {
-	int tag = [[escapeCharacterPopUpButton selectedItem] tag];
+	NSInteger tag = [[escapeCharacterPopUpButton selectedItem] tag];
 	// 0: ＼
 	// 1: ￥
 	// 2: ＼ (Convert ￥ to ＼)
@@ -695,7 +695,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (BOOL)shouldEquateYenWithBackslash
 {
-	int tag = [[escapeCharacterPopUpButton selectedItem] tag];
+	NSInteger tag = [[escapeCharacterPopUpButton selectedItem] tag];
 	// 0: ＼
 	// 1: ￥
 	// 2: ＼ (Convert ￥ to ＼)
@@ -710,7 +710,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (OgreOption)_options
 {
-	unsigned	options = OgreNoneOption;
+	OgreOption	options = OgreNoneOption;
 	
 	if ([self singleLineOption]) options |= OgreSingleLineOption;
 	if ([self multilineOption]) options |= OgreMultilineOption;
@@ -734,7 +734,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (OgreOption)options
 {
-	unsigned	options = [self _options];
+	OgreOption	options = [self _options];
 	if ([toggleStyleOptionsButton state] == NSOffState) {
 		options = OgreCompileTimeOptionMask(options) | OgreSearchTimeOptionMask(options);
 	}
