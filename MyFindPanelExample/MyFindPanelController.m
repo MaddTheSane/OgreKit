@@ -174,12 +174,12 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 // 適切な正規表現かどうか調べる
 - (BOOL)alertIfInvalidRegex
 {
-	NS_DURING
+	@try {
 		[OGRegularExpression regularExpressionWithString: [findTextField stringValue] 
 			options: [self options] 
 			syntax: [self syntax] 
 			escapeCharacter: OgreBackslashCharacter];
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		// 例外処理
 		if ([[localException name] isEqualToString:OgreException]) {
 			NSBeep();   // 不適切な正規表現だった場合 (非常に手抜き)
@@ -187,7 +187,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 			[localException raise];
 		}
 		return NO;
-	NS_ENDHANDLER
+	}
 	
 	return YES;
 }

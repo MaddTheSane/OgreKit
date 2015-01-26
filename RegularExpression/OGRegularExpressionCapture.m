@@ -106,8 +106,8 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	NSDictionary	*dictionary = @{@"Group Index": [NSNumber numberWithUnsignedInt: _captureNode->group], 
 			@"Index": @(_index), 
 			@"Level": @(_level), 
-			@"Range": @[[NSNumber numberWithUnsignedInt: _captureNode->beg], 
-                [NSNumber numberWithUnsignedInt: _captureNode->end - _captureNode->beg]], 
+			@"Range": @[[NSNumber numberWithUnsignedInteger: _captureNode->beg],
+                [NSNumber numberWithUnsignedInteger: _captureNode->end - _captureNode->beg]],
 			@"Number of Children": [NSNumber numberWithUnsignedInt: _captureNode->num_childs]};
 		
 	return [dictionary description];

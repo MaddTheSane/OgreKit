@@ -59,7 +59,7 @@ static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 /*********************
  * private accessors *
  *********************/
-- (void)_setTerminalOfLastMatch:(int)location;
+- (void)_setTerminalOfLastMatch:(NSInteger)location;
 - (void)_setIsLastMatchEmpty:(BOOL)yesOrNo;
 - (void)_setStartLocation:(NSUInteger)location;
 - (void)_setNumberOfMatches:(NSUInteger)aNumber;

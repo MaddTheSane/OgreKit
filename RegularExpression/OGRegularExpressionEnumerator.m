@@ -38,7 +38,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 // 次を検索
 - (id)nextObject
 {
-	int					r;
+	OnigPosition		r;
 	unichar             *start, *range, *end;
 	OnigRegion			*region;
 	id					match = nil;
@@ -191,7 +191,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 
 	NSMutableArray	*matchArray = [NSMutableArray arrayWithCapacity:10];
 
-	int			orgTerminalOfLastMatch = _terminalOfLastMatch;
+	NSInteger	orgTerminalOfLastMatch = _terminalOfLastMatch;
 	BOOL		orgIsLastMatchEmpty = _isLastMatchEmpty;
 	NSUInteger	orgStartLocation = _startLocation;
 	NSUInteger	orgNumberOfMatches = _numberOfMatches;
@@ -203,7 +203,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	
 	@autoreleasepool {
 	OGRegularExpressionMatch	*match;
-	NSInteger matches = 0;
+	NSInteger                   matches = 0;
 	while ( (match = [self nextObject]) != nil ) {
 		[matchArray addObject:match];
 		matches++;
@@ -499,7 +499,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 }
 
 #pragma mark - private functions
-- (void)_setTerminalOfLastMatch:(int)location
+- (void)_setTerminalOfLastMatch:(NSInteger)location
 {
 	_terminalOfLastMatch = location;
 }

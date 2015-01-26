@@ -282,6 +282,7 @@
 		4DF530C00915221700475575 /* ReplaceWithAttributesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */; };
 		4DF530C20915221700475575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BD0915221700475575 /* main.m */; };
 		4DF530D30915226200475575 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530D00915226200475575 /* MainMenu.nib */; };
+		5515D4691A76C035001E6360 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC411C7091514D70029A2A6 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -502,7 +503,7 @@
 		4DC40C3009150C9E0029A2A6 /* ReplaceWithAttributesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReplaceWithAttributesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC40D4B09150CEA0029A2A6 /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ReadMe.rtf; path = RegularExpression/Documentation/ReadMe.rtf; sourceTree = SOURCE_ROOT; };
 		4DC40D4C09150CEA0029A2A6 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = License.txt; path = RegularExpression/Documentation/License.txt; sourceTree = SOURCE_ROOT; };
-		4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpression.h; path = RegularExpression/OGRegularExpression.h; sourceTree = SOURCE_ROOT; };
+		4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = OGRegularExpression.h; path = RegularExpression/OGRegularExpression.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpression.m; path = RegularExpression/OGRegularExpression.m; sourceTree = SOURCE_ROOT; };
 		4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionPrivate.h; path = RegularExpression/OGRegularExpressionPrivate.h; sourceTree = SOURCE_ROOT; };
 		4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumerator.h; path = RegularExpression/OGRegularExpressionEnumerator.h; sourceTree = SOURCE_ROOT; };
@@ -518,7 +519,7 @@
 		4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGReplaceExpression.m; path = RegularExpression/OGReplaceExpression.m; sourceTree = SOURCE_ROOT; };
 		4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGReplaceExpressionPrivate.h; path = RegularExpression/OGReplaceExpressionPrivate.h; sourceTree = SOURCE_ROOT; };
 		4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionFormatter.h; path = RegularExpression/OGRegularExpressionFormatter.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionFormatter.m; path = RegularExpression/OGRegularExpressionFormatter.m; sourceTree = SOURCE_ROOT; };
+		4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OGRegularExpressionFormatter.m; path = RegularExpression/OGRegularExpressionFormatter.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4DC40D6709150CEB0029A2A6 /* OGString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGString.h; path = RegularExpression/OGString.h; sourceTree = SOURCE_ROOT; };
 		4DC40D6809150CEB0029A2A6 /* OGString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGString.m; path = RegularExpression/OGString.m; sourceTree = SOURCE_ROOT; };
 		4DC40D6909150CEB0029A2A6 /* OGMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGMutableString.h; path = RegularExpression/OGMutableString.h; sourceTree = SOURCE_ROOT; };
@@ -533,9 +534,9 @@
 		4DC40D7409150CEC0029A2A6 /* NSString_OgreKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSString_OgreKitAdditions.h; path = RegularExpression/NSString_OgreKitAdditions.h; sourceTree = SOURCE_ROOT; };
 		4DC40D7509150CEC0029A2A6 /* NSString_OgreKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSString_OgreKitAdditions.m; path = RegularExpression/NSString_OgreKitAdditions.m; sourceTree = SOURCE_ROOT; };
 		4DC40D7809150CEC0029A2A6 /* OgreTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFinder.h; path = FindPanel/OgreTextFinder.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7909150CEC0029A2A6 /* OgreTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFinder.m; path = FindPanel/OgreTextFinder.m; sourceTree = SOURCE_ROOT; };
+		4DC40D7909150CEC0029A2A6 /* OgreTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTextFinder.m; path = FindPanel/OgreTextFinder.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4DC40D7B09150CEC0029A2A6 /* OgreTextFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindThread.h; path = FindPanel/OgreTextFindThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7C09150CEC0029A2A6 /* OgreTextFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindThread.m; path = FindPanel/OgreTextFindThread.m; sourceTree = SOURCE_ROOT; };
+		4DC40D7C09150CEC0029A2A6 /* OgreTextFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTextFindThread.m; path = FindPanel/OgreTextFindThread.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4DC40D7E09150CEC0029A2A6 /* OgreFindAllThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindAllThread.h; path = FindPanel/OgreTextFindThreads/OgreFindAllThread.h; sourceTree = SOURCE_ROOT; };
 		4DC40D7F09150CEC0029A2A6 /* OgreFindAllThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindAllThread.m; path = FindPanel/OgreTextFindThreads/OgreFindAllThread.m; sourceTree = SOURCE_ROOT; };
 		4DC40D8009150CEC0029A2A6 /* OgreReplaceAllThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreReplaceAllThread.h; path = FindPanel/OgreTextFindThreads/OgreReplaceAllThread.h; sourceTree = SOURCE_ROOT; };
@@ -631,7 +632,7 @@
 		4DC40DE709150CEF0029A2A6 /* OgreFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindPanelController.h; path = FindPanel/Controllers/OgreFindPanelController.h; sourceTree = SOURCE_ROOT; };
 		4DC40DE809150CEF0029A2A6 /* OgreFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindPanelController.m; path = FindPanel/Controllers/OgreFindPanelController.m; sourceTree = SOURCE_ROOT; };
 		4DC40DE909150CEF0029A2A6 /* OgreAdvancedFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAdvancedFindPanelController.h; path = FindPanel/Controllers/OgreAdvancedFindPanelController.h; sourceTree = SOURCE_ROOT; };
-		4DC40DEA09150CEF0029A2A6 /* OgreAdvancedFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAdvancedFindPanelController.m; path = FindPanel/Controllers/OgreAdvancedFindPanelController.m; sourceTree = SOURCE_ROOT; };
+		4DC40DEA09150CEF0029A2A6 /* OgreAdvancedFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreAdvancedFindPanelController.m; path = FindPanel/Controllers/OgreAdvancedFindPanelController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4DC40DEB09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAFPCEscapeCharacterFormatter.h; path = FindPanel/Controllers/OgreAFPCEscapeCharacterFormatter.h; sourceTree = SOURCE_ROOT; };
 		4DC40DEC09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAFPCEscapeCharacterFormatter.m; path = FindPanel/Controllers/OgreAFPCEscapeCharacterFormatter.m; sourceTree = SOURCE_ROOT; };
 		4DC40DEE09150CEF0029A2A6 /* OgreAdvancedFindPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAdvancedFindPanel.h; path = FindPanel/Controllers/OgreAdvancedFindPanel.h; sourceTree = SOURCE_ROOT; };
@@ -649,7 +650,7 @@
 		4DC40E5709150CF30029A2A6 /* OgreKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreKit_Prefix.pch; path = RegularExpression/OgreKit_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		4DC40E5809150CF40029A2A6 /* version.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = version.plist; path = RegularExpression/version.plist; sourceTree = SOURCE_ROOT; };
 		4DC4103F09150D0D0029A2A6 /* OgreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTest.h; path = RegularExpressionTest/OgreTest.h; sourceTree = SOURCE_ROOT; };
-		4DC4104009150D0D0029A2A6 /* OgreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTest.m; path = RegularExpressionTest/OgreTest.m; sourceTree = SOURCE_ROOT; };
+		4DC4104009150D0D0029A2A6 /* OgreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTest.m; path = RegularExpressionTest/OgreTest.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4DC4104109150D0E0029A2A6 /* Calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calc.h; path = RegularExpressionTest/Calc.h; sourceTree = SOURCE_ROOT; };
 		4DC4104209150D0E0029A2A6 /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calc.m; path = RegularExpressionTest/Calc.m; sourceTree = SOURCE_ROOT; };
 		4DC4104309150D0E0029A2A6 /* OgreTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTest_Prefix.h; path = RegularExpressionTest/OgreTest_Prefix.h; sourceTree = SOURCE_ROOT; };
@@ -679,7 +680,7 @@
 		4DC4108209150D640029A2A6 /* MyTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTextFinder.h; path = MyFindPanelExample/MyTextFinder.h; sourceTree = SOURCE_ROOT; };
 		4DC4108309150D640029A2A6 /* MyTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTextFinder.m; path = MyFindPanelExample/MyTextFinder.m; sourceTree = SOURCE_ROOT; };
 		4DC4108409150D640029A2A6 /* MyFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFindPanelController.h; path = MyFindPanelExample/MyFindPanelController.h; sourceTree = SOURCE_ROOT; };
-		4DC4108509150D640029A2A6 /* MyFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFindPanelController.m; path = MyFindPanelExample/MyFindPanelController.m; sourceTree = SOURCE_ROOT; };
+		4DC4108509150D640029A2A6 /* MyFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MyFindPanelController.m; path = MyFindPanelExample/MyFindPanelController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4DC4108809150D640029A2A6 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDocument.h; path = MyFindPanelExample/MyDocument.h; sourceTree = SOURCE_ROOT; };
 		4DC4108909150D640029A2A6 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDocument.m; path = MyFindPanelExample/MyDocument.m; sourceTree = SOURCE_ROOT; };
 		4DC4108A09150D640029A2A6 /* MyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuController.h; path = MyFindPanelExample/MyMenuController.h; sourceTree = SOURCE_ROOT; };
@@ -1797,6 +1798,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5515D4691A76C035001E6360 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2333,21 +2335,12 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				PRODUCT_NAME = Oniguruma;
 				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
-		};
-		4D82DCD809B9ECF8007F03B0 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				PRODUCT_NAME = Oniguruma;
-				SDKROOT = macosx;
-			};
-			name = Default;
 		};
 		4DA741121142B26B00E28DA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2397,32 +2390,10 @@
 			};
 			name = Release;
 		};
-		4DA741141142B26B00E28DA7 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PRODUCT_NAME = GCTest;
-				SDKROOT = macosx;
-			};
-			name = Default;
-		};
 		4DC40BA0091509DC0029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
@@ -2455,7 +2426,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
@@ -2482,40 +2452,28 @@
 			};
 			name = Release;
 		};
-		4DC40BA2091509DC0029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RegularExpression/OgreKit_Prefix.pch;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RegularExpression/OgreKit-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/RegularExpression/oniguruma/universal",
-				);
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0x32000000,
-				);
-				PRODUCT_NAME = OgreKit;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Default;
-		};
 		4DC40BA4091509DC0029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -2526,19 +2484,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
 			name = Release;
-		};
-		4DC40BA6091509DC0029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				SDKROOT = macosx;
-			};
-			name = Default;
 		};
 		4DC40BF909150BDB0029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2549,6 +2515,7 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2556,16 +2523,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpression/OgreKit_Prefix.pch;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "RegularExpression/OgreKit-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(LIBRARY_SEARCH_PATHS)",
+					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
-				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2591,21 +2555,19 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpression/OgreKit_Prefix.pch;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "RegularExpression/OgreKit-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(LIBRARY_SEARCH_PATHS)",
+					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
-				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2621,44 +2583,6 @@
 				ZERO_LINK = NO;
 			};
 			name = Release;
-		};
-		4DC40BFB09150BDB0029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RegularExpression/OgreKit_Prefix.pch;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RegularExpression/OgreKit-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/universal",
-				);
-				LIBRARY_STYLE = DYNAMIC;
-				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0x32000000,
-				);
-				PRODUCT_NAME = OgreKit;
-				SKIP_INSTALL = YES;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Default;
 		};
 		4DC40C0809150C290029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2722,36 +2646,6 @@
 			};
 			name = Release;
 		};
-		4DC40C0A09150C290029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
-				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = OgreTest;
-				SDKROOT = macosx;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = Default;
-		};
 		4DC40C1309150C400029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2806,32 +2700,6 @@
 			};
 			name = Release;
 		};
-		4DC40C1509150C400029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
-				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = OgreFindPanelTest;
-				SDKROOT = macosx;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = "-Wmost";
-			};
-			name = Default;
-		};
 		4DC40C1E09150C740029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2885,32 +2753,6 @@
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Release;
-		};
-		4DC40C2009150C740029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
-				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = MyFindPanelExample;
-				SDKROOT = macosx;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = "-Wmost";
-			};
-			name = Default;
 		};
 		4DC40C3409150C9F0029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2974,36 +2816,6 @@
 			};
 			name = Release;
 		};
-		4DC40C3609150C9F0029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ReplaceWithAttributesTest;
-				SDKROOT = macosx;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = Default;
-		};
 		4DC412C3091519D50029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3048,26 +2860,6 @@
 			};
 			name = Release;
 		};
-		4DC412C5091519D50029A2A6 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = All;
-				SDKROOT = macosx;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = Default;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3076,100 +2868,90 @@
 			buildConfigurations = (
 				4D82DCD609B9ECF8007F03B0 /* Debug */,
 				4D82DCD709B9ECF8007F03B0 /* Release */,
-				4D82DCD809B9ECF8007F03B0 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DA741151142B26C00E28DA7 /* Build configuration list for PBXNativeTarget "GC Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DA741121142B26B00E28DA7 /* Debug */,
 				4DA741131142B26B00E28DA7 /* Release */,
-				4DA741141142B26B00E28DA7 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40B9F091509DC0029A2A6 /* Build configuration list for PBXNativeTarget "OgreKit (Full Features)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40BA0091509DC0029A2A6 /* Debug */,
 				4DC40BA1091509DC0029A2A6 /* Release */,
-				4DC40BA2091509DC0029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40BA3091509DC0029A2A6 /* Build configuration list for PBXProject "OgreKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40BA4091509DC0029A2A6 /* Debug */,
 				4DC40BA5091509DC0029A2A6 /* Release */,
-				4DC40BA6091509DC0029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40BF809150BDB0029A2A6 /* Build configuration list for PBXNativeTarget "OgreKit (without Find Panel)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40BF909150BDB0029A2A6 /* Debug */,
 				4DC40BFA09150BDB0029A2A6 /* Release */,
-				4DC40BFB09150BDB0029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40C0709150C290029A2A6 /* Build configuration list for PBXNativeTarget "Regular Expression Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40C0809150C290029A2A6 /* Debug */,
 				4DC40C0909150C290029A2A6 /* Release */,
-				4DC40C0A09150C290029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40C1209150C400029A2A6 /* Build configuration list for PBXNativeTarget "Find Panel Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40C1309150C400029A2A6 /* Debug */,
 				4DC40C1409150C400029A2A6 /* Release */,
-				4DC40C1509150C400029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40C1D09150C740029A2A6 /* Build configuration list for PBXNativeTarget "My Find Panel Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40C1E09150C740029A2A6 /* Debug */,
 				4DC40C1F09150C740029A2A6 /* Release */,
-				4DC40C2009150C740029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC40C3309150C9F0029A2A6 /* Build configuration list for PBXNativeTarget "Replace With Attributes Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC40C3409150C9F0029A2A6 /* Debug */,
 				4DC40C3509150C9F0029A2A6 /* Release */,
-				4DC40C3609150C9F0029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		4DC412C2091519D50029A2A6 /* Build configuration list for PBXAggregateTarget "All" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC412C3091519D50029A2A6 /* Debug */,
 				4DC412C4091519D50029A2A6 /* Release */,
-				4DC412C5091519D50029A2A6 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

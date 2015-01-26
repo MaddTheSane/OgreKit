@@ -307,8 +307,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		NSMutableArray	*array;
 		NSInteger		i, maxGroupIndex = 0;
 		for (NSString *name in groupIndexForNameDictionary) {
-            unsigned int    lengthOfName = [name length];
-			unichar         *UTF16Name = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * lengthOfName);
+            NSUInteger  lengthOfName = [name length];
+			unichar     *UTF16Name = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * lengthOfName);
             if (UTF16Name == NULL) {
                 [NSException raise:NSMallocException format:@"fail to allocate a memory"];
             }
@@ -399,7 +399,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	escapeCharacter:(NSString*)character
 {
 	int 			r;
-    unsigned int    length;
+    NSUInteger      length;
 	unichar         *UTF16Str;
 	OnigErrorInfo	einfo;
 	regex_t			*regexBuffer;
@@ -1239,7 +1239,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(OgreOption)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	return [[self replaceOGString:[OGPlainString stringWithString:targetString] 
 		delegate:aDelegate 
@@ -1277,7 +1277,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(OgreOption)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	return [[self replaceOGString:[OGAttributedString stringWithAttributedString:targetString] 
 		delegate:aDelegate 
@@ -1297,7 +1297,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(OgreOption)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement
+	numberOfReplacement:(NSUInteger*)numberOfReplacement
 {
 	NSEnumerator	*enumerator = [self matchEnumeratorInOGString:targetString 
 		options:options 
@@ -1831,7 +1831,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	OgreNewlineCharacter	newlineCharacter = OgreNonbreakingNewlineCharacter;	// no linefeeds
 	
 	/* search newline characters */
-	unsigned	strlen = [aString length], matchLocation;
+	NSUInteger	strlen = [aString length], matchLocation;
 	NSRange 	searchRange = NSMakeRange(0, strlen), matchRange;
 	if ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {
@@ -1930,7 +1930,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
 	
 	NSString	*plainString = [string string];
-	unsigned	strLength = [plainString length];
+	NSUInteger	strLength = [plainString length];
 	NSRange		scanRange = NSMakeRange(0, strLength);	// スキャンする範囲
 	NSRange		matchRange;					// escapeの発見された範囲(lengthは常に1)
 	
@@ -1945,7 +1945,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		
 		while ( matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange],
 			   matchRange.length > 0 ) {
-			unsigned	lastMatchLocation = scanRange.location;
+			NSUInteger	lastMatchLocation = scanRange.location;
 			[resultString appendOGString:[string substringWithRange:NSMakeRange(lastMatchLocation, matchRange.location - lastMatchLocation)]];
 			
 			if ([[plainString substringWithRange:matchRange] isEqualToString:OgreBackslashCharacter]) {
@@ -2059,7 +2059,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
-- (NSString*)nameForGroupIndex:(unsigned)index
+- (NSString*)nameForGroupIndex:(NSUInteger)index
 {
 	if ( (_nameForGroupIndexArray == nil) || (index < 1) || (index > [_nameForGroupIndexArray count])) {
 		return nil;

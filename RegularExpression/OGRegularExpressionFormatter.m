@@ -64,14 +64,14 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	BOOL	retval;
 	
 	//NSLog(@"getObjectValue ¥"%@¥"", string); 
-	NS_DURING
+	@try {
 		*obj = [OGRegularExpression regularExpressionWithString: string
 			options: [self options] 
 			syntax: [self syntax] 
 			escapeCharacter: [self escapeCharacter] 
 			];
 		retval = YES;
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		// 例外処理
 		NSString	*name = [localException name];
 		//NSLog(@"¥"%@¥" caught in getObjectValue", name);
@@ -87,7 +87,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 			[localException raise];
 		}
 		retval = NO;
-	NS_ENDHANDLER
+	}
 
 	//NSLog(@"retval in getObjectValue: %d", retval);
 	return retval;

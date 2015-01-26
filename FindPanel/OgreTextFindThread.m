@@ -75,7 +75,7 @@
 	
 	_textFindResult = [[OgreTextFindResult alloc] initWithTarget:[_targetAdapter target] thread:self];
 	
-	NS_DURING
+	@try {
 	
 		_numberOfTotalLeaves = [_rootAdapter numberOfDescendantsInSelection:_inSelection];  // <= 0: indeterminate
 		_numberOfDoneLeaves = 0;
@@ -83,7 +83,7 @@
 		[self willProcessFindingAll];
 		if (!_shouldFinish) [self visitBranch:_rootAdapter];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		_exceptionRaised =YES;
 		[self exceptionRaised:localException];
@@ -91,7 +91,7 @@
 		[self didProcessFindingAll];
 		[self finishingUp:nil];
 		
-	NS_ENDHANDLER
+	}
 }
 
 - (void)willProcessFindingAll
@@ -132,7 +132,7 @@
 	}
 #endif
 	
-	NS_DURING
+	@try {
 	
 		BOOL	shouldContinue;
 		while (!_shouldFinish) {
@@ -163,7 +163,7 @@
 		
 		if (aLeaf == nil) [self visitBranch:nil];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		_exceptionRaised =YES;
 		[self exceptionRaised:localException];
@@ -174,7 +174,7 @@
 		[self didProcessFindingAll];
 		[self finishingUp:nil];
 		
-	NS_ENDHANDLER
+	}
 	}
 }
 

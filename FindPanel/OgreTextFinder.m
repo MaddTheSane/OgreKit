@@ -448,7 +448,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindProgressSheet	*sheet = nil;
 	OgreTextFindResult		  *textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		OGRegularExpression	*regex = [OGRegularExpression regularExpressionWithString:expressionString
 			options:options
@@ -471,13 +471,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		[self makeTargetFree:target];
 		textFindResult = [thread result];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:sheet exception:localException];
 		
-	NS_ENDHANDLER
+	}
 		
 	return textFindResult;
 }
@@ -499,7 +499,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindProgressSheet	*sheet = nil;
 	OgreTextFindResult		  *textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		OGRegularExpression	*regex = [OGRegularExpression regularExpressionWithString:expressionString
 			options:options
@@ -529,13 +529,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultSuccess];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:sheet exception:localException];
 		
-	NS_ENDHANDLER
+	}
 		
 	return textFindResult;
 }
@@ -617,7 +617,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindProgressSheet	*sheet = nil;
 	OgreTextFindResult			*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		OGRegularExpression	*regex = [OGRegularExpression regularExpressionWithString:[expressionString string] 
 			options:options
@@ -645,13 +645,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		[self makeTargetFree:target];
 		textFindResult = [thread result];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:sheet exception:localException];
 		
-	NS_ENDHANDLER
+	}
 		
 	return textFindResult;
 }
@@ -695,7 +695,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindProgressSheet	*sheet = nil;
 	OgreTextFindResult			*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		OGRegularExpression	*regex = [OGRegularExpression regularExpressionWithString:[expressionString string] 
 			options:options
@@ -730,13 +730,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultSuccess];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:sheet exception:localException];
 		
-	NS_ENDHANDLER
+	}
 		
 	return textFindResult;
 }
@@ -755,7 +755,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindThread	*thread = nil;
 	OgreTextFindResult	*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		/* スレッドの生成 */
 		id	adapter = [self adapterForTarget:target];
@@ -767,13 +767,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		[self makeTargetFree:target];
 		textFindResult = [thread result];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:nil exception:localException];
 		
-	NS_ENDHANDLER
+	}
 		
 	return textFindResult;
 }
@@ -795,7 +795,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindProgressSheet	*sheet = nil;
 	OgreTextFindResult			*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		OGRegularExpression	*regex = [OGRegularExpression regularExpressionWithString:expressionString
 			options:options
@@ -825,13 +825,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultSuccess];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:thread];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:sheet exception:localException];
 		
-	NS_ENDHANDLER
+	}
 		
 	return textFindResult;
 }
@@ -857,7 +857,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSObject<OGStringProtocol>			*string = nil;
 	OgreTextFindResult	*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		id	adapter = [self adapterForTarget:target];
 		selectedLeaf = [adapter selectedLeaf];
@@ -868,14 +868,14 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		[self makeTargetFree:target];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:nil];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:nil exception:localException];
 		[textFindResult alertIfErrorOccurred];
 		
-	NS_ENDHANDLER
+	}
 		
 	return string;
 }
@@ -890,7 +890,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSRange				selectedRange = NSMakeRange(0, 0);
 	OgreTextFindResult	*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		id	adapter = [self adapterForTarget:target];
 		selectedLeaf = [adapter selectedLeaf];
@@ -901,14 +901,14 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		[self makeTargetFree:target];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:nil];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:nil exception:localException];
 		[textFindResult alertIfErrorOccurred];
 		
-	NS_ENDHANDLER
+	}
 		
 	if (selectedRange.length > 0) return NO;
 	
@@ -924,7 +924,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	OgreTextFindLeaf	*selectedLeaf = nil;
 	OgreTextFindResult	*textFindResult = nil;
 	
-	NS_DURING
+	@try {
 	
 		id	adapter = [self adapterForTarget:target];
 		selectedLeaf = [adapter selectedLeaf];
@@ -936,14 +936,14 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		[self makeTargetFree:target];
 		
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		
 		textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:nil];
 		[textFindResult setType:OgreTextFindResultError];
 		[textFindResult setAlertSheet:nil exception:localException];
 		[textFindResult alertIfErrorOccurred];
 		
-	NS_ENDHANDLER
+	}
 	
 	return YES;
 }

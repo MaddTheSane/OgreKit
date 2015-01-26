@@ -219,13 +219,13 @@ extern NSString	* const OgreException;
  *******************/
 // 正しければ YES、正しくなければ NO を返す。
 /* 正しくない理由を知りたい場合は、次のようにして例外を拾って下さい。
-	NS_DURING
+	@try {
 		OGRegularExpression	*rx = [OGRegularExpression regularExpressionWithString:expressionString];
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		// 例外処理
 		NSLog(@"%@ caught\n", [localException name]);
 		NSLog(@"reason = \"%@\"\n", [localException reason]);
-	NS_ENDHANDLER
+	}
  */
 + (BOOL)isValidExpressionString:(NSString*)expressionString;
 + (BOOL)isValidExpressionString:(NSString*)expressionString
@@ -535,7 +535,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 - (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
 	delegate:(id)aDelegate 
@@ -551,7 +551,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 - (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
@@ -560,7 +560,7 @@ extern NSString	* const OgreException;
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 
 /*********

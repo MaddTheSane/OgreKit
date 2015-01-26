@@ -882,12 +882,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 /* show alert */
 - (BOOL)alertIfInvalidRegex
 {
-	NS_DURING
+	@try {
 		[OGRegularExpression regularExpressionWithString:[findTextView string] 
 			options: [self options] 
 			syntax: [self syntax] 
 			escapeCharacter:[self escapeCharacter]];
-	NS_HANDLER
+	} @catch (NSException *localException) {
 		// 例外処理
 		if ([[localException name] isEqualToString:OgreException]) {
 			[self showErrorAlert:OgreAPFCLocalizedString(@"Invalid Regular Expression") message:[localException reason]];
@@ -895,7 +895,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[localException raise];
 		}
 		return NO;
-	NS_ENDHANDLER
+	}
 	
 	return YES;
 }

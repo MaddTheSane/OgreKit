@@ -41,14 +41,14 @@
 		processTime = [NSDate date];*/
 
 		// 正規表現オブジェクトの作成
-		NS_DURING
+		@try {
 			rx = [OGRegularExpression regularExpressionWithString: pattern options: OgreFindNotEmptyOption | OgreCaptureGroupOption | OgreIgnoreCaseOption];
-		NS_HANDLER
+		} @catch (NSException *localException) {
 			// 例外処理
 			[resultTextView insertText: [NSString stringWithFormat: @"%@ caught in 'regularExpressionWithString:'\n", [localException name]]];
 			[resultTextView insertText: [NSString stringWithFormat: @"reason = \"%@\"\n", [localException reason]]];
 			return;
-		NS_ENDHANDLER
+		}
 		
 		match = [rx matchInString:str];
 		if (match == nil) {
