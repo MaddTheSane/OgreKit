@@ -158,7 +158,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    int count = [_outlineView numberOfSelectedColumns];
+    NSInteger count = [_outlineView numberOfSelectedColumns];
     if (inSelection && (count > 0)) return count;
     
     return [_outlineView numberOfColumns];
@@ -171,7 +171,7 @@
 #endif
     OgreOutlineColumnAdapter    *outlineColumnAdapter;
     OgreOutlineColumn           *column;
-    unsigned                    concreteIndex;
+    NSUInteger                  concreteIndex;
     
     if (!inSelection) {
         concreteIndex = index;
@@ -211,7 +211,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [_outlineView numberOfSelectedColumns];
+    NSInteger count = [_outlineView numberOfSelectedColumns];
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {

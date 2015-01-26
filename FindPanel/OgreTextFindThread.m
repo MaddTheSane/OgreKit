@@ -16,6 +16,10 @@
 
 #import<OgreKit/OgreTextFindComponentEnumerator.h>
 
+@interface NSObject (priv)
+- (BOOL)didEndUnknownTextFindThread:(id)anObject;
+@end
+
 @implementation OgreTextFindThread
 
 /* Creating and initializing */
@@ -142,7 +146,7 @@
 				/* coffee break */
 				if (shouldContinue) {
 					[_progressDelegate setProgress:[self progressPercentage] message:[self progressMessage]];
-					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%d/%@", _numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%d", _numberOfTotalLeaves])]];
+					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%lu/%@", (unsigned long)_numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%lu", (unsigned long)_numberOfTotalLeaves])]];
 				}
 				_metronome = [[NSDate alloc] init];
 				
@@ -218,7 +222,7 @@
 		} else {
 			/* finish up */
 			[_progressDelegate done:[self donePercentage] message:[self doneMessage]];
-			[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%d/%@", _numberOfDoneLeaves, (_numberOfTotalLeaves == -1? @"???" : [NSString stringWithFormat:@"%d", _numberOfTotalLeaves])]];
+			[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%lu/%@", (unsigned long)_numberOfDoneLeaves, (_numberOfTotalLeaves == -1? @"???" : [NSString stringWithFormat:@"%lu", (unsigned long)_numberOfTotalLeaves])]];
 			
 			[self didProcessFindingAll];
 			

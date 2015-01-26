@@ -54,7 +54,7 @@
 	BOOL				_exceptionRaised;
 	unsigned			_numberOfMatches;	// number of matches
 	OgreTextFindResult	*_textFindResult;	// result
-	int					_numberOfDoneLeaves,
+	NSUInteger          _numberOfDoneLeaves,
 						_numberOfTotalLeaves;
 	
 	NSDate				*_processTime;		// process time

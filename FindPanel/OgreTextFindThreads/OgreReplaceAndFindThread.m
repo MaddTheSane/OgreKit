@@ -16,6 +16,9 @@
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
 
+@interface NSObject (priv)
+- (BOOL)didEndReplaceAndFind:(id)anObject;
+@end
 
 @implementation OgreReplaceAndFindThread
 
@@ -39,7 +42,7 @@
 	unsigned	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。
 	
     OGRegularExpressionMatch    *match;
-    NSObject<OGStringProtocol>                    *string = [aLeaf ogString];
+    NSObject<OGStringProtocol>  *string = [aLeaf ogString];
     if (string == nil) {
         match = nil;
     } else {

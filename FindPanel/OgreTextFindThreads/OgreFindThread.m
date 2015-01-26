@@ -17,6 +17,9 @@
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
 
+@interface NSObject (priv)
+- (BOOL)didEndFind:(id)anObject;
+@end
 
 @implementation OgreFindThread
 

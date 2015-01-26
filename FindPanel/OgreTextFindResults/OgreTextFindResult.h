@@ -38,7 +38,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 {
 	OgreTextFindResultType		_resultType;
 	id							_target;
-    unsigned                    _numberOfMatches;           // number of the matches
+    NSUInteger                  _numberOfMatches;           // number of the matches
     OGRegularExpression         *_regex;
     
     OgreFindResultBranch        *_resultTree, *_branch;
@@ -73,7 +73,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 - (void)endGrafting;
 - (void)addLeaf:(id)aLeaf;
 
-@property unsigned numberOfMatches;
+@property NSUInteger numberOfMatches;
 
 @property (nonatomic, copy) NSString *title;
 
@@ -85,8 +85,8 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
 @property (readonly, copy) NSAttributedString *missingString;
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches;
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches;
 
 // delegate
 @property (weak) id<OgreTextFindResultDelegate> delegate;

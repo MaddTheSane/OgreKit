@@ -14,6 +14,10 @@
 #import <OgreKit/OgreReplaceAllThread.h>
 #import <OgreKit/OGString.h>
 
+@interface NSObject (endReplace)
+- (BOOL)didEndReplaceAll:(id)anObject;
+
+@end
 
 @implementation OgreReplaceAllThread
 
@@ -54,7 +58,7 @@
         return;
     }
     
-    unsigned    stringLength = [string length];
+    NSUInteger  stringLength = [string length];
     
     NSRange     selectedRange = [aLeaf selectedRange];
 	if (![self inSelection]) {
@@ -147,7 +151,7 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings replaced. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();

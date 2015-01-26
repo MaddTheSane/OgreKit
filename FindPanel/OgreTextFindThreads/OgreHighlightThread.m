@@ -14,6 +14,10 @@
 #import <OgreKit/OgreHighlightThread.h>
 #import <OgreKit/OGString.h>
 
+@interface NSObject (priv)
+- (BOOL)didEndHighlight:(id)anObject;
+@end
+
 
 @implementation OgreHighlightThread
 
@@ -168,7 +172,7 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings highlighted. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();

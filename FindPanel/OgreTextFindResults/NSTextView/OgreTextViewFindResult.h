@@ -24,9 +24,9 @@ extern NSString	*OgreTextViewFindResultException;
 	NSTextView			*_textView;		// 検索対象
 	
 	NSString			*_text;					// 検索対象の文字列
-	unsigned			_textLength;			// その長さ
-	unsigned			_searchLineRangeLocation;	// 行の範囲を調べる起点
-	unsigned			_line;					// 調べている行
+	NSUInteger			_textLength;			// その長さ
+	NSUInteger			_searchLineRangeLocation;	// 行の範囲を調べる起点
+	NSUInteger			_line;					// 調べている行
 	NSRange				_lineRange;				// _line行目の範囲
 	
 	NSMutableArray		*_lineOfMatchedStrings, // マッチした文字列のある行番号 (0番目はダミー。常に0。)

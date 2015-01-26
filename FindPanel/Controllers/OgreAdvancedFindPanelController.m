@@ -483,7 +483,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[self loadFindStringToPasteboard];	// load to Paseteboad
 	
 	NSMenu		*menu = [findPopUpButton menu];
-	int			i, n = [_findHistory count];
+	NSInteger	i, n = [_findHistory count];
 	NSString	*string = [attrString string];
 	for (i = 0; i < n; i++) {
 		if ([[_escapeCharacterFormatter stringForObjectValue:[_findHistory[i] string]]  isEqualToString:string]) {
@@ -520,7 +520,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)addReplaceHistory:(NSAttributedString*)string
 {
 	NSMenu	*menu = [replacePopUpButton menu];
-	int		i, n = [_replaceHistory count];
+	NSInteger		i, n = [_replaceHistory count];
 	for (i = 0; i < n; i++) {
 		if ([[_escapeCharacterFormatter attributedStringForObjectValue:_replaceHistory[i] 
 				withDefaultAttributes:nil] isEqualToAttributedString:string]) {
@@ -745,7 +745,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (OgreSyntax)syntax
 {
 	//NSLog(@"%d", [[syntaxMatrix selectedCell] tag]);
-	return [OGRegularExpression syntaxForIntValue:[[syntaxPopUpButton selectedItem] tag]];
+	return [OGRegularExpression syntaxForIntValue:(int)[[syntaxPopUpButton selectedItem] tag]];
 }
 
 - (void)avoidEmptySelection

@@ -83,7 +83,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	NSArray			*childWindows = [acceptee childWindows];
 	NSEnumerator	*acceptorEnumerator = [_acceptors objectEnumerator];
 	NSWindow<OgreAttachableWindowAcceptorProtocol>	*candidate;
-	NSRectEdge		accepteeEdge;
+	NSRectEdge		accepteeEdge = 0;
 	while ((candidate = [acceptorEnumerator nextObject]) != nil) {
 		if ([candidate isEqual:acceptee] || [childWindows containsObject:candidate] || ![candidate isVisible]) {
 			continue;

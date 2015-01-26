@@ -144,7 +144,7 @@
         
     BOOL    isSimple = ([regex syntax] == OgreSimpleMatchingSyntax && ([regex options] & OgreDelimitByWhitespaceOption) != 0);
     
-    unsigned    numberOfGroups = [_regex numberOfGroups], i;
+    NSUInteger    numberOfGroups = [_regex numberOfGroups], i;
     
     _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
@@ -159,7 +159,7 @@
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString
 {
-	int							i, n = [aRangeArray count], delta = 0;
+	NSInteger							i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
 	NSMutableAttributedString	*highlightedString;
     
@@ -222,7 +222,7 @@
     [_delegate didUpdateTextFindResult:self];
 }
 
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -233,7 +233,7 @@
     return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {

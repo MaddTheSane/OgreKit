@@ -53,6 +53,11 @@
 #import <OgreKit/OgreTextFindProgressSheet.h>
 #import <OgreKit/OgreFindPanelController.h>
 
+@interface NSObject (priv)
+- (void)ogreKitShouldUseStylesInFindPanel:(OgreTextFinder*)textFinder;
+- (void)ogreKitWillHackFindMenu:(OgreTextFinder*)textFinder;
+
+@end
 
 // singleton
 static OgreTextFinder	*_sharedTextFinder = nil;
@@ -270,7 +275,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	@autoreleasepool {
 	
-		int i, n;
+		NSInteger i, n;
 		NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
 		while ([menuArray count] > 0) {
 			NSMenu      *aMenu = menuArray[0];
@@ -995,7 +1000,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	if (anAdapterClass == Nil) {
 		/* Searching in the adapter-target array */
-		int	index, count = [_adapterClassArray count];
+		NSInteger	index, count = [_adapterClassArray count];
 		for (index = count - 1; index >= 0; index--) {
 			if ([aTargetToFindIn isKindOfClass:_targetClassArray[index]]) {
 				anAdapterClass = _adapterClassArray[index];
@@ -1029,7 +1034,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	if ([anObject respondsToSelector:@selector(ogreAdapter)]) return YES;
 	
-	int	index, count = [_targetClassArray count];
+	NSInteger	index, count = [_targetClassArray count];
 	for (index = count - 1; index >= 0; index--) {
 		if ([anObject isKindOfClass:_targetClassArray[index]]) {
 			return YES;

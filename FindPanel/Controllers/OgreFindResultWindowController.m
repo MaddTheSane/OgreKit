@@ -147,7 +147,7 @@
 	return [aItem isBranch];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_textFindResult == nil) return 0;
 	
@@ -192,7 +192,7 @@
 
 - (void)grepOutlineViewDoubleClicked
 {
-	int	clickedRowIndex = [grepOutlineView clickedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView clickedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];
@@ -203,7 +203,7 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification*)aNotification
 {
-	int	clickedRowIndex = [grepOutlineView selectedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView selectedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];

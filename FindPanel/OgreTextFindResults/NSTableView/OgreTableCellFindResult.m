@@ -124,7 +124,7 @@
     OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];
     
     if (![tableView allowsColumnSelection]) {
-        int columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
+        NSInteger columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
         if (columnIndex != -1) {
             [tableView scrollColumnToVisible:columnIndex];
         } else {

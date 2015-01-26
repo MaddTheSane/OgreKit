@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreOutlineViewFindResult.h>
 #import <OgreKit/OgreTextFindResult.h>
+#import <OgreKit/OgreTableColumnFindResult.h>
 
 #import <OgreKit/OgreOutlineView.h>
 

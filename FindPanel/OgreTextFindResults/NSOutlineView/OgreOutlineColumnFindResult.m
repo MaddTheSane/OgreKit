@@ -100,7 +100,7 @@
     
     if (![outlineView allowsColumnSelection]) return YES;
     
-    int columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+    NSUInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
     if (columnIndex != -1) {
         [outlineView selectColumnIndexes:[NSIndexSet indexSetWithIndex:columnIndex] byExtendingSelection:NO];
         [outlineView scrollColumnToVisible:columnIndex];

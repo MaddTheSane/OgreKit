@@ -100,7 +100,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    unsigned    count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
+    NSUInteger    count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
     
     return 1 /* self cell */ + count;
 }
@@ -166,7 +166,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
 #endif
-    unsigned count = [self numberOfChildrenInSelection:YES];
+    NSUInteger count = [self numberOfChildrenInSelection:YES];
     
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, count)];
 }

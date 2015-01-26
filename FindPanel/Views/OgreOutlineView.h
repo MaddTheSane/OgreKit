@@ -17,14 +17,14 @@
 
 @interface OgreOutlineView : NSOutlineView <OgreView>
 {
-    int     _ogreSelectedColumn;
-    id      _ogreSelectedItem;
-    NSRange _ogreSelectedRange;
+    NSInteger   _ogreSelectedColumn;
+    id          _ogreSelectedItem;
+    NSRange     _ogreSelectedRange;
     
     NSMutableArray  *_ogrePathComponents;
 }
 
-@property (setter=ogreSetSelectedColumn:) int ogreSelectedColumn;
+@property (setter=ogreSetSelectedColumn:) NSInteger ogreSelectedColumn;
 
 @property (readonly, copy) NSArray *ogrePathComponentsOfSelectedItem;
 - (void)ogreSetSelectedItem:(id)item;

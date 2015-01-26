@@ -13,6 +13,9 @@
 
 #import <OgreKit/OgreUnhighlightThread.h>
 
+@interface NSObject (priv)
+- (BOOL)didEndUnhighlight:(id)anObject;
+@end
 
 @implementation OgreUnhighlightThread
 
