@@ -90,7 +90,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return theBundle;
 }
 
-+ (id)sharedTextFinder
++ (OgreTextFinder*)sharedTextFinder
 {
 	if (_sharedTextFinder == nil) {
 		_sharedTextFinder = [[[self class] alloc] init];
@@ -99,7 +99,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return _sharedTextFinder;
 }
 
-- (id)init
+- (instancetype)init
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-init of %@", [self className]);
@@ -117,16 +117,16 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		NSDictionary	*fullHistory = [defaults dictionaryForKey:@"OgreTextFinder"];	// 履歴等
 		
 		if (fullHistory != nil) {
-			_history = [[fullHistory objectForKey: OgreTextFinderHistoryKey] retain];
+			_history = [fullHistory[OgreTextFinderHistoryKey] retain];
 
-			id		anObject = [fullHistory objectForKey: OgreTextFinderSyntaxKey];
+			id		anObject = fullHistory[OgreTextFinderSyntaxKey];
 			if(anObject == nil) {
 				[self setSyntax:[OGRegularExpression defaultSyntax]];
 			} else {
-				_syntax = [OGRegularExpression syntaxForIntValue:[anObject integerValue]];
+				_syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
 			}
 				
-			_escapeCharacter = [[fullHistory objectForKey: OgreTextFinderEscapeCharacterKey] retain];
+			_escapeCharacter = [fullHistory[OgreTextFinderEscapeCharacterKey] retain];
 			if(_escapeCharacter == nil) {
 				[self setEscapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 			}
@@ -274,7 +274,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSUInteger i, n;
 	NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
 	while ([menuArray count] > 0) {
-		NSMenu      *aMenu = [menuArray objectAtIndex:0];
+		NSMenu      *aMenu = menuArray[0];
 		NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
 		if (aMenuItem != nil) {
 			// 見つかった場合
@@ -307,16 +307,9 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		object: NSApp];
 	
 	// 検索履歴等の保存
-	NSDictionary	*fullHistory = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: 
-			[findPanelController history],
-			[NSNumber numberWithInteger:[OGRegularExpression intValueForSyntax:_syntax]], 
-			_escapeCharacter, 
-			nil]
-		forKeys:[NSArray arrayWithObjects: 
-			OgreTextFinderHistoryKey, 
-			OgreTextFinderSyntaxKey,
-			OgreTextFinderEscapeCharacterKey,
-			nil]];
+	NSDictionary	*fullHistory = @{OgreTextFinderHistoryKey: [findPanelController history], 
+			OgreTextFinderSyntaxKey: @([OGRegularExpression intValueForSyntax:_syntax]),
+			OgreTextFinderEscapeCharacterKey: _escapeCharacter};
 	
 	NSUserDefaults	*defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:fullHistory forKey:@"OgreTextFinder"];
@@ -1030,8 +1023,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		/* Searching in the adapter-target array */
 		NSInteger	index, count = [_adapterClassArray count];
 		for (index = count - 1; index >= 0; index--) {
-			if ([aTargetToFindIn isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
-				anAdapterClass = [_adapterClassArray objectAtIndex:index];
+			if ([aTargetToFindIn isKindOfClass:_targetClassArray[index]]) {
+				anAdapterClass = _adapterClassArray[index];
 				break;
 			}
 		}
@@ -1064,7 +1057,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	NSInteger	index, count = [_targetClassArray count];
 	for (index = count - 1; index >= 0; index--) {
-		if ([anObject isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
+		if ([anObject isKindOfClass:_targetClassArray[index]]) {
 			return YES;
 			break;
 		}

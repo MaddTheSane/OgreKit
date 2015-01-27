@@ -181,7 +181,7 @@
         }
     }
     
-    column = [[_tableView tableColumns] objectAtIndex:concreteIndex];
+    column = [_tableView tableColumns][concreteIndex];
     tableColumnAdapter = [[[OgreTableColumnAdapter alloc] initWithTableColumn:column] autorelease];
     [tableColumnAdapter setParent:self];
     [tableColumnAdapter setIndex:index];

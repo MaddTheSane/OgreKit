@@ -24,13 +24,13 @@
     NSMutableArray  *_ogrePathComponents;
 }
 
-- (NSInteger)ogreSelectedColumn;
+@property (nonatomic, readonly) NSInteger ogreSelectedColumn;
 - (void)ogreSetSelectedColumn:(NSInteger)column;
 
-- (NSArray*)ogrePathComponentsOfSelectedItem;
+@property (nonatomic, readonly, copy) NSArray *ogrePathComponentsOfSelectedItem;
 - (void)ogreSetSelectedItem:(id)item;
 
-- (NSRange)ogreSelectedRange;
+@property (nonatomic, readonly) NSRange ogreSelectedRange;
 - (void)ogreSetSelectedRange:(NSRange)aRange;
 
 @end

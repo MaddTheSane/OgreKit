@@ -34,9 +34,9 @@ extern NSString	* const OgreEnumeratorException;
 }
 
 // 全マッチ結果を配列で返す。
-- (NSArray*)allObjects;
+@property (nonatomic, readonly, copy) NSArray *allObjects;
 // 次のマッチ結果を返す。
-- (id)nextObject;
+@property (nonatomic, readonly, strong) id nextObject;
 
 // description
 - (NSString*)description;

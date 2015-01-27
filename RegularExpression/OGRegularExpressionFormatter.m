@@ -112,16 +112,16 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:[self options]] forKey: OgreOptionsKey];
-		[encoder encodeObject: [NSNumber numberWithInteger:syntaxType] forKey: OgreSyntaxKey];
+		[encoder encodeObject: @([self options]) forKey: OgreOptionsKey];
+		[encoder encodeObject: @(syntaxType) forKey: OgreSyntaxKey];
 	} else {
 		[encoder encodeObject: [self escapeCharacter]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:[self options]]];
-		[encoder encodeObject: [NSNumber numberWithInteger:syntaxType]];
+		[encoder encodeObject: @([self options])];
+		[encoder encodeObject: @(syntaxType)];
 	}
 }
 
-- (id)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -178,7 +178,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_syntax = [OGRegularExpression syntaxForIntValue:syntaxType];
+	_syntax = [OGRegularExpression syntaxForIntValue:(int)syntaxType];
 
 	return self;
 }
@@ -195,12 +195,12 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		escapeCharacter: _escapeCharacter];
 }
 
-- (id)init
+- (instancetype)init
 {
 	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-- (id)initWithOptions:(NSUInteger)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
+- (instancetype)initWithOptions:(NSUInteger)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithOptions: of %@", [self className]);

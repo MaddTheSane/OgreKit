@@ -132,7 +132,7 @@
 	NSAttributedString	*srcAttributedString = [srcString attributedString];
 	
 	srcAttributes = [srcAttributedString attributesAtIndex:0 effectiveRange:NULL];
-	srcFont = [srcAttributes objectForKey:NSFontAttributeName];
+	srcFont = srcAttributes[NSFontAttributeName];
 	if (srcFont == nil) {
 		srcFont = [NSFont systemFontOfSize:[NSFont systemFontSize]];
 	}
@@ -151,7 +151,7 @@
 		NSEnumerator	*keyEnumerator = [srcAttributes keyEnumerator];
 		NSString		*attrKey;
 		while ((attrKey = [keyEnumerator nextObject]) != nil) {
-			id	attr = [srcAttributes objectForKey:attrKey];
+			id	attr = srcAttributes[attrKey];
 			//if (attr != nil) {
 				[aString addAttribute:attrKey 
 					value:attr 
@@ -269,8 +269,8 @@
 			NSEnumerator	*keyEnumerator = [_currentAttributes keyEnumerator];
 			NSString		*attrKey;
 			while ((attrKey = [keyEnumerator nextObject]) != nil) {
-				if ([attr objectForKey:attrKey] == nil) {
-					id	attr = [_currentAttributes objectForKey:attrKey];
+				if (attr[attrKey] == nil) {
+					id	attr = _currentAttributes[attrKey];
 					//if (attr != nil) {
 						[aString addAttribute:attrKey 
 							value:attr 

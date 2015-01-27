@@ -63,50 +63,50 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
  * 諸情報 *
  *********/
 // グループ番号
-- (NSUInteger)groupIndex;
+@property (nonatomic, readonly) NSUInteger groupIndex;
 
 // グループ名
-- (NSString*)groupName;
+@property (nonatomic, readonly, copy) NSString *groupName;
 
 // 何番目の子要素であるか 0,1,2,...
-- (NSUInteger)index;
+@property (nonatomic, readonly) NSUInteger index;
 
 // 深さ
 // 0: root
-- (NSUInteger)level;
+@property (nonatomic, readonly) NSUInteger level;
 
 // 子要素の数
-- (NSUInteger)numberOfChildren;
+@property (nonatomic, readonly) NSUInteger numberOfChildren;
 
 // 子要素たち
 // return nil in the case of numberOfChildren == 0
-- (NSArray*)children;
+@property (nonatomic, readonly, copy) NSArray *children;
 
 // index番目の子要素
 - (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
 
 // match
-- (OGRegularExpressionMatch*)match;
+@property (nonatomic, readonly, copy) OGRegularExpressionMatch *match;
 
 // description
-- (NSString*)description;
+@property (nonatomic, readonly, copy) NSString *description;
 
 /*********
  * 文字列 *
  *********/
 // マッチの対象になった文字列
-- (NSString*)targetString;
-- (NSAttributedString*)targetAttributedString;
+@property (nonatomic, readonly, copy) NSString *targetString;
+@property (nonatomic, readonly, copy) NSAttributedString *targetAttributedString;
 
 // マッチした文字列
-- (NSString*)string;
-- (NSAttributedString*)attributedString;
+@property (nonatomic, readonly, copy) NSString *string;
+@property (nonatomic, readonly, copy) NSAttributedString *attributedString;
 
 /*******
  * 範囲 *
  *******/
 // マッチした文字列の範囲
-- (NSRange)range;
+@property (nonatomic, readonly) NSRange range;
 
 /************************
 * adapt Visitor pattern *

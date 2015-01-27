@@ -115,7 +115,7 @@
     [outlineItemAdapter setLevel:0];
     [outlineItemAdapter setReversed:[self isReversed]];
     
-    if ([self isTerminal] && index == [[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem] objectAtIndex:0] integerValue]) {
+    if ([self isTerminal] && index == [[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]) {
         [outlineItemAdapter setTerminal:YES];
     }
     
@@ -136,7 +136,7 @@
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
     enumerator = [enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
-    if ([self isTerminal]) [enumerator setTerminalIndex:[[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem] objectAtIndex:0] integerValue]];
+    if ([self isTerminal]) [enumerator setTerminalIndex:[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]];
 
     return [enumerator autorelease];
 }

@@ -19,12 +19,12 @@
 
 @implementation OgreTextFindResult
 
-+ (id)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
++ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
 {
 	return [[[[self class] alloc] initWithTarget:targetFindingIn thread:aThread] autorelease];
 }
 
-- (id)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTarget: of %@", [self className]);
@@ -212,10 +212,10 @@
 	NSMutableAttributedString	*highlightedString;
     
 	/* マッチした文字列の先頭のある行の範囲・内容 */
-	matchRange = [[aRangeArray objectAtIndex:0] rangeValue];
+	matchRange = [aRangeArray[0] rangeValue];
 	if ([aString length] < NSMaxRange(matchRange)) {
 		// matchRangeの範囲の文字列が存在しない場合
-		return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
+		return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}] autorelease];
 	}
 	lineRange = [aString lineRangeForRange:NSMakeRange(matchRange.location, 0)];
     
@@ -227,7 +227,7 @@
 		lineRange.length   -= delta;
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:@"..." 
-			attributes:[NSDictionary dictionaryWithObject:[NSColor grayColor] forKey:NSForegroundColorAttributeName]] autorelease]];
+			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}] autorelease]];
 	}
 	if ((_maxMatchedStringLength >= 0) && (lineRange.length > _maxMatchedStringLength)) {
 		// 全文字数を制限する
@@ -236,7 +236,7 @@
 			initWithString:[aString substringWithRange:lineRange]] autorelease]];
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:@"..." 
-			attributes:[NSDictionary dictionaryWithObject:[NSColor grayColor] forKey:NSForegroundColorAttributeName]] autorelease]];
+			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}] autorelease]];
 	} else {
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:[aString substringWithRange:lineRange]] autorelease]];
@@ -245,12 +245,12 @@
 	/* 彩色 */
 	[highlightedString beginEditing];
 	for(i = 0; i < n; i++) {
-		matchRange = [[aRangeArray objectAtIndex:i] rangeValue];
+		matchRange = [aRangeArray[i] rangeValue];
 		intersectionRange = NSIntersectionRange(lineRange, matchRange);
 		
 		if (intersectionRange.length > 0) {
 			[highlightedString setAttributes:
-				[NSDictionary dictionaryWithObject:[_highlightColorArray objectAtIndex:i] forKey:NSBackgroundColorAttributeName] 
+				@{NSBackgroundColorAttributeName: _highlightColorArray[i]} 
 				range:NSMakeRange(intersectionRange.location - lineRange.location + ((delta == 0)? 0 : 3), intersectionRange.length)];
 		}
 	}
@@ -261,7 +261,7 @@
 
 - (NSAttributedString*)missingString
 {
-    return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}] autorelease];
 }
 
 
@@ -299,7 +299,7 @@
     } else {
         message = OgreTextFinderLocalizedString(@"%d string found.");
     }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}] autorelease];
 }
 
 - (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
@@ -310,7 +310,7 @@
     } else {
         message = OgreTextFinderLocalizedString(@"Found in %d item.");
     }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}] autorelease];
 }
 
 

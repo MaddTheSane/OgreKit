@@ -81,7 +81,7 @@ static NSString			*OgrePrivateUnicodeParagraphSeparator = nil;
 static int namedGroupCallback(const unsigned char *name, const unsigned char *name_end, int numberOfGroups, int* listOfGroupNumbers, regex_t* reg, void* nameDict)
 {
 	// 名前 -> グループ個数
-	[(NSMutableDictionary*)nameDict setObject:[NSNumber numberWithUnsignedInt:numberOfGroups] forKey:[NSString stringWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]];
+	((NSMutableDictionary*)nameDict)[[NSString stringWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]] = @(numberOfGroups);
     
 	return 0;  /* 0: continue, otherwise: stop(break) */
 }
@@ -132,7 +132,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	OgrePrivateRubySyntax.op2			|= ONIG_SYN_OP2_ATMARK_CAPTURE_HISTORY; 
 }
 
-+ (id)regularExpressionWithString:(NSString*)expressionString
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
 {
 	return [[[self alloc]
 		initWithString: expressionString
@@ -141,7 +141,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		escapeCharacter: [[self class] defaultEscapeCharacter]] autorelease];
 }
 
-+ (id)regularExpressionWithString:(NSString*)expressionString 
++ (instancetype)regularExpressionWithString:(NSString*)expressionString 
 	options:(NSUInteger)options
 {
 	return [[[self alloc]
@@ -151,7 +151,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		escapeCharacter: [[self class] defaultEscapeCharacter]] autorelease];
 }
 
-+ (id)regularExpressionWithString:(NSString*)expressionString 
++ (instancetype)regularExpressionWithString:(NSString*)expressionString 
 	options:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
@@ -164,7 +164,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (id)initWithString:(NSString*)expressionString
+- (instancetype)initWithString:(NSString*)expressionString
 {
 	return [self initWithString: expressionString 
 		options: OgreNoneOption 
@@ -172,7 +172,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		escapeCharacter: [[self class] defaultEscapeCharacter]];
 }
 
-- (id)initWithString:(NSString*)expressionString 
+- (instancetype)initWithString:(NSString*)expressionString 
 	options:(NSUInteger)options
 {
 	return [self initWithString: expressionString 
@@ -181,7 +181,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		escapeCharacter: [[self class] defaultEscapeCharacter]];
 }
 
-- (id)initWithString:(NSString*)expressionString 
+- (instancetype)initWithString:(NSString*)expressionString 
 	options:(NSUInteger)options
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
@@ -280,7 +280,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 #endif
 
     ci.syntax         = [[self class] onigSyntaxTypeForSyntax:_syntax];
-    ci.option         = compileTimeOptions;
+    ci.option         = (OnigOptionType)compileTimeOptions;
     ci.case_fold_flag = ONIGENC_CASE_FOLD_DEFAULT;
     
 	r = onig_new_deluxe(
@@ -328,10 +328,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
             
 			array = [[NSMutableArray alloc] initWithCapacity:n];
 			for (i = 0; i < n; i++) {
-				[array addObject:[NSNumber numberWithUnsignedInt: indexList[i] ]];
+				[array addObject:@(indexList[i])];
 				if (indexList[i] > maxGroupIndex) maxGroupIndex = indexList[i];
 			}
-			[_groupIndexForNameDictionary setObject:array forKey:name];
+			_groupIndexForNameDictionary[name] = array;
 			[array release];
 		}
         [groupIndexForNameDictionary release];
@@ -346,11 +346,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		
 		keyEnumerator = [_groupIndexForNameDictionary keyEnumerator];
 		while ((name = [keyEnumerator nextObject]) != nil) {
-			array = [_groupIndexForNameDictionary objectForKey:name];
+			array = _groupIndexForNameDictionary[name];
 			NSEnumerator	*arrayEnumerator = [array objectEnumerator];
 			NSNumber		*index;
 			while ((index = [arrayEnumerator nextObject]) != nil) {
-				[_nameForGroupIndexArray replaceObjectAtIndex:([index unsignedIntValue] - 1) withObject:name];
+				_nameForGroupIndexArray[([index intValue] - 1)] = name;
 			}
 		}
 		
@@ -472,7 +472,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		, &einfo);
 #else
 	r = onig_new(&regexBuffer, (unsigned char*)UTF16Str, (unsigned char*)(UTF16Str + length),
-		compileTimeOptions, ONIG_ENCODING_UTF16_LE, 
+		(OnigOptionType)compileTimeOptions, ONIG_ENCODING_UTF16_LE,
 			[[self class] onigSyntaxTypeForSyntax:syntax] 
 		, &einfo);
 #endif
@@ -1462,7 +1462,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 // onigurumaのバージョン文字列を返す
 + (NSString*)onigurumaVersion
 {
-	return [NSString stringWithCString:onig_version() encoding:NSASCIIStringEncoding];
+	return @(onig_version());
 }
 
 
@@ -1483,17 +1483,17 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
 		[encoder encodeObject: [self expressionString] forKey: OgreExpressionStringKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:[self options]] forKey: OgreOptionsKey];
-		[encoder encodeObject: [NSNumber numberWithInteger:[self syntax]] forKey: OgreSyntaxKey];
+		[encoder encodeObject: @([self options]) forKey: OgreOptionsKey];
+		[encoder encodeObject: @([self syntax]) forKey: OgreSyntaxKey];
 	} else {
 		[encoder encodeObject: [self escapeCharacter]];
 		[encoder encodeObject: [self expressionString]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:[self options]]];
-		[encoder encodeObject: [NSNumber numberWithInteger:[self syntax]]];
+		[encoder encodeObject: @([self options])];
+		[encoder encodeObject: @([self syntax])];
 	}
 }
 
-- (id)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -1577,22 +1577,12 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 // description
 - (NSString*)description
 {
-	NSDictionary	*dictionary = [NSDictionary 
-		dictionaryWithObjects: [NSArray arrayWithObjects: 
-			[self escapeCharacter], 
-			[self expressionString], 
-			[[self class] stringsForOptions:[self options]], 
-			[[self class] stringForSyntax:[self syntax]], 
-			((_groupIndexForNameDictionary != nil)? (_groupIndexForNameDictionary) : ([NSDictionary dictionary])), 
-			nil]
-		forKeys: [NSArray arrayWithObjects: 
-			@"Escape Character", 
-			@"Expression String", 
-			@"Options", 
-			@"Syntax", 
-			@"Group Index for Name", 
-			nil]
-		];
+	NSDictionary	*dictionary = @{
+            @"Escape Character": [self escapeCharacter],
+			@"Expression String": [self expressionString], 
+			@"Options": [[self class] stringsForOptions:[self options]], 
+			@"Syntax": [[self class] stringForSyntax:[self syntax]], 
+			@"Group Index for Name": ((_groupIndexForNameDictionary != nil)? (_groupIndexForNameDictionary) : (@{}))};
 
 	return [dictionary description];
 }

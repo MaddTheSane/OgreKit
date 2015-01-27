@@ -38,12 +38,11 @@
 - (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity;  // begin resistering undo oprations
 - (void)endRegisteringUndo;  // end resistering undo oprations
 
-- (BOOL)isSelected;
-- (NSRange)selectedRange;
-- (void)setSelectedRange:(NSRange)aRange;
+@property (nonatomic, getter=isSelected, readonly) BOOL selected;
+@property (nonatomic) NSRange selectedRange;
 - (void)jumpToSelection;
 
-- (NSObject<OGStringProtocol>*)ogString;
+@property (nonatomic, readonly, strong) NSObject<OGStringProtocol> *ogString;
 - (void)setOGString:(NSObject<OGStringProtocol>*)aString;
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString;
 
@@ -52,7 +51,6 @@
 
 - (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread;
 
-- (BOOL)isFirstLeaf;
-- (void)setFirstLeaf:(BOOL)isFirstLeaf;
+@property (nonatomic, getter=isFirstLeaf) BOOL firstLeaf;
 
 @end

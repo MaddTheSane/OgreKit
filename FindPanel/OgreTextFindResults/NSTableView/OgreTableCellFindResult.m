@@ -79,7 +79,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
-    return [_childArray objectAtIndex:index];
+    return _childArray[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
@@ -91,7 +91,7 @@
 // index番目にマッチした文字列のある行番号
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
-    return [NSNumber numberWithInteger:_rowIndex + 1];
+    return @(_rowIndex + 1);
 }
 
 // index番目にマッチした文字列
@@ -109,7 +109,7 @@
         fullString = [dataCell stringValue];
     }
     
-    return [[self textFindResult] highlightedStringInRange:[_matchRangeArray objectAtIndex:index] ofString:fullString];
+    return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
 // index番目にマッチした文字列を選択・表示する
@@ -142,7 +142,7 @@
     
     [tableView ogreSetSelectedColumn:[tableView columnWithIdentifier:[_tableColumn identifier]]];
     [tableView ogreSetSelectedRow:_rowIndex];
-    NSRange matchRange = [[[_matchRangeArray objectAtIndex:index] objectAtIndex:0] rangeValue];
+    NSRange matchRange = [_matchRangeArray[index][0] rangeValue];
     [tableView ogreSetSelectedRange:matchRange];
     
     return YES;

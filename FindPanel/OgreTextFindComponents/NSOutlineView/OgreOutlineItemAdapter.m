@@ -128,7 +128,7 @@
         
     }
     
-    if ([self isTerminal] && index == [[[outlineView ogrePathComponentsOfSelectedItem] objectAtIndex:[self level] + 1] integerValue] + 1) {
+    if ([self isTerminal] && index == [[outlineView ogrePathComponentsOfSelectedItem][[self level] + 1] integerValue] + 1) {
         [adapter setTerminal:YES];
     }    
     [adapter setParent:self];
@@ -157,7 +157,7 @@
         NSInteger terminal;
         OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
         NSArray *path = [outlineView ogrePathComponentsOfSelectedItem];
-        terminal = [[path objectAtIndex:[self level] + 1] integerValue] + 1;
+        terminal = [path[[self level] + 1] integerValue] + 1;
         
         [enumerator setTerminalIndex:terminal];
     }

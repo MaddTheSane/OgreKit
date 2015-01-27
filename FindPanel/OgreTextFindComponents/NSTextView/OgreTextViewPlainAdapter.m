@@ -185,7 +185,7 @@
 - (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor
 {
     [[_textView layoutManager] 
-        setTemporaryAttributes:[NSDictionary dictionaryWithObject:highlightColor forKey:NSBackgroundColorAttributeName] 
+        setTemporaryAttributes:@{NSBackgroundColorAttributeName: highlightColor} 
         forCharacterRange:aRange];
 }
 

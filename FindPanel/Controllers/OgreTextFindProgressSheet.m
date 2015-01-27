@@ -15,7 +15,7 @@
 
 @implementation OgreTextFindProgressSheet
 
-- (id)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject
+- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-initWithWindow: of %@", [self className]);

@@ -102,25 +102,13 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 // description
 - (NSString*)description
 {
-	NSDictionary	*dictionary = [NSDictionary 
-		dictionaryWithObjects: [NSArray arrayWithObjects: 
-			[NSNumber numberWithUnsignedInteger:_captureNode->group], 
-			[NSNumber numberWithUnsignedInteger:_index], 
-			[NSNumber numberWithUnsignedInteger:_level], 
-			[NSArray arrayWithObjects:
-                [NSNumber numberWithUnsignedInteger:_captureNode->beg], 
-                [NSNumber numberWithUnsignedInteger:_captureNode->end - _captureNode->beg], 
-                nil], 
-			[NSNumber numberWithUnsignedInteger:_captureNode->num_childs], 
-			nil]
-		forKeys:[NSArray arrayWithObjects: 
-			@"Group Index", 
-			@"Index", 
-			@"Level", 
-			@"Range", 
-			@"Number of Children", 
-			nil]
-		];
+	NSDictionary	*dictionary = @{
+            @"Group Index": @((NSUInteger)_captureNode->group),
+			@"Index": @(_index), 
+			@"Level": @(_level), 
+			@"Range": @[@((NSUInteger)_captureNode->beg),
+                @((NSUInteger)_captureNode->end - _captureNode->beg)],
+			@"Number of Children": @((NSUInteger)_captureNode->num_childs)};
 		
 	return [dictionary description];
 }
@@ -198,19 +186,19 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	//[super encodeWithCoder:encoder]; NSObject does ont respond to method encodeWithCoder:
 	
    if ([encoder allowsKeyedCoding]) {
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index] forKey: OgreIndexKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_level] forKey: OgreLevelKey];
+		[encoder encodeObject: @(_index) forKey: OgreIndexKey];
+		[encoder encodeObject: @(_level) forKey: OgreLevelKey];
 		[encoder encodeObject: _match forKey: OgreMatchKey];
 		[encoder encodeObject: _parent forKey: OgreParentKey];
 	} else {
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_level]];
+		[encoder encodeObject: @(_index)];
+		[encoder encodeObject: @(_level)];
 		[encoder encodeObject: _match];
 		[encoder encodeObject: _parent];
 	}
 }
 
-- (id)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className], [self className]);

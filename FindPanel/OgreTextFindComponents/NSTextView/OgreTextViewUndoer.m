@@ -75,7 +75,7 @@
     while (i > 0) {
         i--;
         aRange = *(_rangeArray + i);
-        aString = [_attributedStringArray objectAtIndex:i];
+        aString = _attributedStringArray[i];
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [aString string]);
         
         newRange = NSMakeRange(aRange.location, [aString length]);

@@ -28,7 +28,7 @@
     BOOL				_inSelection;
 }
 
-- (id)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection;
+- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection;
 - (void)setTerminalIndex:(NSInteger)index;
 - (void)setStartIndex:(NSInteger)index;
 

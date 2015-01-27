@@ -17,7 +17,7 @@
 
 @implementation OgreTextFindComponentEnumerator
 
-- (id)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
+- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
 {
     self = [super init];
     if (self != nil) {

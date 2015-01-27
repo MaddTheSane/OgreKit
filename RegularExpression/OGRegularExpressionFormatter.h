@@ -35,18 +35,15 @@ extern NSString	* const OgreFormatterException;
 - (BOOL)getObjectValue:(id*)obj forString:(NSString*)string 
 	errorDescription:(NSString**)error;
 
-- (id)init;
-- (id)initWithOptions:(NSUInteger)options 
+- (instancetype)init;
+- (instancetype)initWithOptions:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character;
 
-- (NSString*)escapeCharacter;
-- (void)setEscapeCharacter:(NSString*)character;
+@property (nonatomic, copy) NSString *escapeCharacter;
 
-- (NSUInteger)options;
-- (void)setOptions:(NSUInteger)options;
+@property (nonatomic) NSUInteger options;
 
-- (OgreSyntax)syntax;
-- (void)setSyntax:(OgreSyntax)syntax;
+@property (nonatomic) OgreSyntax syntax;
 
 @end

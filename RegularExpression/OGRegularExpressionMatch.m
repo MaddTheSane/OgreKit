@@ -53,10 +53,8 @@ static NSArray *Ogre_arrayWithOnigRegion(OnigRegion *region)
 	NSUInteger          i = 0, n = region->num_regs;
 	
 	for( i = 0; i < n; i++ ) {
-		[regionArray addObject:[NSArray arrayWithObjects:
-			[NSNumber numberWithInteger:region->beg[i]], 
-			[NSNumber numberWithInteger:region->end[i]], 
-			nil]];
+		[regionArray addObject:@[@(region->beg[i]), 
+			@(region->end[i])]];
 	}
 	
 	return regionArray;
@@ -75,7 +73,7 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 	NSArray			*anObject;
 	NSInteger				r;
 	
-	r = onig_region_resize(region, [regionArray count]);
+	r = onig_region_resize(region, (int)[regionArray count]);
 	if (r != ONIG_NORMAL) {
 		// メモリを確保できなかった場合、例外を発生させる。
 		onig_region_free(region, 1);
@@ -83,9 +81,9 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 	}
 
 	for (i = 0; i < n; i++) {
-        anObject = [regionArray objectAtIndex:i];
-		region->beg[i] = [[anObject objectAtIndex:0] unsignedIntegerValue];
-		region->end[i] = [[anObject objectAtIndex:1] unsignedIntegerValue];
+        anObject = regionArray[i];
+		region->beg[i] = [anObject[0] unsignedIntegerValue];
+		region->end[i] = [anObject[1] unsignedIntegerValue];
 	}
     
     region->history_root = NULL;
@@ -95,7 +93,7 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 
 static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
 {
-	if (cap == NULL) return [NSArray array];
+	if (cap == NULL) return @[];
 	
 	NSUInteger          i, n = cap->num_childs;
 	NSMutableArray      *children = nil;
@@ -105,12 +103,10 @@ static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
         for(i = 0; i < n; i++) [children addObject:Ogre_arrayWithOnigCaptureTreeNode(cap->childs[i])];
     }
     
-    return [NSArray arrayWithObjects:
-        [NSNumber numberWithInteger:cap->group], 
-        [NSNumber numberWithInteger:cap->beg], 
-        [NSNumber numberWithInteger:cap->end], 
-        children, 
-        nil];
+    return @[@(cap->group), 
+        @(cap->beg), 
+        @(cap->end), 
+        children];
 }
 
 static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureArray)
@@ -125,13 +121,13 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[NSException raise:NSMallocException format:@"fail to memory allocation"];
 	}
     
-    capture->group     = [[captureArray objectAtIndex:0] unsignedIntegerValue];
-    capture->beg       = [[captureArray objectAtIndex:1] unsignedIntegerValue];
-    capture->end       = [[captureArray objectAtIndex:2] unsignedIntegerValue];
+    capture->group     = [captureArray[0] intValue];
+    capture->beg       = [captureArray[1] intValue];
+    capture->end       = [captureArray[2] intValue];
     
     
     if ([captureArray count] >= 4) {
-        NSArray     *children = (NSArray*)[captureArray objectAtIndex:3];
+        NSArray     *children = (NSArray*)captureArray[3];
         NSUInteger  i, n = [children count];
         capture->childs = (OnigCaptureTreeNode**)malloc(n * sizeof(OnigCaptureTreeNode *));
         if (capture->childs == NULL) {
@@ -140,9 +136,9 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
             [NSException raise:NSMallocException format:@"fail to memory allocation"];
         }
         
-        capture->allocated = n;
-        capture->num_childs = n;
-        for (i = 0; i < n; i++) capture->childs[i] = Ogre_onigCaptureTreeNodeWithArray([children objectAtIndex:i]);
+        capture->allocated = (int)n;
+        capture->num_childs = (int)n;
+        for (i = 0; i < n; i++) capture->childs[i] = Ogre_onigCaptureTreeNodeWithArray(children[i]);
     } else {
         capture->allocated = 0;
         capture->num_childs = 0;
@@ -440,19 +436,19 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
    if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: Ogre_arrayWithOnigRegion(_region) forKey: OgreRegionKey];
 		[encoder encodeObject: _enumerator forKey: OgreEnumeratorKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_terminalOfLastMatch] forKey: OgreTerminalOfLastMatchKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index] forKey: OgreIndexOfMatchKey];
+		[encoder encodeObject: @(_terminalOfLastMatch) forKey: OgreTerminalOfLastMatchKey];
+		[encoder encodeObject: @(_index) forKey: OgreIndexOfMatchKey];
 		[encoder encodeObject: Ogre_arrayWithOnigCaptureTreeNode(_region->history_root) forKey: OgreCaptureHistoryKey];
 	} else {
 		[encoder encodeObject: Ogre_arrayWithOnigRegion(_region)];
 		[encoder encodeObject: _enumerator];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_terminalOfLastMatch]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index]];
+		[encoder encodeObject: @(_terminalOfLastMatch)];
+		[encoder encodeObject: @(_index)];
 		[encoder encodeObject: Ogre_arrayWithOnigCaptureTreeNode(_region->history_root)];
 	}
 }
 
-- (id)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -565,22 +561,11 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // description
 - (NSString*)description
 {
-	NSDictionary	*dictionary = [NSDictionary 
-		dictionaryWithObjects: [NSArray arrayWithObjects: 
-			Ogre_arrayWithOnigRegion(_region), 
-			Ogre_arrayWithOnigCaptureTreeNode(_region->history_root), 
-			_enumerator, 
-			[NSNumber numberWithUnsignedInteger:_terminalOfLastMatch],
-			[NSNumber numberWithUnsignedInteger:_index],
-			nil]
-		forKeys:[NSArray arrayWithObjects: 
-			@"Range of Substrings", 
-			@"Capture History", 
-			@"Regular Expression Enumerator", 
-			@"Terminal of the Last Match", 
-			@"Index", 
-			nil]
-		];
+	NSDictionary	*dictionary = @{@"Range of Substrings": Ogre_arrayWithOnigRegion(_region), 
+			@"Capture History": Ogre_arrayWithOnigCaptureTreeNode(_region->history_root), 
+			@"Regular Expression Enumerator": _enumerator, 
+			@"Terminal of the Last Match": @(_terminalOfLastMatch), 
+			@"Index": @(_index)};
 		
 	return [dictionary description];
 }

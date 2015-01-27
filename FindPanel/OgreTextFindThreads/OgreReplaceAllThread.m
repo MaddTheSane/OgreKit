@@ -83,7 +83,7 @@
     
     OGRegularExpressionMatch        *match;
     NSRange                         matchRange;
-    match = [matchArray objectAtIndex:(aNumberOfMatches - aNumberOfReplaces)];
+    match = matchArray[(aNumberOfMatches - aNumberOfReplaces)];
     matchRange = [match rangeOfMatchedString];
     replacedString = [repex replaceMatchedOGStringOf:match];
     [aLeaf replaceCharactersInRange:matchRange withOGString:replacedString];

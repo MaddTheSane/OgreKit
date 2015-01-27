@@ -116,7 +116,7 @@
     for(i = 0; i <= numberOfGroups; i++) {
         aRange = [match rangeOfSubstringAtIndex:i];
         if (aRange.length > 0) {
-            [aLeaf highlightCharactersInRange:aRange color:[highlightColorArray objectAtIndex:i]];
+            [aLeaf highlightCharactersInRange:aRange color:highlightColorArray[i]];
         }
     }
     

@@ -65,7 +65,7 @@
     }
     
     if (_ogreSelectedItem == nil) {
-        _ogrePathComponents =  [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInteger:0] /* firstItem */, [NSNumber numberWithInteger:-1] /* cell */, nil];
+        _ogrePathComponents =  [[NSMutableArray alloc] initWithObjects:@0 /* firstItem */, @-1 /* cell */, nil];
         return _ogrePathComponents;
     }
     
@@ -82,7 +82,7 @@
         targetLevel = [self levelForRow:row];
         if (targetLevel + 1 == level) {
             // parent level
-            [_ogrePathComponents insertObject:[NSNumber numberWithInteger:index] atIndex:0];
+            [_ogrePathComponents insertObject:@(index) atIndex:0];
             level = targetLevel;
             index = 0;
         } else if (targetLevel == level) {
@@ -91,8 +91,8 @@
         }
     } 
     // finish
-    [_ogrePathComponents insertObject:[NSNumber numberWithInteger:index] atIndex:0];
-    [_ogrePathComponents addObject:[NSNumber numberWithInteger:-1] /* cell */];
+    [_ogrePathComponents insertObject:@(index) atIndex:0];
+    [_ogrePathComponents addObject:@-1 /* cell */];
     
     return _ogrePathComponents;
 }

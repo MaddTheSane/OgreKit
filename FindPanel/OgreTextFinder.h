@@ -52,40 +52,34 @@
 + (NSBundle*)ogreKitBundle;
 
 /* Shared instance */
-+ (id)sharedTextFinder;
++ (OgreTextFinder*)sharedTextFinder;
 
 /* nib name of Find Panel/Find Panel Controller */
-- (NSString*)findPanelNibName;
+@property (nonatomic, readonly, copy) NSString *findPanelNibName;
 
 /* Show Find Panel */
 - (IBAction)showFindPanel:(id)sender;
 
 /* Startup time configurations */
 - (void)setShouldHackFindMenu:(BOOL)hack;
-- (void)setUseStylesInFindPanel:(BOOL)use;
-- (BOOL)useStylesInFindPanel;
+@property (nonatomic) BOOL useStylesInFindPanel;
 
 /*************
  * Accessors *
  *************/
 // target to find in
-- (void)setTargetToFindIn:(id)target;
-- (id)targetToFindIn;
+@property (nonatomic, strong) id targetToFindIn;
 
-- (void)setAdapterClassForTargetToFindIn:(Class)adapterClass;
-- (Class)adapterClassForTargetToFindIn;
+@property (nonatomic, strong) Class adapterClassForTargetToFindIn;
 
 // Find Panel Controller
-- (void)setFindPanelController:(OgreFindPanelController*)findPanelController;
-- (OgreFindPanelController*)findPanelController;
+@property (nonatomic, strong) OgreFindPanelController *findPanelController;
 
 // escape character
-- (void)setEscapeCharacter:(NSString*)character;
-- (NSString*)escapeCharacter;
+@property (nonatomic, copy) NSString *escapeCharacter;
 
 // syntax
-- (void)setSyntax:(OgreSyntax)syntax;
-- (OgreSyntax)syntax;
+@property (nonatomic) OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
 - (OgreTextFindResult*)find:(NSString*)expressionString 
@@ -143,15 +137,15 @@
 	options:(NSUInteger)options
 	inSelection:(BOOL)inSelection;
 
-- (OgreTextFindResult*)unhightlight;
+@property (nonatomic, readonly, strong) OgreTextFindResult *unhightlight;
 
-- (NSString*)selectedString;
-- (NSAttributedString*)selectedAttributedString;
-- (NSObject<OGStringProtocol>*)selectedOGString;
+@property (nonatomic, readonly, copy) NSString *selectedString;
+@property (nonatomic, readonly, copy) NSAttributedString *selectedAttributedString;
+@property (nonatomic, readonly, strong) NSObject<OGStringProtocol> *selectedOGString;
 
-- (BOOL)isSelectionEmpty;
+@property (nonatomic, getter=isSelectionEmpty, readonly) BOOL selectionEmpty;
 
-- (BOOL)jumpToSelection;
+@property (nonatomic, readonly) BOOL jumpToSelection;
 
 /* creating an alert sheet */
 - (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTerget;
@@ -165,7 +159,7 @@
  * Private Methods *
  *******************/
 // 前回保存された履歴
-- (NSDictionary*)history;
+@property (nonatomic, readonly, copy) NSDictionary *history;
 // currentを起点に名前がnameのmenu itemを探す。
 - (NSMenuItem*)findMenuItemNamed:(NSString*)name startAt:(NSMenu*)current;
 
