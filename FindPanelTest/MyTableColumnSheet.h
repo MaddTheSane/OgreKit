@@ -17,8 +17,8 @@
 @interface MyTableColumnSheet : NSObject 
 {
     IBOutlet NSWindow       *columnSheet;
-    IBOutlet NSTextField    *oldTitleField;
-    IBOutlet NSTextField    *newTitleField;
+    IBOutlet NSTextField    *originalTitleField;
+    IBOutlet NSTextField    *changedTitleField;
     
     NSWindow        *_parentWindow;
     NSTableColumn   *_column;
@@ -33,7 +33,7 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)ok:(id)sender;
 
-- (NSString*)newTitle;
+- (NSString*)changedTitle;
 - (NSTableColumn*)tableColumn;
 
 @end

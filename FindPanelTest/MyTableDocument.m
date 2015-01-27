@@ -440,7 +440,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 {
     _useCustomSheetPosition = NO;
     NSTableHeaderCell *headerCell = [[sheet tableColumn] headerCell];
-    [headerCell setStringValue:[sheet newTitle]];
+    [headerCell setStringValue:[sheet changedTitle]];
 }
 
 - (void)doNotChangeTitleOfColumn:(MyTableColumnSheet*)sheet

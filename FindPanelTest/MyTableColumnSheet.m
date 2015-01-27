@@ -34,9 +34,9 @@
 - (void)awakeFromNib
 {
 	[self retain];
-    NSString    *oldTitle = [[_column headerCell] stringValue];
-    [oldTitleField setStringValue:oldTitle];
-    [newTitleField setStringValue:oldTitle];
+    NSString    *originalTitle = [[_column headerCell] stringValue];
+    [originalTitleField setStringValue:originalTitle];
+    [changedTitleField setStringValue:originalTitle];
 	[NSApp beginSheet:columnSheet 
 		modalForWindow:_parentWindow 
 		modalDelegate:self
@@ -69,9 +69,9 @@
     [columnSheet orderOut:nil];
 }
 
-- (NSString*)newTitle
+- (NSString*)changedTitle
 {
-    return [newTitleField stringValue];
+    return [changedTitleField stringValue];
 }
 
 - (NSTableColumn*)tableColumn
