@@ -98,8 +98,8 @@ static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
 	NSUInteger          i, n = cap->num_childs;
 	NSMutableArray      *children = nil;
     
+    children = [NSMutableArray arrayWithCapacity:n];
     if (n > 0) {
-        children = [NSMutableArray arrayWithCapacity:n];
         for(i = 0; i < n; i++) [children addObject:Ogre_arrayWithOnigCaptureTreeNode(cap->childs[i])];
     }
     
