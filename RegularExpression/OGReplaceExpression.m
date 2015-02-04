@@ -95,8 +95,6 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	OGRegularExpressionMatch	*match;
     OGRegularExpressionCapture  *cap;
 	
-	NSAutoreleasePool   *pool;
-	
 	// 置換文字列をcompileする
 	//  compile結果: NSMutableArray
 	//   文字列		NSString
@@ -131,7 +129,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		matchEnumerator = [gReplaceRegex matchEnumeratorInOGString:compileTimeString
 			options:OgreCaptureGroupOption 
 			range:NSMakeRange(0, [[compileTimeString string] length])];
-		pool = [[NSAutoreleasePool alloc] init];
+		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		
 		while ((match = [matchEnumerator nextObject]) != nil) {
 			numberOfMatches++;
