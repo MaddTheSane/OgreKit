@@ -40,7 +40,7 @@
 }
 
 /* 初期化 */
-- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject;
+- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject NS_DESIGNATED_INITIALIZER;
 
 - (IBAction)cancel:(id)sender;
 

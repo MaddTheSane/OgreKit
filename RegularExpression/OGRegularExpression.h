@@ -209,7 +209,7 @@ extern NSString	* const OgreException;
 + (NSString*)onigurumaVersion;
 
 // description
-- (NSString*)description;
+@property (nonatomic, readonly, copy) NSString *description;
 
 
 /*******************

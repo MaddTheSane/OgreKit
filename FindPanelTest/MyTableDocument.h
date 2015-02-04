@@ -28,7 +28,7 @@
 // 改行コードの変更
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter;
 
-- (NSInteger)numberOfRows;
+@property (nonatomic, readonly) NSInteger numberOfRows;
 
 - (IBAction)addRow:(id)sender;
 - (IBAction)removeRow:(id)sender;

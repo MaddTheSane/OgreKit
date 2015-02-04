@@ -33,7 +33,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (void)awakeFromNib
 {
     _useCustomSheetPosition = NO;
-    [tableView registerForDraggedTypes:[NSArray arrayWithObject:gMyTableRowPboardType]];
+    [tableView registerForDraggedTypes:@[gMyTableRowPboardType]];
     [tableView setTarget:self];
     [tableView setDoubleAction:@selector(tableViewDoubleClicked)];
 }
@@ -63,7 +63,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSMutableArray  *identifierArray = [NSMutableArray arrayWithCapacity:numberOfColumns];
     
     for (columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
-        column = [columnArray objectAtIndex:columnIndex];
+        column = columnArray[columnIndex];
         [identifierArray addObject:[column identifier]];
         [aString appendFormat:@"\"%@\"", [escRegex replaceAllMatchesInString:[[column headerCell] stringValue] withString:@"\"\""]];
         if (columnIndex < numberOfColumns - 1) [aString appendFormat:@","];
@@ -72,8 +72,8 @@ static NSString *gMyTableRowPropertyType = @"rows";
     
     for (rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
         for (columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
-            array = [_dict objectForKey:[identifierArray objectAtIndex:columnIndex]];
-            [aString appendFormat:@"\"%@\"", [escRegex replaceAllMatchesInString:[array objectAtIndex:rowIndex] withString:@"\"\""]];
+            array = _dict[identifierArray[columnIndex]];
+            [aString appendFormat:@"\"%@\"", [escRegex replaceAllMatchesInString:array[rowIndex] withString:@"\"\""]];
             if (columnIndex < numberOfColumns - 1) [aString appendFormat:@","];
         }
         [aString appendFormat:@"\n"];
@@ -133,7 +133,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
             array = [NSMutableArray arrayWithCapacity:50];
             identifier = [NSString stringWithFormat:@"%lu", colIndex + 1];
-            [_dict setObject:array forKey:identifier];
+            _dict[identifier] = array;
             [dictArray addObject:array];
         }
         
@@ -146,7 +146,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     while ((match = [matchEnumerator nextObject]) != nil) {
         capture = [match captureHistory];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
-            [[dictArray objectAtIndex:colIndex] addObject:[rmEscRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
+            [dictArray[colIndex] addObject:[rmEscRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
         }
     }
 	
@@ -165,7 +165,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
             // add columns
             identifier = [NSString stringWithFormat:@"%lu", i + 1];
             OgreTableColumn   *aColumn = [[[OgreTableColumn alloc] initWithIdentifier:identifier] autorelease];
-            NSTableHeaderCell   *headerCell=[[[NSTableHeaderCell alloc] initTextCell:[_titleArray objectAtIndex:i]] autorelease];
+            NSTableHeaderCell   *headerCell=[[[NSTableHeaderCell alloc] initTextCell:_titleArray[i]] autorelease];
             NSTextFieldCell *dataCell=[[[NSTextFieldCell alloc] initTextCell:@""] autorelease];
             [aColumn setHeaderCell:headerCell];
             [aColumn setDataCell:dataCell];
@@ -212,20 +212,20 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     NSString    *identifier = [aTableColumn identifier];
-    NSArray     *array = [_dict objectForKey:identifier];
+    NSArray     *array = _dict[identifier];
     
-    return [array objectAtIndex:rowIndex];
+    return array[rowIndex];
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     NSString        *identifier = [aTableColumn identifier];
-    NSMutableArray  *array = [_dict objectForKey:identifier];
+    NSMutableArray  *array = _dict[identifier];
     
-    id  oldObject = [array objectAtIndex:rowIndex];
+    id  oldObject = array[rowIndex];
     if ([oldObject isEqualToString:anObject]) return;
     
-    [array replaceObjectAtIndex:rowIndex withObject:anObject];
+    array[rowIndex] = anObject;
     [self updateChangeCount:NSChangeDone];
 }
 
@@ -246,7 +246,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     id              anObject;
     NSInteger       overwrapCount = 0, anIndex;
     
-    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) {
+    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) {
         
         rowIndexArray = [pboard propertyListForType:gMyTableRowPropertyType];
         
@@ -263,7 +263,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
             pEnumerator = [rowIndexArray reverseObjectEnumerator];
             while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
                 anIndex = [rowIndexNumber integerValue];
-                [middleArray addObject:[columnArray objectAtIndex:anIndex]];
+                [middleArray addObject:columnArray[anIndex]];
                 [columnArray removeObjectAtIndex:anIndex];
             }
             
@@ -289,14 +289,14 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard *pboard=[info draggingPasteboard];
-    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;
+    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;
     
     return NSDragOperationNone;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView writeRows:(NSArray *)rows toPasteboard:(NSPasteboard *)pboard
 {
-    [pboard declareTypes:[NSArray arrayWithObject:gMyTableRowPboardType] owner:self];
+    [pboard declareTypes:@[gMyTableRowPboardType] owner:self];
     [pboard setPropertyList:rows forType:gMyTableRowPropertyType];
     
     return YES;
@@ -361,7 +361,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSInteger    i, numberOfRows = [self numberOfRows];
     NSMutableArray  *array = [NSMutableArray arrayWithCapacity:numberOfRows];
     for (i = 0; i < numberOfRows; i++) [array addObject:[NSString string]];
-    [_dict setObject:array forKey:identifier];
+    _dict[identifier] = array;
     
     // add new column
     OgreTableColumn   *aColumn = [[[OgreTableColumn alloc] initWithIdentifier:identifier] autorelease];
@@ -402,7 +402,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     while (YES) {
         // remove all selected columns
         NSArray *columnArray = [tableView tableColumns];
-        OgreTableColumn   *aColumn = [columnArray objectAtIndex:selectedColumn];
+        OgreTableColumn   *aColumn = columnArray[selectedColumn];
         [_dict removeObjectForKey:[aColumn identifier]];
         
         [tableView removeTableColumn:aColumn];
@@ -426,7 +426,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	if ((clickedRowIndex != -1) || (selectedColumn == -1)) return;
     
     NSArray         *columnArray = [tableView tableColumns];
-    OgreTableColumn   *aColumn = [columnArray objectAtIndex:selectedColumn];
+    OgreTableColumn   *aColumn = columnArray[selectedColumn];
     
     _sheetPosition = [[[tableView window] contentView] convertRect:[tableView frameOfCellAtColumn:selectedColumn row:0] fromView:tableView];
     _sheetPosition.origin.y += _sheetPosition.size.height + 1;

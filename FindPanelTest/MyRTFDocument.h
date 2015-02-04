@@ -25,7 +25,6 @@
 // 改行コードの変更
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter;
 
-- (NSData*)rtfData;
-- (void)setRtfData:(NSData*)newRTFData;
+@property (nonatomic, copy) NSData *rtfData;
 
 @end

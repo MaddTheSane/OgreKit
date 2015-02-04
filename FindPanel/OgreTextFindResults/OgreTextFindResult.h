@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 }
 
 + (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
-- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread NS_DESIGNATED_INITIALIZER;
 
 - (void)setType:(OgreTextFindResultType)resultType;
 @property (nonatomic, getter=isSuccess, readonly) BOOL success;				/* success or failure(including error) */

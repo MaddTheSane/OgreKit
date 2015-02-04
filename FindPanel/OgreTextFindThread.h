@@ -56,7 +56,7 @@
 }
 
 /* Creating and initializing */
-- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent;
+- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent NS_DESIGNATED_INITIALIZER;
 
 /* Running and stopping */
 - (void)detach;

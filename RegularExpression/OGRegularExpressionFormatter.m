@@ -121,7 +121,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (id)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);

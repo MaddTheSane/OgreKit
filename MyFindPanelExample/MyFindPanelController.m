@@ -195,21 +195,11 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 // 履歴の保存 (逆は[textFinder history])
 - (NSDictionary*)history
 {
-	return [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
-			_findHistory, 
-			_replaceHistory, 
-			[NSNumber numberWithUnsignedInteger:[self options]], 
-			[NSNumber numberWithInteger:[OGRegularExpression intValueForSyntax:[self syntax]]], 
-			[NSNumber numberWithBool:[self isEntire]], 
-			nil]
-		forKeys: [NSArray arrayWithObjects:
-			MyFindHistoryKey, 
-			MyReplaceHistoryKey, 
-			MyOptionsKey, 
-			MySyntaxKey, 
-			MyEntireScopeKey, 
-			nil]
-		];
+	return @{MyFindHistoryKey: _findHistory, 
+			MyReplaceHistoryKey: _replaceHistory, 
+			MyOptionsKey: @([self options]), 
+			MySyntaxKey: @([OGRegularExpression intValueForSyntax:[self syntax]]), 
+			MyEntireScopeKey: @([self isEntire])};
 }
 
 // 履歴の復帰
@@ -218,31 +208,31 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	if (history == nil) return;
 	
 	id  anObject;
-	anObject = [history objectForKey:MyFindHistoryKey];
+	anObject = history[MyFindHistoryKey];
 	if (anObject != nil) {
 		_findHistory = [anObject retain];
 		[findTextField setStringValue:_findHistory];
 	}
 	
-	anObject = [history objectForKey:MyReplaceHistoryKey];
+	anObject = history[MyReplaceHistoryKey];
 	if (anObject != nil) {
 		_replaceHistory = [anObject retain];
 		[replaceTextField setStringValue:_replaceHistory];
 	}
 	
-	anObject = [history objectForKey:MyOptionsKey];
+	anObject = history[MyOptionsKey];
 	if (anObject != nil) {
 		NSUInteger	options = [anObject unsignedIntegerValue];
 		[optionIgnoreCase setState:((options & OgreIgnoreCaseOption)? NSOnState : NSOffState)];
 	}
 	
-	anObject = [history objectForKey:MySyntaxKey];
+	anObject = history[MySyntaxKey];
 	if (anObject != nil) {
 		NSInteger	syntax = [anObject integerValue];
 		[optionRegex setState:((syntax != [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax])? NSOnState : NSOffState)];
 	}
 	
-	anObject = [history objectForKey:MyEntireScopeKey];
+	anObject = history[MyEntireScopeKey];
 	if (anObject != nil) {
 		[[scopeMatrix cellAtRow:0 column:0] setState:NSOffState];
 		[[scopeMatrix cellAtRow:0 column:1] setState:NSOffState];

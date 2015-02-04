@@ -28,6 +28,6 @@
 
 @property (nonatomic, strong) NSPanel *findPanel;
 
-- (NSDictionary*)history;
+@property (nonatomic, readonly, copy) NSDictionary *history;
 
 @end

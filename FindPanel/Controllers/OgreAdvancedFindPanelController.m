@@ -443,7 +443,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[self setMergeStylesOption         : ((options & OgreMergeAttributesOption) != 0)];
 	}
 	
-	anObject = [history objectForKey:OgreAFPCSyntaxKey];
+	anObject = history[OgreAFPCSyntaxKey];
 	if (anObject != nil) {
         OgreSyntax	syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
 		

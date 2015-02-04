@@ -74,7 +74,7 @@
     [dataCell setLeaf:YES];
     [[myOutlineView tableColumnWithIdentifier:@"name"] setDataCell:dataCell];
     
-    [myOutlineView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+    [myOutlineView registerForDraggedTypes:@[NSFilenamesPboardType]];
 }
 
 - (void)dealloc
@@ -151,7 +151,7 @@
 - (NSUInteger)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
-    if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
+    if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
         [outlineView setDropItem:nil dropChildIndex:NSOutlineViewDropOnItemIndex];
         return NSDragOperationGeneric;
     }
@@ -162,10 +162,10 @@
 - (BOOL)outlineView:(NSOutlineView*)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
-    if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
+    if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
         [_fileWrapper release];
-        NSString    *path = [files objectAtIndex:0];
+        NSString    *path = files[0];
         _fileWrapper = [[MyFileWrapper alloc] initWithName:[path lastPathComponent] path:path parent:self];
         [myOutlineView reloadData];
         [myOutlineView expandItem:_fileWrapper];

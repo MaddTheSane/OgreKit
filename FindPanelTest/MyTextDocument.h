@@ -25,7 +25,6 @@
 // 改行コードの変更
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter;
 
-- (NSString*)string;
-- (void)setString:(NSString*)string;
+@property (nonatomic, copy) NSString *string;
 
 @end

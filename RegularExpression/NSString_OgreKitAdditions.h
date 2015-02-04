@@ -67,7 +67,7 @@
  * Newline Character *
  *********************/
 // 改行コードが何か調べる
-- (OgreNewlineCharacter)newlineCharacter;
+@property (nonatomic, readonly) OgreNewlineCharacter newlineCharacter;
 
 @end
 

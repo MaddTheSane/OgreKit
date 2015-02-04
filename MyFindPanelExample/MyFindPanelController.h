@@ -34,12 +34,12 @@
 - (IBAction)jumpToSelection:(id)sender;
 - (IBAction)useSelectionForFind:(id)sender;
 
-- (NSUInteger)options;
-- (OgreSyntax)syntax;
-- (BOOL)isEntire;
+@property (nonatomic, readonly) NSUInteger options;
+@property (nonatomic, readonly) OgreSyntax syntax;
+@property (nonatomic, readonly, getter=isEntire) BOOL entire;
 
 // 適切な正規表現かどうか調べる
-- (BOOL)alertIfInvalidRegex;
+@property (nonatomic, readonly) BOOL alertIfInvalidRegex;
 
 // 履歴の復帰
 - (void)restoreHistory:(NSDictionary*)history;

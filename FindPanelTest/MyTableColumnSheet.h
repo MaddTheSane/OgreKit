@@ -28,12 +28,12 @@
     id              _argument;
 }
 
-- (id)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget;
+- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget NS_DESIGNATED_INITIALIZER;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)ok:(id)sender;
 
-- (NSString*)changedTitle;
-- (NSTableColumn*)tableColumn;
+@property (nonatomic, readonly, copy) NSString *changedTitle;
+@property (nonatomic, readonly, strong) NSTableColumn *tableColumn;
 
 @end

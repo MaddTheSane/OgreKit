@@ -198,7 +198,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (id)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className], [self className]);

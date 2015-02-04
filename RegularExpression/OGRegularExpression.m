@@ -1493,7 +1493,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (id)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);

@@ -29,7 +29,7 @@
 	OgreAttachableWindowMediator	*_attachedWindowMediator;
 }
 
-- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate;
+- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
 
 @property (nonatomic, readonly, strong) NSWindow *window;

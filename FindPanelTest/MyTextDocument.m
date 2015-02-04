@@ -30,7 +30,7 @@
     return @"MyTextDocument";
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self != nil) {

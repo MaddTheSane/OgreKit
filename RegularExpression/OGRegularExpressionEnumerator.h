@@ -39,6 +39,6 @@ extern NSString	* const OgreEnumeratorException;
 @property (nonatomic, readonly, strong) id nextObject;
 
 // description
-- (NSString*)description;
+@property (nonatomic, readonly, copy) NSString *description;
 
 @end

@@ -448,7 +448,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (id)initWithCoder:(NSCoder*)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
