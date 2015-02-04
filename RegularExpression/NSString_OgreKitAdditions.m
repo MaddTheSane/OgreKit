@@ -54,7 +54,7 @@
 /*********
  * Split *
  *********/
-// マッチした部分で文字列を分割し、NSArrayに収めて返す。
+// Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
 - (NSArray*)componentsSeparatedByRegularExpressionString:(NSString*)expressionString
 {
 	return [[OGRegularExpression regularExpressionWithString:expressionString] splitString:self];
@@ -63,7 +63,7 @@
 /*********************
  * Newline Character *
  *********************/
-// 改行コードが何か調べる
+// Examine new line code is something (改行コードが何か調べる)
 - (OgreNewlineCharacter)newlineCharacter
 {
 	return [OGRegularExpression newlineCharacterInString:self];
@@ -94,13 +94,13 @@
 	return numberOfReplacement;
 }
 
-// 改行コードをnewlineCharacterに統一する。
+// A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
 - (void)replaceNewlineCharactersWithCharacter:(OgreNewlineCharacter)newlineCharacter
 {
 	[self setString:[OGRegularExpression replaceNewlineCharactersInString:self withCharacter:newlineCharacter]];
 }
 
-// 改行コードを取り除く
+// I remove the line break code (改行コードを取り除く)
 - (void)chomp
 {
 	[self setString:[OGRegularExpression chomp:self]];

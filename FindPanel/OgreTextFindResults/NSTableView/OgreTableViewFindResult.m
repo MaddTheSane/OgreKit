@@ -53,7 +53,7 @@
 
 - (void)endAddition
 {
-	//targetのあるwindowのcloseを検出する。
+	//I detect a closing window for that target. (targetのあるwindowのcloseを検出する。)
 	[[NSNotificationCenter defaultCenter] addObserver: self 
 		selector: @selector(windowWillClose:) 
 		name: NSWindowWillCloseNotification

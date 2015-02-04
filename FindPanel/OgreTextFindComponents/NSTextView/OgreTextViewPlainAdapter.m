@@ -111,7 +111,7 @@
 
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
 {
-    // Undo操作の登録
+    // Registration of Undo operation (Undo操作の登録)
     if (_allowsUndo) {
         //[_textView setSelectedRange:aRange];
         [_undoer addRange:NSMakeRange(aRange.location, [aString length]) 
@@ -120,7 +120,7 @@
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [[_textStorage attributedSubstringFromRange:aRange] string]);
     }
     
-    // 置換
+    // Replacement (置換)
 	[_textStorage replaceCharactersInRange:aRange withString:[aString string]];
 }
 
@@ -142,7 +142,7 @@
 
 - (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
-    // Undo操作の登録開始
+    // Registration start of Undo operation (Undo操作の登録開始)
     _allowsUndo = [_textView allowsUndo];
     if (_allowsUndo) {
         _undoManager = [_textView undoManager];
@@ -157,7 +157,7 @@
         // registeration undo
         [[_undoManager prepareWithInvocationTarget:[_undoer autorelease]] undoTextView:_textView jumpToSelection:NO invocationTarget:_undoer];
         _undoer = nil;
-        // Undo操作の登録完了
+        // Registration completion of Undo operation (Undo操作の登録完了)
         [_undoManager setActionName:OgreTextFinderLocalizedString(@"Replace All")];
         [_undoManager endUndoGrouping];
     }

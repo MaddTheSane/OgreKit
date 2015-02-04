@@ -57,10 +57,10 @@
 // singleton
 static OgreTextFinder	*_sharedTextFinder = nil;
 
-// 例外名
+// Exception name (例外名)
 NSString	*OgreTextFinderException = @"OgreTextFinderException";
 
-// encode/decodeに使用するKey
+// Key to be used to encode/decode (encode/decodeに使用するKey)
 static NSString	*OgreTextFinderHistoryKey         = @"Find Controller History";
 static NSString	*OgreTextFinderSyntaxKey          = @"Syntax";
 static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
@@ -72,9 +72,9 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	static NSBundle *theBundle = nil;
 	
 	if (theBundle == nil) {
-		/* OgreKit.framework bundle instanceを探す */
-		NSArray			*allFrameworks = [NSBundle allFrameworks];  // リンクされている全フレームワーク
-		NSEnumerator	*enumerator = [allFrameworks reverseObjectEnumerator];  // OgreKitは後ろにある可能性が高い
+		/* I Find OgreKit.framework bundle instance (OgreKit.framework bundle instanceを探す) */
+		NSArray			*allFrameworks = [NSBundle allFrameworks];  // All framework linked (リンクされている全フレームワーク)
+		NSEnumerator	*enumerator = [allFrameworks reverseObjectEnumerator];  // OgreKit is likely behind (OgreKitは後ろにある可能性が高い)
 		NSBundle		*aBundle;
 		while ((aBundle = [enumerator nextObject]) != nil) {
 			if ([[[aBundle bundlePath] lastPathComponent] isEqualToString:@"OgreKit.framework"]) {
@@ -111,10 +111,10 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	self = [super init];
 	if (self != nil) {
-		_busyTargetArray = [[NSMutableArray alloc] initWithCapacity:0];	// 使用中ターゲット
+		_busyTargetArray = [[NSMutableArray alloc] initWithCapacity:0];	// In use target (使用中ターゲット)
 		
 		NSUserDefaults	*defaults = [NSUserDefaults standardUserDefaults];
-		NSDictionary	*fullHistory = [defaults dictionaryForKey:@"OgreTextFinder"];	// 履歴等
+		NSDictionary	*fullHistory = [defaults dictionaryForKey:@"OgreTextFinder"];	// History, etc. (履歴等)
 		
 		if (fullHistory != nil) {
 			_history = [fullHistory[OgreTextFinderHistoryKey] retain];
@@ -137,12 +137,12 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		}
 		
 		_saved = NO;
-		// Applicationのterminationを拾う (履歴保存のタイミング)
+		// Pick up the termination of the Application (time for history preservation) (Applicationのterminationを拾う (履歴保存のタイミング))
 		[[NSNotificationCenter defaultCenter] addObserver: self 
 				selector: @selector(appWillTerminate:) 
 				name: NSApplicationWillTerminateNotification
 				object: NSApp];
-		// Applicationのlaunchを拾う (Findメニューの設定のタイミング)
+		// Pick up the launch of the Application (the timing of the setting of the Find menu) (Applicationのlaunchを拾う (Findメニューの設定のタイミング))
 		[[NSNotificationCenter defaultCenter] addObserver: self 
 				selector: @selector(appDidFinishLaunching:) 
 				name: NSApplicationDidFinishLaunchingNotification
@@ -233,13 +233,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 {
 	/* set up Find menu */
 	if (findMenu == nil) {
-		// findPanelNibの中にFindメニューが見つからなかったとき
+		// When that did not find the Find menu in the findPanelNib (findPanelNibの中にFindメニューが見つからなかったとき)
 		NSLog(@"Find Menu not found in %@.nib", [self findPanelNibName]);
 	} else {
-		// Findメニューのタイトル
+		// The Find menu title (Findメニューのタイトル)
 		NSString    *titleOfFindMenu = OgreTextFinderLocalizedString(@"Find");
 		
-		// Findメニューの初期化
+		// Initialization of the Find menu (Findメニューの初期化)
 		[findMenu setTitle:titleOfFindMenu];
         NSMenuItem  *newFindMenuItem = [[[NSMenuItem allocWithZone:[NSMenu menuZone]] init] autorelease];
 		[newFindMenuItem setTitle:titleOfFindMenu];
@@ -248,8 +248,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		NSMenu		*mainMenu = [NSApp mainMenu];
 		
 		NSMenuItem  *oldFindMenuItem = [self findMenuItemNamed:titleOfFindMenu startAt:mainMenu];
-		// Findメニューが既にある場合はそこをfindMenuに入れ替える
-		// なければ左から4番目にFindメニューを作り、そこにfindMenuをセットする。
+		// I swap there findMenu If Find menu is already (Findメニューが既にある場合はそこをfindMenuに入れ替える)
+		// Make a Find menu fourth from the left if, there is set a findMenu. (なければ左から4番目にFindメニューを作り、そこにfindMenuをセットする。)
 		if (oldFindMenuItem != nil) {
 			//NSLog(@"Find found");
 			NSMenu		*supermenu = [oldFindMenuItem menu];
@@ -263,7 +263,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	}
 }
 
-// currentを起点に名前がnameのmenu itemを探す。
+// name the current to the starting point to look for menu item of name. (currentを起点に名前がnameのmenu itemを探す。)
 - (NSMenuItem*)findMenuItemNamed:(NSString*)name startAt:(NSMenu*)current
 {
 	NSMenuItem  *foundMenuItem = nil;
@@ -277,12 +277,12 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		NSMenu      *aMenu = menuArray[0];
 		NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
 		if (aMenuItem != nil) {
-			// 見つかった場合
+			// If found (見つかった場合)
 			foundMenuItem = [aMenuItem retain];
 			break;
 		}
 		
-		// 見つからなかった場合
+		// If you did not found (見つからなかった場合)
 		n = [aMenu numberOfItems];
 		for (i=0; i<n; i++) {
 			aMenuItem = [aMenu itemAtIndex:i];
@@ -306,7 +306,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		name: NSApplicationWillTerminateNotification 
 		object: NSApp];
 	
-	// 検索履歴等の保存
+	// Save Search history, etc. (検索履歴等の保存)
 	NSDictionary	*fullHistory = @{OgreTextFinderHistoryKey: [findPanelController history], 
 			OgreTextFinderSyntaxKey: @([OGRegularExpression intValueForSyntax:_syntax]),
 			OgreTextFinderEscapeCharacterKey: _escapeCharacter};
@@ -318,7 +318,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	_saved = YES;
 }
 
-- (NSDictionary*)history	// 非公開メソッド
+- (NSDictionary*)history	// Private method (非公開メソッド)
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-history of %@", [self className]);
@@ -336,7 +336,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	NSLog(@"CAUTION! -finalize of %@", [self className]);
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	if (_saved == NO) [self appWillTerminate:nil];	// 履歴の保存がまだならば保存する。
+	if (_saved == NO) [self appWillTerminate:nil];	// Saving history to save if still. (履歴の保存がまだならば保存する。)
 	_sharedTextFinder = nil;
     [super finalize];
 }
@@ -349,7 +349,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 #endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
-	if (_saved == NO) [self appWillTerminate:nil];	// 履歴の保存がまだならば保存する。
+	if (_saved == NO) [self appWillTerminate:nil];	// Saving history to save if still. (履歴の保存がまだならば保存する。)
 	
 	[_targetClassArray release];
 	[_adapterClassArray release];
@@ -408,7 +408,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return _syntax;
 }
 
-/* 検索対象 */
+/* Search for (検索対象) */
 - (void)setTargetToFindIn:(id)target
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -426,13 +426,13 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	[self setTargetToFindIn:nil];
 	[self setAdapterClassForTargetToFindIn:Nil];
 	
-	/* responder chainにtellMeTargetToFindIn:を投げる */
+	/* the responder chain tellMeTargetToFindIn: I throw the (responder chainにtellMeTargetToFindIn:を投げる) */
 	if ([NSApp sendAction:@selector(tellMeTargetToFindIn:) to:nil from:self]) {
-		// tellMeTargetToFindIn:に応答があった場合、
+		// tellMeTargetToFindIn: If there is a response to, (tellMeTargetToFindIn:に応答があった場合、)
 		//NSLog(@"succeed to perform tellMeTargetToFindIn:");
 		if ([self hasAdapterClassForObject:_targetToFindIn]) target = _targetToFindIn;
 	} else {
-		// 応答がない場合、main windowのfirst responderがNSTextViewならばそれを採用する。
+		// If there is no response, first responder of main window to adopt it if NSTextView. (応答がない場合、main windowのfirst responderがNSTextViewならばそれを採用する。)
 		//NSLog(@"failed to perform tellMeTargetToFindIn:");
 		id	anObject = [[NSApp mainWindow] firstResponder];
 		if (anObject != nil && [self hasAdapterClassForObject:anObject]) target = anObject;
@@ -480,7 +480,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			syntax:[self syntax] 
 			escapeCharacter:[self escapeCharacter]];
 		
-		/* スレッドの生成 */
+		/* Generation of thread (スレッドの生成) */
 		id	adapter = [self adapterForTarget:target];
 		thread = [[[OgreFindThread alloc] initWithComponent:adapter] autorelease];
 		[thread setRegularExpression:regex];
@@ -531,14 +531,14 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			syntax:[self syntax] 
 			escapeCharacter:[self escapeCharacter]];
 		
-		/* 処理状況表示用シートの生成 */
+		/* Generation of processing status display for the seat (処理状況表示用シートの生成) */
 		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window] 
 			title:OgreTextFinderLocalizedString(@"Find All") 
 			didEndSelector:@selector(makeTargetFree:) 
 			toTarget:self 
 			withObject:target];
 		
-		/* スレッドの生成 */
+		/* Generation of thread (スレッドの生成) */
 		id	adapter = [self adapterForTarget:target];
 		thread = [[[OgreFindAllThread alloc] initWithComponent:adapter] autorelease];
 		[thread setRegularExpression:regex];
@@ -654,7 +654,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			syntax:[self syntax] 
 			escapeCharacter:[self escapeCharacter]];
 		
-		// スレッドの生成
+		// Generation of thread (スレッドの生成)
 		id	adapter = [self adapterForTarget:target];
 		thread = [[[OgreReplaceAndFindThread alloc] initWithComponent:adapter] autorelease];
 		[thread setRegularExpression:regex];
@@ -732,14 +732,14 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			syntax:[self syntax] 
 			escapeCharacter:[self escapeCharacter]];
 		
-		/* 処理状況表示用シートの生成 */
+		/* Generation of processing status display for the seat (処理状況表示用シートの生成) */
 		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window] 
 			title:OgreTextFinderLocalizedString(@"Replace All") 
 			didEndSelector:@selector(makeTargetFree:) 
 			toTarget:self 
 			withObject:target];
 		
-		/* スレッドの生成 */
+		/* Generation of thread (スレッドの生成) */
 		id	adapter = [self adapterForTarget:target];
 		thread = [[[OgreReplaceAllThread alloc] initWithComponent:adapter] autorelease];
 		[thread setRegularExpression:regex];
@@ -782,7 +782,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	NS_DURING
 	
-		/* スレッドの生成 */
+		/* Generation of thread (スレッドの生成) */
 		id	adapter = [self adapterForTarget:target];
 		thread = [[[OgreUnhighlightThread alloc] initWithComponent:adapter] autorelease];
 		[thread setAsynchronous:NO];
@@ -827,14 +827,14 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			syntax:[self syntax] 
 			escapeCharacter:[self escapeCharacter]];
 		
-		/* 処理状況表示用シートの生成 */
+		/* Generation of processing status display for the seat (処理状況表示用シートの生成) */
 		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window] 
 			title:OgreTextFinderLocalizedString(@"Highlight") 
 			didEndSelector:@selector(makeTargetFree:) 
 			toTarget:self 
 			withObject:target];
 		
-		/* スレッドの生成 */
+		/* Generation of thread (スレッドの生成) */
 		id	adapter = [self adapterForTarget:target];
 		thread = [[[OgreHighlightThread alloc] initWithComponent:adapter] autorelease];
 		[thread setRegularExpression:regex];
@@ -988,7 +988,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	id		sheet = [aTextFindThread progressDelegate];
 	
 	if (shouldCloseProgressSheet) {
-		// 自動的に閉じる。OKボタンではreleaseしないようにする。
+		// Automatically I close. In the OK button I do not release. (自動的に閉じる。OKボタンではreleaseしないようにする。)
 		[(id <OgreTextFindProgressDelegate>)sheet setReleaseWhenOKButtonClicked:NO];
 		[sheet performSelector:@selector(close:) withObject:self];
 	}

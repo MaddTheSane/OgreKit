@@ -39,7 +39,7 @@
 
 -(void)awakeFromNib
 {
-	[[self retain] retain]; // close:とsheetDidEnd:のときに一度ずつreleaseされる
+	[[self retain] retain]; // it is release once at the time of the close: and sheetDidEnd: (close:とsheetDidEnd:のときに一度ずつreleaseされる)
 	[titleTextField setStringValue:_title];
 	[button setTitle:OgreTextFinderLocalizedString(@"Cancel")];
 	[NSApp beginSheet: progressWindow 
@@ -105,7 +105,7 @@
 		[_cancelTarget performSelector:_cancelSelector withObject:_cancelArgument];
 	} else {
 		// OK
-		// closeは一回だけ実行できるrelease
+		// release and close only once (closeは一回だけ実行できるrelease)
 		if (progressWindow) {
 			[progressWindow close];
 			[NSApp endSheet:progressWindow returnCode:0];
@@ -131,12 +131,12 @@
 
 - (void)close:(id)anObject
 {
-	// アプリケーションがinactivateな場合はactivateになったら実行する。
+	// If the application was deactivated will be run if we become active again. (アプリケーションがinactivateな場合はactivateになったら実行する。)
 	if (![NSApp isActive]) {
 #ifdef DEBUG_OGRE_FIND_PANEL
 		NSLog(@"request -autoclose: of OgreTextFindProgressSheet");
 #endif
-		// Applicationのinactivateを拾う
+		// I pick up the inactivate of Application (Applicationのinactivateを拾う)
 		[[NSNotificationCenter defaultCenter] addObserver: self 
 			selector: @selector(autoclose:) 
 			name: NSApplicationDidBecomeActiveNotification
@@ -147,7 +147,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-close: of %@", [self className]);
 #endif
-	// closeは一回だけ実行できるrelease
+	// release and close only once (closeは一回だけ実行できるrelease)
 	if (progressWindow) {
 		[progressWindow close];
 		[NSApp endSheet:progressWindow returnCode:0];

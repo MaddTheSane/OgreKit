@@ -91,7 +91,7 @@
         }
     }
     
-    // redo　registeration
+    // redo registeration (redo　registeration)
     [[[aTarget undoManager] prepareWithInvocationTarget:redoArray] 
         undoTextView:aTarget jumpToSelection:jumpToSelection
         invocationTarget:redoArray];

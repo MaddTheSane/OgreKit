@@ -18,17 +18,17 @@
 #import <OgreKit/OgreFindResultWindowController.h>
 #import <OgreKit/OgreAttachableWindowMediator.h>
 
-// 諸設定
-static const NSInteger  OgreAFPCMaximumLeftMargin = 30;   // 検索結果の左側の最大文字数 (マッチ結果が隠れてしまうことを防ぐ)
-static const NSInteger  OgreAFPCMaximumMatchedStringLength = 250; // 検索結果の最大文字数
+// Various settings (諸設定)
+static const NSInteger  OgreAFPCMaximumLeftMargin = 30;   // The maximum number of characters in the search results left (I prevent the match result is hidden) (検索結果の左側の最大文字数 (マッチ結果が隠れてしまうことを防ぐ))
+static const NSInteger  OgreAFPCMaximumMatchedStringLength = 250; // The maximum number of characters in search results (検索結果の最大文字数)
 
-// OgreAPFCLocalizable.stringsを使用したローカライズ
+// Localization using OgreAPFCLocalizable.strings (OgreAPFCLocalizable.stringsを使用したローカライズ)
 #define OgreAPFCLocalizedString(key)	[[OgreTextFinder ogreKitBundle] localizedStringForKey:(key) value:(key) table:@"OgreAPFCLocalizable"]
 
-// 例外名
+// Exception name (例外名)
 NSString	*OgreAFPCException = @"OgreAdvancedFindPanelControllerException";
 
-// historyのencode/decodeに使用するKey
+// Key to be used for the history of encode/decode (historyのencode/decodeに使用するKey)
 static NSString	*OgreAFPCFindHistoryKey              = @"AFPC Find History";
 static NSString	*OgreAFPCReplaceHistoryKey           = @"AFPC Replace History";
 static NSString	*OgreAFPCOptionsKey                  = @"AFPC Options";
@@ -86,7 +86,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[super awakeFromNib];
 	
 	// initialize
-	// syntaxを見分けるtagを設定
+	// Set the tag to distinguish syntax (syntaxを見分けるtagを設定)
 	NSInteger i;
 	for (i=0; i<=8; i++) {
 		[[syntaxPopUpButton itemAtIndex:i] setTag:[OGRegularExpression intValueForSyntax:[self syntaxForIndex:i]]];
@@ -115,7 +115,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[menuItem release];
 	[menu release];
 	
-	// escape characterのformatter
+	// formatter of escape character (escape characterのformatter)
 	_escapeCharacterFormatter = [[[OgreAFPCEscapeCharacterFormatter alloc] init] autorelease];
 	[_escapeCharacterFormatter setDelegate:self];
 	[_escapeCharacterFormatter retain];
@@ -146,7 +146,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	// show/hide style options
 	[self toggleStyleOptions:self];
 	
-	// max number of find/replace historyの変更を拾う
+	// I pick up the change of max number of find / replace history (max number of find/replace historyの変更を拾う)
 	[[NSNotificationCenter defaultCenter] addObserver: self 
 		selector: @selector(updateMaxNumOfFindHistory:) 
 		name: NSControlTextDidEndEditingNotification
@@ -534,7 +534,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			documentAttributes:nil]];
 	}
 	
-	/* 検索履歴等の情報を残したい場合はこのメソッドを上書きする。 */
+	/* If you want to keep the information of search history, etc. override this method. (検索履歴等の情報を残したい場合はこのメソッドを上書きする。) */
 	return @{OgreAFPCAttributedFindHistoryKey: encodedFindHistory, 
 			OgreAFPCAttributedReplaceHistoryKey: encodedReplaceHistory, 
 			OgreAFPCOptionsKey: @([self _options]), 
@@ -844,7 +844,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)avoidEmptySelection
 {
 	if ([[self textFinder] isSelectionEmpty]) {
-		// 空範囲選択の場合、強制的に検索範囲を全体にする。
+		// If empty range selection, I want to force the whole search range. (空範囲選択の場合、強制的に検索範囲を全体にする。)
 		[self setInSelectionScopeOption: NO];
 	}
 }
@@ -981,7 +981,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			syntax: [self syntax] 
 			escapeCharacter:[self escapeCharacter]];
 	NS_HANDLER
-		// 例外処理
+		// Exception handling (例外処理)
 		if ([[localException name] isEqualToString:OgreException]) {
 			[self showErrorAlert:OgreAPFCLocalizedString(@"Invalid Regular Expression") message:[localException reason]];
 		} else {
@@ -1261,7 +1261,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	NSLog(@"-didEndFindAll: of %@", [self className]);
 #endif
 	
-	BOOL	closeProgressWindow = YES;	// 発見できた場合は常に閉じる
+	BOOL	closeProgressWindow = YES;	// Close always If you can find (発見できた場合は常に閉じる)
 	OgreTextFindResult	*textFindResult = (OgreTextFindResult*)anObject;
 	
 	if ([textFindResult alertIfErrorOccurred]) {
@@ -1270,8 +1270,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	} else {
 		if ([textFindResult isSuccess]) {
 			// success
-			[textFindResult setMaximumLeftMargin:OgreAFPCMaximumLeftMargin];  // 検索結果の左側の最大文字数
-			[textFindResult setMaximumMatchedStringLength:OgreAFPCMaximumMatchedStringLength];  // 検索結果の最大文字数
+			[textFindResult setMaximumLeftMargin:OgreAFPCMaximumLeftMargin];  // The maximum number of characters in the search results left (検索結果の左側の最大文字数)
+			[textFindResult setMaximumMatchedStringLength:OgreAFPCMaximumMatchedStringLength];  // The maximum number of characters in search results (検索結果の最大文字数)
 			if (_findResultWindowController == nil) {
 				_findResultWindowController = [[OgreFindResultWindowController alloc] initWithTextFindResult:textFindResult liveUpdate:NO];
 				NSWindow	*findResultWindow = [_findResultWindowController window];
@@ -1665,13 +1665,13 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 /* delegate methods of findTextView/replaceTextView */
 - (BOOL)textView:(NSTextView*)aTextView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString*)replacementString
 {
-	// ＼と￥を統一する必要がある場合は統一する。
+	// \ To unify if there is a need to unify and ¥. (＼と￥を統一する必要がある場合は統一する。)
 	NSString   *convertedString = [_escapeCharacterFormatter stringForObjectValue:replacementString];
 	if ([replacementString isEqualToString:convertedString] || (convertedString == nil)) {
-		// 変更なし
+		// No change (変更なし)
 		return YES;
 	} else {
-		// ＼と￥を統一
+		// \ And unified the ¥ (＼と￥を統一)
 		if ([aTextView allowsUndo]) {	// yet buggy
 			NSUndoManager	*undoManager = [aTextView undoManager];
 			NSRange			newRange = NSMakeRange(affectedCharRange.location, [convertedString length]);

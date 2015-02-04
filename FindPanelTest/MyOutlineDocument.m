@@ -16,16 +16,16 @@
 
 @implementation MyOutlineDocument
 
-// 検索対象となるTextViewをOgreTextFinderに教える。
-// 検索させたくない場合はnilをsetする。
-// 定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。
+// I teach be searched TextView to OgreTextFinder. (検索対象となるTextViewをOgreTextFinderに教える。)
+// To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
+// If you omit the definition, first responder of main window is to adopt it if possible search. (定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。)
 - (void)tellMeTargetToFindIn:(id)textFinder
 {
 	[textFinder setTargetToFindIn:myOutlineView];
 }
 
 
-/* ここから下はFind Panelに関係しないコード */
+/* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
 - (NSString*)windowNibName {
     return @"MyOutlineDocument";
 }
@@ -45,7 +45,7 @@
 	if (_fileWrapper != nil) {
         [myOutlineView reloadData];
 	} else {
-		//_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
+		//_newlineCharacter = OgreUnixNewlineCharacter;	// The default line break code (デフォルトの改行コード)
         
         NSInteger   result;
         NSOpenPanel *openPanel;
@@ -83,7 +83,7 @@
     [super dealloc];
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
 {
 	_newlineCharacter = aNewlineCharacter;

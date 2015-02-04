@@ -22,17 +22,17 @@
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	NSInteger	i;
 	
-	// キャレットを最後に。
+	// At the end the caret. (キャレットを最後に。)
 	[resultTextView setSelectedRange: NSMakeRange([[resultTextView string] length], 0)];
 	
-	// テキストフィールドから読み込む
+	// I read from a text field (テキストフィールドから読み込む)
 	NSString	*pattern = [patternTextField stringValue];
 	NSString	*str = [targetTextField stringValue];
 
-	// \の代替文字
+	// \ Alternate character (\の代替文字)
 	NSString	*escapeChar = [escapeCharacterTextField stringValue];
 	[OGRegularExpression setDefaultEscapeCharacter:escapeChar];
-	// 構文
+	// Syntax (構文)
 	[OGRegularExpression setDefaultSyntax:OgreRubySyntax];
 	
 	/*double	sum = 0;
@@ -40,11 +40,11 @@
 	for(i = 0; i < 100; i++) {
 		processTime = [NSDate date];*/
 
-		// 正規表現オブジェクトの作成
+		// Constructing a regular expression object (正規表現オブジェクトの作成)
 		NS_DURING
 			rx = [OGRegularExpression regularExpressionWithString: pattern options: OgreFindNotEmptyOption | OgreCaptureGroupOption | OgreIgnoreCaseOption];
 		NS_HANDLER
-			// 例外処理
+			// Exception handling (例外処理)
 			[resultTextView insertText: [NSString stringWithFormat: @"%@ caught in 'regularExpressionWithString:'\n", [localException name]]];
 			[resultTextView insertText: [NSString stringWithFormat: @"reason = \"%@\"\n", [localException reason]]];
 			return;
@@ -52,7 +52,7 @@
 		
 		match = [rx matchInString:str];
 		if (match == nil) {
-			// マッチしなかった場合
+			// If you do not match (マッチしなかった場合)
 			[resultTextView insertText:@"search fail\n"];
 			return;
 		}
@@ -67,7 +67,7 @@
     NSLog(@"regex2: %@", [rx2 description]);
     rx = rx2;*/
     
-	/* 検索 */
+	/* Search (検索) */
 	NSEnumerator	*enumerator = [rx matchEnumeratorInString:str];
 
     /*NSLog(@"enumerator: %@", [enumerator description]);
@@ -136,18 +136,18 @@
 {
 	OGRegularExpression	*rx;
 	
-	// キャレットを最後に。
+	// At the end the caret. (キャレットを最後に。)
 	[resultTextView setSelectedRange: NSMakeRange([[resultTextView string] length], 0)];
 	
-	// テキストフィールドから読み込む
+	// I read from a text field (テキストフィールドから読み込む)
 	NSString	*pattern = [patternTextField stringValue];
 	NSString	*str     = [targetTextField stringValue];
 	NSString	*newStr  = [replaceTextField stringValue];
 	
-	// \の代替文字
+	// \ Alternate character (\の代替文字)
 	NSString	*escapeChar = [escapeCharacterTextField stringValue];
 	[OGRegularExpression setDefaultEscapeCharacter:escapeChar];
-	// 構文
+	// Syntax (構文)
 	[OGRegularExpression setDefaultSyntax:OgreRubySyntax];
 	
 	/*NSDate	*processTime;
@@ -156,7 +156,7 @@
 	for(i = 0; i < 100; i++) {
 		processTime = [NSDate date];*/
 		
-		// 正規表現オブジェクトの作成
+		// Constructing a regular expression object (正規表現オブジェクトの作成)
 		rx = [OGRegularExpression regularExpressionWithString: pattern options: OgreFindNotEmptyOption | OgreCaptureGroupOption];
 		[rx replaceAllMatchesInString:str withString:newStr options:OgreNoneOption];
 		
@@ -164,13 +164,13 @@
 	}
 	NSLog(@"process time: %fsec/inst", sum/100);*/
 	
-	// 置換
+	// Replacement (置換)
 	[resultTextView insertText: [NSString stringWithFormat:@"replaced string: \"%@\"\n", [rx replaceAllMatchesInString:str withString:newStr options:OgreNoneOption]]];
 	[resultTextView setFont:[NSFont fontWithName:@"Monaco" size:10.0]];
 	[resultTextView display];
 }
 
-// 開始処理
+// Start processing (開始処理)
 - (void)awakeFromNib
 {
 	[resultTextView setRichText: NO];
@@ -193,7 +193,7 @@
     NSLog(@"%@ = %@", expr, [calc eval:expr]);
 }
 
-// デリゲートに処理を委ねた置換／マッチした部分での分割
+// Substituted entrusted the process to delegate / matched split in part (デリゲートに処理を委ねた置換／マッチした部分での分割)
 - (void)replaceTest
 {
 	NSLog(@"Replacement Test");
@@ -206,7 +206,7 @@
 		NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
 	}
 	
-	// デリゲートに処理を委ねた置換
+	// Substitution was entrusted with processing to delegate (デリゲートに処理を委ねた置換)
 	NSString	*targetString = @"36.5C, 3.8C, -195.8C";
 	NSLog(@"%@", targetString);
 	OGRegularExpression	*celciusRegex = [OGRegularExpression regularExpressionWithString:@"([+-]?\\d+(?:\\.\\d+)?)C\\b"];
@@ -215,7 +215,7 @@
 		replaceSelector:@selector(fahrenheitFromCelsius:contextInfo:) 
 		contextInfo:nil]);
 	
-	// 文字列を分割する
+	// I split a string (文字列を分割する)
 	OGRegularExpression	*delimiterRegex = [OGRegularExpression regularExpressionWithString:@"\\s*,\\s*"];
 	NSLog(@"%@", [[delimiterRegex splitString:targetString] description]);
 }
@@ -233,20 +233,20 @@
 	NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
 }
 
-// 摂氏を華氏に変換する。
+// I convert Celsius to Fahrenheit. (摂氏を華氏に変換する。)
 - (NSString*)fahrenheitFromCelsius:(OGRegularExpressionMatch*)aMatch contextInfo:(id)contextInfo
 {
 	//NSLog(@"matchedString:%@ index:%d", [aMatch matchedString], [aMatch index]);
 	double	celcius = [[aMatch substringAtIndex:1] doubleValue];
 	double	fahrenheit = celcius * 9.0 / 5.0 + 32.0;
 	
-	// 置換した文字列を返す。nilを返した場合は置換を終了する。
+	// return the replaced string. to terminate the substitution if it returns nil. (置換した文字列を返す。nilを返した場合は置換を終了する。)
 	return [NSString stringWithFormat:@"%.1fF", fahrenheit];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)aApp
 {
-	return YES;	// 全てのウィンドウを閉じたら終了する。
+	return YES;	// And exit After closing all windows. (全てのウィンドウを閉じたら終了する。)
 }
 
 

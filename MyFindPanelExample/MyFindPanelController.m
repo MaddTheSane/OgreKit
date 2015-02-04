@@ -13,7 +13,7 @@
 
 #import "MyFindPanelController.h"
 
-// 履歴のencode/decodeに使用するKey
+// Key to be used in the history of the encode/decode (履歴のencode/decodeに使用するKey)
 static NSString	*MyFindHistoryKey    = @"Find History";
 static NSString	*MyReplaceHistoryKey = @"Replace History";
 static NSString	*MyOptionsKey		 = @"Options";
@@ -24,14 +24,14 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 
 - (void)awakeFromNib
 {
-	[super awakeFromNib];	// 必須
+	[super awakeFromNib];	// Required (必須)
 	
-	// 初期値
+	// Initial value (初期値)
 	[[self textFinder] setEscapeCharacter: OgreBackslashCharacter];
 	_findHistory = [[NSString alloc] init];
 	_replaceHistory = [[NSString alloc] init];
 	
-	// 履歴の復帰
+	// Return of history (履歴の復帰)
 	[self restoreHistory:[textFinder history]];
 }
 
@@ -68,7 +68,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 // actions
 - (IBAction)findNext:(id)sender
 {
-	if (![self alertIfInvalidRegex]) return;	// 適切な正規表現かどうか判定する。
+	if (![self alertIfInvalidRegex]) return;	// Determine whether the appropriate regular expression. (適切な正規表現かどうか判定する。)
     [_findHistory autorelease];
 	_findHistory = [[findTextField stringValue] retain];
 	
@@ -79,7 +79,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 		forward: YES
 		wrap: YES];
 
-	if (![result isSuccess]) NSBeep();   // マッチしなかった場合
+	if (![result isSuccess]) NSBeep();   // If you do not match (マッチしなかった場合)
 }
 
 - (IBAction)findPrevious:(id)sender
@@ -95,7 +95,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 		forward: NO
 		wrap: YES];
 		
-	if (![result isSuccess]) NSBeep();   // マッチしなかった場合
+	if (![result isSuccess]) NSBeep();   // If you do not match (マッチしなかった場合)
 }
 
 - (IBAction)replace:(id)sender
@@ -111,7 +111,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 			withString: _replaceHistory 
 			options: [self options]];
 			
-	if (![result isSuccess]) NSBeep();   // マッチしなかった場合
+	if (![result isSuccess]) NSBeep();   // If you do not match (マッチしなかった場合)
 }
 
 - (IBAction)replaceAll:(id)sender
@@ -128,12 +128,12 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 		options: [self options] 
 		inSelection: ![self isEntire]];
 		
-	if (![result isSuccess]) NSBeep();   // マッチしなかった場合
+	if (![result isSuccess]) NSBeep();   // If you do not match (マッチしなかった場合)
 }
 
 - (BOOL)didEndReplaceAll:(id)anObject
 {
-	return NO;	// 終了したら自動的にシートを閉じない。
+	return NO;	// It is not automatically close the sheet when you are finished. (終了したら自動的にシートを閉じない。)
 }
 
 - (IBAction)replaceAndFind:(id)sender
@@ -152,7 +152,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
             replacingOnly:NO 
             wrap:YES]; 
 	
-	if (![result isSuccess]) NSBeep();   // マッチしなかった場合
+	if (![result isSuccess]) NSBeep();   // If you do not match (マッチしなかった場合)
 }
 
 - (IBAction)jumpToSelection:(id)sender
@@ -171,7 +171,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	}
 }
 
-// 適切な正規表現かどうか調べる
+// I examine whether appropriate regular expression (適切な正規表現かどうか調べる)
 - (BOOL)alertIfInvalidRegex
 {
 	NS_DURING
@@ -180,9 +180,9 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 			syntax: [self syntax] 
 			escapeCharacter: OgreBackslashCharacter];
 	NS_HANDLER
-		// 例外処理
+		// Exception handling (例外処理)
 		if ([[localException name] isEqualToString:OgreException]) {
-			NSBeep();   // 不適切な正規表現だった場合 (非常に手抜き)
+			NSBeep();   // If it was inappropriate regular expression (very shoddy) (不適切な正規表現だった場合 (非常に手抜き))
 		} else {
 			[localException raise];
 		}
@@ -192,7 +192,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	return YES;
 }
 
-// 履歴の保存 (逆は[textFinder history])
+// Save of history (contrary to [textFinder history]) (// 履歴の保存 (逆は[textFinder history]))
 - (NSDictionary*)history
 {
 	return @{MyFindHistoryKey: _findHistory, 
@@ -202,7 +202,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 			MyEntireScopeKey: @([self isEntire])};
 }
 
-// 履歴の復帰
+// Return of history (履歴の復帰)
 - (void)restoreHistory:(NSDictionary*)history
 {
 	if (history == nil) return;
@@ -238,10 +238,10 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 		[[scopeMatrix cellAtRow:0 column:1] setState:NSOffState];
 		
 		if ([anObject boolValue]) {
-			// entire scopeの場合
+			// In the case of entire scope (entire scopeの場合)
 			[[scopeMatrix cellAtRow:0 column:0] setState:NSOnState];
 		} else {
-			// selection scopeの場合
+			// In the case of selection scope (selection scopeの場合)
 			[[scopeMatrix cellAtRow:0 column:1] setState:NSOnState];
 		}
 	}

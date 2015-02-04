@@ -99,13 +99,13 @@
     return [_matchComponents objectEnumerator]; 
 }
 
-// index番目にマッチした文字列のある行番号
+// line number that matched string for the index (index番目にマッチした文字列のある行番号)
 - (id)nameOfMatchedStringAtIndex:(NSUInteger)index
 {
     return [self name];
 }
 
-// index番目にマッチした文字列
+// matched string for the index (index番目にマッチした文字列)
 - (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
@@ -123,7 +123,7 @@
     return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
-// index番目にマッチした文字列を選択・表示する
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
@@ -133,7 +133,7 @@
     return [self selectMatchedStringAtIndex:index];
 }
 
-// index番目にマッチした文字列を選択する
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;

@@ -16,7 +16,7 @@
 
 @implementation MyMenuController
 
-/* 改行コードの変更をmain windowのdelegateに伝える (非常に手抜き) */
+/* Convey the change of line endings to the delegate of the main window (very shoddy) (改行コードの変更をmain windowのdelegateに伝える (非常に手抜き)) */
 - (IBAction)selectCr:(id)sender
 {
 	[(MyDocument*)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreCrNewlineCharacter];
@@ -32,7 +32,7 @@
 	[(MyDocument*)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreLfNewlineCharacter];
 }
 
-/* 新規ドキュメント */
+/* New Document (新規ドキュメント) */
 - (IBAction)newTextDocument:(id)sender
 {
     [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTextDocumentType" display:YES];

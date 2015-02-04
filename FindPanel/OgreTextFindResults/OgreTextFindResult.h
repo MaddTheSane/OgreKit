@@ -45,9 +45,9 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
     
     /* display */
 	NSString					*_title;					// target window title
-	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-	NSInteger                   _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
-	id                          _delegate;                  // 更新連絡先
+	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
+	NSInteger                   _maxLeftMargin;				// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
+	id                          _delegate;                  // Update contact (更新連絡先)
     
     /* highlight color */
     NSMutableArray              *_highlightColorArray;   // variations
@@ -72,12 +72,12 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 
 @property (nonatomic, copy) NSString *title;
 
-// マッチした文字列の左側の最大文字数 (-1: 無制限)
+// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
 @property (nonatomic) NSInteger maximumLeftMargin;
-// 最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。
+// The maximum number of characters (-1: unlimited) However, ellipsis @ "..." I do not put in the count. (最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。)
 @property (nonatomic) NSInteger maximumMatchedStringLength;
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
-// aString中のaRangeArrayの範囲を強調する。
+// emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
 @property (nonatomic, readonly, copy) NSAttributedString *missingString;
 - (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;

@@ -132,7 +132,7 @@
     return [_simplifiedComponents objectEnumerator]; 
 }
 
-// index番目にマッチした文字列を選択・表示する
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedString
 {
     if (_outlineColumn == nil || _item == nil) return NO;
@@ -142,7 +142,7 @@
     return [self selectMatchedString];
 }
 
-// index番目にマッチした文字列を選択する
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedString
 {
     if (_outlineColumn == nil || _item == nil) return NO;

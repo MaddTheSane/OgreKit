@@ -27,7 +27,7 @@
 
 @implementation OGRegularExpression (Private)
 
-/* 非公開メソッド */
+/* Private method (非公開メソッド) */
 
 #ifdef MAC_OS_X_VERSION_10_6
 - (void)finalize
@@ -35,10 +35,10 @@
 #ifdef DEBUG_OGRE
 	NSLog(@"-finalize of %@", [self className]);
 #endif
-	// 鬼車正規表現オブジェクト
+	// Oniguruma regular expression object (鬼車正規表現オブジェクト)
 	if (_regexBuffer != NULL) onig_free(_regexBuffer);
 	
-	// 正規表現を表す文字列
+	// A string that represents the regular expression (正規表現を表す文字列)
     NSZoneFree([self zone], _UTF16ExpressionString);
     [super finalize];
 }
@@ -49,18 +49,18 @@
 #ifdef DEBUG_OGRE
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
-	// named group(逆引き)辞書
+	// named group (reverse) dictionary (named group(逆引き)辞書)
 	[_groupIndexForNameDictionary release];
 	[_nameForGroupIndexArray release];
 	
-	// 鬼車正規表現オブジェクト
+	// Oniguruma regular expression object (鬼車正規表現オブジェクト)
 	if (_regexBuffer != NULL) onig_free(_regexBuffer);
 	
-	// 正規表現を表す文字列
+	// A string that represents the regular expression (正規表現を表す文字列)
     NSZoneFree([self zone], _UTF16ExpressionString);
 	[_expressionString release];
 	
-	// ¥の代替文字
+	// ¥ alternate character (¥の代替文字)
 	[_escapeCharacter release];
 	
 	[super dealloc];
@@ -72,7 +72,7 @@
 	return _regexBuffer;
 }
 
-// OgreSyntaxに対応するOnigSyntaxType*を返す。
+// I return the OnigSyntaxType * corresponding to OgreSyntax. (OgreSyntaxに対応するOnigSyntaxType*を返す。)
 + (OnigSyntaxType*)onigSyntaxTypeForSyntax:(OgreSyntax)syntax
 {
 	if(syntax == OgreSimpleMatchingSyntax)	return &OgrePrivateRubySyntax;
@@ -89,11 +89,11 @@
 	return NULL;	// dummy
 }
 
-// string中の¥をcharacterに置き換えた文字列を返す。characterがnilの場合、stringを返す。
+// I return a string replaced in string ¥ to the character. If character is nil, returns a string. (string中の¥をcharacterに置き換えた文字列を返す。characterがnilの場合、stringを返す。)
 + (NSObject<OGStringProtocol>*)changeEscapeCharacterInOGString:(NSObject<OGStringProtocol>*)string toCharacter:(NSString*)character
 {
 	if ( (character == nil) || (string == nil) || ([character length] == 0) ) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
 	}
 	
@@ -103,8 +103,8 @@
 	
 	NSString	*plainString = [string string];
 	NSUInteger	strLength = [plainString length];
-	NSRange		scanRange = NSMakeRange(0, strLength);	// スキャンする範囲
-	NSRange		matchRange;					// escapeの発見された範囲(lengthは常に1)
+	NSRange		scanRange = NSMakeRange(0, strLength);	// Range to be scanned (スキャンする範囲)
+	NSRange		matchRange;					// discovered range of escape (length is always 1) (escapeの発見された範囲(lengthは常に1))
 	
 	/* escape character set */
 	NSCharacterSet	*swapCharSet = [NSCharacterSet characterSetWithCharactersInString:
@@ -153,7 +153,7 @@
 	return resultString;
 }
 
-// characterの文字種を返す。
+// I return the character type of character. (characterの文字種を返す。)
 /*
  戻り値:
   OgreKindOfNil			character == nil
@@ -164,30 +164,30 @@
 + (OgreKindOfCharacter)kindOfCharacter:(NSString*)character
 {
 	if (character == nil) {
-		// Characterがnilの場合
+		// If character is nil (Characterがnilの場合)
 		return OgreKindOfNil;
 	}
 	if ([character length] == 0) {
-		// Characterが空文字列の場合
+		// If character is an empty string (Characterが空文字列の場合)
 		return OgreKindOfEmpty;
 	}
-	// characterの1文字目
+	// The first character of the character (characterの1文字目)
 	NSString	*substr = [character substringWithRange:NSMakeRange(0,1)];
 		
 	if ([substr isEqualToString:@"¥¥"]) {
-		// ¥の場合
+		// In the case of ¥ (¥の場合)
 		return OgreKindOfBackslash;
 	}
 		
-	// 特殊文字でない場合
+	// If it is not a special character (特殊文字でない場合)
 	return OgreKindOfNormal;
 }
 
-// 空白で単語をグループ分けする。例: @"alpha beta gamma" -> @"(alpha)|(beta)|(gamma)"
+// I grouped the words with a space. Example: @ "alpha beta gamma" -> @ "(alpha) | (beta) | (gamma)" (// 空白で単語をグループ分けする。例: @"alpha beta gamma" -> @"(alpha)|(beta)|(gamma)")
 + (NSString*)delimitByWhitespaceInString:(NSString*)string
 {	
 	if (string == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:OgreException format:@"nil string (or other) argument"];
 	}
 
@@ -225,9 +225,9 @@
 	return expressionString;
 }
 
-// 名前がnameのgroup number
-// 存在しない名前の場合は-1を返す。
-// 同一の名前を持つ部分文字列が複数ある場合は-2を返す。
+// Name of the name group number (// 名前がnameのgroup number)
+// I return -1 in the case of a name that does not exist. (存在しない名前の場合は-1を返す。)
+// If there are multiple sub-string with the same name I return -2. (同一の名前を持つ部分文字列が複数ある場合は-2を返す。)
 - (NSInteger)groupIndexForName:(NSString*)name
 {
 	if (name == nil) {
@@ -243,8 +243,8 @@
 	return [array[0] unsignedIntegerValue];
 }
 
-// index番目の部分文字列の名前
-// 存在しない名前の場合は nil を返す。
+// The name of the index th substring (index番目の部分文字列の名前)
+// I return nil if the name does not exist. (存在しない名前の場合は nil を返す。)
 - (NSString*)nameForGroupIndex:(NSUInteger)index
 {
 	if ( (_nameForGroupIndexArray == nil) || (index < 1) || (index > [_nameForGroupIndexArray count])) {
@@ -252,7 +252,7 @@
 	}
 	
 	NSString	*name = _nameForGroupIndexArray[(index - 1)];
-	if ([name length] == 0) return nil;	// @"" は nil に読み替える。
+	if ([name length] == 0) return nil;	// @ "" I read to nil. (@"" は nil に読み替える。)
 	
 	return name;
 }

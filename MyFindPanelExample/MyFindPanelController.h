@@ -38,10 +38,10 @@
 @property (nonatomic, readonly) OgreSyntax syntax;
 @property (nonatomic, readonly, getter=isEntire) BOOL entire;
 
-// 適切な正規表現かどうか調べる
+// I examine whether appropriate regular expression (適切な正規表現かどうか調べる)
 @property (nonatomic, readonly) BOOL alertIfInvalidRegex;
 
-// 履歴の復帰
+// Return of history (履歴の復帰)
 - (void)restoreHistory:(NSDictionary*)history;
 
 @end

@@ -15,7 +15,7 @@
 #import <OgreKit/OGRegularExpressionEnumerator.h>
 #import <OgreKit/OGString.h>
 
-// aUTF16StringのUTF16文字長
+// UTF16 character length of aUTF16String (aUTF16StringのUTF16文字長)
 static inline NSUInteger Ogre_UTF16charlen(unichar *const aUTF16String)
 {
 	unichar UTF16Char = *aUTF16String;
@@ -29,14 +29,14 @@ static inline NSUInteger Ogre_UTF16charlen(unichar *const aUTF16String)
 	return 0;	// dummy
 }
 
-// aUTF16Stringより１文字前のUTF16文字長
+// UTF16 character length of one character before aUTF16String (aUTF16Stringより１文字前のUTF16文字長)
 static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 {
     unichar UTF16Char = *(aUTF16String - 1);
 	if ((UTF16Char <= 0x9FFF) || (UTF16Char >= 0xE000)) return 1;       // 1 code point
 	if ((UTF16Char & 0xFC00) == 0xDC00) return 2;	// surrogate pair
 	
-	// 出会わないはずなので、出会ったら例外を起こす。
+	// Since such should not encounter, to cause an exception if you met. (出会わないはずなので、出会ったら例外を起こす。)
 	[NSException raise:OgreEnumeratorException format:@"illegal byte code"];
 	
 	return 0;	// dummy

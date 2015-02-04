@@ -16,16 +16,16 @@
 
 @implementation MyTextDocument
 
-// 検索対象となるTextViewをOgreTextFinderに教える。
-// 検索させたくない場合はnilをsetする。
-// 定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。
+// I teach be searched TextView to OgreTextFinder. (検索対象となるTextViewをOgreTextFinderに教える。)
+// To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
+// If you omit the definition, first responder of main window is to adopt it if possible search. (定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。)
 - (void)tellMeTargetToFindIn:(id)textFinder
 {
 	[textFinder setTargetToFindIn:textView];
 }
 
 
-/* ここから下はFind Panelに関係しないコード */
+/* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
 - (NSString*)windowNibName {
     return @"MyTextDocument";
 }
@@ -34,7 +34,7 @@
 {
     self = [super init];
     if (self != nil) {
-		_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
+		_newlineCharacter = OgreUnixNewlineCharacter;	// The default line break code (デフォルトの改行コード)
         _string = [[NSString alloc] init];
     }
     return self;
@@ -58,7 +58,7 @@
 }
 
 - (NSData*)dataRepresentationOfType:(NSString*)type {
-	// 改行コードを(置換すべきなら)置換し、保存する。
+	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
     if ([myController isEditing]) [myController commitEditing];
     
 	NSString *aString = [self string];
@@ -71,18 +71,18 @@
 }
 
 - (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type {
-	// ファイルから読み込む。(UTF8決めうち。)
+	// I read from a file. (UTF8 decided out.) (ファイルから読み込む。(UTF8決めうち。))
 	NSMutableString *aString = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	
-	// 改行コードの種類を得る。
+	// I get kind of line feed code. (改行コードの種類を得る。)
 	_newlineCharacter = [aString newlineCharacter];
 	if (_newlineCharacter == OgreNonbreakingNewlineCharacter) {
-		// 改行のない場合はOgreUnixNewlineCharacterとみなす。
+		// Is regarded as OgreUnixNewlineCharacter If there is no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
 		//NSLog(@"nonbreaking");
 		_newlineCharacter = OgreUnixNewlineCharacter;
 	}
 	
-	// 改行コードを(置換すべきなら)置換する。
+	// The line feed code (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
 	if (_newlineCharacter != OgreUnixNewlineCharacter) {
 		[aString replaceNewlineCharactersWithCharacter:OgreUnixNewlineCharacter];
 	}
@@ -101,7 +101,7 @@
     [super windowControllerDidLoadNib:controller];
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
 {
 	_newlineCharacter = aNewlineCharacter;

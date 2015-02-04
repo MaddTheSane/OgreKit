@@ -40,7 +40,7 @@
 	NSTextStorage	*textStorage = [self textStorage];
 	NSUInteger		appendantLength = [aString length];
 	
-    // Undo操作の登録
+    // Registration of Undo operation (Undo操作の登録)
     if (_allowsUndo) {
         //[_textView setSelectedRange:aRange];
         [_undoer addRange:NSMakeRange(aRange.location, appendantLength) 
@@ -49,7 +49,7 @@
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [[textStorage attributedSubstringFromRange:aRange] string]);
     }
     
-    // 置換
+    // Replacement (置換)
 	[textStorage replaceCharactersInRange:aRange withAttributedString:[aString attributedString]];
 	[textStorage removeAttribute:NSAttachmentAttributeName range:NSMakeRange(aRange.location, appendantLength)];
 }

@@ -111,7 +111,7 @@
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
 {
-    // 最初のマッチ結果を得る。
+    // I get the first match result. (最初のマッチ結果を得る。)
     OGRegularExpressionMatch    *match;
     
     if ([self backward]) {
@@ -121,7 +121,7 @@
     }
     if (match == nil) return NO;    // next leaf
     
-    // マッチした場合
+    // If you match (マッチした場合)
     [self incrementNumberOfMatches];
     NSRange matchRange = [match rangeOfMatchedString];
     [aLeaf setSelectedRange:matchRange];

@@ -16,16 +16,16 @@
 
 @implementation MyTableDocumentWithCocoaBinding
 
-// 検索対象となるtableViewをOgreTextFinderに教える。
-// 検索させたくない場合はnilをsetする。
-// 定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。
+// I teach be searched tableView to OgreTextFinder. (検索対象となるtableViewをOgreTextFinderに教える。)
+// To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
+// If you omit the definition, first responder of main window is to adopt it if possible search. (定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。)
 - (void)tellMeTargetToFindIn:(id)textFinder
 {
 	[textFinder setTargetToFindIn:tableView];
 }
 
 
-/* ここから下は検索パネルに関係しないコード */
+/* Under from here code that is not related to the search panel (ここから下は検索パネルに関係しないコード) */
 - (void)awakeFromNib
 {
     _modelArray = [[NSMutableArray alloc] init];
@@ -64,7 +64,7 @@
     [_modelArray makeObjectsPerformSelector:@selector(dump)];
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
 {
 	_newlineCharacter = aNewlineCharacter;

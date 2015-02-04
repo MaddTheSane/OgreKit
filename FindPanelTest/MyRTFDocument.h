@@ -19,10 +19,10 @@
     IBOutlet NSTextView     *textView;
     IBOutlet NSController   *myController;
 	NSData                  *_RTFData;
-	OgreNewlineCharacter	_newlineCharacter;	// 改行コードの種類
+	OgreNewlineCharacter	_newlineCharacter;	// Kind of line feed code (改行コードの種類)
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter;
 
 @property (nonatomic, copy) NSData *rtfData;

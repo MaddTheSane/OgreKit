@@ -14,7 +14,7 @@
 #import <OgreKit/OGAttributedString.h>
 #import <OgreKit/OGMutableAttributedString.h>
 
-// 自身をencoding/decodingするためのkey
+// Key for encoding/decoding itself (自身をencoding/decodingするためのkey)
 static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 
 @implementation OGAttributedString
@@ -159,7 +159,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 		_attrString = [[decoder decodeObject] retain];
 	}
 	if(_attrString == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	

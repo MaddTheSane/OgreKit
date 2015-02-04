@@ -37,7 +37,7 @@
 	NSLog(@" -preprocessFindingInFirstLeaf: of %@", [self className]);
 #endif
 	NSUInteger	options = [self options];
-	NSUInteger	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。
+	NSUInteger	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // I avoid problems which are not properly replaced when NotBOL option is specified. (NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。)
 	
     OGRegularExpressionMatch    *match;
     NSObject<OGStringProtocol>                    *string = [aLeaf ogString];

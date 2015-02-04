@@ -32,15 +32,15 @@
 #endif
 	self = [super init];
 	if (self) {
-		// 検索対象文字列を保持
-		// target stringをUTF16文字列に変換する。
+		// And hold the search string (検索対象文字列を保持)
+		// I convert the target string to UTF16 string. (target stringをUTF16文字列に変換する。)
 		_targetString = [targetString copy];
 		NSString	*targetPlainString = [_targetString string];
         _lengthOfTargetString = [_targetString length];
         
-        _UTF16TargetString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * (_lengthOfTargetString + 4));	// +4はonigurumaのmemory access violation問題への対処療法
+        _UTF16TargetString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * (_lengthOfTargetString + 4));	// Symptomatic treatment of +4 to memory access violation problem of oniguruma (+4はonigurumaのmemory access violation問題への対処療法)
         if (_UTF16TargetString == NULL) {
-            // メモリを確保できなかった場合、例外を発生させる。
+            // If it can not allocate memory, to generate an exception. (メモリを確保できなかった場合、例外を発生させる。)
             [self release];
             [NSException raise:NSMallocException format:@"fail to allocate a memory"];
         }
@@ -56,29 +56,29 @@
             }
         }*/
         
-		// 検索範囲
+		// Search range (検索範囲)
 		_searchRange = searchRange;
 		
-		// 正規表現オブジェクトを保持
+		// Keep regular expression object (正規表現オブジェクトを保持)
 		_regex = [regex retain];
 		
-		// 検索オプション
+		// Search options (検索オプション)
 		_searchOptions = searchOptions;
 		
-		/* 初期値設定 */
-		// 最後にマッチした文字列の終端位置
-		// 初期値 0
-		// 値 >=  0 終端位置
-		// 値 == -1 マッチ終了
+		/* Initial value setting (初期値設定) */
+		// End position of the last matched string (最後にマッチした文字列の終端位置)
+		// Initial value 0 (初期値 0)
+		// Value> =   0 end position (値 >=  0 終端位置)
+		// Value == -1 match end (値 == -1 マッチ終了)
 		_terminalOfLastMatch = 0;
 		
-		// マッチ開始位置
+		// Match starting position (マッチ開始位置)
 		_startLocation = 0;
 	
-		// 前回のマッチが空文字列だったかどうか
+		// Whether previous match was an empty string (前回のマッチが空文字列だったかどうか)
 		_isLastMatchEmpty = NO;
 		
-		// マッチした数
+		// Number of matches (マッチした数)
 		_numberOfMatches = 0;
 	}
 	

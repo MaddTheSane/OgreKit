@@ -40,9 +40,9 @@ const NSUInteger	OgreFindNotEmptyOption		= ONIG_OPTION_FIND_NOT_EMPTY;
 const NSUInteger	OgreNegateSingleLineOption	= ONIG_OPTION_NEGATE_SINGLELINE;
 const NSUInteger	OgreDontCaptureGroupOption	= ONIG_OPTION_DONT_CAPTURE_GROUP;
 const NSUInteger	OgreCaptureGroupOption		= ONIG_OPTION_CAPTURE_GROUP;
-// (ONIG_OPTION_POSIX_REGIONは使用しない)
-// OgreDelimitByWhitespaceOptionはOgreSimpleMatchingSyntaxの使用時に、空白文字を単語の区切りとみなすかどうか
-// 例: @"AAA BBB CCC" -> @"(AAA)|(BBB)|(CCC)"
+// (ONIG_OPTION_POSIX_REGION is not used) ((ONIG_OPTION_POSIX_REGIONは使用しない))
+// OgreDelimitByWhitespaceOption when using the OgreSimpleMatchingSyntax, whether whitespace regarded as a separator of words (OgreDelimitByWhitespaceOptionはOgreSimpleMatchingSyntaxの使用時に、空白文字を単語の区切りとみなすかどうか)
+// Example: @ "AAA BBB CCC" -> @ "(AAA) | (BBB) | (CCC)" (例: @"AAA BBB CCC" -> @"(AAA)|(BBB)|(CCC)")
 const NSUInteger	OgreDelimitByWhitespaceOption	= ONIG_OPTION_POSIX_REGION;
 
 // search time options:
@@ -57,30 +57,30 @@ const NSUInteger	OgreMergeAttributesOption	= ONIG_OPTION_POSIX_REGION << 4;
 
 // exception name
 NSString * const	OgreException = @"OGRegularExpressionException";
-// 自身をencoding/decodingするためのkey
+// Key for encoding/decoding itself (自身をencoding/decodingするためのkey)
 static NSString * const	OgreExpressionStringKey = @"OgreExpressionString";
 static NSString * const OgreOptionsKey          = @"OgreOptions";
 static NSString * const OgreSyntaxKey           = @"OgreSyntax";
 static NSString * const OgreEscapeCharacterKey  = @"OgreEscapeCharacter";
 
-// デフォルトの\の代替文字
+// Alternate character of default of \ (デフォルトの\の代替文字)
 static NSString			*OgrePrivateDefaultEscapeCharacter;
-// デフォルトの構文。OgreSimpleMatchingを特別に扱うため。
+// Default syntax. In order to deal with OgreSimpleMatching special. (デフォルトの構文。OgreSimpleMatchingを特別に扱うため。)
 static OgreSyntax		OgrePrivateDefaultSyntax;
-// 特殊文字セット @"|().?*+{}^$[]-&#:=!<>@\\"
+// Special character set @ "| () * + {} ^ $ [] - & #:.?! = <> @ \\" (// 特殊文字セット @"|().?*+{}^$[]-&#:=!<>@\\")
 static NSCharacterSet	*OgrePrivateUnsafeCharacterSet = nil;
-// 改行文字セット
+// Newline character set (改行文字セット)
 static NSCharacterSet	*OgrePrivateNewlineCharacterSet = nil;
-// Unicode改行文字
+// Unicode newline character (Unicode改行文字)
 static NSString			*OgrePrivateUnicodeLineSeparator = nil;
 static NSString			*OgrePrivateUnicodeParagraphSeparator = nil;
 
 
 
-/* onig_foreach_namesのcallback関数 */
+/* callback function of onig_foreach_names (onig_foreach_namesのcallback関数) */
 static int namedGroupCallback(const unsigned char *name, const unsigned char *name_end, int numberOfGroups, int* listOfGroupNumbers, regex_t* reg, void* nameDict)
 {
-	// 名前 -> グループ個数
+	// Name -> group number (名前 -> グループ個数)
 	((NSMutableDictionary*)nameDict)[[NSString stringWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]] = @(numberOfGroups);
     
 	return 0;  /* 0: continue, otherwise: stop(break) */
@@ -94,10 +94,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 #ifdef DEBUG_OGRE
 	NSLog(@"+initialize of %@", [self className]);
 #endif
-	// onigurumaの初期化
+	// initialization of oniguruma (onigurumaの初期化)
 	onig_init();
 	
-	// デフォルト値の設定
+	// Setting the default value (デフォルト値の設定)
 	OgrePrivateDefaultEscapeCharacter = [[NSString alloc] initWithString:@"\\"];
 	OgrePrivateDefaultSyntax = OgreRubySyntax;
 	
@@ -108,7 +108,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	OgrePrivateUnicodeLineSeparator = [[NSString alloc] initWithCharacters:lineSeparator length:1];
 	OgrePrivateUnicodeParagraphSeparator = [[NSString alloc] initWithCharacters:paragraphSeparator length:1];
 	
-	// 再利用可能な文字セットの生成
+	// Generation of reusable character set (再利用可能な文字セットの生成)
 	OgrePrivateUnsafeCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"|().?*+{}^$[]-&#:=!<>@\\"] retain];
 	OgrePrivateNewlineCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:[[@"\r\n" stringByAppendingString:OgrePrivateUnicodeLineSeparator] stringByAppendingString:OgrePrivateUnicodeParagraphSeparator]] retain];
 	
@@ -192,35 +192,35 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	self = [super init];
 	if (self == nil) return nil;
 	
-	// 引数を保存
-	// 正規表現を表す文字列をコピーして保持
+	// Save the argument (引数を保存)
+	// Held in copy a string representing the regular expression (正規表現を表す文字列をコピーして保持)
 	if(expressionString != nil) {
 		_expressionString = [expressionString copy];
 	} else {
-		// expressionStringがnilの場合
+		// If expressionString is nil (expressionStringがnilの場合)
 		[self release];
 		[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
 	}
 	
-	// オプション
-	// OgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionを別に扱う。
+	// Options (オプション)
+	// I deal with OgreFindNotEmptyOption and OgreDelimitByWhitespaceOption separately. (OgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionを別に扱う。)
 	_options = OgreCompileTimeOptionMask(options);
 	NSUInteger	compileTimeOptions = _options & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
 	
-	// 構文
+	// Syntax (構文)
 	_syntax = syntax;
 	
-	// \の代替文字
+	// \ Alternate character (\の代替文字)
 	BOOL	isBackslashEscape = NO;
-	// characterが使用可能な文字か調べる。
+	// character is I examine whether the available characters. (characterが使用可能な文字か調べる。)
 	switch ([[self class] kindOfCharacter:character]) {
 		case OgreKindOfNil:
-			// nilのとき、エラー
+			// When nil, error (nilのとき、エラー)
 			[self release];
 			[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
 			break;
 		case OgreKindOfEmpty:
-			// 空白のとき、エラー
+			// When blank, error (空白のとき、エラー)
 			[self release];
 			[NSException raise:NSInvalidArgumentException format:@"empty string argument"];
 			break;
@@ -230,11 +230,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			_escapeCharacter = [OgreBackslashCharacter retain];
 			break;
 		case OgreKindOfNormal:
-			// 普通の文字
+			// Ordinary character (普通の文字)
 			_escapeCharacter = [[character substringWithRange:NSMakeRange(0,1)] retain];
 			break;
 		case OgreKindOfSpecial:
-			// 特殊文字。エラー。
+			// Special characters. Error. (特殊文字。エラー。)
 			[self release];
 			[NSException raise:NSInvalidArgumentException format:@"invalid candidate for an escape character"];
 			break;
@@ -243,7 +243,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	NSInteger		r;
 	OnigErrorInfo	einfo;
 	
-	// UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから)
+	// UTF16 is converted to a string. (In the case of OgreSimpleMatchingSyntax is converted to the regular expression) (UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから))
 	NSString        *compileTimeString;
     NSUInteger      lengthOfCompileTimeString;
     
@@ -266,7 +266,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     }
     [compileTimeString getCharacters:_UTF16ExpressionString range:NSMakeRange(0, lengthOfCompileTimeString)];
 	
-	// 正規表現オブジェクトの作成
+	// Constructing a regular expression object (正規表現オブジェクトの作成)
     OnigCompileInfo ci;
     ci.num_of_elements = 5;
 	
@@ -290,22 +290,22 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		&ci, 
         &einfo);
 	if (r != ONIG_NORMAL) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		unsigned char s[ONIG_MAX_ERROR_MESSAGE_LEN];
 		onig_error_code_to_str(s, r, &einfo);
 		[self release];
 		[NSException raise:OgreException format:@"%s", s];
 	}
 	
-	// nameでgroup numberを引く辞書、(group number-1)でnameを引く逆引き辞書(配列)の作成
+	// dictionary-catching group number in the name, the creation of reverse dictionary (array) to pull the name in (group number-1) (nameでgroup numberを引く辞書、(group number-1)でnameを引く逆引き辞書(配列)の作成)
 	if ([self numberOfNames] > 0) {
-		// named groupを使用する場合
-		// 辞書の作成
-		// 例: /(?<a>a+)(?<b>b+)(?<a>c+)/
-		// 構造: {"a" = (1,3), "b" = (2)}
+		// If you use a named group (named groupを使用する場合)
+		// Creating a dictionary (辞書の作成)
+		// Example: / (? <a> A +) (? <B> b +) (? <a> C +) / (例: /(?<a>a+)(?<b>b+)(?<a>c+)/)
+		// Structure: {"a" = (1,3), "b" = (2)} (構造: {"a" = (1,3), "b" = (2)})
 		NSMutableDictionary *groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
 		_groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
-		/*r = */onig_foreach_name(_regexBuffer, namedGroupCallback, groupIndexForNameDictionary);	// nameの一覧を得る
+		/*r = */onig_foreach_name(_regexBuffer, namedGroupCallback, groupIndexForNameDictionary);	// I get a list of name (nameの一覧を得る)
 		
 		NSEnumerator	*keyEnumerator = [groupIndexForNameDictionary keyEnumerator];
 		NSString		*name;
@@ -320,7 +320,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
             }
             [name getCharacters:UTF16Name range:NSMakeRange(0, lengthOfName)];
 
-			/* nameに対応する部分文字列のindexを得る */
+			/* I get the index of the corresponding portion string to name (nameに対応する部分文字列のindexを得る) */
 			int	*indexList;
 			int n = onig_name_to_group_numbers(_regexBuffer, (unsigned char*)UTF16Name, (unsigned char*)(UTF16Name + lengthOfName), &indexList);
 			
@@ -336,9 +336,9 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		}
         [groupIndexForNameDictionary release];
 		
-		// 逆引き辞書の作成
-		// 例: /(?<a>a+)(?<b>b+)(?<a>c+)/
-		// 構造: ("a", "b", "a")
+		// Creating a reverse dictionary (逆引き辞書の作成)
+		// Example: / (? <a> A +) (? <B> b +) (? <a> C +) / (例: /(?<a>a+)(?<b>b+)(?<a>c+)/)
+		// Structure: ("a", "b", "a") (構造: ("a", "b", "a"))
 		_nameForGroupIndexArray = [[NSMutableArray alloc] initWithCapacity:maxGroupIndex];
 		for(i=0; i<maxGroupIndex; i++) {
 			[_nameForGroupIndexArray addObject:@""];
@@ -355,7 +355,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		}
 		
 	} else {
-		// named groupを使用しない場合
+		// If you do not want to use the named group (named groupを使用しない場合)
 		_groupIndexForNameDictionary = nil;
 		_nameForGroupIndexArray = nil;
 	}
@@ -363,25 +363,25 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return self;
 }
 
-// 正規表現を表している文字列を返す。
+// I returns a string representing a regular expression. (正規表現を表している文字列を返す。)
 - (NSString*)expressionString
 {
 	return _expressionString;
 }
 
-// 現在有効なオプション
+// Currently valid options (現在有効なオプション)
 - (NSUInteger)options
 {
 	return _options;
 }
 
-// 現在使用している正規表現の構文
+// Regular expression syntax that you are currently using (現在使用している正規表現の構文)
 - (OgreSyntax)syntax
 {
 	return _syntax;
 }
 
-// @"\\"の代替文字
+// Alternate character of @ "\\" (@"\\"の代替文字)
 - (NSString*)escapeCharacter
 {
 	return _escapeCharacter;
@@ -416,7 +416,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	regex_t			*regexBuffer;
 	NSString		*escapeChar = nil;
 	
-	// characterが使用可能な文字か調べる。
+	// character is I examine whether the available characters. (characterが使用可能な文字か調べる。)
 	BOOL	isBackslashEscape = NO;
 	switch ([[self class] kindOfCharacter:character]) {
 		case OgreKindOfBackslash:
@@ -426,22 +426,22 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			break;
 			
 		case OgreKindOfNormal:
-			// 普通の文字
+			// Ordinary character (普通の文字)
 			escapeChar = [character substringWithRange:NSMakeRange(0,1)];
 			break;
 			
 		case OgreKindOfNil:
 		case OgreKindOfEmpty:
 		case OgreKindOfSpecial:
-			// nil、空白文字、特殊文字の場合、エラー。
+			// nil, space character, the case of a special character, error. (nil、空白文字、特殊文字の場合、エラー。)
 			return NO;
 			break;
 	}
 		
-	// オプション(ONIG_OPTION_POSIX_REGIONとOgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionが立っている場合は下げる)
+	// Option (I lower if ONIG_OPTION_POSIX_REGION and OgreFindNotEmptyOption and OgreDelimitByWhitespaceOption is standing) (オプション(ONIG_OPTION_POSIX_REGIONとOgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionが立っている場合は下げる))
 	NSUInteger	compileTimeOptions = OgreCompileTimeOptionMask(options) & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
 	
-	// UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから)
+	// UTF16 is converted to a string. (In the case of OgreSimpleMatchingSyntax is converted to the regular expression (UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから))
 	NSString	*compileTimeString;
     
 	if (syntax == OgreSimpleMatchingSyntax) {
@@ -462,7 +462,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     }
     [compileTimeString getCharacters:UTF16Str range:NSMakeRange(0, length)];
 	
-	// 正規表現オブジェクトの作成・解放
+	// Of creating and releasing regular expression object (正規表現オブジェクトの作成・解放)
 
 	// Next 11 lines by MATSUMOTO Satoshi, Sep 31 2005
 #if defined( __BIG_ENDIAN__ )
@@ -481,15 +481,15 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     NSZoneFree([self zone], UTF16Str);
     
 	if (r == ONIG_NORMAL) {
-		// 正しい正規表現
+		// Correct regular expression (正しい正規表現)
 		return YES;
 	} else {
-		// エラー
+		// Error (エラー)
 		return NO;
 	}
 }
 
-// 文字列とマッチさせる。
+// String I match and. (文字列とマッチさせる。)
 - (OGRegularExpressionMatch*)matchInString:(NSString*)string
 {
 	return [self matchInString:string 
@@ -633,7 +633,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	range:(NSRange)searchRange
 {
 	if(string == nil) {
-		// stringがnilの場合、例外を発生させる。
+		// If string is nil, raise an exception. (stringがnilの場合、例外を発生させる。)
 		[NSException raise:NSInvalidArgumentException format: @"nil string (or other) argument"];
 	}
 	
@@ -648,7 +648,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// 文字列 targetString 中の正規表現にマッチした箇所を文字列 replaceString に置換したものを返す。
+// A place that matches the regular expression in a string targetString I return what was replaced by string replaceString. (文字列 targetString 中の正規表現にマッチした箇所を文字列 replaceString に置換したものを返す。)
 - (NSArray*)allMatchesInString:(NSString*)string
 {
 	return [self allMatchesInString:string
@@ -725,7 +725,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// 最初にマッチした部分のみを置換
+// First matching portion only the replacement (最初にマッチした部分のみを置換)
 - (NSString*)replaceFirstMatchInString:(NSString*)targetString 
 	withString:(NSString*)replaceString
 {
@@ -800,7 +800,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// 全てのマッチした部分を置換
+// Replace all of the matched substring (全てのマッチした部分を置換)
 - (NSString*)replaceAllMatchesInString:(NSString*)targetString 
 	withString:(NSString*)replaceString
 {
@@ -875,7 +875,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// マッチした部分を置換
+// Replace matched substring (マッチした部分を置換)
 - (NSString*)replaceString:(NSString*)targetString 
 	withString:(NSString*)replaceString 
 	options:(NSUInteger)options
@@ -981,10 +981,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		}
 	}
 	if (lastMatch == nil) {
-		// マッチ箇所がなかった場合は、そのまま返す。
+		// If there is no match point, I return as it is. (マッチ箇所がなかった場合は、そのまま返す。)
 		replacedString = (NSObject<OGStringProtocol,OGMutableStringProtocol>*)targetString;
 	} else {
-		// 最後のマッチ以降をコピー
+		// Copy since the last match (最後のマッチ以降をコピー)
 		[replacedString appendOGString:[lastMatch postmatchOGString]];
 	}
 	
@@ -996,8 +996,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-/* マッチした部分をaSelectorの返す文字列に置換する */
-// 最初にマッチした部分のみを置換
+/* To replace the matched substring in a string returned by aSelector (マッチした部分をaSelectorの返す文字列に置換する) */
+// First matching portion only the replacement (最初にマッチした部分のみを置換)
 - (NSString*)replaceFirstMatchInString:(NSString*)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
@@ -1112,7 +1112,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// 全てのマッチした部分を置換
+// Replace all of the matched substring (全てのマッチした部分を置換)
 - (NSString*)replaceAllMatchesInString:(NSString*)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
@@ -1229,7 +1229,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// マッチした部分を置換
+// Replace matched substring (マッチした部分を置換)
 - (NSString*)replaceString:(NSString*)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
@@ -1326,7 +1326,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	NSUInteger	matches = 0;
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	
-	// NSInvocationのセットアップ
+	// Setup of NSInvocation (NSInvocationのセットアップ)
 	NSMethodSignature	*replaceSignature = [aDelegate methodSignatureForSelector:aSelector];
 	NSInvocation		*replaceInvocation = [NSInvocation invocationWithMethodSignature:replaceSignature];
 	[replaceInvocation setTarget:aDelegate];
@@ -1339,12 +1339,12 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		while ((match = [enumerator nextObject]) != nil) {
 			matches++;
 			
-			// matchを置換する
+			// I replace the match (matchを置換する)
 			[replaceInvocation setArgument:&match atIndex:2];
 			[replaceInvocation invoke];
 			[replaceInvocation getReturnValue:&returnedString];
 			if (returnedString == nil) {
-				// nilが返された場合は置換を中止する。
+				// I cancel the replacement if nil is returned. (nilが返された場合は置換を中止する。)
 				break;
 			} else {
 				[replacedString appendOGString:[match ogStringBetweenMatchAndLastMatch]];
@@ -1366,7 +1366,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	} else {
 		if ((match = [enumerator nextObject]) != nil) {
 			matches++;
-			// matchを置換する
+			// I replace the match (matchを置換する)
 			[replaceInvocation setArgument:&match atIndex:2];
 			[replaceInvocation invoke];
 			[replaceInvocation getReturnValue:&returnedString];
@@ -1378,14 +1378,14 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 					[replacedString appendAttributedString:(NSAttributedString*)returnedString];
 				}
 				lastMatch = match;
-			} /* nilが返された場合は何もしない。*/
+			} /* it is not nothing if nil is returned. * / (nilが返された場合は何もしない。*/)
 		}
 	}
 	if (lastMatch == nil) {
-		// マッチ箇所がなかった場合は、そのまま返す。
+		// If there is no match point, I return as it is. (マッチ箇所がなかった場合は、そのまま返す。)
 		replacedString = (NSObject<OGStringProtocol,OGMutableStringProtocol>*)targetString;
 	} else {
-		// 最後のマッチ以降をコピ
+		// Copy the since the last match (最後のマッチ以降をコピ)
 		[replacedString appendOGString:[lastMatch postmatchOGString]];
 	}
 	
@@ -1397,26 +1397,26 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 
 
-// 現在のデフォルトのエスケープ文字。初期値は@"\\"
+// Current default escape character. The initial value @ "\\" (現在のデフォルトのエスケープ文字。初期値は@"\\")
 + (NSString*)defaultEscapeCharacter
 {
 	return OgrePrivateDefaultEscapeCharacter;
 }
 
-// デフォルトのエスケープ文字を変更する。変更すると数割遅くなります。
-// 変更前に作成されたインスタンスのエスケープ文字には影響しない。
-// character が使用できない文字の場合には例外を発生する。
+// I want to change the default escape character. Will be a few percent slower when you change. (デフォルトのエスケープ文字を変更する。変更すると数割遅くなります。)
+// It does not affect the escape character of instances that were created before the change. (変更前に作成されたインスタンスのエスケープ文字には影響しない。)
+// I raise an exception in the case of characters that character can not be used. (character が使用できない文字の場合には例外を発生する。)
 + (void)setDefaultEscapeCharacter:(NSString*)character
 {
-	// \の代替文字
-	// characterが使用可能な文字か調べる。
+	// \ Alternate character (\の代替文字)
+	// character is I examine whether the available characters. (characterが使用可能な文字か調べる。)
 	switch ([[self class] kindOfCharacter:character]) {
 		case OgreKindOfNil:
-			// nilのとき、エラー
+			// When nil, error (nilのとき、エラー)
 			[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
 			break;
 		case OgreKindOfEmpty:
-			// 空白のとき、エラー
+			// When blank, error (空白のとき、エラー)
 			[NSException raise:NSInvalidArgumentException format:@"empty string argument"];
 			break;
 		case OgreKindOfBackslash:
@@ -1425,25 +1425,25 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			OgrePrivateDefaultEscapeCharacter = [OgreBackslashCharacter retain];
 			break;
 		case OgreKindOfNormal:
-			// 普通の文字
+			// Ordinary character (普通の文字)
 			[OgrePrivateDefaultEscapeCharacter autorelease];
 			OgrePrivateDefaultEscapeCharacter = [[character substringWithRange:NSMakeRange(0,1)] retain];
 			break;
 		case OgreKindOfSpecial:
-			// 特殊文字。エラー。
+			// Special characters. Error. (特殊文字。エラー。)
 			[NSException raise:NSInvalidArgumentException format:@"invalid candidate for an escape character"];
 			break;
 	}
 }
 
-// 現在のデフォルトの正規表現構文。初期値はRuby
+// Current default regular expression syntax. The initial value is Ruby (現在のデフォルトの正規表現構文。初期値はRuby)
 + (OgreSyntax)defaultSyntax
 {
 	return OgrePrivateDefaultSyntax;
 }
 
-// デフォルトの正規表現構文を変更する。
-// 変更前に作成されたインスタンスには影響を与えない。
+// I want to change the default regular expression syntax. (デフォルトの正規表現構文を変更する。)
+// It does not affect the instance that was created prior to the change. (変更前に作成されたインスタンスには影響を与えない。)
 + (void)setDefaultSyntax:(OgreSyntax)syntax
 {
 	onig_set_default_syntax([[self class] onigSyntaxTypeForSyntax:syntax]);
@@ -1452,14 +1452,14 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-// OgreKitのバージョン文字列を返す
+// I return the version string of OgreKit (OgreKitのバージョン文字列を返す)
 + (NSString*)version
 {
 	return OgreVersionString;
 }
 
 
-// onigurumaのバージョン文字列を返す
+// I return the version string of oniguruma (onigurumaのバージョン文字列を返す)
 + (NSString*)onigurumaVersion
 {
 	return @(onig_version());
@@ -1478,7 +1478,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	// NSString			*_expressionString;
 	// NSUInteger		_options;
 	// OnigSyntaxType		*_syntax;
-	// onig_t				*_regexBuffer;はencodeしない。
+	// onig_t 				* _regexBuffer; It does not encode. (onig_t				*_regexBuffer;はencodeしない。)
 
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
@@ -1514,7 +1514,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		escapeCharacter = [decoder decodeObject];
 	}
 	if(escapeCharacter == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	
@@ -1525,7 +1525,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		expressionString = [decoder decodeObject];
 	}
 	if(expressionString == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 
@@ -1536,20 +1536,20 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	options = [anObject unsignedIntValue];
 
 	// OnigSyntaxType		*_syntax;
-	// 要改善点。独自のsyntaxを用意した場合はencodeできない。
+	// Required improvements. I can not encode If you provide your own syntax. (要改善点。独自のsyntaxを用意した場合はencodeできない。)
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey:OgreSyntaxKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	syntax = [anObject intValue];
@@ -1587,25 +1587,25 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return [dictionary description];
 }
 
-// capture groupの数
+// number of capture group (capture groupの数)
 - (NSUInteger)numberOfGroups
 {
     return onig_number_of_captures(_regexBuffer);
 }
 
-// name groupの数
+// number of name group (name groupの数)
 - (NSUInteger)numberOfNames
 {
 	return onig_number_of_names(_regexBuffer);
 }
-// nameの配列
-// named groupを使用していない場合はnilを返す。
+// array of name (nameの配列)
+// Returns nil if you are not using the named group. (named groupを使用していない場合はnilを返す。)
 - (NSArray*)names
 {
 	return [_groupIndexForNameDictionary allKeys];
 }
 
-// OgreSyntaxとintの相互変換
+// Interconversion of OgreSyntax and int (OgreSyntaxとintの相互変換)
 + (NSInteger)intValueForSyntax:(OgreSyntax)syntax
 {
 	if(syntax == OgreSimpleMatchingSyntax) return 0;
@@ -1638,7 +1638,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return 0;	// dummy
 }
 
-// OgreSyntaxを表す文字列
+// A string representing the OgreSyntax (OgreSyntaxを表す文字列)
 + (NSString*)stringForSyntax:(OgreSyntax)syntax
 {
 	if(syntax == OgreSimpleMatchingSyntax) return @"Simple Matching";
@@ -1654,7 +1654,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return @"Unknown";
 }
 
-// Optionsを表す文字列の配列
+// Array of strings representing the Options (Optionsを表す文字列の配列)
 + (NSArray*)stringsForOptions:(NSUInteger)options
 {
 	NSMutableArray	*array = [NSMutableArray arrayWithCapacity:0];
@@ -1679,7 +1679,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return array;
 }
 
-// 文字列を正規表現で安全な文字列に変換する。(特殊文字をする)
+// The string I want to convert to a safe string in the regular expression. (I make a special character) (文字列を正規表現で安全な文字列に変換する。(特殊文字をする))
 + (NSString*)regularizeString:(NSString*)string
 {
 	if (string == nil) {
@@ -1696,7 +1696,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	strlen = [regularizedString length];
 	searchRange = NSMakeRange(0, strlen);
 	
-	/* @"|().?*+{}^$[]-&#:=!<>@"を退避する */
+	/* @ "|.?! () * + {} ^ $ [] - & #: = <> @" I saved the (@"|().?*+{}^$[]-&#:=!<>@"を退避する) */
 	while ( matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {
 
@@ -1721,7 +1721,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 /**************
  * 文字列の分割 *
  **************/
-// マッチした部分で文字列を分割し、NSArrayに収めて返す。
+// Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
 - (NSArray*)splitString:(NSString*)aString
 {
 	return [self splitString:aString 
@@ -1776,7 +1776,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		matches++;
 		if ((limit > 0) && (matches == limit)) break; 
 		
-		// 単語を追加する。
+		// I want to add a word. (単語を追加する。)
 		[words addObject:[match stringBetweenMatchAndLastMatch]];
 		lastMatch = match;
 		
@@ -1790,8 +1790,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	
 	remainingString = ((lastMatch)? [lastMatch postmatchString] : aString);
 	if (([remainingString length] != 0) || (limit != 0) || (lastMatch == nil)) {
-		// limit == 0 && [remainingString length] == 0 の場合以外は残りを加える。
-		// (一つもマッチしなかった場合はaStringを加える。)
+		// except in the case of limit == 0 && [remainingString length] == 0 I add the rest. (limit == 0 && [remainingString length] == 0 の場合以外は残りを加える。)
+		// (I add aString if one also did not match. ((一つもマッチしなかった場合はaStringを加える。)
 		[words addObject:remainingString];
 	}
 	
@@ -1800,7 +1800,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return words;
 }
 
-// 改行コードをnewlineCharacterに統一する。
+// A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
 + (NSString*)replaceNewlineCharactersInString:(NSString*)aString withCharacter:(OgreNewlineCharacter)newlineCharacter;
 {
 	NSMutableString	*convertedString = [NSMutableString string];
@@ -1822,11 +1822,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		// Unicode paragraph separator
 		newlineString = OgrePrivateUnicodeParagraphSeparator;
 	} else if (newlineCharacter == OgreNonbreakingNewlineCharacter) {
-		// 改行なしの場合
+		// In the case of non-breaking (改行なしの場合)
 		newlineString = @"";
 	}
 	
-	/* 改行コードを置換する */
+	/* I replace the line feed code (改行コードを置換する) */
 	NSUInteger			counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
@@ -1837,18 +1837,18 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 				matchRange;
 	while ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {
-		// マッチした部分より前をコピー
+		// Copy before the matched substring (マッチした部分より前をコピー)
 		matchLocation = matchRange.location;
 		copyLocation = searchRange.location;
 		[convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, matchLocation - copyLocation)]];
-		// 所望の改行コードをコピー
+		// Copy the desired line feed code (所望の改行コードをコピー)
 		[convertedString appendString:newlineString];
 		
-		// CR or LF以降を次の検索範囲にする。
+		// Later CR or LF I will in the next search range. (CR or LF以降を次の検索範囲にする。)
 		searchRange.location = matchLocation + 1;
 		searchRange.length = strlen - (matchLocation + 1);
 		
-		// CR+LFにマッチした場合は次の検索範囲を更に1文字進める
+		// Furthermore advanced by one character for the next search range if you match the CR + LF (CR+LFにマッチした場合は次の検索範囲を更に1文字進める)
 		aCharacter = [aString substringWithRange:NSMakeRange(matchLocation, 1)];
 		if ([aCharacter isEqualToString:@"\r"] && (matchLocation < (strlen - 1))) {
 			aCharacter = [aString substringWithRange:NSMakeRange(matchLocation + 1, 1)];
@@ -1865,7 +1865,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			pool = [[NSAutoreleasePool alloc] init];
 		}
 	}
-	// 残りをコピー
+	// Copy the rest (残りをコピー)
 	copyLocation = searchRange.location;
 	[convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, strlen - copyLocation)]];
 	
@@ -1874,7 +1874,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return convertedString;
 }
 
-// 改行コードが何か調べる
+// Examine new line code is something (改行コードが何か調べる)
 + (OgreNewlineCharacter)newlineCharacterInString:(NSString*)aString
 {
 	NSString				*aCharacter;

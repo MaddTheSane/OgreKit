@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib
 {
-	[[OgreAttachableWindowMediator sharedMediator] addAcceptor:self];	// 必須
+	[[OgreAttachableWindowMediator sharedMediator] addAcceptor:self];	// Required (必須)
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
 		selector:@selector(windowWillMove:)
@@ -31,7 +31,7 @@
 - (void)finalize
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self];
-	[[OgreAttachableWindowMediator sharedMediator] removeAcceptor:self];	// 必須
+	[[OgreAttachableWindowMediator sharedMediator] removeAcceptor:self];	// Required (必須)
     [super finalize];
 }
 #endif
@@ -39,7 +39,7 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self];
-	[[OgreAttachableWindowMediator sharedMediator] removeAcceptor:self];	// 必須
+	[[OgreAttachableWindowMediator sharedMediator] removeAcceptor:self];	// Required (必須)
     [super dealloc];
 }
 

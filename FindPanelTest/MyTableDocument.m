@@ -20,16 +20,16 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 @implementation MyTableDocument
 
-// 検索対象となるtableViewをOgreTextFinderに教える。
-// 検索させたくない場合はnilをsetする。
-// 定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。
+// I teach be searched tableView to OgreTextFinder. (検索対象となるtableViewをOgreTextFinderに教える。)
+// To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
+// If you omit the definition, first responder of main window is to adopt it if possible search. (定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。)
 - (void)tellMeTargetToFindIn:(id)textFinder
 {
 	[textFinder setTargetToFindIn:tableView];
 }
 
 
-/* ここから下は検索パネルに関係しないコード */
+/* Under from here code that is not related to the search panel (ここから下は検索パネルに関係しないコード) */
 - (void)awakeFromNib
 {
     _useCustomSheetPosition = NO;
@@ -79,7 +79,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         [aString appendFormat:@"\n"];
     }
     
-	// 改行コードを(置換すべきなら)置換し、保存する。
+	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
 	if ([aString newlineCharacter] != _newlineCharacter) {
 		aString = (NSMutableString*)[OGRegularExpression replaceNewlineCharactersInString:aString 
 			withCharacter:_newlineCharacter];
@@ -90,7 +90,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
 {
-	// ファイルから読み込む。(UTF8決めうち。)
+	// I read from a file. (UTF8 decided out.) (ファイルから読み込む。(UTF8決めうち。))
     NSMutableString *aString = nil;
     aString = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if (aString == nil) {
@@ -98,15 +98,15 @@ static NSString *gMyTableRowPropertyType = @"rows";
     }
     [aString autorelease];
     
-	// 改行コードの種類を得る。
+	// I get kind of line feed code. (改行コードの種類を得る。)
 	_newlineCharacter = [aString newlineCharacter];
 	if (_newlineCharacter == OgreNonbreakingNewlineCharacter) {
-		// 改行のない場合はOgreUnixNewlineCharacterとみなす。
+		// Is regarded as OgreUnixNewlineCharacter If there is no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
 		//NSLog(@"nonbreaking");
 		_newlineCharacter = OgreUnixNewlineCharacter;
 	}
 	
-	// 改行コードを(置換すべきなら)置換する。
+	// The line feed code (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
 	if (_newlineCharacter != OgreUnixNewlineCharacter) {
 		[aString replaceNewlineCharactersWithCharacter:OgreUnixNewlineCharacter];
 	}
@@ -177,7 +177,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         [tableView reloadData];
 	} else {
         _dict = [[NSMutableDictionary alloc] init];
-		_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
+		_newlineCharacter = OgreUnixNewlineCharacter;	// The default line break code (デフォルトの改行コード)
         
         _numberOfColumns = 0;
 	}
@@ -185,7 +185,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     [super windowControllerDidLoadNib:controller];
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
 {
 	_newlineCharacter = aNewlineCharacter;

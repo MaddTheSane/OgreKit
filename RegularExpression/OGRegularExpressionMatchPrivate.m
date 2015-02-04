@@ -21,7 +21,7 @@
 
 @implementation OGRegularExpressionMatch (Private)
 
-/* 非公開メソッド */
+/* Private method (非公開メソッド) */
 - (id)initWithRegion:(OnigRegion*)region 
 	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
@@ -35,18 +35,18 @@
 		// match result region
 		_region = region;	// retain
 	
-		// 生成主
+		// Generation main (生成主)
 		_enumerator = [enumerator retain];
 		
-		// 最後にマッチした文字列の終端位置
+		// End position of the last matched string (最後にマッチした文字列の終端位置)
 		_terminalOfLastMatch = terminalOfLastMatch;
-		// マッチした順番
+		// Matched order (マッチした順番)
 		_index = anIndex;
 		
-		// 頻繁に利用するものはキャッシュする。保持はしない。
-		// 検索対象文字列
+		// Those that frequently use my cache. Retention and will not be. (頻繁に利用するものはキャッシュする。保持はしない。)
+		// Search target string (検索対象文字列)
 		_targetString     = [_enumerator targetString];
-		// 検索範囲
+		// Search range (検索範囲)
 		NSRange	searchRange = [_enumerator searchRange];
 		_searchRange.location = searchRange.location;
 		_searchRange.length   = searchRange.length;
