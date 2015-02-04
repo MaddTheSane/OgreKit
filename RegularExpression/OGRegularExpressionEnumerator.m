@@ -196,7 +196,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 
 	NSMutableArray	*matchArray = [NSMutableArray arrayWithCapacity:10];
 
-	NSInteger			orgTerminalOfLastMatch = _terminalOfLastMatch;
+	NSInteger	orgTerminalOfLastMatch = _terminalOfLastMatch;
 	BOOL		orgIsLastMatchEmpty = _isLastMatchEmpty;
 	NSUInteger	orgStartLocation = _startLocation;
 	NSUInteger	orgNumberOfMatches = _numberOfMatches;

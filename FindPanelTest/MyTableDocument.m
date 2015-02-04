@@ -56,7 +56,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     
 	NSMutableString *aString = [NSMutableString string];
     NSArray         *columnArray = [tableView tableColumns];
-    OgreTableColumn   *column;
+    OgreTableColumn *column;
     NSInteger       columnIndex, numberOfColumns = [columnArray count];
     NSInteger       rowIndex, numberOfRows = [self numberOfRows];
     NSArray         *array;
