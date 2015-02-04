@@ -239,7 +239,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 #ifdef DEBUG_OGRE
 	NSLog(@"-encodeWithCoder: of %@", [self className]);
 #endif
-	//[super encodeWithCoder:encoder]; NSObject does ont respond to method encodeWithCoder:
+	//[super encodeWithCoder:encoder]; NSObject doesn’t respond to method encodeWithCoder:
 	
 	//OGRegularExpression	*_regex;							// 正規表現オブジェクト
 	//NSString				*_TargetString;				// 検索対象文字列
