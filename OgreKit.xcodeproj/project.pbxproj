@@ -99,9 +99,9 @@
 		4DC40E9209150CF50029A2A6 /* OgreTextFindRoot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D8C09150CEC0029A2A6 /* OgreTextFindRoot.h */; };
 		4DC40E9309150CF50029A2A6 /* OgreTextFindRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D8D09150CEC0029A2A6 /* OgreTextFindRoot.m */; };
 		4DC40E9409150CF50029A2A6 /* OgreTextFindBranch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D8E09150CEC0029A2A6 /* OgreTextFindBranch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DC40E9509150CF50029A2A6 /* OgreTextFindBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D8F09150CED0029A2A6 /* OgreTextFindBranch.m */; };
+		4DC40E9509150CF50029A2A6 /* OgreTextFindBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D8F09150CED0029A2A6 /* OgreTextFindBranch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4DC40E9609150CF50029A2A6 /* OgreTextFindLeaf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D9009150CED0029A2A6 /* OgreTextFindLeaf.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DC40E9709150CF50029A2A6 /* OgreTextFindLeaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D9109150CED0029A2A6 /* OgreTextFindLeaf.m */; };
+		4DC40E9709150CF50029A2A6 /* OgreTextFindLeaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D9109150CED0029A2A6 /* OgreTextFindLeaf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4DC40E9809150CF50029A2A6 /* OgreTextFindComponentEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D9209150CED0029A2A6 /* OgreTextFindComponentEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E9909150CF50029A2A6 /* OgreTextFindComponentEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D9309150CED0029A2A6 /* OgreTextFindComponentEnumerator.m */; };
 		4DC40E9A09150CF50029A2A6 /* OgreTextFindReverseComponentEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D9409150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };

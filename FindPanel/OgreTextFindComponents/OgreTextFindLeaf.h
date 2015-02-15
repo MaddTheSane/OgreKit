@@ -36,7 +36,7 @@
 @property  NSRange selectedRange;
 - (void)jumpToSelection;
 
-@property (strong, setter=setOGString:) NSObject<OGStringProtocol> *ogString;
+@property (strong, setter=setOGString:) id<OGStringProtocol> ogString;
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString;
 
 - (void)unhighlight;

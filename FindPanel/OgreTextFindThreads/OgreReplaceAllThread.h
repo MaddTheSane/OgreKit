@@ -22,7 +22,7 @@
     OGReplaceExpression		*repex;
     NSUInteger				aNumberOfReplaces, aNumberOfMatches;
     NSString				*progressMessage, *progressMessagePlural, *remainingTimeMesssage;
-	NSObject<OGStringProtocol>				*replacedString;
+	id<OGStringProtocol>				replacedString;
 }
 
 @end

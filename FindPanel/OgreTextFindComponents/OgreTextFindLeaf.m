@@ -22,6 +22,15 @@
 @synthesize terminal = _isTerminal;
 @synthesize reversed = _isReversed;
 
+- (void)dealloc
+{
+#ifdef DEBUG_OGRE_FIND_PANEL
+	NSLog(@"  -dealloc of %@", [self className]);
+#endif
+    if (_isParentRetained) [_parent release];
+    [super dealloc];
+}
+
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor // visitor pattern
 {
     [aVisitor visitLeaf:self];
@@ -93,14 +102,16 @@
 
 - (void)setParent:(OgreTextFindBranch*)parent
 {
-    _parent = parent;
+    if (_isParentRetained) [_parent autorelease];
+    _parent = [parent retain];
     _isParentRetained = YES;
 }
 
 - (void)setParentNoRetain:(OgreTextFindBranch*)parent
 {
+    if (_isParentRetained) [_parent autorelease];
     _parent = parent;
-    _isParentRetained = YES;
+    _isParentRetained = NO;
 }
 
 /* Accessor methods */
