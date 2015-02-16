@@ -276,7 +276,7 @@
     return nameCell;
 }
 
-- (float)rowHeight
+- (CGFloat)rowHeight
 {
     if ([_target isKindOfClass:[NSOutlineView class]]) {
         return [(NSOutlineView*)_target rowHeight];

@@ -64,7 +64,7 @@ extern NSString	*OgreTextViewFindResultException;
 // index番目にマッチした文字列を選択する
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 // マッチ数
-- (NSUInteger)count;
+@property (readonly) NSUInteger count;
 
 // 結果の更新
 - (void)updateOldRange:(NSRange)oldRange newRange:(NSRange)newRange;

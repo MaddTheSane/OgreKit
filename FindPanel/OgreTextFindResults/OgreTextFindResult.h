@@ -49,10 +49,8 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 	id							_alertSheet;
     
     /* display */
-	NSString					*_title;					// target window title
-	int                         _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-	int                         _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
-	id<OgreTextFindResultDelegate>  __weak _delegate;                  // 更新連絡先
+	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
+	NSInteger                   _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
     
     /* highlight color */
     NSMutableArray              *_highlightColorArray;   // variations
@@ -78,9 +76,9 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 @property (nonatomic, copy) NSString *title;
 
 // マッチした文字列の左側の最大文字数 (-1: 無制限)
-@property int maximumLeftMargin;
+@property NSInteger maximumLeftMargin;
 // 最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。
-@property int maximumMatchedStringLength;
+@property NSInteger maximumMatchedStringLength;
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
@@ -94,7 +92,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 
 // setting of result outline view
 @property (readonly, copy) NSCell *nameCell;
-@property (readonly) float rowHeight;
+@property (readonly) CGFloat rowHeight;
 // delegate method of the find result outline view
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 

@@ -39,7 +39,7 @@
 	OGRegularExpression *_regex;			// regular expression
 	OGReplaceExpression *_repex;			// replace expression
 	NSColor				*_highlightColor;	// highlight color
-	unsigned			_searchOptions;		// search option
+	OgreOption			_searchOptions;		// search option
 	BOOL				_inSelection;		// find scope
 	BOOL				_asynchronous;		// synchronous or asynchronous 
 	SEL					_didEndSelector;	// selector for sending a finish message
@@ -85,7 +85,7 @@
 @property (copy) OGRegularExpression *regularExpression;
 @property (copy) OGReplaceExpression *replaceExpression;
 @property (copy) NSColor *highlightColor;
-@property unsigned int options;
+@property OgreOption options;
 @property BOOL inSelection;
 @property (weak) NSObject<OgreTextFindProgressDelegate> *progressDelegate;
 @property (getter=isTerminated, readonly) BOOL terminated;

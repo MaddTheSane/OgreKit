@@ -215,10 +215,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return YES;
 }
 
-- (NSUInteger)count
-{
-	return _count;
-}
+@synthesize count = _count;
 
 // [_textView window] will close
 - (void)windowWillClose:(NSNotification*)aNotification
@@ -234,9 +231,9 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 - (NSString*)description
 {
 	return [@{@"Match Line": _lineOfMatchedStrings, 
-			@"Match Range": _matchRangeArray, 
-			@"Line": @(_line), 
-			@"Count": @(_count)} description];
+              @"Match Range": _matchRangeArray,
+              @"Line": @(_line),
+              @"Count": @(_count)} description];
 }
 
 - (void)textStorageWillProcessEditing:(NSNotification*)aNotification

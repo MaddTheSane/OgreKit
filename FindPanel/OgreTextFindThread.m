@@ -293,31 +293,6 @@
 
 
 /* Configuration */
-- (void)setRegularExpression:(OGRegularExpression*)regex
-{
-	_regex = regex;
-}
-
-- (void)setReplaceExpression:(OGReplaceExpression*)repex
-{
-	_repex = repex;
-}
-
-- (void)setHighlightColor:(NSColor*)highlightColor
-{
-	_highlightColor = highlightColor;
-}
-
-- (void)setOptions:(unsigned)options
-{
-	_searchOptions = options;
-}
-
-- (void)setInSelection:(BOOL)inSelection
-{
-	_inSelection = inSelection;
-}
-
 - (void)setDidEndSelector:(SEL)aSelector toTarget:(id)aTarget
 {
 	_didEndSelector = aSelector;
@@ -341,39 +316,12 @@
 }
 
 /* Accessors */
-- (OGRegularExpression*)regularExpression
-{
-	return _regex;
-}
-
-- (OGReplaceExpression*)replaceExpression
-{
-	return _repex;
-}
-
-
-- (NSColor*)highlightColor
-{
-	return _highlightColor;
-}
-
-
-- (unsigned)options
-{
-	return _searchOptions;
-}
-
-
-- (BOOL)inSelection
-{
-	return _inSelection;
-}
-
-
-- (BOOL)isTerminated
-{
-	return _terminated;
-}
+@synthesize regularExpression = _regex;
+@synthesize replaceExpression = _repex;
+@synthesize highlightColor = _highlightColor;
+@synthesize inSelection = _inSelection;
+@synthesize terminated = _terminated;
+@synthesize options = _searchOptions;
 
 - (NSTimeInterval)processTime
 {
