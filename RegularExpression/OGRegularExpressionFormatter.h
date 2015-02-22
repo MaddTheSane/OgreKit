@@ -41,7 +41,7 @@ extern NSString	* const OgreFormatterException;
 	escapeCharacter:(NSString*)character NS_DESIGNATED_INITIALIZER;
 
 @property (copy) NSString *escapeCharacter;
-@property unsigned options;
+@property OgreOption options;
 @property OgreSyntax syntax;
 
 @end

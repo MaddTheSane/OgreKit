@@ -32,7 +32,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		return nil;
     }
 	
-	//NSLog(@"stringForObjectValue ¥"%@¥"", [anObject expressionString]); 
+	//NSLog(@"stringForObjectValue \"%@\"", [anObject expressionString]); 
 	return [anObject expressionString];
 }
 
@@ -43,7 +43,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		return nil;
     }
 	
-	//NSLog(@"stringForObjectValue ¥"%@¥"", [anObject expressionString]); 
+	//NSLog(@"stringForObjectValue \"%@\"", [anObject expressionString]); 
 	return [[NSAttributedString alloc] initWithString: [anObject expressionString] 
 		attributes: attributes];
 }
@@ -54,7 +54,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		return nil;
     }
 	
-	//NSLog(@"editingStringForObjectValue ¥"%@¥"", [anObject expressionString]); 
+	//NSLog(@"editingStringForObjectValue \"%@\"", [anObject expressionString]); 
 	return [anObject expressionString];
 }
 
@@ -63,7 +63,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 {
 	BOOL	retval;
 	
-	//NSLog(@"getObjectValue ¥"%@¥"", string); 
+	//NSLog(@"getObjectValue \"%@\"", string); 
 	@try {
 		*obj = [OGRegularExpression regularExpressionWithString: string
 			options: [self options] 
@@ -74,11 +74,11 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	} @catch (NSException *localException) {
 		// 例外処理
 		NSString	*name = [localException name];
-		//NSLog(@"¥"%@¥" caught in getObjectValue", name);
+		//NSLog(@"\"%@\" caught in getObjectValue", name);
 		
 		if ([name isEqualToString:OgreFormatterException]) {
 			NSString	*reason = [localException reason];
-			//NSLog(@"reason: ¥"%@¥"", reason); 
+			//NSLog(@"reason: \"%@\"", reason);
 			
 			if (error != nil) {
 				*error = reason;
