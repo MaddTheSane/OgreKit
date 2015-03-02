@@ -84,12 +84,12 @@
     return [[self textFindResult] messageOfStringsFound:[_matchRangeArray count]];
 }
 
-- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return [_matchComponents count];
 }
 
-- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return _matchComponents[index];
 }

@@ -20,7 +20,7 @@
     NSMutableArray      *_attributedStringArray;
     NSUInteger          _count, _tail;
 }
-- (id)initWithCapacity:(NSUInteger)aCapacity;
+- (instancetype)initWithCapacity:(NSUInteger)aCapacity;
 - (void)addRange:(NSRange)aRange attributedString:(NSAttributedString*)anAttributedString;
 - (void)undoTextView:(id)aTarget jumpToSelection:(BOOL)jumpToSelection invocationTarget:(id)myself;
 @end

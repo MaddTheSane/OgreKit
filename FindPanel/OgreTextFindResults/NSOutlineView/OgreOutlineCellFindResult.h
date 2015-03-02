@@ -24,7 +24,7 @@
     NSMutableArray      *_matchRangeArray, *_matchComponents;
 }
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
 
 // item name that matched string for the index (index番目にマッチした文字列のある項目名)
 - (id)nameOfMatchedStringAtIndex:(NSUInteger)index;

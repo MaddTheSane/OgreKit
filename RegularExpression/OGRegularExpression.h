@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, OgreSyntax) {
 	OgreJavaSyntax, 
 	OgrePerlSyntax, 
 	OgreRubySyntax
-} ;
+};
 
 // @"\\"
 #define	OgreBackslashCharacter			@"\\"
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, OgreNewlineCharacter) {
 	OgreWindowsNewlineCharacter = 2,	OgreCrLfNewlineCharacter = 2, 
 	OgreUnicodeLineSeparatorNewlineCharacter,
 	OgreUnicodeParagraphSeparatorNewlineCharacter
-} ;
+};
 
 
 // exception name

@@ -569,8 +569,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	withString:(NSString*)replaceString
 	options:(NSUInteger)options
 {
-	return [self replaceAndFind:[OGPlainString stringWithString:expressionString]
-		withString:[OGPlainString stringWithString:replaceString] 
+	return [self replaceAndFind:expressionString
+		withString:replaceString
 		options:options 
 		replacingOnly:YES 
 		wrap:NO];

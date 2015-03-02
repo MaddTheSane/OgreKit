@@ -22,7 +22,7 @@
     OgreOutlineColumn   *_outlineColumn;
 }
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn;
 - (void)expandItemEnclosingItem:(id)item;   // dummy
 
 @end

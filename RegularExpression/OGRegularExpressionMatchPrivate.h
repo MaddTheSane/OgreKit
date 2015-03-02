@@ -20,7 +20,7 @@
 /*********
  * 初期化 *
  *********/
-- (id)initWithRegion:(OnigRegion*)region 
+- (instancetype)initWithRegion:(OnigRegion*)region
 	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
 	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;

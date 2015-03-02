@@ -234,36 +234,4 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	[super dealloc];
 }
 
-- (NSString*)escapeCharacter
-{
-	return _escapeCharacter;
-}
-
-- (void)setEscapeCharacter:(NSString*)character
-{
-	[_escapeCharacter autorelease];
-	_escapeCharacter = [character copy];
-}
-
-- (NSUInteger)options
-{
-	return _options;
-}
-
-- (void)setOptions:(NSUInteger)options
-{
-	_options = options;
-}
-
-- (OgreSyntax)syntax
-{
-	return _syntax;
-}
-
-- (void)setSyntax:(OgreSyntax)syntax
-{
-	_syntax = syntax;
-}
-
-
 @end

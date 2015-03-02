@@ -38,7 +38,7 @@
     return ((_component != nil)? 1 : 0);
 }
 
-- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return _component;
 }

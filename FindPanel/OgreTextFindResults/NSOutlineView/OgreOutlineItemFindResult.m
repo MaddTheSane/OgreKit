@@ -117,12 +117,12 @@
     return [[self textFindResult] messageOfItemsFound:[_components count]]; 
 }
 
-- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return [_simplifiedComponents count];
 }
 
-- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return _simplifiedComponents[index];
 }

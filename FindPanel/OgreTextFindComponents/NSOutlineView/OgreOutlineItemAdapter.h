@@ -24,10 +24,9 @@
     NSInteger       _level;
 }
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
-- (OgreOutlineColumn*)outlineColumn;
-- (void)setLevel:(NSInteger)level;
-- (NSInteger)level;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
+@property (nonatomic, strong, readonly) OgreOutlineColumn *outlineColumn;
+@property (nonatomic) NSInteger level;
 - (void)expandItemEnclosingItem:(id)item;
 
 @end

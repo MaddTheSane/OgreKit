@@ -1378,7 +1378,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 					[replacedString appendAttributedString:(NSAttributedString*)returnedString];
 				}
 				lastMatch = match;
-			} /* it is not nothing if nil is returned. * / (nilが返された場合は何もしない。*/)
+			} /* it is not nothing if nil is returned. (nilが返された場合は何もしない。)*/
 		}
 	}
 	if (lastMatch == nil) {

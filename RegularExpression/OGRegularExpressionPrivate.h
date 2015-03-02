@@ -17,13 +17,13 @@
 
 @class OGRegularExpression;
 
-typedef enum OgreKindOfCharacters {
+typedef NS_ENUM(int, OgreKindOfCharacter) {
 	OgreKindOfNil = -1,
 	OgreKindOfEmpty, 
 	OgreKindOfSpecial, 
 	OgreKindOfBackslash, 
 	OgreKindOfNormal
-} OgreKindOfCharacter;
+};
 
 // Regular expression syntax (正規表現構文)
 OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;

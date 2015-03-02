@@ -843,21 +843,21 @@
 				4DC4105709150D550029A2A6 /* Find Panel Test */,
 				4DC4108009150D640029A2A6 /* My Find Panel Example */,
 				4DA741461142B36700E28DA7 /* GC Test */,
-				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
 			name = OgreKit;
 			sourceTree = "<group>";
 			usesTabs = 0;
 		};
-		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4D82DCC109B9EC15007F03B0 /* Linked Libraries */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
-			name = "External Frameworks and Libraries";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {

@@ -265,17 +265,6 @@
 }
 
 
-// delegate
-- (void)setDelegate:(id)aDelegate
-{
-	_delegate = aDelegate;
-}
-
-- (id)delegate
-{
-    return _delegate;
-}
-
 - (void)didUpdate
 {
     [(id <OgreTextFindResultDelegateProtocol>)_delegate didUpdateTextFindResult:self];
@@ -365,12 +354,6 @@
 	}
 	
 	return _title;
-}
-
-- (void)setTitle:(NSString*)title
-{
-	[_title autorelease];
-	_title = [title retain];
 }
 
 @end

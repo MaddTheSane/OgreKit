@@ -23,6 +23,6 @@
     NSInteger       _rowIndex;
 }
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;
+- (instancetype)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;
 
 @end

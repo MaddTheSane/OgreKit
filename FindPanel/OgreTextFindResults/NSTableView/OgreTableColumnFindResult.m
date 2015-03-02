@@ -76,12 +76,12 @@
     return [[self textFindResult] messageOfStringsFound:[_flattenedComponents count]]; 
 }
 
-- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return [_flattenedComponents count];
 }
 
-- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return _flattenedComponents[index];
 }

@@ -513,7 +513,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
     return [self count]; 
 }
 
-- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     if (!inSelection) return _childArray[index];
     

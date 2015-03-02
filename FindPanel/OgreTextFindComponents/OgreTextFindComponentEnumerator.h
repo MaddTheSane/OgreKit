@@ -18,18 +18,14 @@
 @interface OgreTextFindComponentEnumerator : NSEnumerator
 {
     OgreTextFindBranch	*_branch;
-#ifdef MAC_OS_X_VERSION_10_6
     NSUInteger			*_indexes, _count;
-#else
-    unsigned			*_indexes, _count;
-#endif
 	NSInteger			_nextIndex;
     NSInteger			_terminalIndex;
     BOOL				_inSelection;
 }
 
 - (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection NS_DESIGNATED_INITIALIZER;
-- (void)setTerminalIndex:(NSInteger)index;
-- (void)setStartIndex:(NSInteger)index;
+@property (nonatomic) NSInteger terminalIndex;
+@property (nonatomic) NSInteger startIndex;
 
 @end

@@ -24,7 +24,7 @@
     OgreOutlineCellMatchFindResult  *_outlineDelegateLeaf;
 }
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
 
 - (void)targetIsMissing;
 - (void)expandItemEnclosingItem:(id)item;

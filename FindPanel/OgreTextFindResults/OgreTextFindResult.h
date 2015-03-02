@@ -27,9 +27,9 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 	OgreTextFindResultFailure = 0, 
 	OgreTextFindResultSuccess = 1, 
 	OgreTextFindResultError = 2
-} ;
+};
 
-@interface OgreTextFindResult : NSObject
+@interface OgreTextFindResult : NSObject <NSOutlineViewDelegate>
 {
 	OgreTextFindResultType		_resultType;
 	id							_target;

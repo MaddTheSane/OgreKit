@@ -18,13 +18,13 @@
 	NSString	*_string;
 }
 
-- (id)initWithString:(NSString*)string;
-- (id)initWithAttributedString:(NSAttributedString*)attributedString;
-- (id)initWithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
+- (instancetype)initWithString:(NSString*)string;
+- (instancetype)initWithAttributedString:(NSAttributedString*)attributedString;
+- (instancetype)initWithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
 
-+ (id)stringWithString:(NSString*)string;
-+ (id)stringWithAttributedString:(NSAttributedString*)attributedString;
-+ (id)stringithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
++ (instancetype)stringWithString:(NSString*)string;
++ (instancetype)stringWithAttributedString:(NSAttributedString*)attributedString;
++ (instancetype)stringithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
 
 - (NSString*)_string;
 - (void)_setString:(NSString*)string;

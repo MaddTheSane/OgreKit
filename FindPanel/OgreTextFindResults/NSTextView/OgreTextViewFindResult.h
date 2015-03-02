@@ -47,7 +47,7 @@ extern NSString	*OgreTextViewFindResultException;
 }
 
 // Initialization (初期化)
-- (id)initWithTextView:(NSTextView*)textView;
+- (instancetype)initWithTextView:(NSTextView*)textView;
 
 /* pseudo-OgreFindResultLeaf  */
 // Add match (マッチを追加)
