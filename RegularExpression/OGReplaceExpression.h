@@ -26,10 +26,26 @@ extern NSString	* const OgreReplaceException;
 	NSUInteger		_options;
 }
 
-/*********
- * 初期化 *
- *********/
+/**************************
+ * Initialization (初期化) *
+ **************************/
 /*
+ The following special characters can be used in expressionString.
+    \& \0 matched string
+    \1 ... \9 content of the n-th parentheses
+    \+ String that corresponds to the end of the brackets
+    \`Matched before the string from part (prematchString)
+    \And 'matched behind the string from part (postmatchString)
+    \- The last match was part and, string between the matched part before one (stringBetweenLastMatchAndLastButOneMatch)
+    \g <name> (? <name> ...) matched substring to (can be used if you have specified a OgreCaptureGroupOption)
+    to \g <index> index th (...) or (? <name> ...) matched substring to (can be used if you have specified a OgreCaptureGroupOption)
+    \\Backslash "\"
+    \t horizontal tab (0x09)
+    \n newline (0x0A)
+    \r return (0x0D)
+    \x {HHHH} 16-bit Unicode character U + HHHH
+    \other-characters \other characters
+ 
  expressionString中では次の特殊文字が使用できる。
   \&, \0		マッチした文字列
   \1 ... \9		n番目の括弧の内容

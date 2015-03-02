@@ -47,10 +47,10 @@ static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 
 @interface OGRegularExpressionEnumerator (Private)
 
-/*********
- * 初期化 *
- *********/
-- (id)initWithOGString:(NSObject<OGStringProtocol>*)targetString 
+/**************************
+ * Initialization (初期化) *
+ **************************/
+- (id)initWithOGString:(NSObject<OGStringProtocol>*)targetString
 	options:(NSUInteger)searchOptions
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex;

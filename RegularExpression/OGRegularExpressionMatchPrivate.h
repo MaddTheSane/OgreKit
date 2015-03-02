@@ -17,9 +17,9 @@
 
 @interface OGRegularExpressionMatch (Private)
 
-/*********
- * 初期化 *
- *********/
+/**************************
+ * Initialization (初期化) *
+ **************************/
 - (instancetype)initWithRegion:(OnigRegion*)region
 	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator

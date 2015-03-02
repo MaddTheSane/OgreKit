@@ -155,6 +155,12 @@
 
 // I return the character type of character. (characterの文字種を返す。)
 /*
+ Returns:
+  OgreKindOfNil			character == nil
+  OgreKindOfEmpty		empty @""
+  OgreKindOfBackslash	¥ @"¥¥"
+  OgreKindOfNormal		other
+ 
  戻り値:
   OgreKindOfNil			character == nil
   OgreKindOfEmpty		空文字 @""
