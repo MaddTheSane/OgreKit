@@ -142,7 +142,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    int count = [_tableView numberOfSelectedColumns];
+    NSInteger count = [_tableView numberOfSelectedColumns];
     if (inSelection && (count > 0)) return count;
     
     return [_tableView numberOfColumns];
@@ -155,7 +155,7 @@
 #endif
     OgreTableColumnAdapter  *tableColumnAdapter;
     OgreTableColumn         *column;
-    unsigned                concreteIndex;
+    NSUInteger              concreteIndex;
     
     if (!inSelection) {
         concreteIndex = index;
@@ -172,7 +172,7 @@
             unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
 #endif
             if (indexes == NULL) {
-                // エラー
+                // Error (エラー)
                 return nil;
             }
             [selectedColumnIndexes getIndexes:indexes maxCount:[selectedColumnIndexes count] inIndexRange:NULL];
@@ -181,7 +181,7 @@
         }
     }
     
-    column = [[_tableView tableColumns] objectAtIndex:concreteIndex];
+    column = [_tableView tableColumns][concreteIndex];
     tableColumnAdapter = [[[OgreTableColumnAdapter alloc] initWithTableColumn:column] autorelease];
     [tableColumnAdapter setParent:self];
     [tableColumnAdapter setIndex:index];
@@ -199,17 +199,17 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [_tableView numberOfSelectedColumns];
+    NSInteger count = [_tableView numberOfSelectedColumns];
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
         enumerator = [OgreTextFindReverseComponentEnumerator alloc];
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection && (count > 0))];
     if ([self isTerminal]) [enumerator setTerminalIndex:[_tableView ogreSelectedColumn]];
     
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes

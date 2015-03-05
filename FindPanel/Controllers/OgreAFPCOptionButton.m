@@ -41,7 +41,7 @@
 	[self setState:state];
 }
 
-- (void)setState:(int)value
+- (void)setState:(NSInteger)value
 {
 	//NSLog(@"-[%@ setState: %d]", [self title], value);
 	int	newValue = value;
@@ -58,7 +58,7 @@
 	[super setState:newValue];
 }
 
-- (int)state
+- (NSInteger)state
 {
 	int	value;
 	if ([super state] == NSOffState) {

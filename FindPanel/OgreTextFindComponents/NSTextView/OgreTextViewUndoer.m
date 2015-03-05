@@ -59,10 +59,12 @@
 /* Undo/Redo Replace */
 - (void)undoTextView:(id)aTarget jumpToSelection:(BOOL)jumpToSelection invocationTarget:(id)myself
 {
-	NSTextStorage       *textStorage = [aTarget textStorage];
+	if (_count == 0)  return;
+    
+    NSTextStorage       *textStorage = [aTarget textStorage];
     NSRange             aRange, newRange;
     NSAttributedString  *aString;
-    unsigned            i;
+    NSUInteger          i;
     OgreTextViewUndoer    *redoArray = [[OgreTextViewUndoer alloc] initWithCapacity:_count];
     
     [textStorage beginEditing];
@@ -73,7 +75,7 @@
     while (i > 0) {
         i--;
         aRange = *(_rangeArray + i);
-        aString = [_attributedStringArray objectAtIndex:i];
+        aString = _attributedStringArray[i];
         //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [aString string]);
         
         newRange = NSMakeRange(aRange.location, [aString length]);
@@ -89,7 +91,7 @@
         }
     }
     
-    // redo　registeration
+    // redo registeration (redo　registeration)
     [[[aTarget undoManager] prepareWithInvocationTarget:redoArray] 
         undoTextView:aTarget jumpToSelection:jumpToSelection
         invocationTarget:redoArray];

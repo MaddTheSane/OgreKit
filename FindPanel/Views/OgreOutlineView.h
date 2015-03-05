@@ -17,20 +17,20 @@
 
 @interface OgreOutlineView : NSOutlineView <OgreView>
 {
-    int     _ogreSelectedColumn;
-    id      _ogreSelectedItem;
-    NSRange _ogreSelectedRange;
+    NSInteger     _ogreSelectedColumn;
+    id            _ogreSelectedItem;
+    NSRange       _ogreSelectedRange;
     
     NSMutableArray  *_ogrePathComponents;
 }
 
-- (int)ogreSelectedColumn;
-- (void)ogreSetSelectedColumn:(int)column;
+@property (nonatomic, readonly) NSInteger ogreSelectedColumn;
+- (void)ogreSetSelectedColumn:(NSInteger)column;
 
-- (NSArray*)ogrePathComponentsOfSelectedItem;
+@property (nonatomic, readonly, copy) NSArray *ogrePathComponentsOfSelectedItem;
 - (void)ogreSetSelectedItem:(id)item;
 
-- (NSRange)ogreSelectedRange;
+@property (nonatomic, readonly) NSRange ogreSelectedRange;
 - (void)ogreSetSelectedRange:(NSRange)aRange;
 
 @end

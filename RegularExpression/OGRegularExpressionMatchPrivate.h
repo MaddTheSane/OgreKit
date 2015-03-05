@@ -17,13 +17,13 @@
 
 @interface OGRegularExpressionMatch (Private)
 
-/*********
- * 初期化 *
- *********/
-- (instancetype)initWithRegion:(OnigRegion*)region 
-	index:(unsigned)anIndex
+/**************************
+ * Initialization (初期化) *
+ **************************/
+- (instancetype)initWithRegion:(OnigRegion*)region
+	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
-	terminalOfLastMatch:(unsigned)terminalOfLastMatch;
+	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;
 
 - (NSObject<OGStringProtocol>*)_targetString;
 - (NSRange)_searchRange;

@@ -21,19 +21,19 @@
 {
     OgreTableColumn *_tableColumn;
     NSMutableArray  *_matchRangeArray, *_childArray;
-    int             _rowIndex;
+    NSInteger       _rowIndex;
 }
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex;
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;
 
-// index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index;
-// index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index;
-// index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index;
-// index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index;
+// line number that matched string for the index (index番目にマッチした文字列のある行番号)
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;
+// matched string for the index (index番目にマッチした文字列)
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 
 - (void)targetIsMissing;
 

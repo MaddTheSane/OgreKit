@@ -22,7 +22,7 @@
     NSString    *name = [(OgreOutlineCellFindResult*)[self parent] nameOfMatchedStringAtIndex:[self index]];
     if ([self index] == 0) return name;
     
-    return [[[NSAttributedString alloc] initWithString:name attributes:[NSDictionary dictionaryWithObject:[NSColor lightGrayColor] forKey:NSForegroundColorAttributeName]] autorelease]; 
+    return [[[NSAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName: [NSColor lightGrayColor]}] autorelease]; 
 }
 
 - (id)outline

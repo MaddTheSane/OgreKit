@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreAttachableWindowMediator.h>
 
+#import <tgmath.h>
 
 static OgreAttachableWindowMediator	*gSharedInstance = nil;
 
@@ -28,11 +29,6 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	NULL,	// deafult
 	&symbolCFArrayEqualCallback	// compare by pointer values
 };
-
-static inline float	f_abs(float x)
-{
-	return ((x > 0)? x : -x);
-}
 
 @implementation OgreAttachableWindowMediator
 
@@ -68,12 +64,12 @@ static inline float	f_abs(float x)
 	[super dealloc];
 }
 
-- (float)tolerance
+- (CGFloat)tolerance
 {
 	return _tolerance;
 }
 
-- (void)setTolerance:(float)tolerance
+- (void)setTolerance:(CGFloat)tolerance
 {
 	_tolerance = tolerance;
 }
@@ -97,7 +93,7 @@ static inline float	f_abs(float x)
 - (void)attachAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 {
 	//NSLog(@"acceptee: %@", [acceptee title]);
-	float	maxStrength = 0;
+	CGFloat	maxStrength = 0;
 	NSWindow<OgreAttachableWindowAcceptorProtocol>	*acceptor = nil;
 	
 	NSArray			*childWindows = [acceptee childWindows];
@@ -109,7 +105,7 @@ static inline float	f_abs(float x)
 			continue;
 		}
 		
-		float	strength = [self gluingStrengthBetweenAcceptee:acceptee 
+		CGFloat	strength = [self gluingStrengthBetweenAcceptee:acceptee 
 			andAcceptor:candidate
 			withAccepteeEdge:&accepteeEdge];
 		
@@ -130,24 +126,24 @@ static inline float	f_abs(float x)
 	}
 }
 
-- (float)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
+- (CGFloat)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 	andAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 	withAccepteeEdge:(NSRectEdge*)edge;
 {
-	float	strength = 0;
-	float	t = [self tolerance];
+	CGFloat	strength = 0;
+	CGFloat	t = [self tolerance];
 	
 	NSRect	ef = [acceptee frame];
-	float	ex = ef.origin.x;
-	float	ey = ef.origin.y;
-	float	ew = ef.size.width;
-	float	eh = ef.size.height;
+	CGFloat	ex = ef.origin.x;
+	CGFloat	ey = ef.origin.y;
+	CGFloat	ew = ef.size.width;
+	CGFloat	eh = ef.size.height;
 	
 	NSRect	rf = [acceptor frame];
-	float	rx = rf.origin.x;
-	float	ry = rf.origin.y;
-	float	rw = rf.size.width;
-	float	rh = rf.size.height;
+	CGFloat	rx = rf.origin.x;
+	CGFloat	ry = rf.origin.y;
+	CGFloat	rw = rf.size.width;
+	CGFloat	rh = rf.size.height;
 	
 	if ([acceptee isAttachableAccepteeEdge:NSMinXEdge toAcceptor:acceptor] && 
 		[acceptor isAttachableAcceptorEdge:NSMaxXEdge toAcceptee:acceptee]) {
@@ -201,19 +197,19 @@ static inline float	f_abs(float x)
 	toAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 	withAccepteeEdge:(NSRectEdge)edge;
 {
-	float	t = [self tolerance];
+	CGFloat	t = [self tolerance];
 	
 	NSRect	ef = [acceptee frame];
-	float	ex = ef.origin.x;
-	float	ey = ef.origin.y;
-	float	ew = ef.size.width;
-	float	eh = ef.size.height;
+	CGFloat	ex = ef.origin.x;
+	CGFloat	ey = ef.origin.y;
+	CGFloat	ew = ef.size.width;
+	CGFloat	eh = ef.size.height;
 	
 	NSRect	rf = [acceptor frame];
-	float	rx = rf.origin.x;
-	float	ry = rf.origin.y;
-	float	rw = rf.size.width;
-	float	rh = rf.size.height;
+	CGFloat	rx = rf.origin.x;
+	CGFloat	ry = rf.origin.y;
+	CGFloat	rw = rf.size.width;
+	CGFloat	rh = rf.size.height;
 	
 	NSRect	eLeftEdge, rRightEdge;
 	NSRect	eRightEdge, rLeftEdge;
@@ -227,8 +223,8 @@ static inline float	f_abs(float x)
 			if (NSIntersectsRect(eLeftEdge, rRightEdge)) {
 				ef.origin.x = rx + rw;
 				
-				float	dty = f_abs((ey + eh) - (ry + rh));
-				float	dby = f_abs(ey - ry);
+				CGFloat	dty = fabs((ey + eh) - (ry + rh));
+				CGFloat	dby = fabs(ey - ry);
 				if (dty < 2 * t || dby < 2 * t) {
 					if (dty <= dby) {
 						ef.origin.y = ry + rh - eh;
@@ -247,8 +243,8 @@ static inline float	f_abs(float x)
 			if (NSIntersectsRect(eRightEdge, rLeftEdge)) {
 				ef.origin.x = rx - ew;
 				
-				float	dty = f_abs((ey + eh) - (ry + rh));
-				float	dby = f_abs(ey - ry);
+				CGFloat	dty = fabs((ey + eh) - (ry + rh));
+				CGFloat	dby = fabs(ey - ry);
 				if (dty < 2 * t || dby < 2 * t) {
 					if (dty <= dby) {
 						ef.origin.y = ry + rh - eh;
@@ -267,8 +263,8 @@ static inline float	f_abs(float x)
 			if (NSIntersectsRect(eTopEdge, rBottomEdge)) {
 				ef.origin.y = ry - eh;
 				
-				float	drx = f_abs((ex + ew) - (rx + rw));
-				float	dlx = f_abs(ex - rx);
+				CGFloat	drx = fabs((ex + ew) - (rx + rw));
+				CGFloat	dlx = fabs(ex - rx);
 				if (drx < 2 * t || dlx < 2 * t) {
 					if (drx < dlx) {
 						ef.origin.x = rx + rw - ew;
@@ -287,8 +283,8 @@ static inline float	f_abs(float x)
 			if (NSIntersectsRect(eBottomEdge, rTopEdge)) {
 				ef.origin.y = ry + rh;
 				
-				float	drx = f_abs((ex + ew) - (rx + rw));
-				float	dlx = f_abs(ex - rx);
+				CGFloat	drx = fabs((ex + ew) - (rx + rw));
+				CGFloat	dlx = fabs(ex - rx);
 				if (drx < 2 * t || dlx < 2 * t) {
 					if (drx < dlx) {
 						ef.origin.x = rx + rw - ew;
@@ -349,9 +345,9 @@ static inline float	f_abs(float x)
 	NSWindow	*parent = [sender parentWindow];
 	
 	if (parent != nil) {
-		float   dx = [sender frame].origin.x + proposedFrameSize.width - ([parent frame].origin.x + [parent frame].size.width);
-		float	t = [self tolerance];
-		if (f_abs(dx) < 2 * t &&
+		CGFloat dx = [sender frame].origin.x + proposedFrameSize.width - ([parent frame].origin.x + [parent frame].size.width);
+		CGFloat	t = [self tolerance];
+		if (fabs(dx) < 2 * t &&
 				(	(proposedFrameSize.width - dx >= [sender minSize].width) && 
 					(proposedFrameSize.width - dx <= [sender maxSize].width))) {
 			

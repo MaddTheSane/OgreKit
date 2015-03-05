@@ -20,28 +20,30 @@ extern NSString	* const OgreFormatterException;
 
 @interface OGRegularExpressionFormatter : NSFormatter <NSCopying, NSCoding>
 {
-	NSString			*_escapeCharacter;		// \の代替文字
-	unsigned			_options;				// コンパイルオプション
-	OgreSyntax			_syntax;				// 正規表現の構文
+	NSString			*_escapeCharacter;		// \ Alternate character (\の代替文字)
+	NSUInteger			_options;				// Compile option (コンパイルオプション)
+	OgreSyntax			_syntax;				// Regular expression syntax (正規表現の構文)
 }
 
-// 必須メソッド
+// Required method (必須メソッド)
 - (NSString*)stringForObjectValue:(id)anObject;
 - (NSAttributedString*)attributedStringForObjectValue:(id)anObject 
 	withDefaultAttributes:(NSDictionary*)attributes;
 - (NSString*)editingStringForObjectValue:(id)anObject;
 
-// エラー判定
+// Error determination (エラー判定)
 - (BOOL)getObjectValue:(id*)obj forString:(NSString*)string 
 	errorDescription:(NSString**)error;
 
 - (instancetype)init;
-- (instancetype)initWithOptions:(unsigned)options
+- (instancetype)initWithOptions:(NSUInteger)options 
 	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character;
+	escapeCharacter:(NSString*)character /*NS_DESIGNATED_INITIALIZER*/;
 
-@property (copy) NSString *escapeCharacter;
-@property unsigned options;
-@property OgreSyntax syntax;
+@property (nonatomic, copy) NSString *escapeCharacter;
+
+@property (nonatomic) NSUInteger options;
+
+@property (nonatomic) OgreSyntax syntax;
 
 @end

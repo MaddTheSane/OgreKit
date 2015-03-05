@@ -116,7 +116,7 @@
 #endif
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
 }
 
@@ -145,7 +145,7 @@
 - (BOOL)isEditable { return [_tableColumn isEditable]; }
 - (BOOL)isHighlightable { return NO; }
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
     return [[[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex] autorelease]; 
 }
@@ -190,11 +190,11 @@
     OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
     
     if ([tableView allowsColumnSelection]) {
-        int selectedColumnIndex = [tableView selectedColumn];
+        NSInteger selectedColumnIndex = [tableView selectedColumn];
         if (selectedColumnIndex != -1) [tableView scrollColumnToVisible:selectedColumnIndex];
     }
     
-    int selectedRowIndex = [tableView selectedRow];
+    NSInteger selectedRowIndex = [tableView selectedRow];
     if (selectedRowIndex != -1) [tableView scrollRowToVisible:selectedRowIndex];
 }
 

@@ -11,6 +11,8 @@
  * Tabsize: 4
  */
 
+#import <AppKit/AppKit.h>
+
 #import <OgreKit/OGMutableString.h>
 #import <OgreKit/OGAttributedString.h>
 
@@ -18,8 +20,8 @@
 {
 	NSString		*_currentFontFamilyName;
 	NSFontTraitMask	_currentFontTraits;
-	float			_currentFontWeight;
-	float			_currentFontPointSize;
+	CGFloat			_currentFontWeight;
+	CGFloat			_currentFontPointSize;
 	NSDictionary	*_currentAttributes;
 	NSFontManager	*_fontManager;
 }

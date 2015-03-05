@@ -12,8 +12,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <OgreKit/OgreTextFindResult.h>
 
+@class OgreTextFindResult;
 @class OgreAttachableWindowMediator;
 
 @interface OgreFindResultWindowController : NSObject
@@ -29,16 +29,17 @@
 	OgreAttachableWindowMediator	*_attachedWindowMediator;
 }
 
-- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate;
+- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
-- (NSWindow*)window;
+
+@property (nonatomic, readonly, strong) NSWindow *window;
 
 - (IBAction)updateLiveUpdate:(id)sender;
 
 - (void)show;
 - (void)close;
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item;
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
 
 // protected method
 - (void)setupFindResultView;

@@ -16,10 +16,8 @@
 
 
 @implementation OgreTextFindComponentEnumerator
-@synthesize terminalIndex = _terminalIndex;
-@synthesize startIndex = _nextIndex;
 
-- (id)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
+- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
 {
     self = [super init];
     if (self != nil) {
@@ -60,10 +58,25 @@
     [super dealloc];
 }
 
+- (void)setTerminalIndex:(NSInteger)index
+{
+    _terminalIndex = index;
+}
+
+- (NSInteger)startIndex
+{
+    return _nextIndex;
+}
+
+- (void)setStartIndex:(NSInteger)index
+{
+    _nextIndex = index;
+}
+
 - (id)nextObject
 {
     if (_nextIndex > _terminalIndex) return nil;
-    unsigned    concreteIndex;
+    NSUInteger  concreteIndex;
     
     if (_inSelection) {
         concreteIndex = *(_indexes + _nextIndex);

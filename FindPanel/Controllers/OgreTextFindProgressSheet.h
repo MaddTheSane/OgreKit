@@ -17,30 +17,30 @@
 
 @interface OgreTextFindProgressSheet : NSObject <OgreTextFindProgressDelegate>
 {
-    IBOutlet NSWindow				*progressWindow;        // 経過表示用シート
-    IBOutlet NSTextField			*titleTextField;        // タイトル
-    IBOutlet NSProgressIndicator	*progressBar;           // バー
-	IBOutlet NSTextField			*progressTextField;     // 経過を表す文字列
-    IBOutlet NSTextField			*donePerTotalTextField; // 処理項目率
-	IBOutlet NSButton				*button;                // Cancel/OKボタン
+    IBOutlet NSWindow				*progressWindow;        // Progress for sheet (経過表示用シート)
+    IBOutlet NSTextField			*titleTextField;        // Title (タイトル)
+    IBOutlet NSProgressIndicator	*progressBar;           // Bar (バー)
+	IBOutlet NSTextField			*progressTextField;     // A string that represents the elapsed (経過を表す文字列)
+    IBOutlet NSTextField			*donePerTotalTextField; // Processing item rate (処理項目率)
+	IBOutlet NSButton				*button;                // Cancel / OK button (Cancel/OKボタン)
 	
-	BOOL	_shouldRelease;			// OKボタンが押されたらこのオブジェクトをreleaseするかどうか
+	BOOL	_shouldRelease;			// When the OK button is pressed whether the object to release (OKボタンが押されたらこのオブジェクトをreleaseするかどうか)
 	
-	NSWindow	*_parentWindow;		// シートを張るウィンドウ
-	NSString	*_title;			// タイトル
+	NSWindow	*_parentWindow;		// Window to which to attach the sheet (シートを張るウィンドウ)
+	NSString	*_title;			// Title (タイトル)
 	
-	/* キャンセルされたときのaction */
+	/* Action when it is canceled (キャンセルされたときのaction) */
 	SEL			_cancelSelector;
 	id			_cancelTarget;
-	id			_cancelArgument;	// == selfの場合はretainしない
-	/* シートが閉じたときのaction */
+	id			_cancelArgument;	// does not retain in the case of == self (== selfの場合はretainしない)
+	/* action when the sheet is closed (シートが閉じたときのaction) */
 	SEL			_didEndSelector;
 	id			_didEndTarget;
-	id			_didEndArgument;	// == selfの場合はretainしない
+	id			_didEndArgument;	// does not retain in the case of == self (== selfの場合はretainしない)
 }
 
-/* 初期化 */
-- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject;
+/* Initialization (初期化) */
+- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject NS_DESIGNATED_INITIALIZER;
 
 - (IBAction)cancel:(id)sender;
 

@@ -16,16 +16,16 @@
 
 @implementation MyOutlineDocument
 
-// 検索対象となるTextViewをOgreTextFinderに教える。
-// 検索させたくない場合はnilをsetする。
-// 定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。
+// I teach be searched TextView to OgreTextFinder. (検索対象となるTextViewをOgreTextFinderに教える。)
+// To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
+// If you omit the definition, first responder of main window is to adopt it if possible search. (定義を省略した場合、main windowのfirst responderが検索可能ならばそれを採用する。)
 - (void)tellMeTargetToFindIn:(id)textFinder
 {
 	[textFinder setTargetToFindIn:myOutlineView];
 }
 
 
-/* ここから下はFind Panelに関係しないコード */
+/* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
 - (NSString*)windowNibName {
     return @"MyOutlineDocument";
 }
@@ -45,9 +45,9 @@
 	if (_fileWrapper != nil) {
         [myOutlineView reloadData];
 	} else {
-		//_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
+		//_newlineCharacter = OgreUnixNewlineCharacter;	// The default line break code (デフォルトの改行コード)
         
-        int         result;
+        NSInteger   result;
         NSOpenPanel *openPanel;
         
         openPanel = [NSOpenPanel openPanel];
@@ -74,7 +74,7 @@
     [dataCell setLeaf:YES];
     [[myOutlineView tableColumnWithIdentifier:@"name"] setDataCell:dataCell];
     
-    [myOutlineView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+    [myOutlineView registerForDraggedTypes:@[NSFilenamesPboardType]];
 }
 
 - (void)dealloc
@@ -83,7 +83,7 @@
     [super dealloc];
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
 {
 	_newlineCharacter = aNewlineCharacter;
@@ -100,7 +100,7 @@
     return [item isDirectory];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_fileWrapper == nil) return 0;
     //NSLog(@"numberOfChildrenOfItem:%@", [item name]);
@@ -110,7 +110,7 @@
     return [item numberOfComponents];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_fileWrapper == nil) return nil;
     //NSLog(@"child:%d ofItem:%@", index, [item name]);
@@ -148,10 +148,10 @@
 }
 
 /* drop */
-- (unsigned int)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(int)childIndex
+- (NSUInteger)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
-    if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
+    if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
         [outlineView setDropItem:nil dropChildIndex:NSOutlineViewDropOnItemIndex];
         return NSDragOperationGeneric;
     }
@@ -159,13 +159,13 @@
     return NSDragOperationNone;
 }
 
-- (BOOL)outlineView:(NSOutlineView*)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(int)childIndex
+- (BOOL)outlineView:(NSOutlineView*)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
-    if ([pboard availableTypeFromArray:[NSArray arrayWithObject:NSFilenamesPboardType]] != nil) {
+    if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
         [_fileWrapper release];
-        NSString    *path = [files objectAtIndex:0];
+        NSString    *path = files[0];
         _fileWrapper = [[MyFileWrapper alloc] initWithName:[path lastPathComponent] path:path parent:self];
         [myOutlineView reloadData];
         [myOutlineView expandItem:_fileWrapper];
@@ -179,7 +179,7 @@
 - (void)deleteKeyDownInOutlineView:(NSOutlineView*)outlineView
 {
     NSIndexSet  *selectedRowIndexes = [myOutlineView selectedRowIndexes];
-    unsigned    count = [selectedRowIndexes count], i;
+    NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
 #ifdef MAC_OS_X_VERSION_10_6

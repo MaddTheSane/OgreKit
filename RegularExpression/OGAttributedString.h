@@ -11,6 +11,8 @@
  * Tabsize: 4
  */
 
+#import <Foundation/Foundation.h>
+
 #import <OgreKit/OGString.h>
 
 @interface OGAttributedString : NSObject <OGStringProtocol, NSCopying, NSCoding>

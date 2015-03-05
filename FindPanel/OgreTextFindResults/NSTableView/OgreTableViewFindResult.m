@@ -53,17 +53,17 @@
 
 - (void)endAddition
 {
-	//targetのあるwindowのcloseを検出する。
+	//I detect a closing window for that target. (targetのあるwindowのcloseを検出する。)
 	[[NSNotificationCenter defaultCenter] addObserver: self 
 		selector: @selector(windowWillClose:) 
 		name: NSWindowWillCloseNotification
 		object: [_tableView window]];
 	
-    int columnIndex = 0;
+    NSInteger columnIndex = 0;
     OgreTableColumnFindResult  *columnFindResult;
     
     while (columnIndex < [_components count]) {
-        columnFindResult = [_components objectAtIndex:columnIndex];
+        columnFindResult = _components[columnIndex];
         if ([columnFindResult numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:columnIndex];
         } else {
@@ -91,7 +91,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_components objectAtIndex:index];
+    return _components[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 

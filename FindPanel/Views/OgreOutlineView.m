@@ -38,7 +38,7 @@
 - (void)ogreSelectionDidChange:(NSNotification*)aNotification
 {
     _ogreSelectedColumn = [self selectedColumn];
-    int selectedRow = [self selectedRow];
+    NSInteger selectedRow = [self selectedRow];
     
     if (_ogreSelectedColumn == -1 && selectedRow == -1) {
         _ogreSelectedRange = NSMakeRange(0, 0);
@@ -65,24 +65,24 @@
     }
     
     if (_ogreSelectedItem == nil) {
-        _ogrePathComponents =  [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInt:0] /* firstItem */, [NSNumber numberWithInt:-1] /* cell */, nil];
+        _ogrePathComponents =  [[NSMutableArray alloc] initWithObjects:@0 /* firstItem */, @-1 /* cell */, nil];
         return _ogrePathComponents;
     }
     
-    int level = [self levelForItem:_ogreSelectedItem];
-    int row = [self rowForItem:_ogreSelectedItem];
+    NSInteger level = [self levelForItem:_ogreSelectedItem];
+    NSInteger row = [self rowForItem:_ogreSelectedItem];
     if (level == -1 || row == -1) return nil;
     
     _ogrePathComponents = [[NSMutableArray alloc] initWithCapacity:level + 1];
     
-    int index = 0;
-    int targetLevel;
+    NSInteger index = 0;
+    NSInteger targetLevel;
     while (row > 0) {
         row--;
         targetLevel = [self levelForRow:row];
         if (targetLevel + 1 == level) {
             // parent level
-            [_ogrePathComponents insertObject:[NSNumber numberWithInt:index] atIndex:0];
+            [_ogrePathComponents insertObject:@(index) atIndex:0];
             level = targetLevel;
             index = 0;
         } else if (targetLevel == level) {
@@ -91,18 +91,18 @@
         }
     } 
     // finish
-    [_ogrePathComponents insertObject:[NSNumber numberWithInt:index] atIndex:0];
-    [_ogrePathComponents addObject:[NSNumber numberWithInt:-1] /* cell */];
+    [_ogrePathComponents insertObject:@(index) atIndex:0];
+    [_ogrePathComponents addObject:@-1 /* cell */];
     
     return _ogrePathComponents;
 }
 
-- (int)ogreSelectedColumn
+- (NSInteger)ogreSelectedColumn
 {
     return (_ogreSelectedColumn == -1? 0 : _ogreSelectedColumn);
 }
 
-- (void)ogreSetSelectedColumn:(int)column
+- (void)ogreSetSelectedColumn:(NSInteger)column
 {
     _ogreSelectedColumn = column;
 }

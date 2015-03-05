@@ -17,7 +17,7 @@
 #import <OgreKit/OgreTextFinder.h>
 #import <OgreKit/OgreTextFindResult.h>
 
-static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
+static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 
 @implementation OgreTextViewFindResult
 
@@ -29,16 +29,16 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	self = [super init];
 	if (self) {
         _textView = [textView retain];
-		/* 1行目の範囲を得る */
+		/* I get the range of the first row (1行目の範囲を得る) */
 		_text = [[_textView string] retain];
 		_textLength = [_text length];
 		_lineRange = [_text lineRangeForRange:NSMakeRange(0, 0)];
 		_searchLineRangeLocation = _lineRange.location + _lineRange.length;
 		
 		_lineOfMatchedStrings = [[NSMutableArray alloc] initWithCapacity:OgreTextViewFindResultInitialCapacity];
-		[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInt:0]];
+		[_lineOfMatchedStrings addObject:@0U];
 		_matchRangeArray = [[NSMutableArray alloc] initWithCapacity:OgreTextViewFindResultInitialCapacity];
-		[_matchRangeArray addObject:[NSArray arrayWithObject:[NSValue valueWithRange:NSMakeRange(0, 0)]]];
+		[_matchRangeArray addObject:@[[NSValue valueWithRange:NSMakeRange(0, 0)]]];
 		_count = 0;
 		
 		_line = 1;
@@ -52,29 +52,29 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 {
 	[_text release];
 	
-	if ([self count] == 0) return;	// マッチしなかった場合
-	//targetのあるwindowのcloseを検出する。
+	if ([self count] == 0) return;	// If you do not match (マッチしなかった場合)
+	//I detect a closing window for that target. (targetのあるwindowのcloseを検出する。)
 	[[NSNotificationCenter defaultCenter] addObserver: self 
 		selector: @selector(windowWillClose:) 
 		name: NSWindowWillCloseNotification
 		object: [_textView window]];
 	
-	//text storageの変更を検出する。
+	//I detect a change in the text storage. (text storageの変更を検出する。)
 	[[NSNotificationCenter defaultCenter] addObserver: self 
 		selector: @selector(textStorageWillProcessEditing:) 
 		name: NSTextStorageWillProcessEditingNotification
 		object: [_textView textStorage]];
 	
-	// 絶対位置のキャッシュ
+	// Cache of absolute position (絶対位置のキャッシュ)
 	_cacheIndex = 0;
 	_cacheAbsoluteLocation = 0;
 	
-	// 更新用絶対位置のキャッシュ
+	// Cache update for absolute position (更新用絶対位置のキャッシュ)
 	_updateCacheIndex = 0;
 	_updateCacheAbsoluteLocation = 0;
     
     // result leaf array
-    int index, count = [self count];
+    NSUInteger index, count = [self count];
     _childArray = [[NSMutableArray alloc] initWithCapacity:count];
     for (index = 0; index < count; index++) {
         OgreTextViewMatchFindResult *child = [[[OgreTextViewMatchFindResult alloc] init] autorelease];
@@ -107,14 +107,14 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 - (void)addMatch:(OGRegularExpressionMatch*)match
 {
 	NSRange			range = [match rangeOfMatchedString];
-	unsigned		newAbsoluteLocation = range.location;
+	NSUInteger		newAbsoluteLocation = range.location;
 	
 	_count++;
 	
-	// マッチの相対位置
-	// 0番目の部分文字列は前のマッチとの相対位置
-	// 1番目以降の部分文字列は0番目の部分文字列との相対位置
-	int				i, n = [match count];
+	// Relative position of the match (マッチの相対位置)
+	// 0th substring relative position of the previous match (0番目の部分文字列は前のマッチとの相対位置)
+	// Substring of the first and subsequent relative positions of the 0th substring (1番目以降の部分文字列は0番目の部分文字列との相対位置)
+	NSInteger				i, n = [match count];
 	NSMutableArray	*rangeArray = [NSMutableArray arrayWithCapacity:n];
 	range = [match rangeOfSubstringAtIndex:0];
 	[rangeArray addObject:[NSValue valueWithRange:NSMakeRange(range.location - _cacheAbsoluteLocation, range.length)]];
@@ -124,7 +124,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	}
 	_cacheAbsoluteLocation = newAbsoluteLocation;
 	
-	// マッチした文字列が何行目にあるのか探す
+	// I look for matched what string is in what line (マッチした文字列が何行目にあるのか探す)
 	while (newAbsoluteLocation >= _searchLineRangeLocation) {
 		_lineRange = [_text lineRangeForRange:NSMakeRange(_searchLineRangeLocation, 0)];
 		_searchLineRangeLocation = _lineRange.location + _lineRange.length;
@@ -135,39 +135,39 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 		}
 	}
 	
-	// マッチした文字列の先頭が_line行目にある場合
-	[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInt:_line]];
+	// If the beginning of the matched string is in the _line row (マッチした文字列の先頭が_line行目にある場合)
+	[_lineOfMatchedStrings addObject:@(_line)];
 	[_matchRangeArray addObject:rangeArray];
 }
 
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     //NSLog(@"lineOfMatchedStringAtIndex:%d", index);
-	return [_lineOfMatchedStrings objectAtIndex:(index + 1)];   // 0番目はダミー
+	return _lineOfMatchedStrings[(index + 1)];   // 0th is dummy (0番目はダミー)
 }
 
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     //NSLog(@"matchedStringAtIndex:%d", index);
 	if (_textView == nil) return [[self textFindResult] missingString];
 	
-	NSArray         *matchArray = [_matchRangeArray objectAtIndex:(index + 1)];   // 0番目はダミー
+	NSArray         *matchArray = _matchRangeArray[(index + 1)];   // 0th is dummy (0番目はダミー)
     NSMutableArray  *rangeArray;
-	int             i, n = [matchArray count];
+	NSUInteger      i, n = [matchArray count];
 	NSString        *text = [_textView string];
     NSRange         range, matchRange;
-    int             matchLocation = 0;
+    NSUInteger      matchLocation = 0;
     
-	// キャッシュを更新
+	// Update cache (キャッシュを更新)
 	if (index > _cacheIndex) {
 		while (_cacheIndex != index) {
 			_cacheIndex++;
-			range = [[[_matchRangeArray objectAtIndex:_cacheIndex] objectAtIndex:0] rangeValue];
+			range = [_matchRangeArray[_cacheIndex][0] rangeValue];
 			_cacheAbsoluteLocation += range.location;
 		}
 	} else if (index < _cacheIndex) {
 		while (_cacheIndex != index) {
-			range = [[[_matchRangeArray objectAtIndex:_cacheIndex] objectAtIndex:0] rangeValue];
+			range = [_matchRangeArray[_cacheIndex][0] rangeValue];
 			_cacheAbsoluteLocation -= range.location;
 			_cacheIndex--;
 		}
@@ -176,13 +176,13 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
     rangeArray = [NSMutableArray arrayWithCapacity:n];
 
 	for(i = 0; i < n; i++) {
-		range = [[matchArray objectAtIndex:i] rangeValue];
+		range = [matchArray[i] rangeValue];
 		if (i == 0) {
-			// 0番目の部分文字列は前のマッチとの相対位置
+			// 0th substring relative position of the previous match (0番目の部分文字列は前のマッチとの相対位置)
 			matchLocation = range.location + _cacheAbsoluteLocation;
 			matchRange = NSMakeRange(matchLocation, range.length);
 		} else {
-			// 1番目以降の部分文字列は0番目の部分文字列との相対位置
+			// Substring of the first and subsequent relative positions of the 0th substring (1番目以降の部分文字列は0番目の部分文字列との相対位置)
 			matchRange = NSMakeRange(range.location + matchLocation, range.length);
 		}
         [rangeArray addObject:[NSValue valueWithRange:matchRange]];
@@ -191,7 +191,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return [[self textFindResult] highlightedStringInRange:rangeArray ofString:text];
 }
 
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
 	if (_textView == nil) return NO;
 	
@@ -199,28 +199,28 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return [self selectMatchedStringAtIndex:index];
 }
 
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
 	if (_textView == nil) return NO;
 	
 	NSRange	range, matchRange;
-	// キャッシュを更新
+	// Update cache (キャッシュを更新)
 	if (index > _cacheIndex) {
 		while (_cacheIndex != index) {
 			_cacheIndex++;
-			range = [[[_matchRangeArray objectAtIndex:_cacheIndex] objectAtIndex:0] rangeValue];
+			range = [_matchRangeArray[_cacheIndex][0] rangeValue];
 			_cacheAbsoluteLocation += range.location;
 		}
 	} else if (index < _cacheIndex) {
 		while (_cacheIndex != index) {
-			range = [[[_matchRangeArray objectAtIndex:_cacheIndex] objectAtIndex:0] rangeValue];
+			range = [_matchRangeArray[_cacheIndex][0] rangeValue];
 			_cacheAbsoluteLocation -= range.location;
 			_cacheIndex--;
 		}
 	}
 	
-	// index番目にマッチした文字列の先頭のある行の範囲・内容
-	range = [[[_matchRangeArray objectAtIndex:(index + 1)] objectAtIndex:0] rangeValue];
+	// range and content beginning of a line of the matched string for the index (index番目にマッチした文字列の先頭のある行の範囲・内容)
+	range = [_matchRangeArray[(index + 1)][0] rangeValue];
 	matchRange = NSMakeRange(range.location + _cacheAbsoluteLocation, range.length);
 	if ([[_textView string] length] < (matchRange.location + matchRange.length)) return NO;
 	
@@ -249,36 +249,29 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 
 - (NSString*)description
 {
-	return [[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
-			_lineOfMatchedStrings, 
-			_matchRangeArray, 
-			[NSNumber numberWithUnsignedInt:_line], 
-			[NSNumber numberWithUnsignedInt:_count], 
-		nil] forKeys:[NSArray arrayWithObjects:
-			@"Match Line", 
-			@"Match Range", 
-			@"Line", 
-			@"Count", 
-		nil]] description];
+	return [@{@"Match Line": _lineOfMatchedStrings, 
+			@"Match Range": _matchRangeArray, 
+			@"Line": @(_line), 
+			@"Count": @(_count)} description];
 }
 
 - (void)textStorageWillProcessEditing:(NSNotification*)aNotification
 {
 	NSTextStorage   *textStorage = [aNotification object];
 	NSRange			editedRange = [textStorage editedRange];
-	int				changeInLength = [textStorage changeInLength];
+	NSInteger				changeInLength = [textStorage changeInLength];
 	
 	if ([textStorage editedMask] & NSTextStorageEditedCharacters) {
-		// 文字の変更の場合
+		// For character of change (文字の変更の場合)
 		/*NSLog(@"w: (%d, %d) -> (%d, %d)", 
 			editedRange.location, editedRange.length - changeInLength, 
 			editedRange.location, editedRange.length);*/
-		// 表示の更新
+		// Update display of (表示の更新)
 		[self updateOldRange:NSMakeRange(editedRange.location, editedRange.length - changeInLength) newRange:NSMakeRange(editedRange.location, editedRange.length)];
 	}
 }
 
-// 表示を更新
+// Update Display (表示を更新)
 - (void)updateOldRange:(NSRange)oldRange newRange:(NSRange)newRange
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -297,44 +290,44 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	
 	NSMutableArray *target;
 	NSRange		range, updatedRange;
-	unsigned	a, b, c, d, b2;
-	unsigned	i, j, 
+	NSUInteger	a, b, c, d, b2;
+	NSUInteger	i, j,
 				count = [self count], 
-				numberOfSubranges = [[_matchRangeArray objectAtIndex:1] count];
+				numberOfSubranges = [(NSArray *)_matchRangeArray[1] count];
 	
 	a = oldRange.location;
 	b = NSMaxRange(oldRange);
 	b2 = NSMaxRange(newRange);
 	
-	// 更新用絶対位置キャッシュの更新 (影響を受けない("[ ] ( )"となる)最大のindexを求める。)
-	range = [[[_matchRangeArray objectAtIndex:_updateCacheIndex] objectAtIndex:0] rangeValue];
+	// Updating of the update cache absolute position (unaffected ("[] ()" is) to determine the maximum index.) (更新用絶対位置キャッシュの更新 (影響を受けない("[ ] ( )"となる)最大のindexを求める。))
+	range = [_matchRangeArray[_updateCacheIndex][0] rangeValue];
 	d = _updateCacheAbsoluteLocation + range.length;
 	if (a < d) {
-		// ( ... ] ... の場合。
+		// (...] ... In the case of. (( ... ] ... の場合。)
 		do {
-			// 一つ左の[]に行く。
-			range = [[[_matchRangeArray objectAtIndex:_updateCacheIndex] objectAtIndex:0] rangeValue];
+			// I go to the one left []. (一つ左の[]に行く。)
+			range = [_matchRangeArray[_updateCacheIndex][0] rangeValue];
 			_updateCacheAbsoluteLocation -= range.location;
 			_updateCacheIndex--;
-			range = [[[_matchRangeArray objectAtIndex:_updateCacheIndex] objectAtIndex:0] rangeValue];
+			range = [_matchRangeArray[_updateCacheIndex][0] rangeValue];
 			d = _updateCacheAbsoluteLocation + range.length;
 		} while (a < d);
 	} else if (d < a) {
-		// [ ] ( ) の場合
+		// [] () In the case of ([ ] ( ) の場合)
 		do {
 			if (_updateCacheIndex == count) {
-				// これ以上右の[]がない場合
-				range.location = 0;		// _updateCacheAbsoluteLocation -= range.location;の相殺項
-				_updateCacheIndex++;	// _updateCacheIndex--;の相殺項
+				// If there are no more right of [] (これ以上右の[]がない場合)
+				range.location = 0;		// _updateCacheAbsoluteLocation - = range.location; offset section of (_updateCacheAbsoluteLocation -= range.location;の相殺項)
+				_updateCacheIndex++;	// _updateCacheIndex--; offset section of (_updateCacheIndex--;の相殺項)
 				break;
 			}
-			// 一つ右の[]に行く。
+			// I go to the one right []. (一つ右の[]に行く。)
 			_updateCacheIndex++;
-			range = [[[_matchRangeArray objectAtIndex:_updateCacheIndex] objectAtIndex:0] rangeValue];
+			range = [_matchRangeArray[_updateCacheIndex][0] rangeValue];
 			_updateCacheAbsoluteLocation += range.location;
 			d = _updateCacheAbsoluteLocation + range.length;
 		} while (d < a);
-		// 行き過ぎた分戻す。
+		// To return to excessive minute. (行き過ぎた分戻す。)
 		_updateCacheAbsoluteLocation -= range.location;
 		_updateCacheIndex--;
 	}
@@ -343,16 +336,16 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	NSLog(@"the maximal index of undisturbed matched string: %d", _updateCacheIndex);
 #endif
 	
-	// 表示用絶対位置キャッシュの更新
+	// Update of absolute for display position cache (表示用絶対位置キャッシュの更新)
 	if (_updateCacheIndex < _cacheIndex) {
 		_cacheIndex = _updateCacheIndex;
 		_cacheAbsoluteLocation = _updateCacheAbsoluteLocation;
 	}
 	
-	c = _updateCacheAbsoluteLocation;   // _updateCacheIndex番目の絶対位置
+	c = _updateCacheAbsoluteLocation;   // _updateCacheIndex th absolute position (_updateCacheIndex番目の絶対位置)
 	for (i = _updateCacheIndex + 1; i <= count; i++) {
-		target = [_matchRangeArray objectAtIndex:i];
-		range = [[target objectAtIndex:0] rangeValue];
+		target = _matchRangeArray[i];
+		range = [target[0] rangeValue];
 		c += range.location;
 		d = c + range.length;
 		
@@ -367,7 +360,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			NSLog(@"1. ( ) [ ]");
 #endif
 			updatedRange = NSMakeRange(range.location + b2 - b, range.length);  // ( ) [ ]
-			[target replaceObjectAtIndex:0 withObject:[NSValue valueWithRange:updatedRange]];
+			target[0] = [NSValue valueWithRange:updatedRange];
 			break;
 		} else if ((c < a) && (a <= b) && (b < d)) {
 			// 4. [ ( ) ]
@@ -375,7 +368,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			NSLog(@"4. [ ( ) ]");
 #endif
 			updatedRange = NSMakeRange(range.location, range.length + b2 - b);  // [ ( ) ]
-			[target replaceObjectAtIndex:0 withObject:[NSValue valueWithRange:updatedRange]];
+			target[0] = [NSValue valueWithRange:updatedRange];
 			[self updateSubranges:target 
 				count:numberOfSubranges 
 				oldRange:oldRange 
@@ -388,11 +381,11 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			NSLog(@"3. ( [ ] )");
 #endif
 			updatedRange = NSMakeRange(range.location + b2 - c, 0);		// (   )[]
-			[target replaceObjectAtIndex:0 withObject:[NSValue valueWithRange:updatedRange]];
+			target[0] = [NSValue valueWithRange:updatedRange];
 			b2 = c;
-			// 部分文字列の範囲を更新
+			// Updated range of substring (部分文字列の範囲を更新)
 			for (j = 1; j < numberOfSubranges; j++) {
-				[target replaceObjectAtIndex:j withObject:[NSValue valueWithRange:NSMakeRange(0, 0)]];
+				target[j] = [NSValue valueWithRange:NSMakeRange(0, 0)];
 			}
 		} else if ((a <= c) && (c < b) && (b < d)) {
 			// 2. ( [ ) ]
@@ -400,7 +393,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			NSLog(@"2. ( [ ) ]");
 #endif
 			updatedRange = NSMakeRange(range.location + b2 - c, range.length - (b - c));	// (   )[ ]
-			[target replaceObjectAtIndex:0 withObject:[NSValue valueWithRange:updatedRange]];
+			target[0] = [NSValue valueWithRange:updatedRange];
 			b2 = c;
 			[self updateSubranges:target 
 				count:numberOfSubranges 
@@ -414,7 +407,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			NSLog(@"5. [ ( ] )");
 #endif
 			updatedRange = NSMakeRange(range.location, range.length - (d - a));		// [ ](   )
-			[target replaceObjectAtIndex:0 withObject:[NSValue valueWithRange:updatedRange]];
+			target[0] = [NSValue valueWithRange:updatedRange];
 			[self updateSubranges:target 
 				count:numberOfSubranges 
 				oldRange:oldRange 
@@ -422,7 +415,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 				origin:c 
 				leftAlign:YES];
 		} else {
-			// その他
+			// Other (その他)
 #ifdef DEBUG_OGRE_FIND_PANEL
 			NSLog(@"others");
 #endif
@@ -432,19 +425,19 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
     [[self textFindResult] didUpdate];
 }
 
-- (void)updateSubranges:(NSMutableArray*)target count:(unsigned)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(unsigned)origin leftAlign:(BOOL)leftAlign
+- (void)updateSubranges:(NSMutableArray*)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-updateSubranges: of %@", [self className]);
 #endif
-	unsigned	i, a, b, b2, c, d;
+	NSUInteger	i, a, b, b2, c, d;
 	NSRange		range, updatedRange;
 	a = oldRange.location;
 	b = NSMaxRange(oldRange);
 	b2 = NSMaxRange(newRange);
 	
 	for (i = 1; i < numberOfSubranges; i++) {
-		range = [[target objectAtIndex:i] rangeValue];
+		range = [target[i] rangeValue];
 		c = origin + range.location;
 		d = c + range.length;
 		
@@ -459,14 +452,14 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			NSLog(@"1. ( ) [ ]");
 #endif
 			updatedRange = NSMakeRange(range.location + b2 - b, range.length);
-			[target replaceObjectAtIndex:i withObject:[NSValue valueWithRange:updatedRange]];
+			target[i] = [NSValue valueWithRange:updatedRange];
 		} else if ((c < a) && (a <= b) && (b < d)) {
 			// 4. [ ( ) ]
 #ifdef DEBUG_OGRE_FIND_PANEL
 			NSLog(@"4. [ ( ) ]");
 #endif
 			updatedRange = NSMakeRange(range.location, range.length + b2 - b);
-			[target replaceObjectAtIndex:i withObject:[NSValue valueWithRange:updatedRange]];
+			target[i] = [NSValue valueWithRange:updatedRange];
 		} else if ((a <= c) && (c <= d) && (d <= b)) {
 			// 3. ( [ ] )
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -477,23 +470,23 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 			} else {
 				updatedRange = NSMakeRange(range.location + b2 - c, 0);		// ( )[]
 			}
-			[target replaceObjectAtIndex:i withObject:[NSValue valueWithRange:updatedRange]];
+			target[i] = [NSValue valueWithRange:updatedRange];
 		} else if ((a <= c) && (c < b) && (b < d)) {
 			// 2. ( [ ) ]
 #ifdef DEBUG_OGRE_FIND_PANEL
 			NSLog(@"2. ( [ ) ]");
 #endif
 			updatedRange = NSMakeRange(range.location + b2 - c, range.length - (b - c));
-			[target replaceObjectAtIndex:i withObject:[NSValue valueWithRange:updatedRange]];
+			target[i] = [NSValue valueWithRange:updatedRange];
 		} else if ((c < a) && (a < d) && (d <= b)) {
 			// 5. [ ( ] )
 #ifdef DEBUG_OGRE_FIND_PANEL
 			NSLog(@"5. [ ( ] )");
 #endif
 			updatedRange = NSMakeRange(range.location, range.length - (d - a));
-			[target replaceObjectAtIndex:i withObject:[NSValue valueWithRange:updatedRange]];
+			target[i] = [NSValue valueWithRange:updatedRange];
 		} else {
-			// その他
+			// Other (その他)
 #ifdef DEBUG_OGRE_FIND_PANEL
 			NSLog(@"others");
 #endif
@@ -522,9 +515,9 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    if (!inSelection) return [_childArray objectAtIndex:index];
+    if (!inSelection) return _childArray[index];
     
-    return [_childArray objectAtIndex:index];
+    return _childArray[index];
 }
 
 - (BOOL)showMatchedString

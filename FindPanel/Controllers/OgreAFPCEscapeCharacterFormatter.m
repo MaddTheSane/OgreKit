@@ -52,7 +52,6 @@
 			string = anObject;
 		}
     } else if ([anObject isKindOfClass:[NSAttributedString class]]) {
-		NSString	*string;
 		if ([_delegate shouldEquateYenWithBackslash]) {
 			string = [self equateInString:[(NSAttributedString*)anObject string]];
 		} else {
@@ -99,7 +98,7 @@
 
 - (void)setDelegate:(id)aDelegate
 {
-	_delegate = aDelegate;  // 注意! retainしない。
+	_delegate = aDelegate;  // Caution! Do not retain. (注意! retainしない。)
 }
 
 - (NSString*)equateInString:(NSString*)string

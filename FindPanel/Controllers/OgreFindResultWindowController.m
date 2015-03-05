@@ -11,17 +11,19 @@
  * Tabsize: 4
  */
 
+#import <OgreKit/OgreTextFindResult.h>
+
 #import <OgreKit/OgreFindResultWindowController.h>
 #import <OgreKit/OgreAttachableWindowMediator.h>
 
 @implementation OgreFindResultWindowController
 
-- (id)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
+- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
 {
 	self = [super init];
 	if (self != nil) {
 		_textFindResult = [textFindResult retain];
-		[_textFindResult setDelegate:self]; // 検索結果の更新通知を受け取るようにする。
+		[_textFindResult setDelegate:self]; // I want to receive the search results update notification. (検索結果の更新通知を受け取るようにする。)
 		_liveUpdate = liveUpdate;
 		[NSBundle loadNibNamed:@"OgreFindResultWindow" owner:self];
 		_attachedWindowMediator = [OgreAttachableWindowMediator sharedMediator];
@@ -32,7 +34,7 @@
 - (void)awakeFromNib
 {
 	[liveUpdateCheckBox setTitle:OgreTextFinderLocalizedString(@"Live Update")];
-	[liveUpdateCheckBox setState:(int)_liveUpdate];
+	[liveUpdateCheckBox setState:(NSInteger)_liveUpdate];
 	
 	[self setupFindResultView];
 }
@@ -50,7 +52,7 @@
 	
 	[grepOutlineView reloadData];
 	[grepOutlineView expandItem:[self outlineView:nil child:0 ofItem:nil] expandChildren:YES];
- 	// grepTableViewのdouble clickを検知
+ 	// and detect the double click of grepTableView (grepTableViewのdouble clickを検知)
 	[grepOutlineView setTarget:self];
 	[grepOutlineView setDoubleAction:@selector(grepOutlineViewDoubleClicked)];
 	
@@ -72,7 +74,7 @@
 - (void)show
 {
 	[window makeKeyAndOrderFront:self];
-	// WindowsメニューにFind Panelを追加
+	// Add Find Panel in Windows menu (WindowsメニューにFind Panelを追加)
 	[NSApp addWindowsItem:window title:[window title] filename:NO];
 	[NSApp changeWindowsItem:window title:[window title] filename:NO];
 }
@@ -122,7 +124,7 @@
 
 /*- (void)tellMeTargetToFindIn:(id)textFinder
 {
-	[textFinder setTargetToFindIn:nil]; // 検索させない
+	[textFinder setTargetToFindIn:nil]; // Not searched (検索させない)
 }*/
 
 /* delegate method of OgreTextFindResult */
@@ -163,7 +165,7 @@
 	return [aItem isBranch];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_textFindResult == nil) return 0;
 	
@@ -178,7 +180,7 @@
 	return [aItem numberOfChildrenInSelection:NO];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_textFindResult == nil) return nil;
 	
@@ -208,7 +210,7 @@
 
 - (void)grepOutlineViewDoubleClicked
 {
-	int	clickedRowIndex = [grepOutlineView clickedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView clickedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];
@@ -219,7 +221,7 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification*)aNotification
 {
-	int	clickedRowIndex = [grepOutlineView selectedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView selectedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];

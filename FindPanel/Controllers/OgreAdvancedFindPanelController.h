@@ -109,7 +109,7 @@
 - (IBAction)toggleStyleOptions:(id)sender;
 
 /* delegate methods of OgreAdvancedFindPanel */
-- (void)findPanelFlagsChanged:(unsigned)modifierFlags;
+- (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags;
 - (void)findPanelDidAddChildWindow:(NSWindow*)childWindow;
 - (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow;
 
@@ -118,8 +118,8 @@
 - (BOOL)shouldEquateYenWithBackslash;
 - (BOOL)isStartFromTop;
 - (BOOL)isWrap;
-- (unsigned)options;
-- (unsigned)_options;
+- (NSUInteger)options;
+- (NSUInteger)_options;
 - (OgreSyntax)syntax;
 
 /* find/replace history */

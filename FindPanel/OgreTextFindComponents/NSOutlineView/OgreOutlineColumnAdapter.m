@@ -115,7 +115,7 @@
     [outlineItemAdapter setLevel:0];
     [outlineItemAdapter setReversed:[self isReversed]];
     
-    if ([self isTerminal] && index == [[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem] objectAtIndex:0] intValue]) {
+    if ([self isTerminal] && index == [[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]) {
         [outlineItemAdapter setTerminal:YES];
     }
     
@@ -135,10 +135,10 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
-    if ([self isTerminal]) [enumerator setTerminalIndex:[[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem] objectAtIndex:0] intValue]];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
+    if ([self isTerminal]) [enumerator setTerminalIndex:[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]];
 
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes
@@ -146,7 +146,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
 #endif
-    unsigned count = [self numberOfChildrenInSelection:YES];
+    NSUInteger count = [self numberOfChildrenInSelection:YES];
     
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, count)];
 }

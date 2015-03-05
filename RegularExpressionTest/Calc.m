@@ -32,7 +32,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 
 @implementation Calc
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self != nil) {
@@ -109,7 +109,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 {
     id  num2 = [self pop];
     id  num1 = [self pop];
-    [self push:[NSNumber numberWithDouble:[num1 doubleValue] + [num2 doubleValue]]];
+    [self push:@([num1 doubleValue] + [num2 doubleValue])];
 }
 
 - (void)reduce_t1:(OGRegularExpressionCapture*)aCapture
@@ -117,7 +117,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 {
     id  num2 = [self pop];
     id  num1 = [self pop];
-    [self push:[NSNumber numberWithDouble:[num1 doubleValue] * [num2 doubleValue]]];
+    [self push:@([num1 doubleValue] * [num2 doubleValue])];
 }
 
 - (void)reduce_f2:(OGRegularExpressionCapture*)aCapture
@@ -131,7 +131,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 {
     id  num2 = [self pop];
     id  num1 = [self pop];
-    [self push:[NSNumber numberWithDouble:[num1 doubleValue] - [num2 doubleValue]]];
+    [self push:@([num1 doubleValue] - [num2 doubleValue])];
 }
 
 - (void)reduce_t2:(OGRegularExpressionCapture*)aCapture
@@ -139,7 +139,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 {
     id  num2 = [self pop];
     id  num1 = [self pop];
-    [self push:[NSNumber numberWithDouble:[num1 doubleValue] / [num2 doubleValue]]];
+    [self push:@([num1 doubleValue] / [num2 doubleValue])];
 }
 
 @end

@@ -14,23 +14,17 @@
 #import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreTextFindProgressSheet.h>
 #import <OgreKit/OgreTextFindThread.h>
-#import <OgreKit/OgreTextFindThread.h>
+
+#import <tgmath.h>
 
 @implementation OgreTextFindResult
-@synthesize delegate = _delegate;
-@synthesize numberOfMatches = _numberOfMatches;
-@synthesize title = _title;
-// -matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限)
-@synthesize maximumLeftMargin = _maxLeftMargin;
-// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-@synthesize maximumMatchedStringLength = _maxMatchedStringLength;
 
-+ (id)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
++ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
 {
 	return [[[[self class] alloc] initWithTarget:targetFindingIn thread:aThread] autorelease];
 }
 
-- (id)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTarget: of %@", [self className]);
@@ -40,8 +34,8 @@
 		_target = targetFindingIn;
         _branchStack = [[NSMutableArray alloc] init];
 		
-		_maxLeftMargin = -1;			// 無制限
-		_maxMatchedStringLength = -1;   // 無制限
+		_maxLeftMargin = -1;			// Limitless (無制限)
+		_maxMatchedStringLength = -1;   // Limitless (無制限)
         
         _numberOfMatches = 0;
 
@@ -158,6 +152,29 @@
     return _resultTree;
 }
 
+
+// -matchedStringAtIndex: at, matched maximum number of characters to the left of the string (-1: unlimited) (-matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限))
+- (NSInteger)maximumLeftMargin
+{
+    return _maxLeftMargin;
+}
+
+- (void)setMaximumLeftMargin:(NSInteger)leftMargin
+{
+	_maxLeftMargin = leftMargin;
+}
+
+// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
+- (NSInteger)maximumMatchedStringLength
+{
+    return _maxMatchedStringLength;
+}
+
+- (void)setMaximumMatchedStringLength:(NSInteger)aLength
+{
+	_maxMatchedStringLength = aLength;
+}
+
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 {
 #ifdef MAC_OS_X_VERSION_10_6
@@ -165,7 +182,7 @@
 #else
     float   hue, saturation, brightness, alpha;
 #endif
-    double  dummy;
+    CGFloat  dummy;
     
     [[aColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
         getHue: &hue 
@@ -175,65 +192,65 @@
         
     BOOL    isSimple = ([regex syntax] == OgreSimpleMatchingSyntax && ([regex options] & OgreDelimitByWhitespaceOption) != 0);
     
-    unsigned    numberOfGroups = [_regex numberOfGroups], i;
+    NSUInteger  numberOfGroups = [_regex numberOfGroups], i;
     
     _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
         [_highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
-            modf(hue + (isSimple? (float)(i - 1) : (float)i) / (isSimple? (float)numberOfGroups : (float)(numberOfGroups + 1)), &dummy) 
+            modf(hue + (isSimple? (CGFloat)(i - 1) : (CGFloat)i) / (isSimple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
     }
 }
 
-// aString中のaRangeArrayの範囲を強調する。
+// emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString
 {
-	int							i, n = [aRangeArray count], delta = 0;
+	NSInteger							i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
 	NSMutableAttributedString	*highlightedString;
     
-	/* マッチした文字列の先頭のある行の範囲・内容 */
-	matchRange = [[aRangeArray objectAtIndex:0] rangeValue];
+	/* Top of a range and content of the row of matched string (マッチした文字列の先頭のある行の範囲・内容) */
+	matchRange = [aRangeArray[0] rangeValue];
 	if ([aString length] < NSMaxRange(matchRange)) {
-		// matchRangeの範囲の文字列が存在しない場合
-		return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
+		// Where a range of string of matchRange does not exist (matchRangeの範囲の文字列が存在しない場合)
+		return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}] autorelease];
 	}
 	lineRange = [aString lineRangeForRange:NSMakeRange(matchRange.location, 0)];
     
 	highlightedString = [[[NSMutableAttributedString alloc] initWithString:@""] autorelease];
 	if ((_maxLeftMargin >= 0) && (matchRange.location > lineRange.location + _maxLeftMargin)) {
-		// MatchedStringの左側の文字数を制限する
+		// I limit the number of characters on the left side of the MatchedString (MatchedStringの左側の文字数を制限する)
 		delta = matchRange.location - (lineRange.location + _maxLeftMargin);
 		lineRange.location += delta;
 		lineRange.length   -= delta;
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:@"..." 
-			attributes:[NSDictionary dictionaryWithObject:[NSColor grayColor] forKey:NSForegroundColorAttributeName]] autorelease]];
+			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}] autorelease]];
 	}
 	if ((_maxMatchedStringLength >= 0) && (lineRange.length > _maxMatchedStringLength)) {
-		// 全文字数を制限する
+		// I limit the number of characters all (全文字数を制限する)
 		lineRange.length = _maxMatchedStringLength;
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:[aString substringWithRange:lineRange]] autorelease]];
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:@"..." 
-			attributes:[NSDictionary dictionaryWithObject:[NSColor grayColor] forKey:NSForegroundColorAttributeName]] autorelease]];
+			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}] autorelease]];
 	} else {
 		[highlightedString appendAttributedString:[[[NSAttributedString alloc] 
 			initWithString:[aString substringWithRange:lineRange]] autorelease]];
 	}
 	
-	/* 彩色 */
+	/* Coloring (彩色) */
 	[highlightedString beginEditing];
 	for(i = 0; i < n; i++) {
-		matchRange = [[aRangeArray objectAtIndex:i] rangeValue];
+		matchRange = [aRangeArray[i] rangeValue];
 		intersectionRange = NSIntersectionRange(lineRange, matchRange);
 		
 		if (intersectionRange.length > 0) {
 			[highlightedString setAttributes:
-				[NSDictionary dictionaryWithObject:[_highlightColorArray objectAtIndex:i] forKey:NSBackgroundColorAttributeName] 
+				@{NSBackgroundColorAttributeName: _highlightColorArray[i]} 
 				range:NSMakeRange(intersectionRange.location - lineRange.location + ((delta == 0)? 0 : 3), intersectionRange.length)];
 		}
 	}
@@ -244,7 +261,7 @@
 
 - (NSAttributedString*)missingString
 {
-    return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}] autorelease];
 }
 
 
@@ -253,7 +270,17 @@
     [(id <OgreTextFindResultDelegateProtocol>)_delegate didUpdateTextFindResult:self];
 }
 
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches
+- (NSUInteger)numberOfMatches
+{
+    return _numberOfMatches;
+}
+
+- (void)setNumberOfMatches:(NSUInteger)aNumber
+{
+    _numberOfMatches = aNumber;
+}
+
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -261,10 +288,10 @@
     } else {
         message = OgreTextFinderLocalizedString(@"%d string found.");
     }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}] autorelease];
 }
 
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -272,7 +299,7 @@
     } else {
         message = OgreTextFinderLocalizedString(@"Found in %d item.");
     }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}] autorelease];
 }
 
 
@@ -307,7 +334,7 @@
     return nameCell;
 }
 
-- (float)rowHeight
+- (CGFloat)rowHeight
 {
     if ([_target isKindOfClass:[NSOutlineView class]]) {
         return [(NSOutlineView*)_target rowHeight];

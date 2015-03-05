@@ -17,8 +17,8 @@
 @interface MyTableColumnSheet : NSObject 
 {
     IBOutlet NSWindow       *columnSheet;
-    IBOutlet NSTextField    *oldTitleField;
-    IBOutlet NSTextField    *newTitleField;
+    IBOutlet NSTextField    *originalTitleField;
+    IBOutlet NSTextField    *changedTitleField;
     
     NSWindow        *_parentWindow;
     NSTableColumn   *_column;
@@ -28,12 +28,12 @@
     id              _argument;
 }
 
-- (id)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget;
+- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget NS_DESIGNATED_INITIALIZER;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)ok:(id)sender;
 
-- (NSString*)newTitle;
-- (NSTableColumn*)tableColumn;
+@property (nonatomic, readonly, copy) NSString *changedTitle;
+@property (nonatomic, readonly, strong) NSTableColumn *tableColumn;
 
 @end

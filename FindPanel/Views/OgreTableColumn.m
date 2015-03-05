@@ -12,7 +12,6 @@
  */
 
 #import <OgreKit/OgreTableColumn.h>
-#import <OgreKit/NSString_OgreKitAdditions.h>
 
 @implementation OgreTableColumn
 
@@ -33,14 +32,14 @@
         
         NSArray *keyPathComponents = [keyPath componentsSeparatedByString:@"."];
         
-        _ogreControllerKeyOfValueBinding = [[keyPathComponents objectAtIndex:0] retain];
+        _ogreControllerKeyOfValueBinding = [keyPathComponents[0] retain];
         
         _ogreModelKeyPathOfValueBinding = [[NSMutableString alloc] init];
         
-        int i, count = [keyPathComponents count];
+        NSInteger i, count = [keyPathComponents count];
         for (i = 1; i < count; i++) {
             if (i > 1) [_ogreModelKeyPathOfValueBinding appendString:@"."];
-            [_ogreModelKeyPathOfValueBinding appendString:[keyPathComponents objectAtIndex:i]];
+            [_ogreModelKeyPathOfValueBinding appendString:keyPathComponents[i]];
         }
         //NSLog(@"Controller Key:%@\nModel Key Path:%@", _ogreControllerKeyOfValueBinding, _ogreModelKeyPathOfValueBinding);
     }
@@ -68,7 +67,7 @@
     [super dealloc];
 }
 
-- (int)ogreNumberOfRows
+- (NSInteger)ogreNumberOfRows
 {
     id  dataSource;
     
@@ -81,7 +80,7 @@
     return 0;
 }
 
-- (id)ogreObjectValueForRow:(int)row
+- (id)ogreObjectValueForRow:(NSInteger)row
 {
     if (row < 0) return nil;
     
@@ -90,7 +89,7 @@
     
     if ((_ogreObservableController != nil) && (_ogreControllerKeyOfValueBinding != nil) && (_ogreModelKeyPathOfValueBinding != nil)) {
         NSArray *array = [_ogreObservableController valueForKeyPath:_ogreControllerKeyOfValueBinding];
-        anObject = [[array objectAtIndex:row] valueForKeyPath:_ogreModelKeyPathOfValueBinding];
+        anObject = [array[row] valueForKeyPath:_ogreModelKeyPathOfValueBinding];
     } else if ((dataSource = [[self tableView] dataSource]) != nil) {
         anObject = [dataSource tableView:[self tableView] objectValueForTableColumn:self row:row];
     }
@@ -98,7 +97,7 @@
     return anObject;
 }
 
-- (void)ogreSetObjectValue:(id)anObject forRow:(int)row
+- (void)ogreSetObjectValue:(id)anObject forRow:(NSInteger)row
 {
     if (row < 0) return;
     
@@ -106,7 +105,7 @@
     
     if ((_ogreObservableController != nil) && (_ogreControllerKeyOfValueBinding != nil) && (_ogreModelKeyPathOfValueBinding != nil)) {
         NSArray *array = [_ogreObservableController valueForKeyPath:_ogreControllerKeyOfValueBinding];
-        [[array objectAtIndex:row] setValue:anObject forKeyPath:_ogreModelKeyPathOfValueBinding];
+        [array[row] setValue:anObject forKeyPath:_ogreModelKeyPathOfValueBinding];
     } else if ((dataSource = [[self tableView] dataSource]) != nil) {
         [dataSource tableView:[self tableView] setObjectValue:anObject forTableColumn:self row:row];
     }

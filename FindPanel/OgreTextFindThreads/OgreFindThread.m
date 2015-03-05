@@ -14,8 +14,9 @@
 #import <OgreKit/OgreFindThread.h>
 #import <OgreKit/OgreFindResultLeaf.h>
 #import <OgreKit/OgreFindResultBranch.h>
-#import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
+
+#import <OgreKit/OgreTextFindResult.h>
 
 
 @implementation OgreFindThread
@@ -93,7 +94,7 @@
     }
     
     NSRange     searchRange = [aLeaf selectedRange];
-    unsigned    maxRange;
+    NSUInteger  maxRange;
     
     if (([aLeaf isFirstLeaf] && ![aLeaf isReversed]) || ([aLeaf isTerminal] && [aLeaf isReversed])) {
         maxRange = NSMaxRange(searchRange);
@@ -110,7 +111,7 @@
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
 {
-    // 最初のマッチ結果を得る。
+    // I get the first match result. (最初のマッチ結果を得る。)
     OGRegularExpressionMatch    *match;
     
     if ([self backward]) {
@@ -120,7 +121,7 @@
     }
     if (match == nil) return NO;    // next leaf
     
-    // マッチした場合
+    // If you match (マッチした場合)
     [self incrementNumberOfMatches];
     NSRange matchRange = [match rangeOfMatchedString];
     [aLeaf setSelectedRange:matchRange];

@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreReplaceAllThread.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OgreTextFindResult.h>
 
 
 @implementation OgreReplaceAllThread
@@ -54,7 +55,7 @@
         return;
     }
     
-    unsigned    stringLength = [string length];
+    NSUInteger  stringLength = [string length];
     
     NSRange     selectedRange = [aLeaf selectedRange];
 	if (![self inSelection]) {
@@ -82,7 +83,7 @@
     
     OGRegularExpressionMatch        *match;
     NSRange                         matchRange;
-    match = [matchArray objectAtIndex:(aNumberOfMatches - aNumberOfReplaces)];
+    match = matchArray[(aNumberOfMatches - aNumberOfReplaces)];
     matchRange = [match rangeOfMatchedString];
     replacedString = [repex replaceMatchedOGStringOf:match];
     [aLeaf replaceCharactersInRange:matchRange withOGString:replacedString];
@@ -151,26 +152,26 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings replaced. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:cancelledNotFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	} else {
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:notFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	}
     

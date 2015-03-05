@@ -11,19 +11,13 @@
  * Tabsize: 4
  */
 
-#import <Cocoa/Cocoa.h>
-#import <OgreKit/OGRegularExpression.h>
-#import <OgreKit/OGReplaceExpression.h>
-//#import <OgreKit/OgreTextFinder.h>
-#import <OgreKit/OgreTextFindProgressSheet.h>
-#import <OgreKit/OgreTextFindResult.h>
+#import <Foundation/Foundation.h>
+
 #import <OgreKit/OgreTextFindComponent.h>
-#import <OgreKit/OgreTextFindLeaf.h>
-#import <OgreKit/OgreTextFindBranch.h>
 #import <OgreKit/OgreTextFindProgressDelegate.h>
 
-
-@class OgreTextFindRoot;
+@class OgreTextFindRoot, OgreTextFindResult;
+@class OGRegularExpression, OGReplaceExpression;
 
 @interface OgreTextFindThread : NSObject <OgreTextFindVisitor>
 {
@@ -39,7 +33,7 @@
 	OGRegularExpression *_regex;			// regular expression
 	OGReplaceExpression *_repex;			// replace expression
 	NSColor				*_highlightColor;	// highlight color
-	unsigned			_searchOptions;		// search option
+	NSUInteger			_searchOptions;		// search option
 	BOOL				_inSelection;		// find scope
 	BOOL				_asynchronous;		// synchronous or asynchronous 
 	SEL					_didEndSelector;	// selector for sending a finish message
@@ -52,9 +46,9 @@
 	/* state */
 	volatile BOOL		_terminated;		// two-phase termination
 	BOOL				_exceptionRaised;
-	unsigned			_numberOfMatches;	// number of matches
+	NSUInteger			_numberOfMatches;	// number of matches
 	OgreTextFindResult	*_textFindResult;	// result
-	int					_numberOfDoneLeaves,
+	NSInteger			_numberOfDoneLeaves,
 						_numberOfTotalLeaves;
 	
 	NSDate				*_processTime;		// process time
@@ -62,7 +56,7 @@
 }
 
 /* Creating and initializing */
-- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent;
+- (instancetype)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent NS_DESIGNATED_INITIALIZER;
 
 /* Running and stopping */
 - (void)detach;
@@ -71,52 +65,46 @@
 - (void)finish;
 
 /* result */
-- (OgreTextFindResult*)result;
+@property (nonatomic, readonly, strong) OgreTextFindResult *result;
 - (void)addResultLeaf:(id)aResultLeaf;
 - (void)beginGraftingToBranch:(OgreTextFindBranch*)aBranch;
 - (void)endGrafting;
 
 /* Configuration */
-- (void)setRegularExpression:(OGRegularExpression*)regex;
-- (void)setReplaceExpression:(OGReplaceExpression*)repex;
-- (void)setHighlightColor:(NSColor*)highlightColor;
-- (void)setOptions:(unsigned)options;
-- (void)setInSelection:(BOOL)inSelection;
 - (void)setAsynchronous:(BOOL)asynchronou;
 
 - (void)setDidEndSelector:(SEL)aSelector toTarget:(id)aTarget;
-- (void)setProgressDelegate:(NSObject <OgreTextFindProgressDelegate>*)aDelegate;
 
 /* Accessors */
-- (OGRegularExpression*)regularExpression;
-- (OGReplaceExpression*)replaceExpression;
-- (NSColor*)highlightColor;
-- (unsigned)options;
-- (BOOL)inSelection;
-- (NSObject <OgreTextFindProgressDelegate>*)progressDelegate;
-- (BOOL)isTerminated;
-- (NSTimeInterval)processTime;
+@property (nonatomic, copy) OGRegularExpression *regularExpression;
+@property (nonatomic, copy) OGReplaceExpression *replaceExpression;
+@property (nonatomic, copy) NSColor *highlightColor;
+@property (nonatomic) NSUInteger options;
+@property (nonatomic) BOOL inSelection;
+@property (nonatomic, strong) NSObject<OgreTextFindProgressDelegate> *progressDelegate;
+@property (nonatomic, getter=isTerminated, readonly) BOOL terminated;
+@property (nonatomic, readonly) NSTimeInterval processTime;
 
 /* Protected methods */
-- (unsigned)numberOfMatches;		 // number of matches
+@property (nonatomic, readonly) NSUInteger numberOfMatches;		 // number of matches
 - (void)incrementNumberOfMatches;	// _numberofMatches++
 - (void)finishingUp:(id)sender;
 - (void)exceptionRaised:(NSException*)exception;
 
 - (void)pushEnumerator:(NSEnumerator*)anEnumerator;
-- (NSEnumerator*)popEnumerator;
-- (NSEnumerator*)topEnumerator;
+@property (nonatomic, readonly, strong) NSEnumerator *popEnumerator;
+@property (nonatomic, readonly, strong) NSEnumerator *topEnumerator;
 
-- (OgreTextFindBranch*)rootAdapter;
-- (NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)targetAdapter;
+@property (nonatomic, readonly, strong) OgreTextFindBranch *rootAdapter;
+@property (nonatomic, readonly, strong) NSObject<OgreTextFindComponent,OgreTextFindTargetAdapter> *targetAdapter;
 - (void)pushBranch:(OgreTextFindBranch*)aBranch;
-- (OgreTextFindBranch*)popBranch;
-- (OgreTextFindBranch*)topBranch;
+@property (nonatomic, readonly, strong) OgreTextFindBranch *popBranch;
+@property (nonatomic, readonly, strong) OgreTextFindBranch *topBranch;
 
 - (void)_setLeafProcessing:(OgreTextFindLeaf*)aLeaf;
 
 /* Methods implemented by subclasses */
-- (SEL)didEndSelectorForFindPanelController;
+@property (nonatomic, readonly) SEL didEndSelectorForFindPanelController;
 
 - (void)willProcessFindingAll;
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -128,9 +116,9 @@
 
 - (void)finalizeFindingAll;
 
-- (NSString*)progressMessage;
-- (NSString*)doneMessage;
-- (double)progressPercentage;   // percentage of completion
-- (double)donePercentage;	   // percentage of completion
+@property (nonatomic, readonly, copy) NSString *progressMessage;
+@property (nonatomic, readonly, copy) NSString *doneMessage;
+@property (nonatomic, readonly) double progressPercentage;   // percentage of completion
+@property (nonatomic, readonly) double donePercentage;	   // percentage of completion
 
 @end

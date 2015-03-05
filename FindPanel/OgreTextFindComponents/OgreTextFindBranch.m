@@ -17,8 +17,6 @@
 
 
 @implementation OgreTextFindBranch
-@synthesize index = _index;
-@synthesize parent = _parent;
 
 /*
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -121,7 +119,7 @@
 
 - (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 { 
-    unsigned            numberOfDescendants = 0;
+    NSUInteger          numberOfDescendants = 0;
     NSEnumerator        *enumerator = (NSEnumerator*)[self componentEnumeratorInSelection:inSelection];
     OgreTextFindLeaf    *aChild;
     
@@ -188,6 +186,16 @@
     if (_isParentRetained) [_parent autorelease];
     _parent = parent;
     _isParentRetained = NO;
+}
+
+- (NSInteger)index
+{
+    return _index;
+}
+
+- (void)setIndex:(NSInteger)index
+{
+    _index = index;
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

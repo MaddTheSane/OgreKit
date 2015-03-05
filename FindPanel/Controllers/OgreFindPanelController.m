@@ -18,10 +18,10 @@
 
 - (void)awakeFromNib
 {
-	/* 前回のFind Panelの位置を再現 */
+	/* Reproduce the position of the previous Find Panel (前回のFind Panelの位置を再現) */
     [[self findPanel] setFrameAutosaveName: @"Find Panel"];
     [[self findPanel] setFrameUsingName: @"Find Panel"];
-    [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace]; // 現在表示中のDesktop SpaceにFind Panelを表示
+    [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace]; // Show Find Panel on Desktop Space currently displayed (現在表示中のDesktop SpaceにFind Panelを表示)
 }
 
 - (OgreTextFinder*)textFinder
@@ -38,7 +38,7 @@
 - (IBAction)showFindPanel:(id)sender
 {
 	[findPanel makeKeyAndOrderFront:self];
-	// WindowsメニューにFind Panelを追加
+	// Add Find Panel in Windows menu (WindowsメニューにFind Panelを追加)
 	[NSApp addWindowsItem:findPanel title:[findPanel title] filename:NO];
 }
 
@@ -62,8 +62,8 @@
 // NSCoding protocols
 - (NSDictionary*)history
 {
-	/* 履歴等を保存したい場合は、NSDictionaryで返す。 */
-	return [NSDictionary dictionary];
+	/* If you want to save the history, etc., to return in NSDictionary. (履歴等を保存したい場合は、NSDictionaryで返す。) */
+	return @{};
 }
 
 @end

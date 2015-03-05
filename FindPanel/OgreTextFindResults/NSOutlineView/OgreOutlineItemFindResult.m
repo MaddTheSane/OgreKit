@@ -52,9 +52,9 @@
 
 - (void)endAddition
 {
-    int i = 0;
+    NSInteger i = 0;
     while (i < [_components count]) {
-        if ([[_components objectAtIndex:i] numberOfChildrenInSelection:NO] == 0) {
+        if ([_components[i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
         } else {
             i++;
@@ -63,7 +63,7 @@
     
     i = 0;
     while (i < [_simplifiedComponents count]) {
-        id <OgreTextFindComponent>  aComponent = [_simplifiedComponents objectAtIndex:i];
+        id <OgreTextFindComponent>  aComponent = _simplifiedComponents[i];
         if ([aComponent isBranch] && [aComponent numberOfChildrenInSelection:NO] == 0) {
             [_simplifiedComponents removeObjectAtIndex:i];
         } else {
@@ -81,10 +81,10 @@
 {
     if ([_outlineColumn ogreIsItemExpandable:_item]) {
         NSArray     *children = [aBranch children];
-        unsigned    count = [children count];
+        NSUInteger  count = [children count];
         if (count > 0) {
             [_simplifiedComponents replaceObjectsInRange:NSMakeRange(0, 1) withObjectsFromArray:[children subarrayWithRange:NSMakeRange(1, count - 1)]];
-            _outlineDelegateLeaf = [children objectAtIndex:0];
+            _outlineDelegateLeaf = children[0];
         }
     } else {
         if ([[aBranch children] count] > 0) {
@@ -98,7 +98,7 @@
 
 - (void)replaceFindResult:(OgreOutlineItemFindResult*)aBranch withFindResultsFromArray:(NSArray*)resultsArray
 {
-    int branchIndex = [_simplifiedComponents indexOfObject:aBranch];
+    NSInteger branchIndex = [_simplifiedComponents indexOfObject:aBranch];
     [_simplifiedComponents replaceObjectsInRange:NSMakeRange(branchIndex, 1) withObjectsFromArray:resultsArray];
 }
 
@@ -124,7 +124,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_simplifiedComponents objectAtIndex:index];
+    return _simplifiedComponents[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
@@ -132,7 +132,7 @@
     return [_simplifiedComponents objectEnumerator]; 
 }
 
-// index番目にマッチした文字列を選択・表示する
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedString
 {
     if (_outlineColumn == nil || _item == nil) return NO;
@@ -142,14 +142,14 @@
     return [self selectMatchedString];
 }
 
-// index番目にマッチした文字列を選択する
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedString
 {
     if (_outlineColumn == nil || _item == nil) return NO;
     OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
     
     if ([outlineView allowsColumnSelection]) {
-        int columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+        NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
         if (columnIndex != -1) {
             [outlineView scrollColumnToVisible:columnIndex];
         } else {
@@ -159,7 +159,7 @@
     }
     
     [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
-    int rowIndex = [outlineView rowForItem:_item];
+    NSInteger rowIndex = [outlineView rowForItem:_item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
         [outlineView scrollRowToVisible:rowIndex];

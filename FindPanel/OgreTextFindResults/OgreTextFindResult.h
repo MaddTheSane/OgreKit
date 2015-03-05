@@ -22,13 +22,8 @@
 - (void)didUpdateTextFindResult:(id)textFindResult;
 @end
 
-@protocol OgreFindResultCorrespondingToTextFindLeaf
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch;
-- (void)endAddition;
-@end
 
-
-typedef NS_ENUM(int, OgreTextFindResultType) {
+typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 	OgreTextFindResultFailure = 0, 
 	OgreTextFindResultSuccess = 1, 
 	OgreTextFindResultError = 2
@@ -38,7 +33,7 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
 {
 	OgreTextFindResultType		_resultType;
 	id							_target;
-    unsigned                    _numberOfMatches;           // number of the matches
+    NSUInteger                  _numberOfMatches;           // number of the matches
     OGRegularExpression         *_regex;
     
     OgreFindResultBranch        *_resultTree, *_branch;
@@ -50,51 +45,51 @@ typedef NS_ENUM(int, OgreTextFindResultType) {
     
     /* display */
 	NSString					*_title;					// target window title
-	int                         _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-	int                         _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
-	id                          _delegate;                  // 更新連絡先
+	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
+	NSInteger                   _maxLeftMargin;				// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
+	id                          _delegate;                  // Update contact (更新連絡先)
     
     /* highlight color */
     NSMutableArray              *_highlightColorArray;   // variations
 }
 
 + (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
-- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread NS_DESIGNATED_INITIALIZER;
 
 - (void)setType:(OgreTextFindResultType)resultType;
-- (BOOL)isSuccess;				/* success or failure(including error) */
-- (NSObject <OgreTextFindComponent>*)result;
-- (NSString*)findString;
+@property (nonatomic, getter=isSuccess, readonly) BOOL success;				/* success or failure(including error) */
+@property (nonatomic, readonly, strong) NSObject<OgreTextFindComponent> *result;
+@property (nonatomic, readonly, copy) NSString *findString;
 
-- (BOOL)alertIfErrorOccurred;
+@property (nonatomic, readonly) BOOL alertIfErrorOccurred;
 - (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException;
 
 - (void)beginGraftingToBranch:(OgreFindResultBranch*)aBranch;
 - (void)endGrafting;
 - (void)addLeaf:(id)aLeaf;
 
-@property unsigned numberOfMatches;
+@property (nonatomic) NSUInteger numberOfMatches;
 
 @property (nonatomic, copy) NSString *title;
 
-// マッチした文字列の左側の最大文字数 (-1: 無制限)
-@property int maximumLeftMargin;
-// 最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。
-@property int maximumMatchedStringLength;
+// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
+@property (nonatomic) NSInteger maximumLeftMargin;
+// The maximum number of characters (-1: unlimited) However, ellipsis @ "..." I do not put in the count. (最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。)
+@property (nonatomic) NSInteger maximumMatchedStringLength;
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
-// aString中のaRangeArrayの範囲を強調する。
+// emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
-- (NSAttributedString*)missingString;
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches;
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
+@property (nonatomic, readonly, copy) NSAttributedString *missingString;
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches;
 
 // delegate
-@property (assign) id delegate;
+@property (nonatomic, assign) id delegate;
 - (void)didUpdate;
 
 // setting of result outline view
-- (NSCell*)nameCell;
-- (float)rowHeight;
+@property (nonatomic, readonly, copy) NSCell *nameCell;
+@property (nonatomic, readonly) CGFloat rowHeight;
 // delegate method of the find result outline view
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 

@@ -13,8 +13,9 @@
 
 #import <OgreKit/OgreReplaceAndFindThread.h>
 #import <OgreKit/OgreFindResultLeaf.h>
-#import <OgreKit/OgreFindResultBranch.h>
+#import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OGReplaceExpression.h>
 
 
 @implementation OgreReplaceAndFindThread
@@ -35,8 +36,8 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -preprocessFindingInFirstLeaf: of %@", [self className]);
 #endif
-	unsigned	options = [self options];
-	unsigned	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。
+	NSUInteger	options = [self options];
+	NSUInteger	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // I avoid problems which are not properly replaced when NotBOL option is specified. (NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。)
 	
     OGRegularExpressionMatch    *match;
     NSObject<OGStringProtocol>                    *string = [aLeaf ogString];

@@ -12,9 +12,11 @@
  */
 
 #import <OgreKit/OgreFindAllThread.h>
-#import <OgreKit/OgreFindResultLeaf.h>
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
+
+#import <OgreKit/OgreTextFindResult.h>
+#import <OgreKit/OgreTextFindThread.h>
 
 
 @implementation OgreFindAllThread
@@ -68,7 +70,7 @@
     matchEnumerator = [[regex matchEnumeratorInOGString:string 
 			options: [self options] 
 			range: searchRange] retain];
-    result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
+    result = [aLeaf findResultLeafWithThread:self];
     [self addResultLeaf:result];
 }
 
@@ -147,26 +149,26 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings found. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:cancelledNotFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	} else {
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:notFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	}
     

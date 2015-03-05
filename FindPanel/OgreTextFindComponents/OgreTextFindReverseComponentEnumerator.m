@@ -17,7 +17,7 @@
 
 @implementation OgreTextFindReverseComponentEnumerator
 
-- (id)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
+- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
 {
     self = [super initWithBranch:aBranch inSelection:inSelection];
     if (self != nil) {
@@ -30,7 +30,7 @@
 - (id)nextObject
 {
     if (_nextIndex < _terminalIndex) return nil;
-    unsigned    concreteIndex;
+    NSUInteger  concreteIndex;
     
     if (_inSelection) {
         concreteIndex = *(_indexes + _nextIndex);

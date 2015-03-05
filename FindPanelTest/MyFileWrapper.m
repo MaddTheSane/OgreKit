@@ -16,7 +16,7 @@
 
 @implementation MyFileWrapper
 
-- (id)initWithName:(NSString*)name path:(NSString*)path parent:(id)parent
+- (instancetype)initWithName:(NSString*)name path:(NSString*)path parent:(id)parent
 {
     self = [super init];
     if (self != nil) {
@@ -40,11 +40,11 @@
 #endif
         
         if (fattrs != nil) {
-            if ((moddate = [fattrs objectForKey:NSFileModificationDate]) != nil)
+            if ((moddate = fattrs[NSFileModificationDate]) != nil)
                 [_info appendFormat:@"Modif Date: %@,\t", [moddate description]];   
                 
-            if ((fsize = [fattrs objectForKey:NSFileSize]) != nil)
-                [_info appendFormat:@"Size: %d", [fsize intValue]];
+            if ((fsize = fattrs[NSFileSize]) != nil)
+                [_info appendFormat:@"Size: %llu", [fsize unsignedLongLongValue]];
         }
     }
     return self;
@@ -109,13 +109,13 @@
     return _components;
 }
 
-- (id)componentAtIndex:(unsigned)index
+- (id)componentAtIndex:(NSUInteger)index
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
-    return [_components objectAtIndex:index];
+    return _components[index];
 }
 
-- (unsigned)numberOfComponents
+- (NSUInteger)numberOfComponents
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
     return [_components count];

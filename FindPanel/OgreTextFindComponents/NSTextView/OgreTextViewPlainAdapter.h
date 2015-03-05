@@ -12,11 +12,11 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <OgreKit/OgreTextFindLeaf.h>
+#import <OgreKit/OgreTextViewAdapter.h>
 
 @class OgreTextViewUndoer;
 
-@interface OgreTextViewPlainAdapter : OgreTextFindLeaf <OgreTextFindTargetAdapter>
+@interface OgreTextViewPlainAdapter : OgreTextViewAdapter <OgreTextFindTargetAdapter>
 {
 	NSTextView			*_textView;
 	NSTextStorage		*_textStorage;

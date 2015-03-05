@@ -27,7 +27,7 @@
 }
 
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options
+	options:(NSUInteger)options
 {
 	return [self rangeOfRegularExpressionString:expressionString 
 		options:options 
@@ -35,7 +35,7 @@
 }
 
 - (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange
 {
 	OGRegularExpressionMatch	*match = 
@@ -54,7 +54,7 @@
 /*********
  * Split *
  *********/
-// マッチした部分で文字列を分割し、NSArrayに収めて返す。
+// Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
 - (NSArray*)componentsSeparatedByRegularExpressionString:(NSString*)expressionString
 {
 	return [[OGRegularExpression regularExpressionWithString:expressionString] splitString:self];
@@ -63,7 +63,7 @@
 /*********************
  * Newline Character *
  *********************/
-// 改行コードが何か調べる
+// Examine new line code is something (改行コードが何か調べる)
 - (OgreNewlineCharacter)newlineCharacter
 {
 	return [OGRegularExpression newlineCharacterInString:self];
@@ -76,14 +76,14 @@
 /***********
  * Replace *
  ***********/
-- (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
+- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
 	withString:(NSString*)replaceString 
-	options:(unsigned)options 
+	options:(NSUInteger)options 
 	range:(NSRange)searchRange
 {
 	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:expressionString
 		options:options];
-	unsigned	numberOfReplacement = 0;
+	NSUInteger	numberOfReplacement = 0;
 	NSString	*replacedString = [regex replaceString:self 
 		withString:replaceString 
 		options:options 
@@ -94,13 +94,13 @@
 	return numberOfReplacement;
 }
 
-// 改行コードをnewlineCharacterに統一する。
+// A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
 - (void)replaceNewlineCharactersWithCharacter:(OgreNewlineCharacter)newlineCharacter
 {
 	[self setString:[OGRegularExpression replaceNewlineCharactersInString:self withCharacter:newlineCharacter]];
 }
 
-// 改行コードを取り除く
+// I remove the line break code (改行コードを取り除く)
 - (void)chomp
 {
 	[self setString:[OGRegularExpression chomp:self]];

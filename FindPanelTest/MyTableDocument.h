@@ -19,16 +19,16 @@
 	IBOutlet NSTableView    *tableView;
     NSMutableDictionary     *_dict;
     NSMutableArray          *_titleArray;
-	OgreNewlineCharacter	_newlineCharacter;	// 改行コードの種類
-    unsigned                _numberOfColumns;
+	OgreNewlineCharacter	_newlineCharacter;	// Kind of line feed code (改行コードの種類)
+    NSUInteger              _numberOfColumns;
     NSRect                  _sheetPosition;
     BOOL                    _useCustomSheetPosition;
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter;
 
-- (unsigned)numberOfRows;
+@property (nonatomic, readonly) NSInteger numberOfRows;
 
 - (IBAction)addRow:(id)sender;
 - (IBAction)removeRow:(id)sender;

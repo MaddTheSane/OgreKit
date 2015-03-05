@@ -27,8 +27,7 @@
 }
 - (IBAction)replace:(id)sender;
 
-- (unsigned)options;
-- (BOOL)attributedReplace;
-- (void)setAttributedReplace:(BOOL)yesOrNo;
+@property (nonatomic, readonly) NSUInteger options;
+@property (nonatomic) BOOL attributedReplace;
 
 @end

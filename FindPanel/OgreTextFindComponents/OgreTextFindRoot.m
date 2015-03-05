@@ -52,7 +52,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    return [[NSArray arrayWithObject:_component] objectEnumerator]; 
+    return [@[_component] objectEnumerator]; 
 }
 
 -(NSIndexSet*)selectedIndexes

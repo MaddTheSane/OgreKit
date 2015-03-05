@@ -95,7 +95,7 @@
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
     if ([_tableColumn isKindOfClass:[OgreTableColumn class]]) {
-        int count = [[_tableColumn tableView] numberOfSelectedRows];
+        NSInteger count = [[_tableColumn tableView] numberOfSelectedRows];
         if (inSelection && (count > 0)) return count;
         
         return [[_tableColumn tableView] numberOfRows];
@@ -110,7 +110,7 @@
 	NSLog(@"  -childAtIndex: of %@", [self className]);
 #endif
     OgreTableCellAdapter *tableCellAdapter;
-    unsigned            rowIndex;
+    NSUInteger          rowIndex;
     
     if (!inSelection) {
         rowIndex = index;
@@ -127,7 +127,7 @@
             unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedRowIndexes count]);
 #endif
             if (indexes == NULL) {
-                // エラー
+                // Error (エラー)
                 return nil;
             }
             [selectedRowIndexes getIndexes:indexes maxCount:[selectedRowIndexes count] inIndexRange:NULL];
@@ -153,7 +153,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [[_tableColumn tableView] numberOfSelectedRows];
+    NSInteger count = [[_tableColumn tableView] numberOfSelectedRows];
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
@@ -161,10 +161,10 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection && (count > 0))];
     if ([self isTerminal]) [enumerator setTerminalIndex:[(OgreTableView*)[_tableColumn tableView] ogreSelectedRow]];
     
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes

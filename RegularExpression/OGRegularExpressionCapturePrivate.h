@@ -19,9 +19,9 @@
 
 @interface OGRegularExpressionCapture (Private)
 
-- (instancetype)initWithTreeNode:(OnigCaptureTreeNode*)captureNode 
-    index:(unsigned)index 
-    level:(unsigned)level 
+- (id)initWithTreeNode:(OnigCaptureTreeNode*)captureNode 
+    index:(NSUInteger)index
+    level:(NSUInteger)level 
     parentNode:(OGRegularExpressionCapture*)parentNode 
     match:(OGRegularExpressionMatch*)match;
 

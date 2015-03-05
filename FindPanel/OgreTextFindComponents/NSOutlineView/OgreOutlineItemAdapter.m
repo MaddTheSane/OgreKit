@@ -22,8 +22,6 @@
 #import <OgreKit/OgreOutlineColumn.h>
 
 @implementation OgreOutlineItemAdapter
-@synthesize level = _level;
-@synthesize outlineColumn = _outlineColumn;
 
 - (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item
 {
@@ -106,7 +104,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    unsigned    count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
+    NSInteger  count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
     
     return 1 /* self cell */ + count;
 }
@@ -117,7 +115,7 @@
 	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);
 #endif
     OgreOutlineView                 *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
-    id adapter;
+    id <OgreTextFindComponent> adapter;
     
     if (index == 0) {
         /* self cell */
@@ -126,11 +124,11 @@
         /* child item */
         id  childItem = [_outlineColumn ogreChild:(index - 1) ofItem:_item];
         adapter = [[[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:childItem] autorelease];
-        [(OgreOutlineItemAdapter*)adapter setLevel:[self level] + 1];
+        [(OgreOutlineItemAdapter *)adapter setLevel:[self level] + 1];
         
     }
     
-    if ([self isTerminal] && index == [[[outlineView ogrePathComponentsOfSelectedItem] objectAtIndex:[self level] + 1] intValue] + 1) {
+    if ([self isTerminal] && index == [[outlineView ogrePathComponentsOfSelectedItem][[self level] + 1] integerValue] + 1) {
         [adapter setTerminal:YES];
     }    
     [adapter setParent:self];
@@ -153,18 +151,18 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     
     if ([self isTerminal]) {
-        int terminal;
+        NSInteger terminal;
         OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
         NSArray *path = [outlineView ogrePathComponentsOfSelectedItem];
-        terminal = [[path objectAtIndex:[self level] + 1] intValue] + 1;
+        terminal = [path[[self level] + 1] integerValue] + 1;
         
         [enumerator setTerminalIndex:terminal];
     }
     
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes
@@ -172,7 +170,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
 #endif
-    unsigned count = [self numberOfChildrenInSelection:YES];
+    NSUInteger count = [self numberOfChildrenInSelection:YES];
     
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, count)];
 }
@@ -199,6 +197,21 @@
 	NSLog(@"  -window of %@", [self className]);
 #endif
     return [[_outlineColumn tableView] window];
+}
+
+- (OgreOutlineColumn*)outlineColumn
+{
+    return _outlineColumn;
+}
+
+- (void)setLevel:(NSInteger)level
+{
+    _level = level;
+}
+
+- (NSInteger)level
+{
+    return _level;
 }
 
 - (void)expandItemEnclosingItem:(id)item

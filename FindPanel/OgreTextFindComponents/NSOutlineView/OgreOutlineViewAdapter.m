@@ -57,7 +57,7 @@
     OgreOutlineCellAdapter      *cellAdapter;
     
     if ([_outlineView numberOfColumns] == 0 || [_outlineView numberOfRows] == 0) return nil;
-    int     level = 0, index;
+    NSInteger level = 0, index;
     NSArray *path = [_outlineView ogrePathComponentsOfSelectedItem];
     
     // root
@@ -80,7 +80,7 @@
     // table column
     columnAdapter = [enumerator nextObject];
     enumerator = [columnAdapter componentEnumeratorInSelection:[aThread inSelection]];
-    index = [[path objectAtIndex:level] intValue];
+    index = [path[level] integerValue];
     [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:index];
     [aThread pushEnumerator:enumerator];
     [aThread pushBranch:columnAdapter];
@@ -92,7 +92,7 @@
     while (level < [path count]) {
         itemAdapter = [enumerator nextObject];
         enumerator = [itemAdapter componentEnumeratorInSelection:[aThread inSelection]];
-        index = [[path objectAtIndex:level] intValue] + 1 /* item's cell */;
+        index = [path[level] integerValue] + 1 /* item's cell */;
         [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:index];
         [aThread pushEnumerator:enumerator];
         [aThread pushBranch:itemAdapter];
@@ -163,7 +163,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    int count = [_outlineView numberOfSelectedColumns];
+    NSInteger count = [_outlineView numberOfSelectedColumns];
     if (inSelection && (count > 0)) return count;
     
     return [_outlineView numberOfColumns];
@@ -176,7 +176,7 @@
 #endif
     OgreOutlineColumnAdapter    *outlineColumnAdapter;
     OgreOutlineColumn           *column;
-    unsigned                    concreteIndex;
+    NSUInteger                  concreteIndex;
     
     if (!inSelection) {
         concreteIndex = index;
@@ -190,10 +190,10 @@
 #ifdef MAC_OS_X_VERSION_10_6
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedColumnIndexes count]);
 #else
-            unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
+            NSUInteger  *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
 #endif
             if (indexes == NULL) {
-                // エラー
+                // Error (エラー)
                 return nil;
             }
             [selectedColumnIndexes getIndexes:indexes maxCount:[selectedColumnIndexes count] inIndexRange:NULL];
@@ -202,7 +202,7 @@
         }
     }
     
-    column = [[_outlineView tableColumns] objectAtIndex:concreteIndex];
+    column = [_outlineView tableColumns][concreteIndex];
     outlineColumnAdapter = [[[OgreOutlineColumnAdapter alloc] initWithOutlineColumn:column] autorelease];
     [outlineColumnAdapter setParent:self];
     [outlineColumnAdapter setIndex:index];
@@ -220,7 +220,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [_outlineView numberOfSelectedColumns];
+    NSInteger count = [_outlineView numberOfSelectedColumns];
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
@@ -228,10 +228,10 @@
     } else {
         enumerator = [OgreTextFindComponentEnumerator alloc];
     }
-    [[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
+    enumerator = [enumerator initWithBranch:self inSelection:(inSelection && (count > 0))];
     if ([self isTerminal]) [enumerator setTerminalIndex:[_outlineView ogreSelectedColumn]];
     
-    return enumerator;
+    return [enumerator autorelease];
 }
 
 -(NSIndexSet*)selectedIndexes
@@ -262,7 +262,7 @@
     OgreOutlineCellAdapter      *cellAdapter;
     
     if ([_outlineView numberOfColumns] == 0 || [_outlineView numberOfRows] == 0) return nil;
-    int     level = 0, index;
+    NSInteger level = 0, index;
     NSArray *path = [_outlineView ogrePathComponentsOfSelectedItem];
     
     // outline view
@@ -270,14 +270,14 @@
     
     // table column
     branch = [self childAtIndex:[_outlineView ogreSelectedColumn] inSelection:NO];
-    index = [[path objectAtIndex:level] intValue];
+    index = [path[level] integerValue];
     [branch willProcessFinding:nil];
     level++;
     
     // outline items
     while (level < [path count]) {
         branch = [branch childAtIndex:index inSelection:NO];
-        index = [[path objectAtIndex:level] intValue] + 1 /* item's cell */;
+        index = [path[level] integerValue] + 1 /* item's cell */;
         [branch willProcessFinding:nil];
         level++;
     }
@@ -299,7 +299,7 @@
 
 - (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 {
-    return -1;  // indeterminate
+    return NSNotFound;  // indeterminate
 }
 
 - (void)moveHomePosition

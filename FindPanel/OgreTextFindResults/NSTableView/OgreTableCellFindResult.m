@@ -19,11 +19,9 @@
 #import <OgreKit/OgreTableView.h>
 #import <OgreKit/OgreTableColumn.h>
 
-#import <OgreKit/OGRegularExpressionMatch.h>
-
 @implementation OgreTableCellFindResult
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
     self = [super init];
     if (self != nil) {
@@ -45,7 +43,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
-    int     i, n = [aMatch count];
+    NSInteger     i, n = [aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
@@ -81,7 +79,7 @@
 
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
-    return [_childArray objectAtIndex:index];
+    return _childArray[index];
 }
 
 - (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
@@ -90,14 +88,14 @@
 }
 
 
-// index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index
+// line number that matched string for the index (index番目にマッチした文字列のある行番号)
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
-    return [NSNumber numberWithInt:_rowIndex + 1];
+    return @(_rowIndex + 1);
 }
 
-// index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+// matched string for the index (index番目にマッチした文字列)
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return [[self textFindResult] missingString];
     
@@ -111,11 +109,11 @@
         fullString = [dataCell stringValue];
     }
     
-    return [[self textFindResult] highlightedStringInRange:[_matchRangeArray objectAtIndex:index] ofString:fullString];
+    return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
-// index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
     OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
@@ -124,14 +122,14 @@
     return [self selectMatchedStringAtIndex:index];
 }
 
-// index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
     OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];
     
     if (![tableView allowsColumnSelection]) {
-        int columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
+        NSInteger columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
         if (columnIndex != -1) {
             [tableView scrollColumnToVisible:columnIndex];
         } else {
@@ -144,7 +142,7 @@
     
     [tableView ogreSetSelectedColumn:[tableView columnWithIdentifier:[_tableColumn identifier]]];
     [tableView ogreSetSelectedRow:_rowIndex];
-    NSRange matchRange = [[[_matchRangeArray objectAtIndex:index] objectAtIndex:0] rangeValue];
+    NSRange matchRange = [_matchRangeArray[index][0] rangeValue];
     [tableView ogreSetSelectedRange:matchRange];
     
     return YES;

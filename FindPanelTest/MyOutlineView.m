@@ -18,7 +18,7 @@
 - (void)keyDown:(NSEvent*)event 
 {
     unichar     key = [[event charactersIgnoringModifiers] characterAtIndex:0];
-    unsigned    flags = ([event modifierFlags] & 0x00FF);
+    NSEventModifierFlags flags = ([event modifierFlags] & 0x00FF);
     
     if ((key == NSDeleteCharacter) && (flags == 0)) { 
         [(id <MyOutlineViewDelegate>)[self delegate] deleteKeyDownInOutlineView:self];
