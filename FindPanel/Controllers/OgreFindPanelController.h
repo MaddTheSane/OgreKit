@@ -13,19 +13,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class OgreTextFinder, OgreFindResult;
+@class OgreTextFinder;
 
 @interface OgreFindPanelController : NSResponder
 {
-	IBOutlet OgreTextFinder		*textFinder;
 	IBOutlet NSPanel			*findPanel;
 }
 
 - (IBAction)showFindPanel:(id)sender;
 - (void)close;
 
-@property (strong) OgreTextFinder *textFinder;
-@property (strong) NSPanel *findPanel;
-@property (readonly, copy) NSDictionary *history;
+@property (nonatomic, weak) IBOutlet OgreTextFinder *textFinder;
+@property (nonatomic, strong) NSPanel *findPanel;
+@property (nonatomic, readonly, copy) NSDictionary *history;
 
 @end

@@ -19,13 +19,12 @@
     IBOutlet NSTextView     *textView;
     IBOutlet NSController   *myController;
 	NSString                *_string;
-	OgreNewlineCharacter	_newlineCharacter;	// 改行コードの種類
+	OgreNewlineCharacter	_newlineCharacter;	// Kind of line feed code (改行コードの種類)
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter;
 
-- (NSString*)string;
-- (void)setString:(NSString*)string;
+@property (nonatomic, copy) NSString *string;
 
 @end

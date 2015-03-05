@@ -14,5 +14,7 @@
 #import <OgreKit/OgreTextFindComponentEnumerator.h>
 
 @interface OgreTextFindReverseComponentEnumerator : OgreTextFindComponentEnumerator
+{
+}
 
 @end

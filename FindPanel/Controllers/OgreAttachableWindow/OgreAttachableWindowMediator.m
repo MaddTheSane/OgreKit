@@ -12,6 +12,7 @@
  */
 
 #import <OgreKit/OgreAttachableWindowMediator.h>
+
 #import <tgmath.h>
 
 static OgreAttachableWindowMediator	*gSharedInstance = nil;
@@ -57,7 +58,6 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	return self;
 }
 
-
 - (void)addAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 {
 	if (![_acceptors containsObject:acceptor]) {
@@ -89,7 +89,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 			continue;
 		}
 		
-		float	strength = [self gluingStrengthBetweenAcceptee:acceptee 
+		CGFloat	strength = [self gluingStrengthBetweenAcceptee:acceptee 
 			andAcceptor:candidate
 			withAccepteeEdge:&accepteeEdge];
 		
@@ -110,7 +110,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	}
 }
 
-- (float)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
+- (CGFloat)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 	andAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 	withAccepteeEdge:(NSRectEdge*)edge;
 {
@@ -329,7 +329,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	NSWindow	*parent = [sender parentWindow];
 	
 	if (parent != nil) {
-		CGFloat   dx = [sender frame].origin.x + proposedFrameSize.width - ([parent frame].origin.x + [parent frame].size.width);
+		CGFloat dx = [sender frame].origin.x + proposedFrameSize.width - ([parent frame].origin.x + [parent frame].size.width);
 		CGFloat	t = [self tolerance];
 		if (fabs(dx) < 2 * t &&
 				(	(proposedFrameSize.width - dx >= [sender minSize].width) && 

@@ -34,14 +34,14 @@
 - (IBAction)jumpToSelection:(id)sender;
 - (IBAction)useSelectionForFind:(id)sender;
 
-- (unsigned)options;
-- (OgreSyntax)syntax;
-- (BOOL)isEntire;
+@property (nonatomic, readonly) NSUInteger options;
+@property (nonatomic, readonly) OgreSyntax syntax;
+@property (nonatomic, readonly, getter=isEntire) BOOL entire;
 
-// “KØ‚È³‹K•\Œ»‚©‚Ç‚¤‚©’²‚×‚é
-- (BOOL)alertIfInvalidRegex;
+// I examine whether appropriate regular expression (é©åˆ‡ãªæ­£è¦è¡¨ç¾ã‹ã©ã†ã‹èª¿ã¹ã‚‹)
+@property (nonatomic, readonly) BOOL alertIfInvalidRegex;
 
-// —š—ğ‚Ì•œ‹A
+// Return of history (å±¥æ­´ã®å¾©å¸°)
 - (void)restoreHistory:(NSDictionary*)history;
 
 @end

@@ -14,15 +14,16 @@
 #import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreTextFindProgressSheet.h>
 #import <OgreKit/OgreTextFindThread.h>
-#import <OgreKit/OgreTextFindThread.h>
+
+#import <tgmath.h>
 
 @implementation OgreTextFindResult
 @synthesize delegate = _delegate;
 @synthesize numberOfMatches = _numberOfMatches;
 @synthesize title = _title;
-// -matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限)
+// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
 @synthesize maximumLeftMargin = _maxLeftMargin;
-// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
+// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
 @synthesize maximumMatchedStringLength = _maxMatchedStringLength;
 
 + (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
@@ -40,8 +41,8 @@
 		_target = targetFindingIn;
         _branchStack = [[NSMutableArray alloc] init];
 		
-		_maxLeftMargin = -1;			// 無制限
-		_maxMatchedStringLength = -1;   // 無制限
+		_maxLeftMargin = -1;			// Limitless (無制限)
+		_maxMatchedStringLength = -1;   // Limitless (無制限)
         
         _numberOfMatches = 0;
 
@@ -131,10 +132,33 @@
     return _resultTree;
 }
 
+
+// -matchedStringAtIndex: at, matched maximum number of characters to the left of the string (-1: unlimited) (-matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限))
+- (NSInteger)maximumLeftMargin
+{
+    return _maxLeftMargin;
+}
+
+- (void)setMaximumLeftMargin:(NSInteger)leftMargin
+{
+	_maxLeftMargin = leftMargin;
+}
+
+// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
+- (NSInteger)maximumMatchedStringLength
+{
+    return _maxMatchedStringLength;
+}
+
+- (void)setMaximumMatchedStringLength:(NSInteger)aLength
+{
+	_maxMatchedStringLength = aLength;
+}
+
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 {
     CGFloat hue, saturation, brightness, alpha;
-    double  dummy;
+    CGFloat  dummy;
     
     [[aColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
         getHue: &hue 
@@ -149,31 +173,31 @@
     _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
         [_highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
-            modf(hue + (isSimple? (float)(i - 1) : (float)i) / (isSimple? (float)numberOfGroups : (float)(numberOfGroups + 1)), &dummy) 
+            modf(hue + (isSimple? (CGFloat)(i - 1) : (CGFloat)i) / (isSimple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
     }
 }
 
-// aString中のaRangeArrayの範囲を強調する。
+// emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString
 {
 	NSInteger							i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
 	NSMutableAttributedString	*highlightedString;
     
-	/* マッチした文字列の先頭のある行の範囲・内容 */
+	/* Top of a range and content of the row of matched string (マッチした文字列の先頭のある行の範囲・内容) */
 	matchRange = [aRangeArray[0] rangeValue];
 	if ([aString length] < NSMaxRange(matchRange)) {
-		// matchRangeの範囲の文字列が存在しない場合
+		// Where a range of string of matchRange does not exist (matchRangeの範囲の文字列が存在しない場合)
 		return [[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}];
 	}
 	lineRange = [aString lineRangeForRange:NSMakeRange(matchRange.location, 0)];
     
 	highlightedString = [[NSMutableAttributedString alloc] initWithString:@""];
 	if ((_maxLeftMargin >= 0) && (matchRange.location > lineRange.location + _maxLeftMargin)) {
-		// MatchedStringの左側の文字数を制限する
+		// I limit the number of characters on the left side of the MatchedString (MatchedStringの左側の文字数を制限する)
 		delta = matchRange.location - (lineRange.location + _maxLeftMargin);
 		lineRange.location += delta;
 		lineRange.length   -= delta;
@@ -182,7 +206,7 @@
 			attributes:@{NSForegroundColorAttributeName: [NSColor grayColor]}]];
 	}
 	if ((_maxMatchedStringLength >= 0) && (lineRange.length > _maxMatchedStringLength)) {
-		// 全文字数を制限する
+		// I limit the number of characters all (全文字数を制限する)
 		lineRange.length = _maxMatchedStringLength;
 		[highlightedString appendAttributedString:[[NSAttributedString alloc] 
 			initWithString:[aString substringWithRange:lineRange]]];
@@ -194,7 +218,7 @@
 			initWithString:[aString substringWithRange:lineRange]]];
 	}
 	
-	/* 彩色 */
+	/* Coloring (彩色) */
 	[highlightedString beginEditing];
 	for(i = 0; i < n; i++) {
 		matchRange = [aRangeArray[i] rangeValue];

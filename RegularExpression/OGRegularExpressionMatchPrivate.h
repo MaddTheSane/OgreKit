@@ -17,10 +17,10 @@
 
 @interface OGRegularExpressionMatch ()
 
-/*********
- * 初期化 *
- *********/
-- (instancetype)initWithRegion:(OnigRegion*)region 
+/**************************
+ * Initialization (初期化) *
+ **************************/
+- (instancetype)initWithRegion:(OnigRegion*)region
 	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
 	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;

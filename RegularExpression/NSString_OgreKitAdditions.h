@@ -60,13 +60,13 @@
 /*********
  * Split *
  *********/
-// マッチした部分で文字列を分割し、NSArrayに収めて返す。
+// Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
 - (NSArray*)componentsSeparatedByRegularExpressionString:(NSString*)expressionString;
 
 /*********************
  * Newline Character *
  *********************/
-// 改行コードが何か調べる
+// Examine new line code is something (改行コードが何か調べる)
 @property (readonly) OgreNewlineCharacter newlineCharacter;
 
 @end
@@ -78,15 +78,15 @@
  ***********/
 - (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString
 	withString:(NSString*)replaceString 
-	options:(OgreOption)options 
+	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
 /*********************
  * Newline Character *
  *********************/
-// 改行コードをnewlineCharacterに統一する。
+// A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
 - (void)replaceNewlineCharactersWithCharacter:(OgreNewlineCharacter)newlineCharacter;
-// 改行コードを取り除く
+// I remove the line break code (改行コードを取り除く)
 - (void)chomp;
 
 @end

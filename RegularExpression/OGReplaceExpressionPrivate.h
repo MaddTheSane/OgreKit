@@ -11,7 +11,7 @@
  * Tabsize: 4
  */
 
-@class OGReplaceExpression;
+#import <OgreKit/OGReplaceExpression.h>
 
 @interface OGReplaceExpression ()
 
@@ -21,6 +21,6 @@
 - (void)_setCompiledReplaceString:(NSArray*)compiledReplaceString;
 - (void)_setCompiledReplaceStringType:(NSArray*)compiledReplaceStringType;
 - (void)_setNameArray:(NSArray*)nameArray;
-- (void)_setOptions:(unsigned)options;
+- (void)_setOptions:(OgreOption)options;
 
 @end

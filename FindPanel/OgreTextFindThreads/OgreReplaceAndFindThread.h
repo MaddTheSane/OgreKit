@@ -18,7 +18,6 @@
     BOOL    _replacingOnly;
 }
 
-- (BOOL)replacingOnly;
-- (void)setReplacingOnly:(BOOL)replacingOnly;
+@property (nonatomic) BOOL replacingOnly;
 
 @end

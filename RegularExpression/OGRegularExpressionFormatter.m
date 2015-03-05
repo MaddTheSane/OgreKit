@@ -13,7 +13,7 @@
 
 #import <OgreKit/OGRegularExpressionFormatter.h>
 
-// 自身をencode/decodeするのに必要なkey
+// Key required to encode/decode itself (自身をencode/decodeするのに必要なkey)
 static NSString	* const OgreOptionsKey            = @"OgreFormatterOptions";
 static NSString	* const OgreSyntaxKey             = @"OgreFormatterSyntax";
 static NSString	* const OgreEscapeCharacterKey    = @"OgreFormatterEscapeCharacter";
@@ -72,7 +72,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 			];
 		retval = YES;
 	} @catch (NSException *localException) {
-		// 例外処理
+		// Exception handling (例外処理)
 		NSString	*name = [localException name];
 		//NSLog(@"\"%@\" caught in getObjectValue", name);
 		
@@ -105,10 +105,10 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	// unsigned			_options;
 	// OnigSyntaxType	*_syntax;
 
-	int	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
+	NSInteger	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
 	if (syntaxType == -1) {
-		// エラー。独自のsyntaxはencodeできない。
-		// 例外を発生させる。要改善
+		// Error. Own syntax can not encode. (エラー。独自のsyntaxはencodeできない。)
+		// I raise an exception. Need of improvement (例外を発生させる。要改善)
 		[NSException raise:NSInvalidArchiveOperationException format:
 			@"fail to encode. (cannot encode a user defined syntax)"];
 	}
@@ -132,7 +132,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	self = [super initWithCoder:decoder];
 	if (self == nil) return nil;
 	
-	int				syntaxType;
+	NSInteger		syntaxType;
 	id				anObject;
 	
 	BOOL			allowsKeyedCoding = [decoder allowsKeyedCoding];
@@ -145,8 +145,9 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		_escapeCharacter = [decoder decodeObject];
 	}
 	if(_escapeCharacter == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 
 	// unsigned		_options;
@@ -156,28 +157,31 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	_options = [anObject unsignedIntValue];
 
 	// OnigSyntaxType		*_syntax;
-	// 要改善点。独自のsyntaxを用意した場合はencodeできない。
+	// Required improvements. I can not encode If you provide your own syntax. (要改善点。独自のsyntaxを用意した場合はencodeできない。)
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreSyntaxKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
-	syntaxType = [anObject intValue];
+	syntaxType = [anObject integerValue];
 	if (syntaxType == -1) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
-	_syntax = [OGRegularExpression syntaxForIntValue:syntaxType];
+	_syntax = [OGRegularExpression syntaxForIntValue:(int)syntaxType];
 
 	return self;
 }
@@ -199,7 +203,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-- (instancetype)initWithOptions:(unsigned)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
+- (instancetype)initWithOptions:(OgreOption)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithOptions: of %@", [self className]);

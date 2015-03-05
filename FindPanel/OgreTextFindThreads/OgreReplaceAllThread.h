@@ -12,6 +12,7 @@
  */
 
 #import <OgreKit/OgreTextFindThread.h>
+#import <OgreKit/OGString.h>
 
 @class OGRegularExpressionMatch, OGRegularExpressionEnumerator;
 @class OgreTextFindThread, OgreFindResult;

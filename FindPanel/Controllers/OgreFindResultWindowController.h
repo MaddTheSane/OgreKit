@@ -12,8 +12,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <OgreKit/OgreTextFindResult.h>
 
+@class OgreTextFindResult;
 @class OgreAttachableWindowMediator;
 
 @interface OgreFindResultWindowController : NSObject <OgreTextFindResultDelegate, NSWindowDelegate, NSOutlineViewDataSource>
@@ -30,6 +30,7 @@
 
 - (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
+
 @property (weak) IBOutlet NSWindow *window;
 
 - (IBAction)updateLiveUpdate:(id)sender;
@@ -37,7 +38,7 @@
 - (void)show;
 - (void)close;
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item;
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
 
 // protected method
 - (void)setupFindResultView;

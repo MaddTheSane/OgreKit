@@ -16,7 +16,7 @@
 
 @implementation MyTableColumnSheet
 
-- (id)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget
+- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget
 {
     self = [super init];
     if (self != nil) {
@@ -34,9 +34,9 @@
 - (void)awakeFromNib
 {
 	[self retain];
-    NSString    *oldTitle = [[_column headerCell] stringValue];
-    [oldTitleField setStringValue:oldTitle];
-    [newTitleField setStringValue:oldTitle];
+    NSString    *originalTitle = [[_column headerCell] stringValue];
+    [originalTitleField setStringValue:originalTitle];
+    [changedTitleField setStringValue:originalTitle];
 	[NSApp beginSheet:columnSheet 
 		modalForWindow:_parentWindow 
 		modalDelegate:self
@@ -44,7 +44,7 @@
 		contextInfo:nil];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
 	[self release];
 }
@@ -58,20 +58,20 @@
 - (IBAction)cancel:(id)sender
 {
 	[_target performSelector:_cancelSelector withObject:self];
-    [NSApp endSheet:columnSheet returnCode:0];
-    [columnSheet orderOut:nil];
+	[columnSheet orderOut:nil];
+	[NSApp endSheet:columnSheet returnCode:0];
 }
 
 - (IBAction)ok:(id)sender
 {
 	[_target performSelector:_okSelector withObject:self];
-    [NSApp endSheet:columnSheet returnCode:0];
-    [columnSheet orderOut:nil];
+	[columnSheet orderOut:nil];
+	[NSApp endSheet:columnSheet returnCode:0];
 }
 
-- (NSString*)newTitle
+- (NSString*)changedTitle
 {
-    return [newTitleField stringValue];
+    return [changedTitleField stringValue];
 }
 
 - (NSTableColumn*)tableColumn

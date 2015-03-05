@@ -11,12 +11,17 @@
  * Tabsize: 4
  */
 
+#import <Foundation/Foundation.h>
+
 #import <OgreKit/OgreTextFindComponent.h>
-#import <OgreKit/OGString.h>
+#import <OgreKit/OGRegularExpressionMatch.h>
 
-@class OgreFindResultLeaf, OgreTextFindThread;
+@protocol OgreFindResultCorrespondingToTextFindLeaf <NSObject>
+- (void)addMatch:(OGRegularExpressionMatch*)aMatch;
+- (void)endAddition;
+@end
 
-@interface OgreTextFindLeaf : NSObject <OgreTextFindComponent>
+@interface OgreTextFindLeaf : NSObject <OgreTextFindComponent, OgreFindResultCorrespondingToTextFindLeaf>
 {
     OgreTextFindBranch      *_parent;
     NSInteger               _index;
@@ -32,18 +37,18 @@
 - (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity;  // begin resistering undo oprations
 - (void)endRegisteringUndo;  // end resistering undo oprations
 
-@property (getter=isSelected, readonly) BOOL selected;
-@property  NSRange selectedRange;
+@property (nonatomic, getter=isSelected, readonly) BOOL selected;
+@property (nonatomic) NSRange selectedRange;
 - (void)jumpToSelection;
 
-@property (strong, setter=setOGString:) id<OGStringProtocol> ogString;
+@property (nonatomic, strong, setter=setOGString:) id<OGStringProtocol> ogString;
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString;
 
 - (void)unhighlight;
 - (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor;
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread;
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread;
 
-@property (getter=isFirstLeaf) BOOL firstLeaf;
+@property (nonatomic, getter=isFirstLeaf) BOOL firstLeaf;
 
 @end

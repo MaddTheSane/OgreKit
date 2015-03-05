@@ -19,8 +19,6 @@
 #import <OgreKit/OgreTableView.h>
 #import <OgreKit/OgreTableColumn.h>
 
-#import <OgreKit/OGRegularExpressionMatch.h>
-
 @implementation OgreTableCellFindResult
 
 - (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
@@ -83,13 +81,13 @@
 }
 
 
-// index番目にマッチした文字列のある行番号
+// line number that matched string for the index (index番目にマッチした文字列のある行番号)
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     return @(_rowIndex + 1);
 }
 
-// index番目にマッチした文字列
+// matched string for the index (index番目にマッチした文字列)
 - (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return [[self textFindResult] missingString];
@@ -107,7 +105,7 @@
     return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
-// index番目にマッチした文字列を選択・表示する
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
@@ -117,7 +115,7 @@
     return [self selectMatchedStringAtIndex:index];
 }
 
-// index番目にマッチした文字列を選択する
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;

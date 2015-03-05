@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib
 {
-	[[OgreAttachableWindowMediator sharedMediator] addAcceptor:self];	// 必須
+	[[OgreAttachableWindowMediator sharedMediator] addAcceptor:self];	// Required (必須)
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
 		selector:@selector(windowWillMove:)

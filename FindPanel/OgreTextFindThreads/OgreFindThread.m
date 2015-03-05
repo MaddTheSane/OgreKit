@@ -14,8 +14,8 @@
 #import <OgreKit/OgreFindThread.h>
 #import <OgreKit/OgreFindResultLeaf.h>
 #import <OgreKit/OgreFindResultBranch.h>
-#import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OgreTextFindResult.h>
 
 @interface NSObject (priv)
 - (BOOL)didEndFind:(id)anObject;
@@ -113,7 +113,7 @@
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
 {
-    // 最初のマッチ結果を得る。
+    // I get the first match result. (最初のマッチ結果を得る。)
     OGRegularExpressionMatch    *match;
     
     if ([self backward]) {
@@ -123,7 +123,7 @@
     }
     if (match == nil) return NO;    // next leaf
     
-    // マッチした場合
+    // If you match (マッチした場合)
     [self incrementNumberOfMatches];
     NSRange matchRange = [match rangeOfMatchedString];
     [aLeaf setSelectedRange:matchRange];
@@ -168,36 +168,5 @@
 {
     return YES; // continue
 }
-
-- (void)setWrap:(BOOL)wrap
-{
-    _wrap = wrap;
-}
-
-- (BOOL)wrap
-{
-    return _wrap;
-}
-
-- (void)setBackward:(BOOL)backward
-{
-    _backward = backward;
-}
-
-- (BOOL)backward
-{
-    return _backward;
-}
-
-- (void)setFromTop:(BOOL)fromTop
-{
-    _fromTop = fromTop;
-}
-
-- (BOOL)fromTop
-{
-    return _fromTop;
-}
-
 
 @end

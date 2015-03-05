@@ -31,6 +31,6 @@
 	mergeAttributes:(BOOL)mergeAttributes 
 	ofOGString:(id<OGStringProtocol>)srcString;
 
-- (void)setAttributesOfOGString:(id<OGStringProtocol>)string 
+- (void)setAttributesOfOGString:(id<OGStringProtocol>)string
 	atIndex:(NSUInteger)index;
 @end

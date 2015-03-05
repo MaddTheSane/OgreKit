@@ -25,7 +25,7 @@
 }
 
 - (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection NS_DESIGNATED_INITIALIZER;
-@property NSInteger terminalIndex;
-@property NSInteger startIndex;
+@property (nonatomic) NSInteger terminalIndex;
+@property (nonatomic) NSInteger startIndex;
 
 @end

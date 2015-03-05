@@ -13,14 +13,13 @@
 
 #import <OgreKit/OgreTextFindLeaf.h>
 #import <OgreKit/OgreTextFindBranch.h>
-#import <OgreKit/OgreFindResultLeaf.h>
+#import <OgreKit/OgreTextFindResult.h>
 
 
 @implementation OgreTextFindLeaf
-@synthesize index = _index;
+@synthesize reversed = _isReversed;
 @synthesize firstLeaf = _isFirstLeaf;
 @synthesize terminal = _isTerminal;
-@synthesize reversed = _isReversed;
 
 - (void)dealloc
 {
@@ -34,6 +33,20 @@
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor // visitor pattern
 {
     [aVisitor visitLeaf:self];
+}
+
+
+- (void)addMatch:(OGRegularExpressionMatch*)aMatch
+{
+#ifdef DEBUG_OGRE_FIND_PANEL
+    NSLog(@" -addMatch: of %@ (BUG!!!)", [self className]);
+#endif
+    /* do nothing */
+}
+
+- (void)endAddition
+{
+    /* do nothing */
 }
 
 
@@ -192,12 +205,22 @@
 }
 
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThrea
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThrea
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultLeafWithThread: of %@ (BUG!!!)", [self className]);
 #endif
     return nil; 
+}
+
+- (NSInteger)index
+{
+    return _index;
+}
+
+- (void)setIndex:(NSInteger)index
+{
+    _index = index;
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

@@ -22,10 +22,10 @@
     NSRange		_ogreSelectedRange;
 }
 
-@property (readonly, strong) NSObject<OgreTextFindComponent> *ogreAdapter;
+@property (nonatomic, readonly, strong) NSObject<OgreTextFindComponent> *ogreAdapter;
 
-@property (setter=ogreSetSelectedColumn:) NSInteger ogreSelectedColumn;
-@property (setter=ogreSetSelectedRow:) NSInteger ogreSelectedRow;
-@property (setter=ogreSetSelectedRange:) NSRange ogreSelectedRange;
+@property (nonatomic, setter=ogreSetSelectedColumn:) NSInteger ogreSelectedColumn;
+@property (nonatomic, setter=ogreSetSelectedRow:) NSInteger ogreSelectedRow;
+@property (nonatomic, setter=ogreSetSelectedRange:) NSRange ogreSelectedRange;
 
 @end

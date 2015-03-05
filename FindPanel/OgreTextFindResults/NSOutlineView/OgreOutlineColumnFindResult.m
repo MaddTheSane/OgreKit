@@ -37,7 +37,7 @@
 
 - (void)endAddition
 {
-    int i = 0;
+    NSUInteger i = 0;
     while (i < [_components count]) {
         if ([_components[i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];

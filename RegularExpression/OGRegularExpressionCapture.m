@@ -17,12 +17,11 @@
 #import <OgreKit/OGRegularExpressionMatchPrivate.h>
 #import <OgreKit/OGRegularExpressionCapture.h>
 #import <OgreKit/OGRegularExpressionCapturePrivate.h>
-#import <OgreKit/OGString.h>
 
 
 NSString	* const OgreCaptureException = @"OGRegularExpressionCaptureException";
 
-// 自身をencoding/decodingするためのkey
+// Key for encoding/decoding itself (自身をencoding/decodingするためのkey)
 static NSString	* const OgreIndexKey  = @"OgreCaptureIndex";
 static NSString	* const OgreLevelKey  = @"OgreCaptureLevel";
 static NSString	* const OgreMatchKey  = @"OgreCaptureMatch";
@@ -34,37 +33,37 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 /*********
  * 諸情報 *
  *********/
-// グループ番号
+// Group number (グループ番号)
 - (NSUInteger)groupIndex
 {
     return _captureNode->group;
 }
 
-// グループ名
+// Group Name (グループ名)
 - (NSString*)groupName
 {
     return [_match nameOfSubstringAtIndex:[self groupIndex]];
 }
 
-// 何番目の子要素であるか 0,1,2,...
+// And what number of child elements 0, 1, 2, ... (// 何番目の子要素であるか 0,1,2,...)
 - (NSUInteger)index
 {
     return _index;
 }
 
-// 深さ
+// Depth (深さ)
 - (NSUInteger)level
 {
     return _level;
 }
 
-// 子要素の数
+// The number of child elements (子要素の数)
 - (NSUInteger)numberOfChildren
 {
     return _captureNode->num_childs;
 }
 
-// 子要素たち
+// Child elements us (子要素たち)
 // return nil in the case of numberOfChildren == 0
 - (NSArray*)children
 {
@@ -72,14 +71,14 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
     if (numberOfChildren == 0) return nil;
     
     NSMutableArray  *children = [NSMutableArray arrayWithCapacity:numberOfChildren];
-    int i;
+    NSUInteger i;
     for (i = 0; i < numberOfChildren; i++) [children addObject:[self childAtIndex:i]];
     
     return children;
 }
 
 
-// index番目の子要素
+// index th child element (index番目の子要素)
 - (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index
 {
     if (index >= _captureNode->num_childs) {
@@ -103,12 +102,12 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 // description
 - (NSString*)description
 {
-	NSDictionary	*dictionary = @{@"Group Index": [NSNumber numberWithUnsignedInt: _captureNode->group], 
+	NSDictionary	*dictionary = @{@"Group Index": @(_captureNode->group),
 			@"Index": @(_index), 
 			@"Level": @(_level), 
-			@"Range": @[[NSNumber numberWithUnsignedInteger: _captureNode->beg],
-                [NSNumber numberWithUnsignedInteger: _captureNode->end - _captureNode->beg]],
-			@"Number of Children": [NSNumber numberWithUnsignedInt: _captureNode->num_childs]};
+			@"Range": @[@(_captureNode->beg),
+                @( _captureNode->end - _captureNode->beg)],
+			@"Number of Children": @(_captureNode->num_childs)};
 		
 	return [dictionary description];
 }
@@ -116,7 +115,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 /*********
  * 文字列 *
  *********/
-// マッチの対象になった文字列
+// String that became the match of subject (マッチの対象になった文字列)
 - (NSString*)targetString
 {
     return [_match targetString];
@@ -127,10 +126,10 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	return [_match targetAttributedString];
 }
 
-// マッチした文字列
+// Matched string (マッチした文字列)
 - (NSString*)string
 {
-	// index番目のsubstringが存在しない時には nil を返す
+	// I return nil when the index th substring does not exist (index番目のsubstringが存在しない時には nil を返す)
 	if (_captureNode->beg == -1 || _captureNode->end == -1) {
 		return nil;
 	}
@@ -140,7 +139,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 - (NSAttributedString*)attributedString
 {
-	// index番目のsubstringが存在しない時には nil を返す
+	// I return nil when the index th substring does not exist (index番目のsubstringが存在しない時には nil を返す)
 	if (_captureNode->beg == -1 || _captureNode->end == -1) {
 		return nil;
 	}
@@ -151,7 +150,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 /*******
  * 範囲 *
  *******/
-// マッチした文字列の範囲
+// Range of matched string (マッチした文字列の範囲)
 - (NSRange)range
 {
 	if (_captureNode->beg == -1 || _captureNode->end == -1) {
@@ -209,50 +208,53 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	BOOL			allowsKeyedCoding = [decoder allowsKeyedCoding];
 	
 	id  anObject;
-	// unsigned                    _index,             // マッチした順番
+	// NSUInteger                    _index,             // matched order (マッチした順番)
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreIndexKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if (anObject == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	_index = [anObject unsignedIntegerValue];
 	
-    // unsigned                   _level;             // 深さ
+    // NSUInteger                   _level;             // Depth (深さ)
     if (allowsKeyedCoding) {
 		anObject = [decoder decodeObjectForKey: OgreLevelKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if (anObject == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	_level = [anObject unsignedIntegerValue];
 	
 	
-	// OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト
+	// OGRegularExpressionMatch	*_match;            // Generation Lord OGRegularExpressionMatch object (生成主のOGRegularExpressionMatchオブジェクト)
     if (allowsKeyedCoding) {
 		_match = [decoder decodeObjectForKey: OgreMatchKey];
 	} else {
 		_match = [decoder decodeObject];
 	}
 	if (_match == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	
-	// OGRegularExpressionCapture	*_parent;           // 親
+	// OGRegularExpressionCapture	*_parent;           // Parent (親)
     if (allowsKeyedCoding) {
 		_parent = [decoder decodeObjectForKey: OgreParentKey];
 	} else {
 		_parent = [decoder decodeObject];
 	}
 	/*if (_parent == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[self release];
 		[NSException raise:OgreCaptureException format:@"fail to decode"];
 	}*/

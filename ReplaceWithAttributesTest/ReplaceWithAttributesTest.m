@@ -48,7 +48,7 @@
 	}
 	NSLog(@"process time: %fsec/inst", sum/100);*/
 	
-	// 置換
+	// Replacement (置換)
 	[targetString setAttributedString:resultString];
 	[targetTextView display];
 }
@@ -58,9 +58,9 @@
 	[self setAttributedReplace:YES];
 }
 
-- (unsigned)options
+- (NSUInteger)options
 {
-	unsigned	options = OgreNoneOption;
+	NSUInteger	options = OgreNoneOption;
 	if (attributedReplace) options |= OgreReplaceWithAttributesOption;
 	if (replaceFont) options |= OgreReplaceFontsOption;
 	if (mergeAttributes) options |= OgreMergeAttributesOption;
@@ -80,7 +80,7 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)aApp
 {
-	return YES;	// 全てのウィンドウを閉じたら終了する。
+	return YES;	// And exit After closing all windows. (全てのウィンドウを閉じたら終了する。)
 }
 
 @end

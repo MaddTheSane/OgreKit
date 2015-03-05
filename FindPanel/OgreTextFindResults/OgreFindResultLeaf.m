@@ -17,6 +17,7 @@
 
 
 @implementation OgreFindResultLeaf
+@synthesize textFindResult = _textFindResult;
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
@@ -29,16 +30,6 @@
 - (void)endAddition 
 {
     /* do nothing */ 
-}
-
-- (OgreTextFindResult*)textFindResult
-{
-    return _textFindResult;
-}
-
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult
-{
-    _textFindResult = textFindResult;
 }
 
 - (BOOL)showMatchedString

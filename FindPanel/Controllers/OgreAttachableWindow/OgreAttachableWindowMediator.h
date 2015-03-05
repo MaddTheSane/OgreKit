@@ -31,7 +31,7 @@
 - (void)attachAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee;
 
 /* private methods */
-- (float)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
+- (CGFloat)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 	andAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 	withAccepteeEdge:(NSRectEdge*)edge;
 - (void)attachAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee

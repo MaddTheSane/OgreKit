@@ -19,7 +19,7 @@
 
 @interface OGRegularExpressionCapture ()
 
-- (instancetype)initWithTreeNode:(OnigCaptureTreeNode*)captureNode 
+- (instancetype)initWithTreeNode:(OnigCaptureTreeNode*)captureNode
     index:(NSUInteger)index
     level:(NSUInteger)level 
     parentNode:(OGRegularExpressionCapture*)parentNode 

@@ -21,12 +21,12 @@
 {
     OgreOutlineColumn   *_outlineColumn;
     id              _item;
-    int             _level;
+    NSInteger       _level;
 }
 
 - (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
-@property (strong, readonly) OgreOutlineColumn *outlineColumn;
-@property int level;
+@property (nonatomic, strong, readonly) OgreOutlineColumn *outlineColumn;
+@property (nonatomic) NSInteger level;
 - (void)expandItemEnclosingItem:(id)item;
 
 @end

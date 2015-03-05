@@ -118,7 +118,7 @@
             
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedRowIndexes count]);
             if (indexes == NULL) {
-                // エラー
+                // Error (エラー)
                 return nil;
             }
             [selectedRowIndexes getIndexes:indexes maxCount:[selectedRowIndexes count] inIndexRange:NULL];
@@ -152,7 +152,6 @@
     } else {
         enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection && (count > 0))];
     }
-    //[[enumerator initWithBranch:self inSelection:(inSelection && (count > 0))] autorelease];
     if ([self isTerminal]) [enumerator setTerminalIndex:[(OgreTableView*)[_tableColumn tableView] ogreSelectedRow]];
     
     return enumerator;

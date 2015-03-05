@@ -15,30 +15,22 @@
 #import <OgreKit/OgreFindPanelController.h>
 
 @implementation OgreFindPanelController
+@synthesize textFinder;
+@synthesize findPanel;
 
 - (void)awakeFromNib
 {
-	/* 前回のFind Panelの位置を再現 */
+	/* Reproduce the position of the previous Find Panel (前回のFind Panelの位置を再現) */
     [[self findPanel] setFrameAutosaveName: @"Find Panel"];
     [[self findPanel] setFrameUsingName: @"Find Panel"];
-    [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace]; // 現在表示中のDesktop SpaceにFind Panelを表示
-}
-
-- (OgreTextFinder*)textFinder
-{
-	return textFinder;
-}
-
-- (void)setTextFinder:(OgreTextFinder*)aTextFinder
-{
-	textFinder = aTextFinder;
+    [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace]; // Show Find Panel on Desktop Space currently displayed (現在表示中のDesktop SpaceにFind Panelを表示)
 }
 
 
 - (IBAction)showFindPanel:(id)sender
 {
 	[findPanel makeKeyAndOrderFront:self];
-	// WindowsメニューにFind Panelを追加
+	// Add Find Panel in Windows menu (WindowsメニューにFind Panelを追加)
 	[NSApp addWindowsItem:findPanel title:[findPanel title] filename:NO];
 }
 
@@ -47,20 +39,10 @@
 	[findPanel orderOut:self];
 }
 
-- (NSPanel*)findPanel
-{
-	return findPanel;
-}
-
-- (void)setFindPanel:(NSPanel*)aPanel
-{
-	findPanel = aPanel;
-}
-
 // NSCoding protocols
 - (NSDictionary*)history
 {
-	/* 履歴等を保存したい場合は、NSDictionaryで返す。 */
+	/* If you want to save the history, etc., to return in NSDictionary. (履歴等を保存したい場合は、NSDictionaryで返す。) */
 	return @{};
 }
 

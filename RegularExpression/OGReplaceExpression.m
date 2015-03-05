@@ -27,7 +27,7 @@
 
 // exception name
 NSString	* const OgreReplaceException = @"OGReplaceExpressionException";
-// 自身をencoding/decodingするためのkey
+// Key for encoding/decoding itself (自身をencoding/decodingするためのkey)
 static NSString	* const OgreCompiledReplaceStringKey     = @"OgreReplaceCompiledReplaceString";
 static NSString	* const OgreCompiledReplaceStringTypeKey = @"OgreReplaceCompiledReplaceStringType";
 static NSString	* const OgreNameArrayKey                 = @"OgreReplaceNameArray";
@@ -66,10 +66,10 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:OgreBackslashCharacter];
 }
 
-// 初期化
-- (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString 
+// Initialization (初期化)
+- (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
-	syntax:(OgreSyntax)syntax 
+	syntax:(OgreSyntax)syntax
 	escapeCharacter:(NSString*)character
 {
 #ifdef DEBUG_OGRE
@@ -79,14 +79,15 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	if (self == nil) return nil;
 	
 	if ((replaceString == nil) || (character == nil) || ([character length] == 0)) {
-		// stringがnilの場合、例外を発生させる。
+		// If string is nil, raise an exception. (stringがnilの場合、例外を発生させる。)
 		[NSException raise:NSInvalidArgumentException format: @"nil string (or other) argument"];
+        return nil;
 	}
 	
 	_options = options;
 	
     NSString    *escCharacter = [NSString stringWithString:character];
-	int			specialKey = 0;
+	NSInteger	specialKey = 0;
 	NSUInteger	matchIndex = 0;
 	NSString	*controlCharacter = nil;
 	NSObject<OGStringProtocol>	*compileTimeString;
@@ -98,11 +99,11 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	OGRegularExpressionMatch	*match;
     OGRegularExpressionCapture  *cap;
 	
-	// 置換文字列をcompileする
-	//  compile結果: NSMutableArray
-	//   文字列		NSString
-	//   特殊文字		NSNumber
-	//				対応表(int:特殊文字)
+	// I will compile the replacement string (置換文字列をcompileする)
+	//   compile Result: NSMutableArray (compile結果: NSMutableArray)
+	//   String 		NSString (文字列		NSString)
+	//   Special character 		NSNumber (特殊文字		NSNumber)
+	//				Correspondence table (int: special characters) (対応表(int:特殊文字))
 	//				0-9: \0 - \9
 	//				OgreEscapePlus: \+
 	//				OgreEscapeMinus: \-
@@ -113,13 +114,13 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	//				OgreEscapeNormalCharacters: \[^\]?
 	//				OgreNonEscapedNormalCharacters: otherwise
 	
-	/* named group関連 */
 	@autoreleasepool {
-	_nameArray = [[NSMutableArray alloc] initWithCapacity:0];	// replacedStringで使用されたnames (現れた順)
+    /* named group-related (named group関連) */
+    _nameArray = [[NSMutableArray alloc] initWithCapacity:0];	// names that have been used in replacedString (appeared the order) (replacedStringで使用されたnames (現れた順))
 	
 	if (syntax == OgreSimpleMatchingSyntax) {
 		_compiledReplaceString     = [[NSMutableArray alloc] initWithObjects:replaceString, nil];
-		_compiledReplaceStringType = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInt:OgreNonEscapedNormalCharacters], nil];
+		_compiledReplaceStringType = [[NSMutableArray alloc] initWithObjects:@OgreNonEscapedNormalCharacters, nil];
 	} else {
 		_compiledReplaceString     = [[NSMutableArray alloc] initWithCapacity:0];
 		_compiledReplaceStringType = [[NSMutableArray alloc] initWithCapacity:0];
@@ -137,12 +138,12 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		while ((match = [matchEnumerator nextObject]) != nil) {
 			numberOfMatches++;
 			
-			matchIndex = [match indexOfFirstMatchedSubstring];  // どの部分式にマッチしたのか
+			matchIndex = [match indexOfFirstMatchedSubstring];  // Did matched to any subexpression (どの部分式にマッチしたのか)
 	#ifdef DEBUG_OGRE
 			NSLog(@" matchIndex: %d, %@", matchIndex, [match matchedString]);
 	#endif
 			switch (matchIndex) {
-				case 1: // 通常文字
+				case 1: // Ordinary character (通常文字)
 					specialKey = OgreNonEscapedNormalCharacters;
 					break;
 				case 15: // \\[^\\]? 
@@ -159,7 +160,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 					controlCharacter = [NSString stringWithCharacters:unic length:numberOfHistory];
 					break;
 				case 3: // \[0-9]
-					specialKey = [[match substringAtIndex:matchIndex] intValue];
+					specialKey = [[match substringAtIndex:matchIndex] integerValue];
 					break;
 				case 4: // \&
 					specialKey = 0;
@@ -177,7 +178,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 					specialKey = OgreEscapeMinus;
 					break;
 				case 9: // \g<number>
-					specialKey = [[match substringAtIndex:matchIndex] intValue];
+					specialKey = [[match substringAtIndex:matchIndex] integerValue];
 					break;
 				case 10: // \g<name>
 					specialKey = OgreEscapeNamedGroup;
@@ -205,19 +206,19 @@ static OGRegularExpression  *gReplaceRegex = nil;
 			}
 			
 			if (specialKey == OgreEscapeNormalCharacters || specialKey == OgreNonEscapedNormalCharacters) {
-				// 通常文字列
+				// Normal string (通常文字列)
 				[_compiledReplaceString addObject:[compileTimeString substringWithRange:
 					[match rangeOfSubstringAtIndex:matchIndex]]];
 				specialKey = OgreNonEscapedNormalCharacters;
 			}  else if (specialKey == OgreEscapeControlCode) {
-				// コントロール文字
-				[_compiledReplaceString addObject:[[[compileTimeString class] alloc] 
-					initWithString:controlCharacter 
+                // Control characters (コントロール文字)
+				[_compiledReplaceString addObject:[[[compileTimeString class] alloc]
+					initWithString:controlCharacter
 					hasAttributesOfOGString:[compileTimeString substringWithRange:[match rangeOfMatchedString]]
 					]];
 				specialKey = OgreNonEscapedNormalCharacters;
 			} else {
-				// その他
+				// Other (その他)
 				[_compiledReplaceString addObject:[compileTimeString substringWithRange:
 					[match rangeOfMatchedString]]];
 			}
@@ -227,7 +228,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		
 	}
 	
-	// compileされた結果
+	// As a result of compile been (compileされた結果)
 #ifdef DEBUG_OGRE
 	NSLog(@"Compiled Replace String: %@", [_compiledReplaceString description]);
 	NSLog(@"Name Array: %@", [_nameArray description]);
@@ -264,8 +265,8 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 
 - (instancetype)initWithAttributedString:(NSAttributedString*)replaceString 
-	options:(OgreOption)options 
-	syntax:(OgreSyntax)syntax 
+	options:(OgreOption)options
+	syntax:(OgreSyntax)syntax
 	escapeCharacter:(NSString*)character
 {
 	return [self initWithOGString:[OGAttributedString stringWithAttributedString:replaceString] 
@@ -275,7 +276,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 - (instancetype)initWithAttributedString:(NSAttributedString*)replaceString 
-	options:(OgreOption)options  
+	options:(OgreOption)options
 {
 	return [self initWithAttributedString:replaceString 
 		options:options 
@@ -318,8 +319,8 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 
 + (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
-	options:(OgreOption)options 
-	syntax:(OgreSyntax)syntax 
+	options:(OgreOption)options
+	syntax:(OgreSyntax)syntax
 	escapeCharacter:(NSString*)character
 {
 	return [[[self class] alloc] initWithAttributedString:replaceString 
@@ -329,7 +330,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 + (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
-	options:(OgreOption)options 
+	options:(OgreOption)options
 {
 	return [[[self class] alloc] initWithAttributedString:replaceString 
 		options:options 
@@ -345,9 +346,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-+ (instancetype)replaceExpressionWithOGString:(id<OGStringProtocol>)replaceString 
++ (instancetype)replaceExpressionWithOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
-	syntax:(OgreSyntax)syntax 
+	syntax:(OgreSyntax)syntax
 	escapeCharacter:(NSString*)character
 {
 	return [[[self class] alloc] initWithOGString:replaceString 
@@ -356,7 +357,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:character];
 }
 
-// 置換
+// Replacement (置換)
 - (NSString*)replaceMatchedStringOf:(OGRegularExpressionMatch*)match
 {
 	return [[self replaceMatchedOGStringOf:match] string];
@@ -373,58 +374,45 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	}
 	
 	NSObject<OGStringProtocol,OGMutableStringProtocol>	*resultString;
-	resultString = [[[[match targetOGString] mutableClass] alloc] init];	// 置換結果
+	resultString = [[[[match targetOGString] mutableClass] alloc] init];	// Substitution result (置換結果)
 	
 	@autoreleasepool {
 	
-	// マッチした文字列をcompileされた置換文字列に従って置換する
-		NSEnumerator	*strEnumerator = [_compiledReplaceString objectEnumerator];
-		NSEnumerator	*typeEnumerator = [_compiledReplaceStringType objectEnumerator];
-		NSObject<OGStringProtocol>		*string;
-		NSObject<OGStringProtocol>		*substr;
-		NSNumber		*type;
-		
-		NSString	*name;
-		unsigned	numOfNames = 0;
-		int			specialKey;
-		
-		BOOL		attributedReplace = ((_options & OgreReplaceWithAttributesOption) != 0);
-		BOOL		replaceFonts = ((_options & OgreReplaceFontsOption) != 0);
-		BOOL		mergeAttributes = ((_options & OgreMergeAttributesOption) != 0);
-		
-		//[resultString setAttributesOfOGString:[match targetOGString] atIndex:[match rangeOfMatchedString].location];
-		NSUInteger	headIndex = [match rangeOfMatchedString].location - [match _searchRange].location;
-		[resultString setAttributesOfOGString:[match targetOGString] atIndex:headIndex];
-		
-		while ( (string = [strEnumerator nextObject]) != nil && (type = [typeEnumerator nextObject]) != nil ) {
-			specialKey = [type intValue];
-			switch (specialKey) {
-				case OgreNonEscapedNormalCharacters:	// [^\]+
-					if (!attributedReplace) {
-						[resultString appendString:[string string]];
-					} else {
-						[resultString appendOGString:string 
-							changeFont:replaceFonts 
-							mergeAttributes:mergeAttributes];
-					}
-					break;
-				case OgreEscapePlus:			// \+
-					// 最後にマッチした部分文字
-					substr = [match lastMatchOGSubstring];
-					if (substr != nil) {
-						if (!attributedReplace) {
-							[resultString appendOGStringLeaveImprint:substr];
-						} else {
-							[resultString appendOGString:substr 
-								changeFont:replaceFonts 
-								mergeAttributes:mergeAttributes 
-								ofOGString:string];
-						}
-					}
-					break;
-				case OgreEscapeBackquote:	// \`
-					// マッチした部分よりも前の文字
-					substr = [match prematchOGString];
+	// I replace the matched string according to compile has been the replacement string (マッチした文字列をcompileされた置換文字列に従って置換する)
+	NSEnumerator	*strEnumerator = [_compiledReplaceString objectEnumerator];
+	NSEnumerator	*typeEnumerator = [_compiledReplaceStringType objectEnumerator];
+	NSObject<OGStringProtocol>		*string;
+	NSObject<OGStringProtocol>		*substr;
+	NSNumber		*type;
+	
+	NSString	*name;
+	NSUInteger	numOfNames = 0;
+	NSInteger	specialKey;
+	
+	BOOL		attributedReplace = ((_options & OgreReplaceWithAttributesOption) != 0);
+	BOOL		replaceFonts = ((_options & OgreReplaceFontsOption) != 0);
+	BOOL		mergeAttributes = ((_options & OgreMergeAttributesOption) != 0);
+	
+	//[resultString setAttributesOfOGString:[match targetOGString] atIndex:[match rangeOfMatchedString].location];
+	NSUInteger	headIndex = [match rangeOfMatchedString].location - [match _searchRange].location;
+	[resultString setAttributesOfOGString:[match targetOGString] atIndex:headIndex];
+	
+	while ( (string = [strEnumerator nextObject]) != nil && (type = [typeEnumerator nextObject]) != nil ) {
+		specialKey = [type integerValue];
+		switch (specialKey) {
+			case OgreNonEscapedNormalCharacters:	// [^\]+
+				if (!attributedReplace) {
+					[resultString appendString:[string string]];
+				} else {
+					[resultString appendOGString:string 
+						changeFont:replaceFonts 
+						mergeAttributes:mergeAttributes];
+				}
+				break;
+			case OgreEscapePlus:			// \+
+				// Last matched substring (最後にマッチした部分文字)
+				substr = [match lastMatchOGSubstring];
+				if (substr != nil) {
 					if (!attributedReplace) {
 						[resultString appendOGStringLeaveImprint:substr];
 					} else {
@@ -433,59 +421,72 @@ static OGRegularExpression  *gReplaceRegex = nil;
 							mergeAttributes:mergeAttributes 
 							ofOGString:string];
 					}
-					break;
-				case OgreEscapeQuote:		// \'
-					// マッチした部分よりも後ろの文字
-					substr = [match postmatchOGString];
-					if (!attributedReplace) {
-						[resultString appendOGStringLeaveImprint:substr];
-					} else {
-						[resultString appendOGString:substr 
-							changeFont:replaceFonts 
-							mergeAttributes:mergeAttributes 
-							ofOGString:string];
-					}
-					break;
-				case OgreEscapeMinus:		// \-
-					// マッチした部分と一つ前にマッチした部分の間の文字
-					substr = [match ogStringBetweenMatchAndLastMatch];
-					if (!attributedReplace) {
-						[resultString appendOGStringLeaveImprint:substr];
-					} else {
-						[resultString appendOGString:substr 
-							changeFont:replaceFonts 
-							mergeAttributes:mergeAttributes 
-							ofOGString:string];
-					}
-					break;
-				case OgreEscapeNamedGroup:	// \g<name>
-					name = _nameArray[numOfNames];
-					substr = [match ogSubstringNamed:name];
-					numOfNames++;
-					if (substr != nil) {
-						if (!attributedReplace) {
-							[resultString appendOGStringLeaveImprint:substr];
-						} else {
-							[resultString appendOGString:substr 
-								changeFont:replaceFonts 
-								mergeAttributes:mergeAttributes 
-								ofOGString:string];
-						}
-					}
-					break;
-				default:	// \0 - \9, \&, \g<index>
-					substr = [match ogSubstringAtIndex:specialKey];
-					if (substr != nil) {
-						if (!attributedReplace) {
-							[resultString appendOGStringLeaveImprint:substr];
-						} else {
-							[resultString appendOGString:substr 
-								changeFont:replaceFonts 
-								mergeAttributes:mergeAttributes 
-								ofOGString:string];
-						}
-					}
-					break;
+				}
+				break;
+			case OgreEscapeBackquote:	// \`
+				// Before of the character than the matched substring (マッチした部分よりも前の文字)
+				substr = [match prematchOGString];
+				if (!attributedReplace) {
+					[resultString appendOGStringLeaveImprint:substr];
+				} else {
+					[resultString appendOGString:substr 
+						changeFont:replaceFonts 
+						mergeAttributes:mergeAttributes 
+						ofOGString:string];
+				}
+				break;
+			case OgreEscapeQuote:		// \'
+				// Back of the character than the matched substring (マッチした部分よりも後ろの文字)
+				substr = [match postmatchOGString];
+				if (!attributedReplace) {
+					[resultString appendOGStringLeaveImprint:substr];
+				} else {
+					[resultString appendOGString:substr 
+						changeFont:replaceFonts 
+						mergeAttributes:mergeAttributes 
+						ofOGString:string];
+				}
+				break;
+			case OgreEscapeMinus:		// \-
+				// Characters between the matched part and matched part before one (マッチした部分と一つ前にマッチした部分の間の文字)
+				substr = [match ogStringBetweenMatchAndLastMatch];
+				if (!attributedReplace) {
+					[resultString appendOGStringLeaveImprint:substr];
+				} else {
+					[resultString appendOGString:substr 
+						changeFont:replaceFonts 
+						mergeAttributes:mergeAttributes 
+						ofOGString:string];
+				}
+				break;
+			case OgreEscapeNamedGroup:	// \g<name>
+				name = _nameArray[numOfNames];
+				substr = [match ogSubstringNamed:name];
+				numOfNames++;
+				if (substr != nil) {
+                    if (!attributedReplace) {
+                        [resultString appendOGStringLeaveImprint:substr];
+                    } else {
+                        [resultString appendOGString:substr 
+                            changeFont:replaceFonts 
+                            mergeAttributes:mergeAttributes 
+                            ofOGString:string];
+                    }
+                }
+                break;
+            default:	// \0 - \9, \&, \g<index>
+                substr = [match ogSubstringAtIndex:specialKey];
+                if (substr != nil) {
+                    if (!attributedReplace) {
+                        [resultString appendOGStringLeaveImprint:substr];
+                    } else {
+                        [resultString appendOGString:substr 
+                            changeFont:replaceFonts 
+                            mergeAttributes:mergeAttributes 
+                            ofOGString:string];
+                    }
+                }
+                break;
 			}
 		}
 		
@@ -529,8 +530,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		_compiledReplaceString = [decoder decodeObject];
 	}
 	if (_compiledReplaceString == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	
     if (allowsKeyedCoding) {
@@ -539,8 +541,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		_compiledReplaceStringType = [decoder decodeObject];
 	}
 	if (_compiledReplaceStringType == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	
     if (allowsKeyedCoding) {
@@ -549,8 +552,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		_nameArray = [decoder decodeObject];
 	}
 	if (_nameArray == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	
 	NSNumber	*aNumber;
@@ -560,8 +564,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		aNumber = [decoder decodeObject];
 	}
 	if (aNumber == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+        return nil;
 	}
 	_options = [aNumber unsignedIntValue];
 	
@@ -611,7 +616,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	_nameArray = nameArray;
 }
 
-- (void)_setOptions:(unsigned)options
+- (void)_setOptions:(OgreOption)options
 {
 	_options = options;
 }

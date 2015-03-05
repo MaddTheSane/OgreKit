@@ -49,7 +49,9 @@
 /* Undo/Redo Replace */
 - (void)undoTextView:(id)aTarget jumpToSelection:(BOOL)jumpToSelection invocationTarget:(id)myself
 {
-	NSTextStorage       *textStorage = [aTarget textStorage];
+	if (_count == 0)  return;
+    
+    NSTextStorage       *textStorage = [aTarget textStorage];
     NSRange             aRange, newRange;
     NSAttributedString  *aString;
     NSUInteger          i;
@@ -75,7 +77,7 @@
         
     }
     
-    // redo　registeration
+    // redo registeration (redo　registeration)
     [[[aTarget undoManager] prepareWithInvocationTarget:redoArray] 
         undoTextView:aTarget jumpToSelection:jumpToSelection
         invocationTarget:redoArray];

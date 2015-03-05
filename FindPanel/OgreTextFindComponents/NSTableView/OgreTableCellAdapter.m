@@ -140,7 +140,7 @@
 - (BOOL)isEditable { return [_tableColumn isEditable]; }
 - (BOOL)isHighlightable { return NO; }
 
-- (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
     return [[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex]; 
 }

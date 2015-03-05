@@ -22,8 +22,6 @@
 #import <OgreKit/OgreOutlineColumn.h>
 
 @implementation OgreOutlineItemAdapter
-@synthesize level = _level;
-@synthesize outlineColumn = _outlineColumn;
 
 - (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item
 {
@@ -100,7 +98,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    NSUInteger    count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
+    NSInteger  count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
     
     return 1 /* self cell */ + count;
 }
@@ -111,7 +109,7 @@
 	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);
 #endif
     OgreOutlineView                 *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
-    id adapter;
+    id <OgreTextFindComponent> adapter;
     
     if (index == 0) {
         /* self cell */
@@ -124,7 +122,7 @@
         
     }
     
-    if ([self isTerminal] && index == [[outlineView ogrePathComponentsOfSelectedItem][[self level] + 1] intValue] + 1) {
+    if ([self isTerminal] && index == [[outlineView ogrePathComponentsOfSelectedItem][[self level] + 1] integerValue] + 1) {
         [adapter setTerminal:YES];
     }    
     [adapter setParent:self];
@@ -147,13 +145,12 @@
     } else {
         enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     }
-    //[[enumerator initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)] autorelease];
     
     if ([self isTerminal]) {
-        int terminal;
+        NSInteger terminal;
         OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
         NSArray *path = [outlineView ogrePathComponentsOfSelectedItem];
-        terminal = [path[[self level] + 1] intValue] + 1;
+        terminal = [path[[self level] + 1] integerValue] + 1;
         
         [enumerator setTerminalIndex:terminal];
     }
@@ -193,6 +190,11 @@
 	NSLog(@"  -window of %@", [self className]);
 #endif
     return [[_outlineColumn tableView] window];
+}
+
+- (OgreOutlineColumn*)outlineColumn
+{
+    return _outlineColumn;
 }
 
 - (void)expandItemEnclosingItem:(id)item

@@ -16,7 +16,7 @@
 #import <OgreKit/OGReplaceExpression.h>
 #import <OgreKit/OGString.h>
 
-// OgreTextFinderLocalizable.stringsを使用したローカライズ
+// Localization of using OgreTextFinderLocalizable.strings (OgreTextFinderLocalizable.stringsを使用したローカライズ)
 #define OgreTextFinderLocalizedString(key)	[[OgreTextFinder ogreKitBundle] localizedStringForKey:(key) value:(key) table:@"OgreTextFinderLocalizable"]
 
 @class OgreTextFinder, OgreFindPanelController, OgreTextFindResult, OgreTextFindThread, OgreTextFindProgressSheet;
@@ -32,20 +32,20 @@
 	IBOutlet OgreFindPanelController	*findPanelController;	// FindPanelController
     IBOutlet NSMenu						*findMenu;				// Find manu
 	
-	OgreSyntax		_syntax;				// 正規表現の構文
-	NSString		*_escapeCharacter;		// エスケープ文字
+	OgreSyntax		_syntax;				// Regular expression syntax (正規表現の構文)
+	NSString		*_escapeCharacter;		// Escape character (エスケープ文字)
 	
-	id				_targetToFindIn;		// 検索対象
-	Class			_adapterClassForTarget; // 検索対象のアダプタ(ラッパー)
-	NSMutableArray	*_busyTargetArray;		// 使用中ターゲット
+	id				_targetToFindIn;		// Search for (検索対象)
+	Class			_adapterClassForTarget; // Search for adapter (wrapper) (検索対象のアダプタ(ラッパー))
+	NSMutableArray	*_busyTargetArray;		// In use target (使用中ターゲット)
 
-	NSDictionary	*_history;				// 検索履歴等
-	BOOL			_saved;					// 履歴等が保存されたかどうか
-	BOOL			_shouldHackFindMenu;	// FindメニューをOgreKitのものに置き換えるかどうか
-	BOOL			_useStylesInFindPanel;	// 検索パネルでStyleを使用するかどうか。
+	NSDictionary	*_history;				// Search history, etc. (検索履歴等)
+	BOOL			_saved;					// Whether history, etc. has been saved (履歴等が保存されたかどうか)
+	BOOL			_shouldHackFindMenu;	// And whether to replace the Find menu to those of OgreKit (FindメニューをOgreKitのものに置き換えるかどうか)
+	BOOL			_useStylesInFindPanel;	// Whether or not to use the Style in the search panel. (検索パネルでStyleを使用するかどうか。)
     
-    NSMutableArray  *_targetClassArray,     // 検索可能なクラスを収めた配列
-                    *_adapterClassArray;    // 検索対象クラスのアダプタクラスを収めた配列
+    NSMutableArray  *_targetClassArray,     // Sequences were met with searchable class (検索可能なクラスを収めた配列)
+                    *_adapterClassArray;    // Sequences were met with adapter class to search for class (検索対象クラスのアダプタクラスを収めた配列)
 }
 
 /* OgreKit.framework bundle */
@@ -55,31 +55,31 @@
 + (OgreTextFinder*)sharedTextFinder;
 
 /* nib name of Find Panel/Find Panel Controller */
-@property (readonly, copy) NSString *findPanelNibName;
+@property (nonatomic, readonly, copy) NSString *findPanelNibName;
 
 /* Show Find Panel */
 - (IBAction)showFindPanel:(id)sender;
 
 /* Startup time configurations */
 - (void)setShouldHackFindMenu:(BOOL)hack;
-@property  BOOL useStylesInFindPanel;
+@property (nonatomic) BOOL useStylesInFindPanel;
 
 /*************
  * Accessors *
  *************/
 // target to find in
-@property (strong) id targetToFindIn;
+@property (nonatomic, strong) id targetToFindIn;
 
-@property (strong) Class adapterClassForTargetToFindIn;
+@property (nonatomic, strong) Class adapterClassForTargetToFindIn;
 
 // Find Panel Controller
-@property (strong) OgreFindPanelController *findPanelController;
+@property (nonatomic, strong) OgreFindPanelController *findPanelController;
 
 // escape character
-@property (copy) NSString *escapeCharacter;
+@property (nonatomic, copy) NSString *escapeCharacter;
 
 // syntax
-@property  OgreSyntax syntax;
+@property (nonatomic) OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
 - (OgreTextFindResult*)find:(NSString*)expressionString 
@@ -106,17 +106,17 @@
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withString:(NSString*)replaceString
 	options:(OgreOption)options 
-    replacingOnly:(BOOL)replacingOnly 
+    replacingOnly:(BOOL)replacingOnly
 	wrap:(BOOL)isWrap;
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options 
+	options:(OgreOption)options
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
 - (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString 
 	withOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
-    replacingOnly:(BOOL)replacingOnly 
+    replacingOnly:(BOOL)replacingOnly
 	wrap:(BOOL)isWrap;
 
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
@@ -137,15 +137,15 @@
 	options:(OgreOption)options
 	inSelection:(BOOL)inSelection;
 
-@property (readonly, strong) OgreTextFindResult *unhightlight;
+@property (nonatomic, readonly, strong) OgreTextFindResult *unhightlight;
 
-@property (readonly, copy) NSString *selectedString;
-@property (readonly, copy) NSAttributedString *selectedAttributedString;
-@property (readonly, strong) id<OGStringProtocol> selectedOGString;
+@property (nonatomic, readonly, copy) NSString *selectedString;
+@property (nonatomic, readonly, copy) NSAttributedString *selectedAttributedString;
+@property (nonatomic, readonly, strong) NSObject<OGStringProtocol> *selectedOGString;
 
-@property (getter=isSelectionEmpty, readonly) BOOL selectionEmpty;
+@property (nonatomic, getter=isSelectionEmpty, readonly) BOOL selectionEmpty;
 
-@property (readonly) BOOL jumpToSelection;
+@property (nonatomic, readonly) BOOL jumpToSelection;
 
 /* creating an alert sheet */
 - (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTerget;
@@ -158,16 +158,16 @@
 /*******************
  * Private Methods *
  *******************/
-// 前回保存された履歴
-@property (readonly, copy) NSDictionary *history;
-// currentを起点に名前がnameのmenu itemを探す。
+// Last saved history (前回保存された履歴)
+@property (nonatomic, readonly, copy) NSDictionary *history;
+// name the current to the starting point to look for menu item of name. (currentを起点に名前がnameのmenu itemを探す。)
 - (NSMenuItem*)findMenuItemNamed:(NSString*)name startAt:(NSMenu*)current;
 
-// ターゲットが使用中かどうか
+// If the target is in use (ターゲットが使用中かどうか)
 - (BOOL)isBusyTarget:(id)target;
-// 使用中にする
+// I want to use in (使用中にする)
 - (void)makeTargetBusy:(id)target;
-// 使用中でなくする
+// To not in use (使用中でなくする)
 - (void)makeTargetFree:(id)target;
 
 /* hack Find Menu */

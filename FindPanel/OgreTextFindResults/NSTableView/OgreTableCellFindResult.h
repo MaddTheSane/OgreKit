@@ -26,13 +26,13 @@
 
 - (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex;
 
-// index番目にマッチした文字列のある行番号
+// line number that matched string for the index (index番目にマッチした文字列のある行番号)
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;
-// index番目にマッチした文字列
+// matched string for the index (index番目にマッチした文字列)
 - (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
-// index番目にマッチした文字列を選択・表示する
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
-// index番目にマッチした文字列を選択する
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 
 - (void)targetIsMissing;

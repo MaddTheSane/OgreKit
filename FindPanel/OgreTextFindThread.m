@@ -12,8 +12,8 @@
  */
 
 #import <OgreKit/OgreTextFindThread.h>
+#import <OgreKit/OgreTextFindResult.h>
 #import <OgreKit/OgreTextFindRoot.h>
-
 #import<OgreKit/OgreTextFindComponentEnumerator.h>
 
 @interface NSObject (priv)
@@ -81,7 +81,7 @@
 	
 	@try {
 	
-		_numberOfTotalLeaves = [_rootAdapter numberOfDescendantsInSelection:_inSelection];  // <= 0: indeterminate
+		_numberOfTotalLeaves = [_rootAdapter numberOfDescendantsInSelection:_inSelection];  // NSNotFound: indeterminate
 		_numberOfDoneLeaves = 0;
 		
 		[self willProcessFindingAll];
@@ -146,7 +146,7 @@
 				/* coffee break */
 				if (shouldContinue) {
 					[_progressDelegate setProgress:[self progressPercentage] message:[self progressMessage]];
-					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%lu/%@", (unsigned long)_numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%lu", (unsigned long)_numberOfTotalLeaves])]];
+					[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%ld/%@", (long)_numberOfDoneLeaves, (_numberOfTotalLeaves <= 0? @"???" : [NSString stringWithFormat:@"%ld", (long)_numberOfTotalLeaves])]];
 				}
 				_metronome = [[NSDate alloc] init];
 				
@@ -222,7 +222,7 @@
 		} else {
 			/* finish up */
 			[_progressDelegate done:[self donePercentage] message:[self doneMessage]];
-			[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%lu/%@", (unsigned long)_numberOfDoneLeaves, (_numberOfTotalLeaves == -1? @"???" : [NSString stringWithFormat:@"%lu", (unsigned long)_numberOfTotalLeaves])]];
+			[_progressDelegate setDonePerTotalMessage:[NSString stringWithFormat:@"%ld/%@", (long)_numberOfDoneLeaves, (_numberOfTotalLeaves == -1? @"???" : [NSString stringWithFormat:@"%ld", (long)_numberOfTotalLeaves])]];
 			
 			[self didProcessFindingAll];
 			
@@ -304,7 +304,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-setProgressDelegate: of %@", [self className]);
 #endif
-	_progressDelegate = aDelegate;  // retain しない。むしろretainしてもらう。
+	_progressDelegate = aDelegate;  // not retain. I get rather retain. (retain しない。むしろretainしてもらう。)
 	[_progressDelegate setCancelSelector:@selector(terminate:) 
 		toTarget:self // will be retained
 		withObject:nil];

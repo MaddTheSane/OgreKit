@@ -25,7 +25,7 @@
 }
 
 /* Getting selected components */
-@property (readonly, copy) NSIndexSet *selectedIndexes;
+@property (nonatomic, readonly, copy) NSIndexSet *selectedIndexes;
 
 /* Getting an enumerator */
 - (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection;  // in the responder chain ordering

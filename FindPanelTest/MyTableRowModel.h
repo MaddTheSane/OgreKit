@@ -20,10 +20,8 @@
     NSString    *_bar;
 }
 
-- (NSString*)foo;
-- (void)setFoo:(NSString*)newFoo;
-- (NSString*)bar;
-- (void)setBar:(NSString*)newBar;
+@property (nonatomic, copy) NSString *foo;
+@property (nonatomic, copy) NSString *bar;
 
 - (void)dump;
 

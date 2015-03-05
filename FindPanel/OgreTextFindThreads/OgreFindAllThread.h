@@ -12,11 +12,12 @@
  */
 
 #import <OgreKit/OgreTextFindThread.h>
+#import <OgreKit/OgreTextFindLeaf.h>
+#import <OgreKit/OgreFindResultBranch.h>
 
 @class OGRegularExpressionMatch, OGRegularExpressionEnumerator, OgreFindResult;
-@class OgreTextFindThread;
 
-@interface OgreFindAllThread : OgreTextFindThread 
+@interface OgreFindAllThread : OgreTextFindThread
 {
     OGRegularExpressionMatch        *match, *lastMatch;
     NSEnumerator                    *matchEnumerator;

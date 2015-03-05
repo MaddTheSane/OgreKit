@@ -13,11 +13,16 @@
 
 #import <OgreKit/OgreHighlightThread.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OGRegularExpression.h>
+#import <OgreKit/OGRegularExpressionMatch.h>
+
+#import <OgreKit/OgreTextFindResult.h>
+
+#import <tgmath.h>
 
 @interface NSObject (priv)
 - (BOOL)didEndHighlight:(id)anObject;
 @end
-
 
 @implementation OgreHighlightThread
 
@@ -69,15 +74,15 @@
         alpha: &alpha];
     
     numberOfGroups = [regex numberOfGroups];
-    unsigned    i;
+    NSUInteger  i;
     BOOL        simple = ([regex syntax] == OgreSimpleMatchingSyntax);
-    double      dummy;
+    CGFloat     dummy;
     
     highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
         [highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
-            modf(hue + (simple? (float)(i - 1) : (float)i) / 
-                (simple? (float)numberOfGroups : (float)(numberOfGroups + 1)), &dummy)
+            modf(hue + (simple? (CGFloat)(i - 1) : (CGFloat)i) /
+                (simple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
@@ -103,7 +108,7 @@
     
     lastMatch = match;
     
-    unsigned    i;
+    NSUInteger  i;
     NSRange     aRange;
     
     for(i = 0; i <= numberOfGroups; i++) {
@@ -177,21 +182,21 @@
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:cancelledNotFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	} else {
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:notFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	}
     

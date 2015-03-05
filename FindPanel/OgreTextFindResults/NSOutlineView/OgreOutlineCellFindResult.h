@@ -26,13 +26,13 @@
 
 - (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
 
-// index番目にマッチした文字列のある項目名
+// item name that matched string for the index (index番目にマッチした文字列のある項目名)
 - (id)nameOfMatchedStringAtIndex:(NSUInteger)index;
-// index番目にマッチした文字列
+// matched string at index (index番目にマッチした文字列)
 - (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
-// index番目にマッチした文字列を選択・表示する
+// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
-// index番目にマッチした文字列を選択する
+// I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 
 - (void)targetIsMissing;

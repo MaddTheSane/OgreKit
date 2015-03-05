@@ -15,6 +15,8 @@
 #import <OgreKit/OgreFindResultLeaf.h>
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OGString.h>
+#import <OgreKit/OgreTextFindResult.h>
+#import <OgreKit/OgreTextFindThread.h>
 
 @interface NSObject (priv)
 - (BOOL)didEndFindAll:(id)anObject;
@@ -150,21 +152,21 @@
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:cancelledNotFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	} else {
 		if (count == 0) {
 			NSBeep();
 			message = [NSString stringWithFormat:notFoundMessage, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
 				count, 
-				[self processTime] + 0.0005 /* 四捨五入 */];
+				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	}
     

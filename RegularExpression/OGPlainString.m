@@ -14,7 +14,7 @@
 #import <OgreKit/OGPlainString.h>
 #import <OgreKit/OGMutablePlainString.h>
 
-// 自身をencoding/decodingするためのkey
+// Key for encoding/decoding itself (自身をencoding/decodingするためのkey)
 static NSString * const	OgrePlainStringKey = @"OgrePlainString";
 
 @implementation OGPlainString
@@ -137,7 +137,7 @@ static NSString * const	OgrePlainStringKey = @"OgrePlainString";
 		_string = [decoder decodeObject];
 	}
 	if(_string == nil) {
-		// エラー。例外を発生させる。
+		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
 	

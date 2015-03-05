@@ -16,22 +16,22 @@
 
 @implementation MyDocument
 
-// 検索対象となるTextViewをOgreTextFinderに教える。
-// 検索させたくない場合はnilをsetする。
-// 定義を省略した場合、main windowのfirst responderがNSTextViewならばそれを採用する。
+// I teach be searched TextView to OgreTextFinder. (検索対象となるTextViewをOgreTextFinderに教える。)
+// To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
+// If you omit the definition, first responder of main window to adopt it if NSTextView. (定義を省略した場合、main windowのfirst responderがNSTextViewならばそれを採用する。)
 - (void)tellMeTargetToFindIn:(id)textFinder
 {
 	[textFinder setTargetToFindIn:textView];
 }
 
 
-/* ここから下はFind Panelに関係しないコード */
+/* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
 - (NSString*)windowNibName {
     return @"MyDocument";
 }
 
 - (NSData*)dataRepresentationOfType:(NSString*)type {
-	// 改行コードを(置換すべきなら)置換し、保存する。
+	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
 	_tmpString = [textView string];
 	if ([OGRegularExpression newlineCharacterInString:_tmpString] != _newlineCharacter) {
 		_tmpString = [OGRegularExpression replaceNewlineCharactersInString:_tmpString 
@@ -42,18 +42,18 @@
 }
 
 - (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type {
-	// ファイルから読み込む。(UTF8決めうち。)
+	// I read from a file. (UTF8 decided out.) (ファイルから読み込む。(UTF8決めうち。))
 	id	aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	
-	// 改行コードの種類を得る。
+	// I get kind of line feed code. (改行コードの種類を得る。)
 	_newlineCharacter = [OGRegularExpression newlineCharacterInString:aString];
 	if (_newlineCharacter == OgreNonbreakingNewlineCharacter) {
-		// 改行のない場合はOgreUnixNewlineCharacterとみなす。
+		// Is regarded as OgreUnixNewlineCharacter If there is no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
 		//NSLog(@"nonbreaking");
 		_newlineCharacter = OgreUnixNewlineCharacter;
 	}
 	
-	// 改行コードを(置換すべきなら)置換する。
+	// The line feed code (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
 	if (_newlineCharacter != OgreUnixNewlineCharacter) {
 		_tmpString = [[OGRegularExpression replaceNewlineCharactersInString:aString 
 			withCharacter:OgreUnixNewlineCharacter] retain];
@@ -75,12 +75,12 @@
 		[_tmpString release];
         _tmpString = nil;
 	} else {
-		_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
+		_newlineCharacter = OgreUnixNewlineCharacter;	// The default line break code (デフォルトの改行コード)
 	}
     [super windowControllerDidLoadNib:controller];
 }
 
-// 改行コードの変更
+// Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
 {
 	_newlineCharacter = aNewlineCharacter;

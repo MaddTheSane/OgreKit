@@ -18,10 +18,6 @@
 
 @interface OgreFindThread : OgreTextFindThread 
 {
-    BOOL                _wrap;                  // wrapped search
-    BOOL                _backward;              // search direction
-    BOOL                _fromTop;               // search origin
-    
     NSEnumerator        *matchEnumerator;
     BOOL                _lhsPhase;
 }
@@ -29,12 +25,9 @@
 - (BOOL)shouldPreprocessFindingInFirstLeaf;
 - (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf;
 
-- (void)setWrap:(BOOL)wrap;
-- (BOOL)wrap;
-- (void)setBackward:(BOOL)backward;
-- (BOOL)backward;
-- (void)setFromTop:(BOOL)fromTop;
-- (BOOL)fromTop;
+@property (nonatomic) BOOL wrap;        // wrapped search
+@property (nonatomic) BOOL backward;    // search direction
+@property (nonatomic) BOOL fromTop;     // search origin
 
 // private methods
 - (BOOL)_preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf;
