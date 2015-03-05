@@ -32,7 +32,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	_replaceHistory = [[NSString alloc] init];
 	
 	// Return of history (履歴の復帰)
-	[self restoreHistory:[textFinder history]];
+	[self restoreHistory:[self.textFinder history]];
 }
 
 - (void)dealloc
@@ -42,9 +42,9 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	[super dealloc];
 }
 
-- (NSUInteger)options
+- (OgreOption)options
 {
-	NSUInteger	options = OgreNoneOption;
+	OgreOption	options = OgreNoneOption;
 	if ([optionIgnoreCase state] == NSOnState) options |= OgreIgnoreCaseOption;
 	
 	return options;
@@ -157,12 +157,12 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 
 - (IBAction)jumpToSelection:(id)sender
 {
-	if (![textFinder jumpToSelection]) NSBeep();
+	if (![self.textFinder jumpToSelection]) NSBeep();
 }
 
 - (IBAction)useSelectionForFind:(id)sender
 {
-	NSString	*selectedString = [textFinder selectedString];
+	NSString	*selectedString = [self.textFinder selectedString];
 	if (selectedString != nil) {
 		[findTextField setStringValue:selectedString];
 		if (sender != self) [self showFindPanel:sender];
@@ -222,7 +222,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	
 	anObject = history[MyOptionsKey];
 	if (anObject != nil) {
-		NSUInteger	options = [anObject unsignedIntegerValue];
+		OgreOption	options = [anObject unsignedIntValue];
 		[optionIgnoreCase setState:((options & OgreIgnoreCaseOption)? NSOnState : NSOffState)];
 	}
 	

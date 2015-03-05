@@ -39,7 +39,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -preprocessFindingInFirstLeaf: of %@", [self className]);
 #endif
-	NSUInteger	options = [self options];
+	OgreOption	options = [self options];
 	OgreOption	notEOLAndBOLDisabledOptions = options & ~(OgreNotBOLOption | OgreNotEOLOption);  // I avoid problems which are not properly replaced when NotBOL option is specified. (NotBOLオプションが指定されている場合に正しく置換されない問題を避ける。)
 	
     OGRegularExpressionMatch    *match;

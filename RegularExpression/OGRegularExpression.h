@@ -28,6 +28,7 @@
 
 // compile time options:
 
+// OgreOption is a bit field.
 typedef unsigned int OgreOption;
 extern const OgreOption	OgreNoneOption;
 extern const OgreOption	OgreSingleLineOption;

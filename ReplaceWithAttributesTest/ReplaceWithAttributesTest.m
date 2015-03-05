@@ -58,9 +58,9 @@
 	[self setAttributedReplace:YES];
 }
 
-- (NSUInteger)options
+- (OgreOption)options
 {
-	NSUInteger	options = OgreNoneOption;
+	OgreOption	options = OgreNoneOption;
 	if (attributedReplace) options |= OgreReplaceWithAttributesOption;
 	if (replaceFont) options |= OgreReplaceFontsOption;
 	if (mergeAttributes) options |= OgreMergeAttributesOption;

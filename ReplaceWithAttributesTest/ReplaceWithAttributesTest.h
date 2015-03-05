@@ -27,7 +27,7 @@
 }
 - (IBAction)replace:(id)sender;
 
-@property (nonatomic, readonly) NSUInteger options;
+@property (nonatomic, readonly) OgreOption options;
 @property (nonatomic) BOOL attributedReplace;
 
 @end

@@ -14,7 +14,7 @@
 #import <AppKit/AppKit.h>
 #import <OgreKit/OgreKit.h>
 
-@interface MyTableDocument : NSDocument <OgreTextFindDataSource>
+@interface MyTableDocument : NSDocument <OgreTextFindDataSource, NSTableViewDataSource, NSTableViewDelegate>
 {
 	IBOutlet NSTableView    *tableView;
     NSMutableDictionary     *_dict;
