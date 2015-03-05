@@ -192,11 +192,6 @@
     return [[_outlineColumn tableView] window];
 }
 
-- (OgreOutlineColumn*)outlineColumn
-{
-    return _outlineColumn;
-}
-
 - (void)expandItemEnclosingItem:(id)item
 {
     if (_outlineColumn == nil) return;

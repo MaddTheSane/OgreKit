@@ -17,7 +17,7 @@
 
 
 @implementation OgreTextFindBranch
-
+@synthesize index = _index;
 /*
 #ifdef DEBUG_OGRE_FIND_PANEL
 - (id)retain
@@ -176,16 +176,6 @@
     if (_isParentRetained) [_parent autorelease];
     _parent = parent;
     _isParentRetained = NO;
-}
-
-- (NSInteger)index
-{
-    return _index;
-}
-
-- (void)setIndex:(NSInteger)index
-{
-    _index = index;
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

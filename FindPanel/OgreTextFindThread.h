@@ -82,7 +82,7 @@
 @property (nonatomic, copy) NSColor *highlightColor;
 @property (nonatomic) OgreOption options;
 @property (nonatomic) BOOL inSelection;
-@property (nonatomic, strong) NSObject<OgreTextFindProgressDelegate> *progressDelegate;
+@property (nonatomic, weak) NSObject<OgreTextFindProgressDelegate> *progressDelegate;
 @property (nonatomic, getter=isTerminated, readonly) BOOL terminated;
 @property (nonatomic, readonly) NSTimeInterval processTime;
 

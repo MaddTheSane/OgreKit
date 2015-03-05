@@ -1631,7 +1631,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // Array of strings representing the Options (Optionsを表す文字列の配列)
-+ (NSArray*)stringsForOptions:(NSUInteger)options
++ (NSArray*)stringsForOptions:(OgreOption)options
 {
 	NSMutableArray	*array = [NSMutableArray arrayWithCapacity:0];
 	

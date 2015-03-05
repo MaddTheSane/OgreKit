@@ -598,7 +598,7 @@ extern NSString	* const OgreException;
 // A string representing the OgreSyntax (OgreSyntaxを表す文字列)
 + (NSString*)stringForSyntax:(OgreSyntax)syntax;
 // String array that represents the Options (Optionsを表す文字列配列)
-+ (NSArray*)stringsForOptions:(NSUInteger)options;
++ (NSArray*)stringsForOptions:(OgreOption)options;
 
 // The string I want to convert to a safe string in the regular expression. (@ "|.?! () * + {} ^ $ [] - & #: = <> @ \\" I saved) (文字列を正規表現で安全な文字列に変換する。(@"|().?*+{}^$[]-&#:=!<>@\\"を退避する))
 + (NSString*)regularizeString:(NSString*)string;

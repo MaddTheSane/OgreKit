@@ -141,7 +141,7 @@
 
 @property (nonatomic, readonly, copy) NSString *selectedString;
 @property (nonatomic, readonly, copy) NSAttributedString *selectedAttributedString;
-@property (nonatomic, readonly, strong) NSObject<OGStringProtocol> *selectedOGString;
+@property (nonatomic, readonly, strong) id<OGStringProtocol> selectedOGString;
 
 @property (nonatomic, getter=isSelectionEmpty, readonly) BOOL selectionEmpty;
 

@@ -20,6 +20,7 @@
 @synthesize reversed = _isReversed;
 @synthesize firstLeaf = _isFirstLeaf;
 @synthesize terminal = _isTerminal;
+@synthesize index = _index;
 
 - (void)dealloc
 {
@@ -211,16 +212,6 @@
 	NSLog(@"  -findResultLeafWithThread: of %@ (BUG!!!)", [self className]);
 #endif
     return nil; 
-}
-
-- (NSInteger)index
-{
-    return _index;
-}
-
-- (void)setIndex:(NSInteger)index
-{
-    _index = index;
 }
 
 - (OgreTextFindLeaf*)selectedLeaf

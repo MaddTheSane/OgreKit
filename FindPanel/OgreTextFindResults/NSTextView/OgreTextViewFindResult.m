@@ -99,7 +99,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 	// Relative position of the match (マッチの相対位置)
 	// 0th substring relative position of the previous match (0番目の部分文字列は前のマッチとの相対位置)
 	// Substring of the first and subsequent relative positions of the 0th substring (1番目以降の部分文字列は0番目の部分文字列との相対位置)
-	NSInteger				i, n = [match count];
+	NSInteger		i, n = [match count];
 	NSMutableArray	*rangeArray = [NSMutableArray arrayWithCapacity:n];
 	range = [match rangeOfSubstringAtIndex:0];
 	[rangeArray addObject:[NSValue valueWithRange:NSMakeRange(range.location - _cacheAbsoluteLocation, range.length)]];

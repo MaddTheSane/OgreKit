@@ -21,9 +21,13 @@
 @synthesize delegate = _delegate;
 @synthesize numberOfMatches = _numberOfMatches;
 @synthesize title = _title;
+
 // -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
+// -matchedStringAtIndex: at, matched maximum number of characters to the left of the string (-1: unlimited) (-matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限))
 @synthesize maximumLeftMargin = _maxLeftMargin;
+
 // Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
+// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
 @synthesize maximumMatchedStringLength = _maxMatchedStringLength;
 
 + (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
@@ -130,29 +134,6 @@
 - (NSObject <OgreTextFindComponent>*)result
 {
     return _resultTree;
-}
-
-
-// -matchedStringAtIndex: at, matched maximum number of characters to the left of the string (-1: unlimited) (-matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限))
-- (NSInteger)maximumLeftMargin
-{
-    return _maxLeftMargin;
-}
-
-- (void)setMaximumLeftMargin:(NSInteger)leftMargin
-{
-	_maxLeftMargin = leftMargin;
-}
-
-// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
-- (NSInteger)maximumMatchedStringLength
-{
-    return _maxMatchedStringLength;
-}
-
-- (void)setMaximumMatchedStringLength:(NSInteger)aLength
-{
-	_maxMatchedStringLength = aLength;
 }
 
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
