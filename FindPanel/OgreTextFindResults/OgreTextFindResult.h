@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 @property (nonatomic, readonly, strong) NSObject<OgreTextFindComponent> *result;
 @property (nonatomic, readonly, copy) NSString *findString;
 
-@property (nonatomic, readonly) BOOL alertIfErrorOccurred;
+- (BOOL)alertIfErrorOccurred;
 - (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException;
 
 - (void)beginGraftingToBranch:(OgreFindResultBranch*)aBranch;

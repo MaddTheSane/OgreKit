@@ -81,7 +81,7 @@
 	_exception = anException;
 }
 
-- (BOOL)alertIfErrorOccurred;
+- (BOOL)alertIfErrorOccurred
 {
 	if ((_resultType != OgreTextFindResultError) || (_exception == nil)) return NO;  // no error
 	

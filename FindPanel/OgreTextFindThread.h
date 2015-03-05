@@ -93,7 +93,7 @@
 - (void)exceptionRaised:(NSException*)exception;
 
 - (void)pushEnumerator:(NSEnumerator*)anEnumerator;
-@property (nonatomic, readonly, strong) NSEnumerator *popEnumerator;
+- (NSEnumerator*)popEnumerator;
 @property (nonatomic, readonly, strong) NSEnumerator *topEnumerator;
 
 @property (nonatomic, readonly, strong) OgreTextFindBranch *rootAdapter;

@@ -493,7 +493,7 @@
 		4D82DCFB09BA0CEF007F03B0 /* HISTORY */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = HISTORY; path = intel/HISTORY; sourceTree = "<group>"; };
 		4D82DCFE09BA0CFC007F03B0 /* README */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = README; path = intel/README; sourceTree = "<group>"; };
 		4D9DBE2B09BAB999003DD4A8 /* libonig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libonig.a; path = RegularExpression/oniguruma/universal/libonig.a; sourceTree = "<group>"; };
-		4DA73FB91142894300E28DA7 /* OgreTextFindProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindProgressDelegate.h; path = FindPanel/OgreTextFindThreads/OgreTextFindProgressDelegate.h; sourceTree = SOURCE_ROOT; };
+		4DA73FB91142894300E28DA7 /* OgreTextFindProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindProgressDelegate.h; sourceTree = "<group>"; };
 		4DA7410F1142B26900E28DA7 /* GCTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA741111142B26A00E28DA7 /* GC Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GC Test-Info.plist"; path = "GCTest/GC Test-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4DC40BFC09150BDB0029A2A6 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,190 +503,190 @@
 		4DC40C3009150C9E0029A2A6 /* ReplaceWithAttributesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReplaceWithAttributesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC40D4B09150CEA0029A2A6 /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ReadMe.rtf; path = RegularExpression/Documentation/ReadMe.rtf; sourceTree = SOURCE_ROOT; };
 		4DC40D4C09150CEA0029A2A6 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = License.txt; path = RegularExpression/Documentation/License.txt; sourceTree = SOURCE_ROOT; };
-		4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = OGRegularExpression.h; path = RegularExpression/OGRegularExpression.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpression.m; path = RegularExpression/OGRegularExpression.m; sourceTree = SOURCE_ROOT; };
-		4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionPrivate.h; path = RegularExpression/OGRegularExpressionPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumerator.h; path = RegularExpression/OGRegularExpressionEnumerator.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionEnumerator.m; path = RegularExpression/OGRegularExpressionEnumerator.m; sourceTree = SOURCE_ROOT; };
-		4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionEnumeratorPrivate.h; path = RegularExpression/OGRegularExpressionEnumeratorPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionMatch.h; path = RegularExpression/OGRegularExpressionMatch.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionMatch.m; path = RegularExpression/OGRegularExpressionMatch.m; sourceTree = SOURCE_ROOT; };
-		4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionMatchPrivate.h; path = RegularExpression/OGRegularExpressionMatchPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5C09150CEB0029A2A6 /* OGRegularExpressionCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionCapture.h; path = RegularExpression/OGRegularExpressionCapture.h; sourceTree = SOURCE_ROOT; };
-		4DC40D5D09150CEB0029A2A6 /* OGRegularExpressionCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGRegularExpressionCapture.m; path = RegularExpression/OGRegularExpressionCapture.m; sourceTree = SOURCE_ROOT; };
-		4DC40D5E09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionCapturePrivate.h; path = RegularExpression/OGRegularExpressionCapturePrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6009150CEB0029A2A6 /* OGReplaceExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGReplaceExpression.h; path = RegularExpression/OGReplaceExpression.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGReplaceExpression.m; path = RegularExpression/OGReplaceExpression.m; sourceTree = SOURCE_ROOT; };
-		4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGReplaceExpressionPrivate.h; path = RegularExpression/OGReplaceExpressionPrivate.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGRegularExpressionFormatter.h; path = RegularExpression/OGRegularExpressionFormatter.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OGRegularExpressionFormatter.m; path = RegularExpression/OGRegularExpressionFormatter.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4DC40D6709150CEB0029A2A6 /* OGString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGString.h; path = RegularExpression/OGString.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6809150CEB0029A2A6 /* OGString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGString.m; path = RegularExpression/OGString.m; sourceTree = SOURCE_ROOT; };
-		4DC40D6909150CEB0029A2A6 /* OGMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGMutableString.h; path = RegularExpression/OGMutableString.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6B09150CEB0029A2A6 /* OGPlainString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGPlainString.h; path = RegularExpression/OGPlainString.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6C09150CEB0029A2A6 /* OGPlainString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGPlainString.m; path = RegularExpression/OGPlainString.m; sourceTree = SOURCE_ROOT; };
-		4DC40D6D09150CEB0029A2A6 /* OGMutablePlainString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGMutablePlainString.h; path = RegularExpression/OGMutablePlainString.h; sourceTree = SOURCE_ROOT; };
-		4DC40D6E09150CEB0029A2A6 /* OGMutablePlainString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGMutablePlainString.m; path = RegularExpression/OGMutablePlainString.m; sourceTree = SOURCE_ROOT; };
-		4DC40D7009150CEB0029A2A6 /* OGAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGAttributedString.h; path = RegularExpression/OGAttributedString.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7109150CEC0029A2A6 /* OGAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGAttributedString.m; path = RegularExpression/OGAttributedString.m; sourceTree = SOURCE_ROOT; };
-		4DC40D7209150CEC0029A2A6 /* OGMutableAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGMutableAttributedString.h; path = RegularExpression/OGMutableAttributedString.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7309150CEC0029A2A6 /* OGMutableAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGMutableAttributedString.m; path = RegularExpression/OGMutableAttributedString.m; sourceTree = SOURCE_ROOT; };
-		4DC40D7409150CEC0029A2A6 /* NSString_OgreKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSString_OgreKitAdditions.h; path = RegularExpression/NSString_OgreKitAdditions.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7509150CEC0029A2A6 /* NSString_OgreKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSString_OgreKitAdditions.m; path = RegularExpression/NSString_OgreKitAdditions.m; sourceTree = SOURCE_ROOT; };
-		4DC40D7809150CEC0029A2A6 /* OgreTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFinder.h; path = FindPanel/OgreTextFinder.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7909150CEC0029A2A6 /* OgreTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTextFinder.m; path = FindPanel/OgreTextFinder.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4DC40D7B09150CEC0029A2A6 /* OgreTextFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindThread.h; path = FindPanel/OgreTextFindThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7C09150CEC0029A2A6 /* OgreTextFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTextFindThread.m; path = FindPanel/OgreTextFindThread.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4DC40D7E09150CEC0029A2A6 /* OgreFindAllThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindAllThread.h; path = FindPanel/OgreTextFindThreads/OgreFindAllThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D7F09150CEC0029A2A6 /* OgreFindAllThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindAllThread.m; path = FindPanel/OgreTextFindThreads/OgreFindAllThread.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8009150CEC0029A2A6 /* OgreReplaceAllThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreReplaceAllThread.h; path = FindPanel/OgreTextFindThreads/OgreReplaceAllThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8109150CEC0029A2A6 /* OgreReplaceAllThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreReplaceAllThread.m; path = FindPanel/OgreTextFindThreads/OgreReplaceAllThread.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8209150CEC0029A2A6 /* OgreHighlightThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreHighlightThread.h; path = FindPanel/OgreTextFindThreads/OgreHighlightThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8309150CEC0029A2A6 /* OgreHighlightThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreHighlightThread.m; path = FindPanel/OgreTextFindThreads/OgreHighlightThread.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8409150CEC0029A2A6 /* OgreUnhighlightThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreUnhighlightThread.h; path = FindPanel/OgreTextFindThreads/OgreUnhighlightThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8509150CEC0029A2A6 /* OgreUnhighlightThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreUnhighlightThread.m; path = FindPanel/OgreTextFindThreads/OgreUnhighlightThread.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8609150CEC0029A2A6 /* OgreFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindThread.h; path = FindPanel/OgreTextFindThreads/OgreFindThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8709150CEC0029A2A6 /* OgreFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindThread.m; path = FindPanel/OgreTextFindThreads/OgreFindThread.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8809150CEC0029A2A6 /* OgreReplaceAndFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreReplaceAndFindThread.h; path = FindPanel/OgreTextFindThreads/OgreReplaceAndFindThread.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8909150CEC0029A2A6 /* OgreReplaceAndFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreReplaceAndFindThread.m; path = FindPanel/OgreTextFindThreads/OgreReplaceAndFindThread.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8B09150CEC0029A2A6 /* OgreTextFindComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindComponent.h; path = FindPanel/OgreTextFindComponents/OgreTextFindComponent.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8C09150CEC0029A2A6 /* OgreTextFindRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindRoot.h; path = FindPanel/OgreTextFindComponents/OgreTextFindRoot.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8D09150CEC0029A2A6 /* OgreTextFindRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindRoot.m; path = FindPanel/OgreTextFindComponents/OgreTextFindRoot.m; sourceTree = SOURCE_ROOT; };
-		4DC40D8E09150CEC0029A2A6 /* OgreTextFindBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindBranch.h; path = FindPanel/OgreTextFindComponents/OgreTextFindBranch.h; sourceTree = SOURCE_ROOT; };
-		4DC40D8F09150CED0029A2A6 /* OgreTextFindBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindBranch.m; path = FindPanel/OgreTextFindComponents/OgreTextFindBranch.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9009150CED0029A2A6 /* OgreTextFindLeaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindLeaf.h; path = FindPanel/OgreTextFindComponents/OgreTextFindLeaf.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9109150CED0029A2A6 /* OgreTextFindLeaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindLeaf.m; path = FindPanel/OgreTextFindComponents/OgreTextFindLeaf.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9209150CED0029A2A6 /* OgreTextFindComponentEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindComponentEnumerator.h; path = FindPanel/OgreTextFindComponents/OgreTextFindComponentEnumerator.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9309150CED0029A2A6 /* OgreTextFindComponentEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindComponentEnumerator.m; path = FindPanel/OgreTextFindComponents/OgreTextFindComponentEnumerator.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9409150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindReverseComponentEnumerator.h; path = FindPanel/OgreTextFindComponents/OgreTextFindReverseComponentEnumerator.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9509150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindReverseComponentEnumerator.m; path = FindPanel/OgreTextFindComponents/OgreTextFindReverseComponentEnumerator.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9709150CED0029A2A6 /* OgreTextViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewAdapter.h; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9809150CED0029A2A6 /* OgreTextViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewAdapter.m; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9909150CED0029A2A6 /* OgreTextViewPlainAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewPlainAdapter.h; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewPlainAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9A09150CED0029A2A6 /* OgreTextViewPlainAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewPlainAdapter.m; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewPlainAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9B09150CED0029A2A6 /* OgreTextViewRichAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewRichAdapter.h; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewRichAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9C09150CED0029A2A6 /* OgreTextViewRichAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewRichAdapter.m; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewRichAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9D09150CED0029A2A6 /* OgreTextViewGraphicAllowedAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewGraphicAllowedAdapter.h; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewGraphicAllowedAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40D9E09150CED0029A2A6 /* OgreTextViewGraphicAllowedAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewGraphicAllowedAdapter.m; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewGraphicAllowedAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40D9F09150CED0029A2A6 /* OgreTextViewUndoer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewUndoer.h; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewUndoer.h; sourceTree = SOURCE_ROOT; };
-		4DC40DA009150CED0029A2A6 /* OgreTextViewUndoer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewUndoer.m; path = FindPanel/OgreTextFindComponents/NSTextView/OgreTextViewUndoer.m; sourceTree = SOURCE_ROOT; };
-		4DC40DA209150CED0029A2A6 /* OgreTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableViewAdapter.h; path = FindPanel/OgreTextFindComponents/NSTableView/OgreTableViewAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DA309150CED0029A2A6 /* OgreTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableViewAdapter.m; path = FindPanel/OgreTextFindComponents/NSTableView/OgreTableViewAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DA409150CED0029A2A6 /* OgreTableColumnAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableColumnAdapter.h; path = FindPanel/OgreTextFindComponents/NSTableView/OgreTableColumnAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DA509150CED0029A2A6 /* OgreTableColumnAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableColumnAdapter.m; path = FindPanel/OgreTextFindComponents/NSTableView/OgreTableColumnAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DA609150CED0029A2A6 /* OgreTableCellAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableCellAdapter.h; path = FindPanel/OgreTextFindComponents/NSTableView/OgreTableCellAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DA709150CED0029A2A6 /* OgreTableCellAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableCellAdapter.m; path = FindPanel/OgreTextFindComponents/NSTableView/OgreTableCellAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DA909150CED0029A2A6 /* OgreOutlineViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineViewAdapter.h; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineViewAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DAA09150CED0029A2A6 /* OgreOutlineViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineViewAdapter.m; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineViewAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DAB09150CED0029A2A6 /* OgreOutlineColumnAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineColumnAdapter.h; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineColumnAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DAC09150CED0029A2A6 /* OgreOutlineColumnAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineColumnAdapter.m; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineColumnAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DAD09150CED0029A2A6 /* OgreOutlineItemAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineItemAdapter.h; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineItemAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DAE09150CED0029A2A6 /* OgreOutlineItemAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineItemAdapter.m; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineItemAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DAF09150CED0029A2A6 /* OgreOutlineCellAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineCellAdapter.h; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineCellAdapter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DB009150CED0029A2A6 /* OgreOutlineCellAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineCellAdapter.m; path = FindPanel/OgreTextFindComponents/NSOutlineView/OgreOutlineCellAdapter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DB209150CEE0029A2A6 /* OgreTextFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindResult.h; path = FindPanel/OgreTextFindResults/OgreTextFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DB309150CEE0029A2A6 /* OgreTextFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindResult.m; path = FindPanel/OgreTextFindResults/OgreTextFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DB409150CEE0029A2A6 /* OgreFindResultRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindResultRoot.h; path = FindPanel/OgreTextFindResults/OgreFindResultRoot.h; sourceTree = SOURCE_ROOT; };
-		4DC40DB509150CEE0029A2A6 /* OgreFindResultRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindResultRoot.m; path = FindPanel/OgreTextFindResults/OgreFindResultRoot.m; sourceTree = SOURCE_ROOT; };
-		4DC40DB609150CEE0029A2A6 /* OgreFindResultBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindResultBranch.h; path = FindPanel/OgreTextFindResults/OgreFindResultBranch.h; sourceTree = SOURCE_ROOT; };
-		4DC40DB709150CEE0029A2A6 /* OgreFindResultBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindResultBranch.m; path = FindPanel/OgreTextFindResults/OgreFindResultBranch.m; sourceTree = SOURCE_ROOT; };
-		4DC40DB809150CEE0029A2A6 /* OgreFindResultLeaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindResultLeaf.h; path = FindPanel/OgreTextFindResults/OgreFindResultLeaf.h; sourceTree = SOURCE_ROOT; };
-		4DC40DB909150CEE0029A2A6 /* OgreFindResultLeaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindResultLeaf.m; path = FindPanel/OgreTextFindResults/OgreFindResultLeaf.m; sourceTree = SOURCE_ROOT; };
-		4DC40DBB09150CEE0029A2A6 /* OgreTextViewFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewFindResult.h; path = FindPanel/OgreTextFindResults/NSTextView/OgreTextViewFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DBC09150CEE0029A2A6 /* OgreTextViewFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewFindResult.m; path = FindPanel/OgreTextFindResults/NSTextView/OgreTextViewFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DBD09150CEE0029A2A6 /* OgreTextViewMatchFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextViewMatchFindResult.h; path = FindPanel/OgreTextFindResults/NSTextView/OgreTextViewMatchFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DBE09150CEE0029A2A6 /* OgreTextViewMatchFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextViewMatchFindResult.m; path = FindPanel/OgreTextFindResults/NSTextView/OgreTextViewMatchFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DC009150CEE0029A2A6 /* OgreTableViewFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableViewFindResult.h; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableViewFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DC109150CEE0029A2A6 /* OgreTableViewFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableViewFindResult.m; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableViewFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DC209150CEE0029A2A6 /* OgreTableColumnFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableColumnFindResult.h; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableColumnFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DC309150CEE0029A2A6 /* OgreTableColumnFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableColumnFindResult.m; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableColumnFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DC409150CEE0029A2A6 /* OgreTableCellFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableCellFindResult.h; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableCellFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DC509150CEE0029A2A6 /* OgreTableCellFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableCellFindResult.m; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableCellFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DC609150CEE0029A2A6 /* OgreTableCellMatchFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableCellMatchFindResult.h; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableCellMatchFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DC709150CEE0029A2A6 /* OgreTableCellMatchFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableCellMatchFindResult.m; path = FindPanel/OgreTextFindResults/NSTableView/OgreTableCellMatchFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DC909150CEE0029A2A6 /* OgreOutlineViewFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineViewFindResult.h; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineViewFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DCA09150CEE0029A2A6 /* OgreOutlineViewFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineViewFindResult.m; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineViewFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DCB09150CEE0029A2A6 /* OgreOutlineColumnFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineColumnFindResult.h; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineColumnFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DCC09150CEE0029A2A6 /* OgreOutlineColumnFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineColumnFindResult.m; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineColumnFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DCD09150CEE0029A2A6 /* OgreOutlineItemFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineItemFindResult.h; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineItemFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DCE09150CEE0029A2A6 /* OgreOutlineItemFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineItemFindResult.m; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineItemFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DCF09150CEE0029A2A6 /* OgreOutlineCellFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineCellFindResult.h; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineCellFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DD009150CEE0029A2A6 /* OgreOutlineCellFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineCellFindResult.m; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineCellFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DD109150CEE0029A2A6 /* OgreOutlineCellMatchFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineCellMatchFindResult.h; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineCellMatchFindResult.h; sourceTree = SOURCE_ROOT; };
-		4DC40DD209150CEE0029A2A6 /* OgreOutlineCellMatchFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineCellMatchFindResult.m; path = FindPanel/OgreTextFindResults/NSOutlineView/OgreOutlineCellMatchFindResult.m; sourceTree = SOURCE_ROOT; };
-		4DC40DD409150CEF0029A2A6 /* OgreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreView.h; path = FindPanel/Views/OgreView.h; sourceTree = SOURCE_ROOT; };
-		4DC40DD609150CEF0029A2A6 /* OgreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextView.h; path = FindPanel/Views/OgreTextView.h; sourceTree = SOURCE_ROOT; };
-		4DC40DD709150CEF0029A2A6 /* OgreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextView.m; path = FindPanel/Views/OgreTextView.m; sourceTree = SOURCE_ROOT; };
-		4DC40DD909150CEF0029A2A6 /* OgreTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableView.h; path = FindPanel/Views/OgreTableView.h; sourceTree = SOURCE_ROOT; };
-		4DC40DDA09150CEF0029A2A6 /* OgreTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableView.m; path = FindPanel/Views/OgreTableView.m; sourceTree = SOURCE_ROOT; };
-		4DC40DDB09150CEF0029A2A6 /* OgreTableColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTableColumn.h; path = FindPanel/Views/OgreTableColumn.h; sourceTree = SOURCE_ROOT; };
-		4DC40DDC09150CEF0029A2A6 /* OgreTableColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTableColumn.m; path = FindPanel/Views/OgreTableColumn.m; sourceTree = SOURCE_ROOT; };
-		4DC40DDE09150CEF0029A2A6 /* OgreOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineView.h; path = FindPanel/Views/OgreOutlineView.h; sourceTree = SOURCE_ROOT; };
-		4DC40DDF09150CEF0029A2A6 /* OgreOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineView.m; path = FindPanel/Views/OgreOutlineView.m; sourceTree = SOURCE_ROOT; };
-		4DC40DE009150CEF0029A2A6 /* OgreOutlineColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOutlineColumn.h; path = FindPanel/Views/OgreOutlineColumn.h; sourceTree = SOURCE_ROOT; };
-		4DC40DE109150CEF0029A2A6 /* OgreOutlineColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreOutlineColumn.m; path = FindPanel/Views/OgreOutlineColumn.m; sourceTree = SOURCE_ROOT; };
-		4DC40DE309150CEF0029A2A6 /* OgreTextFindProgressSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindProgressSheet.h; path = FindPanel/Controllers/OgreTextFindProgressSheet.h; sourceTree = SOURCE_ROOT; };
-		4DC40DE409150CEF0029A2A6 /* OgreTextFindProgressSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreTextFindProgressSheet.m; path = FindPanel/Controllers/OgreTextFindProgressSheet.m; sourceTree = SOURCE_ROOT; };
-		4DC40DE509150CEF0029A2A6 /* OgreFindResultWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindResultWindowController.h; path = FindPanel/Controllers/OgreFindResultWindowController.h; sourceTree = SOURCE_ROOT; };
-		4DC40DE609150CEF0029A2A6 /* OgreFindResultWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindResultWindowController.m; path = FindPanel/Controllers/OgreFindResultWindowController.m; sourceTree = SOURCE_ROOT; };
-		4DC40DE709150CEF0029A2A6 /* OgreFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindPanelController.h; path = FindPanel/Controllers/OgreFindPanelController.h; sourceTree = SOURCE_ROOT; };
-		4DC40DE809150CEF0029A2A6 /* OgreFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreFindPanelController.m; path = FindPanel/Controllers/OgreFindPanelController.m; sourceTree = SOURCE_ROOT; };
-		4DC40DE909150CEF0029A2A6 /* OgreAdvancedFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAdvancedFindPanelController.h; path = FindPanel/Controllers/OgreAdvancedFindPanelController.h; sourceTree = SOURCE_ROOT; };
-		4DC40DEA09150CEF0029A2A6 /* OgreAdvancedFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreAdvancedFindPanelController.m; path = FindPanel/Controllers/OgreAdvancedFindPanelController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4DC40DEB09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAFPCEscapeCharacterFormatter.h; path = FindPanel/Controllers/OgreAFPCEscapeCharacterFormatter.h; sourceTree = SOURCE_ROOT; };
-		4DC40DEC09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAFPCEscapeCharacterFormatter.m; path = FindPanel/Controllers/OgreAFPCEscapeCharacterFormatter.m; sourceTree = SOURCE_ROOT; };
-		4DC40DEE09150CEF0029A2A6 /* OgreAdvancedFindPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAdvancedFindPanel.h; path = FindPanel/Controllers/OgreAdvancedFindPanel.h; sourceTree = SOURCE_ROOT; };
-		4DC40DEF09150CEF0029A2A6 /* OgreAdvancedFindPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAdvancedFindPanel.m; path = FindPanel/Controllers/OgreAdvancedFindPanel.m; sourceTree = SOURCE_ROOT; };
-		4DC40DF009150CEF0029A2A6 /* OgreAFPCOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAFPCOptionButton.h; path = FindPanel/Controllers/OgreAFPCOptionButton.h; sourceTree = SOURCE_ROOT; };
-		4DC40DF109150CEF0029A2A6 /* OgreAFPCOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAFPCOptionButton.m; path = FindPanel/Controllers/OgreAFPCOptionButton.m; sourceTree = SOURCE_ROOT; };
-		4DC40DF309150CF00029A2A6 /* OgreAttachableWindowAcceptee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAttachableWindowAcceptee.h; path = FindPanel/Controllers/OgreAttachableWindow/OgreAttachableWindowAcceptee.h; sourceTree = SOURCE_ROOT; };
-		4DC40DF409150CF00029A2A6 /* OgreAttachableWindowAcceptee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAttachableWindowAcceptee.m; path = FindPanel/Controllers/OgreAttachableWindow/OgreAttachableWindowAcceptee.m; sourceTree = SOURCE_ROOT; };
-		4DC40DF509150CF00029A2A6 /* OgreAttachableWindowMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAttachableWindowMediator.h; path = FindPanel/Controllers/OgreAttachableWindow/OgreAttachableWindowMediator.h; sourceTree = SOURCE_ROOT; };
-		4DC40DF609150CF00029A2A6 /* OgreAttachableWindowMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAttachableWindowMediator.m; path = FindPanel/Controllers/OgreAttachableWindow/OgreAttachableWindowMediator.m; sourceTree = SOURCE_ROOT; };
-		4DC40DF709150CF00029A2A6 /* OgreAttachableWindowAcceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreAttachableWindowAcceptor.h; path = FindPanel/Controllers/OgreAttachableWindow/OgreAttachableWindowAcceptor.h; sourceTree = SOURCE_ROOT; };
-		4DC40DF809150CF00029A2A6 /* OgreAttachableWindowAcceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OgreAttachableWindowAcceptor.m; path = FindPanel/Controllers/OgreAttachableWindow/OgreAttachableWindowAcceptor.m; sourceTree = SOURCE_ROOT; };
+		4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OGRegularExpression.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		4DC40D5109150CEB0029A2A6 /* OGRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRegularExpression.m; sourceTree = "<group>"; };
+		4DC40D5209150CEB0029A2A6 /* OGRegularExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionPrivate.h; sourceTree = "<group>"; };
+		4DC40D5409150CEB0029A2A6 /* OGRegularExpressionEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionEnumerator.h; sourceTree = "<group>"; };
+		4DC40D5509150CEB0029A2A6 /* OGRegularExpressionEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRegularExpressionEnumerator.m; sourceTree = "<group>"; };
+		4DC40D5609150CEB0029A2A6 /* OGRegularExpressionEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionEnumeratorPrivate.h; sourceTree = "<group>"; };
+		4DC40D5809150CEB0029A2A6 /* OGRegularExpressionMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionMatch.h; sourceTree = "<group>"; };
+		4DC40D5909150CEB0029A2A6 /* OGRegularExpressionMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRegularExpressionMatch.m; sourceTree = "<group>"; };
+		4DC40D5A09150CEB0029A2A6 /* OGRegularExpressionMatchPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionMatchPrivate.h; sourceTree = "<group>"; };
+		4DC40D5C09150CEB0029A2A6 /* OGRegularExpressionCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionCapture.h; sourceTree = "<group>"; };
+		4DC40D5D09150CEB0029A2A6 /* OGRegularExpressionCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRegularExpressionCapture.m; sourceTree = "<group>"; };
+		4DC40D5E09150CEB0029A2A6 /* OGRegularExpressionCapturePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionCapturePrivate.h; sourceTree = "<group>"; };
+		4DC40D6009150CEB0029A2A6 /* OGReplaceExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGReplaceExpression.h; sourceTree = "<group>"; };
+		4DC40D6109150CEB0029A2A6 /* OGReplaceExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGReplaceExpression.m; sourceTree = "<group>"; };
+		4DC40D6209150CEB0029A2A6 /* OGReplaceExpressionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGReplaceExpressionPrivate.h; sourceTree = "<group>"; };
+		4DC40D6409150CEB0029A2A6 /* OGRegularExpressionFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRegularExpressionFormatter.h; sourceTree = "<group>"; };
+		4DC40D6509150CEB0029A2A6 /* OGRegularExpressionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OGRegularExpressionFormatter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4DC40D6709150CEB0029A2A6 /* OGString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGString.h; sourceTree = "<group>"; };
+		4DC40D6809150CEB0029A2A6 /* OGString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGString.m; sourceTree = "<group>"; };
+		4DC40D6909150CEB0029A2A6 /* OGMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMutableString.h; sourceTree = "<group>"; };
+		4DC40D6B09150CEB0029A2A6 /* OGPlainString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGPlainString.h; sourceTree = "<group>"; };
+		4DC40D6C09150CEB0029A2A6 /* OGPlainString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGPlainString.m; sourceTree = "<group>"; };
+		4DC40D6D09150CEB0029A2A6 /* OGMutablePlainString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMutablePlainString.h; sourceTree = "<group>"; };
+		4DC40D6E09150CEB0029A2A6 /* OGMutablePlainString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGMutablePlainString.m; sourceTree = "<group>"; };
+		4DC40D7009150CEB0029A2A6 /* OGAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGAttributedString.h; sourceTree = "<group>"; };
+		4DC40D7109150CEC0029A2A6 /* OGAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGAttributedString.m; sourceTree = "<group>"; };
+		4DC40D7209150CEC0029A2A6 /* OGMutableAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMutableAttributedString.h; sourceTree = "<group>"; };
+		4DC40D7309150CEC0029A2A6 /* OGMutableAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGMutableAttributedString.m; sourceTree = "<group>"; };
+		4DC40D7409150CEC0029A2A6 /* NSString_OgreKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_OgreKitAdditions.h; sourceTree = "<group>"; };
+		4DC40D7509150CEC0029A2A6 /* NSString_OgreKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_OgreKitAdditions.m; sourceTree = "<group>"; };
+		4DC40D7809150CEC0029A2A6 /* OgreTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFinder.h; sourceTree = "<group>"; };
+		4DC40D7909150CEC0029A2A6 /* OgreTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OgreTextFinder.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4DC40D7B09150CEC0029A2A6 /* OgreTextFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindThread.h; path = ../OgreTextFindThread.h; sourceTree = "<group>"; };
+		4DC40D7C09150CEC0029A2A6 /* OgreTextFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTextFindThread.m; path = ../OgreTextFindThread.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4DC40D7E09150CEC0029A2A6 /* OgreFindAllThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindAllThread.h; sourceTree = "<group>"; };
+		4DC40D7F09150CEC0029A2A6 /* OgreFindAllThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindAllThread.m; sourceTree = "<group>"; };
+		4DC40D8009150CEC0029A2A6 /* OgreReplaceAllThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreReplaceAllThread.h; sourceTree = "<group>"; };
+		4DC40D8109150CEC0029A2A6 /* OgreReplaceAllThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreReplaceAllThread.m; sourceTree = "<group>"; };
+		4DC40D8209150CEC0029A2A6 /* OgreHighlightThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreHighlightThread.h; sourceTree = "<group>"; };
+		4DC40D8309150CEC0029A2A6 /* OgreHighlightThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreHighlightThread.m; sourceTree = "<group>"; };
+		4DC40D8409150CEC0029A2A6 /* OgreUnhighlightThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreUnhighlightThread.h; sourceTree = "<group>"; };
+		4DC40D8509150CEC0029A2A6 /* OgreUnhighlightThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreUnhighlightThread.m; sourceTree = "<group>"; };
+		4DC40D8609150CEC0029A2A6 /* OgreFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindThread.h; sourceTree = "<group>"; };
+		4DC40D8709150CEC0029A2A6 /* OgreFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindThread.m; sourceTree = "<group>"; };
+		4DC40D8809150CEC0029A2A6 /* OgreReplaceAndFindThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreReplaceAndFindThread.h; sourceTree = "<group>"; };
+		4DC40D8909150CEC0029A2A6 /* OgreReplaceAndFindThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreReplaceAndFindThread.m; sourceTree = "<group>"; };
+		4DC40D8B09150CEC0029A2A6 /* OgreTextFindComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindComponent.h; sourceTree = "<group>"; };
+		4DC40D8C09150CEC0029A2A6 /* OgreTextFindRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindRoot.h; sourceTree = "<group>"; };
+		4DC40D8D09150CEC0029A2A6 /* OgreTextFindRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindRoot.m; sourceTree = "<group>"; };
+		4DC40D8E09150CEC0029A2A6 /* OgreTextFindBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindBranch.h; sourceTree = "<group>"; };
+		4DC40D8F09150CED0029A2A6 /* OgreTextFindBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindBranch.m; sourceTree = "<group>"; };
+		4DC40D9009150CED0029A2A6 /* OgreTextFindLeaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindLeaf.h; sourceTree = "<group>"; };
+		4DC40D9109150CED0029A2A6 /* OgreTextFindLeaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindLeaf.m; sourceTree = "<group>"; };
+		4DC40D9209150CED0029A2A6 /* OgreTextFindComponentEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindComponentEnumerator.h; sourceTree = "<group>"; };
+		4DC40D9309150CED0029A2A6 /* OgreTextFindComponentEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindComponentEnumerator.m; sourceTree = "<group>"; };
+		4DC40D9409150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindReverseComponentEnumerator.h; sourceTree = "<group>"; };
+		4DC40D9509150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindReverseComponentEnumerator.m; sourceTree = "<group>"; };
+		4DC40D9709150CED0029A2A6 /* OgreTextViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewAdapter.h; sourceTree = "<group>"; };
+		4DC40D9809150CED0029A2A6 /* OgreTextViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewAdapter.m; sourceTree = "<group>"; };
+		4DC40D9909150CED0029A2A6 /* OgreTextViewPlainAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewPlainAdapter.h; sourceTree = "<group>"; };
+		4DC40D9A09150CED0029A2A6 /* OgreTextViewPlainAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewPlainAdapter.m; sourceTree = "<group>"; };
+		4DC40D9B09150CED0029A2A6 /* OgreTextViewRichAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewRichAdapter.h; sourceTree = "<group>"; };
+		4DC40D9C09150CED0029A2A6 /* OgreTextViewRichAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewRichAdapter.m; sourceTree = "<group>"; };
+		4DC40D9D09150CED0029A2A6 /* OgreTextViewGraphicAllowedAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewGraphicAllowedAdapter.h; sourceTree = "<group>"; };
+		4DC40D9E09150CED0029A2A6 /* OgreTextViewGraphicAllowedAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewGraphicAllowedAdapter.m; sourceTree = "<group>"; };
+		4DC40D9F09150CED0029A2A6 /* OgreTextViewUndoer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewUndoer.h; sourceTree = "<group>"; };
+		4DC40DA009150CED0029A2A6 /* OgreTextViewUndoer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewUndoer.m; sourceTree = "<group>"; };
+		4DC40DA209150CED0029A2A6 /* OgreTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableViewAdapter.h; sourceTree = "<group>"; };
+		4DC40DA309150CED0029A2A6 /* OgreTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableViewAdapter.m; sourceTree = "<group>"; };
+		4DC40DA409150CED0029A2A6 /* OgreTableColumnAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableColumnAdapter.h; sourceTree = "<group>"; };
+		4DC40DA509150CED0029A2A6 /* OgreTableColumnAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableColumnAdapter.m; sourceTree = "<group>"; };
+		4DC40DA609150CED0029A2A6 /* OgreTableCellAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableCellAdapter.h; sourceTree = "<group>"; };
+		4DC40DA709150CED0029A2A6 /* OgreTableCellAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableCellAdapter.m; sourceTree = "<group>"; };
+		4DC40DA909150CED0029A2A6 /* OgreOutlineViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineViewAdapter.h; sourceTree = "<group>"; };
+		4DC40DAA09150CED0029A2A6 /* OgreOutlineViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineViewAdapter.m; sourceTree = "<group>"; };
+		4DC40DAB09150CED0029A2A6 /* OgreOutlineColumnAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineColumnAdapter.h; sourceTree = "<group>"; };
+		4DC40DAC09150CED0029A2A6 /* OgreOutlineColumnAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineColumnAdapter.m; sourceTree = "<group>"; };
+		4DC40DAD09150CED0029A2A6 /* OgreOutlineItemAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineItemAdapter.h; sourceTree = "<group>"; };
+		4DC40DAE09150CED0029A2A6 /* OgreOutlineItemAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineItemAdapter.m; sourceTree = "<group>"; };
+		4DC40DAF09150CED0029A2A6 /* OgreOutlineCellAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineCellAdapter.h; sourceTree = "<group>"; };
+		4DC40DB009150CED0029A2A6 /* OgreOutlineCellAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineCellAdapter.m; sourceTree = "<group>"; };
+		4DC40DB209150CEE0029A2A6 /* OgreTextFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindResult.h; sourceTree = "<group>"; };
+		4DC40DB309150CEE0029A2A6 /* OgreTextFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindResult.m; sourceTree = "<group>"; };
+		4DC40DB409150CEE0029A2A6 /* OgreFindResultRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindResultRoot.h; sourceTree = "<group>"; };
+		4DC40DB509150CEE0029A2A6 /* OgreFindResultRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindResultRoot.m; sourceTree = "<group>"; };
+		4DC40DB609150CEE0029A2A6 /* OgreFindResultBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindResultBranch.h; sourceTree = "<group>"; };
+		4DC40DB709150CEE0029A2A6 /* OgreFindResultBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindResultBranch.m; sourceTree = "<group>"; };
+		4DC40DB809150CEE0029A2A6 /* OgreFindResultLeaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindResultLeaf.h; sourceTree = "<group>"; };
+		4DC40DB909150CEE0029A2A6 /* OgreFindResultLeaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindResultLeaf.m; sourceTree = "<group>"; };
+		4DC40DBB09150CEE0029A2A6 /* OgreTextViewFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewFindResult.h; sourceTree = "<group>"; };
+		4DC40DBC09150CEE0029A2A6 /* OgreTextViewFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewFindResult.m; sourceTree = "<group>"; };
+		4DC40DBD09150CEE0029A2A6 /* OgreTextViewMatchFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextViewMatchFindResult.h; sourceTree = "<group>"; };
+		4DC40DBE09150CEE0029A2A6 /* OgreTextViewMatchFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextViewMatchFindResult.m; sourceTree = "<group>"; };
+		4DC40DC009150CEE0029A2A6 /* OgreTableViewFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableViewFindResult.h; sourceTree = "<group>"; };
+		4DC40DC109150CEE0029A2A6 /* OgreTableViewFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableViewFindResult.m; sourceTree = "<group>"; };
+		4DC40DC209150CEE0029A2A6 /* OgreTableColumnFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableColumnFindResult.h; sourceTree = "<group>"; };
+		4DC40DC309150CEE0029A2A6 /* OgreTableColumnFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableColumnFindResult.m; sourceTree = "<group>"; };
+		4DC40DC409150CEE0029A2A6 /* OgreTableCellFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableCellFindResult.h; sourceTree = "<group>"; };
+		4DC40DC509150CEE0029A2A6 /* OgreTableCellFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableCellFindResult.m; sourceTree = "<group>"; };
+		4DC40DC609150CEE0029A2A6 /* OgreTableCellMatchFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableCellMatchFindResult.h; sourceTree = "<group>"; };
+		4DC40DC709150CEE0029A2A6 /* OgreTableCellMatchFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableCellMatchFindResult.m; sourceTree = "<group>"; };
+		4DC40DC909150CEE0029A2A6 /* OgreOutlineViewFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineViewFindResult.h; sourceTree = "<group>"; };
+		4DC40DCA09150CEE0029A2A6 /* OgreOutlineViewFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineViewFindResult.m; sourceTree = "<group>"; };
+		4DC40DCB09150CEE0029A2A6 /* OgreOutlineColumnFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineColumnFindResult.h; sourceTree = "<group>"; };
+		4DC40DCC09150CEE0029A2A6 /* OgreOutlineColumnFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineColumnFindResult.m; sourceTree = "<group>"; };
+		4DC40DCD09150CEE0029A2A6 /* OgreOutlineItemFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineItemFindResult.h; sourceTree = "<group>"; };
+		4DC40DCE09150CEE0029A2A6 /* OgreOutlineItemFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineItemFindResult.m; sourceTree = "<group>"; };
+		4DC40DCF09150CEE0029A2A6 /* OgreOutlineCellFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineCellFindResult.h; sourceTree = "<group>"; };
+		4DC40DD009150CEE0029A2A6 /* OgreOutlineCellFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineCellFindResult.m; sourceTree = "<group>"; };
+		4DC40DD109150CEE0029A2A6 /* OgreOutlineCellMatchFindResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineCellMatchFindResult.h; sourceTree = "<group>"; };
+		4DC40DD209150CEE0029A2A6 /* OgreOutlineCellMatchFindResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineCellMatchFindResult.m; sourceTree = "<group>"; };
+		4DC40DD409150CEF0029A2A6 /* OgreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreView.h; sourceTree = "<group>"; };
+		4DC40DD609150CEF0029A2A6 /* OgreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextView.h; sourceTree = "<group>"; };
+		4DC40DD709150CEF0029A2A6 /* OgreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextView.m; sourceTree = "<group>"; };
+		4DC40DD909150CEF0029A2A6 /* OgreTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableView.h; sourceTree = "<group>"; };
+		4DC40DDA09150CEF0029A2A6 /* OgreTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableView.m; sourceTree = "<group>"; };
+		4DC40DDB09150CEF0029A2A6 /* OgreTableColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTableColumn.h; sourceTree = "<group>"; };
+		4DC40DDC09150CEF0029A2A6 /* OgreTableColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTableColumn.m; sourceTree = "<group>"; };
+		4DC40DDE09150CEF0029A2A6 /* OgreOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineView.h; sourceTree = "<group>"; };
+		4DC40DDF09150CEF0029A2A6 /* OgreOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineView.m; sourceTree = "<group>"; };
+		4DC40DE009150CEF0029A2A6 /* OgreOutlineColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreOutlineColumn.h; sourceTree = "<group>"; };
+		4DC40DE109150CEF0029A2A6 /* OgreOutlineColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreOutlineColumn.m; sourceTree = "<group>"; };
+		4DC40DE309150CEF0029A2A6 /* OgreTextFindProgressSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTextFindProgressSheet.h; sourceTree = "<group>"; };
+		4DC40DE409150CEF0029A2A6 /* OgreTextFindProgressSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreTextFindProgressSheet.m; sourceTree = "<group>"; };
+		4DC40DE509150CEF0029A2A6 /* OgreFindResultWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindResultWindowController.h; sourceTree = "<group>"; };
+		4DC40DE609150CEF0029A2A6 /* OgreFindResultWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindResultWindowController.m; sourceTree = "<group>"; };
+		4DC40DE709150CEF0029A2A6 /* OgreFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindPanelController.h; sourceTree = "<group>"; };
+		4DC40DE809150CEF0029A2A6 /* OgreFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreFindPanelController.m; sourceTree = "<group>"; };
+		4DC40DE909150CEF0029A2A6 /* OgreAdvancedFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAdvancedFindPanelController.h; sourceTree = "<group>"; };
+		4DC40DEA09150CEF0029A2A6 /* OgreAdvancedFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OgreAdvancedFindPanelController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4DC40DEB09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAFPCEscapeCharacterFormatter.h; sourceTree = "<group>"; };
+		4DC40DEC09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreAFPCEscapeCharacterFormatter.m; sourceTree = "<group>"; };
+		4DC40DEE09150CEF0029A2A6 /* OgreAdvancedFindPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAdvancedFindPanel.h; sourceTree = "<group>"; };
+		4DC40DEF09150CEF0029A2A6 /* OgreAdvancedFindPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreAdvancedFindPanel.m; sourceTree = "<group>"; };
+		4DC40DF009150CEF0029A2A6 /* OgreAFPCOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAFPCOptionButton.h; sourceTree = "<group>"; };
+		4DC40DF109150CEF0029A2A6 /* OgreAFPCOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreAFPCOptionButton.m; sourceTree = "<group>"; };
+		4DC40DF309150CF00029A2A6 /* OgreAttachableWindowAcceptee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAttachableWindowAcceptee.h; sourceTree = "<group>"; };
+		4DC40DF409150CF00029A2A6 /* OgreAttachableWindowAcceptee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreAttachableWindowAcceptee.m; sourceTree = "<group>"; };
+		4DC40DF509150CF00029A2A6 /* OgreAttachableWindowMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAttachableWindowMediator.h; sourceTree = "<group>"; };
+		4DC40DF609150CF00029A2A6 /* OgreAttachableWindowMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreAttachableWindowMediator.m; sourceTree = "<group>"; };
+		4DC40DF709150CF00029A2A6 /* OgreAttachableWindowAcceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreAttachableWindowAcceptor.h; sourceTree = "<group>"; };
+		4DC40DF809150CF00029A2A6 /* OgreAttachableWindowAcceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OgreAttachableWindowAcceptor.m; sourceTree = "<group>"; };
 		4DC40E5509150CF30029A2A6 /* OgreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreKit.h; path = RegularExpression/OgreKit.h; sourceTree = SOURCE_ROOT; };
 		4DC40E5609150CF30029A2A6 /* OgreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreKit.h; path = RegularExpression/OgreKitWithoutFindPanel/OgreKit.h; sourceTree = SOURCE_ROOT; };
 		4DC40E5709150CF30029A2A6 /* OgreKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreKit_Prefix.pch; path = RegularExpression/OgreKit_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		4DC40E5809150CF40029A2A6 /* version.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = version.plist; path = RegularExpression/version.plist; sourceTree = SOURCE_ROOT; };
-		4DC4103F09150D0D0029A2A6 /* OgreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTest.h; path = RegularExpressionTest/OgreTest.h; sourceTree = SOURCE_ROOT; };
-		4DC4104009150D0D0029A2A6 /* OgreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OgreTest.m; path = RegularExpressionTest/OgreTest.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4DC4104109150D0E0029A2A6 /* Calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calc.h; path = RegularExpressionTest/Calc.h; sourceTree = SOURCE_ROOT; };
-		4DC4104209150D0E0029A2A6 /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calc.m; path = RegularExpressionTest/Calc.m; sourceTree = SOURCE_ROOT; };
-		4DC4104309150D0E0029A2A6 /* OgreTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTest_Prefix.h; path = RegularExpressionTest/OgreTest_Prefix.h; sourceTree = SOURCE_ROOT; };
-		4DC4104409150D0E0029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RegularExpressionTest/main.m; sourceTree = SOURCE_ROOT; };
-		4DC4105809150D550029A2A6 /* OgreFindPanelTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreFindPanelTest_Prefix.h; path = FindPanelTest/OgreFindPanelTest_Prefix.h; sourceTree = SOURCE_ROOT; };
-		4DC4105909150D550029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FindPanelTest/main.m; sourceTree = SOURCE_ROOT; };
-		4DC4105A09150D550029A2A6 /* MyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuController.h; path = FindPanelTest/MyMenuController.h; sourceTree = SOURCE_ROOT; };
-		4DC4105B09150D550029A2A6 /* MyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuController.m; path = FindPanelTest/MyMenuController.m; sourceTree = SOURCE_ROOT; };
-		4DC4105D09150D550029A2A6 /* MyTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTextDocument.h; path = FindPanelTest/MyTextDocument.h; sourceTree = SOURCE_ROOT; };
-		4DC4105E09150D550029A2A6 /* MyTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTextDocument.m; path = FindPanelTest/MyTextDocument.m; sourceTree = SOURCE_ROOT; };
-		4DC4105F09150D550029A2A6 /* MyRTFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyRTFDocument.h; path = FindPanelTest/MyRTFDocument.h; sourceTree = SOURCE_ROOT; };
-		4DC4106009150D550029A2A6 /* MyRTFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyRTFDocument.m; path = FindPanelTest/MyRTFDocument.m; sourceTree = SOURCE_ROOT; };
-		4DC4106209150D550029A2A6 /* MyTableDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableDocument.h; path = FindPanelTest/MyTableDocument.h; sourceTree = SOURCE_ROOT; };
-		4DC4106309150D550029A2A6 /* MyTableDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableDocument.m; path = FindPanelTest/MyTableDocument.m; sourceTree = SOURCE_ROOT; };
-		4DC4106409150D550029A2A6 /* MyTableColumnSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableColumnSheet.h; path = FindPanelTest/MyTableColumnSheet.h; sourceTree = SOURCE_ROOT; };
-		4DC4106509150D550029A2A6 /* MyTableColumnSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableColumnSheet.m; path = FindPanelTest/MyTableColumnSheet.m; sourceTree = SOURCE_ROOT; };
-		4DC4106709150D550029A2A6 /* MyOutlineDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOutlineDocument.h; path = FindPanelTest/MyOutlineDocument.h; sourceTree = SOURCE_ROOT; };
-		4DC4106809150D550029A2A6 /* MyOutlineDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOutlineDocument.m; path = FindPanelTest/MyOutlineDocument.m; sourceTree = SOURCE_ROOT; };
-		4DC4106909150D550029A2A6 /* MyFileWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFileWrapper.h; path = FindPanelTest/MyFileWrapper.h; sourceTree = SOURCE_ROOT; };
-		4DC4106A09150D550029A2A6 /* MyFileWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFileWrapper.m; path = FindPanelTest/MyFileWrapper.m; sourceTree = SOURCE_ROOT; };
-		4DC4106B09150D550029A2A6 /* MyOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOutlineView.h; path = FindPanelTest/MyOutlineView.h; sourceTree = SOURCE_ROOT; };
-		4DC4106C09150D550029A2A6 /* MyOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOutlineView.m; path = FindPanelTest/MyOutlineView.m; sourceTree = SOURCE_ROOT; };
-		4DC4106E09150D550029A2A6 /* MyTableDocumentWithCocoaBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableDocumentWithCocoaBinding.h; path = FindPanelTest/MyTableDocumentWithCocoaBinding.h; sourceTree = SOURCE_ROOT; };
-		4DC4106F09150D550029A2A6 /* MyTableDocumentWithCocoaBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableDocumentWithCocoaBinding.m; path = FindPanelTest/MyTableDocumentWithCocoaBinding.m; sourceTree = SOURCE_ROOT; };
-		4DC4107009150D550029A2A6 /* MyTableRowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableRowModel.h; path = FindPanelTest/MyTableRowModel.h; sourceTree = SOURCE_ROOT; };
-		4DC4107109150D550029A2A6 /* MyTableRowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableRowModel.m; path = FindPanelTest/MyTableRowModel.m; sourceTree = SOURCE_ROOT; };
-		4DC4108209150D640029A2A6 /* MyTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTextFinder.h; path = MyFindPanelExample/MyTextFinder.h; sourceTree = SOURCE_ROOT; };
-		4DC4108309150D640029A2A6 /* MyTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTextFinder.m; path = MyFindPanelExample/MyTextFinder.m; sourceTree = SOURCE_ROOT; };
-		4DC4108409150D640029A2A6 /* MyFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFindPanelController.h; path = MyFindPanelExample/MyFindPanelController.h; sourceTree = SOURCE_ROOT; };
-		4DC4108509150D640029A2A6 /* MyFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MyFindPanelController.m; path = MyFindPanelExample/MyFindPanelController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4DC4108809150D640029A2A6 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDocument.h; path = MyFindPanelExample/MyDocument.h; sourceTree = SOURCE_ROOT; };
-		4DC4108909150D640029A2A6 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDocument.m; path = MyFindPanelExample/MyDocument.m; sourceTree = SOURCE_ROOT; };
-		4DC4108A09150D640029A2A6 /* MyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuController.h; path = MyFindPanelExample/MyMenuController.h; sourceTree = SOURCE_ROOT; };
-		4DC4108B09150D650029A2A6 /* MyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuController.m; path = MyFindPanelExample/MyMenuController.m; sourceTree = SOURCE_ROOT; };
-		4DC4108C09150D650029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyFindPanelExample/main.m; sourceTree = SOURCE_ROOT; };
-		4DC4108D09150D650029A2A6 /* MyFindPanelExample_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFindPanelExample_Prefix.h; path = MyFindPanelExample/MyFindPanelExample_Prefix.h; sourceTree = SOURCE_ROOT; };
+		4DC4103F09150D0D0029A2A6 /* OgreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTest.h; sourceTree = "<group>"; };
+		4DC4104009150D0D0029A2A6 /* OgreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OgreTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4DC4104109150D0E0029A2A6 /* Calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calc.h; sourceTree = "<group>"; };
+		4DC4104209150D0E0029A2A6 /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calc.m; sourceTree = "<group>"; };
+		4DC4104309150D0E0029A2A6 /* OgreTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreTest_Prefix.h; sourceTree = "<group>"; };
+		4DC4104409150D0E0029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DC4105809150D550029A2A6 /* OgreFindPanelTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFindPanelTest_Prefix.h; sourceTree = "<group>"; };
+		4DC4105909150D550029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DC4105A09150D550029A2A6 /* MyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMenuController.h; sourceTree = "<group>"; };
+		4DC4105B09150D550029A2A6 /* MyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMenuController.m; sourceTree = "<group>"; };
+		4DC4105D09150D550029A2A6 /* MyTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextDocument.h; sourceTree = "<group>"; };
+		4DC4105E09150D550029A2A6 /* MyTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextDocument.m; sourceTree = "<group>"; };
+		4DC4105F09150D550029A2A6 /* MyRTFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRTFDocument.h; sourceTree = "<group>"; };
+		4DC4106009150D550029A2A6 /* MyRTFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRTFDocument.m; sourceTree = "<group>"; };
+		4DC4106209150D550029A2A6 /* MyTableDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableDocument.h; sourceTree = "<group>"; };
+		4DC4106309150D550029A2A6 /* MyTableDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableDocument.m; sourceTree = "<group>"; };
+		4DC4106409150D550029A2A6 /* MyTableColumnSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableColumnSheet.h; sourceTree = "<group>"; };
+		4DC4106509150D550029A2A6 /* MyTableColumnSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableColumnSheet.m; sourceTree = "<group>"; };
+		4DC4106709150D550029A2A6 /* MyOutlineDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOutlineDocument.h; sourceTree = "<group>"; };
+		4DC4106809150D550029A2A6 /* MyOutlineDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOutlineDocument.m; sourceTree = "<group>"; };
+		4DC4106909150D550029A2A6 /* MyFileWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFileWrapper.h; sourceTree = "<group>"; };
+		4DC4106A09150D550029A2A6 /* MyFileWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFileWrapper.m; sourceTree = "<group>"; };
+		4DC4106B09150D550029A2A6 /* MyOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOutlineView.h; sourceTree = "<group>"; };
+		4DC4106C09150D550029A2A6 /* MyOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOutlineView.m; sourceTree = "<group>"; };
+		4DC4106E09150D550029A2A6 /* MyTableDocumentWithCocoaBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableDocumentWithCocoaBinding.h; sourceTree = "<group>"; };
+		4DC4106F09150D550029A2A6 /* MyTableDocumentWithCocoaBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableDocumentWithCocoaBinding.m; sourceTree = "<group>"; };
+		4DC4107009150D550029A2A6 /* MyTableRowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableRowModel.h; sourceTree = "<group>"; };
+		4DC4107109150D550029A2A6 /* MyTableRowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableRowModel.m; sourceTree = "<group>"; };
+		4DC4108209150D640029A2A6 /* MyTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextFinder.h; sourceTree = "<group>"; };
+		4DC4108309150D640029A2A6 /* MyTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextFinder.m; sourceTree = "<group>"; };
+		4DC4108409150D640029A2A6 /* MyFindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFindPanelController.h; sourceTree = "<group>"; };
+		4DC4108509150D640029A2A6 /* MyFindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MyFindPanelController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4DC4108809150D640029A2A6 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
+		4DC4108909150D640029A2A6 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
+		4DC4108A09150D640029A2A6 /* MyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMenuController.h; sourceTree = "<group>"; };
+		4DC4108B09150D650029A2A6 /* MyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMenuController.m; sourceTree = "<group>"; };
+		4DC4108C09150D650029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DC4108D09150D650029A2A6 /* MyFindPanelExample_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFindPanelExample_Prefix.h; sourceTree = "<group>"; };
 		4DC41164091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OgreTextFindProgressSheet.xib; sourceTree = "<group>"; };
 		4DC41166091514030029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4DC41168091514030029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OgreFindResultWindow.xib; sourceTree = "<group>"; };
@@ -732,11 +732,11 @@
 		4DC4136F09151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = MyFindPanelExample/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4DC4137109151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MyFindPanelExample/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4DC4137309151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MyFindPanelExample/English.lproj/MyDocument.xib; sourceTree = "<group>"; };
-		4DF530BA0915221700475575 /* ReplaceWithAttributesTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplaceWithAttributesTest_Prefix.h; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest_Prefix.h; sourceTree = "<group>"; };
-		4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplaceWithAttributesTest.m; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest.m; sourceTree = "<group>"; };
-		4DF530BC0915221700475575 /* ReplaceWithAttributesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplaceWithAttributesTest.h; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest.h; sourceTree = "<group>"; };
-		4DF530BD0915221700475575 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReplaceWithAttributesTest/main.m; sourceTree = "<group>"; };
-		4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ReplaceWithAttributesTest-Info.plist"; path = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist"; sourceTree = "<group>"; };
+		4DF530BA0915221700475575 /* ReplaceWithAttributesTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceWithAttributesTest_Prefix.h; sourceTree = "<group>"; };
+		4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceWithAttributesTest.m; sourceTree = "<group>"; };
+		4DF530BC0915221700475575 /* ReplaceWithAttributesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceWithAttributesTest.h; sourceTree = "<group>"; };
+		4DF530BD0915221700475575 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ReplaceWithAttributesTest-Info.plist"; sourceTree = "<group>"; };
 		4DF530CF0915226200475575 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = ReplaceWithAttributesTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DF530D10915226200475575 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ReplaceWithAttributesTest/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		55C3FE5C1A71976700F1EC1A /* OgreKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OgreKit-Info.plist"; path = "RegularExpression/OgreKit-Info.plist"; sourceTree = "<group>"; };
@@ -956,6 +956,7 @@
 				4DC40D7509150CEC0029A2A6 /* NSString_OgreKitAdditions.m */,
 			);
 			name = "Regular Expressions";
+			path = RegularExpression;
 			sourceTree = "<group>";
 		};
 		4DC40D6609150CEB0029A2A6 /* OGString */ = {
@@ -968,7 +969,7 @@
 				4DC40D6909150CEB0029A2A6 /* OGMutableString.h */,
 			);
 			name = OGString;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40D6A09150CEB0029A2A6 /* Plain String */ = {
 			isa = PBXGroup;
@@ -979,7 +980,7 @@
 				4DC40D6E09150CEB0029A2A6 /* OGMutablePlainString.m */,
 			);
 			name = "Plain String";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40D6F09150CEB0029A2A6 /* Attributed String */ = {
 			isa = PBXGroup;
@@ -990,7 +991,7 @@
 				4DC40D7309150CEC0029A2A6 /* OGMutableAttributedString.m */,
 			);
 			name = "Attributed String";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40D7609150CEC0029A2A6 /* Find Panel */ = {
 			isa = PBXGroup;
@@ -1001,6 +1002,7 @@
 				4DC40DF909150CF00029A2A6 /* Resources */,
 			);
 			name = "Find Panel";
+			path = FindPanel;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC40D7709150CEC0029A2A6 /* Models */ = {
@@ -1013,7 +1015,7 @@
 				4DC40D7909150CEC0029A2A6 /* OgreTextFinder.m */,
 			);
 			name = Models;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40D7A09150CEC0029A2A6 /* OgreTextFindThreads */ = {
 			isa = PBXGroup;
@@ -1023,8 +1025,8 @@
 				4DC40D7C09150CEC0029A2A6 /* OgreTextFindThread.m */,
 				4DA73FB91142894300E28DA7 /* OgreTextFindProgressDelegate.h */,
 			);
-			name = OgreTextFindThreads;
-			sourceTree = SOURCE_ROOT;
+			path = OgreTextFindThreads;
+			sourceTree = "<group>";
 		};
 		4DC40D7D09150CEC0029A2A6 /* Functions */ = {
 			isa = PBXGroup;
@@ -1043,7 +1045,7 @@
 				4DC40D8909150CEC0029A2A6 /* OgreReplaceAndFindThread.m */,
 			);
 			name = Functions;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40D8A09150CEC0029A2A6 /* OgreTextFindComponents */ = {
 			isa = PBXGroup;
@@ -1063,8 +1065,8 @@
 				4DC40D9409150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.h */,
 				4DC40D9509150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.m */,
 			);
-			name = OgreTextFindComponents;
-			sourceTree = SOURCE_ROOT;
+			path = OgreTextFindComponents;
+			sourceTree = "<group>";
 		};
 		4DC40D9609150CED0029A2A6 /* TextView */ = {
 			isa = PBXGroup;
@@ -1081,7 +1083,8 @@
 				4DC40DA009150CED0029A2A6 /* OgreTextViewUndoer.m */,
 			);
 			name = TextView;
-			sourceTree = SOURCE_ROOT;
+			path = NSTextView;
+			sourceTree = "<group>";
 		};
 		4DC40DA109150CED0029A2A6 /* TableView */ = {
 			isa = PBXGroup;
@@ -1094,7 +1097,8 @@
 				4DC40DA709150CED0029A2A6 /* OgreTableCellAdapter.m */,
 			);
 			name = TableView;
-			sourceTree = SOURCE_ROOT;
+			path = NSTableView;
+			sourceTree = "<group>";
 		};
 		4DC40DA809150CED0029A2A6 /* OutlineView */ = {
 			isa = PBXGroup;
@@ -1109,7 +1113,8 @@
 				4DC40DB009150CED0029A2A6 /* OgreOutlineCellAdapter.m */,
 			);
 			name = OutlineView;
-			sourceTree = SOURCE_ROOT;
+			path = NSOutlineView;
+			sourceTree = "<group>";
 		};
 		4DC40DB109150CED0029A2A6 /* OgreTextFindResults */ = {
 			isa = PBXGroup;
@@ -1126,8 +1131,8 @@
 				4DC40DB809150CEE0029A2A6 /* OgreFindResultLeaf.h */,
 				4DC40DB909150CEE0029A2A6 /* OgreFindResultLeaf.m */,
 			);
-			name = OgreTextFindResults;
-			sourceTree = SOURCE_ROOT;
+			path = OgreTextFindResults;
+			sourceTree = "<group>";
 		};
 		4DC40DBA09150CEE0029A2A6 /* TextView */ = {
 			isa = PBXGroup;
@@ -1138,7 +1143,8 @@
 				4DC40DBE09150CEE0029A2A6 /* OgreTextViewMatchFindResult.m */,
 			);
 			name = TextView;
-			sourceTree = SOURCE_ROOT;
+			path = NSTextView;
+			sourceTree = "<group>";
 		};
 		4DC40DBF09150CEE0029A2A6 /* TableView */ = {
 			isa = PBXGroup;
@@ -1153,7 +1159,8 @@
 				4DC40DC709150CEE0029A2A6 /* OgreTableCellMatchFindResult.m */,
 			);
 			name = TableView;
-			sourceTree = SOURCE_ROOT;
+			path = NSTableView;
+			sourceTree = "<group>";
 		};
 		4DC40DC809150CEE0029A2A6 /* OutlineView */ = {
 			isa = PBXGroup;
@@ -1170,7 +1177,8 @@
 				4DC40DD209150CEE0029A2A6 /* OgreOutlineCellMatchFindResult.m */,
 			);
 			name = OutlineView;
-			sourceTree = SOURCE_ROOT;
+			path = NSOutlineView;
+			sourceTree = "<group>";
 		};
 		4DC40DD309150CEF0029A2A6 /* Views */ = {
 			isa = PBXGroup;
@@ -1180,8 +1188,8 @@
 				4DC40DD509150CEF0029A2A6 /* OgreTextView */,
 				4DC40DD409150CEF0029A2A6 /* OgreView.h */,
 			);
-			name = Views;
-			sourceTree = SOURCE_ROOT;
+			path = Views;
+			sourceTree = "<group>";
 		};
 		4DC40DD509150CEF0029A2A6 /* OgreTextView */ = {
 			isa = PBXGroup;
@@ -1190,7 +1198,7 @@
 				4DC40DD709150CEF0029A2A6 /* OgreTextView.m */,
 			);
 			name = OgreTextView;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40DD809150CEF0029A2A6 /* OgreTableView */ = {
 			isa = PBXGroup;
@@ -1201,7 +1209,7 @@
 				4DC40DDC09150CEF0029A2A6 /* OgreTableColumn.m */,
 			);
 			name = OgreTableView;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40DDD09150CEF0029A2A6 /* OgreOutlineView */ = {
 			isa = PBXGroup;
@@ -1212,6 +1220,7 @@
 				4DC40DE109150CEF0029A2A6 /* OgreOutlineColumn.m */,
 			);
 			name = OgreOutlineView;
+			path = FindPanel/Views;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC40DE209150CEF0029A2A6 /* Controllers */ = {
@@ -1229,8 +1238,8 @@
 				4DC40DEB09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.h */,
 				4DC40DEC09150CEF0029A2A6 /* OgreAFPCEscapeCharacterFormatter.m */,
 			);
-			name = Controllers;
-			sourceTree = SOURCE_ROOT;
+			path = Controllers;
+			sourceTree = "<group>";
 		};
 		4DC40DED09150CEF0029A2A6 /* Support Views */ = {
 			isa = PBXGroup;
@@ -1242,7 +1251,7 @@
 				4DC40DF109150CEF0029A2A6 /* OgreAFPCOptionButton.m */,
 			);
 			name = "Support Views";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC40DF209150CEF0029A2A6 /* OgreAttachableWindow */ = {
 			isa = PBXGroup;
@@ -1254,8 +1263,8 @@
 				4DC40DF709150CF00029A2A6 /* OgreAttachableWindowAcceptor.h */,
 				4DC40DF809150CF00029A2A6 /* OgreAttachableWindowAcceptor.m */,
 			);
-			name = OgreAttachableWindow;
-			sourceTree = SOURCE_ROOT;
+			path = OgreAttachableWindow;
+			sourceTree = "<group>";
 		};
 		4DC40DF909150CF00029A2A6 /* Resources */ = {
 			isa = PBXGroup;
@@ -1266,9 +1275,8 @@
 				4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */,
 				4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */,
 			);
-			name = Resources;
-			path = FindPanel/Resources;
-			sourceTree = SOURCE_ROOT;
+			path = Resources;
+			sourceTree = "<group>";
 		};
 		4DC40DFA09150CF00029A2A6 /* oniguruma */ = {
 			isa = PBXGroup;
@@ -1304,6 +1312,7 @@
 				4DC4104409150D0E0029A2A6 /* main.m */,
 			);
 			name = "Regular Expression Test";
+			path = RegularExpressionTest;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4104509150D0E0029A2A6 /* Resources */ = {
@@ -1313,7 +1322,7 @@
 				4DC4134109151C2E0029A2A6 /* InfoPlist.strings */,
 			);
 			name = Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4104909150D210029A2A6 /* Replace With Attributes Test */ = {
 			isa = PBXGroup;
@@ -1326,6 +1335,7 @@
 				4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */,
 			);
 			name = "Replace With Attributes Test";
+			path = ReplaceWithAttributesTest;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4105709150D550029A2A6 /* Find Panel Test */ = {
@@ -1342,6 +1352,7 @@
 				4DC4105B09150D550029A2A6 /* MyMenuController.m */,
 			);
 			name = "Find Panel Test";
+			path = FindPanelTest;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4105C09150D550029A2A6 /* TextView */ = {
@@ -1355,7 +1366,7 @@
 				4DC4136709151CF40029A2A6 /* MyTextDocument.xib */,
 			);
 			name = TextView;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4106109150D550029A2A6 /* TableView */ = {
 			isa = PBXGroup;
@@ -1368,7 +1379,7 @@
 				4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.xib */,
 			);
 			name = TableView;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4106609150D550029A2A6 /* OutlineView */ = {
 			isa = PBXGroup;
@@ -1382,7 +1393,7 @@
 				4DC4136209151CE50029A2A6 /* MyOutlineDocument.xib */,
 			);
 			name = OutlineView;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4106D09150D550029A2A6 /* TableView with Cocoa Binding */ = {
 			isa = PBXGroup;
@@ -1394,7 +1405,7 @@
 				4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib */,
 			);
 			name = "TableView with Cocoa Binding";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4107209150D550029A2A6 /* Resources */ = {
 			isa = PBXGroup;
@@ -1404,7 +1415,7 @@
 				4DC4135409151CA60029A2A6 /* Credits.rtf */,
 			);
 			name = Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4108009150D640029A2A6 /* My Find Panel Example */ = {
 			isa = PBXGroup;
@@ -1413,6 +1424,7 @@
 				4DC4108109150D640029A2A6 /* My Find Panel */,
 			);
 			name = "My Find Panel Example";
+			path = MyFindPanelExample;
 			sourceTree = SOURCE_ROOT;
 		};
 		4DC4108109150D640029A2A6 /* My Find Panel */ = {
@@ -1425,7 +1437,7 @@
 				4DC4108509150D640029A2A6 /* MyFindPanelController.m */,
 			);
 			name = "My Find Panel";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4108609150D640029A2A6 /* Resources */ = {
 			isa = PBXGroup;
@@ -1433,7 +1445,7 @@
 				4DC4136B09151D1A0029A2A6 /* MyFindPanel.xib */,
 			);
 			name = Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4108709150D640029A2A6 /* Test */ = {
 			isa = PBXGroup;
@@ -1447,7 +1459,7 @@
 				4DC4108D09150D650029A2A6 /* MyFindPanelExample_Prefix.h */,
 			);
 			name = Test;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4108E09150D650029A2A6 /* Resources */ = {
 			isa = PBXGroup;
@@ -1457,7 +1469,7 @@
 				4DC4137209151D320029A2A6 /* MyDocument.xib */,
 			);
 			name = Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DF530C50915224100475575 /* Resources */ = {
 			isa = PBXGroup;
@@ -2107,8 +2119,7 @@
 				4DC41164091514030029A2A6 /* English */,
 			);
 			name = OgreTextFindProgressSheet.xib;
-			path = FindPanel/Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -2124,8 +2135,7 @@
 				4DC411930915147B0029A2A6 /* Spanish */,
 			);
 			name = OgreAPFCLocalizable.strings;
-			path = FindPanel/Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */ = {
 			isa = PBXVariantGroup;
@@ -2133,8 +2143,7 @@
 				4DC41168091514030029A2A6 /* English */,
 			);
 			name = OgreFindResultWindow.xib;
-			path = FindPanel/Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */ = {
 			isa = PBXVariantGroup;
@@ -2150,8 +2159,7 @@
 				4DC411920915147B0029A2A6 /* Spanish */,
 			);
 			name = OgreAdvancedFindPanel.xib;
-			path = FindPanel/Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -2167,8 +2175,7 @@
 				4DC411940915147B0029A2A6 /* Spanish */,
 			);
 			name = OgreTextFinderLocalizable.strings;
-			path = FindPanel/Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		4DC411C7091514D70029A2A6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -2200,7 +2207,8 @@
 				4DC4135109151CA60029A2A6 /* English */,
 			);
 			name = MainMenu.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4135209151CA60029A2A6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -2208,7 +2216,8 @@
 				4DC4135309151CA60029A2A6 /* English */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4135409151CA60029A2A6 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
@@ -2216,7 +2225,8 @@
 				4DC4135509151CA60029A2A6 /* English */,
 			);
 			name = Credits.rtf;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib */ = {
 			isa = PBXVariantGroup;
@@ -2224,7 +2234,8 @@
 				4DC4135A09151CC50029A2A6 /* English */,
 			);
 			name = MyTableDocumentWithCocoaBinding.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4135C09151CD80029A2A6 /* MyTableDocument.xib */ = {
 			isa = PBXVariantGroup;
@@ -2232,7 +2243,8 @@
 				4DC4135D09151CD80029A2A6 /* English */,
 			);
 			name = MyTableDocument.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.xib */ = {
 			isa = PBXVariantGroup;
@@ -2240,7 +2252,8 @@
 				4DC4135F09151CD80029A2A6 /* English */,
 			);
 			name = MyTableColumnSheet.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4136209151CE50029A2A6 /* MyOutlineDocument.xib */ = {
 			isa = PBXVariantGroup;
@@ -2248,7 +2261,8 @@
 				4DC4136309151CE50029A2A6 /* English */,
 			);
 			name = MyOutlineDocument.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4136509151CF40029A2A6 /* MyRTFDocument.xib */ = {
 			isa = PBXVariantGroup;
@@ -2256,7 +2270,8 @@
 				4DC4136609151CF40029A2A6 /* English */,
 			);
 			name = MyRTFDocument.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4136709151CF40029A2A6 /* MyTextDocument.xib */ = {
 			isa = PBXVariantGroup;
@@ -2264,7 +2279,8 @@
 				4DC4136809151CF40029A2A6 /* English */,
 			);
 			name = MyTextDocument.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4136B09151D1A0029A2A6 /* MyFindPanel.xib */ = {
 			isa = PBXVariantGroup;
@@ -2272,7 +2288,8 @@
 				4DC4136C09151D1A0029A2A6 /* English */,
 			);
 			name = MyFindPanel.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4136E09151D320029A2A6 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
@@ -2280,7 +2297,8 @@
 				4DC4136F09151D320029A2A6 /* English */,
 			);
 			name = Credits.rtf;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4137009151D320029A2A6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
@@ -2288,7 +2306,8 @@
 				4DC4137109151D320029A2A6 /* English */,
 			);
 			name = MainMenu.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DC4137209151D320029A2A6 /* MyDocument.xib */ = {
 			isa = PBXVariantGroup;
@@ -2296,7 +2315,8 @@
 				4DC4137309151D320029A2A6 /* English */,
 			);
 			name = MyDocument.xib;
-			sourceTree = SOURCE_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		4DF530CE0915226200475575 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -2304,6 +2324,7 @@
 				4DF530CF0915226200475575 /* English */,
 			);
 			name = InfoPlist.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4DF530D00915226200475575 /* MainMenu.xib */ = {
@@ -2312,6 +2333,7 @@
 				4DF530D10915226200475575 /* English */,
 			);
 			name = MainMenu.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
