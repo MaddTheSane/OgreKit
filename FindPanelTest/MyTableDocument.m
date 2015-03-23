@@ -234,46 +234,30 @@ static NSString *gMyTableRowPropertyType = @"rows";
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     
-    NSMutableArray  *columnArray;
-    NSEnumerator    *columnEnumerator;
-    
-    NSMutableArray  *middleArray = nil;
-    NSEnumerator    *arrayEnumerator;
-   
-    id              anObject;
-    __block NSInteger       overwrapCount = 0, anIndex;
-    
     if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) {
         
         NSData *rowData = [pboard dataForType:gMyTableRowPropertyType];
         NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
         
-        [rowIndexes enumerateIndexesInRange:NSMakeRange(0, row)
-                                    options:0
-                                 usingBlock:^(NSUInteger idx, BOOL *stop) {
-                                     overwrapCount++;
-                                 }];
+        // If any of the removed objects come before the row
+        // we want to decrement the row appropriately.
+        row -= [rowIndexes countOfIndexesInRange:NSMakeRange(0, row)];
         
-        columnEnumerator = [_dict objectEnumerator];
-        while ((columnArray = [columnEnumerator nextObject]) != nil) {
+        [_dict enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableArray *columnArray, BOOL *stop) {
+            NSArray *middleArray = [columnArray objectsAtIndexes:rowIndexes];
             
-            middleArray = [NSMutableArray arrayWithCapacity:1];
-            [rowIndexes enumerateIndexesInRange:NSMakeRange(0, row)
-                                        options:NSEnumerationReverse
-                                     usingBlock:^(NSUInteger idx, BOOL *stop) {
-                [middleArray addObject:columnArray[idx]];
-                [columnArray removeObjectAtIndex:idx];
-            }];
+            [columnArray removeObjectsAtIndexes:rowIndexes];
             
-            arrayEnumerator = [middleArray objectEnumerator];
-            while ((anObject = [arrayEnumerator nextObject]) != nil) [columnArray insertObject:anObject atIndex:(row - overwrapCount)];
-        }
+            [columnArray replaceObjectsInRange:NSMakeRange(row, 0)
+                          withObjectsFromArray:middleArray];
+        }];
+        
+        NSRange insertionRange = NSMakeRange(row, rowIndexes.count);
+        NSIndexSet *insertedIndexes = [NSIndexSet indexSetWithIndexesInRange:insertionRange];
         
         [tableView deselectAll:nil];
-        for (anIndex = row - overwrapCount; anIndex < (row - overwrapCount + [middleArray count]); anIndex++) {
-            [tableView selectRowIndexes:[NSIndexSet indexSetWithIndex: anIndex] byExtendingSelection:[tableView allowsMultipleSelection]];
-        }
-
+        [tableView selectRowIndexes:insertedIndexes byExtendingSelection:NO];
+        
         [tableView reloadData];
         [self updateChangeCount:NSChangeDone];
         return YES;
