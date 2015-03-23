@@ -289,7 +289,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard *pboard=[info draggingPasteboard];
-    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;
+    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) return NSDragOperationMove;
     
     return NSDragOperationNone;
 }
