@@ -30,12 +30,12 @@
     return @"MyOutlineDocument";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type 
+- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError 
 {
     return nil;
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
+- (BOOL)readFromData:(NSData*)data ofType:(NSString*)type error:(NSError **)outError
 {
     return YES;
 }

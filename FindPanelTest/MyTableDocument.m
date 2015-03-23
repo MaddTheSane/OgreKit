@@ -50,7 +50,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return @"MyTableDocument";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type 
+- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
 {
     OGRegularExpression *escRegex = [OGRegularExpression regularExpressionWithString:@"\""];
     
@@ -88,7 +88,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [aString dataUsingEncoding:NSShiftJISStringEncoding];
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
+- (BOOL)readFromData:(NSData*)data ofType:(NSString*)type error:(NSError **)outError
 {
 	// I read from a file. (UTF8 decided out.) (ファイルから読み込む。(UTF8決めうち。))
     NSMutableString *aString = nil;
