@@ -88,7 +88,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [aString dataUsingEncoding:NSShiftJISStringEncoding];
 }
 
-- (BOOL)readFromData:(NSData*)data ofType:(NSString*)type error:(NSError **)outError
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)type error:(NSError **)outError
 {
 	// I read from a file. (UTF8 decided out.) (ファイルから読み込む。(UTF8決めうち。))
     NSMutableString *aString = nil;

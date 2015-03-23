@@ -35,7 +35,7 @@
     return nil;
 }
 
-- (BOOL)readFromData:(NSData*)data ofType:(NSString*)type error:(NSError **)outError
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)type error:(NSError **)outError
 {
     return YES;
 }

@@ -47,7 +47,7 @@
     return [NSKeyedArchiver archivedDataWithRootObject:_modelArray];
 }
 
-- (BOOL)readFromData:(NSData*)data ofType:(NSString*)type error:(NSError **)outError
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)type error:(NSError **)outError
 {
     _modelArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
