@@ -986,17 +986,17 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 }
 
 /* alert sheet */
-- (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTerget
+- (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTarget
 {
 	OgreTextFindProgressSheet   *sheet = nil;
 	
-	if ((aTerget != nil) && ![self isBusyTarget:aTerget]) {
-		[self makeTargetBusy:aTerget];
-		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[aTerget window] 
+	if ((aTarget != nil) && ![self isBusyTarget:aTarget]) {
+		[self makeTargetBusy:aTarget];
+		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[aTarget window] 
 			title:@"" 
 			didEndSelector:@selector(makeTargetFree:) 
 			toTarget:self 
-			withObject:aTerget];
+			withObject:aTarget];
 	}
 	
 	return sheet;
