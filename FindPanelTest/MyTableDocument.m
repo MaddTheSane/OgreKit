@@ -233,9 +233,6 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
-    NSEnumerator    *pEnumerator;
-    NSArray         *rowIndexArray;
-    NSNumber        *rowIndexNumber;
     
     NSMutableArray  *columnArray;
     NSEnumerator    *columnEnumerator;
@@ -244,28 +241,29 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSEnumerator    *arrayEnumerator;
    
     id              anObject;
-    NSInteger       overwrapCount = 0, anIndex;
+    __block NSInteger       overwrapCount = 0, anIndex;
     
     if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) {
         
-        rowIndexArray = [pboard propertyListForType:gMyTableRowPropertyType];
+        NSData *rowData = [pboard dataForType:gMyTableRowPropertyType];
+        NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
         
-        pEnumerator = [rowIndexArray reverseObjectEnumerator];
-        while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
-            anIndex = [rowIndexNumber integerValue];
-            if (anIndex < row) overwrapCount++;
-        }
+        [rowIndexes enumerateIndexesInRange:NSMakeRange(0, row)
+                                    options:0
+                                 usingBlock:^(NSUInteger idx, BOOL *stop) {
+                                     overwrapCount++;
+                                 }];
         
         columnEnumerator = [_dict objectEnumerator];
         while ((columnArray = [columnEnumerator nextObject]) != nil) {
             
             middleArray = [NSMutableArray arrayWithCapacity:1];
-            pEnumerator = [rowIndexArray reverseObjectEnumerator];
-            while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
-                anIndex = [rowIndexNumber integerValue];
-                [middleArray addObject:columnArray[anIndex]];
-                [columnArray removeObjectAtIndex:anIndex];
-            }
+            [rowIndexes enumerateIndexesInRange:NSMakeRange(0, row)
+                                        options:NSEnumerationReverse
+                                     usingBlock:^(NSUInteger idx, BOOL *stop) {
+                [middleArray addObject:columnArray[idx]];
+                [columnArray removeObjectAtIndex:idx];
+            }];
             
             arrayEnumerator = [middleArray objectEnumerator];
             while ((anObject = [arrayEnumerator nextObject]) != nil) [columnArray insertObject:anObject atIndex:(row - overwrapCount)];
@@ -294,11 +292,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return NSDragOperationNone;
 }
 
-- (BOOL)tableView:(NSTableView *)tableView writeRows:(NSArray *)rows toPasteboard:(NSPasteboard *)pboard
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
 {
     [pboard declareTypes:@[gMyTableRowPboardType] owner:self];
-    [pboard setPropertyList:rows forType:gMyTableRowPropertyType];
-    
+    NSData *rowData = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
+    [pboard setData:rowData forType:gMyTableRowPropertyType];
+
     return YES;
 }
 
