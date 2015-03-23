@@ -26,6 +26,8 @@
     OgreTextFindResult			*_textFindResult;
     BOOL						_liveUpdate;
 	OgreAttachableWindowMediator	*_attachedWindowMediator;
+    
+    NSArray                     *_resultWindowTopLevelObjects;
 }
 
 - (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;

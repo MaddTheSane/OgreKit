@@ -152,8 +152,19 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 				name: NSApplicationDidFinishLaunchingNotification
 				object: NSApp];
 		
-		[NSBundle loadNibNamed:[self findPanelNibName] owner:self];
-		
+        NSArray *topLevelObjects;
+        BOOL didLoad =
+        [[NSBundle bundleForClass:[self class]] loadNibNamed:[self findPanelNibName]
+                                                       owner:self
+                                             topLevelObjects:&topLevelObjects];
+        if (didLoad) {
+            _findPanelTopLevelObjects = topLevelObjects;
+        }
+        else {
+            NSLog(@"Failed to load nib in %@", [self description]);
+            return nil;
+        }
+        
 		_sharedTextFinder = self;
 		_shouldHackFindMenu = YES;
 		_useStylesInFindPanel = YES;

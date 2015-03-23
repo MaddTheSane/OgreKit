@@ -26,6 +26,8 @@
     SEL             _okSelector;
     id              _target;
     id              _argument;
+    
+    NSArray         *_sheetTopLevelObjects;
 }
 
 - (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget NS_DESIGNATED_INITIALIZER;
