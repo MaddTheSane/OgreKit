@@ -31,7 +31,19 @@
 		_didEndArgument = ((anObject != self)? anObject : self);
 		_shouldRelease = YES;
 		_title = aTitle;
-		[NSBundle loadNibNamed:@"OgreTextFindProgressSheet" owner:self];
+        
+        NSArray *topLevelObjects;
+        BOOL didLoad =
+        [[NSBundle bundleForClass:[self class]] loadNibNamed:@"OgreTextFindProgressSheet"
+                                                       owner:self
+                                             topLevelObjects:&topLevelObjects];
+        if (didLoad) {
+            _progressSheetTopLevelObjects = topLevelObjects;
+        }
+        else {
+            NSLog(@"Failed to load nib in %@", [self description]);
+            return nil;
+        }
 	}
 	
 	return self;

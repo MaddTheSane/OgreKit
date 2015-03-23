@@ -152,8 +152,19 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 				name: NSApplicationDidFinishLaunchingNotification
 				object: NSApp];
 		
-		[NSBundle loadNibNamed:[self findPanelNibName] owner:self];
-		
+        NSArray *topLevelObjects;
+        BOOL didLoad =
+        [[NSBundle bundleForClass:[self class]] loadNibNamed:[self findPanelNibName]
+                                                       owner:self
+                                             topLevelObjects:&topLevelObjects];
+        if (didLoad) {
+            _findPanelTopLevelObjects = topLevelObjects;
+        }
+        else {
+            NSLog(@"Failed to load nib in %@", [self description]);
+            return nil;
+        }
+        
 		_sharedTextFinder = self;
 		_shouldHackFindMenu = YES;
 		_useStylesInFindPanel = YES;
@@ -975,17 +986,17 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 }
 
 /* alert sheet */
-- (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTerget
+- (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTarget
 {
 	OgreTextFindProgressSheet   *sheet = nil;
 	
-	if ((aTerget != nil) && ![self isBusyTarget:aTerget]) {
-		[self makeTargetBusy:aTerget];
-		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[aTerget window] 
+	if ((aTarget != nil) && ![self isBusyTarget:aTarget]) {
+		[self makeTargetBusy:aTarget];
+		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[aTarget window] 
 			title:@"" 
 			didEndSelector:@selector(makeTargetFree:) 
 			toTarget:self 
-			withObject:aTerget];
+			withObject:aTarget];
 	}
 	
 	return sheet;

@@ -26,6 +26,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3D64F4A61AC0C19A003C46A9 /* FindPanelTest-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D64F4A51AC0C19A003C46A9 /* FindPanelTest-Info.plist */; };
 		4D4F202D1142243700CD9C2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530CE0915226200475575 /* InfoPlist.strings */; };
 		4D4FC25F1142BCCD0097043F /* GC_TestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FC25D1142BCCD0097043F /* GC_TestAppDelegate.m */; };
 		4D4FC2601142BCCD0097043F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FC25E1142BCCD0097043F /* main.m */; };
@@ -479,6 +480,7 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		3D64F4A51AC0C19A003C46A9 /* FindPanelTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FindPanelTest-Info.plist"; sourceTree = "<group>"; };
 		4D4FC25B1142BCCD0097043F /* GC_Test_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GC_Test_Prefix.pch; path = GCTest/GC_Test_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		4D4FC25C1142BCCD0097043F /* GC_TestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GC_TestAppDelegate.h; path = GCTest/GC_TestAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		4D4FC25D1142BCCD0097043F /* GC_TestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GC_TestAppDelegate.m; path = GCTest/GC_TestAppDelegate.m; sourceTree = SOURCE_ROOT; };
@@ -1411,6 +1413,7 @@
 			isa = PBXGroup;
 			children = (
 				4DC4135009151CA60029A2A6 /* MainMenu.xib */,
+				3D64F4A51AC0C19A003C46A9 /* FindPanelTest-Info.plist */,
 				4DC4135209151CA60029A2A6 /* InfoPlist.strings */,
 				4DC4135409151CA60029A2A6 /* Credits.rtf */,
 			);
@@ -1831,6 +1834,7 @@
 				4DC4135709151CA60029A2A6 /* InfoPlist.strings in Resources */,
 				4DC4135809151CA60029A2A6 /* Credits.rtf in Resources */,
 				4DC4135B09151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib in Resources */,
+				3D64F4A61AC0C19A003C46A9 /* FindPanelTest-Info.plist in Resources */,
 				4DC4136009151CD80029A2A6 /* MyTableDocument.xib in Resources */,
 				4DC4136109151CD80029A2A6 /* MyTableColumnSheet.xib in Resources */,
 				4DC4136409151CE50029A2A6 /* MyOutlineDocument.xib in Resources */,

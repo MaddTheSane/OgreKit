@@ -26,7 +26,20 @@
 		_textFindResult = textFindResult;
 		[_textFindResult setDelegate:self]; // I want to receive the search results update notification. (検索結果の更新通知を受け取るようにする。)
 		_liveUpdate = liveUpdate;
-		[NSBundle loadNibNamed:@"OgreFindResultWindow" owner:self];
+        
+        NSArray *topLevelObjects;
+        BOOL didLoad =
+        [[NSBundle bundleForClass:[self class]] loadNibNamed:@"OgreFindResultWindow"
+                                                       owner:self
+                                             topLevelObjects:&topLevelObjects];
+		if (didLoad) {
+            _resultWindowTopLevelObjects = topLevelObjects;
+		}
+        else {
+            NSLog(@"Failed to load nib in %@", [self description]);
+            return nil;
+        }
+        
 		_attachedWindowMediator = [OgreAttachableWindowMediator sharedMediator];
 	}
 	return self;

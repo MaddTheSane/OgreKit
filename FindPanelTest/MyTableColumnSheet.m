@@ -25,7 +25,19 @@
         _okSelector = OKSelector;
         _cancelSelector = CancelSelector;
         _target = aTarget;
-        [NSBundle loadNibNamed:@"MyTableColumnSheet" owner:self];
+        
+        NSArray *topLevelObjects;
+        BOOL didLoad =
+        [[NSBundle bundleForClass:[self class]] loadNibNamed:@"MyTableColumnSheet"
+                                                       owner:self
+                                             topLevelObjects:&topLevelObjects];
+        if (didLoad) {
+            _sheetTopLevelObjects = topLevelObjects;
+        }
+        else {
+            NSLog(@"Failed to load nib in %@", [self description]);
+            return nil;
+        }
     }
     
     return self;

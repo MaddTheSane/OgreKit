@@ -46,6 +46,8 @@
     
     NSMutableArray  *_targetClassArray,     // Sequences were met with searchable class (検索可能なクラスを収めた配列)
                     *_adapterClassArray;    // Sequences were met with adapter class to search for class (検索対象クラスのアダプタクラスを収めた配列)
+    
+    NSArray         *_findPanelTopLevelObjects;
 }
 
 /* OgreKit.framework bundle */

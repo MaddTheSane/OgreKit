@@ -37,6 +37,8 @@
 	SEL			_didEndSelector;
 	id			_didEndTarget;
 	id			_didEndArgument;	// does not retain in the case of == self (== selfの場合はretainしない)
+    
+    NSArray     *_progressSheetTopLevelObjects;
 }
 
 /* Initialization (初期化) */

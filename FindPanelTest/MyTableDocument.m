@@ -50,7 +50,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return @"MyTableDocument";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type 
+- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
 {
     OGRegularExpression *escRegex = [OGRegularExpression regularExpressionWithString:@"\""];
     
@@ -88,7 +88,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [aString dataUsingEncoding:NSShiftJISStringEncoding];
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)type error:(NSError **)outError
 {
 	// I read from a file. (UTF8 decided out.) (ファイルから読み込む。(UTF8決めうち。))
     NSMutableString *aString = nil;
@@ -233,49 +233,31 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
-    NSEnumerator    *pEnumerator;
-    NSArray         *rowIndexArray;
-    NSNumber        *rowIndexNumber;
-    
-    NSMutableArray  *columnArray;
-    NSEnumerator    *columnEnumerator;
-    
-    NSMutableArray  *middleArray = nil;
-    NSEnumerator    *arrayEnumerator;
-   
-    id              anObject;
-    NSInteger       overwrapCount = 0, anIndex;
     
     if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) {
         
-        rowIndexArray = [pboard propertyListForType:gMyTableRowPropertyType];
+        NSData *rowData = [pboard dataForType:gMyTableRowPropertyType];
+        NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
         
-        pEnumerator = [rowIndexArray reverseObjectEnumerator];
-        while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
-            anIndex = [rowIndexNumber integerValue];
-            if (anIndex < row) overwrapCount++;
-        }
+        // If any of the removed objects come before the row
+        // we want to decrement the row appropriately.
+        row -= [rowIndexes countOfIndexesInRange:NSMakeRange(0, row)];
         
-        columnEnumerator = [_dict objectEnumerator];
-        while ((columnArray = [columnEnumerator nextObject]) != nil) {
+        [_dict enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableArray *columnArray, BOOL *stop) {
+            NSArray *middleArray = [columnArray objectsAtIndexes:rowIndexes];
             
-            middleArray = [NSMutableArray arrayWithCapacity:1];
-            pEnumerator = [rowIndexArray reverseObjectEnumerator];
-            while ((rowIndexNumber = [pEnumerator nextObject]) != nil) {
-                anIndex = [rowIndexNumber integerValue];
-                [middleArray addObject:columnArray[anIndex]];
-                [columnArray removeObjectAtIndex:anIndex];
-            }
+            [columnArray removeObjectsAtIndexes:rowIndexes];
             
-            arrayEnumerator = [middleArray objectEnumerator];
-            while ((anObject = [arrayEnumerator nextObject]) != nil) [columnArray insertObject:anObject atIndex:(row - overwrapCount)];
-        }
+            [columnArray replaceObjectsInRange:NSMakeRange(row, 0)
+                          withObjectsFromArray:middleArray];
+        }];
+        
+        NSRange insertionRange = NSMakeRange(row, rowIndexes.count);
+        NSIndexSet *insertedIndexes = [NSIndexSet indexSetWithIndexesInRange:insertionRange];
         
         [tableView deselectAll:nil];
-        for (anIndex = row - overwrapCount; anIndex < (row - overwrapCount + [middleArray count]); anIndex++) {
-            [tableView selectRowIndexes:[NSIndexSet indexSetWithIndex: anIndex] byExtendingSelection:[tableView allowsMultipleSelection]];
-        }
-
+        [tableView selectRowIndexes:insertedIndexes byExtendingSelection:NO];
+        
         [tableView reloadData];
         [self updateChangeCount:NSChangeDone];
         return YES;
@@ -289,16 +271,17 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard *pboard=[info draggingPasteboard];
-    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;
+    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:@[gMyTableRowPboardType]] != nil) return NSDragOperationMove;
     
     return NSDragOperationNone;
 }
 
-- (BOOL)tableView:(NSTableView *)tableView writeRows:(NSArray *)rows toPasteboard:(NSPasteboard *)pboard
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
 {
     [pboard declareTypes:@[gMyTableRowPboardType] owner:self];
-    [pboard setPropertyList:rows forType:gMyTableRowPropertyType];
-    
+    NSData *rowData = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
+    [pboard setData:rowData forType:gMyTableRowPropertyType];
+
     return YES;
 }
 
