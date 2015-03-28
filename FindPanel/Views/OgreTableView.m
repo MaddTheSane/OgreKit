@@ -50,10 +50,11 @@
     _ogreSelectedRow = -1;
     _ogreSelectedRange = NSMakeRange(0, 0);
     
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-        selector:@selector(ogreSelectionDidChange:) 
-        name:NSTableViewSelectionDidChangeNotification 
-        object:self];
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self
+                      selector:@selector(ogreSelectionDidChange:)
+                          name:NSTableViewSelectionDidChangeNotification
+                        object:self];
 }
 
 - (void)ogreSelectionDidChange:(NSNotification*)aNotification
@@ -69,9 +70,10 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self 
-                                                    name:NSTableViewSelectionDidChangeNotification 
-                                                  object:self];
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter removeObserver:self
+                             name:NSTableViewSelectionDidChangeNotification
+                           object:self];
 }
 
 @end
