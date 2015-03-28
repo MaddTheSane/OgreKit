@@ -40,11 +40,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_RTFData release];
-    [super dealloc];
-}
 
 - (NSData*)rtfData
 {
@@ -53,8 +48,7 @@
 
 - (void)setRtfData:(NSData*)newRTFData
 {
-    [_RTFData autorelease];
-    _RTFData = [newRTFData retain];
+    _RTFData = newRTFData;
 }
 
 - (NSData*)dataOfType:(NSString *)type error:(NSError **)outError

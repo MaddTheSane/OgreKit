@@ -20,11 +20,11 @@
 {
     self = [super init];
     if (self != nil) {
-        _name = [name retain];
-        _path = [path retain];
+        _name = name;
+        _path = path;
         _parent = parent;
 
-        _icon = [[[NSWorkspace sharedWorkspace] iconForFile:_path] retain];
+        _icon = [[NSWorkspace sharedWorkspace] iconForFile:_path];
         [_icon setSize:NSMakeSize(16, 16)];
 
         NSFileManager *manager = [NSFileManager defaultManager];
@@ -55,20 +55,11 @@
         NSString        *subpath;
         NSEnumerator    *subpathE = [subpaths objectEnumerator];
         while ((subpath = [subpathE nextObject]) != nil) {
-            [_components addObject:[[[[self class] alloc] initWithName:subpath path:[_path stringByAppendingPathComponent:subpath] parent:self] autorelease]];
+            [_components addObject:[[[self class] alloc] initWithName:subpath path:[_path stringByAppendingPathComponent:subpath] parent:self]];
         }
     }
 }
 
-- (void)dealloc
-{
-    [_name release];
-    [_path release];
-    [_info release];
-    [_icon release];
-    [_components release];
-    [super dealloc];
-}
 
 - (NSString*)name
 {

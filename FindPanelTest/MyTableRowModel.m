@@ -27,12 +27,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_foo release];
-    [_bar release];
-    [super dealloc];
-}
 
 - (NSString*)foo
 {
@@ -41,8 +35,7 @@
 
 - (void)setFoo:(NSString*)newFoo
 {
-    [_foo autorelease];
-    _foo = [newFoo retain];
+    _foo = newFoo;
 }
 
 - (NSString*)bar
@@ -52,8 +45,7 @@
 
 - (void)setBar:(NSString*)newBar
 {
-    [_bar autorelease];
-    _bar = [newBar retain];
+    _bar = newBar;
 }
 
 - (void)dump

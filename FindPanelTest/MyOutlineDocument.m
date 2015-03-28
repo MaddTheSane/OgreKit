@@ -69,7 +69,7 @@
 
 - (void)awakeFromNib
 {
-    NSBrowserCell   *dataCell = [[[NSBrowserCell alloc] init] autorelease];
+    NSBrowserCell   *dataCell = [[NSBrowserCell alloc] init];
     [dataCell setEditable:NO];
     [dataCell setLeaf:YES];
     [[myOutlineView tableColumnWithIdentifier:@"name"] setDataCell:dataCell];
@@ -77,11 +77,6 @@
     [myOutlineView registerForDraggedTypes:@[NSFilenamesPboardType]];
 }
 
-- (void)dealloc
-{
-    [_fileWrapper release];
-    [super dealloc];
-}
 
 // Change of line feed code (改行コードの変更)
 - (void)setNewlineCharacter:(OgreNewlineCharacter)aNewlineCharacter
@@ -164,7 +159,6 @@
     NSPasteboard    *pboard = [info draggingPasteboard];
     if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-        [_fileWrapper release];
         NSString    *path = files[0];
         _fileWrapper = [[MyFileWrapper alloc] initWithName:[path lastPathComponent] path:path parent:self];
         [myOutlineView reloadData];
@@ -182,7 +176,7 @@
     NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
-    NSUInteger  *rowIndexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * count);
+    NSUInteger  *rowIndexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * count);
     if (rowIndexes == NULL) {
         // Error
         return;
@@ -192,14 +186,13 @@
         id  item = [myOutlineView itemAtRow:*(rowIndexes + i)];
         [item remove];
     }
-    NSZoneFree([self zone], rowIndexes);
+    NSZoneFree(nil, rowIndexes);
     [myOutlineView reloadData];
 }
 
 - (void)removeComponent:(id)aComponent
 {
     if (aComponent == _fileWrapper) {
-        [_fileWrapper release];
         _fileWrapper = nil;
     }
 }

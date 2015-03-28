@@ -40,11 +40,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_string release];
-    [super dealloc];
-}
 
 - (NSString*)string
 {
@@ -53,8 +48,7 @@
 
 - (void)setString:(NSString*)string
 {
-    [_string autorelease];
-    _string = [string retain];
+    _string = string;
 }
 
 - (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
@@ -93,7 +87,6 @@
 	
     [self setString:aString];
     
-    [aString release];
     
     return YES;
 }

@@ -31,11 +31,6 @@
     _modelArray = [[NSMutableArray alloc] init];
 }
 
-- (void)dealloc
-{
-    [_modelArray release];
-    [super dealloc];
-}
 
 - (NSString*)windowNibName 
 {
