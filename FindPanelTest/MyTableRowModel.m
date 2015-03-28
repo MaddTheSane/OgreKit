@@ -20,8 +20,8 @@
 {
     self = [super init];
     if (self != nil) {
-        _foo = [[NSString alloc] initWithString:@"new foo"];
-        _bar = [[NSString alloc] initWithString:@"new bar"];
+        _foo = @"new foo";
+        _bar = @"new bar";
     }
     
     return self;
