@@ -177,6 +177,11 @@
     [tableView ogreSetSelectedColumn:[tableView columnWithIdentifier:[_tableColumn identifier]]];
     [tableView ogreSetSelectedRow:_rowIndex];
     [tableView ogreSetSelectedRange:aRange];
+    
+    // For some reason, we need to do this on the next run loop.
+    [tableView performSelector:@selector(ogreHighlightTextForSelectedPosition)
+                    withObject:nil
+                    afterDelay:0.0];
 }
 
 - (void)jumpToSelection
