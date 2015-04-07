@@ -22,8 +22,9 @@
 @class OgreTextFinder, OgreFindPanelController, OgreTextFindResult, OgreTextFindThread, OgreTextFindProgressSheet;
 
 @protocol OgreTextFindDataSource <NSObject>
-/* OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる 
-   document windowのdelegateがimplementすることを想定している */
+/* It’s called via the responder chain when OgreTextFinder wants to know the search
+     delegate of the document window is I have assumed that the implement (OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる
+ document windowのdelegateがimplementすることを想定している) */
 - (void)tellMeTargetToFindIn:(id)sender;
 @end
 

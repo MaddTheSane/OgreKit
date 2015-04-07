@@ -35,7 +35,7 @@ extern NSString	*OgreTextViewFindResultException;
 												//  However, location to hold the relative position. (For faster updates) (ただし、locationは相対位置を保持する。(更新を高速化するため))
 												//  0th substring relative position of the previous match (0番目の部分文字列は前のマッチとの相対位置)
 												//  Substring of the first and subsequent relative positions of the 0th substring (1番目以降の部分文字列は0番目の部分文字列との相対位置)
-                        * _childArray;           // The matched string result leaf array (                        *_childArray;           // マッチした文字列のresult leaf array)
+                        * _childArray;           // The matched string result leaf array (マッチした文字列のresult leaf array)
 
 	NSUInteger			_count;					// Number of matched string (マッチした文字列の数)
 	
