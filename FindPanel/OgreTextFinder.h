@@ -85,60 +85,60 @@
 @property (nonatomic) OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
-- (OgreTextFindResult*)find:(NSString*)expressionString 
-	options:(OgreOption)options
-	fromTop:(BOOL)isTop
-	forward:(BOOL)forward
-	wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)find:(NSString*)expressionString
+                    options:(OgreOption)options
+                    fromTop:(BOOL)isTop
+                    forward:(BOOL)forward
+                       wrap:(BOOL)isWrap;
 
-- (OgreTextFindResult*)findAll:(NSString*)expressionString 
-	color:(NSColor*)highlightColor 
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+- (OgreTextFindResult*)findAll:(NSString*)expressionString
+                         color:(NSColor*)highlightColor
+                       options:(OgreOption)options
+                   inSelection:(BOOL)inSelection;
 
-- (OgreTextFindResult*)replace:(NSString*)expressionString 
-	withString:(NSString*)replaceString
-	options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(NSString*)expressionString 
-	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString 
-	withOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options;
+- (OgreTextFindResult*)replace:(NSString*)expressionString
+                    withString:(NSString*)replaceString
+                       options:(OgreOption)options;
+- (OgreTextFindResult*)replace:(NSString*)expressionString
+          withAttributedString:(NSAttributedString*)replaceString
+                       options:(OgreOption)options;
+- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString
+                  withOGString:(id<OGStringProtocol>)replaceString
+                       options:(OgreOption)options;
 
-- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
-	withString:(NSString*)replaceString
-	options:(OgreOption)options 
-    replacingOnly:(BOOL)replacingOnly
-	wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
-	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options
-    replacingOnly:(BOOL)replacingOnly 
-	wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString 
-	withOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options 
-    replacingOnly:(BOOL)replacingOnly
-	wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString
+                           withString:(NSString*)replaceString
+                              options:(OgreOption)options
+                        replacingOnly:(BOOL)replacingOnly
+                                 wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString
+                 withAttributedString:(NSAttributedString*)replaceString
+                              options:(OgreOption)options
+                        replacingOnly:(BOOL)replacingOnly
+                                 wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString
+                         withOGString:(id<OGStringProtocol>)replaceString
+                              options:(OgreOption)options
+                        replacingOnly:(BOOL)replacingOnly
+                                 wrap:(BOOL)isWrap;
 
+- (OgreTextFindResult*)replaceAll:(NSString*)expressionString
+                       withString:(NSString*)replaceString
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
-	withString:(NSString*)replaceString
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
-- (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
-	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+             withAttributedString:(NSAttributedString*)replaceString
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(id<OGStringProtocol>)expressionString 
-	withOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+                     withOGString:(id<OGStringProtocol>)replaceString
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)hightlight:(NSString*)expressionString 
-	color:(NSColor*)highlightColor 
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+                            color:(NSColor*)highlightColor 
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 
 @property (nonatomic, readonly, strong) OgreTextFindResult *unhightlight;
 
