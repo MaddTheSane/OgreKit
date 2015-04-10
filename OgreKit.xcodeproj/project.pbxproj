@@ -2371,7 +2371,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
@@ -2396,7 +2395,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
@@ -2409,7 +2407,6 @@
 				);
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -2582,7 +2579,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
@@ -2595,7 +2591,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2609,7 +2604,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
@@ -2622,7 +2616,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2636,7 +2629,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
@@ -2649,7 +2641,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2664,7 +2655,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
@@ -2677,7 +2667,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2692,7 +2681,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
@@ -2705,7 +2693,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2720,7 +2707,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
@@ -2733,7 +2719,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2748,7 +2733,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
@@ -2761,7 +2745,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2775,7 +2758,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
@@ -2788,7 +2770,6 @@
 					"-framework",
 					AppKit,
 				);
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
