@@ -68,7 +68,10 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-sheetDidEnd: of %@", [self className]);
 #endif
-	[_didEndTarget performSelector:_didEndSelector withObject:_didEndArgument];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_didEndTarget performSelector:_didEndSelector withObject:_didEndArgument];
+#pragma clang diagnostic pop
 }
 
 - (void)dealloc
@@ -93,7 +96,10 @@
 #endif
 	if ([[button title] isEqualToString:OgreTextFinderLocalizedString(@"Cancel")]) {
 		// Cancel
-		[_cancelTarget performSelector:_cancelSelector withObject:_cancelArgument];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [_cancelTarget performSelector:_cancelSelector withObject:_cancelArgument];
+#pragma clang diagnostic pop
 	} else {
 		// OK
 		// release and close only once (closeは一回だけ実行できるrelease)

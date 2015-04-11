@@ -990,7 +990,10 @@ static NSString *OgreTextFinderEscapeCharacterKey = @"Escape Character";
     BOOL shouldCloseProgressSheet = NO;
     SEL didEndSelector = [aTextFindThread didEndSelectorForFindPanelController];
     id result = [aTextFindThread result];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     shouldCloseProgressSheet = ([findPanelController performSelector:didEndSelector withObject:result] != nil);
+#pragma clang diagnostic pop
     
     id sheet = [aTextFindThread progressDelegate];
     

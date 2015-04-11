@@ -58,20 +58,29 @@
 
 - (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [_target performSelector:_endSelector withObject:self];
+#pragma clang diagnostic pop
 }
 
 
 - (IBAction)cancel:(id)sender
 {
-	[_target performSelector:_cancelSelector withObject:self];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_cancelSelector withObject:self];
+#pragma clang diagnostic pop
 	[columnSheet orderOut:nil];
 	[NSApp endSheet:columnSheet returnCode:0];
 }
 
 - (IBAction)ok:(id)sender
 {
-	[_target performSelector:_okSelector withObject:self];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_okSelector withObject:self];
+#pragma clang diagnostic pop
 	[columnSheet orderOut:nil];
 	[NSApp endSheet:columnSheet returnCode:0];
 }
