@@ -308,7 +308,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
             NSUInteger      lengthOfName = [name length];
 			unichar        *UTF16Name = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * lengthOfName);
             if (UTF16Name == NULL) {
-                [NSException raise:NSMallocException format:@"fail to allocate a memory"];
+                [NSException raise:NSMallocException format:@"failed to allocate a memory"];
             }
             [name getCharacters:UTF16Name range:NSMakeRange(0, lengthOfName)];
 
