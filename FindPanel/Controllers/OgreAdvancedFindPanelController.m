@@ -942,12 +942,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	[self addFindHistory:[findTextView textStorage]];
 	
-	OgreTextFindResult	*result = [[self textFinder] find:[findTextView string] 
-		options:[self options]	
-		fromTop:[self isStartFromTop]
-		forward:YES
-		wrap:[self isWrap]];
-	
+    OgreTextFindResult *result = [[self textFinder] find:[findTextView string]
+                                                 options:[self options]
+                                                 fromTop:[self isStartFromTop]
+                                                 forward:YES
+                                                    wrap:[self isWrap]];
+
 	if (![result alertIfErrorOccurred]) {
 		if ([result isSuccess]) {
 			[self setStartFromCursor];
@@ -970,11 +970,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	[self addFindHistory:[findTextView textStorage]];
 	
-	OgreTextFindResult	*result = [[self textFinder] find:[findTextView string] 
-		options:[self options] 
-		fromTop:[self isStartFromTop]
-		forward:NO
-		wrap:[self isWrap]];
+    OgreTextFindResult *result = [[self textFinder] find:[findTextView string]
+                                                 options:[self options]
+                                                 fromTop:[self isStartFromTop]
+                                                 forward:NO
+                                                    wrap:[self isWrap]];
 		
 	if (![result alertIfErrorOccurred]) {
 		if ([result isSuccess]) {
