@@ -78,12 +78,18 @@ static NSString			*OgrePrivateUnicodeParagraphSeparator = nil;
 
 
 /* callback function of onig_foreach_names (onig_foreach_namesのcallback関数) */
-static int namedGroupCallback(const unsigned char *name, const unsigned char *name_end, int numberOfGroups, int* listOfGroupNumbers, regex_t* reg, void* nameDict)
+static int namedGroupCallback(const unsigned char *name, const unsigned char *name_end, int numberOfGroups, int *listOfGroupNumbers, regex_t *reg, void *nameDict_p)
 {
     // Name -> group number (名前 -> グループ個数)
-	((__bridge NSMutableDictionary*)nameDict)[[[NSString alloc] initWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]] = @(numberOfGroups);
+    NSString *nameString =
+    [[NSString alloc] initWithCharacters:(unichar *)name
+                                  length:((unichar *)name_end - (unichar *)name)];
     
-	return 0;  /* 0: continue, otherwise: stop(break) */
+    NSMutableDictionary *nameDict = (__bridge NSMutableDictionary *)nameDict_p;
+    
+    nameDict[nameString] = @(numberOfGroups);
+    
+    return 0;  /* 0: continue, otherwise: stop(break) */
 }
 
 
