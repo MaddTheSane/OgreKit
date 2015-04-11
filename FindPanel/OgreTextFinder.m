@@ -79,12 +79,11 @@ static NSString *OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if (theBundle == nil) {
         /* I Find OgreKit.framework bundle instance (OgreKit.framework bundle instanceを探す) */
         NSArray         *allFrameworks = [NSBundle allFrameworks];  // All framework linked (リンクされている全フレームワーク)
-        NSEnumerator    *enumerator = [allFrameworks reverseObjectEnumerator];  // OgreKit is likely behind (OgreKitは後ろにある可能性が高い)
-        NSBundle        *aBundle;
-        while ((aBundle = [enumerator nextObject]) != nil) {
+        NSEnumerator    *enumerator = [allFrameworks reverseObjectEnumerator];  // OgreKit should be in here. (OgreKitは後ろにある可能性が高い)
+        for (NSBundle *aBundle in enumerator) {
             if ([[[aBundle bundlePath] lastPathComponent] isEqualToString:@"OgreKit.framework"]) {
 #ifdef DEBUG_OGRE_FIND_PANEL
-                NSLog(@"Find out OgreKit: %@", [aBundle bundlePath]);
+                NSLog(@"Found OgreKit: %@", [aBundle bundlePath]);
 #endif
                 theBundle = aBundle;
                 break;
