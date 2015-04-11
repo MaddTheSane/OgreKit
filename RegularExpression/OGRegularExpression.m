@@ -134,57 +134,54 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 + (instancetype)regularExpressionWithString:(NSString*)expressionString
 {
-	return [[self alloc]
-		initWithString: expressionString
-		options: OgreNoneOption
-		syntax: [[self class] defaultSyntax]
-		escapeCharacter: [[self class] defaultEscapeCharacter]];
+	return [[self alloc] initWithString:expressionString
+                                options:OgreNoneOption
+                                 syntax:[[self class] defaultSyntax]
+                        escapeCharacter:[[self class] defaultEscapeCharacter]];
 }
 
-+ (instancetype)regularExpressionWithString:(NSString*)expressionString 
-	options:(OgreOption)options
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
+                                    options:(OgreOption)options
 {
-	return [[self alloc]
-		initWithString: expressionString
-		options: options
-		syntax: [[self class] defaultSyntax]
-		escapeCharacter: [[self class] defaultEscapeCharacter]];
+    return [[self alloc] initWithString:expressionString
+                                options:options
+                                 syntax:[[self class] defaultSyntax]
+                        escapeCharacter:[[self class] defaultEscapeCharacter]];
 }
 
-+ (instancetype)regularExpressionWithString:(NSString*)expressionString 
-	options:(OgreOption)options
-	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
+                                    options:(OgreOption)options
+                                     syntax:(OgreSyntax)syntax
+                            escapeCharacter:(NSString*)character
 {
-	return [[self alloc] 
-		initWithString: expressionString 
-		options: options 
-		syntax: syntax
-		escapeCharacter: character];
+    return [[self alloc] initWithString:expressionString
+                                options:options
+                                 syntax:syntax
+                        escapeCharacter:character];
 }
 
 
 - (instancetype)initWithString:(NSString*)expressionString
 {
-	return [self initWithString: expressionString 
-		options: OgreNoneOption 
-		syntax: [[self class] defaultSyntax]
-		escapeCharacter: [[self class] defaultEscapeCharacter]];
+    return [self initWithString:expressionString
+                        options:OgreNoneOption
+                         syntax:[[self class] defaultSyntax]
+                escapeCharacter:[[self class] defaultEscapeCharacter]];
 }
 
 - (instancetype)initWithString:(NSString*)expressionString 
 	options:(OgreOption)options
 {
-	return [self initWithString: expressionString 
-		options: options 
-		syntax: [[self class] defaultSyntax]
-		escapeCharacter: [[self class] defaultEscapeCharacter]];
+    return [self initWithString:expressionString
+                        options:options
+                         syntax:[[self class] defaultSyntax]
+                escapeCharacter:[[self class] defaultEscapeCharacter]];
 }
 
-- (instancetype)initWithString:(NSString*)expressionString 
-	options:(OgreOption)options
-	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character
+- (instancetype)initWithString:(NSString*)expressionString
+                       options:(OgreOption)options
+                        syntax:(OgreSyntax)syntax
+               escapeCharacter:(NSString*)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithString: of %@", [self className]);
