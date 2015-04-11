@@ -350,7 +350,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return self;
 }
 
-// I returns a string representing a regular expression. (正規表現を表している文字列を返す。)
+// Returns a string representing a regular expression. (正規表現を表している文字列を返す。)
 - (NSString*)expressionString
 {
 	return _expressionString;
@@ -2056,8 +2056,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return [array[0] unsignedIntValue];
 }
 
-// The name of the index th substring (index番目の部分文字列の名前)
-// I return nil if the name does not exist. (存在しない名前の場合は nil を返す。)
+// The name of the substring at index (index番目の部分文字列の名前)
+// Return nil if the name does not exist. (存在しない名前の場合は nil を返す。)
 - (NSString*)nameForGroupIndex:(NSUInteger)index
 {
 	if ( (_nameForGroupIndexArray == nil) || (index < 1) || (index > [_nameForGroupIndexArray count])) {
