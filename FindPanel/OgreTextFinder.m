@@ -96,9 +96,10 @@ static NSString *OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 + (OgreTextFinder *)sharedTextFinder
 {
-    if (_sharedTextFinder == nil) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         _sharedTextFinder = [[[self class] alloc] init];
-    }
+    });
     
     return _sharedTextFinder;
 }
