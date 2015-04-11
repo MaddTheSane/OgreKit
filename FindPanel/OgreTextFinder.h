@@ -169,9 +169,9 @@
 // If the target is in use (ターゲットが使用中かどうか)
 - (BOOL)isBusyTarget:(id)target;
 // I want to use in (使用中にする)
-- (void)makeTargetBusy:(id)target;
+- (void)markTargetBusy:(id)target;
 // To not in use (使用中でなくする)
-- (void)makeTargetFree:(id)target;
+- (void)markTargetFree:(id)target;
 
 /* hack Find Menu */
 - (void)hackFindMenu;

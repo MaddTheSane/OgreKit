@@ -451,14 +451,14 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     return [_busyTargetArray containsObject:target];
 }
 
-- (void)makeTargetBusy:(id)target
+- (void)markTargetBusy:(id)target
 {
     if (target != nil) {
         [_busyTargetArray addObject:target];
     }
 }
 
-- (void)makeTargetFree:(id)target
+- (void)markTargetFree:(id)target
 {
     if (target != nil) {
         [_busyTargetArray removeObject:target];
@@ -477,7 +477,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if ((target == nil) || [self isBusyTarget:target]) {
         return [OgreTextFindResult textFindResultWithTarget:target thread:nil];
     }
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     
     OgreFindThread                  *thread = nil;
     OgreTextFindProgressSheet       *sheet = nil;
@@ -503,7 +503,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         
         [thread detach];
         
-        [self makeTargetFree:target];
+        [self markTargetFree:target];
         textFindResult = [thread result];
     }
     @catch (NSException *localException) {
@@ -528,7 +528,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if ((target == nil) || [self isBusyTarget:target]) {
         return [OgreTextFindResult textFindResultWithTarget:target thread:nil];
     }
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     
     OgreTextFindThread              *thread = nil;
     OgreTextFindProgressSheet       *sheet = nil;
@@ -544,7 +544,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of processing status display for the seat (処理状況表示用シートの生成) */
         sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window]
                                                             title:OgreTextFinderLocalizedString(@"Find All")
-                                                   didEndSelector:@selector(makeTargetFree:)
+                                                   didEndSelector:@selector(markTargetFree:)
                                                          toTarget:self
                                                        withObject:target];
         
@@ -646,7 +646,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if ((target == nil) || [self isBusyTarget:target] /*|| ![target isEditable]*/) {
         return [OgreTextFindResult textFindResultWithTarget:target thread:nil];
     }
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     
     OgreReplaceAndFindThread        *thread = nil;
     OgreTextFindProgressSheet       *sheet = nil;
@@ -678,7 +678,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         
         [thread detach];
         
-        [self makeTargetFree:target];
+        [self markTargetFree:target];
         textFindResult = [thread result];
     }
     @catch (NSException *localException) {
@@ -725,7 +725,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if ((target == nil) || [self isBusyTarget:target] /*|| ![target isEditable]*/) {
         return [OgreTextFindResult textFindResultWithTarget:target thread:nil];
     }
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     
     OgreTextFindThread              *thread = nil;
     OgreTextFindProgressSheet       *sheet = nil;
@@ -747,7 +747,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of processing status display for the seat (処理状況表示用シートの生成) */
         sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window]
                                                             title:OgreTextFinderLocalizedString(@"Replace All")
-                                                   didEndSelector:@selector(makeTargetFree:)
+                                                   didEndSelector:@selector(markTargetFree:)
                                                          toTarget:self
                                                        withObject:target];
         
@@ -786,7 +786,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if ((target == nil) || [self isBusyTarget:target]) {
         return [OgreTextFindResult textFindResultWithTarget:target thread:nil];
     }
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     
     OgreTextFindThread *thread = nil;
     OgreTextFindResult *textFindResult = nil;
@@ -799,7 +799,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         
         [thread detach];
         
-        [self makeTargetFree:target];
+        [self markTargetFree:target];
         textFindResult = [thread result];
     }
     @catch (NSException *localException) {
@@ -824,7 +824,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     if ((target == nil) || [self isBusyTarget:target]) {
         return [OgreTextFindResult textFindResultWithTarget:target thread:nil];
     }
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     
     OgreTextFindThread              *thread = nil;
     OgreTextFindProgressSheet       *sheet = nil;
@@ -840,7 +840,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of processing status display for the seat (処理状況表示用シートの生成) */
         sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window]
                                                             title:OgreTextFinderLocalizedString(@"Highlight")
-                                                   didEndSelector:@selector(makeTargetFree:)
+                                                   didEndSelector:@selector(markTargetFree:)
                                                          toTarget:self
                                                        withObject:target];
         
@@ -887,7 +887,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         return nil;
     }
     
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     OgreTextFindLeaf            *selectedLeaf = nil;
     NSObject <OGStringProtocol> *string = nil;
     OgreTextFindResult          *textFindResult = nil;
@@ -900,7 +900,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         string = [[selectedLeaf ogString] substringWithRange:[selectedLeaf selectedRange]];
         [selectedLeaf finalizeFinding];
         
-        [self makeTargetFree:target];
+        [self markTargetFree:target];
     }
     @catch (NSException *localException) {
         textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:nil];
@@ -919,7 +919,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         return NO;
     }
     
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     OgreTextFindLeaf        *selectedLeaf = nil;
     NSRange                 selectedRange = NSMakeRange(0, 0);
     OgreTextFindResult      *textFindResult = nil;
@@ -932,7 +932,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         selectedRange = [selectedLeaf selectedRange];
         [selectedLeaf finalizeFinding];
         
-        [self makeTargetFree:target];
+        [self markTargetFree:target];
     }
     @catch (NSException *localException) {
         textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:nil];
@@ -955,7 +955,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         return NO;
     }
     
-    [self makeTargetBusy:target];
+    [self markTargetBusy:target];
     OgreTextFindLeaf        *selectedLeaf = nil;
     OgreTextFindResult      *textFindResult = nil;
     
@@ -968,7 +968,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         [selectedLeaf jumpToSelection];
         [selectedLeaf finalizeFinding];
         
-        [self makeTargetFree:target];
+        [self markTargetFree:target];
     }
     @catch (NSException *localException) {
         textFindResult = [OgreTextFindResult textFindResultWithTarget:target thread:nil];
@@ -1010,10 +1010,10 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     OgreTextFindProgressSheet   *sheet = nil;
     
     if ((aTarget != nil) && ![self isBusyTarget:aTarget]) {
-        [self makeTargetBusy:aTarget];
+        [self markTargetBusy:aTarget];
         sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[aTarget window]
                                                             title:@""
-                                                   didEndSelector:@selector(makeTargetFree:)
+                                                   didEndSelector:@selector(markTargetFree:)
                                                          toTarget:self
                                                        withObject:aTarget];
     }
