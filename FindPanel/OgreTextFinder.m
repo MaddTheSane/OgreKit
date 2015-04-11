@@ -63,12 +63,12 @@
 static OgreTextFinder *_sharedTextFinder = nil;
 
 // Exception name (例外名)
-NSString        *OgreTextFinderException = @"OgreTextFinderException";
+NSString * const OgreTextFinderException = @"OgreTextFinderException";
 
-// Key to be used to encode/decode (encode/decodeに使用するKey)
-static NSString *OgreTextFinderHistoryKey         = @"Find Controller History";
-static NSString *OgreTextFinderSyntaxKey          = @"Syntax";
-static NSString *OgreTextFinderEscapeCharacterKey = @"Escape Character";
+// Keys to be used to encode/decode (encode/decodeに使用するKey)
+static NSString * const OgreTextFinderHistoryKey         = @"Find Controller History";
+static NSString * const OgreTextFinderSyntaxKey          = @"Syntax";
+static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 @implementation OgreTextFinder
 
