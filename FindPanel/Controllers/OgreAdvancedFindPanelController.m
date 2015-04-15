@@ -479,7 +479,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (void)addFindHistory:(NSAttributedString*)attrString
 {
-	[self loadFindStringToPasteboard];	// load to Paseteboad
+	[self loadFindStringToPasteboard];
 	
 	NSMenu		*menu = [findPopUpButton menu];
 	NSInteger	i, n = [_findHistory count];
