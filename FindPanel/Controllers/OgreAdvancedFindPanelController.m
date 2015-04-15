@@ -1335,7 +1335,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (void)findPanelDidAddChildWindow:(NSWindow*)childWindow
 {
-	_findResultWindowController = [childWindow delegate];
+	_findResultWindowController = (OgreFindResultWindowController *)[childWindow delegate];
 }
 
 - (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow
