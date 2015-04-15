@@ -38,7 +38,7 @@
 	
 	id				_targetToFindIn;		// Search for (検索対象)
 	Class			_adapterClassForTarget; // Search for adapter (wrapper) (検索対象のアダプタ(ラッパー))
-	NSMutableArray	*_busyTargetArray;		// In use target (使用中ターゲット)
+	NSMutableSet	*_busyTargetSet;		// In use target (使用中ターゲット)
 
 	NSDictionary	*_history;				// Search history, etc. (検索履歴等)
 	BOOL			_saved;					// Whether history, etc. has been saved (履歴等が保存されたかどうか)

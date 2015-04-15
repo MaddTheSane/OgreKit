@@ -115,7 +115,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     
     self = [super init];
     if (self != nil) {
-        _busyTargetArray = [[NSMutableArray alloc] initWithCapacity:0]; // In use target (使用中ターゲット)
+        _busyTargetSet = [[NSMutableSet alloc] initWithCapacity:0]; // In use target (使用中ターゲット)
         
         NSUserDefaults  *defaults = [NSUserDefaults standardUserDefaults];
         NSDictionary    *fullHistory = [defaults dictionaryForKey:@"OgreTextFinder"];   // History, etc. (履歴等)
@@ -448,20 +448,20 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (BOOL)isBusyTarget:(id)target
 {
-    return [_busyTargetArray containsObject:target];
+    return [_busyTargetSet containsObject:target];
 }
 
 - (void)markTargetBusy:(id)target
 {
     if (target != nil) {
-        [_busyTargetArray addObject:target];
+        [_busyTargetSet addObject:target];
     }
 }
 
 - (void)markTargetFree:(id)target
 {
     if (target != nil) {
-        [_busyTargetArray removeObject:target];
+        [_busyTargetSet removeObject:target];
     }
 }
 
