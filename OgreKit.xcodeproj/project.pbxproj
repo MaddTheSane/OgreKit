@@ -282,6 +282,7 @@
 		55EAAFF91AEC7B51005EC293 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EAAFF71AEC7B51005EC293 /* MainMenu.xib */; };
 		55EAB00E1AEC7BDE005EC293 /* OgreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OgreKit.framework */; };
 		55EAB00F1AEC7BDE005EC293 /* OgreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OgreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55EAB0121AEC8475005EC293 /* SwiftCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAB0111AEC8475005EC293 /* SwiftCalc.swift */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -741,6 +742,7 @@
 		55EAAFF31AEC7B51005EC293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55EAAFF51AEC7B51005EC293 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		55EAAFF81AEC7B51005EC293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		55EAB0111AEC8475005EC293 /* SwiftCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCalc.swift; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -1464,6 +1466,7 @@
 			isa = PBXGroup;
 			children = (
 				55EAAFF31AEC7B51005EC293 /* AppDelegate.swift */,
+				55EAB0111AEC8475005EC293 /* SwiftCalc.swift */,
 				55EAAFF51AEC7B51005EC293 /* Images.xcassets */,
 				55EAAFF71AEC7B51005EC293 /* MainMenu.xib */,
 				55EAAFF11AEC7B51005EC293 /* Supporting Files */,
@@ -1954,6 +1957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55EAB0121AEC8475005EC293 /* SwiftCalc.swift in Sources */,
 				55EAAFF41AEC7B51005EC293 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
