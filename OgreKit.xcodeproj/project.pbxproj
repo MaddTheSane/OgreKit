@@ -25,7 +25,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3D64F4A61AC0C19A003C46A9 /* FindPanelTest-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D64F4A51AC0C19A003C46A9 /* FindPanelTest-Info.plist */; };
 		4D4F202D1142243700CD9C2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530CE0915226200475575 /* InfoPlist.strings */; };
 		4D82DCE309BA0CAF007F03B0 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D82DCE209BA0CAF007F03B0 /* oniguruma.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D82DCE409BA0CAF007F03B0 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D82DCE209BA0CAF007F03B0 /* oniguruma.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -278,6 +277,11 @@
 		4DF530C20915221700475575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BD0915221700475575 /* main.m */; };
 		4DF530D30915226200475575 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530D00915226200475575 /* MainMenu.xib */; };
 		5515D4691A76C035001E6360 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC411C7091514D70029A2A6 /* InfoPlist.strings */; };
+		55EAAFF41AEC7B51005EC293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAAFF31AEC7B51005EC293 /* AppDelegate.swift */; };
+		55EAAFF61AEC7B51005EC293 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EAAFF51AEC7B51005EC293 /* Images.xcassets */; };
+		55EAAFF91AEC7B51005EC293 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EAAFF71AEC7B51005EC293 /* MainMenu.xib */; };
+		55EAB00E1AEC7BDE005EC293 /* OgreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OgreKit.framework */; };
+		55EAB00F1AEC7BDE005EC293 /* OgreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OgreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -353,6 +357,13 @@
 			remoteInfo = "Replace With Attributes Test";
 		};
 		4DC412C0091519C90029A2A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = "OgreKit (Full Features)";
+		};
+		55EAB00C1AEC7BC7005EC293 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -452,6 +463,17 @@
 			files = (
 				4DC412B10915194C0029A2A6 /* OgreKit.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EAB0101AEC7BDE005EC293 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				55EAB00F1AEC7BDE005EC293 /* OgreKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -714,6 +736,11 @@
 		4DF530CF0915226200475575 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = ReplaceWithAttributesTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DF530D10915226200475575 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ReplaceWithAttributesTest/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		55C3FE5C1A71976700F1EC1A /* OgreKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OgreKit-Info.plist"; path = "RegularExpression/OgreKit-Info.plist"; sourceTree = "<group>"; };
+		55EAAFEF1AEC7B51005EC293 /* SwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55EAAFF21AEC7B51005EC293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55EAAFF31AEC7B51005EC293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		55EAAFF51AEC7B51005EC293 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		55EAAFF81AEC7B51005EC293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -761,6 +788,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55EAAFEC1AEC7B51005EC293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EAB00E1AEC7BDE005EC293 /* OgreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF560486A6940098B216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -782,6 +817,7 @@
 				4DC40C0F09150C3E0029A2A6 /* OgreFindPanelTest.app */,
 				4DC40C1A09150C730029A2A6 /* MyFindPanelExample.app */,
 				4DC40C3009150C9E0029A2A6 /* ReplaceWithAttributesTest.app */,
+				55EAAFEF1AEC7B51005EC293 /* SwiftTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -794,6 +830,7 @@
 				4DC4104909150D210029A2A6 /* Replace With Attributes Test */,
 				4DC4105709150D550029A2A6 /* Find Panel Test */,
 				4DC4108009150D640029A2A6 /* My Find Panel Example */,
+				55EAAFF01AEC7B51005EC293 /* SwiftTest */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
@@ -1423,6 +1460,26 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		55EAAFF01AEC7B51005EC293 /* SwiftTest */ = {
+			isa = PBXGroup;
+			children = (
+				55EAAFF31AEC7B51005EC293 /* AppDelegate.swift */,
+				55EAAFF51AEC7B51005EC293 /* Images.xcassets */,
+				55EAAFF71AEC7B51005EC293 /* MainMenu.xib */,
+				55EAAFF11AEC7B51005EC293 /* Supporting Files */,
+			);
+			path = SwiftTest;
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+		55EAAFF11AEC7B51005EC293 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55EAAFF21AEC7B51005EC293 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1658,6 +1715,25 @@
 			productReference = 4DC40C3009150C9E0029A2A6 /* ReplaceWithAttributesTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		55EAAFEE1AEC7B51005EC293 /* SwiftTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55EAB00A1AEC7B52005EC293 /* Build configuration list for PBXNativeTarget "SwiftTest" */;
+			buildPhases = (
+				55EAAFEB1AEC7B51005EC293 /* Sources */,
+				55EAAFEC1AEC7B51005EC293 /* Frameworks */,
+				55EAAFED1AEC7B51005EC293 /* Resources */,
+				55EAB0101AEC7BDE005EC293 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55EAB00D1AEC7BC7005EC293 /* PBXTargetDependency */,
+			);
+			name = SwiftTest;
+			productName = SwiftTest;
+			productReference = 55EAAFEF1AEC7B51005EC293 /* SwiftTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8DC2EF4F0486A6940098B216 /* OgreKit (Full Features) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DC40B9F091509DC0029A2A6 /* Build configuration list for PBXNativeTarget "OgreKit (Full Features)" */;
@@ -1686,7 +1762,12 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
+				TargetAttributes = {
+					55EAAFEE1AEC7B51005EC293 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
 			};
 			buildConfigurationList = 4DC40BA3091509DC0029A2A6 /* Build configuration list for PBXProject "OgreKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1702,6 +1783,7 @@
 				Italian,
 				Portuguese,
 				Dutch,
+				Base,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* OgreKit */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
@@ -1716,6 +1798,7 @@
 				4DC40C0E09150C3E0029A2A6 /* Find Panel Test */,
 				4DC40C1909150C720029A2A6 /* My Find Panel Example */,
 				4DC40C2F09150C9E0029A2A6 /* Replace With Attributes Test */,
+				55EAAFEE1AEC7B51005EC293 /* SwiftTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1746,7 +1829,6 @@
 				4DC4135709151CA60029A2A6 /* InfoPlist.strings in Resources */,
 				4DC4135809151CA60029A2A6 /* Credits.rtf in Resources */,
 				4DC4135B09151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.xib in Resources */,
-				3D64F4A61AC0C19A003C46A9 /* FindPanelTest-Info.plist in Resources */,
 				4DC4136009151CD80029A2A6 /* MyTableDocument.xib in Resources */,
 				4DC4136109151CD80029A2A6 /* MyTableColumnSheet.xib in Resources */,
 				4DC4136409151CE50029A2A6 /* MyOutlineDocument.xib in Resources */,
@@ -1772,6 +1854,15 @@
 			files = (
 				4D4F202D1142243700CD9C2F /* InfoPlist.strings in Resources */,
 				4DF530D30915226200475575 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EAAFED1AEC7B51005EC293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EAAFF61AEC7B51005EC293 /* Images.xcassets in Resources */,
+				55EAAFF91AEC7B51005EC293 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1856,6 +1947,14 @@
 			files = (
 				4DF530C00915221700475575 /* ReplaceWithAttributesTest.m in Sources */,
 				4DF530C20915221700475575 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EAAFEB1AEC7B51005EC293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EAAFF41AEC7B51005EC293 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1990,6 +2089,11 @@
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* OgreKit (Full Features) */;
 			targetProxy = 4DC412C0091519C90029A2A6 /* PBXContainerItemProxy */;
+		};
+		55EAB00D1AEC7BC7005EC293 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* OgreKit (Full Features) */;
+			targetProxy = 55EAB00C1AEC7BC7005EC293 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2217,6 +2321,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		55EAAFF71AEC7B51005EC293 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55EAAFF81AEC7B51005EC293 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2246,6 +2358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
@@ -2274,6 +2387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
@@ -2640,6 +2754,58 @@
 			};
 			name = Release;
 		};
+		55EAB0061AEC7B52005EC293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = SwiftTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		55EAB0071AEC7B52005EC293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SwiftTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2723,6 +2889,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		55EAB00A1AEC7B52005EC293 /* Build configuration list for PBXNativeTarget "SwiftTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55EAB0061AEC7B52005EC293 /* Debug */,
+				55EAB0071AEC7B52005EC293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
