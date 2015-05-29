@@ -308,9 +308,9 @@
 	NSLog(@"-setProgressDelegate: of %@", [self className]);
 #endif
 	_progressDelegate = aDelegate;  // not retain. I get rather retain. (retain しない。むしろretainしてもらう。)
-	[_progressDelegate setCancelSelector:@selector(terminate:) 
-		toTarget:self // will be retained
-		withObject:nil];
+    [_progressDelegate setCancelSelector:@selector(terminate:)
+                                toTarget:self // will be retained
+                              withObject:nil];
 }
 
 - (NSObject <OgreTextFindProgressDelegate>*)progressDelegate
