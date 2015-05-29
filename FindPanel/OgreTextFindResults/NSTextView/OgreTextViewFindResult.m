@@ -313,7 +313,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 	}
 	
 #ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"the maximal index of undisturbed matched string: %d", _updateCacheIndex);
+	NSLog(@"the maximal index of undisturbed matched string: %ld", (long)_updateCacheIndex);
 #endif
 	
 	// Update of absolute for display position cache (表示用絶対位置キャッシュの更新)

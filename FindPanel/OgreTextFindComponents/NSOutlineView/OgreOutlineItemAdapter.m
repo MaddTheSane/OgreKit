@@ -106,7 +106,7 @@
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);
+	NSLog(@"  -childAtIndex:%lu of %@", (unsigned long)index, [self className]);
 #endif
     OgreOutlineView                 *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
     id <OgreTextFindComponent> adapter;

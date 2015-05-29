@@ -99,7 +99,7 @@
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
-	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);
+	NSLog(@"  -childAtIndex:%lu of %@", (unsigned long)index, [self className]);
 #endif
     id  item = [_outlineColumn ogreChild:index ofItem:nil /* root */];
     
