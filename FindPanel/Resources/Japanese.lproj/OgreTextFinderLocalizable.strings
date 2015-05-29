@@ -21,7 +21,7 @@
 "OK"		= "OK";
 "Cancel"	= "キャンセル";
 
-/* progrss messages */
+/* progress messages */
 " (%dsec remaining)"        = " (残り %d秒)";    // sec: second
 // Find All
 "%d string found."          = "%d文字列を発見しました。";

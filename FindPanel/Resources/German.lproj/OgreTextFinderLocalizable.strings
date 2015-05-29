@@ -21,8 +21,8 @@
 "OK"		= "OK";
 "Cancel"	= "Abbrechen";
 
-/* progrss messages */
-" (%dsec remaining)"        = " (Noch %dSek)";    // sec: second
+/* progress messages */
+" (%dsec remaining)"        = " (Noch %d Sekunden)";    // sec: second
 // Find All
 "%d string found."          = "%d Zeichenkette gefunden.";
 "%d strings found."         = "%d Zeichenketten gefunden.";
@@ -35,34 +35,34 @@
 
 /* finish messages */
 // not found
-"Not found. (%.3fsec)"							= "Nicht gefunden. (%.3fSek)";
-"Not found. (canceled, %.3fsec)"				= "Nicht gefunden. (Abgebrochen, %.3fSek)";
+"Not found. (%.3fsec)"							= "Nicht gefunden. (%.3f Sekunden)";
+"Not found. (canceled, %.3fsec)"				= "Nicht gefunden. (Abgebrochen, %.3f Sekunden)";
 // Find All
-"%d string found. (%.3fsec)"					= "%d Zeichenkette gefunden. (%.3fSek)";
-"%d strings found. (%.3fsec)"					= "%d Zeichenketten gefunden. (%.3fSek)";
-"%d string found. (canceled, %.3fsec)"			= "%d Zeichenkette gefunden. (Abgebrochen, %.3fSek)";
-"%d strings found. (canceled, %.3fsec)"			= "%d Zeichenketten gefunden. (Abgebrochen, %.3fSek)";
+"%d string found. (%.3fsec)"					= "%d Zeichenkette gefunden. (%.3f Sekunden)";
+"%d strings found. (%.3fsec)"					= "%d Zeichenketten gefunden. (%.3f Sekunden)";
+"%d string found. (canceled, %.3fsec)"			= "%d Zeichenkette gefunden. (Abgebrochen, %.3f Sekunden)";
+"%d strings found. (canceled, %.3fsec)"			= "%d Zeichenketten gefunden. (Abgebrochen, %.3f Sekunden)";
 // Replace All
-"%d string replaced. (%.3fsec)"					= "%d Zeichenkette ersetzt. (%.3fSek)";
-"%d strings replaced. (%.3fsec)"				= "%d Zeichenketten gefunden. (%.3fSek)";
-"%d string replaced. (canceled, %.3fsec)"		= "%d Zeichenkette ersetzt. (Abgebrochen, %.3fSek)";
-"%d strings replaced. (canceled, %.3fsec)"		= "%d Zeichenketten gefunden. (Abgebrochen, %.3fSek)";
+"%d string replaced. (%.3fsec)"					= "%d Zeichenkette ersetzt. (%.3f Sekunden)";
+"%d strings replaced. (%.3fsec)"				= "%d Zeichenketten gefunden. (%.3f Sekunden)";
+"%d string replaced. (canceled, %.3fsec)"		= "%d Zeichenkette ersetzt. (Abgebrochen, %.3f Sekunden)";
+"%d strings replaced. (canceled, %.3fsec)"		= "%d Zeichenketten gefunden. (Abgebrochen, %.3f Sekunden)";
 // Highlight
-"%d string highlighted. (%.3fsec)"				= "%d Zeichenkette markiert. (%.3fSek)";
-"%d strings highlighted. (%.3fsec)"				= "%d Zeichenketten markiert. (%.3fSek)";
-"%d string highlighted. (canceled, %.3fsec)"	= "%d Zeichenkette markiert. (Abgebrochen, %.3fSek)";
-"%d strings highlighted. (canceled, %.3fsec)"   = "%d Zeichenketten markiert. (Abgebrochen, %.3fSek)";
+"%d string highlighted. (%.3fsec)"				= "%d Zeichenkette markiert. (%.3f Sekunden)";
+"%d strings highlighted. (%.3fsec)"				= "%d Zeichenketten markiert. (%.3f Sekunden)";
+"%d string highlighted. (canceled, %.3fsec)"	= "%d Zeichenkette markiert. (Abgebrochen, %.3f Sekunden)";
+"%d strings highlighted. (canceled, %.3fsec)"   = "%d Zeichenketten markiert. (Abgebrochen, %.3f Sekunden)";
 
 /* error messages */
 "Error! Uneditable."	= "Fehler! Nicht zu bearbeiten."; /* a target TextView is not editable */
 "Missing."				= "Fehlt.";			/* a found string became missing */
 
 /* Find Result Window*/
-"Find Result for \"%@\""        = "Find Result for \"%@\"";
+"Find Result for \"%@\""        = "Suchergebnis für „%@“";
 "%d string found."				= "%d Zeichenkette gefunden.";
 "%d strings found."				= "%d Zeichenketten gefunden.";
-"Found in %d item."				= "Found in %d item.";
-"Found in %d items."            = "Found in %d items.";
+"Found in %d item."				= "In %d Eintrag gefunden.";
+"Found in %d items."            = "In %d Einträgen gefunden.";
 "Find String: %@"               = "Suchzeichenkette: %@";
 "Line"                          = "Zeile";
 "Found String"                  = "Gefundene Zeichenketten";
@@ -70,7 +70,7 @@
 "Selected string not found."	= "Ausgewählte Zeichenkette nicht gefunden."; /* error message */
 
 /* preparation */
-"Favorites"					= "Favorites";
+"Favorites"					= "Favoriten";
 "Custom Find/Replace"		= "Custom Find/Replace";
 "Definition"				= "Definition";
 "Serial (Pipe)"				= "Serial (Pipe)";

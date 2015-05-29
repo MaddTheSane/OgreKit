@@ -23,8 +23,8 @@
 "OK"		= "OK";
 "Cancel"	= "Cancelar";
 
-/* progrss messages */
-" (%dsec remaining)"        = " (Quedan %dseg)";    // sec: second
+/* progress messages */
+" (%dsec remaining)"        = " (Quedan %d segundos)";    // sec: second
 // Find All
 "%d string found."          = "Encontrada %d cadena.";
 "%d strings found."         = "Encontradas %d cadenas.";
@@ -37,30 +37,30 @@
 
 /* finish messages */
 // not found
-"Not found. (%.3fsec)"							= "No encontrado. (%.3fseg)";
-"Not found. (canceled, %.3fsec)"				= "No encontrado. (Cancelado, %.3fseg)";
+"Not found. (%.3fsec)"							= "No encontrado. (%.3f segundos)";
+"Not found. (canceled, %.3fsec)"				= "No encontrado. (Cancelado, %.3f segundos)";
 // Find All
-"%d string found. (%.3fsec)"					= "Encontrada %d cadena. (%.3fseg)";
-"%d strings found. (%.3fsec)"					= "Encontradas %d cadenas. (%.3fseg)";
-"%d string found. (canceled, %.3fsec)"			= "Encontrada %d cadena. (Cancelado, %.3fseg)";
-"%d strings found. (canceled, %.3fsec)"			= "Encontradas %d cadenas. (Cancelado, %.3fseg)";
+"%d string found. (%.3fsec)"					= "Encontrada %d cadena. (%.3f segundos)";
+"%d strings found. (%.3fsec)"					= "Encontradas %d cadenas. (%.3f segundos)";
+"%d string found. (canceled, %.3fsec)"			= "Encontrada %d cadena. (Cancelado, %.3f segundos)";
+"%d strings found. (canceled, %.3fsec)"			= "Encontradas %d cadenas. (Cancelado, %.3f segundos)";
 // Replace All
-"%d string replaced. (%.3fsec)"					= "Reemplazada %d cadena. (%.3fseg)";
-"%d strings replaced. (%.3fsec)"				= "Reemplazadas %d cadenas. (%.3fseg)";
-"%d string replaced. (canceled, %.3fsec)"		= "Reemplazada %d cadena. (Cancelado, %.3fseg)";
-"%d strings replaced. (canceled, %.3fsec)"		= "Reemplazadas %d cadenas. (Cancelado, %.3fseg)";
+"%d string replaced. (%.3fsec)"					= "Reemplazada %d cadena. (%.3f segundos)";
+"%d strings replaced. (%.3fsec)"				= "Reemplazadas %d cadenas. (%.3f segundos)";
+"%d string replaced. (canceled, %.3fsec)"		= "Reemplazada %d cadena. (Cancelado, %.3f segundos)";
+"%d strings replaced. (canceled, %.3fsec)"		= "Reemplazadas %d cadenas. (Cancelado, %.3f segundos)";
 // Highlight
-"%d string highlighted. (%.3fsec)"				= "Resaltada %d cadena. (%.3fseg)";
-"%d strings highlighted. (%.3fsec)"				= "Resaltadas %d cadenas. (%.3fseg)";
-"%d string highlighted. (canceled, %.3fsec)"	= "Resaltada %d cadena. (Cancelado, %.3fseg)";
-"%d strings highlighted. (canceled, %.3fsec)"   = "Resaltadas %d cadenas. (Cancelado, %.3fseg)";
+"%d string highlighted. (%.3fsec)"				= "Resaltada %d cadena. (%.3f segundos)";
+"%d strings highlighted. (%.3fsec)"				= "Resaltadas %d cadenas. (%.3f segundos)";
+"%d string highlighted. (canceled, %.3fsec)"	= "Resaltada %d cadena. (Cancelado, %.3f segundos)";
+"%d strings highlighted. (canceled, %.3fsec)"   = "Resaltadas %d cadenas. (Cancelado, %.3f segundos)";
 
 /* error messages */
 "Error! Uneditable."	= "¡Error! No editable."; /* a target TextView is not editable */
 "Missing."				= "Perdido.";			/* a found string became missing */
 
 /* Find Result Window*/
-"Find Result for \"%@\""        = "Find Result for \"%@\"";
+"Find Result for \"%@\""        = "Find Result for “%@”";
 "%d string found."				= "Encontrada %d cadena.";
 "%d strings found."				= "Encontradas %d cadenas.";
 "Found in %d item."				= "Found in %d item.";
