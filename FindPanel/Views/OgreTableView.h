@@ -28,4 +28,9 @@
 @property (nonatomic, setter=ogreSetSelectedRow:) NSInteger ogreSelectedRow;
 @property (nonatomic, setter=ogreSetSelectedRange:) NSRange ogreSelectedRange;
 
+@property (nonatomic) NSInteger ogreEditedColumn;
+@property (nonatomic) NSInteger ogreEditedRow;
+
+- (void)ogreHighlightTextForSelectedPosition;
+
 @end

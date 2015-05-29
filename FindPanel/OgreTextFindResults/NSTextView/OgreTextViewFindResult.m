@@ -50,7 +50,6 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 
 - (void)endAddition
 {
-	
 	if ([self count] == 0) return;	// If you do not match (マッチしなかった場合)
 	//I detect a closing window for that target. (targetのあるwindowのcloseを検出する。)
 	[[NSNotificationCenter defaultCenter] addObserver: self 
@@ -160,7 +159,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 	
     rangeArray = [NSMutableArray arrayWithCapacity:n];
 
-	for(i = 0; i < n; i++) {
+	for (i = 0; i < n; i++) {
 		range = [matchArray[i] rangeValue];
 		if (i == 0) {
 			// 0th substring relative position of the previous match (0番目の部分文字列は前のマッチとの相対位置)

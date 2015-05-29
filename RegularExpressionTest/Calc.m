@@ -42,11 +42,6 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     return self;
 }
 
-- (void)dealloc
-{
-    [_stack release];
-    [super dealloc];
-}
 
 - (void)push:(id)item
 {
@@ -57,10 +52,10 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 {
     if ([_stack count] == 0) return nil;
     
-    id  anObject = [[_stack lastObject] retain];
+    id  anObject = [_stack lastObject];
     [_stack removeLastObject];
     
-    return [anObject autorelease];
+    return anObject;
 }
 
 

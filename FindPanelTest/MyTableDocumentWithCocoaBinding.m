@@ -12,6 +12,7 @@
  */
 
 #import "MyTableDocumentWithCocoaBinding.h"
+#import "MyTableRowModel.h"
 #import <OgreKit/OgreKit.h>
 
 @implementation MyTableDocumentWithCocoaBinding
@@ -31,11 +32,6 @@
     _modelArray = [[NSMutableArray alloc] init];
 }
 
-- (void)dealloc
-{
-    [_modelArray release];
-    [super dealloc];
-}
 
 - (NSString*)windowNibName 
 {
@@ -61,7 +57,9 @@
 
 - (IBAction)dump:(id)sender
 {
-    [_modelArray makeObjectsPerformSelector:@selector(dump)];
+    for (MyTableRowModel *object in _modelArray) {
+        [object dump];
+    }
 }
 
 // Change of line feed code (改行コードの変更)

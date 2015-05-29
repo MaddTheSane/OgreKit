@@ -20,7 +20,7 @@
     OgreTextFindResult  *_textFindResult;
 }
 
-/* methods overridden by subclass of OgreFindResultLeaf  */
+/* methods overridden by subclass of OgreFindResultLeaf */
 @property (nonatomic, strong) OgreTextFindResult *textFindResult;
 
 @property (nonatomic, readonly) BOOL showMatchedString;

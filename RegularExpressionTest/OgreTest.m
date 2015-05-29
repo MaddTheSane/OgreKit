@@ -186,7 +186,7 @@
 {
 	NSLog(@"Capture Tree Test");
     NSString    *expr = @"(1+2)*3+4";
-    Calc        *calc = [[[Calc alloc] init] autorelease];
+    Calc        *calc = [[Calc alloc] init];
     NSLog(@"%@ = %@", expr, [calc eval:expr]);
     
     expr = @"36.5*9/5+32";

@@ -251,7 +251,10 @@
 	_processTime = nil;
 	
 	[_textFindResult setNumberOfMatches:_numberOfMatches];
-	[_didEndTarget performSelector:_didEndSelector withObject:self];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_didEndTarget performSelector:_didEndSelector withObject:self];
+#pragma clang diagnostic pop
 }
 
 - (void)exceptionRaised:(NSException*)exception

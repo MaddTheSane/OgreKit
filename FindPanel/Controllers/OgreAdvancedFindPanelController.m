@@ -479,7 +479,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (void)addFindHistory:(NSAttributedString*)attrString
 {
-	[self loadFindStringToPasteboard];	// load to Paseteboad
+	[self loadFindStringToPasteboard];
 	
 	NSMenu		*menu = [findPopUpButton menu];
 	NSInteger	i, n = [_findHistory count];
@@ -883,10 +883,10 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (BOOL)alertIfInvalidRegex
 {
 	@try {
-		[OGRegularExpression regularExpressionWithString:[findTextView string] 
-			options: [self options] 
-			syntax: [self syntax] 
-			escapeCharacter:[self escapeCharacter]];
+        [OGRegularExpression regularExpressionWithString:[findTextView string]
+                                                 options:[self options]
+                                                  syntax:[self syntax]
+                                         escapeCharacter:[self escapeCharacter]];
 	} @catch (NSException *localException) {
 		// Exception handling (例外処理)
 		if ([[localException name] isEqualToString:OgreException]) {
@@ -942,12 +942,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	[self addFindHistory:[findTextView textStorage]];
 	
-	OgreTextFindResult	*result = [[self textFinder] find:[findTextView string] 
-		options:[self options]	
-		fromTop:[self isStartFromTop]
-		forward:YES
-		wrap:[self isWrap]];
-	
+    OgreTextFindResult *result = [[self textFinder] find:[findTextView string]
+                                                 options:[self options]
+                                                 fromTop:[self isStartFromTop]
+                                                 forward:YES
+                                                    wrap:[self isWrap]];
+
 	if (![result alertIfErrorOccurred]) {
 		if ([result isSuccess]) {
 			[self setStartFromCursor];
@@ -970,11 +970,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	[self addFindHistory:[findTextView textStorage]];
 	
-	OgreTextFindResult	*result = [[self textFinder] find:[findTextView string] 
-		options:[self options] 
-		fromTop:[self isStartFromTop]
-		forward:NO
-		wrap:[self isWrap]];
+    OgreTextFindResult *result = [[self textFinder] find:[findTextView string]
+                                                 options:[self options]
+                                                 fromTop:[self isStartFromTop]
+                                                 forward:NO
+                                                    wrap:[self isWrap]];
 		
 	if (![result alertIfErrorOccurred]) {
 		if ([result isSuccess]) {
@@ -1335,7 +1335,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (void)findPanelDidAddChildWindow:(NSWindow*)childWindow
 {
-	_findResultWindowController = [childWindow delegate];
+	_findResultWindowController = (OgreFindResultWindowController *)[childWindow delegate];
 }
 
 - (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow
