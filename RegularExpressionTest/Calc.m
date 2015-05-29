@@ -79,7 +79,10 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     if (name == nil) return;
     
     SEL reduceSelector = NSSelectorFromString([NSString stringWithFormat:@"reduce_%@:", name]);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [self performSelector:reduceSelector withObject:aCapture];
+#pragma clang diagnostic pop
     
     NSLog(@"Stack: %@ <%@>", [_stack description], name);
 }
