@@ -77,7 +77,7 @@
     return [_regex expressionString];
 }
 
-/* result Informaion (OgreFindResult instance, error reason)*/
+/* result Information (OgreFindResult instance, error reason) */
 - (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException
 {
 	_alertSheet = aSheet;

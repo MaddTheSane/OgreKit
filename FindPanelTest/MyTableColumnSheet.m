@@ -16,14 +16,15 @@
 
 @implementation MyTableColumnSheet
 
-- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector CancelSelector:(SEL)CancelSelector target:(id)aTarget
+- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector cancelSelector:(SEL)CancelSelector endSelector:(SEL)endSelector target:(id)aTarget
 {
     self = [super init];
     if (self != nil) {
         _parentWindow = parentWindow;
-        _column = [aColumn retain];
+        _column = aColumn;
         _okSelector = OKSelector;
         _cancelSelector = CancelSelector;
+        _endSelector = endSelector;
         _target = aTarget;
         
         NSArray *topLevelObjects;
@@ -45,7 +46,6 @@
 
 - (void)awakeFromNib
 {
-	[self retain];
     NSString    *originalTitle = [[_column headerCell] stringValue];
     [originalTitleField setStringValue:originalTitle];
     [changedTitleField setStringValue:originalTitle];
@@ -58,25 +58,29 @@
 
 - (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
-	[self release];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_endSelector withObject:self];
+#pragma clang diagnostic pop
 }
 
-- (void)dealloc
-{
-    [_column release];
-    [super dealloc];
-}
 
 - (IBAction)cancel:(id)sender
 {
-	[_target performSelector:_cancelSelector withObject:self];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_cancelSelector withObject:self];
+#pragma clang diagnostic pop
 	[columnSheet orderOut:nil];
 	[NSApp endSheet:columnSheet returnCode:0];
 }
 
 - (IBAction)ok:(id)sender
 {
-	[_target performSelector:_okSelector withObject:self];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_okSelector withObject:self];
+#pragma clang diagnostic pop
 	[columnSheet orderOut:nil];
 	[NSApp endSheet:columnSheet returnCode:0];
 }

@@ -39,8 +39,11 @@
     if ([self fromTop]) [[self targetAdapter] moveHomePosition];
     
     _lhsPhase = NO;
-    OgreTextFindLeaf    *firstLeaf;
-    if ((firstLeaf = [(id  <OgreTextFindTargetAdapter>)[self targetAdapter] buildStackForSelectedLeafInThread:self]) != nil && [self _preprocessFindingInFirstLeaf:firstLeaf]) {
+    
+    OgreTextFindLeaf *firstLeaf =
+    [(id  <OgreTextFindTargetAdapter>)[self targetAdapter] buildStackForSelectedLeafInThread:self];
+    
+    if ((firstLeaf != nil) && [self _preprocessFindingInFirstLeaf:firstLeaf]) {
         [[self result] setType:OgreTextFindResultFailure];
         [firstLeaf willProcessFinding:self];
         [self willProcessFindingInLeaf:firstLeaf];

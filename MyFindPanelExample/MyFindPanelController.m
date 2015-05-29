@@ -35,12 +35,6 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	[self restoreHistory:[self.textFinder history]];
 }
 
-- (void)dealloc
-{
-	[_findHistory release];
-	[_replaceHistory release];
-	[super dealloc];
-}
 
 - (OgreOption)options
 {
@@ -69,8 +63,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 - (IBAction)findNext:(id)sender
 {
 	if (![self alertIfInvalidRegex]) return;	// Determine whether the appropriate regular expression. (適切な正規表現かどうか判定する。)
-    [_findHistory autorelease];
-	_findHistory = [[findTextField stringValue] retain];
+	_findHistory = [findTextField stringValue];
 	
 	[[self textFinder] setSyntax:[self syntax]];
 	OgreTextFindResult	*result = [[self textFinder] find: _findHistory 
@@ -85,8 +78,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 - (IBAction)findPrevious:(id)sender
 {
 	if (![self alertIfInvalidRegex]) return;
-    [_findHistory autorelease];
-	_findHistory = [[findTextField stringValue] retain];
+	_findHistory = [findTextField stringValue];
 	
 	[[self textFinder] setSyntax:[self syntax]];
 	OgreTextFindResult	*result = [[self textFinder] find: _findHistory 
@@ -101,10 +93,8 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 - (IBAction)replace:(id)sender
 {
 	if (![self alertIfInvalidRegex]) return;
-    [_findHistory autorelease];
-	_findHistory = [[findTextField stringValue] retain];
-    [_replaceHistory autorelease];
-	_replaceHistory = [[replaceTextField stringValue] retain];
+	_findHistory = [findTextField stringValue];
+	_replaceHistory = [replaceTextField stringValue];
 	
 	[[self textFinder] setSyntax:[self syntax]];
 	OgreTextFindResult	*result = [[self textFinder] replace: _findHistory 
@@ -117,10 +107,8 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 - (IBAction)replaceAll:(id)sender
 {
 	if (![self alertIfInvalidRegex]) return;
-    [_findHistory autorelease];
-	_findHistory = [[findTextField stringValue] retain];
-    [_replaceHistory autorelease];
-	_replaceHistory = [[replaceTextField stringValue] retain];
+	_findHistory = [findTextField stringValue];
+	_replaceHistory = [replaceTextField stringValue];
 		
 	[[self textFinder] setSyntax:[self syntax]];
 	OgreTextFindResult	*result = [[self textFinder] replaceAll: _findHistory 
@@ -139,10 +127,8 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 - (IBAction)replaceAndFind:(id)sender
 {
 	if (![self alertIfInvalidRegex]) return;
-    [_findHistory autorelease];
-	_findHistory = [[findTextField stringValue] retain];
-    [_replaceHistory autorelease];
-	_replaceHistory = [[replaceTextField stringValue] retain];
+	_findHistory = [findTextField stringValue];
+	_replaceHistory = [replaceTextField stringValue];
 	
 	[[self textFinder] setSyntax:[self syntax]];
 	OgreTextFindResult	*result;
@@ -210,13 +196,13 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	id  anObject;
 	anObject = history[MyFindHistoryKey];
 	if (anObject != nil) {
-		_findHistory = [anObject retain];
+		_findHistory = anObject;
 		[findTextField setStringValue:_findHistory];
 	}
 	
 	anObject = history[MyReplaceHistoryKey];
 	if (anObject != nil) {
-		_replaceHistory = [anObject retain];
+		_replaceHistory = anObject;
 		[replaceTextField setStringValue:_replaceHistory];
 	}
 	

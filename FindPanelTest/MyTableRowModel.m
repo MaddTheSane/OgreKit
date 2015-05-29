@@ -20,19 +20,13 @@
 {
     self = [super init];
     if (self != nil) {
-        _foo = [[NSString alloc] initWithString:@"new foo"];
-        _bar = [[NSString alloc] initWithString:@"new bar"];
+        _foo = @"new foo";
+        _bar = @"new bar";
     }
     
     return self;
 }
 
-- (void)dealloc
-{
-    [_foo release];
-    [_bar release];
-    [super dealloc];
-}
 
 - (NSString*)foo
 {
@@ -41,8 +35,7 @@
 
 - (void)setFoo:(NSString*)newFoo
 {
-    [_foo autorelease];
-    _foo = [newFoo retain];
+    _foo = newFoo;
 }
 
 - (NSString*)bar
@@ -52,8 +45,7 @@
 
 - (void)setBar:(NSString*)newBar
 {
-    [_bar autorelease];
-    _bar = [newBar retain];
+    _bar = newBar;
 }
 
 - (void)dump

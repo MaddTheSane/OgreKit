@@ -18,7 +18,9 @@
 static NSString *gMyTableRowPboardType = @"OgreKit Find Panel Test TableRows";
 static NSString *gMyTableRowPropertyType = @"rows";
 
-@implementation MyTableDocument
+@implementation MyTableDocument {
+    MyTableColumnSheet *_sheet;
+}
 
 // I teach be searched tableView to OgreTextFinder. (検索対象となるtableViewをOgreTextFinderに教える。)
 // To set nil if you do not want to search is. (検索させたくない場合はnilをsetする。)
@@ -38,12 +40,6 @@ static NSString *gMyTableRowPropertyType = @"rows";
     [tableView setDoubleAction:@selector(tableViewDoubleClicked)];
 }
 
-- (void)dealloc
-{
-    [_titleArray release];
-    [_dict release];
-    [super dealloc];
-}
 
 - (NSString*)windowNibName 
 {
@@ -96,7 +92,6 @@ static NSString *gMyTableRowPropertyType = @"rows";
     if (aString == nil) {
         aString = [[NSMutableString alloc] initWithData:data encoding:NSShiftJISStringEncoding];
     }
-    [aString autorelease];
     
 	// I get kind of line feed code. (改行コードの種類を得る。)
 	_newlineCharacter = [aString newlineCharacter];
@@ -164,9 +159,9 @@ static NSString *gMyTableRowPropertyType = @"rows";
         for (i = 0; i < numberOfColumns; i++) {
             // add columns
             identifier = [NSString stringWithFormat:@"%lu", i + 1];
-            OgreTableColumn   *aColumn = [[[OgreTableColumn alloc] initWithIdentifier:identifier] autorelease];
-            NSTableHeaderCell   *headerCell=[[[NSTableHeaderCell alloc] initTextCell:_titleArray[i]] autorelease];
-            NSTextFieldCell *dataCell=[[[NSTextFieldCell alloc] initTextCell:@""] autorelease];
+            OgreTableColumn   *aColumn = [[OgreTableColumn alloc] initWithIdentifier:identifier];
+            NSTableHeaderCell   *headerCell=[[NSTableHeaderCell alloc] initTextCell:_titleArray[i]];
+            NSTextFieldCell *dataCell=[[NSTextFieldCell alloc] initTextCell:@""];
             [aColumn setHeaderCell:headerCell];
             [aColumn setDataCell:dataCell];
             [dataCell setEditable:YES];
@@ -332,9 +327,9 @@ static NSString *gMyTableRowPropertyType = @"rows";
     _dict[identifier] = array;
     
     // add new column
-    OgreTableColumn   *aColumn = [[[OgreTableColumn alloc] initWithIdentifier:identifier] autorelease];
-    NSTableHeaderCell *headerCell=[[[NSTableHeaderCell alloc] initTextCell:identifier] autorelease];
-    NSTextFieldCell *dataCell=[[[NSTextFieldCell alloc] initTextCell:@""] autorelease];
+    OgreTableColumn   *aColumn = [[OgreTableColumn alloc] initWithIdentifier:identifier];
+    NSTableHeaderCell *headerCell=[[NSTableHeaderCell alloc] initTextCell:identifier];
+    NSTextFieldCell *dataCell=[[NSTextFieldCell alloc] initTextCell:@""];
     [aColumn setHeaderCell:headerCell];
     [aColumn setDataCell:dataCell];
     [dataCell setEditable:YES];
@@ -401,7 +396,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
     _sheetPosition.size.height = 0;
     _useCustomSheetPosition = YES;
     
-    [[[MyTableColumnSheet alloc] initWithParentWindow:[tableView window] tableColumn:aColumn OKSelector:@selector(changeTitleOfColumn:) CancelSelector:@selector(doNotChangeTitleOfColumn:) target:self] autorelease];
+    _sheet = [[MyTableColumnSheet alloc] initWithParentWindow:[tableView window]
+                                                  tableColumn:aColumn
+                                                   OKSelector:@selector(changeTitleOfColumn:)
+                                               cancelSelector:@selector(doNotChangeTitleOfColumn:)
+                                                  endSelector:@selector(sheetDidEnd:)
+                                                       target:self];
 }
 
 - (void)changeTitleOfColumn:(MyTableColumnSheet*)sheet
@@ -414,6 +414,11 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (void)doNotChangeTitleOfColumn:(MyTableColumnSheet*)sheet
 {
     _useCustomSheetPosition = NO;
+}
+
+- (void)sheetDidEnd:(MyTableColumnSheet*)sheet
+{
+    _sheet = nil;
 }
 
 - (NSRect)window:(NSWindow*)window willPositionSheet:(NSWindow*)sheet usingRect:(NSRect)rect

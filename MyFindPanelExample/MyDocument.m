@@ -57,12 +57,11 @@
 	
 	// The line feed code (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
 	if (_newlineCharacter != OgreUnixNewlineCharacter) {
-		_tmpString = [[OGRegularExpression replaceNewlineCharactersInString:aString 
-			withCharacter:OgreUnixNewlineCharacter] retain];
+		_tmpString = [OGRegularExpression replaceNewlineCharactersInString:aString 
+			withCharacter:OgreUnixNewlineCharacter];
 	} else {
-		_tmpString = [aString retain];
+		_tmpString = aString;
 	}
-	[aString release];
     aString = nil;
 	//NSLog(@"newline character: %d (-1:Nonbreaking 0:LF(Unix) 1:CR(Mac) 2:CR+LF(Windows) 3:UnicodeLineSeparator 4:UnicodeParagraphSeparator)", _newlineCharacter, [OgreTextFinder newlineCharacterInString:_tmpString]);
 	//NSLog(@"%@", [OGRegularExpression chomp:_tmpString]);
@@ -74,7 +73,6 @@
 {
 	if (_tmpString) {
 		[textView setString:_tmpString];
-		[_tmpString release];
         _tmpString = nil;
 	} else {
 		_newlineCharacter = OgreUnixNewlineCharacter;	// The default line break code (デフォルトの改行コード)

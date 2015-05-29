@@ -22,8 +22,9 @@
 @class OgreTextFinder, OgreFindPanelController, OgreTextFindResult, OgreTextFindThread, OgreTextFindProgressSheet;
 
 @protocol OgreTextFindDataSource <NSObject>
-/* OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる 
-   document windowのdelegateがimplementすることを想定している */
+/* It’s called via the responder chain when OgreTextFinder wants to know the search
+     delegate of the document window is I have assumed that the implement (OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる
+ document windowのdelegateがimplementすることを想定している) */
 - (void)tellMeTargetToFindIn:(id)sender;
 @end
 
@@ -37,7 +38,7 @@
 	
 	id				_targetToFindIn;		// Search for (検索対象)
 	Class			_adapterClassForTarget; // Search for adapter (wrapper) (検索対象のアダプタ(ラッパー))
-	NSMutableArray	*_busyTargetArray;		// In use target (使用中ターゲット)
+	NSMutableSet	*_busyTargetSet;		// In use target (使用中ターゲット)
 
 	NSDictionary	*_history;				// Search history, etc. (検索履歴等)
 	BOOL			_saved;					// Whether history, etc. has been saved (履歴等が保存されたかどうか)
@@ -84,60 +85,60 @@
 @property (nonatomic) OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
-- (OgreTextFindResult*)find:(NSString*)expressionString 
-	options:(OgreOption)options
-	fromTop:(BOOL)isTop
-	forward:(BOOL)forward
-	wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)find:(NSString*)expressionString
+                    options:(OgreOption)options
+                    fromTop:(BOOL)isTop
+                    forward:(BOOL)forward
+                       wrap:(BOOL)isWrap;
 
-- (OgreTextFindResult*)findAll:(NSString*)expressionString 
-	color:(NSColor*)highlightColor 
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+- (OgreTextFindResult*)findAll:(NSString*)expressionString
+                         color:(NSColor*)highlightColor
+                       options:(OgreOption)options
+                   inSelection:(BOOL)inSelection;
 
-- (OgreTextFindResult*)replace:(NSString*)expressionString 
-	withString:(NSString*)replaceString
-	options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(NSString*)expressionString 
-	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString 
-	withOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options;
+- (OgreTextFindResult*)replace:(NSString*)expressionString
+                    withString:(NSString*)replaceString
+                       options:(OgreOption)options;
+- (OgreTextFindResult*)replace:(NSString*)expressionString
+          withAttributedString:(NSAttributedString*)replaceString
+                       options:(OgreOption)options;
+- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString
+                  withOGString:(id<OGStringProtocol>)replaceString
+                       options:(OgreOption)options;
 
-- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
-	withString:(NSString*)replaceString
-	options:(OgreOption)options 
-    replacingOnly:(BOOL)replacingOnly
-	wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
-	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options
-    replacingOnly:(BOOL)replacingOnly 
-	wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString 
-	withOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options 
-    replacingOnly:(BOOL)replacingOnly
-	wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString
+                           withString:(NSString*)replaceString
+                              options:(OgreOption)options
+                        replacingOnly:(BOOL)replacingOnly
+                                 wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString
+                 withAttributedString:(NSAttributedString*)replaceString
+                              options:(OgreOption)options
+                        replacingOnly:(BOOL)replacingOnly
+                                 wrap:(BOOL)isWrap;
+- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString
+                         withOGString:(id<OGStringProtocol>)replaceString
+                              options:(OgreOption)options
+                        replacingOnly:(BOOL)replacingOnly
+                                 wrap:(BOOL)isWrap;
 
+- (OgreTextFindResult*)replaceAll:(NSString*)expressionString
+                       withString:(NSString*)replaceString
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
-	withString:(NSString*)replaceString
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
-- (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
-	withAttributedString:(NSAttributedString*)replaceString
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+             withAttributedString:(NSAttributedString*)replaceString
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 - (OgreTextFindResult*)replaceAll:(id<OGStringProtocol>)expressionString 
-	withOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+                     withOGString:(id<OGStringProtocol>)replaceString
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 
 - (OgreTextFindResult*)hightlight:(NSString*)expressionString 
-	color:(NSColor*)highlightColor 
-	options:(OgreOption)options
-	inSelection:(BOOL)inSelection;
+                            color:(NSColor*)highlightColor 
+                          options:(OgreOption)options
+                      inSelection:(BOOL)inSelection;
 
 @property (nonatomic, readonly, strong) OgreTextFindResult *unhightlight;
 
@@ -168,9 +169,9 @@
 // If the target is in use (ターゲットが使用中かどうか)
 - (BOOL)isBusyTarget:(id)target;
 // I want to use in (使用中にする)
-- (void)makeTargetBusy:(id)target;
+- (void)markTargetBusy:(id)target;
 // To not in use (使用中でなくする)
-- (void)makeTargetFree:(id)target;
+- (void)markTargetFree:(id)target;
 
 /* hack Find Menu */
 - (void)hackFindMenu;
