@@ -69,7 +69,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	
 	// search option (I deal with OgreFindNotEmptyOption separately) (searchオプション(OgreFindEmptyOptionを別に扱う))
 	BOOL		findEmpty;
-	NSUInteger	searchOptions;
+	OgreOption	searchOptions;
 	if ((_searchOptions & OgreFindEmptyOption) == 0) {
 		findEmpty = NO;
 		searchOptions = _searchOptions;
