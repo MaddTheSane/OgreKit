@@ -53,7 +53,7 @@
     }
     _ogrePathComponents = nil;
     
-    //NSLog(@"column:%d, row:%d", _ogreSelectedColumn, selectedRow);
+    //NSLog(@"column:%ld, row:%ld", (long)_ogreSelectedColumn, (long)selectedRow);
     //NSLog(@"path:%@", [[self ogrePathComponentsOfSelectedItem] description]);
 }
 

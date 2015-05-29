@@ -75,11 +75,11 @@
 	
 	NSString	*message;
 	if ([_textFindResult numberOfMatches] > 1) {
-		message = OgreTextFinderLocalizedString(@"%d strings found.");
+		message = OgreTextFinderLocalizedString(@"%lu strings found.");
 	} else {
-		message = OgreTextFinderLocalizedString(@"%d string found.");
-	}
-	[messageField setStringValue:[NSString stringWithFormat:message, [_textFindResult numberOfMatches]]];
+		message = OgreTextFinderLocalizedString(@"%lu string found.");
+    }
+	[messageField setStringValue:[NSString stringWithFormat:message, (unsigned long)[_textFindResult numberOfMatches]]];
 	
 	message = OgreTextFinderLocalizedString(@"Find String: %@");
 	[findStringField setStringValue:[NSString stringWithFormat:message, [_textFindResult findString]]];

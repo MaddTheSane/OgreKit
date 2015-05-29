@@ -231,22 +231,22 @@
 {
     NSString        *message;
     if (numberOfMatches > 1) {
-        message = OgreTextFinderLocalizedString(@"%d strings found.");
+        message = OgreTextFinderLocalizedString(@"%lu strings found.");
     } else {
-        message = OgreTextFinderLocalizedString(@"%d string found.");
+        message = OgreTextFinderLocalizedString(@"%lu string found.");
     }
-    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
+    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, (unsigned long)numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
 - (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
-        message = OgreTextFinderLocalizedString(@"Found in %d items.");
+        message = OgreTextFinderLocalizedString(@"Found in %lu items.");
     } else {
-        message = OgreTextFinderLocalizedString(@"Found in %d item.");
+        message = OgreTextFinderLocalizedString(@"Found in %lu item.");
     }
-    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
+    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, (unsigned long)numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
 

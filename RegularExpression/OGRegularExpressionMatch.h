@@ -210,11 +210,11 @@ extern NSString	* const OgreMatchException;
 	OGRegularExpressionMatch	*match;
     OGRegularExpressionCapture  *capture;
 	NSEnumerator				*matchEnumerator = [regex matchEnumeratorInString:target];
-	unsigned					i;
+	NSUInteger					i;
 	
 	while ((match = [matchEnumerator nextObject]) != nil) {
 		capture = [match captureHistory];
-		NSLog(@"number of capture history: %d", [capture numberOfChildren]);
+		NSLog(@"number of capture history: %lu", (long unsigned)[capture numberOfChildren]);
 		for (i = 0; i < [capture numberOfChildren]; i++) 
             NSLog(@" %@", [[capture childAtIndex:i] string]);
 	}

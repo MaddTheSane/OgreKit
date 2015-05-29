@@ -399,7 +399,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (void)setSyntax:(OgreSyntax)syntax
 {
-    //NSLog(@"%d", [OGRegularExpression intValueForSyntax:syntax]);
+    //NSLog(@"%ld", (long)[OGRegularExpression intValueForSyntax:syntax]);
     _syntax = syntax;
 }
 

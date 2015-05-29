@@ -123,7 +123,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         
         numberOfCaptures = [capture numberOfChildren];
         _dict = [[NSMutableDictionary alloc] initWithCapacity:numberOfCaptures];
-        //NSLog(@"%d", numberOfCaptures);
+        //NSLog(@"%lu", (unsigned long)numberOfCaptures);
         dictArray = [NSMutableArray arrayWithCapacity:numberOfCaptures];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
             array = [NSMutableArray arrayWithCapacity:50];

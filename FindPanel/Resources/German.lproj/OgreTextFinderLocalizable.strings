@@ -24,34 +24,34 @@
 /* progress messages */
 " (%dsec remaining)"        = " (Noch %d Sekunden)";    // sec: second
 // Find All
-"%d string found."          = "%d Zeichenkette gefunden.";
-"%d strings found."         = "%d Zeichenketten gefunden.";
+"%lu string found."          = "%lu Zeichenkette gefunden.";
+"%lu strings found."         = "%lu Zeichenketten gefunden.";
 // Replace All
-"%d string replaced."		= "%d Zeichenkette ersetzt.";
-"%d strings replaced."      = "%d Zeichenketten gefunden.";
+"%lu string replaced."		= "%lu Zeichenkette ersetzt.";
+"%lu strings replaced."      = "%lu Zeichenketten gefunden.";
 // Highlight
-"%d string highlighted."    = "%d Zeichenkette markiert.";
-"%d strings highlighted."   = "%d Zeichenketten markiert.";
+"%lu string highlighted."    = "%lu Zeichenkette markiert.";
+"%lu strings highlighted."   = "%lu Zeichenketten markiert.";
 
 /* finish messages */
 // not found
 "Not found. (%.3fsec)"							= "Nicht gefunden. (%.3f Sekunden)";
 "Not found. (canceled, %.3fsec)"				= "Nicht gefunden. (Abgebrochen, %.3f Sekunden)";
 // Find All
-"%d string found. (%.3fsec)"					= "%d Zeichenkette gefunden. (%.3f Sekunden)";
-"%d strings found. (%.3fsec)"					= "%d Zeichenketten gefunden. (%.3f Sekunden)";
-"%d string found. (canceled, %.3fsec)"			= "%d Zeichenkette gefunden. (Abgebrochen, %.3f Sekunden)";
-"%d strings found. (canceled, %.3fsec)"			= "%d Zeichenketten gefunden. (Abgebrochen, %.3f Sekunden)";
+"%lu string found. (%.3fsec)"					= "%lu Zeichenkette gefunden. (%.3f Sekunden)";
+"%lu strings found. (%.3fsec)"					= "%lu Zeichenketten gefunden. (%.3f Sekunden)";
+"%lu string found. (canceled, %.3fsec)"			= "%lu Zeichenkette gefunden. (Abgebrochen, %.3f Sekunden)";
+"%lu strings found. (canceled, %.3fsec)"			= "%lu Zeichenketten gefunden. (Abgebrochen, %.3f Sekunden)";
 // Replace All
-"%d string replaced. (%.3fsec)"					= "%d Zeichenkette ersetzt. (%.3f Sekunden)";
-"%d strings replaced. (%.3fsec)"				= "%d Zeichenketten gefunden. (%.3f Sekunden)";
-"%d string replaced. (canceled, %.3fsec)"		= "%d Zeichenkette ersetzt. (Abgebrochen, %.3f Sekunden)";
-"%d strings replaced. (canceled, %.3fsec)"		= "%d Zeichenketten gefunden. (Abgebrochen, %.3f Sekunden)";
+"%lu string replaced. (%.3fsec)"					= "%lu Zeichenkette ersetzt. (%.3f Sekunden)";
+"%lu strings replaced. (%.3fsec)"				= "%lu Zeichenketten gefunden. (%.3f Sekunden)";
+"%lu string replaced. (canceled, %.3fsec)"		= "%lu Zeichenkette ersetzt. (Abgebrochen, %.3f Sekunden)";
+"%lu strings replaced. (canceled, %.3fsec)"		= "%lu Zeichenketten gefunden. (Abgebrochen, %.3f Sekunden)";
 // Highlight
-"%d string highlighted. (%.3fsec)"				= "%d Zeichenkette markiert. (%.3f Sekunden)";
-"%d strings highlighted. (%.3fsec)"				= "%d Zeichenketten markiert. (%.3f Sekunden)";
-"%d string highlighted. (canceled, %.3fsec)"	= "%d Zeichenkette markiert. (Abgebrochen, %.3f Sekunden)";
-"%d strings highlighted. (canceled, %.3fsec)"   = "%d Zeichenketten markiert. (Abgebrochen, %.3f Sekunden)";
+"%lu string highlighted. (%.3fsec)"				= "%lu Zeichenkette markiert. (%.3f Sekunden)";
+"%lu strings highlighted. (%.3fsec)"				= "%lu Zeichenketten markiert. (%.3f Sekunden)";
+"%lu string highlighted. (canceled, %.3fsec)"	= "%lu Zeichenkette markiert. (Abgebrochen, %.3f Sekunden)";
+"%lu strings highlighted. (canceled, %.3fsec)"   = "%lu Zeichenketten markiert. (Abgebrochen, %.3f Sekunden)";
 
 /* error messages */
 "Error! Uneditable."	= "Fehler! Nicht zu bearbeiten."; /* a target TextView is not editable */
@@ -59,10 +59,10 @@
 
 /* Find Result Window*/
 "Find Result for \"%@\""        = "Suchergebnis für „%@“";
-"%d string found."				= "%d Zeichenkette gefunden.";
-"%d strings found."				= "%d Zeichenketten gefunden.";
-"Found in %d item."				= "In %d Eintrag gefunden.";
-"Found in %d items."            = "In %d Einträgen gefunden.";
+"%lu string found."				= "%lu Zeichenkette gefunden.";
+"%lu strings found."				= "%lu Zeichenketten gefunden.";
+"Found in %lu item."				= "In %lu Eintrag gefunden.";
+"Found in %lu items."            = "In %lu Einträgen gefunden.";
 "Find String: %@"               = "Suchzeichenkette: %@";
 "Line"                          = "Zeile";
 "Found String"                  = "Gefundene Zeichenketten";

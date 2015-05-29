@@ -191,7 +191,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		// If the index th substring does not exist (index番目のsubstringが存在しない場合)
 		return NSMakeRange(NSNotFound, 0);
 	}
-	//NSLog(@"%d %d-%d", index, _region->beg[index], _region->end[index]);
+    //NSLog(@"%lu %td-%td", (unsigned long)index, _region->beg[index], _region->end[index]);
 	
 	return NSMakeRange(_searchRange.location + (_region->beg[index] / sizeof(unichar)), (_region->end[index] - _region->beg[index]) / sizeof(unichar));
 }

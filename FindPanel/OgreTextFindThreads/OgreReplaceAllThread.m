@@ -34,8 +34,8 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = OgreTextFinderLocalizedString(@"%d string replaced.");
-    progressMessagePlural = OgreTextFinderLocalizedString(@"%d strings replaced.");
+    progressMessage = OgreTextFinderLocalizedString(@"%lu string replaced.");
+    progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings replaced.");
     remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
@@ -146,10 +146,10 @@
     
 	notFoundMessage				= OgreTextFinderLocalizedString(@"Not found. (%.3fsec)");
 	cancelledNotFoundMessage	= OgreTextFinderLocalizedString(@"Not found. (canceled, %.3fsec)");
-    finishedMessage             = OgreTextFinderLocalizedString(@"%d string replaced. (%.3fsec)");
-    finishedMessagePlural       = OgreTextFinderLocalizedString(@"%d strings replaced. (%.3fsec)");
-    cancelledMessage            = OgreTextFinderLocalizedString(@"%d string replaced. (canceled, %.3fsec)");
-    cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings replaced. (canceled, %.3fsec)");
+    finishedMessage             = OgreTextFinderLocalizedString(@"%lu string replaced. (%.3fsec)");
+    finishedMessagePlural       = OgreTextFinderLocalizedString(@"%lu strings replaced. (%.3fsec)");
+    cancelledMessage            = OgreTextFinderLocalizedString(@"%lu string replaced. (canceled, %.3fsec)");
+    cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%lu strings replaced. (canceled, %.3fsec)");
     
     NSString    *message;
     NSUInteger  count = [self numberOfMatches];
@@ -160,7 +160,7 @@
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
-				count, 
+				(unsigned long)count,
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	} else {
@@ -170,7 +170,7 @@
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
-				count, 
+				(unsigned long)count,
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	}

@@ -658,7 +658,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	withAttributedString:(NSAttributedString*)newString 
 	inTarget:(NSTextView*)aTextView 
 {
-	//NSLog(@"undoableReplaceCharactersInRange:(%d, %d) withAttributedString:%@", oldRange.location, oldRange.length, [newString string]);
+	//NSLog(@"undoableReplaceCharactersInRange:(%lu, %lu) withAttributedString:%@", (unsigned long)oldRange.location, (unsigned long)oldRange.length, [newString string]);
 	NSTextStorage		*textStorage = [aTextView textStorage];
 	NSAttributedString	*replaceString = [_escapeCharacterFormatter attributedStringForObjectValue:newString 
 											withDefaultAttributes:nil];
@@ -744,7 +744,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (OgreSyntax)syntax
 {
-	//NSLog(@"%d", [[syntaxMatrix selectedCell] tag]);
+    //NSLog(@"%ld", (long)[[syntaxPopUpButton selectedItem] tag]);
 	return [OGRegularExpression syntaxForIntValue:(int)[[syntaxPopUpButton selectedItem] tag]];
 }
 
@@ -1082,8 +1082,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		closeProgressWindow = NO;
 	} else {
 		// success or failure
-		//NSUInteger	numOfReplace = [[textFindResult resultInfo] integerValue];
-		//NSLog(@"didEndReplaceAll: %d", numOfReplace);
+        //NSLog(@"didEndReplaceAll: %lu", (unsigned long)[textFindResult numberOfMatches]);
 		closeProgressWindow = [self closeWhenDoneOption];
 	}
 	
@@ -1124,8 +1123,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		closeProgressWindow = NO;
 	} else {
 		// success or failure
-		//NSUInteger	numberOfMatch = [[textFindResult resultInfo] integerValue];
-		//NSLog(@"didEndHighlight: %d", numberOfMatch);
+        //NSLog(@"didEndHighlight: %lu", (unsigned long)[textFindResult numberOfMatches]);
 		closeProgressWindow =  [self closeWhenDoneOption];
 	}
 	

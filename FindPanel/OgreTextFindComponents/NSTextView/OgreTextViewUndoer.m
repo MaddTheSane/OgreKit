@@ -66,7 +66,7 @@
         i--;
         aRange = *(_rangeArray + i);
         aString = _attributedStringArray[i];
-        //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [aString string]);
+        //NSLog(@"(%lu, %lu), %@", (unsigned long)aRange.location, (unsigned long)aRange.length, [aString string]);
         
         newRange = NSMakeRange(aRange.location, [aString length]);
         [redoArray addRange:newRange attributedString:[[NSAttributedString alloc] initWithAttributedString:[textStorage attributedSubstringFromRange:aRange]]];

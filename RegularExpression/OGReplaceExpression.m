@@ -140,7 +140,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 			
 			matchIndex = [match indexOfFirstMatchedSubstring];  // Did matched to any subexpression (どの部分式にマッチしたのか)
 	#ifdef DEBUG_OGRE
-			NSLog(@" matchIndex: %d, %@", matchIndex, [match matchedString]);
+			NSLog(@" matchIndex: %lu, %@", (unsigned long)matchIndex, [match matchedString]);
 	#endif
 			switch (matchIndex) {
 				case 1: // Ordinary character (通常文字)

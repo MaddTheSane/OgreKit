@@ -236,7 +236,7 @@
 // I convert Celsius to Fahrenheit. (摂氏を華氏に変換する。)
 - (NSString*)fahrenheitFromCelsius:(OGRegularExpressionMatch*)aMatch contextInfo:(id)contextInfo
 {
-	//NSLog(@"matchedString:%@ index:%d", [aMatch matchedString], [aMatch index]);
+    //NSLog(@"matchedString:%@ index:%lu", [aMatch matchedString], (unsigned long)[aMatch index]);
 	double	celcius = [[aMatch substringAtIndex:1] doubleValue];
 	double	fahrenheit = celcius * 9.0 / 5.0 + 32.0;
 	

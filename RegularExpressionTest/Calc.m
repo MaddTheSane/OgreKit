@@ -67,9 +67,9 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     for (i = 0; i < [aCapture level]; i++) [indent appendString:@"  "];
     NSRange matchRange = [aCapture range];
     
-    NSLog(@" %@#%d(\"%@\"): (%d-%d) \"%@\"", 
-        indent, [aCapture groupIndex], [aCapture groupName], 
-        matchRange.location, matchRange.length, 
+    NSLog(@" %@#%lu(\"%@\"): (%lu-%lu) \"%@\"", 
+        indent, (unsigned long)[aCapture groupIndex], [aCapture groupName], 
+        (unsigned long)matchRange.location, (unsigned long)matchRange.length,
         [aCapture string]);*/
 }
 

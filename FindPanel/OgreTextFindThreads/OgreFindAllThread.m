@@ -36,8 +36,8 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = OgreTextFinderLocalizedString(@"%d string found.");
-    progressMessagePlural = OgreTextFinderLocalizedString(@"%d strings found.");
+    progressMessage = OgreTextFinderLocalizedString(@"%lu string found.");
+    progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings found.");
     remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
@@ -141,10 +141,10 @@
     
 	notFoundMessage				= OgreTextFinderLocalizedString(@"Not found. (%.3fsec)");
 	cancelledNotFoundMessage	= OgreTextFinderLocalizedString(@"Not found. (canceled, %.3fsec)");
-    finishedMessage             = OgreTextFinderLocalizedString(@"%d string found. (%.3fsec)");
-    finishedMessagePlural       = OgreTextFinderLocalizedString(@"%d strings found. (%.3fsec)");
-    cancelledMessage            = OgreTextFinderLocalizedString(@"%d string found. (canceled, %.3fsec)");
-    cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings found. (canceled, %.3fsec)");
+    finishedMessage             = OgreTextFinderLocalizedString(@"%lu string found. (%.3fsec)");
+    finishedMessagePlural       = OgreTextFinderLocalizedString(@"%lu strings found. (%.3fsec)");
+    cancelledMessage            = OgreTextFinderLocalizedString(@"%lu string found. (canceled, %.3fsec)");
+    cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%lu strings found. (canceled, %.3fsec)");
     
     NSString    *message;
     NSUInteger  count = [self numberOfMatches];
@@ -155,7 +155,7 @@
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
-				count, 
+				(unsigned long)count,
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	} else {
@@ -165,7 +165,7 @@
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		} else {
 			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
-				count, 
+				(unsigned long)count, 
 				[self processTime] + 0.0005 /* Rounding (四捨五入) */];
 		}
 	}

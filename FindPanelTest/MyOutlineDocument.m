@@ -108,7 +108,7 @@
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_fileWrapper == nil) return nil;
-    //NSLog(@"child:%d ofItem:%@", index, [item name]);
+    //NSLog(@"child:%ld ofItem:%@", (long)index, [item name]);
     
     if (item == nil) return _fileWrapper;    // root
     

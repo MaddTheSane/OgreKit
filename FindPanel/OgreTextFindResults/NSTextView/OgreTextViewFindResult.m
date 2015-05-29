@@ -126,13 +126,13 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
-    //NSLog(@"lineOfMatchedStringAtIndex:%d", index);
+    //NSLog(@"lineOfMatchedStringAtIndex:%lu", (unsigned long)index);
 	return _lineOfMatchedStrings[(index + 1)];   // 0th is dummy (0番目はダミー)
 }
 
 - (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
-    //NSLog(@"matchedStringAtIndex:%d", index);
+    //NSLog(@"matchedStringAtIndex:%lu", (unsigned long)index);
 	if (_textView == nil) return [[self textFindResult] missingString];
 	
 	NSArray         *matchArray = _matchRangeArray[(index + 1)];   // 0th is dummy (0番目はダミー)
@@ -243,9 +243,9 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 	
 	if ([textStorage editedMask] & NSTextStorageEditedCharacters) {
 		// For character of change (文字の変更の場合)
-		/*NSLog(@"w: (%d, %d) -> (%d, %d)", 
-			editedRange.location, editedRange.length - changeInLength, 
-			editedRange.location, editedRange.length);*/
+		/*NSLog(@"w: (%lu, %lu) -> (%lu, %lu)",
+			(unsigned long)editedRange.location, (unsigned long)(editedRange.length - changeInLength), 
+			(unsigned long)editedRange.location, (unsigned long)editedRange.length);*/
 		// Update display of (表示の更新)
 		[self updateOldRange:NSMakeRange(editedRange.location, editedRange.length - changeInLength) newRange:NSMakeRange(editedRange.location, editedRange.length)];
 	}

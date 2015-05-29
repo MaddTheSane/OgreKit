@@ -24,34 +24,34 @@
 /* progress messages */
 " (%dsec remaining)"        = " (%d seconds remaining)";    // sec: second
 															// Find All
-"%d string found."          = "%d string found.";
-"%d strings found."         = "%d strings found.";
+"%lu string found."          = "%lu string found.";
+"%lu strings found."         = "%lu strings found.";
 // Replace All
-"%d string replaced."       = "%d string replaced.";
-"%d strings replaced."      = "%d strings replaced.";
+"%lu string replaced."       = "%lu string replaced.";
+"%lu strings replaced."      = "%lu strings replaced.";
 // Highlight
-"%d string highlighted."    = "%d string highlighted.";
-"%d strings highlighted."   = "%d strings highlighted.";
+"%lu string highlighted."    = "%lu string highlighted.";
+"%lu strings highlighted."   = "%lu strings highlighted.";
 
 /* finish messages */
 // not found
 "Not found. (%.3fsec)"							= "Not found. (%.3f seconds)";
 "Not found. (canceled, %.3fsec)"				= "Not found. (canceled, %.3f seconds)";
 // Find All
-"%d string found. (%.3fsec)"					= "%d string fouond. (%.3f seconds)";
-"%d strings found. (%.3fsec)"					= "%d strings found. (%.3f seconds)";
-"%d string found. (canceled, %.3fsec)"			= "%d string found. (canceled, %.3f seconds)";
-"%d strings found. (canceled, %.3fsec)"			= "%d strings found. (canceled, %.3f seconds)";
+"%lu string found. (%.3fsec)"					= "%lu string fouond. (%.3f seconds)";
+"%lu strings found. (%.3fsec)"					= "%lu strings found. (%.3f seconds)";
+"%lu string found. (canceled, %.3fsec)"			= "%lu string found. (canceled, %.3f seconds)";
+"%lu strings found. (canceled, %.3fsec)"			= "%lu strings found. (canceled, %.3f seconds)";
 // Replace All
-"%d string replaced. (%.3fsec)"					= "%d string replaced. (%.3f seconds)";
-"%d strings replaced. (%.3fsec)"				= "%d strings replaced. (%.3f seconds)";
-"%d string replaced. (canceled, %.3fsec)"		= "%d string replaced. (canceled, %.3f seconds)";
-"%d strings replaced. (canceled, %.3fsec)"		= "%d strings replaced. (canceled, %.3f seconds)";
+"%lu string replaced. (%.3fsec)"					= "%lu string replaced. (%.3f seconds)";
+"%lu strings replaced. (%.3fsec)"				= "%lu strings replaced. (%.3f seconds)";
+"%lu string replaced. (canceled, %.3fsec)"		= "%lu string replaced. (canceled, %.3f seconds)";
+"%lu strings replaced. (canceled, %.3fsec)"		= "%lu strings replaced. (canceled, %.3f seconds)";
 // Highlight
-"%d string highlighted. (%.3fsec)"				= "%d string highlighted. (%.3f seconds)";
-"%d strings highlighted. (%.3fsec)"				= "%d strings highlighted. (%.3f seconds)";
-"%d string highlighted. (canceled, %.3fsec)"	= "%d string highlighted. (canceled, %.3f seconds)";
-"%d strings highlighted. (canceled, %.3fsec)"   = "%d strings highlighted. (canceled, %.3f seconds)";
+"%lu string highlighted. (%.3fsec)"				= "%lu string highlighted. (%.3f seconds)";
+"%lu strings highlighted. (%.3fsec)"				= "%lu strings highlighted. (%.3f seconds)";
+"%lu string highlighted. (canceled, %.3fsec)"	= "%lu string highlighted. (canceled, %.3f seconds)";
+"%lu strings highlighted. (canceled, %.3fsec)"   = "%lu strings highlighted. (canceled, %.3f seconds)";
 
 /* error messages */
 "Error! Uneditable."	= "Error! Uneditable."; /* a target TextView is not editable */
@@ -59,10 +59,10 @@
 
 /* Find Result Window*/
 "Find Result for \"%@\""        = "Find Result for “%@”";
-"%d string found."				= "%d string found.";
-"%d strings found."				= "%d strings found.";
-"Found in %d item."				= "Found in %d item.";
-"Found in %d items."            = "Found in %d items.";
+"%lu string found."				= "%lu string found.";
+"%lu strings found."				= "%lu strings found.";
+"Found in %lu item."				= "Found in %lu item.";
+"Found in %lu items."            = "Found in %lu items.";
 "Find String: %@"               = "Find String: %@";
 "Line"                          = "Line";
 "Found String"                  = "Found String";
