@@ -14,6 +14,8 @@
 #import <Foundation/Foundation.h>
 #import <OgreKit/OGRegularExpression.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 // Exception name
 extern NSString	* const OgreFormatterException;
 
@@ -26,14 +28,14 @@ extern NSString	* const OgreFormatterException;
 }
 
 // Required method (必須メソッド)
-- (NSString*)stringForObjectValue:(id)anObject;
-- (NSAttributedString*)attributedStringForObjectValue:(id)anObject 
+- (nullable NSString*)stringForObjectValue:(id)anObject;
+- (nullable NSAttributedString*)attributedStringForObjectValue:(id)anObject
 	withDefaultAttributes:(NSDictionary*)attributes;
-- (NSString*)editingStringForObjectValue:(id)anObject;
+- (nullable NSString*)editingStringForObjectValue:(id)anObject;
 
 // Error determination (エラー判定)
-- (BOOL)getObjectValue:(id*)obj forString:(NSString*)string 
-	errorDescription:(NSString**)error;
+- (BOOL)getObjectValue:(id __nonnull*__nonnull)obj forString:(NSString*)string
+	errorDescription:(NSString*__nullable*__nonnull)error;
 
 - (instancetype)init;
 - (instancetype)initWithOptions:(OgreOption)options
@@ -45,3 +47,5 @@ extern NSString	* const OgreFormatterException;
 @property (nonatomic) OgreSyntax syntax;
 
 @end
+
+NS_ASSUME_NONNULL_END

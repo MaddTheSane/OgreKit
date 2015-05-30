@@ -14,12 +14,12 @@ private let calcRegex = "\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e2>\\-\\g<t>)
 final class SwiftCalc: NSObject, OGRegularExpressionCaptureVisitor {
 	var stack = [Double]()
 	
-	func visitAtFirstCapture(aCapture: OGRegularExpressionCapture!) {
+	func visitAtFirstCapture(aCapture: OGRegularExpressionCapture?) {
 		
 	}
 	
-	func visitAtLastCapture(aCapture: OGRegularExpressionCapture!) {
-		if let name = aCapture.groupName {
+	func visitAtLastCapture(aCapture: OGRegularExpressionCapture?) {
+		if let aCapture = aCapture, name = aCapture.groupName {
 			switch name {
 			case "e1":
 				reduce_e1(aCapture)
@@ -60,15 +60,13 @@ final class SwiftCalc: NSObject, OGRegularExpressionCaptureVisitor {
 	}
 	
 	func eval(expression: String) -> Double? {
-		let regex = OGRegularExpression(string: calcRegex, options: OgreCaptureGroupOption, syntax: .RubySyntax, escapeCharacter: OgreBackslashCharacter)
-		let match = regex.matchInString(expression)
-		
-		if match == nil || match.rangeOfMatchedString.length != count(expression) {
+		if let regex = OGRegularExpression(string: calcRegex, options: OgreCaptureGroupOption, syntax: .RubySyntax, escapeCharacter: OgreBackslashCharacter), match = regex.matchInString(expression) {
+			
+			match.captureHistory!.acceptVisitor(self)
+			return pop()
+		} else {
 			return nil
 		}
-		
-		match.captureHistory.acceptVisitor(self)
-		return pop()
 	}
 	
 	private func reduce_e1(aCapture: OGRegularExpressionCapture) {
@@ -84,7 +82,9 @@ final class SwiftCalc: NSObject, OGRegularExpressionCaptureVisitor {
 	}
 	
 	private func reduce_f2(aCapture: OGRegularExpressionCapture) {
-		push((aCapture.string as NSString).doubleValue)
+		if let capturedStr = aCapture.string {
+			push((capturedStr as NSString).doubleValue)
+		}
 	}
 
 	private func reduce_e2(aCapture: OGRegularExpressionCapture) {

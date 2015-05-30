@@ -20,6 +20,7 @@
 #endif
 #import <OgreKit/oniguruma.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 // constant
 extern NSString	* const OgreMatchException;
@@ -64,30 +65,30 @@ extern NSString	* const OgreMatchException;
 
 // Index th substring \index (// index番目のsubstring \index)
 //  I return nil when the index th substring does not exist. (index番目のsubstringが存在しない時には nil を返す。)
-- (id<OGStringProtocol>)ogSubstringAtIndex:(NSUInteger)index;
-- (NSString*)substringAtIndex:(NSUInteger)index;
-- (NSAttributedString*)attributedSubstringAtIndex:(NSUInteger)index;
+- (nullable id<OGStringProtocol>)ogSubstringAtIndex:(NSUInteger)index;
+- (nullable NSString*)substringAtIndex:(NSUInteger)index;
+- (nullable NSAttributedString*)attributedSubstringAtIndex:(NSUInteger)index;
 
 // Matched before the substring \` (// マッチした部分より前の文字列 \`)
-@property (nonatomic, readonly, strong) id<OGStringProtocol> prematchOGString;
-@property (nonatomic, readonly, copy) NSString *prematchString;
-@property (nonatomic, readonly, copy) NSAttributedString *prematchAttributedString;
+@property (nonatomic, readonly, strong, nullable) id<OGStringProtocol> prematchOGString;
+@property (nonatomic, readonly, copy, nullable) NSString *prematchString;
+@property (nonatomic, readonly, copy, nullable) NSAttributedString *prematchAttributedString;
 
 // Matched behind substring \' (// マッチした部分より後ろの文字列 \')
-@property (nonatomic, readonly, strong) id<OGStringProtocol> postmatchOGString;
-@property (nonatomic, readonly, copy) NSString *postmatchString;
-@property (nonatomic, readonly, copy) NSAttributedString *postmatchAttributedString;
+@property (nonatomic, readonly, strong, nullable) id<OGStringProtocol> postmatchOGString;
+@property (nonatomic, readonly, copy, nullable) NSString *postmatchString;
+@property (nonatomic, readonly, copy, nullable) NSAttributedString *postmatchAttributedString;
 
 // Last matched substring \+ (// 最後にマッチした部分文字列 \+)
 // It returns nil when it does not exist. (存在しないときには nil を返す。)
-@property (nonatomic, readonly, strong) id<OGStringProtocol> lastMatchOGSubstring;
-@property (nonatomic, readonly, copy) NSString *lastMatchSubstring;
-@property (nonatomic, readonly, copy) NSAttributedString *lastMatchAttributedSubstring;
+@property (nonatomic, readonly, strong, nullable) id<OGStringProtocol> lastMatchOGSubstring;
+@property (nonatomic, readonly, copy, nullable) NSString *lastMatchSubstring;
+@property (nonatomic, readonly, copy, nullable) NSAttributedString *lastMatchAttributedSubstring;
 
 // Matched between the part and the matched part before one string \- (own added) (マッチした部分と一つ前にマッチした部分の間の文字列 \- (独自に追加))
-@property (nonatomic, readonly, strong) id<OGStringProtocol> ogStringBetweenMatchAndLastMatch;
-@property (nonatomic, readonly, copy) NSString *stringBetweenMatchAndLastMatch;
-@property (nonatomic, readonly, copy) NSAttributedString *attributedStringBetweenMatchAndLastMatch;
+@property (nonatomic, readonly, strong, nullable) id<OGStringProtocol> ogStringBetweenMatchAndLastMatch;
+@property (nonatomic, readonly, copy, nullable) NSString *stringBetweenMatchAndLastMatch;
+@property (nonatomic, readonly, copy, nullable) NSAttributedString *attributedStringBetweenMatchAndLastMatch;
 
 
 /*******
@@ -120,9 +121,9 @@ extern NSString	* const OgreMatchException;
 // Substring of the name (label) is name (名前(ラベル)がnameの部分文字列)
 // I return nil if the name does not exist. (存在しない名前の場合は nil を返す。)
 // If there is more than one substring with the same name can raise an exception. (同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。)
-- (id<OGStringProtocol>)ogSubstringNamed:(NSString*)name;
-- (NSString*)substringNamed:(NSString*)name;
-- (NSAttributedString*)attributedSubstringNamed:(NSString*)name;
+- (nullable id<OGStringProtocol>)ogSubstringNamed:(NSString*)name;
+- (nullable NSString*)substringNamed:(NSString*)name;
+- (nullable NSAttributedString*)attributedSubstringNamed:(NSString*)name;
 
 // Range name is a substring of the name (名前がnameの部分文字列の範囲)
 // In the case of a name that does not exist I return the {-1, 0}. (存在しない名前の場合は {-1, 0} を返す。)
@@ -136,7 +137,7 @@ extern NSString	* const OgreMatchException;
 
 // The name of the index th substring (index番目の部分文字列の名前)
 // I return nil if the name does not exist. (存在しない名前の場合は nil を返す。)
-- (NSString*)nameOfSubstringAtIndex:(NSUInteger)index;
+- (nullable NSString*)nameOfSubstringAtIndex:(NSUInteger)index;
 
 /***********************
 * マッチした部分文字列を得る *
@@ -163,10 +164,10 @@ extern NSString	* const OgreMatchException;
 - (NSUInteger)indexOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSUInteger)indexOfFirstMatchedSubstringInRange:(NSRange)aRange;
 // That name (その名前)
-@property (nonatomic, readonly, copy) NSString *nameOfFirstMatchedSubstring;
-- (NSString*)nameOfFirstMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfFirstMatchedSubstringInRange:(NSRange)aRange;
+@property (nonatomic, readonly, copy, nullable) NSString *nameOfFirstMatchedSubstring;
+- (nullable NSString*)nameOfFirstMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfFirstMatchedSubstringAfterIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfFirstMatchedSubstringInRange:(NSRange)aRange;
 
 // Matched part group number of the string is a maximum of one (return 0 if no) (マッチした部分文字列のうちグループ番号が最大のもの (ない場合は0を返す))
 @property (nonatomic, readonly) NSUInteger indexOfLastMatchedSubstring;
@@ -174,10 +175,10 @@ extern NSString	* const OgreMatchException;
 - (NSUInteger)indexOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSUInteger)indexOfLastMatchedSubstringInRange:(NSRange)aRange;
 // That name (その名前)
-@property (nonatomic, readonly, copy) NSString *nameOfLastMatchedSubstring;
-- (NSString*)nameOfLastMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfLastMatchedSubstringInRange:(NSRange)aRange;
+@property (nonatomic, readonly, copy, nullable) NSString *nameOfLastMatchedSubstring;
+- (nullable NSString*)nameOfLastMatchedSubstringBeforeIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfLastMatchedSubstringAfterIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfLastMatchedSubstringInRange:(NSRange)aRange;
 
 // Matched the longest ones of the substring (if not it returns 0. If more than one of the same length, small ones are priority of numbers) (マッチした部分文字列のうち最長のもの (ない場合は0を返す。同じ長さの物が複数あれば、番号の小さい物が優先される))
 @property (nonatomic, readonly) NSUInteger indexOfLongestSubstring;
@@ -185,10 +186,10 @@ extern NSString	* const OgreMatchException;
 - (NSUInteger)indexOfLongestSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSUInteger)indexOfLongestSubstringInRange:(NSRange)aRange;
 // That name (その名前)
-@property (nonatomic, readonly, copy) NSString *nameOfLongestSubstring;
-- (NSString*)nameOfLongestSubstringBeforeIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfLongestSubstringAfterIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfLongestSubstringInRange:(NSRange)aRange;
+@property (nonatomic, readonly, copy, nullable) NSString *nameOfLongestSubstring;
+- (nullable NSString*)nameOfLongestSubstringBeforeIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfLongestSubstringAfterIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfLongestSubstringInRange:(NSRange)aRange;
 
 // Matched shortest ones of the substring (if not it returns 0. If more than one of the same length, small ones are priority of numbers) (マッチした部分文字列のうち最短のもの (ない場合は0を返す。同じ長さの物が複数あれば、番号の小さい物が優先される))
 @property (nonatomic, readonly) NSUInteger indexOfShortestSubstring;
@@ -196,10 +197,10 @@ extern NSString	* const OgreMatchException;
 - (NSUInteger)indexOfShortestSubstringAfterIndex:(NSUInteger)anIndex;
 - (NSUInteger)indexOfShortestSubstringInRange:(NSRange)aRange;
 // That name (その名前)
-@property (nonatomic, readonly, copy) NSString *nameOfShortestSubstring;
-- (NSString*)nameOfShortestSubstringBeforeIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfShortestSubstringAfterIndex:(NSUInteger)anIndex;
-- (NSString*)nameOfShortestSubstringInRange:(NSRange)aRange;
+@property (nonatomic, readonly, copy, nullable) NSString *nameOfShortestSubstring;
+- (nullable NSString*)nameOfShortestSubstringBeforeIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfShortestSubstringAfterIndex:(NSUInteger)anIndex;
+- (nullable NSString*)nameOfShortestSubstringInRange:(NSRange)aRange;
 
 /******************
 * Capture History *
@@ -231,9 +232,13 @@ number of capture history: 2
 
 // Capture history (捕獲履歴)
 // I return nil if there is no history. (履歴がない場合はnilを返す。)
-@property (nonatomic, readonly, copy) OGRegularExpressionCapture *captureHistory;
+@property (nonatomic, readonly, copy, nullable) OGRegularExpressionCapture *captureHistory;
 
 @end
 
+NS_ASSUME_NONNULL_END
+
 // I get the length of UTF16 string (UTF16文字列の長さを得る)
-inline size_t Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end);
+inline size_t Ogre_UTF16strlen(unichar *const __nullable aUTF16string, unichar *const __nullable end);
+
+

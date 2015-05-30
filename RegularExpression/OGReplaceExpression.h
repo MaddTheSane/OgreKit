@@ -16,6 +16,8 @@
 
 @class OGRegularExpressionMatch;
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString	* const OgreReplaceException;
 
 @interface OGReplaceExpression : NSObject <NSCopying, NSCoding>
@@ -110,3 +112,5 @@ extern NSString	* const OgreReplaceException;
 - (NSAttributedString*)replaceMatchedAttributedStringOf:(OGRegularExpressionMatch*)match;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -20,17 +20,18 @@
 #endif
 #import <OgreKit/oniguruma.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 // constants
-extern NSString	* const OgreCaptureException;
+extern NSString	* const __nonnull OgreCaptureException;
 
 
 @class OGRegularExpression, OGRegularExpressionEnumerator, OGRegularExpressionMatch, OGRegularExpressionCapture;
 
 
 @protocol OGRegularExpressionCaptureVisitor <NSObject>
-- (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture;
-- (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture;
+- (void)visitAtFirstCapture:(nullable OGRegularExpressionCapture*)aCapture;
+- (void)visitAtLastCapture:(nullable OGRegularExpressionCapture*)aCapture;
 @end
 
 
@@ -66,7 +67,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @property (nonatomic, readonly) NSUInteger groupIndex;
 
 // Group Name (グループ名)
-@property (nonatomic, readonly, copy) NSString *groupName;
+@property (nonatomic, readonly, copy, nullable) NSString *groupName;
 
 // And what number of child elements 0, 1, 2, ... (// 何番目の子要素であるか 0,1,2,...)
 @property (nonatomic, readonly) NSUInteger index;
@@ -80,7 +81,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 
 // Child elements us (子要素たち)
 // return nil in the case of numberOfChildren == 0
-@property (nonatomic, readonly, copy) NSArray *children;
+@property (nonatomic, readonly, copy, nullable) NSArray *children;
 
 // index th child element (index番目の子要素)
 - (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
@@ -99,8 +100,8 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @property (nonatomic, readonly, copy) NSAttributedString *targetAttributedString;
 
 // Matched string (マッチした文字列)
-@property (nonatomic, readonly, copy) NSString *string;
-@property (nonatomic, readonly, copy) NSAttributedString *attributedString;
+@property (nonatomic, readonly, copy, nullable) NSString *string;
+@property (nonatomic, readonly, copy, nullable) NSAttributedString *attributedString;
 
 /*******
  * 範囲 *
@@ -114,3 +115,5 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 - (void)acceptVisitor:(id <OGRegularExpressionCaptureVisitor>)aVisitor;
 
 @end
+
+NS_ASSUME_NONNULL_END

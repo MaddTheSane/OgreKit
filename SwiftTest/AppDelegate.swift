@@ -35,19 +35,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, OGRegularExpressionCaptureVi
 	}
 	
 	private func captureTreeTest() {
-		NSLog("Capture Tree Test");
+		println("Capture Tree Test");
 		var		expr = "(1+2)*3+4";
 		let		calc = SwiftCalc()
-		NSLog("\(expr) = \(calc.eval(expr)!)");
+		println("\(expr) = \(calc.eval(expr)!)");
 		
 		expr = "36.5*9/5+32";
-		NSLog("\(expr) = \(calc.eval(expr)!)");
+		println("\(expr) = \(calc.eval(expr)!)");
 	}
 
 	/// Substituted entrusted the process to delegate / matched split in part (デリゲートに処理を委ねた置換／マッチした部分での分割)
 	private func replaceTest() {
 		NSLog("Replacement Test")
-		let regex = OGRegularExpression(string: "a*")
+		let regex = OGRegularExpression(string: "a*")!
 		let matcher = regex.matchEnumeratorInString("aaaaaaa", range: NSRange(location: 1, length: 3))
 		for preMatch in matcher {
 			let match = preMatch as! OGRegularExpressionMatch
@@ -57,35 +57,39 @@ class AppDelegate: NSObject, NSApplicationDelegate, OGRegularExpressionCaptureVi
 		
 		// Substitution was entrusted with processing to delegate (デリゲートに処理を委ねた置換)
 		let targetString = "36.5C, 3.8C, -195.8C"
-		NSLog("%@", targetString)
-		let celciusRegex = OGRegularExpression(string: "([+-]?\\d+(?:\\.\\d+)?)C\\b")
+		println(targetString)
+		let celciusRegex = OGRegularExpression(string: "([+-]?\\d+(?:\\.\\d+)?)C\\b")!
 		let logString = celciusRegex.replaceAllMatchesInString(targetString, delegate: self, replaceSelector: "fahrenheitFromCelsius:contextInfo:", contextInfo: nil)
-		NSLog("%@", logString)
+		println(logString)
 		
 		// Splits a string (文字列を分割する)
-		let delimiterRegex = OGRegularExpression(string: "\\s*,\\s*")
-		NSLog("%@", delimiterRegex.splitString(targetString))
+		let delimiterRegex = OGRegularExpression(string: "\\s*,\\s*")!
+		println(delimiterRegex.splitString(targetString))
 	}
 
 	private func categoryTest() {
-		NSLog("NSString (OgreKitAdditions) Test");
+		println("NSString (OgreKitAdditions) Test");
 		let string: NSString = "36.5C, 3.8C, -195.8C";
-		NSLog("%@", string.componentsSeparatedByRegularExpressionString("\\s*,\\s*").description)
+		println(string.componentsSeparatedByRegularExpressionString("\\s*,\\s*").description)
 		let mstr = NSMutableString(string: string)
 		let numberOfReplacement = mstr.replaceOccurrencesOfRegularExpressionString("C",
 		withString: "F", options: OgreNoneOption, range: NSMakeRange(0, string.length))
-		NSLog("%lu %@", numberOfReplacement, mstr);
+		println("\(numberOfReplacement) \(mstr)");
 		let matchRange = string.rangeOfRegularExpressionString("\\s*,\\s*")
-		NSLog("(\(matchRange.location), \(matchRange.length))")
+		println("(\(matchRange.location), \(matchRange.length))")
 	}
 	
 	/// Converts Celsius to Fahrenheit. (摂氏を華氏に変換する。)
 	@objc private func fahrenheitFromCelsius(aMatch: OGRegularExpressionMatch, contextInfo: AnyObject?) -> String {
-		let celcius = (aMatch.substringAtIndex(1) as NSString).doubleValue
-		let fahrenheit = celcius * 9.0 / 5.0 + 32.0
-		
-		// return the replaced string. to terminate the substitution if it returns nil. (置換した文字列を返す。nilを返した場合は置換を終了する。)
-		return String(format: "%.1fF", fahrenheit)
+		if let matched = aMatch.substringAtIndex(1) {
+			let celcius = (matched as NSString).doubleValue
+			let fahrenheit = celcius * 9.0 / 5.0 + 32.0
+			
+			// return the replaced string. to terminate the substitution if it returns nil. (置換した文字列を返す。nilを返した場合は置換を終了する。)
+			return String(format: "%.1fF", fahrenheit)
+		} else {
+			return "0F"
+		}
 	}
 	
 	@IBAction func match(sender: AnyObject?) {
@@ -108,27 +112,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, OGRegularExpressionCaptureVi
 		return true
 	}
 	
-	func visitAtFirstCapture(aCapture: OGRegularExpressionCapture!) {
-		var indent = ""
-		for i in 0 ..< aCapture.level {
-			indent += "  "
+	func visitAtFirstCapture(aCapture: OGRegularExpressionCapture?) {
+		if let aCapture = aCapture {
+			var indent = ""
+			for i in 0 ..< aCapture.level {
+				indent += "  "
+			}
+			var matchRange = aCapture.range
+			
+			/*NSLog(@"capture: %@", [aCapture description]);
+			[NSArchiver archiveRootObject:aCapture toFile: [@"~/Desktop/cap.archive" stringByExpandingTildeInPath]];
+			OGRegularExpressionCapture	*capture2 = [NSUnarchiver unarchiveObjectWithFile: [@"~/Desktop/cap.archive" stringByExpandingTildeInPath]];
+			NSLog(@"capture2: %@", [capture2 description]);
+			aCapture = capture2;*/
+			
+			resultTextView.insertText(String(format: " %@#%lu", indent, aCapture.groupIndex))
+			if let groupName = aCapture.groupName {
+				resultTextView.insertText("(\"\(groupName)\")")
+			}
+			resultTextView.insertText(": (\(matchRange.location)-\(matchRange.length)) \"\(aCapture.string)\"\n")
 		}
-		var matchRange = aCapture.range
-		
-		/*NSLog(@"capture: %@", [aCapture description]);
-		[NSArchiver archiveRootObject:aCapture toFile: [@"~/Desktop/cap.archive" stringByExpandingTildeInPath]];
-		OGRegularExpressionCapture	*capture2 = [NSUnarchiver unarchiveObjectWithFile: [@"~/Desktop/cap.archive" stringByExpandingTildeInPath]];
-		NSLog(@"capture2: %@", [capture2 description]);
-		aCapture = capture2;*/
-		
-		resultTextView.insertText(String(format: " %@#%lu", indent, aCapture.groupIndex))
-		if let groupName = aCapture.groupName {
-			resultTextView.insertText("(\"\(groupName)\")")
-		}
-		resultTextView.insertText(": (\(matchRange.location)-\(matchRange.length)) \"\(aCapture.string!)\"\n")
 	}
 
-	func visitAtLastCapture(aCapture: OGRegularExpressionCapture!) {
+	func visitAtLastCapture(aCapture: OGRegularExpressionCapture?) {
 		
 	}
 }

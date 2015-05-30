@@ -14,6 +14,8 @@
 #import <Foundation/Foundation.h>
 #import <OgreKit/OGRegularExpression.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 // Exception
 extern NSString	* const OgreEnumeratorException;
 
@@ -33,11 +35,13 @@ extern NSString	* const OgreEnumeratorException;
 }
 
 // I return all the match results in the array. (全マッチ結果を配列で返す。)
-@property (nonatomic, readonly, copy) NSArray *allObjects;
+@property (nonatomic, readonly, copy, nullable) NSArray *allObjects;
 // I return the next match result. (次のマッチ結果を返す。)
-- (id)nextObject;
+- (nullable id)nextObject;
 
 // description
 @property (nonatomic, readonly, copy) NSString *description;
 
 @end
+
+NS_ASSUME_NONNULL_END
