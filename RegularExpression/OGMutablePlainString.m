@@ -78,6 +78,10 @@
 	[(NSMutableString*)[self _string] appendString:[string string]];
 }
 
+- (void)_setString:(NSString*)string
+{
+    _string = [string mutableCopy];
+}
 
 - (void)setAttributesOfOGString:(id<OGStringProtocol>)string atIndex:(NSUInteger)index
 {
