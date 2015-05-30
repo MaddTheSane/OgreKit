@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 // exception name
 extern NSString	* const OgreStringException;
 
@@ -25,3 +27,5 @@ extern NSString	* const OgreStringException;
 
 - (Class)mutableClass;
 @end
+
+NS_ASSUME_NONNULL_END

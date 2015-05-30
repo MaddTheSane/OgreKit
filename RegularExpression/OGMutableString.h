@@ -14,6 +14,8 @@
 #import <Foundation/Foundation.h>
 #import <OgreKit/OGString.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol OGMutableStringProtocol <NSObject>
 - (void)appendString:(NSString*)string;
 - (void)appendString:(NSString*)string 
@@ -34,3 +36,5 @@
 - (void)setAttributesOfOGString:(id<OGStringProtocol>)string
 	atIndex:(NSUInteger)index;
 @end
+
+NS_ASSUME_NONNULL_END
