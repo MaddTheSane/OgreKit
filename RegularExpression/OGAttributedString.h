@@ -28,7 +28,6 @@
 + (instancetype)stringWithAttributedString:(NSAttributedString*)attributedString;
 + (instancetype)stringithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
-- (NSAttributedString*)_attributedString;
-- (void)_setAttributedString:(NSAttributedString*)attributedString;
+@property (nonatomic, copy, getter=_attributedString, setter=_setAttributedString:) NSAttributedString *attributedString;
 
 @end

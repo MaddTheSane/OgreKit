@@ -70,16 +70,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	return [[[self class] alloc] initWithString:string hasAttributesOfOGString:ogString];
 }
 
-
-- (NSAttributedString*)_attributedString
-{
-	return _attrString;
-}
-
-- (void)_setAttributedString:(NSAttributedString*)attributedString
-{
-	_attrString = attributedString;
-}
+@synthesize attributedString = _attrString;
 
 /* OGString interface */
 - (NSString*)string
