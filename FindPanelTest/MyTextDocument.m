@@ -41,16 +41,6 @@
 }
 
 
-- (NSString*)string
-{
-    return _string;
-}
-
-- (void)setString:(NSString*)string
-{
-    _string = string;
-}
-
 - (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
 {
 	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)

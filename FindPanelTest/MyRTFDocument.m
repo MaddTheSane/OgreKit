@@ -40,16 +40,7 @@
     return self;
 }
 
-
-- (NSData*)rtfData
-{
-    return _RTFData;
-}
-
-- (void)setRtfData:(NSData*)newRTFData
-{
-    _RTFData = newRTFData;
-}
+@synthesize rtfData = _RTFData;
 
 - (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
 {
