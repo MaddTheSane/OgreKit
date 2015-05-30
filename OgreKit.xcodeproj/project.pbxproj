@@ -3043,6 +3043,7 @@
 				552BF19F1B1A525900DA11E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55EAB00A1AEC7B52005EC293 /* Build configuration list for PBXNativeTarget "SwiftTest" */ = {
 			isa = XCConfigurationList;
