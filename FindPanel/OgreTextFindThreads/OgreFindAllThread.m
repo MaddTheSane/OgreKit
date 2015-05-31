@@ -36,9 +36,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = OgreTextFinderLocalizedString(@"%lu string found.");
-    progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings found.");
-    remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
+    _progressMessage = OgreTextFinderLocalizedString(@"%lu string found.");
+    _progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings found.");
+    _remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -47,7 +47,7 @@
 	NSLog(@" -willProcessFindingInBranch: of %@", [self className]);
 #endif
     [self beginGraftingToBranch:aBranch];
-    lastMatch = nil;
+    _lastMatch = nil;
 }
 
 - (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
@@ -58,8 +58,8 @@
     NSObject<OGStringProtocol>            *string = [aLeaf ogString];
     
     if (string == nil) {
-        matchEnumerator = nil;
-        result = nil;
+        _matchEnumerator = nil;
+        _result = nil;
         return;
     }
     
@@ -67,24 +67,24 @@
 	if (![self inSelection]) {
 		searchRange = NSMakeRange(0, [string length]);
 	}
-    searchLength = searchRange.length;
+    _searchLength = searchRange.length;
     
     OGRegularExpression *regEx = [self regularExpression];
-    matchEnumerator = [regEx matchEnumeratorInOGString:string
-                                               options:[self options]
-                                                 range:searchRange];
-    result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
-    [self addResultLeaf:result];
+    _matchEnumerator = [regEx matchEnumeratorInOGString:string
+                                                options:[self options]
+                                                  range:searchRange];
+    _result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
+    [self addResultLeaf:_result];
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
 {
-    if ((match = [matchEnumerator nextObject]) == nil) return NO;   // stop
+    if ((_match = [_matchEnumerator nextObject]) == nil) return NO;   // stop
     
-    lastMatch = match;
+    _lastMatch = _match;
     
     [self incrementNumberOfMatches];
-    [result addMatch:match];
+    [_result addMatch:_match];
     
     return YES; // continue
 }
@@ -94,8 +94,8 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
-    [result endAddition];
-	matchEnumerator = nil;
+    [_result endAddition];
+	_matchEnumerator = nil;
 }
 
 - (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -123,11 +123,12 @@
 
 - (NSString*)progressMessage
 {
-    NSString    *message = [NSString stringWithFormat:(([self numberOfMatches] > 1)? progressMessagePlural : progressMessage), [self numberOfMatches]];
+    NSString    *message = [NSString stringWithFormat:(([self numberOfMatches] > 1)? _progressMessagePlural : _progressMessage), [self numberOfMatches]];
     
     if (_numberOfTotalLeaves > 0) {
         double  progressPercentage = [self progressPercentage] + 0.00000001;
-        message = [message stringByAppendingFormat:remainingTimeMesssage, (int)ceil([self processTime] * (1.0 - progressPercentage)/progressPercentage)];
+        message = [message stringByAppendingFormat:_remainingTimeMesssage,
+                   (int)ceil([self processTime] * (1.0 - progressPercentage)/progressPercentage)];
     }
     
     return message;
@@ -177,8 +178,8 @@
 {
     if (_numberOfTotalLeaves <= 0) return -1;
     
-    NSRange matchRange = [lastMatch rangeOfMatchedString];
-    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
+    NSRange matchRange = [_lastMatch rangeOfMatchedString];
+    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
 }
 
 - (double)donePercentage
@@ -190,8 +191,8 @@
             percentage = 0;
         } else {
             if (_numberOfTotalLeaves > 0) {
-                NSRange matchRange = [lastMatch rangeOfMatchedString];
-                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
+                NSRange matchRange = [_lastMatch rangeOfMatchedString];
+                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
             } else {
                 percentage = -1;    // indeterminate
             }
