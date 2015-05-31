@@ -183,7 +183,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	return nil;	// If you do not match (マッチしなかった場合)
 }
 
-- (NSArray*)allObjects
+- (NSArray *)allObjects
 {	
 #ifdef DEBUG_OGRE
 	NSLog(@"-allObjects of %@", [self className]);
@@ -225,7 +225,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 }
 
 // NSCoding protocols
-- (void)encodeWithCoder:(NSCoder*)encoder
+- (void)encodeWithCoder:(NSCoder *)encoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-encodeWithCoder: of %@", [self className]);
@@ -262,7 +262,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -303,7 +303,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	NSString	*targetPlainString = [_targetString string];
 	_lengthOfTargetString = [targetPlainString length];
     
-	_UTF16TargetString = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * _lengthOfTargetString);
+	_UTF16TargetString = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * _lengthOfTargetString);
     if (_UTF16TargetString == NULL) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
         [NSException raise:NSInvalidUnarchiveOperationException format:@"fail to allocate a memory"];
@@ -402,7 +402,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 
 
 // NSCopying protocol
-- (id)copyWithZone:(NSZone*)zone
+- (id)copyWithZone:(NSZone *)zone
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-copyWithZone: of %@", [self className]);
@@ -423,7 +423,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 }
 
 // description
-- (NSString*)description
+- (NSString *)description
 {
 	NSDictionary	*dictionary = @{
             @"Regular Expression": _regex,
@@ -441,7 +441,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 - (id) initWithOGString:(NSObject<OGStringProtocol>*)targetString
 				options:(OgreOption)searchOptions
 				  range:(NSRange)searchRange
-	  regularExpression:(OGRegularExpression*)regex
+	  regularExpression:(OGRegularExpression *)regex
 {
 #ifdef DEBUG_OGRE
     NSLog(@"-initWithOGString: of %@", [self className]);
@@ -454,7 +454,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
         NSString	*targetPlainString = [_targetString string];
         _lengthOfTargetString = [_targetString length];
         
-        _UTF16TargetString = (unichar*)NSZoneMalloc(nil, sizeof(unichar) * (_lengthOfTargetString + 4));	// Symptomatic treatment of +4 to memory access violation problem of oniguruma (+4はonigurumaのmemory access violation問題への対処療法)
+        _UTF16TargetString = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * (_lengthOfTargetString + 4));	// Symptomatic treatment of +4 to memory access violation problem of oniguruma (+4はonigurumaのmemory access violation問題への対処療法)
         if (_UTF16TargetString == NULL) {
             // If it can not allocate memory, to generate an exception. (メモリを確保できなかった場合、例外を発生させる。)
             [NSException raise:NSMallocException format:@"fail to allocate a memory"];
@@ -536,7 +536,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	return _targetString;
 }
 
-- (unichar*)UTF16TargetString
+- (unichar *)UTF16TargetString
 {
 	return _UTF16TargetString;
 }

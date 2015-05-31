@@ -54,7 +54,7 @@ static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 - (instancetype)initWithOGString:(id<OGStringProtocol>)targetString
 	options:(OgreOption)searchOptions 
 	range:(NSRange)searchRange 
-	regularExpression:(OGRegularExpression*)regex;
+	regularExpression:(OGRegularExpression *)regex;
 
 /*********************
  * private accessors *
@@ -65,10 +65,10 @@ static inline NSUInteger Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 - (void)_setNumberOfMatches:(NSUInteger)aNumber;
 
 - (id<OGStringProtocol>)targetString;
-- (unichar*)UTF16TargetString;
+- (unichar *)UTF16TargetString;
 
-- (OGRegularExpression*)regularExpression;
-- (void)setRegularExpression:(OGRegularExpression*)regularExpression;
+- (OGRegularExpression *)regularExpression;
+- (void)setRegularExpression:(OGRegularExpression *)regularExpression;
 
 - (NSRange)searchRange;
 

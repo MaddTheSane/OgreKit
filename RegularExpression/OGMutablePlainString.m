@@ -24,7 +24,7 @@
 	return self;
 }
 
-- (id)initWithString:(NSString*)string
+- (id)initWithString:(NSString *)string
 {
 	if (string == nil) {
 		[NSException raise:NSInvalidArgumentException format: @"nil string argument"];
@@ -40,27 +40,27 @@
 /* OGMutableStringProtocol */
 - (void)appendOGString:(id<OGStringProtocol>)string
 {
-	[(NSMutableString*)[self _string] appendString:[string string]];
+	[(NSMutableString *)[self _string] appendString:[string string]];
 }
 
-- (void)appendString:(NSString*)string
+- (void)appendString:(NSString *)string
 {
-	[(NSMutableString*)[self _string] appendString:string];
+	[(NSMutableString *)[self _string] appendString:string];
 }
 
-- (void)appendString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
+- (void)appendString:(NSString *)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
-	[(NSMutableString*)[self _string] appendString:string];
+	[(NSMutableString *)[self _string] appendString:string];
 }
 
-- (void)appendAttributedString:(NSAttributedString*)string
+- (void)appendAttributedString:(NSAttributedString *)string
 {
-	[(NSMutableString*)[self _string] appendString:[string string]];
+	[(NSMutableString *)[self _string] appendString:[string string]];
 }
 
 - (void)appendOGStringLeaveImprint:(id<OGStringProtocol>)string
 {
-	[(NSMutableString*)[self _string] appendString:[string string]];
+	[(NSMutableString *)[self _string] appendString:[string string]];
 }
 
 - (void)appendOGString:(id<OGStringProtocol>)string 
@@ -68,17 +68,17 @@
 	mergeAttributes:(BOOL)mergeAttributes 
 	ofOGString:(id<OGStringProtocol>)srcString
 {
-	[(NSMutableString*)[self _string] appendString:[string string]];
+	[(NSMutableString *)[self _string] appendString:[string string]];
 }
 
 - (void)appendOGString:(id<OGStringProtocol>)string 
 	changeFont:(BOOL)changeFont 
 	mergeAttributes:(BOOL)mergeAttributes 
 {
-	[(NSMutableString*)[self _string] appendString:[string string]];
+	[(NSMutableString *)[self _string] appendString:[string string]];
 }
 
-- (void)_setString:(NSString*)string
+- (void)_setString:(NSString *)string
 {
     _string = [string mutableCopy];
 }

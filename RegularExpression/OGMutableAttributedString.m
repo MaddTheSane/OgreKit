@@ -25,7 +25,7 @@
 	return self;
 }
 
-- (id)initWithAttributedString:(NSAttributedString*)attributedString
+- (id)initWithAttributedString:(NSAttributedString *)attributedString
 {
 	if (attributedString == nil) {
 		[NSException raise:NSInvalidArgumentException format: @"nil string argument"];
@@ -39,7 +39,7 @@
 	return self;
 }
 
-- (id)initWithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
+- (id)initWithString:(NSString *)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	if (string == nil || ogString == nil) {
 		[NSException raise:NSInvalidArgumentException format: @"nil string argument"];
@@ -54,7 +54,7 @@
 	return self;
 }
 
-- (void)_setAttributedString:(NSAttributedString*)attributedString
+- (void)_setAttributedString:(NSAttributedString *)attributedString
 {
     _attrString = [attributedString mutableCopy];
 }
@@ -62,12 +62,12 @@
 /* OGMutableStringProtocol */
 - (void)appendOGString:(id<OGStringProtocol>)string
 {
-	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:[string attributedString]];
+	[(NSMutableAttributedString *)[self _attributedString] appendAttributedString:[string attributedString]];
 }
 
-- (void)appendAttributedString:(NSAttributedString*)string
+- (void)appendAttributedString:(NSAttributedString *)string
 {
-	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:string];
+	[(NSMutableAttributedString *)[self _attributedString] appendAttributedString:string];
 }
 
 - (void)appendOGStringLeaveImprint:(id<OGStringProtocol>)string
@@ -78,26 +78,26 @@
 	}
 	
 	NSAttributedString	*appendant = [string attributedString];
-	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:appendant];
+	[(NSMutableAttributedString *)[self _attributedString] appendAttributedString:appendant];
 	_currentAttributes = [appendant attributesAtIndex:(length - 1) effectiveRange:NULL];
 }
 
-- (void)appendString:(NSString*)string 
+- (void)appendString:(NSString *)string 
 {
 	if ([string length] == 0) {
 		return;
 	}
 	
-	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:[[NSAttributedString alloc] initWithString:string attributes:_currentAttributes]];
+	[(NSMutableAttributedString *)[self _attributedString] appendAttributedString:[[NSAttributedString alloc] initWithString:string attributes:_currentAttributes]];
 }
 
-- (void)appendString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
+- (void)appendString:(NSString *)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString
 {
 	if ([string length] == 0) {
 		return;
 	}
 	
-	[(NSMutableAttributedString*)[self _attributedString] appendAttributedString:[[NSAttributedString alloc] initWithString:string attributes:[[ogString attributedString] attributesAtIndex:0 effectiveRange:NULL]]];
+	[(NSMutableAttributedString *)[self _attributedString] appendAttributedString:[[NSAttributedString alloc] initWithString:string attributes:[[ogString attributedString] attributesAtIndex:0 effectiveRange:NULL]]];
 }
 
 - (void)appendOGString:(id<OGStringProtocol>)string 
@@ -112,7 +112,7 @@
 @autoreleasepool {
 
     NSAttributedString			*appendant = [string attributedString];
-    NSMutableAttributedString	*attrString = (NSMutableAttributedString*)[self _attributedString];
+    NSMutableAttributedString	*attrString = (NSMutableAttributedString *)[self _attributedString];
     
     NSMutableAttributedString	*aString = [[NSMutableAttributedString alloc] initWithAttributedString:appendant];
     NSUInteger		length = [appendant length];
@@ -239,7 +239,7 @@
 @autoreleasepool {
 
     NSAttributedString			*appendant = [string attributedString];
-    NSMutableAttributedString	*attrString = (NSMutableAttributedString*)[self _attributedString];
+    NSMutableAttributedString	*attrString = (NSMutableAttributedString *)[self _attributedString];
     
     NSMutableAttributedString	*aString = [[NSMutableAttributedString alloc] initWithAttributedString:appendant];
     NSRange			effectiveRange;

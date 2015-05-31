@@ -23,13 +23,13 @@
 }
 
 - (BOOL)shouldPreprocessFindingInFirstLeaf;
-- (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf;
+- (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf *)aLeaf;
 
 @property (nonatomic) BOOL wrap;        // wrapped search
 @property (nonatomic) BOOL backward;    // search direction
 @property (nonatomic) BOOL fromTop;     // search origin
 
 // private methods
-- (BOOL)_preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf;
+- (BOOL)_preprocessFindingInFirstLeaf:(OgreTextFindLeaf *)aLeaf;
 
 @end

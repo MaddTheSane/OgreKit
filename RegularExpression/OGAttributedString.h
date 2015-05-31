@@ -20,13 +20,13 @@
 	NSAttributedString	*_attrString;
 }
 
-- (instancetype)initWithString:(NSString*)string;
-- (instancetype)initWithAttributedString:(NSAttributedString*)attributedString;
-- (instancetype)initWithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
+- (instancetype)initWithString:(NSString *)string;
+- (instancetype)initWithAttributedString:(NSAttributedString *)attributedString;
+- (instancetype)initWithString:(NSString *)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
-+ (instancetype)stringWithString:(NSString*)string;
-+ (instancetype)stringWithAttributedString:(NSAttributedString*)attributedString;
-+ (instancetype)stringithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
++ (instancetype)stringWithString:(NSString *)string;
++ (instancetype)stringWithAttributedString:(NSAttributedString *)attributedString;
++ (instancetype)stringithString:(NSString *)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
 @property (nonatomic, copy, getter=_attributedString, setter=_setAttributedString:) NSAttributedString *attributedString;
 

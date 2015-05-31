@@ -18,22 +18,22 @@
 
 - (id)name
 {
-    return [(OgreTextViewFindResult*)[self parent] lineOfMatchedStringAtIndex:[self index]];
+    return [(OgreTextViewFindResult *)[self parent] lineOfMatchedStringAtIndex:[self index]];
 }
 
 - (id)outline
 {
-    return [(OgreTextViewFindResult*)[self parent] matchedStringAtIndex:[self index]]; 
+    return [(OgreTextViewFindResult *)[self parent] matchedStringAtIndex:[self index]]; 
 }
 
 - (BOOL)showMatchedString
 {
-    return [(OgreTextViewFindResult*)[self parent] showMatchedStringAtIndex:[self index]];
+    return [(OgreTextViewFindResult *)[self parent] showMatchedStringAtIndex:[self index]];
 }
 
 - (BOOL)selectMatchedString
 {
-    return [(OgreTextViewFindResult*)[self parent] selectMatchedStringAtIndex:[self index]];
+    return [(OgreTextViewFindResult *)[self parent] selectMatchedStringAtIndex:[self index]];
 }
 
 @end

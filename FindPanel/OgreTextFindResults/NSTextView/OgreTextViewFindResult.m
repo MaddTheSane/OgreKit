@@ -21,7 +21,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 
 @implementation OgreTextViewFindResult
 
-- (id)initWithTextView:(NSTextView*)textView
+- (id)initWithTextView:(NSTextView *)textView
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithString: of %@", [self className]);
@@ -88,7 +88,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 }
 
 /* addMatch */
-- (void)addMatch:(OGRegularExpressionMatch*)match
+- (void)addMatch:(OGRegularExpressionMatch *)match
 {
 	NSRange			range = [match rangeOfMatchedString];
 	NSUInteger		newAbsoluteLocation = range.location;
@@ -124,13 +124,13 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 	[_matchRangeArray addObject:rangeArray];
 }
 
-- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
+- (NSNumber *)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     //NSLog(@"lineOfMatchedStringAtIndex:%lu", (unsigned long)index);
 	return _lineOfMatchedStrings[(index + 1)];   // 0th is dummy (0番目はダミー)
 }
 
-- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
+- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index
 {
     //NSLog(@"matchedStringAtIndex:%lu", (unsigned long)index);
 	if (_textView == nil) return [[self textFindResult] missingString];
@@ -217,7 +217,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
 @synthesize count = _count;
 
 // [_textView window] will close
-- (void)windowWillClose:(NSNotification*)aNotification
+- (void)windowWillClose:(NSNotification *)aNotification
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-windowWillClose: of %@", [self className]);
@@ -227,7 +227,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
     [[self textFindResult] didUpdate];
 }
 
-- (NSString*)description
+- (NSString *)description
 {
 	return [@{@"Match Line": _lineOfMatchedStrings, 
               @"Match Range": _matchRangeArray,
@@ -235,7 +235,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
               @"Count": @(_count)} description];
 }
 
-- (void)textStorageWillProcessEditing:(NSNotification*)aNotification
+- (void)textStorageWillProcessEditing:(NSNotification *)aNotification
 {
 	NSTextStorage   *textStorage = [aNotification object];
 	NSRange			editedRange = [textStorage editedRange];
@@ -405,7 +405,7 @@ static const NSUInteger   OgreTextViewFindResultInitialCapacity = 30;
     [[self textFindResult] didUpdate];
 }
 
-- (void)updateSubranges:(NSMutableArray*)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign
+- (void)updateSubranges:(NSMutableArray *)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-updateSubranges: of %@", [self className]);

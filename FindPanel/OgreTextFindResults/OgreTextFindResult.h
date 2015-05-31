@@ -50,8 +50,8 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
     NSMutableArray              *_highlightColorArray;   // variations
 }
 
-+ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread;
-- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread NS_DESIGNATED_INITIALIZER;
++ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread *)aThread;
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread *)aThread NS_DESIGNATED_INITIALIZER;
 
 - (void)setType:(OgreTextFindResultType)resultType;
 @property (nonatomic, getter=isSuccess, readonly) BOOL success;				/* success or failure(including error) */
@@ -59,9 +59,9 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 @property (nonatomic, readonly, copy) NSString *findString;
 
 - (BOOL)alertIfErrorOccurred;
-- (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException;
+- (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException *)anException;
 
-- (void)beginGraftingToBranch:(OgreFindResultBranch*)aBranch;
+- (void)beginGraftingToBranch:(OgreFindResultBranch *)aBranch;
 - (void)endGrafting;
 - (void)addLeaf:(id)aLeaf;
 
@@ -73,12 +73,12 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 @property (nonatomic) NSInteger maximumLeftMargin;
 // The maximum number of characters (-1: unlimited) However, ellipsis @ "..." I do not put in the count. (最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。)
 @property (nonatomic) NSInteger maximumMatchedStringLength;
-- (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
+- (void)setHighlightColor:(NSColor *)aColor regularExpression:(OGRegularExpression *)regex;
 // emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
-- (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
+- (NSAttributedString *)highlightedStringInRange:(NSArray *)aRangeArray ofString:(NSString *)aString;
 @property (nonatomic, readonly, copy) NSAttributedString *missingString;
-- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;
-- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString *)messageOfStringsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString *)messageOfItemsFound:(NSUInteger)numberOfMatches;
 
 // delegate
 @property (weak) id<OgreTextFindResultDelegate> delegate;  // Update contact (更新連絡先)

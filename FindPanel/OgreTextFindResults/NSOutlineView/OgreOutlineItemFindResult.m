@@ -23,7 +23,7 @@
 
 @implementation OgreOutlineItemFindResult
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item
+- (id)initWithOutlineColumn:(OgreOutlineColumn *)outlineColumn item:(id)item
 {
     self = [super init];
     if (self != nil) {
@@ -64,12 +64,12 @@
     }
 }
 
-- (NSArray*)children
+- (NSArray *)children
 {
     return nil;
 }
 
-- (void)mergeFindResult:(OgreOutlineCellFindResult*)aBranch
+- (void)mergeFindResult:(OgreOutlineCellFindResult *)aBranch
 {
     if ([_outlineColumn ogreIsItemExpandable:_item]) {
         NSArray     *children = [aBranch children];
@@ -80,7 +80,7 @@
         }
     } else {
         if ([[aBranch children] count] > 0) {
-            [(OgreOutlineItemFindResult*)[self parent] replaceFindResult:self 
+            [(OgreOutlineItemFindResult *)[self parent] replaceFindResult:self 
                 withFindResultsFromArray:[aBranch children]];
         } else {
             [_simplifiedComponents removeObjectAtIndex:0];
@@ -88,7 +88,7 @@
     }
 }
 
-- (void)replaceFindResult:(OgreOutlineItemFindResult*)aBranch withFindResultsFromArray:(NSArray*)resultsArray
+- (void)replaceFindResult:(OgreOutlineItemFindResult *)aBranch withFindResultsFromArray:(NSArray *)resultsArray
 {
     NSInteger branchIndex = [_simplifiedComponents indexOfObject:aBranch];
     [_simplifiedComponents replaceObjectsInRange:NSMakeRange(branchIndex, 1) withObjectsFromArray:resultsArray];
@@ -98,8 +98,8 @@
 - (id)name 
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
-    return [(OgreOutlineColumn*)[outlineView outlineTableColumn] ogreObjectValueForItem:_item];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
+    return [(OgreOutlineColumn *)[outlineView outlineTableColumn] ogreObjectValueForItem:_item];
 }
 
 - (id)outline 
@@ -119,7 +119,7 @@
     return _simplifiedComponents[index];
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [_simplifiedComponents objectEnumerator]; 
 }
@@ -128,7 +128,7 @@
 - (BOOL)showMatchedString
 {
     if (_outlineColumn == nil || _item == nil) return NO;
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
     
     [[outlineView window] makeKeyAndOrderFront:self];
     return [self selectMatchedString];
@@ -138,7 +138,7 @@
 - (BOOL)selectMatchedString
 {
     if (_outlineColumn == nil || _item == nil) return NO;
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
     
     if ([outlineView allowsColumnSelection]) {
         NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
@@ -150,7 +150,7 @@
         }
     }
     
-    [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
+    [(OgreOutlineItemFindResult *)[self parent] expandItemEnclosingItem:_item];
     NSInteger rowIndex = [outlineView rowForItem:_item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
@@ -175,10 +175,10 @@
 {
     if (_outlineColumn == nil || _item == nil) return;
     
-    [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
+    [(OgreOutlineItemFindResult *)[self parent] expandItemEnclosingItem:_item];
     
     if (item != _item) {
-        OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+        OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
         [outlineView expandItem:_item];
     }
 }

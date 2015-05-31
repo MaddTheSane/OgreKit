@@ -52,10 +52,10 @@
 }
 
 /* OgreKit.framework bundle */
-+ (NSBundle*)ogreKitBundle;
++ (NSBundle *)ogreKitBundle;
 
 /* Shared instance */
-+ (OgreTextFinder*)sharedTextFinder;
++ (OgreTextFinder *)sharedTextFinder;
 
 /* nib name of Find Panel/Find Panel Controller */
 @property (nonatomic, readonly, copy) NSString *findPanelNibName;
@@ -85,58 +85,58 @@
 @property (nonatomic) OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
-- (OgreTextFindResult*)find:(NSString*)expressionString
+- (OgreTextFindResult *)find:(NSString *)expressionString
                     options:(OgreOption)options
                     fromTop:(BOOL)isTop
                     forward:(BOOL)forward
                        wrap:(BOOL)isWrap;
 
-- (OgreTextFindResult*)findAll:(NSString*)expressionString
-                         color:(NSColor*)highlightColor
+- (OgreTextFindResult *)findAll:(NSString *)expressionString
+                         color:(NSColor *)highlightColor
                        options:(OgreOption)options
                    inSelection:(BOOL)inSelection;
 
-- (OgreTextFindResult*)replace:(NSString*)expressionString
-                    withString:(NSString*)replaceString
+- (OgreTextFindResult *)replace:(NSString *)expressionString
+                    withString:(NSString *)replaceString
                        options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(NSString*)expressionString
-          withAttributedString:(NSAttributedString*)replaceString
+- (OgreTextFindResult *)replace:(NSString *)expressionString
+          withAttributedString:(NSAttributedString *)replaceString
                        options:(OgreOption)options;
-- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString
+- (OgreTextFindResult *)replace:(id<OGStringProtocol>)expressionString
                   withOGString:(id<OGStringProtocol>)replaceString
                        options:(OgreOption)options;
 
-- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString
-                           withString:(NSString*)replaceString
+- (OgreTextFindResult *)replaceAndFind:(NSString *)expressionString
+                           withString:(NSString *)replaceString
                               options:(OgreOption)options
                         replacingOnly:(BOOL)replacingOnly
                                  wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString
-                 withAttributedString:(NSAttributedString*)replaceString
+- (OgreTextFindResult *)replaceAndFind:(NSString *)expressionString
+                 withAttributedString:(NSAttributedString *)replaceString
                               options:(OgreOption)options
                         replacingOnly:(BOOL)replacingOnly
                                  wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString
+- (OgreTextFindResult *)replaceAndFind:(id<OGStringProtocol>)expressionString
                          withOGString:(id<OGStringProtocol>)replaceString
                               options:(OgreOption)options
                         replacingOnly:(BOOL)replacingOnly
                                  wrap:(BOOL)isWrap;
 
-- (OgreTextFindResult*)replaceAll:(NSString*)expressionString
-                       withString:(NSString*)replaceString
+- (OgreTextFindResult *)replaceAll:(NSString *)expressionString
+                       withString:(NSString *)replaceString
                           options:(OgreOption)options
                       inSelection:(BOOL)inSelection;
-- (OgreTextFindResult*)replaceAll:(NSString*)expressionString 
-             withAttributedString:(NSAttributedString*)replaceString
+- (OgreTextFindResult *)replaceAll:(NSString *)expressionString 
+             withAttributedString:(NSAttributedString *)replaceString
                           options:(OgreOption)options
                       inSelection:(BOOL)inSelection;
-- (OgreTextFindResult*)replaceAll:(id<OGStringProtocol>)expressionString 
+- (OgreTextFindResult *)replaceAll:(id<OGStringProtocol>)expressionString 
                      withOGString:(id<OGStringProtocol>)replaceString
                           options:(OgreOption)options
                       inSelection:(BOOL)inSelection;
 
-- (OgreTextFindResult*)hightlight:(NSString*)expressionString 
-                            color:(NSColor*)highlightColor 
+- (OgreTextFindResult *)hightlight:(NSString *)expressionString 
+                            color:(NSColor *)highlightColor 
                           options:(OgreOption)options
                       inSelection:(BOOL)inSelection;
 
@@ -151,7 +151,7 @@
 @property (nonatomic, readonly) BOOL jumpToSelection;
 
 /* creating an alert sheet */
-- (OgreTextFindProgressSheet*)alertSheetOnTarget:(id)aTerget;
+- (OgreTextFindProgressSheet *)alertSheetOnTarget:(id)aTerget;
 
 /* Getting and registering adapters for targets */
 - (id)adapterForTarget:(id)aTargetToFindIn;
@@ -164,7 +164,7 @@
 // Last saved history (前回保存された履歴)
 @property (nonatomic, readonly, copy) NSDictionary *history;
 // name the current to the starting point to look for menu item of name. (currentを起点に名前がnameのmenu itemを探す。)
-- (NSMenuItem*)findMenuItemNamed:(NSString*)name startAt:(NSMenu*)current;
+- (NSMenuItem *)findMenuItemNamed:(NSString *)name startAt:(NSMenu *)current;
 
 // If the target is in use (ターゲットが使用中かどうか)
 - (BOOL)isBusyTarget:(id)target;
@@ -176,7 +176,7 @@
 /* hack Find Menu */
 - (void)hackFindMenu;
 
-- (void)didEndThread:(OgreTextFindThread*)aTextFindThread;
+- (void)didEndThread:(OgreTextFindThread *)aTextFindThread;
 
 @end
 

@@ -34,7 +34,7 @@
     return YES;
 }
 
-- (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf
+- (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf *)aLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -preprocessFindingInFirstLeaf: of %@", [self className]);

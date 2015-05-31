@@ -36,19 +36,19 @@
 }
 
 
-- (NSString*)stringForObjectValue:(id)anObject
+- (NSString *)stringForObjectValue:(id)anObject
 {
 	NSString	*string = nil;
 
     if ([anObject isKindOfClass:[NSString class]]) {
 		if ([_delegate shouldEquateYenWithBackslash]) {
-			string = [self equateInString:(NSString*)anObject];
+			string = [self equateInString:(NSString *)anObject];
 		} else {
 			string = anObject;
 		}
     } else if ([anObject isKindOfClass:[NSAttributedString class]]) {
 		if ([_delegate shouldEquateYenWithBackslash]) {
-			string = [self equateInString:[(NSAttributedString*)anObject string]];
+			string = [self equateInString:[(NSAttributedString *)anObject string]];
 		} else {
 			string = anObject;
 		}
@@ -57,21 +57,21 @@
 	return string;
 }
 
-- (NSAttributedString*)attributedStringForObjectValue:(id)anObject withDefaultAttributes:(NSDictionary*)attributes
+- (NSAttributedString *)attributedStringForObjectValue:(id)anObject withDefaultAttributes:(NSDictionary *)attributes
 {
 	NSAttributedString	*attrString = nil;
 
     if ([anObject isKindOfClass:[NSString class]]) {
 		NSString	*string;
 		if ([_delegate shouldEquateYenWithBackslash]) {
-			string = [self equateInString:(NSString*)anObject];
+			string = [self equateInString:(NSString *)anObject];
 		} else {
 			string = anObject;
 		}
 		attrString = [[NSAttributedString alloc] initWithString:string attributes:attributes];
 	} else if ([anObject isKindOfClass:[NSAttributedString class]]) {
 		if ([_delegate shouldEquateYenWithBackslash]) {
-			attrString = [self equateInAttributedString:(NSAttributedString*)anObject];
+			attrString = [self equateInAttributedString:(NSAttributedString *)anObject];
 		} else {
 			attrString = anObject;
 		}
@@ -80,7 +80,7 @@
 	return attrString;
 }
 
-- (BOOL)getObjectValue:(id*)obj forString:(NSString*)string errorDescription:(NSString**)error
+- (BOOL)getObjectValue:(id *)obj forString:(NSString *)string errorDescription:(NSString **)error
 {
 	if ([_delegate shouldEquateYenWithBackslash]) {
 		*obj = [self equateInString:string];
@@ -91,7 +91,7 @@
 	return YES;
 }
 
-- (NSString*)equateInString:(NSString*)string
+- (NSString *)equateInString:(NSString *)string
 {
 	NSString			*escapeCharacter = [_delegate escapeCharacter];
     OGRegularExpression *regEx;
@@ -107,7 +107,7 @@
                                 contextInfo:escapeCharacter];
 }
 
-- (NSAttributedString*)equateInAttributedString:(NSAttributedString*)string
+- (NSAttributedString *)equateInAttributedString:(NSAttributedString *)string
 {
 	NSString			*escapeCharacter = [_delegate escapeCharacter];
 	OGRegularExpression *regEx;
@@ -123,16 +123,16 @@
                                           contextInfo:escapeCharacter];
 }
 
-- (NSString*)equateYenWithBackslash:(OGRegularExpressionMatch*)aMatch 
+- (NSString *)equateYenWithBackslash:(OGRegularExpressionMatch *)aMatch 
 	contextInfo:(id)contextInfo
 {
 	return contextInfo;
 }
 
-- (NSAttributedString*)equateYenWithBackslashAttributed:(OGRegularExpressionMatch*)aMatch 
+- (NSAttributedString *)equateYenWithBackslashAttributed:(OGRegularExpressionMatch *)aMatch 
 	contextInfo:(id)contextInfo
 {
-	NSString	*string = (NSString*)contextInfo;
+	NSString	*string = (NSString *)contextInfo;
 	NSAttributedString	*matchedString = [aMatch matchedAttributedString];
 	
 	return [[NSAttributedString alloc] initWithString:string 

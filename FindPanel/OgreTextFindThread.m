@@ -60,7 +60,7 @@
 		[_leafProcessing finalizeFinding];
 		_leafProcessing = nil;
 	} else {
-		[(OgreTextFindBranch*)[_branchStack lastObject] finalizeFinding];
+		[(OgreTextFindBranch *)[_branchStack lastObject] finalizeFinding];
 	}
 	
 	while ([self popBranch] != nil);
@@ -115,7 +115,7 @@
 }
 
 /* visitor pattern */
-- (void)visitLeaf:(OgreTextFindLeaf*)aLeaf
+- (void)visitLeaf:(OgreTextFindLeaf *)aLeaf
 // aLeaf == nil: resume from a break
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -182,7 +182,7 @@
 	}
 }
 
-- (void)visitBranch:(OgreTextFindBranch*)aBranch
+- (void)visitBranch:(OgreTextFindBranch *)aBranch
 // aBranch == nil: resume from a break
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
@@ -257,7 +257,7 @@
 #pragma clang diagnostic pop
 }
 
-- (void)exceptionRaised:(NSException*)exception
+- (void)exceptionRaised:(NSException *)exception
 {
 	[_textFindResult setType:OgreTextFindResultError];
 	[_textFindResult setAlertSheet:_progressDelegate exception:exception];
@@ -289,7 +289,7 @@
 
 
 /* result */
-- (OgreTextFindResult*)result
+- (OgreTextFindResult *)result
 {
 	return _textFindResult;
 }
@@ -336,7 +336,7 @@
 	_asynchronous = asynchronous;
 }
 /* Methods implemented by subclasses */
-- (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
+- (void)willProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-willProcessFindingInBranch: of %@ (BUG?)", [self className]);
@@ -344,7 +344,7 @@
 	/* do nothing */
 }
 
-- (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (void)willProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-willProcessFindingInLeaf: of %@ (BUG?)", [self className]);
@@ -352,7 +352,7 @@
 	/* do nothing */
 }
 
-- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf
+- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf *)aLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-shouldContinueFindingInLeaf: of %@ (BUG?)", [self className]);
@@ -360,7 +360,7 @@
 	return NO;  // stop
 }
 
-- (void)didProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (void)didProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-didProcessFindingInLeaf: of %@ (BUG?)", [self className]);
@@ -368,7 +368,7 @@
 	/* do nothing */
 }
 
-- (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
+- (void)didProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-didProcessFindingInBranch: of %@ (BUG?)", [self className]);
@@ -382,12 +382,12 @@
 	return @selector(didEndUnknownTextFindThread:);
 }
 
-- (NSString*)progressMessage
+- (NSString *)progressMessage
 {
 	return @"Illegal progress message";
 }
 
-- (NSString*)doneMessage
+- (NSString *)doneMessage
 {
 	return @"Illegal progress message";
 }
@@ -420,18 +420,18 @@
 	return 1;
 }
 
-- (void)pushEnumerator:(NSEnumerator*)anEnumerator
+- (void)pushEnumerator:(NSEnumerator *)anEnumerator
 {
 	_enumeratorProcessing = anEnumerator;
 	[_enumeratorStack addObject:anEnumerator];
 }
 
-- (NSEnumerator*)topEnumerator
+- (NSEnumerator *)topEnumerator
 {
 	return [_enumeratorStack lastObject];
 }
 
-- (NSEnumerator*)popEnumerator
+- (NSEnumerator *)popEnumerator
 {
 	if ([_enumeratorStack count] == 0) return nil;
 	
@@ -441,7 +441,7 @@
 	return anObject;
 }
 
-- (OgreTextFindBranch*)rootAdapter
+- (OgreTextFindBranch *)rootAdapter
 {
 	return _rootAdapter;
 }
@@ -451,17 +451,17 @@
 	return _targetAdapter;
 }
 
-- (void)pushBranch:(OgreTextFindBranch*)aBranch
+- (void)pushBranch:(OgreTextFindBranch *)aBranch
 {
 	[_branchStack addObject:aBranch];
 }
 
-- (OgreTextFindBranch*)topBranch
+- (OgreTextFindBranch *)topBranch
 {
 	return [_branchStack lastObject];
 }
 
-- (OgreTextFindBranch*)popBranch
+- (OgreTextFindBranch *)popBranch
 {
 	if ([_branchStack count] == 0) return nil;
 	
@@ -472,7 +472,7 @@
 }
 
 
-- (void)_setLeafProcessing:(OgreTextFindLeaf*)aLeaf
+- (void)_setLeafProcessing:(OgreTextFindLeaf *)aLeaf
 {
 	_leafProcessing = aLeaf;
 }
@@ -483,7 +483,7 @@
 	if (aResultLeaf != nil) [_textFindResult addLeaf:aResultLeaf];
 }
 
-- (void)beginGraftingToBranch:(OgreTextFindBranch*)aBranch
+- (void)beginGraftingToBranch:(OgreTextFindBranch *)aBranch
 {
 	OgreFindResultBranch	*findResult = [aBranch findResultBranchWithThread:self];
 	[_textFindResult beginGraftingToBranch:findResult];

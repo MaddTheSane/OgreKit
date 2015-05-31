@@ -21,7 +21,7 @@
     NSMutableArray  *_components, *_flattenedComponents;
 }
 
-- (instancetype)initWithTableColumn:(OgreTableColumn*)tableColumn;
+- (instancetype)initWithTableColumn:(OgreTableColumn *)tableColumn;
 - (void)targetIsMissing;
 
 @end

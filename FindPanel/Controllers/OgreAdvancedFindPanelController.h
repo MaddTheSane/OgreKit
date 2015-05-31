@@ -84,7 +84,7 @@
 
 - (IBAction)findNext:(id)sender;
 - (IBAction)findNextAndOrderOut:(id)sender;
-- (OgreTextFindResult*)findNextStrategy;
+- (OgreTextFindResult *)findNextStrategy;
 
 - (IBAction)findPrevious:(id)sender;
 - (IBAction)findSelectedText:(id)sender;
@@ -110,11 +110,11 @@
 
 /* delegate methods of OgreAdvancedFindPanel */
 - (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags;
-- (void)findPanelDidAddChildWindow:(NSWindow*)childWindow;
-- (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow;
+- (void)findPanelDidAddChildWindow:(NSWindow *)childWindow;
+- (void)findPanelDidRemoveChildWindow:(NSWindow *)childWindow;
 
 /* settings */
-- (NSString*)escapeCharacter;
+- (NSString *)escapeCharacter;
 - (BOOL)shouldEquateYenWithBackslash;
 @property (readonly, getter=isStartFromTop) BOOL startFromTop;
 @property (readonly, getter=isWrap) BOOL wrap;
@@ -123,24 +123,24 @@
 - (OgreSyntax)syntax;
 
 /* find/replace history */
-- (void)addFindHistory:(NSAttributedString*)string;
-- (void)addReplaceHistory:(NSAttributedString*)string;
+- (void)addFindHistory:(NSAttributedString *)string;
+- (void)addReplaceHistory:(NSAttributedString *)string;
 - (IBAction)clearFindReplaceHistories:(id)sender;
 - (IBAction)selectFindHistory:(id)sender;
 - (IBAction)selectReplaceHistory:(id)sender;
 
-- (void)setFindString:(NSAttributedString*)attrString;
-- (void)setReplaceString:(NSAttributedString*)attrString;
+- (void)setFindString:(NSAttributedString *)attrString;
+- (void)setReplaceString:(NSAttributedString *)attrString;
 - (void)undoableReplaceCharactersInRange:(NSRange)oldRange 
-	withAttributedString:(NSAttributedString*)newString 
-	inTarget:(NSTextView*)aTextView;
+	withAttributedString:(NSAttributedString *)newString 
+	inTarget:(NSTextView *)aTextView;
 
 /* restore history/settings */
-- (void)restoreHistory:(NSDictionary*)history;
+- (void)restoreHistory:(NSDictionary *)history;
 
 /* show alert */
 - (BOOL)alertIfInvalidRegex;
-- (void)showErrorAlert:(NSString*)title message:(NSString*)message;
+- (void)showErrorAlert:(NSString *)title message:(NSString *)message;
 
 /* load find string to/from pasteboard */
 - (void)loadFindStringFromPasteboard;

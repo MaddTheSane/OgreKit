@@ -37,7 +37,7 @@
     return _component;
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [@[_component] objectEnumerator]; 
 }

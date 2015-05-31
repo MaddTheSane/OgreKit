@@ -22,6 +22,6 @@
     OgreTableColumn *_tableColumn;
 }
 
-- (instancetype)initWithTableColumn:(OgreTableColumn*)aTableColumn;
+- (instancetype)initWithTableColumn:(OgreTableColumn *)aTableColumn;
 
 @end

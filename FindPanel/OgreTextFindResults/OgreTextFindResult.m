@@ -30,12 +30,12 @@
 // -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
 @synthesize maximumMatchedStringLength = _maxMatchedStringLength;
 
-+ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
++ (instancetype)textFindResultWithTarget:(id)targetFindingIn thread:(OgreTextFindThread *)aThread
 {
 	return [[[self class] alloc] initWithTarget:targetFindingIn thread:aThread];
 }
 
-- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread*)aThread
+- (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTarget: of %@", [self className]);
@@ -72,13 +72,13 @@
 	}
 }
 
-- (NSString*)findString
+- (NSString *)findString
 {
     return [_regex expressionString];
 }
 
 /* result Information (OgreFindResult instance, error reason) */
-- (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException*)anException
+- (void)setAlertSheet:(id /*<OgreTextFindProgressDelegate>*/)aSheet exception:(NSException *)anException
 {
 	_alertSheet = aSheet;
     
@@ -98,7 +98,7 @@
 	return YES;
 }
 
-- (void)beginGraftingToBranch:(OgreFindResultBranch*)aFindResultBranch
+- (void)beginGraftingToBranch:(OgreFindResultBranch *)aFindResultBranch
 {
     [aFindResultBranch setTextFindResult:self];
     [aFindResultBranch setParentNoRetain:_branch];
@@ -136,7 +136,7 @@
     return _resultTree;
 }
 
-- (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
+- (void)setHighlightColor:(NSColor *)aColor regularExpression:(OGRegularExpression *)regex;
 {
     CGFloat hue, saturation, brightness, alpha;
     CGFloat  dummy;
@@ -162,7 +162,7 @@
 }
 
 // emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
-- (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString
+- (NSAttributedString *)highlightedStringInRange:(NSArray *)aRangeArray ofString:(NSString *)aString
 {
 	NSInteger							i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
@@ -216,7 +216,7 @@
 	return highlightedString;
 }
 
-- (NSAttributedString*)missingString
+- (NSAttributedString *)missingString
 {
     return [[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:@{NSForegroundColorAttributeName: [NSColor redColor]}];
 }
@@ -227,7 +227,7 @@
     [_delegate didUpdateTextFindResult:self];
 }
 
-- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
+- (NSAttributedString *)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -238,7 +238,7 @@
     return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, (unsigned long)numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
-- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
+- (NSAttributedString *)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -268,11 +268,11 @@
     }
 }
 
-- (NSCell*)nameCell
+- (NSCell *)nameCell
 {
     NSCell  *nameCell;
     if ([_target isKindOfClass:[NSOutlineView class]]) {
-        nameCell = [[[(NSOutlineView*)_target outlineTableColumn] dataCell] copy];
+        nameCell = [[[(NSOutlineView *)_target outlineTableColumn] dataCell] copy];
     } else {
         nameCell = [[NSTextFieldCell alloc] init];
         [nameCell setEditable:NO];
@@ -284,13 +284,13 @@
 - (CGFloat)rowHeight
 {
     if ([_target isKindOfClass:[NSOutlineView class]]) {
-        return [(NSOutlineView*)_target rowHeight];
+        return [(NSOutlineView *)_target rowHeight];
     } else {
         return 16;
     }
 }
 
-- (NSString*)title
+- (NSString *)title
 {
 	if (_title == nil) {
 		if ([_target respondsToSelector:@selector(window)]) {

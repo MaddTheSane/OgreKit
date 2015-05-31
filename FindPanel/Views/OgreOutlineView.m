@@ -35,7 +35,7 @@
         object:self];
 }
 
-- (void)ogreSelectionDidChange:(NSNotification*)aNotification
+- (void)ogreSelectionDidChange:(NSNotification *)aNotification
 {
     _ogreSelectedColumn = [self selectedColumn];
     NSInteger selectedRow = [self selectedRow];
@@ -57,7 +57,7 @@
     //NSLog(@"path:%@", [[self ogrePathComponentsOfSelectedItem] description]);
 }
 
-- (NSArray*)ogrePathComponentsOfSelectedItem
+- (NSArray *)ogrePathComponentsOfSelectedItem
 {
     if (_ogrePathComponents != nil) {
         return _ogrePathComponents;

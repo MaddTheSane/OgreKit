@@ -234,7 +234,7 @@
 }
 
 // I convert Celsius to Fahrenheit. (摂氏を華氏に変換する。)
-- (NSString*)fahrenheitFromCelsius:(OGRegularExpressionMatch*)aMatch contextInfo:(id)contextInfo
+- (NSString *)fahrenheitFromCelsius:(OGRegularExpressionMatch *)aMatch contextInfo:(id)contextInfo
 {
     //NSLog(@"matchedString:%@ index:%lu", [aMatch matchedString], (unsigned long)[aMatch index]);
 	double	celcius = [[aMatch substringAtIndex:1] doubleValue];
@@ -244,14 +244,14 @@
 	return [NSString stringWithFormat:@"%.1fF", fahrenheit];
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)aApp
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)aApp
 {
 	return YES;	// And exit After closing all windows. (全てのウィンドウを閉じたら終了する。)
 }
 
 
 /* OGRegularExpressionCaptureVisitor protocol */
-- (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture
+- (void)visitAtFirstCapture:(OGRegularExpressionCapture *)aCapture
 {
     NSMutableString *indent = [NSMutableString string];
     NSUInteger i;
@@ -273,7 +273,7 @@
         [aCapture string]]];
 }
 
-- (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture
+- (void)visitAtLastCapture:(OGRegularExpressionCapture *)aCapture
 {
     /* do nothing */
 }

@@ -29,8 +29,8 @@ extern NSString	* const OgreCaptureException;
 
 
 @protocol OGRegularExpressionCaptureVisitor <NSObject>
-- (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture;
-- (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture;
+- (void)visitAtFirstCapture:(OGRegularExpressionCapture *)aCapture;
+- (void)visitAtLastCapture:(OGRegularExpressionCapture *)aCapture;
 @end
 
 
@@ -83,7 +83,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @property (nonatomic, readonly, copy) NSArray *children;
 
 // index th child element (index番目の子要素)
-- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
+- (OGRegularExpressionCapture *)childAtIndex:(NSUInteger)index;
 
 // match
 @property (nonatomic, readonly, copy) OGRegularExpressionMatch *match;

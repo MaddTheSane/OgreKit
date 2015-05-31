@@ -15,7 +15,7 @@
 #import <OgreKit/OgreKit.h>
 
 @protocol MyOutlineViewDelegate
-- (void)deleteKeyDownInOutlineView:(NSOutlineView*)outlineView;
+- (void)deleteKeyDownInOutlineView:(NSOutlineView *)outlineView;
 @end
 
 @interface MyOutlineView : OgreOutlineView

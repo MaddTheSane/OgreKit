@@ -41,12 +41,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
 }
 
 
-- (NSString*)windowNibName 
+- (NSString *)windowNibName 
 {
     return @"MyTableDocument";
 }
 
-- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
+- (NSData *)dataOfType:(NSString *)type error:(NSError **)outError
 {
     OGRegularExpression *escRegex = [OGRegularExpression regularExpressionWithString:@"\""];
     
@@ -77,7 +77,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     
 	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
 	if ([aString newlineCharacter] != _newlineCharacter) {
-		aString = (NSMutableString*)[OGRegularExpression replaceNewlineCharactersInString:aString 
+		aString = (NSMutableString *)[OGRegularExpression replaceNewlineCharactersInString:aString 
 			withCharacter:_newlineCharacter];
 	}
 	
@@ -151,7 +151,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return YES;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController*)controller
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
 	if (_dict != nil) {
         //NSLog(@"%@", [_dict description]);
@@ -405,24 +405,24 @@ static NSString *gMyTableRowPropertyType = @"rows";
                                                        target:self];
 }
 
-- (void)changeTitleOfColumn:(MyTableColumnSheet*)sheet
+- (void)changeTitleOfColumn:(MyTableColumnSheet *)sheet
 {
     _useCustomSheetPosition = NO;
     NSTableHeaderCell *headerCell = [[sheet tableColumn] headerCell];
     [headerCell setStringValue:[sheet changedTitle]];
 }
 
-- (void)doNotChangeTitleOfColumn:(MyTableColumnSheet*)sheet
+- (void)doNotChangeTitleOfColumn:(MyTableColumnSheet *)sheet
 {
     _useCustomSheetPosition = NO;
 }
 
-- (void)sheetDidEnd:(MyTableColumnSheet*)sheet
+- (void)sheetDidEnd:(MyTableColumnSheet *)sheet
 {
     _sheet = nil;
 }
 
-- (NSRect)window:(NSWindow*)window willPositionSheet:(NSWindow*)sheet usingRect:(NSRect)rect
+- (NSRect)window:(NSWindow *)window willPositionSheet:(NSWindow *)sheet usingRect:(NSRect)rect
 {
     if (_useCustomSheetPosition) return _sheetPosition;
     

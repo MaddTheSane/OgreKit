@@ -60,7 +60,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 
 
 /* adapt OGRegularExpressionCaptureVisitor protocol */
-- (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture
+- (void)visitAtFirstCapture:(OGRegularExpressionCapture *)aCapture
 {
     /*NSMutableString *indent = [NSMutableString string];
     int i;
@@ -73,7 +73,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
         [aCapture string]);*/
 }
 
-- (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture
+- (void)visitAtLastCapture:(OGRegularExpressionCapture *)aCapture
 {
     NSString    *name = [aCapture groupName];
     if (name == nil) return;
@@ -88,7 +88,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 }
 
 /* evaluation */
-- (id)eval:(NSString*)expression
+- (id)eval:(NSString *)expression
 {
     OGRegularExpression *regEx =
     [OGRegularExpression regularExpressionWithString:calcRegex
@@ -103,7 +103,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     return [self pop];
 }
 
-- (void)reduce_e1:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_e1:(OGRegularExpressionCapture *)aCapture
 /* <e> ::= <t> + <t> */
 {
     id  num2 = [self pop];
@@ -111,7 +111,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     [self push:@([num1 doubleValue] + [num2 doubleValue])];
 }
 
-- (void)reduce_t1:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_t1:(OGRegularExpressionCapture *)aCapture
 /* <t> ::= <f> * <f> */
 {
     id  num2 = [self pop];
@@ -119,13 +119,13 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     [self push:@([num1 doubleValue] * [num2 doubleValue])];
 }
 
-- (void)reduce_f2:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_f2:(OGRegularExpressionCapture *)aCapture
 /* <f> ::= NUMBERS */
 {
     [self push:[aCapture string]];
 }
 
-- (void)reduce_e2:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_e2:(OGRegularExpressionCapture *)aCapture
 /* <e> ::= <t> - <t> */
 {
     id  num2 = [self pop];
@@ -133,7 +133,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     [self push:@([num1 doubleValue] - [num2 doubleValue])];
 }
 
-- (void)reduce_t2:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_t2:(OGRegularExpressionCapture *)aCapture
 /* <t> ::= <f> / <f> */
 {
     id  num2 = [self pop];

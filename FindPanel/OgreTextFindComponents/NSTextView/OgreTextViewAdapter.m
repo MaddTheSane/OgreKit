@@ -25,7 +25,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTextView: of %@", [self className]);
 #endif
-	NSTextView	*textView = (NSTextView*)aTextView;
+	NSTextView	*textView = (NSTextView *)aTextView;
     if (![textView isRichText]) {
 		return [[OgreTextViewPlainAdapter alloc] initWithTarget:textView];
 	}
@@ -36,7 +36,7 @@
     return [[OgreTextViewGraphicAllowedAdapter alloc] initWithTarget:textView];
 }
 
-- (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread
+- (OgreTextFindLeaf *)buildStackForSelectedLeafInThread:(OgreTextFindThread *)aThread
 {
 	/* dummy */
 	return nil;

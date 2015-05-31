@@ -26,11 +26,11 @@
 
 
 /* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
-- (NSString*)windowNibName {
+- (NSString *)windowNibName {
     return @"MyDocument";
 }
 
-- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
+- (NSData *)dataOfType:(NSString *)type error:(NSError **)outError
 {
 	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
 	_tmpString = [textView string];
@@ -69,7 +69,7 @@
     return YES;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController*)controller
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
 	if (_tmpString) {
 		[textView setString:_tmpString];

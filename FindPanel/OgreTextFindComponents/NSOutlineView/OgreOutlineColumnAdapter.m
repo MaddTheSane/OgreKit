@@ -23,7 +23,7 @@
 
 @implementation OgreOutlineColumnAdapter
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn
+- (id)initWithOutlineColumn:(OgreOutlineColumn *)anOutlineColumn
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithOutlineColumn: of %@", [self className]);
@@ -110,14 +110,14 @@
     [outlineItemAdapter setLevel:0];
     [outlineItemAdapter setReversed:[self isReversed]];
     
-    if ([self isTerminal] && index == [[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]) {
+    if ([self isTerminal] && index == [[(OgreOutlineView *)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]) {
         [outlineItemAdapter setTerminal:YES];
     }
     
     return outlineItemAdapter;
 }
 
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
@@ -130,12 +130,12 @@
     } else {
         enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection/* && (count > 0)*/)];
     }
-    if ([self isTerminal]) [enumerator setTerminalIndex:[[(OgreOutlineView*)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]];
+    if ([self isTerminal]) [enumerator setTerminalIndex:[[(OgreOutlineView *)[_outlineColumn tableView] ogrePathComponentsOfSelectedItem][0] integerValue]];
 
     return enumerator;
 }
 
--(NSIndexSet*)selectedIndexes
+-(NSIndexSet *)selectedIndexes
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
@@ -145,7 +145,7 @@
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, count)];
 }
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
@@ -153,7 +153,7 @@
     return [[OgreOutlineColumnFindResult alloc] initWithOutlineColumn:_outlineColumn];
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedLeaf of %@", [self className]);
@@ -161,7 +161,7 @@
     return [[self childAtIndex:0 inSelection:YES] selectedLeaf];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -window of %@", [self className]);

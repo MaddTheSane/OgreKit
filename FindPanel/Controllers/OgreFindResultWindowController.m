@@ -19,7 +19,7 @@
 @implementation OgreFindResultWindowController
 @synthesize window;
 
-- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
+- (instancetype)initWithTextFindResult:(OgreTextFindResult *)textFindResult liveUpdate:(BOOL)liveUpdate
 {
 	self = [super init];
 	if (self != nil) {
@@ -98,7 +98,7 @@
 	[window close];
 }
 
-- (void)windowWillClose:(NSNotification*)aNotification
+- (void)windowWillClose:(NSNotification *)aNotification
 {
 	[_textFindResult setDelegate:nil];
 	_textFindResult = nil;
@@ -110,7 +110,7 @@
 	[_textFindResult setDelegate:nil];
 }
 
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult
+- (void)setTextFindResult:(OgreTextFindResult *)textFindResult
 {
 	[_textFindResult setDelegate:nil];
 	_textFindResult = textFindResult;
@@ -141,7 +141,7 @@
 	[_attachedWindowMediator windowDidMove:notification];
 }
 
-- (NSSize)windowWillResize:(NSWindow*)sender toSize:(NSSize)proposedFrameSize
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize
 {
 	return [_attachedWindowMediator windowWillResize:sender toSize:proposedFrameSize];
 }
@@ -216,7 +216,7 @@
 	if (!found) NSBeep();
 }
 
-- (void)outlineViewSelectionDidChange:(NSNotification*)aNotification
+- (void)outlineViewSelectionDidChange:(NSNotification *)aNotification
 {
 	NSInteger	clickedRowIndex = [grepOutlineView selectedRow];
 	if (clickedRowIndex < 0) return;

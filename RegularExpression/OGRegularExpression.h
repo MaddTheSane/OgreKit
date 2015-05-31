@@ -156,21 +156,21 @@ extern NSString	* const OgreException;
   OgreGUIYenCharacter			[NSString stringWithUTF8String:"\xc2\xa5"] Yen Mark
  */
 
-+ (instancetype)regularExpressionWithString:(NSString*)expressionString;
-+ (instancetype)regularExpressionWithString:(NSString*)expressionString
++ (instancetype)regularExpressionWithString:(NSString *)expressionString;
++ (instancetype)regularExpressionWithString:(NSString *)expressionString
 	options:(OgreOption)options;
-+ (instancetype)regularExpressionWithString:(NSString*)expressionString
++ (instancetype)regularExpressionWithString:(NSString *)expressionString
 	options:(OgreOption)options
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character;
+	escapeCharacter:(NSString *)character;
 	
-- (instancetype)initWithString:(NSString*)expressionString;
-- (instancetype)initWithString:(NSString*)expressionString
+- (instancetype)initWithString:(NSString *)expressionString;
+- (instancetype)initWithString:(NSString *)expressionString
 	options:(OgreOption)options;
-- (instancetype)initWithString:(NSString*)expressionString 
+- (instancetype)initWithString:(NSString *)expressionString 
 	options:(OgreOption)options
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character NS_DESIGNATED_INITIALIZER;
+	escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
 
 
 /*************
@@ -194,11 +194,11 @@ extern NSString	* const OgreException;
 @property (nonatomic, readonly, copy) NSArray *names;
 
 // Current default escape character. The initial value @ "\\" (\ symbols in the GUI) (現在のデフォルトのエスケープ文字。初期値は @"\\"(GUI中の\記号))
-+ (NSString*)defaultEscapeCharacter;
++ (NSString *)defaultEscapeCharacter;
 // I want to change the default escape character. Will be a few percent slower when you change. (デフォルトのエスケープ文字を変更する。変更すると数割遅くなります。)
 // It does not affect the instance that was created prior to the change. (変更前に作成されたインスタンスには影響を与えない。)
 // I raise an exception in the case of characters that character can not be used. (character が使用できない文字の場合には例外を発生する。)
-+ (void)setDefaultEscapeCharacter:(NSString*)character;
++ (void)setDefaultEscapeCharacter:(NSString *)character;
 
 // Current default regular expression syntax. The initial value OgreRubySyntax (// 現在のデフォルトの正規表現構文。初期値は OgreRubySyntax)
 + (OgreSyntax)defaultSyntax;
@@ -207,9 +207,9 @@ extern NSString	* const OgreException;
 + (void)setDefaultSyntax:(OgreSyntax)syntax;
 
 // I return the version string of OgreKit (OgreKitのバージョン文字列を返す)
-+ (NSString*)version;
++ (NSString *)version;
 // I return the version string of oniguruma (onigurumaのバージョン文字列を返す)
-+ (NSString*)onigurumaVersion;
++ (NSString *)onigurumaVersion;
 
 // description
 @property (nonatomic, readonly, copy) NSString *description;
@@ -228,13 +228,13 @@ extern NSString	* const OgreException;
 		NSLog(@"reason = \"%@\"\n", [localException reason]);
 	}
  */
-+ (BOOL)isValidExpressionString:(NSString*)expressionString;
-+ (BOOL)isValidExpressionString:(NSString*)expressionString
++ (BOOL)isValidExpressionString:(NSString *)expressionString;
++ (BOOL)isValidExpressionString:(NSString *)expressionString
 	options:(OgreOption)options;
-+ (BOOL)isValidExpressionString:(NSString*)expressionString 
++ (BOOL)isValidExpressionString:(NSString *)expressionString 
 	options:(OgreOption)options
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character;
+	escapeCharacter:(NSString *)character;
 
 
 /**********
@@ -259,49 +259,49 @@ extern NSString	* const OgreException;
  */
 // I return the OGRegularExpressionMatch object of the first matching part. (最初にマッチした部分の OGRegularExpressionMatch オブジェクトを返す。)
 // Returns nil if you do not match. (マッチしなかった場合は nil を返す。)
-- (OGRegularExpressionMatch*)matchInString:(NSString*)string;
-- (OGRegularExpressionMatch*)matchInString:(NSString*)string 
+- (OGRegularExpressionMatch *)matchInString:(NSString *)string;
+- (OGRegularExpressionMatch *)matchInString:(NSString *)string 
 	range:(NSRange)range;
-- (OGRegularExpressionMatch*)matchInString:(NSString*)string 
+- (OGRegularExpressionMatch *)matchInString:(NSString *)string 
 	options:(OgreOption)options;
-- (OGRegularExpressionMatch*)matchInString:(NSString*)string 
+- (OGRegularExpressionMatch *)matchInString:(NSString *)string 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (OGRegularExpressionMatch*)matchInAttributedString:(NSAttributedString*)attributedString;
-- (OGRegularExpressionMatch*)matchInAttributedString:(NSAttributedString*)attributedString 
+- (OGRegularExpressionMatch *)matchInAttributedString:(NSAttributedString *)attributedString;
+- (OGRegularExpressionMatch *)matchInAttributedString:(NSAttributedString *)attributedString 
 	range:(NSRange)range;
-- (OGRegularExpressionMatch*)matchInAttributedString:(NSAttributedString*)attributedString 
+- (OGRegularExpressionMatch *)matchInAttributedString:(NSAttributedString *)attributedString 
 	options:(OgreOption)options;
-- (OGRegularExpressionMatch*)matchInAttributedString:(NSAttributedString*)attributedString 
+- (OGRegularExpressionMatch *)matchInAttributedString:(NSAttributedString *)attributedString 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (OGRegularExpressionMatch*)matchInOGString:(id<OGStringProtocol>)string 
+- (OGRegularExpressionMatch *)matchInOGString:(id<OGStringProtocol>)string 
 	options:(OgreOption)options 
 	range:(NSRange)searchRange;
 
 // The OGRegularExpressionMatch object of all of the matched substring (全てのマッチした部分の OGRegularExpressionMatch オブジェクトを)
 // I return to enumerate OGRegularExpressionEnumerator object. (列挙する OGRegularExpressionEnumerator オブジェクトを返す。)
-- (NSEnumerator*)matchEnumeratorInString:(NSString*)string;
-- (NSEnumerator*)matchEnumeratorInString:(NSString*)string 
+- (NSEnumerator *)matchEnumeratorInString:(NSString *)string;
+- (NSEnumerator *)matchEnumeratorInString:(NSString *)string 
 	options:(OgreOption)options;
-- (NSEnumerator*)matchEnumeratorInString:(NSString*)string 
+- (NSEnumerator *)matchEnumeratorInString:(NSString *)string 
 	range:(NSRange)searchRange;
-- (NSEnumerator*)matchEnumeratorInString:(NSString*)string 
+- (NSEnumerator *)matchEnumeratorInString:(NSString *)string 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 	
-- (NSEnumerator*)matchEnumeratorInAttributedString:(NSAttributedString*)attributedString;
-- (NSEnumerator*)matchEnumeratorInAttributedString:(NSAttributedString*)attributedString 
+- (NSEnumerator *)matchEnumeratorInAttributedString:(NSAttributedString *)attributedString;
+- (NSEnumerator *)matchEnumeratorInAttributedString:(NSAttributedString *)attributedString 
 	options:(OgreOption)options;
-- (NSEnumerator*)matchEnumeratorInAttributedString:(NSAttributedString*)attributedString 
+- (NSEnumerator *)matchEnumeratorInAttributedString:(NSAttributedString *)attributedString 
 	range:(NSRange)searchRange;
-- (NSEnumerator*)matchEnumeratorInAttributedString:(NSAttributedString*)attributedString 
+- (NSEnumerator *)matchEnumeratorInAttributedString:(NSAttributedString *)attributedString 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (NSEnumerator*)matchEnumeratorInOGString:(id<OGStringProtocol>)string 
+- (NSEnumerator *)matchEnumeratorInOGString:(id<OGStringProtocol>)string 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 	
@@ -309,25 +309,25 @@ extern NSString	* const OgreException;
 // I return the NSArray object with the elements. Order is matched order. (要素に持つ NSArray オブジェクトを返す。順序はマッチした順。)
 // ([[Self matchEnumeratorInString: string] allObject] and the same) (([[self matchEnumeratorInString:string] allObject]と同じ))
 // Returns nil if you do not match. (マッチしなかった場合は nil を返す。)
-- (NSArray*)allMatchesInString:(NSString*)string;
-- (NSArray*)allMatchesInString:(NSString*)string
+- (NSArray *)allMatchesInString:(NSString *)string;
+- (NSArray *)allMatchesInString:(NSString *)string
 	options:(OgreOption)options;
-- (NSArray*)allMatchesInString:(NSString*)string
+- (NSArray *)allMatchesInString:(NSString *)string
 	range:(NSRange)searchRange;
-- (NSArray*)allMatchesInString:(NSString*)string
+- (NSArray *)allMatchesInString:(NSString *)string
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (NSArray*)allMatchesInAttributedString:(NSAttributedString*)attributedString;
-- (NSArray*)allMatchesInAttributedString:(NSAttributedString*)attributedString
+- (NSArray *)allMatchesInAttributedString:(NSAttributedString *)attributedString;
+- (NSArray *)allMatchesInAttributedString:(NSAttributedString *)attributedString
 	options:(OgreOption)options;
-- (NSArray*)allMatchesInAttributedString:(NSAttributedString*)attributedString
+- (NSArray *)allMatchesInAttributedString:(NSAttributedString *)attributedString
 	range:(NSRange)searchRange;
-- (NSArray*)allMatchesInAttributedString:(NSAttributedString*)attributedString
+- (NSArray *)allMatchesInAttributedString:(NSAttributedString *)attributedString
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
-- (NSArray*)allMatchesInOGString:(id<OGStringProtocol>)string
+- (NSArray *)allMatchesInOGString:(id<OGStringProtocol>)string
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 
@@ -338,44 +338,44 @@ extern NSString	* const OgreException;
 // A place that matches the regular expression in a string targetString I return what was replaced by string replaceString. (文字列targetString中の正規表現にマッチした箇所を文字列replaceStringに置換したものを返す。)
 // See the escape sequence OGReplaceExpression.h that can be used in replaceString. (replaceString中で使用できるエスケープシーケンスはOGReplaceExpression.hを参照。)
 // First matching portion only the replacement (最初にマッチした部分のみを置換)
-- (NSString*)replaceFirstMatchInString:(NSString*)targetString 
-	withString:(NSString*)replaceString;
-- (NSString*)replaceFirstMatchInString:(NSString*)targetString 
-	withString:(NSString*)replaceString 
+- (NSString *)replaceFirstMatchInString:(NSString *)targetString 
+	withString:(NSString *)replaceString;
+- (NSString *)replaceFirstMatchInString:(NSString *)targetString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)searchOptions;
-- (NSString*)replaceFirstMatchInString:(NSString*)targetString 
-	withString:(NSString*)replaceString 
+- (NSString *)replaceFirstMatchInString:(NSString *)targetString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
-- (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString;
-- (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString 
+- (NSAttributedString *)replaceFirstMatchInAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString;
+- (NSAttributedString *)replaceFirstMatchInAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)searchOptions;
-- (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString 
+- (NSAttributedString *)replaceFirstMatchInAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
 // Replace all of the matched substring (全てのマッチした部分を置換)
-- (NSString*)replaceAllMatchesInString:(NSString*)targetString 
-	withString:(NSString*)replaceString;
-- (NSString*)replaceAllMatchesInString:(NSString*)targetString 
-	withString:(NSString*)replaceString 
+- (NSString *)replaceAllMatchesInString:(NSString *)targetString 
+	withString:(NSString *)replaceString;
+- (NSString *)replaceAllMatchesInString:(NSString *)targetString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)searchOptions;
-- (NSString*)replaceAllMatchesInString:(NSString*)targetString 
-	withString:(NSString*)replaceString 
+- (NSString *)replaceAllMatchesInString:(NSString *)targetString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
-- (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString;
-- (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString 
+- (NSAttributedString *)replaceAllMatchesInAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString;
+- (NSAttributedString *)replaceAllMatchesInAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)searchOptions;
-- (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString 
+- (NSAttributedString *)replaceAllMatchesInAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
@@ -385,38 +385,38 @@ extern NSString	* const OgreException;
 				 NO  ならば最初にマッチした部分のみを置換
  count: 置換した数
  */
-- (NSString*)replaceString:(NSString*)targetString 
-	withString:(NSString*)replaceString 
+- (NSString *)replaceString:(NSString *)targetString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll;
 
-- (NSString*)replaceString:(NSString*)targetString 
-	withString:(NSString*)replaceString 
+- (NSString *)replaceString:(NSString *)targetString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger *)numberOfReplacement;
 
-- (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString 
+- (NSAttributedString *)replaceAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll;
 
-- (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
-	withAttributedString:(NSAttributedString*)replaceString 
+- (NSAttributedString *)replaceAttributedString:(NSAttributedString *)targetString 
+	withAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger *)numberOfReplacement;
 
 - (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString
 	withOGString:(id<OGStringProtocol>)replaceString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger *)numberOfReplacement;
 
 // Substitution was entrusted with processing to delegate (デリゲートに処理を委ねた置換)
 /*
@@ -429,7 +429,7 @@ extern NSString	* const OgreException;
 	(ただし、nilを返した場合はそこで置換を中止する。)
 	
  例: 摂氏を華氏に変換する。
-	- (NSString*)fahrenheitForCelsius:(OGRegularExpressionMatch*)aMatch contextInfo:(id)contextInfo
+	- (NSString *)fahrenheitForCelsius:(OGRegularExpressionMatch *)aMatch contextInfo:(id)contextInfo
 	{
 		double	celcius = [[aMatch substringAtIndex:1] doubleValue];
 		double	fahrenheit = celcius * 9.0 / 5.0 + 32.0;
@@ -437,32 +437,32 @@ extern NSString	* const OgreException;
 	}
  */
 // First matching portion only the replacement (最初にマッチした部分のみを置換)
-- (NSString*)replaceFirstMatchInString:(NSString*)targetString 
+- (NSString *)replaceFirstMatchInString:(NSString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo;
-- (NSString*)replaceFirstMatchInString:(NSString*)targetString 
+- (NSString *)replaceFirstMatchInString:(NSString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions;
-- (NSString*)replaceFirstMatchInString:(NSString*)targetString
+- (NSString *)replaceFirstMatchInString:(NSString *)targetString
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
-- (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
+- (NSAttributedString *)replaceFirstMatchInAttributedString:(NSAttributedString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo;
-- (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString 
+- (NSAttributedString *)replaceFirstMatchInAttributedString:(NSAttributedString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions;
-- (NSAttributedString*)replaceFirstMatchInAttributedString:(NSAttributedString*)targetString
+- (NSAttributedString *)replaceFirstMatchInAttributedString:(NSAttributedString *)targetString
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -477,32 +477,32 @@ extern NSString	* const OgreException;
 	range:(NSRange)replaceRange;
 
 // Replace all of the matched substring (全てのマッチした部分を置換)
-- (NSString*)replaceAllMatchesInString:(NSString*)targetString 
+- (NSString *)replaceAllMatchesInString:(NSString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo;
-- (NSString*)replaceAllMatchesInString:(NSString*)targetString 
+- (NSString *)replaceAllMatchesInString:(NSString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions;
-- (NSString*)replaceAllMatchesInString:(NSString*)targetString
+- (NSString *)replaceAllMatchesInString:(NSString *)targetString
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange;
 
-- (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
+- (NSAttributedString *)replaceAllMatchesInAttributedString:(NSAttributedString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo;
-- (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString 
+- (NSAttributedString *)replaceAllMatchesInAttributedString:(NSAttributedString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions;
-- (NSAttributedString*)replaceAllMatchesInAttributedString:(NSAttributedString*)targetString
+- (NSAttributedString *)replaceAllMatchesInAttributedString:(NSAttributedString *)targetString
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -522,37 +522,37 @@ extern NSString	* const OgreException;
 				 NO  ならば最初にマッチした部分のみを置換
  count: 置換した数
  */
-- (NSString*)replaceString:(NSString*)targetString 
+- (NSString *)replaceString:(NSString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll;
-- (NSString*)replaceString:(NSString*)targetString 
+- (NSString *)replaceString:(NSString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger *)numberOfReplacement;
 
-- (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
+- (NSAttributedString *)replaceAttributedString:(NSAttributedString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll;	
-- (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
+- (NSAttributedString *)replaceAttributedString:(NSAttributedString *)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger *)numberOfReplacement;
 
 - (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
@@ -561,19 +561,19 @@ extern NSString	* const OgreException;
 	options:(OgreOption)searchOptions
 	range:(NSRange)replaceRange
 	replaceAll:(BOOL)isReplaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger *)numberOfReplacement;
 
 
 /*********
  * Split *
  *********/
 // Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
-- (NSArray*)splitString:(NSString*)aString;
+- (NSArray *)splitString:(NSString *)aString;
 
-- (NSArray*)splitString:(NSString*)aString 
+- (NSArray *)splitString:(NSString *)aString 
 	options:(OgreOption)searchOptions;
 	
-- (NSArray*)splitString:(NSString*)aString 
+- (NSArray *)splitString:(NSString *)aString 
 	options:(OgreOption)searchOptions 
 	range:(NSRange)searchRange;
 	
@@ -583,7 +583,7 @@ extern NSString	* const OgreException;
 	limit == 0(デフォルト):	最後が空文字列のときは無視する。@"a,b,c," -> (@"a", @"b", @"c")
 	limit <  0:				最後が空文字列でも含める。@"a,b,c," -> (@"a", @"b", @"c", @"")
  */
-- (NSArray*)splitString:(NSString*)aString 
+- (NSArray *)splitString:(NSString *)aString 
 	options:(OgreOption)searchOptions
 	range:(NSRange)searchRange
 	limit:(NSInteger)limit;
@@ -596,18 +596,18 @@ extern NSString	* const OgreException;
 + (NSInteger)intValueForSyntax:(OgreSyntax)syntax;
 + (OgreSyntax)syntaxForIntValue:(int)intValue;
 // A string representing the OgreSyntax (OgreSyntaxを表す文字列)
-+ (NSString*)stringForSyntax:(OgreSyntax)syntax;
++ (NSString *)stringForSyntax:(OgreSyntax)syntax;
 // String array that represents the Options (Optionsを表す文字列配列)
-+ (NSArray*)stringsForOptions:(OgreOption)options;
++ (NSArray *)stringsForOptions:(OgreOption)options;
 
 // The string I want to convert to a safe string in the regular expression. (@ "|.?! () * + {} ^ $ [] - & #: = <> @ \\" I saved) (文字列を正規表現で安全な文字列に変換する。(@"|().?*+{}^$[]-&#:=!<>@\\"を退避する))
-+ (NSString*)regularizeString:(NSString*)string;
++ (NSString *)regularizeString:(NSString *)string;
 
 // Examine new line code is something (改行コードが何か調べる)
-+ (OgreNewlineCharacter)newlineCharacterInString:(NSString*)aString;
++ (OgreNewlineCharacter)newlineCharacterInString:(NSString *)aString;
 // A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
-+ (NSString*)replaceNewlineCharactersInString:(NSString*)aString withCharacter:(OgreNewlineCharacter)newlineCharacter;
++ (NSString *)replaceNewlineCharactersInString:(NSString *)aString withCharacter:(OgreNewlineCharacter)newlineCharacter;
 // I remove the line break code (改行コードを取り除く)
-+ (NSString*)chomp:(NSString*)aString;
++ (NSString *)chomp:(NSString *)aString;
 
 @end

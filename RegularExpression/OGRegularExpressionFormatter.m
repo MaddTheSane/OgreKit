@@ -21,12 +21,12 @@ static NSString	* const OgreEscapeCharacterKey    = @"OgreFormatterEscapeCharact
 NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterException";
 
 @interface OGRegularExpressionFormatter ()
-- (instancetype)initWithCoder:(NSCoder*)decoder NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 @end
 
 @implementation OGRegularExpressionFormatter
 
-- (NSString*)stringForObjectValue:(id)anObject
+- (NSString *)stringForObjectValue:(id)anObject
 {
     if (![anObject isKindOfClass: [OGRegularExpression class]]) {
 		return nil;
@@ -36,7 +36,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	return [anObject expressionString];
 }
 
-- (NSAttributedString*)attributedStringForObjectValue:(id)anObject 
+- (NSAttributedString *)attributedStringForObjectValue:(id)anObject 
 	withDefaultAttributes:(NSDictionary *)attributes
 {
     if (![anObject isKindOfClass: [OGRegularExpression class]]) {
@@ -48,7 +48,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		attributes: attributes];
 }
 
-- (NSString*)editingStringForObjectValue:(id)anObject
+- (NSString *)editingStringForObjectValue:(id)anObject
 {
     if (![anObject isKindOfClass: [OGRegularExpression class]]) {
 		return nil;
@@ -58,7 +58,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	return [anObject expressionString];
 }
 
-- (BOOL)getObjectValue:(id*)obj forString:(NSString*)string 
+- (BOOL)getObjectValue:(id *)obj forString:(NSString *)string 
 	errorDescription:(NSString  **)error
 {
 	BOOL	retval;
@@ -94,7 +94,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 }
 
 // NSCoding protocols
-- (void)encodeWithCoder:(NSCoder*)encoder
+- (void)encodeWithCoder:(NSCoder *)encoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-encodeWithCoder: of %@", [self className]);
@@ -124,7 +124,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -187,7 +187,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 }
 
 // NSCopying protocol
-- (id)copyWithZone:(NSZone*)zone
+- (id)copyWithZone:(NSZone *)zone
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-copyWithZone: of %@", [self className]);
@@ -203,7 +203,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-- (instancetype)initWithOptions:(OgreOption)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString*)character
+- (instancetype)initWithOptions:(OgreOption)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString *)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithOptions: of %@", [self className]);

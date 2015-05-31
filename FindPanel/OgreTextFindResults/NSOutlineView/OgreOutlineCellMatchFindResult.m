@@ -19,7 +19,7 @@
 
 - (id)name
 {
-    NSString    *name = [(OgreOutlineCellFindResult*)[self parent] nameOfMatchedStringAtIndex:[self index]];
+    NSString    *name = [(OgreOutlineCellFindResult *)[self parent] nameOfMatchedStringAtIndex:[self index]];
     if ([self index] == 0) return name;
     
     return [[NSAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName: [NSColor lightGrayColor]}];
@@ -27,22 +27,22 @@
 
 - (id)outline
 {
-    return [(OgreOutlineCellFindResult*)[self parent] matchedStringAtIndex:[self index]]; 
+    return [(OgreOutlineCellFindResult *)[self parent] matchedStringAtIndex:[self index]]; 
 }
 
 - (BOOL)showMatchedString
 {
-    return [(OgreOutlineCellFindResult*)[self parent] showMatchedStringAtIndex:[self index]];
+    return [(OgreOutlineCellFindResult *)[self parent] showMatchedStringAtIndex:[self index]];
 }
 
 - (BOOL)selectMatchedString
 {
-    return [(OgreOutlineCellFindResult*)[self parent] selectMatchedStringAtIndex:[self index]];
+    return [(OgreOutlineCellFindResult *)[self parent] selectMatchedStringAtIndex:[self index]];
 }
 
 - (id)target
 {
-    return [(OgreOutlineCellFindResult*)[self parent] target];
+    return [(OgreOutlineCellFindResult *)[self parent] target];
 }
 
 @end

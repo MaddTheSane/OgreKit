@@ -78,7 +78,7 @@
 	attributedReplace = yesOrNo;
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)aApp
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)aApp
 {
 	return YES;	// And exit After closing all windows. (全てのウィンドウを閉じたら終了する。)
 }

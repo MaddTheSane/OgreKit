@@ -40,7 +40,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 // Group Name (グループ名)
-- (NSString*)groupName
+- (NSString *)groupName
 {
     return [_match nameOfSubstringAtIndex:[self groupIndex]];
 }
@@ -65,7 +65,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 // Child elements us (子要素たち)
 // return nil in the case of numberOfChildren == 0
-- (NSArray*)children
+- (NSArray *)children
 {
     NSUInteger    numberOfChildren = _captureNode->num_childs;
     if (numberOfChildren == 0) return nil;
@@ -79,7 +79,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 
 // index th child element (index番目の子要素)
-- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index
+- (OGRegularExpressionCapture *)childAtIndex:(NSUInteger)index
 {
     if (index >= _captureNode->num_childs) {
         return nil;
@@ -93,14 +93,14 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 
-- (OGRegularExpressionMatch*)match
+- (OGRegularExpressionMatch *)match
 {
     return _match;
 }
 
 
 // description
-- (NSString*)description
+- (NSString *)description
 {
 	NSDictionary	*dictionary = @{@"Group Index": @(_captureNode->group),
 			@"Index": @(_index), 
@@ -116,18 +116,18 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
  * 文字列 *
  *********/
 // String that became the match of subject (マッチの対象になった文字列)
-- (NSString*)targetString
+- (NSString *)targetString
 {
     return [_match targetString];
 }
 
-- (NSAttributedString*)targetAttributedString
+- (NSAttributedString *)targetAttributedString
 {
 	return [_match targetAttributedString];
 }
 
 // Matched string (マッチした文字列)
-- (NSString*)string
+- (NSString *)string
 {
 	// I return nil when the index th substring does not exist (index番目のsubstringが存在しない時には nil を返す)
 	if (_captureNode->beg == -1 || _captureNode->end == -1) {
@@ -137,7 +137,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	return [[_match targetString] substringWithRange:NSMakeRange(_captureNode->beg / sizeof(unichar), (_captureNode->end - _captureNode->beg) / sizeof(unichar))];
 }
 
-- (NSAttributedString*)attributedString
+- (NSAttributedString *)attributedString
 {
 	// I return nil when the index th substring does not exist (index番目のsubstringが存在しない時には nil を返す)
 	if (_captureNode->beg == -1 || _captureNode->end == -1) {
@@ -177,7 +177,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 
 // NSCoding protocols
-- (void)encodeWithCoder:(NSCoder*)encoder
+- (void)encodeWithCoder:(NSCoder *)encoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-encodeWithCoder: of %@", [self className], [self className]);
@@ -197,7 +197,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className], [self className]);
@@ -271,7 +271,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 // NSCopying protocol
-- (id)copyWithZone:(NSZone*)zone
+- (id)copyWithZone:(NSZone *)zone
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-copyWithZone: of %@", [self className], [self className]);
@@ -285,11 +285,11 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 #pragma mark - Private methods
-- (id)initWithTreeNode:(OnigCaptureTreeNode*)captureNode
+- (id)initWithTreeNode:(OnigCaptureTreeNode *)captureNode
 				 index:(NSUInteger)index
 				 level:(NSUInteger)level
-			parentNode:(OGRegularExpressionCapture*)parentNode
-				 match:(OGRegularExpressionMatch*)match
+			parentNode:(OGRegularExpressionCapture *)parentNode
+				 match:(OGRegularExpressionMatch *)match
 {
 	self = [super init];
 	if (self != nil) {
@@ -302,7 +302,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	return self;
 }
 
-- (OnigCaptureTreeNode*)_captureNode
+- (OnigCaptureTreeNode *)_captureNode
 {
 	return _captureNode;
 }

@@ -1661,7 +1661,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // Array of strings representing the Options (Optionsを表す文字列の配列)
-+ (NSArray*)stringsForOptions:(OgreOption)options
++ (NSArray *)stringsForOptions:(OgreOption)options
 {
 	NSMutableArray	*array = [NSMutableArray arrayWithCapacity:0];
 	
@@ -1948,7 +1948,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     return _regexBuffer;
 }
 
-// I return the OnigSyntaxType * corresponding to OgreSyntax. (OgreSyntaxに対応するOnigSyntaxType*を返す。)
+// I return the OnigSyntaxType * corresponding to OgreSyntax. (OgreSyntaxに対応するOnigSyntaxType *を返す。)
 + (OnigSyntaxType *)onigSyntaxTypeForSyntax:(OgreSyntax)syntax
 {
     if (syntax == OgreSimpleMatchingSyntax)	return &OgrePrivateRubySyntax;

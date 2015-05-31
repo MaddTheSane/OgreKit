@@ -58,7 +58,7 @@
     return NO;
 }
 
-- (BOOL)_preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf
+- (BOOL)_preprocessFindingInFirstLeaf:(OgreTextFindLeaf *)aLeaf
 {
     if (![self shouldPreprocessFindingInFirstLeaf]) return YES; // continue
     
@@ -71,7 +71,7 @@
     return shouldContinue;
 }
 
-- (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf
+- (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf *)aLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -preprocessFindingInFirstLeaf: of %@", [self className]);
@@ -79,14 +79,14 @@
     return YES; // continue
 }
 
-- (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
+- (void)willProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingInBranch: of %@", [self className]);
 #endif
 }
 
-- (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (void)willProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingInLeaf: of %@", [self className]);
@@ -114,7 +114,7 @@
                                                   range:searchRange];
 }
 
-- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
     // I get the first match result. (最初のマッチ結果を得る。)
     OGRegularExpressionMatch    *match;
@@ -137,14 +137,14 @@
     return NO;
 }
 
-- (void)didProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (void)didProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
 }
 
-- (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
+- (void)didProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInBranch: of %@", [self className]);
@@ -167,7 +167,7 @@
     [[self targetAdapter] setTerminal:YES];
 }
 
-- (BOOL)shouldContinueProcessFindingFirstLeaf:(OgreTextFindLeaf*)aLeaf
+- (BOOL)shouldContinueProcessFindingFirstLeaf:(OgreTextFindLeaf *)aLeaf
 {
     return YES; // continue
 }
