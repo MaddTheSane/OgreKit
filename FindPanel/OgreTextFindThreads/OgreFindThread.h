@@ -18,7 +18,7 @@
 
 @interface OgreFindThread : OgreTextFindThread 
 {
-    NSEnumerator        *matchEnumerator;
+    NSEnumerator        *_matchEnumerator;
     BOOL                _lhsPhase;
 }
 

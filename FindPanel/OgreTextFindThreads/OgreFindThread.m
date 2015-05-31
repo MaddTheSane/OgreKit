@@ -94,7 +94,7 @@
     NSObject<OGStringProtocol>    *string = [aLeaf ogString];
     
     if (string == nil) {
-        matchEnumerator = nil;
+        _matchEnumerator = nil;
         return;
     }
     
@@ -109,9 +109,9 @@
     }
     
     OGRegularExpression *regEx = [self regularExpression];
-    matchEnumerator = [regEx matchEnumeratorInOGString:string
-                                               options:[self options]
-                                                 range:searchRange];
+    _matchEnumerator = [regEx matchEnumeratorInOGString:string
+                                                options:[self options]
+                                                  range:searchRange];
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
@@ -120,9 +120,9 @@
     OGRegularExpressionMatch    *match;
     
     if ([self backward]) {
-        match = [[matchEnumerator allObjects] lastObject];
+        match = [[_matchEnumerator allObjects] lastObject];
     } else {
-        match = [matchEnumerator nextObject];
+        match = [_matchEnumerator nextObject];
     }
     if (match == nil) return NO;    // next leaf
     
