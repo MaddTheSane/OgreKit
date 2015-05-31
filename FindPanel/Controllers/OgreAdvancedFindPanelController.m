@@ -1063,6 +1063,10 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
     
     //[self avoidEmptySelection];
     
+    OgreTextFindResult *result = [[self textFinder] replaceAll:[findTextView string]
+                                          withAttributedString:[replaceTextView textStorage]
+                                                       options:[self options]
+                                                   inSelection:[self inSelectionScopeOption]];
 		
 	if ([result alertIfErrorOccurred]) return;  // error
 	if (![result isSuccess]) NSBeep();
