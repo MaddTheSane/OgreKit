@@ -1759,7 +1759,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
                    range:(NSRange)searchRange
                    limit:(NSInteger)limit
 {
-    NSMutableArray  *words = [NSMutableArray arrayWithCapacity:1];
+    NSMutableArray  *words = [[NSMutableArray alloc] initWithCapacity:1];
     
     NSEnumerator    *enumerator = [self matchEnumeratorInString:aString
                                                         options:options
@@ -1789,9 +1789,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
             [words addObject:remainingString];
         }
         
-        return words;
-        
     }
+	return [NSArray arrayWithArray:words];
 }
 
 // A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
