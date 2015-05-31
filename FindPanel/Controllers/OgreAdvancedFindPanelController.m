@@ -1052,18 +1052,17 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[self addFindHistory:[findTextView textStorage]];
 	[self addReplaceHistory:[replaceTextView textStorage]];
 	
-	/*NSLog(@"Find: %@", [findTextView string]);
+#if 0
+	NSLog(@"Find: %@", [findTextView string]);
 	NSLog(@"Replace: %@", [replaceTextView string]);
 	NSLog(@"Options: %@", [[OGRegularExpression stringsForOptions:[self options]] description]);
 	NSLog(@"inSelection: %@", ([self inSelectionScopeOption]? @"YES" : @"NO"));
 	NSLog(@"inWrap: %@", ([self isWrap]? @"YES" : @"NO"));
 	NSLog(@"atTop: %@", ([self isStartFromTop]? @"YES" : @"NO"));
-	*/
-	//[self avoidEmptySelection];
-	OgreTextFindResult	*result = [[self textFinder] replaceAll:[findTextView string] 
-		withAttributedString:[replaceTextView textStorage]
-		options: [self options] 
-		inSelection: [self inSelectionScopeOption]];
+#endif
+    
+    //[self avoidEmptySelection];
+    
 		
 	if ([result alertIfErrorOccurred]) return;  // error
 	if (![result isSuccess]) NSBeep();
