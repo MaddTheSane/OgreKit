@@ -106,12 +106,13 @@ static NSString *gMyTableRowPropertyType = @"rows";
 		[aString replaceNewlineCharactersWithCharacter:OgreUnixNewlineCharacter];
 	}
     
-    OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:@"^(?:\"(?@[^\"]*(?:\"\"[^\"]*)*)\"(?:,[ ]*|\\t+|))+$"];
-    OGRegularExpression *rmEscRegex = [OGRegularExpression regularExpressionWithString:@"\"\""];
+    OGRegularExpression *regEx =
+    [OGRegularExpression regularExpressionWithString:@"^(?:\"(?@[^\"]*(?:\"\"[^\"]*)*)\"(?:,[ ]*|\\t+|))+$"];
+    OGRegularExpression *removeEscapeCharactersRegex = [OGRegularExpression regularExpressionWithString:@"\"\""];
     
     OGRegularExpressionMatch    *match;
     OGRegularExpressionCapture  *capture;
-    NSEnumerator                *matchEnumerator = [regex matchEnumeratorInString:aString];
+    NSEnumerator                *matchEnumerator = [regEx matchEnumeratorInString:aString];
     NSUInteger                  numberOfCaptures = 0, colIndex;
     NSMutableArray              *array;
     NSString                    *identifier;
@@ -134,14 +135,14 @@ static NSString *gMyTableRowPropertyType = @"rows";
         
         _titleArray = [[NSMutableArray alloc] initWithCapacity:numberOfCaptures];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
-            [_titleArray addObject:[rmEscRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
+            [_titleArray addObject:[removeEscapeCharactersRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
         }
     }
     
     while ((match = [matchEnumerator nextObject]) != nil) {
         capture = [match captureHistory];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
-            [dictArray[colIndex] addObject:[rmEscRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
+            [dictArray[colIndex] addObject:[removeEscapeCharactersRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
         }
     }
 	

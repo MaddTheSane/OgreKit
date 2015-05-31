@@ -81,15 +81,16 @@
 	options:(OgreOption)options
 	range:(NSRange)searchRange
 {
-	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:expressionString
-		options:options];
+	OGRegularExpression *regEx =
+    [OGRegularExpression regularExpressionWithString:expressionString
+                                             options:options];
 	NSUInteger	numberOfReplacement = 0;
-	NSString	*replacedString = [regex replaceString:self 
-		withString:replaceString 
-		options:options 
-		range:searchRange 
-		replaceAll:YES
-		numberOfReplacement:&numberOfReplacement];
+    NSString *replacedString = [regEx replaceString:self
+                                         withString:replaceString
+                                            options:options
+                                              range:searchRange 
+                                         replaceAll:YES
+                                numberOfReplacement:&numberOfReplacement];
 	if (numberOfReplacement > 0) [self setString:replacedString];
 	return numberOfReplacement;
 }

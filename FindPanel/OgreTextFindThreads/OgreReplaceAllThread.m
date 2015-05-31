@@ -44,7 +44,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingInBranch: of %@", [self className]);
 #endif
-    repex = [self replaceExpression];
+    replaceExpression = [self replaceExpression];
 }
 
 - (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
@@ -89,7 +89,7 @@
     NSRange                         matchRange;
     match = matchArray[(aNumberOfMatches - aNumberOfReplaces)];
     matchRange = [match rangeOfMatchedString];
-    replacedString = [repex replaceMatchedOGStringOf:match];
+    replacedString = [replaceExpression replaceMatchedOGStringOf:match];
     [aLeaf replaceCharactersInRange:matchRange withOGString:replacedString];
     
     return YES; // continue

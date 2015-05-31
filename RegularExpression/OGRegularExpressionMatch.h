@@ -141,10 +141,10 @@ extern NSString	* const OgreMatchException;
 /***********************
 * マッチした部分文字列を得る *
 ************************/
-// (regex1) | (regex2) | ... a regular expression like, is useful when you want to conditional branch depending on whether you match any regex *. ((regex1)|(regex2)|... のような正規表現で、どのregex*にマッチしたかによって条件分岐する場合に便利。)
+// (regEx1) | (regEx2) | ... a regular expression like, is useful when you want to conditional branch depending on whether you match any regEx *. ((regEx1)|(regEx2)|... のような正規表現で、どのregEx*にマッチしたかによって条件分岐する場合に便利。)
 /* 使用例: 
-	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:@"([0-9]+)|([a-zA-Z]+)"];
-	NSEnumerator	*matchEnum = [regex matchEnumeratorInString:@"123abc"];
+	OGRegularExpression *regEx = [OGRegularExpression regularExpressionWithString:@"([0-9]+)|([a-zA-Z]+)"];
+	NSEnumerator	*matchEnum = [regEx matchEnumeratorInString:@"123abc"];
 	OGRegularExpressionMatch	*match;
 	while ((match = [matchEnum nextObject]) != nil) {
 		switch ([match indexOfFirstMatchedSubstring]) {
@@ -206,10 +206,10 @@ extern NSString	* const OgreMatchException;
 *******************/
 /*例:
 	NSString					*target = @"abc de";
-	OGRegularExpression			*regex = [OGRegularExpression regularExpressionWithString:@"(?@[a-z])+"];
+	OGRegularExpression			*regEx = [OGRegularExpression regularExpressionWithString:@"(?@[a-z])+"];
 	OGRegularExpressionMatch	*match;
     OGRegularExpressionCapture  *capture;
-	NSEnumerator				*matchEnumerator = [regex matchEnumeratorInString:target];
+	NSEnumerator				*matchEnumerator = [regEx matchEnumeratorInString:target];
 	NSUInteger					i;
 	
 	while ((match = [matchEnumerator nextObject]) != nil) {

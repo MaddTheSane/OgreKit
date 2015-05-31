@@ -90,11 +90,12 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 /* evaluation */
 - (id)eval:(NSString*)expression
 {
-    OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:calcRegex 
-        options:OgreCaptureGroupOption 
-        syntax:OgreRubySyntax 
-        escapeCharacter:OgreBackslashCharacter];
-    OGRegularExpressionMatch    *match = [regex matchInString:expression];
+    OGRegularExpression *regEx =
+    [OGRegularExpression regularExpressionWithString:calcRegex
+                                             options:OgreCaptureGroupOption
+                                              syntax:OgreRubySyntax
+                                     escapeCharacter:OgreBackslashCharacter];
+    OGRegularExpressionMatch    *match = [regEx matchInString:expression];
     
     if (match == nil || [match rangeOfMatchedString].length != [expression length]) return nil;
     

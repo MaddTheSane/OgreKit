@@ -319,8 +319,8 @@
 }
 
 /* Accessors */
-@synthesize regularExpression = _regex;
-@synthesize replaceExpression = _repex;
+@synthesize regularExpression = _regularExpression;
+@synthesize replaceExpression = _replaceExpression;
 @synthesize highlightColor = _highlightColor;
 @synthesize inSelection = _inSelection;
 @synthesize terminated = _terminated;

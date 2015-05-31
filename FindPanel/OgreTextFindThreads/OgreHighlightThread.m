@@ -63,7 +63,7 @@
         return;
     }
     
-    OGRegularExpression *regex = [self regularExpression];
+    OGRegularExpression *regEx = [self regularExpression];
     
     /* blending highlight colors */
     CGFloat hue, saturation, brightness, alpha;
@@ -73,9 +73,9 @@
         brightness: &brightness 
         alpha: &alpha];
     
-    numberOfGroups = [regex numberOfGroups];
+    numberOfGroups = [regEx numberOfGroups];
     NSUInteger  i;
-    BOOL        simple = ([regex syntax] == OgreSimpleMatchingSyntax);
+    BOOL        simple = ([regEx syntax] == OgreSimpleMatchingSyntax);
     CGFloat     dummy;
     
     highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
@@ -95,9 +95,9 @@
 	}
     searchLength = searchRange.length;
     
-    matchEnumerator = [regex matchEnumeratorInOGString:string 
-			options: [self options] 
-			range: searchRange];
+    matchEnumerator = [regEx matchEnumeratorInOGString:string
+                                               options:[self options]
+                                                 range:searchRange];
     
     [aLeaf unhighlight];
 }

@@ -20,10 +20,10 @@
 @interface OgreReplaceAllThread : OgreTextFindThread 
 {
     NSArray					*matchArray;
-    OGReplaceExpression		*repex;
+    OGReplaceExpression		*replaceExpression;
     NSUInteger				aNumberOfReplaces, aNumberOfMatches;
     NSString				*progressMessage, *progressMessagePlural, *remainingTimeMesssage;
-	id<OGStringProtocol>				replacedString;
+	id<OGStringProtocol>	replacedString;
 }
 
 @end

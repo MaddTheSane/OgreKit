@@ -108,10 +108,10 @@
         searchRange = NSMakeRange(0, searchRange.location);
     }
     
-    OGRegularExpression *regex = [self regularExpression];
-    matchEnumerator = [regex matchEnumeratorInOGString:string 
-			options: [self options] 
-			range: searchRange];
+    OGRegularExpression *regEx = [self regularExpression];
+    matchEnumerator = [regEx matchEnumeratorInOGString:string
+                                               options:[self options]
+                                                 range:searchRange];
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;

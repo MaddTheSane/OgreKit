@@ -20,12 +20,12 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	NSLog(@"GC Test - start");
     
-    OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:@"a"];
+    OGRegularExpression *regEx = [OGRegularExpression regularExpressionWithString:@"a"];
     
     NSUInteger count = 0;
     NSUInteger i;
     for (i = 0; i < 1000000000; i++) {
-        NSEnumerator  *matcher = [regex matchEnumeratorInString:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
+        NSEnumerator  *matcher = [regEx matchEnumeratorInString:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
         OGRegularExpressionMatch  *match;
         while ((match = [matcher nextObject]) != nil) {
             count++;

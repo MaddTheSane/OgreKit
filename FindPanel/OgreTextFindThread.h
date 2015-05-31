@@ -31,8 +31,8 @@
 	OgreTextFindRoot	*_rootAdapter;
 	
 	/* Parameters */
-	OGRegularExpression *_regex;			// regular expression
-	OGReplaceExpression *_repex;			// replace expression
+	OGRegularExpression *_regularExpression;// regular expression
+	OGReplaceExpression *_replaceExpression;// replace expression
 	NSColor				*_highlightColor;	// highlight color
 	OgreOption			_searchOptions;		// search option
 	BOOL				_inSelection;		// find scope

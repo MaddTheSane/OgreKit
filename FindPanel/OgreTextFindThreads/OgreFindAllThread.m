@@ -69,10 +69,10 @@
 	}
     searchLength = searchRange.length;
     
-    OGRegularExpression *regex = [self regularExpression];
-    matchEnumerator = [regex matchEnumeratorInOGString:string 
-			options: [self options] 
-			range: searchRange];
+    OGRegularExpression *regEx = [self regularExpression];
+    matchEnumerator = [regEx matchEnumeratorInOGString:string
+                                               options:[self options]
+                                                 range:searchRange];
     result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
     [self addResultLeaf:result];
 }

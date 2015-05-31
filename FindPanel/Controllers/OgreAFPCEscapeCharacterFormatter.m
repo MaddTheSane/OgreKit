@@ -94,33 +94,33 @@
 - (NSString*)equateInString:(NSString*)string
 {
 	NSString			*escapeCharacter = [_delegate escapeCharacter];
-	OGRegularExpression *regex;
-	if ([escapeCharacter isEqualToString:OgreBackslashCharacter]) {
-		regex = _yenRegex;
-	} else {
-		regex = _backslashRegex;
-	}
-	
-	return [regex replaceAllMatchesInString:string 
-		delegate:self 
-		replaceSelector:@selector(equateYenWithBackslash:contextInfo:) 
-		contextInfo:escapeCharacter];
+    OGRegularExpression *regEx;
+    if ([escapeCharacter isEqualToString:OgreBackslashCharacter]) {
+        regEx = _yenRegex;
+    } else {
+        regEx = _backslashRegex;
+    }
+    
+    return [regEx replaceAllMatchesInString:string
+                                   delegate:self
+                            replaceSelector:@selector(equateYenWithBackslash:contextInfo:)
+                                contextInfo:escapeCharacter];
 }
 
 - (NSAttributedString*)equateInAttributedString:(NSAttributedString*)string
 {
 	NSString			*escapeCharacter = [_delegate escapeCharacter];
-	OGRegularExpression *regex;
+	OGRegularExpression *regEx;
 	if ([escapeCharacter isEqualToString:OgreBackslashCharacter]) {
-		regex = _yenRegex;
+		regEx = _yenRegex;
 	} else {
-		regex = _backslashRegex;
+		regEx = _backslashRegex;
 	}
-	
-	return [regex replaceAllMatchesInAttributedString:string 
-		delegate:self 
-		replaceSelector:@selector(equateYenWithBackslashAttributed:contextInfo:) 
-		contextInfo:escapeCharacter];
+    
+    return [regEx replaceAllMatchesInAttributedString:string
+                                             delegate:self
+                                      replaceSelector:@selector(equateYenWithBackslashAttributed:contextInfo:)
+                                          contextInfo:escapeCharacter];
 }
 
 - (NSString*)equateYenWithBackslash:(OGRegularExpressionMatch*)aMatch 
