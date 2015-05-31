@@ -51,15 +51,16 @@ class SwiftBridgeTests: XCTestCase {
 		println(targetString)
 		let celciusRegex = OGRegularExpression(string: "([+-]?\\d+(?:\\.\\d+)?)C\\b")!
 		let logString = celciusRegex.replaceAllMatchesInString(targetString, delegate: self, replaceSelector: "fahrenheitFromCelsius:contextInfo:", contextInfo: nil)
-		println(logString)
+		XCTAssertEqual(logString, "97.7F, 38.8F, -320.4F");
 	}
 	
 	/// Splits a string (文字列を分割する)
 	func testSplit() {
 		let targetString = "36.5C, 3.8C, -195.8C"
 		let delimiterRegex = OGRegularExpression(string: "\\s*,\\s*")!
-		let split = delimiterRegex.splitString(targetString)
-		println(split)
+		let split = delimiterRegex.splitString(targetString) as! [String]
+		let expected: [String] = ["36.5C", "3.8C", "-195.8C"]
+		XCTAssertEqual(split, expected, "Split expected to be \(expected.description), but returned \(split.description)")
 	}
 	
 	func testCategory() {
