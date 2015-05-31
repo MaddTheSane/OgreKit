@@ -15,7 +15,7 @@
 
 @implementation MyOutlineView
 
-- (void)keyDown:(NSEvent*)event 
+- (void)keyDown:(NSEvent *)event 
 {
     unichar     key = [[event charactersIgnoringModifiers] characterAtIndex:0];
     NSEventModifierFlags flags = ([event modifierFlags] & 0x00FF);

@@ -19,7 +19,7 @@
 @implementation OgreFindResultWindowController
 @synthesize window;
 
-- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate
+- (instancetype)initWithTextFindResult:(OgreTextFindResult *)textFindResult liveUpdate:(BOOL)liveUpdate
 {
 	self = [super init];
 	if (self != nil) {
@@ -75,11 +75,11 @@
 	
 	NSString	*message;
 	if ([_textFindResult numberOfMatches] > 1) {
-		message = OgreTextFinderLocalizedString(@"%d strings found.");
+		message = OgreTextFinderLocalizedString(@"%lu strings found.");
 	} else {
-		message = OgreTextFinderLocalizedString(@"%d string found.");
-	}
-	[messageField setStringValue:[NSString stringWithFormat:message, [_textFindResult numberOfMatches]]];
+		message = OgreTextFinderLocalizedString(@"%lu string found.");
+    }
+	[messageField setStringValue:[NSString stringWithFormat:message, (unsigned long)[_textFindResult numberOfMatches]]];
 	
 	message = OgreTextFinderLocalizedString(@"Find String: %@");
 	[findStringField setStringValue:[NSString stringWithFormat:message, [_textFindResult findString]]];
@@ -98,7 +98,7 @@
 	[window close];
 }
 
-- (void)windowWillClose:(NSNotification*)aNotification
+- (void)windowWillClose:(NSNotification *)aNotification
 {
 	[_textFindResult setDelegate:nil];
 	_textFindResult = nil;
@@ -110,7 +110,7 @@
 	[_textFindResult setDelegate:nil];
 }
 
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult
+- (void)setTextFindResult:(OgreTextFindResult *)textFindResult
 {
 	[_textFindResult setDelegate:nil];
 	_textFindResult = textFindResult;
@@ -141,7 +141,7 @@
 	[_attachedWindowMediator windowDidMove:notification];
 }
 
-- (NSSize)windowWillResize:(NSWindow*)sender toSize:(NSSize)proposedFrameSize
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize
 {
 	return [_attachedWindowMediator windowWillResize:sender toSize:proposedFrameSize];
 }
@@ -216,7 +216,7 @@
 	if (!found) NSBeep();
 }
 
-- (void)outlineViewSelectionDidChange:(NSNotification*)aNotification
+- (void)outlineViewSelectionDidChange:(NSNotification *)aNotification
 {
 	NSInteger	clickedRowIndex = [grepOutlineView selectedRow];
 	if (clickedRowIndex < 0) return;
@@ -227,7 +227,7 @@
 	if (!found) NSBeep();
 }
 
-/* live update check box clicked*/
+/* live update check box clicked */
 - (IBAction)updateLiveUpdate:(id)sender
 {
 	if (_textFindResult != nil) [grepOutlineView reloadData];

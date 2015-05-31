@@ -50,7 +50,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	
 	self = [super init];
 	if (self != nil) {
-		_acceptors = (NSMutableArray*)CFBridgingRelease(CFArrayCreateMutable(kCFAllocatorDefault, 0, &noRetainArrayCallbacks));
+		_acceptors = (NSMutableArray *)CFBridgingRelease(CFArrayCreateMutable(kCFAllocatorDefault, 0, &noRetainArrayCallbacks));
 		[self setTolerance:10];
 		_processing = NO;
 	}
@@ -112,7 +112,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 
 - (CGFloat)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 	andAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
-	withAccepteeEdge:(NSRectEdge*)edge;
+	withAccepteeEdge:(NSRectEdge *)edge;
 {
 	CGFloat	strength = 0;
 	CGFloat	t = [self tolerance];
@@ -324,7 +324,7 @@ static CFArrayCallBacks noRetainArrayCallbacks = {
 	_processing = NO;
 }
 
-- (NSSize)windowWillResize:(NSWindow*)sender toSize:(NSSize)proposedFrameSize
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize
 {
 	NSWindow	*parent = [sender parentWindow];
 	

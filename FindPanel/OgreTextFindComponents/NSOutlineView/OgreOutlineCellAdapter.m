@@ -120,7 +120,7 @@
 {
 }
 
-- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor
+- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor *)highlightColor
 {
 }
 
@@ -128,11 +128,11 @@
 {
     OgreOutlineColumn               *outlineColumn = [self outlineColumn];
     id                              item = [self target];
-    OgreOutlineView                 *outlineView = (OgreOutlineView*)[outlineColumn tableView];
+    OgreOutlineView                 *outlineView = (OgreOutlineView *)[outlineColumn tableView];
     NSCell                          *dataCell = [outlineColumn dataCell];
     
     if ([dataCell type] == NSTextCellType) {
-        id  anObject = [(OgreOutlineColumn*)[outlineView outlineTableColumn] ogreObjectValueForItem:item];
+        id  anObject = [(OgreOutlineColumn *)[outlineView outlineTableColumn] ogreObjectValueForItem:item];
         [dataCell setObjectValue:anObject];
         
         return [dataCell stringValue];
@@ -156,7 +156,7 @@
     return NO; 
 }
 
-- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread *)aThread
 {
     return [[OgreOutlineCellFindResult alloc] initWithOutlineColumn:[self outlineColumn] item:[self target]]; 
 }
@@ -172,7 +172,7 @@
     
     if ([self isFirstLeaf] || [self isTerminal]) {
         OgreOutlineColumn   *outlineColumn = [self outlineColumn];
-        OgreOutlineView     *outlineView = (OgreOutlineView*)[outlineColumn tableView];
+        OgreOutlineView     *outlineView = (OgreOutlineView *)[outlineColumn tableView];
         NSRange     selectedRange = [outlineView ogreSelectedRange];
         
         if (selectedRange.location == NSNotFound) {
@@ -191,7 +191,7 @@
     OgreOutlineColumn *outlineColumn = [self outlineColumn];
     if (outlineColumn == nil) return;
 
-    OgreOutlineView *outlineView = (OgreOutlineView*)[outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[outlineColumn tableView];
     id              item = [self target];
 
     if ([outlineView allowsColumnSelection]) {
@@ -199,7 +199,7 @@
         if (columnIndex != -1) [outlineView scrollColumnToVisible:columnIndex];
     }
     
-    [(OgreOutlineItemAdapter*)[self parent] expandItemEnclosingItem:item];
+    [(OgreOutlineItemAdapter *)[self parent] expandItemEnclosingItem:item];
     NSInteger rowIndex = [outlineView rowForItem:item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
@@ -215,7 +215,7 @@
 {
     OgreOutlineColumn   *outlineColumn = [self outlineColumn];
     if (outlineColumn == nil) return;
-    OgreOutlineView     *outlineView = (OgreOutlineView*)[outlineColumn tableView];
+    OgreOutlineView     *outlineView = (OgreOutlineView *)[outlineColumn tableView];
 
     if ([outlineView allowsColumnSelection]) {
         NSInteger selectedColumnIndex = [outlineView selectedColumn];
@@ -226,15 +226,15 @@
     if (selectedRowIndex != -1) [outlineView scrollRowToVisible:selectedRowIndex];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
     OgreOutlineColumn *outlineColumn = [self outlineColumn];
     return [[outlineColumn tableView] window];
 }
 
-- (OgreOutlineColumn*)outlineColumn
+- (OgreOutlineColumn *)outlineColumn
 {
-    return [(OgreOutlineItemAdapter*)[self parent] outlineColumn];
+    return [(OgreOutlineItemAdapter *)[self parent] outlineColumn];
 }
 
 @end

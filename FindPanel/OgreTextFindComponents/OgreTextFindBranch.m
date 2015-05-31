@@ -110,7 +110,7 @@
 - (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 { 
     NSUInteger          numberOfDescendants = 0;
-    NSEnumerator        *enumerator = (NSEnumerator*)[self componentEnumeratorInSelection:inSelection];
+    NSEnumerator        *enumerator = (NSEnumerator *)[self componentEnumeratorInSelection:inSelection];
     OgreTextFindLeaf    *aChild;
     
     while ((aChild = [enumerator nextObject]) != nil) {
@@ -132,7 +132,7 @@
     return nil; 
 }
 
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@ (BUG!!!)", [self className]);
@@ -140,7 +140,7 @@
     return nil; 
 }
 
--(NSIndexSet*)selectedIndexes
+-(NSIndexSet *)selectedIndexes
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@ (BUG!!!)", [self className]);
@@ -148,7 +148,7 @@
     return nil; 
 }
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@ (BUG!!!)", [self className]);
@@ -156,7 +156,7 @@
     return nil; 
 }
 
-- (OgreTextFindBranch*)parent
+- (OgreTextFindBranch *)parent
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	if (_parent == nil) NSLog(@"  -parent == nil of OgreTextFindBranch (BUG?)");
@@ -164,21 +164,21 @@
     return _parent;
 }
 
-- (void)setParent:(OgreTextFindBranch*)parent
+- (void)setParent:(OgreTextFindBranch *)parent
 {
     if (_isParentRetained) [_parent autorelease];
     _parent = [parent retain];
     _isParentRetained = YES;
 }
 
-- (void)setParentNoRetain:(OgreTextFindBranch*)parent
+- (void)setParentNoRetain:(OgreTextFindBranch *)parent
 {
     if (_isParentRetained) [_parent autorelease];
     _parent = parent;
     _isParentRetained = NO;
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedLeaf of %@ (BUG?)", [self className]);
@@ -186,7 +186,7 @@
     return [[self childAtIndex:0 inSelection:YES] selectedLeaf];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -window of %@ (BUG!!!)", [self className]);

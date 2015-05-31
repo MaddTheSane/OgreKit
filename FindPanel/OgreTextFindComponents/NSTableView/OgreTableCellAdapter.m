@@ -23,7 +23,7 @@
 
 @implementation OgreTableCellAdapter
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn *)tableColumn row:(NSInteger)rowIndex
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTextView: of %@", [self className]);
@@ -130,7 +130,7 @@
 {
 }
 
-- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor
+- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor *)highlightColor
 {
 }
 
@@ -140,7 +140,7 @@
 - (BOOL)isEditable { return [_tableColumn isEditable]; }
 - (BOOL)isHighlightable { return NO; }
 
-- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread *)aThread
 {
     return [[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex]; 
 }
@@ -155,7 +155,7 @@
     NSRange     fullRange = NSMakeRange(0, [[self ogString] length]);
     
     if ([self isFirstLeaf] || [self isTerminal]) {
-        NSRange     selectedRange = [(OgreTableView*)[_tableColumn tableView] ogreSelectedRange];
+        NSRange     selectedRange = [(OgreTableView *)[_tableColumn tableView] ogreSelectedRange];
         if (selectedRange.location == NSNotFound) {
             selectedRange = fullRange;
             [self setSelectedRange:selectedRange];
@@ -170,7 +170,7 @@
 - (void)setSelectedRange:(NSRange)aRange
 {
     if (_tableColumn == nil) return;
-    OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];
+    OgreTableView *tableView = (OgreTableView *)[_tableColumn tableView];
     
     [tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:_rowIndex] byExtendingSelection:NO];
     
@@ -187,7 +187,7 @@
 - (void)jumpToSelection
 {
     if (_tableColumn == nil) return;
-    OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
+    OgreTableView   *tableView = (OgreTableView *)[_tableColumn tableView];
     
     if ([tableView allowsColumnSelection]) {
         NSInteger selectedColumnIndex = [tableView selectedColumn];
@@ -198,7 +198,7 @@
     if (selectedRowIndex != -1) [tableView scrollRowToVisible:selectedRowIndex];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
     return [[_tableColumn tableView] window];
 }

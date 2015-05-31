@@ -46,7 +46,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 #define OgreNonEscapedNormalCharacters	(-9)
 
 @interface OGReplaceExpression ()
-- (instancetype)initWithCoder:(NSCoder*)decoder NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -70,7 +70,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 - (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character
+	escapeCharacter:(NSString *)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithString: of %@", [self className]);
@@ -140,7 +140,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 			
 			matchIndex = [match indexOfFirstMatchedSubstring];  // Did matched to any subexpression (どの部分式にマッチしたのか)
 	#ifdef DEBUG_OGRE
-			NSLog(@" matchIndex: %d, %@", matchIndex, [match matchedString]);
+			NSLog(@" matchIndex: %lu, %@", (unsigned long)matchIndex, [match matchedString]);
 	#endif
 			switch (matchIndex) {
 				case 1: // Ordinary character (通常文字)
@@ -238,9 +238,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 
-- (instancetype)initWithString:(NSString*)replaceString 
+- (instancetype)initWithString:(NSString *)replaceString 
 	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character
+	escapeCharacter:(NSString *)character
 {
 	return [self initWithOGString:[OGPlainString stringWithString:replaceString] 
 		options:OgreNoneOption 
@@ -248,15 +248,15 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:character];
 }
 
-- (instancetype)initWithString:(NSString*)replaceString 
-	escapeCharacter:(NSString*)character 
+- (instancetype)initWithString:(NSString *)replaceString 
+	escapeCharacter:(NSString *)character 
 {
 	return [self initWithString:replaceString 
 		syntax:[OGRegularExpression defaultSyntax] 
 		escapeCharacter:character];
 }
 
-- (instancetype)initWithString:(NSString*)replaceString
+- (instancetype)initWithString:(NSString *)replaceString
 {
 	return [self initWithString:replaceString 
 		syntax:[OGRegularExpression defaultSyntax] 
@@ -264,10 +264,10 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 
-- (instancetype)initWithAttributedString:(NSAttributedString*)replaceString 
+- (instancetype)initWithAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)options
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character
+	escapeCharacter:(NSString *)character
 {
 	return [self initWithOGString:[OGAttributedString stringWithAttributedString:replaceString] 
 		options:options 
@@ -275,7 +275,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:character];
 }
 
-- (instancetype)initWithAttributedString:(NSAttributedString*)replaceString 
+- (instancetype)initWithAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)options
 {
 	return [self initWithAttributedString:replaceString 
@@ -284,7 +284,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-- (instancetype)initWithAttributedString:(NSAttributedString*)replaceString
+- (instancetype)initWithAttributedString:(NSAttributedString *)replaceString
 {
 	return [self initWithAttributedString:replaceString 
 		options:OgreNoneOption 
@@ -293,24 +293,24 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 
-+ (instancetype)replaceExpressionWithString:(NSString*)replaceString 
++ (instancetype)replaceExpressionWithString:(NSString *)replaceString 
 	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character
+	escapeCharacter:(NSString *)character
 {
 	return [[[self class] alloc] initWithString:replaceString 
 		syntax:syntax 
 		escapeCharacter:character];
 }
 
-+ (instancetype)replaceExpressionWithString:(NSString*)replaceString 
-	escapeCharacter:(NSString*)character
++ (instancetype)replaceExpressionWithString:(NSString *)replaceString 
+	escapeCharacter:(NSString *)character
 {
 	return [[[self class] alloc] initWithString:replaceString 
 		syntax:[OGRegularExpression defaultSyntax] 
 		escapeCharacter:character];
 }
 
-+ (instancetype)replaceExpressionWithString:(NSString*)replaceString;
++ (instancetype)replaceExpressionWithString:(NSString *)replaceString;
 {
 	return [[[self class] alloc] initWithString:replaceString 
 		syntax:[OGRegularExpression defaultSyntax] 
@@ -318,10 +318,10 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 
-+ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
++ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)options
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character
+	escapeCharacter:(NSString *)character
 {
 	return [[[self class] alloc] initWithAttributedString:replaceString 
 		options:options 
@@ -329,7 +329,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:character];
 }
 
-+ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString 
++ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString *)replaceString 
 	options:(OgreOption)options
 {
 	return [[[self class] alloc] initWithAttributedString:replaceString 
@@ -338,7 +338,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
-+ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString*)replaceString;
++ (instancetype)replaceExpressionWithAttributedString:(NSAttributedString *)replaceString;
 {
 	return [[[self class] alloc] initWithAttributedString:replaceString 
 		options:OgreNoneOption 
@@ -349,7 +349,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 + (instancetype)replaceExpressionWithOGString:(id<OGStringProtocol>)replaceString
 	options:(OgreOption)options 
 	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString*)character
+	escapeCharacter:(NSString *)character
 {
 	return [[[self class] alloc] initWithOGString:replaceString 
 		options:options 
@@ -358,16 +358,16 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 // Replacement (置換)
-- (NSString*)replaceMatchedStringOf:(OGRegularExpressionMatch*)match
+- (NSString *)replaceMatchedStringOf:(OGRegularExpressionMatch *)match
 {
 	return [[self replaceMatchedOGStringOf:match] string];
 }
 
-- (NSAttributedString*)replaceMatchedAttributedStringOf:(OGRegularExpressionMatch*)match {
+- (NSAttributedString *)replaceMatchedAttributedStringOf:(OGRegularExpressionMatch *)match {
 	return [[self replaceMatchedOGStringOf:match] attributedString];
 }
 
-- (id<OGStringProtocol>)replaceMatchedOGStringOf:(OGRegularExpressionMatch*)match 
+- (id<OGStringProtocol>)replaceMatchedOGStringOf:(OGRegularExpressionMatch *)match 
 {
 	if (match == nil) {
 		[NSException raise:NSInvalidArgumentException format: @"nil string (or other) argument"];
@@ -496,7 +496,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 // NSCoding protocols
-- (void)encodeWithCoder:(NSCoder*)encoder
+- (void)encodeWithCoder:(NSCoder *)encoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-encodeWithCoder: of %@", [self className]);
@@ -514,7 +514,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	}
 }
 
-- (instancetype)initWithCoder:(NSCoder*)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -574,7 +574,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 // NSCopying protocol
-- (id)copyWithZone:(NSZone*)zone
+- (id)copyWithZone:(NSZone *)zone
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-copyWithZone: of %@", [self className]);
@@ -591,7 +591,7 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 // description
-- (NSString*)description
+- (NSString *)description
 {
 	return [@{@"Compiled Replace String": _compiledReplaceString, 
 			@"Compiled Replace String Type": _compiledReplaceStringType, 
@@ -601,17 +601,17 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 
 #pragma mark - Private methods
-- (void)_setCompiledReplaceString:(NSMutableArray*)compiledReplaceString
+- (void)_setCompiledReplaceString:(NSMutableArray *)compiledReplaceString
 {
 	_compiledReplaceString = compiledReplaceString;
 }
 
-- (void)_setCompiledReplaceStringType:(NSMutableArray*)compiledReplaceStringType
+- (void)_setCompiledReplaceStringType:(NSMutableArray *)compiledReplaceStringType
 {
 	_compiledReplaceStringType = compiledReplaceStringType;
 }
 
-- (void)_setNameArray:(NSMutableArray*)nameArray
+- (void)_setNameArray:(NSMutableArray *)nameArray
 {
 	_nameArray = nameArray;
 }

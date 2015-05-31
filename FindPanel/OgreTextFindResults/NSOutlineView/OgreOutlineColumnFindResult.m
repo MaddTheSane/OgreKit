@@ -19,7 +19,7 @@
 
 @implementation OgreOutlineColumnFindResult
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn
+- (id)initWithOutlineColumn:(OgreOutlineColumn *)outlineColumn
 {
     self = [super init];
     if (self != nil) {
@@ -47,11 +47,11 @@
     }
 }
 
-- (void)mergeFindResult:(OgreOutlineCellFindResult*)aBranch
+- (void)mergeFindResult:(OgreOutlineCellFindResult *)aBranch
 {
 }
 
-- (void)replaceFindResult:(OgreOutlineItemFindResult*)aBranch withFindResultsFromArray:(NSArray*)resultsArray
+- (void)replaceFindResult:(OgreOutlineItemFindResult *)aBranch withFindResultsFromArray:(NSArray *)resultsArray
 {    
 }
 
@@ -79,7 +79,7 @@
     return _components[index];
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [_components objectEnumerator]; 
 }
@@ -87,7 +87,7 @@
 - (BOOL)showMatchedString
 {
     if (_outlineColumn == nil) return NO;
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
     
     [[outlineView window] makeKeyAndOrderFront:self];
     return [self selectMatchedString];
@@ -96,7 +96,7 @@
 - (BOOL)selectMatchedString
 {
     if (_outlineColumn == nil) return NO;
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
     
     if (![outlineView allowsColumnSelection]) return YES;
     

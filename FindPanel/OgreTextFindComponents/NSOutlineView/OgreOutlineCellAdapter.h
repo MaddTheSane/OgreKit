@@ -21,6 +21,6 @@
 {
 }
 
-- (OgreOutlineColumn*)outlineColumn;
+- (OgreOutlineColumn *)outlineColumn;
 
 @end

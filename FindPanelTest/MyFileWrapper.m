@@ -16,7 +16,7 @@
 
 @implementation MyFileWrapper
 
-- (instancetype)initWithName:(NSString*)name path:(NSString*)path parent:(id)parent
+- (instancetype)initWithName:(NSString *)name path:(NSString *)path parent:(id)parent
 {
     self = [super init];
     if (self != nil) {
@@ -61,22 +61,22 @@
 }
 
 
-- (NSString*)name
+- (NSString *)name
 {
     return _name;
 }
 
-- (NSString*)path
+- (NSString *)path
 {
     return _path;
 }
 
-- (NSImage*)icon
+- (NSImage *)icon
 {
     return _icon;
 }
 
-- (NSString*)info
+- (NSString *)info
 {
     return _info;
 }
@@ -86,7 +86,7 @@
     return _isDirectory;
 }
 
-- (NSArray*)components
+- (NSArray *)components
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
     return _components;
@@ -114,7 +114,7 @@
     [_parent removeComponent:self];
 }
 
-- (NSString*)description
+- (NSString *)description
 {
     //if (_isDirectory && (_components == nil)) [self initComponents];
     return [NSString stringWithFormat:@"name:%@ %@%@", _name, (_isDirectory? @"components:" : @""), (_components? [_components description] : (_isDirectory? @"UNKNOWN" : @""))];

@@ -42,6 +42,6 @@
 - (BOOL)alertIfInvalidRegex;
 
 // Return of history (履歴の復帰)
-- (void)restoreHistory:(NSDictionary*)history;
+- (void)restoreHistory:(NSDictionary *)history;
 
 @end

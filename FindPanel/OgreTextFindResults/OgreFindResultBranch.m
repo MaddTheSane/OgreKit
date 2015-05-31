@@ -27,12 +27,12 @@
 {
     /* do nothing */ 
 }
-- (OgreTextFindResult*)textFindResult
+- (OgreTextFindResult *)textFindResult
 {
     return _textFindResult;
 }
 
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult
+- (void)setTextFindResult:(OgreTextFindResult *)textFindResult
 {
     _textFindResult = textFindResult;
 }

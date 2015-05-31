@@ -28,8 +28,8 @@
 @property (nonatomic, readonly, copy) NSIndexSet *selectedIndexes;
 
 /* Getting an enumerator */
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection;  // in the responder chain ordering
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection;  // in the responder chain ordering
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread;
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread;
 
 @end

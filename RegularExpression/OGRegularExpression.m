@@ -942,16 +942,17 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
                               replaceAll:(BOOL)replaceAll
                      numberOfReplacement:(NSUInteger *)numberOfReplacement
 {
-    OGReplaceExpression     *repex = [[OGReplaceExpression alloc] initWithOGString:replaceString
-                                                                           options:options
-                                                                            syntax:[self syntax]
-                                                                   escapeCharacter:[self escapeCharacter]];
+    OGReplaceExpression *replaceExpression =
+    [[OGReplaceExpression alloc] initWithOGString:replaceString
+                                          options:options
+                                           syntax:[self syntax]
+                                  escapeCharacter:[self escapeCharacter]];
     
     NSEnumerator    *enumerator = [self matchEnumeratorInOGString:targetString
                                                           options:options
                                                             range:replaceRange];
     
-    NSObject <OGStringProtocol, OGMutableStringProtocol>      *replacedString;
+    NSObject <OGStringProtocol, OGMutableStringProtocol> *replacedString;
     replacedString = [[[targetString mutableClass] alloc] init];
     
     NSUInteger					matches = 0;
@@ -962,9 +963,9 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
         if (replaceAll) {
             while ((match = [enumerator nextObject]) != nil) {
                 matches++;
-                //NSLog(@"%@", [repex replaceMatchedString:match]);
+                //NSLog(@"%@", [replaceExpression replaceMatchedString:match]);
                 [replacedString appendOGString:[match ogStringBetweenMatchAndLastMatch]];
-                [replacedString appendOGString:[repex replaceMatchedOGStringOf:match]];
+                [replacedString appendOGString:[replaceExpression replaceMatchedOGStringOf:match]];
                 lastMatch = match;
                 if (matches % 100 == 0) {
                 }
@@ -974,7 +975,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
             if ((match = [enumerator nextObject]) != nil) {
                 matches++;
                 [replacedString appendOGString:[match prematchOGString]];
-                [replacedString appendOGString:[repex replaceMatchedOGStringOf:match]];
+                [replacedString appendOGString:[replaceExpression replaceMatchedOGStringOf:match]];
                 lastMatch = match;
             }
         }
@@ -1660,7 +1661,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // Array of strings representing the Options (Optionsを表す文字列の配列)
-+ (NSArray*)stringsForOptions:(OgreOption)options
++ (NSArray *)stringsForOptions:(OgreOption)options
 {
 	NSMutableArray	*array = [NSMutableArray arrayWithCapacity:0];
 	
@@ -1947,7 +1948,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     return _regexBuffer;
 }
 
-// I return the OnigSyntaxType * corresponding to OgreSyntax. (OgreSyntaxに対応するOnigSyntaxType*を返す。)
+// I return the OnigSyntaxType * corresponding to OgreSyntax. (OgreSyntaxに対応するOnigSyntaxType *を返す。)
 + (OnigSyntaxType *)onigSyntaxTypeForSyntax:(OgreSyntax)syntax
 {
     if (syntax == OgreSimpleMatchingSyntax)	return &OgrePrivateRubySyntax;

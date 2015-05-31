@@ -17,7 +17,7 @@
 #import <OgreKit/OGRegularExpressionMatch.h>
 
 @protocol OgreFindResultCorrespondingToTextFindLeaf <NSObject>
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch;
+- (void)addMatch:(OGRegularExpressionMatch *)aMatch;
 - (void)endAddition;
 @end
 
@@ -45,9 +45,9 @@
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString;
 
 - (void)unhighlight;
-- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor;
+- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor *)highlightColor;
 
-- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread;
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread *)aThread;
 
 @property (nonatomic, getter=isFirstLeaf) BOOL firstLeaf;
 

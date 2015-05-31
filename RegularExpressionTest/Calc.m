@@ -60,38 +60,42 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 
 
 /* adapt OGRegularExpressionCaptureVisitor protocol */
-- (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture
+- (void)visitAtFirstCapture:(OGRegularExpressionCapture *)aCapture
 {
     /*NSMutableString *indent = [NSMutableString string];
     int i;
     for (i = 0; i < [aCapture level]; i++) [indent appendString:@"  "];
     NSRange matchRange = [aCapture range];
     
-    NSLog(@" %@#%d(\"%@\"): (%d-%d) \"%@\"", 
-        indent, [aCapture groupIndex], [aCapture groupName], 
-        matchRange.location, matchRange.length, 
+    NSLog(@" %@#%lu(\"%@\"): (%lu-%lu) \"%@\"", 
+        indent, (unsigned long)[aCapture groupIndex], [aCapture groupName], 
+        (unsigned long)matchRange.location, (unsigned long)matchRange.length,
         [aCapture string]);*/
 }
 
-- (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture
+- (void)visitAtLastCapture:(OGRegularExpressionCapture *)aCapture
 {
     NSString    *name = [aCapture groupName];
     if (name == nil) return;
     
     SEL reduceSelector = NSSelectorFromString([NSString stringWithFormat:@"reduce_%@:", name]);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [self performSelector:reduceSelector withObject:aCapture];
+#pragma clang diagnostic pop
     
     NSLog(@"Stack: %@ <%@>", [_stack description], name);
 }
 
 /* evaluation */
-- (id)eval:(NSString*)expression
+- (id)eval:(NSString *)expression
 {
-    OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:calcRegex 
-        options:OgreCaptureGroupOption 
-        syntax:OgreRubySyntax 
-        escapeCharacter:OgreBackslashCharacter];
-    OGRegularExpressionMatch    *match = [regex matchInString:expression];
+    OGRegularExpression *regEx =
+    [OGRegularExpression regularExpressionWithString:calcRegex
+                                             options:OgreCaptureGroupOption
+                                              syntax:OgreRubySyntax
+                                     escapeCharacter:OgreBackslashCharacter];
+    OGRegularExpressionMatch    *match = [regEx matchInString:expression];
     
     if (match == nil || [match rangeOfMatchedString].length != [expression length]) return nil;
     
@@ -99,7 +103,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     return [self pop];
 }
 
-- (void)reduce_e1:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_e1:(OGRegularExpressionCapture *)aCapture
 /* <e> ::= <t> + <t> */
 {
     id  num2 = [self pop];
@@ -107,7 +111,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     [self push:@([num1 doubleValue] + [num2 doubleValue])];
 }
 
-- (void)reduce_t1:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_t1:(OGRegularExpressionCapture *)aCapture
 /* <t> ::= <f> * <f> */
 {
     id  num2 = [self pop];
@@ -115,13 +119,13 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     [self push:@([num1 doubleValue] * [num2 doubleValue])];
 }
 
-- (void)reduce_f2:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_f2:(OGRegularExpressionCapture *)aCapture
 /* <f> ::= NUMBERS */
 {
     [self push:[aCapture string]];
 }
 
-- (void)reduce_e2:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_e2:(OGRegularExpressionCapture *)aCapture
 /* <e> ::= <t> - <t> */
 {
     id  num2 = [self pop];
@@ -129,7 +133,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
     [self push:@([num1 doubleValue] - [num2 doubleValue])];
 }
 
-- (void)reduce_t2:(OGRegularExpressionCapture*)aCapture
+- (void)reduce_t2:(OGRegularExpressionCapture *)aCapture
 /* <t> ::= <f> / <f> */
 {
     id  num2 = [self pop];

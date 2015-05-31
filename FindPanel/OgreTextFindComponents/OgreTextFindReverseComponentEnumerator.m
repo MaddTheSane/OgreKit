@@ -17,7 +17,7 @@
 
 @implementation OgreTextFindReverseComponentEnumerator
 
-- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
+- (instancetype)initWithBranch:(OgreTextFindBranch *)aBranch inSelection:(BOOL)inSelection
 {
     self = [super initWithBranch:aBranch inSelection:inSelection];
     if (self != nil) {

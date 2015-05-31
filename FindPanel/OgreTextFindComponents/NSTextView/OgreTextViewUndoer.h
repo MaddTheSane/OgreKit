@@ -21,7 +21,7 @@
     NSUInteger          _count, _tail;
 }
 - (instancetype)initWithCapacity:(NSUInteger)aCapacity;
-- (void)addRange:(NSRange)aRange attributedString:(NSAttributedString*)anAttributedString;
+- (void)addRange:(NSRange)aRange attributedString:(NSAttributedString *)anAttributedString;
 - (void)undoTextView:(id)aTarget jumpToSelection:(BOOL)jumpToSelection invocationTarget:(id)myself;
 @end
 

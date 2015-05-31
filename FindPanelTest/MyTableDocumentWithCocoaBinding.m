@@ -33,12 +33,12 @@
 }
 
 
-- (NSString*)windowNibName 
+- (NSString *)windowNibName 
 {
     return @"MyTableDocumentWithCocoaBinding";
 }
 
-- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
+- (NSData *)dataOfType:(NSString *)type error:(NSError **)outError
 {
     return [NSKeyedArchiver archivedDataWithRootObject:_modelArray];
 }
@@ -50,7 +50,7 @@
 	return YES;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController*)controller
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
     [super windowControllerDidLoadNib:controller];
 }

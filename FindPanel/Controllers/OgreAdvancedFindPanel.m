@@ -16,24 +16,24 @@
 
 @implementation OgreAdvancedFindPanel
 
-- (void)flagsChanged:(NSEvent*)theEvent
+- (void)flagsChanged:(NSEvent *)theEvent
 {
-    [(OgreAdvancedFindPanelController*)[self delegate] findPanelFlagsChanged:[theEvent modifierFlags]];
+    [(OgreAdvancedFindPanelController *)[self delegate] findPanelFlagsChanged:[theEvent modifierFlags]];
     
     [super flagsChanged:theEvent];
 }
 
 /* OgreAttachableWindowAcceptorProtocol */
-- (void)addChildWindow:(NSWindow*)childWin ordered:(NSWindowOrderingMode)place
+- (void)addChildWindow:(NSWindow *)childWin ordered:(NSWindowOrderingMode)place
 {
 	[super addChildWindow:childWin ordered:place];
-	[(OgreAdvancedFindPanelController*)[self delegate] findPanelDidAddChildWindow:childWin];
+	[(OgreAdvancedFindPanelController *)[self delegate] findPanelDidAddChildWindow:childWin];
 }
 
-- (void)removeChildWindow:(NSWindow*)childWin
+- (void)removeChildWindow:(NSWindow *)childWin
 {
 	[super removeChildWindow:childWin];
-	[(OgreAdvancedFindPanelController*)[self delegate] findPanelDidRemoveChildWindow:childWin];
+	[(OgreAdvancedFindPanelController *)[self delegate] findPanelDidRemoveChildWindow:childWin];
 }
 
 - (BOOL)isAttachableAcceptorEdge:(NSRectEdge)edge toAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee

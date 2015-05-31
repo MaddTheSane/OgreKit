@@ -19,7 +19,7 @@
 @synthesize terminalIndex = _terminalIndex;
 @synthesize startIndex = _nextIndex;
 
-- (instancetype)initWithBranch:(OgreTextFindBranch*)aBranch inSelection:(BOOL)inSelection
+- (instancetype)initWithBranch:(OgreTextFindBranch *)aBranch inSelection:(BOOL)inSelection
 {
     self = [super init];
     if (self != nil) {
@@ -30,7 +30,7 @@
         _terminalIndex = _count - 1;
         
         if (inSelection) {
-			_indexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * _count);
+			_indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * _count);
             if (_indexes == NULL) {
                 // Error
                 return nil;

@@ -22,7 +22,7 @@
     id  dataSource;
     
     if ((dataSource = [[self tableView] dataSource]) != nil) {
-        anObject = [dataSource outlineView:(NSOutlineView*)[self tableView] objectValueForTableColumn:self byItem:item];
+        anObject = [dataSource outlineView:(NSOutlineView *)[self tableView] objectValueForTableColumn:self byItem:item];
     }
     
     return anObject;
@@ -33,7 +33,7 @@
     id  dataSource;
     
     if ((dataSource = [[self tableView] dataSource]) != nil) {
-        [dataSource outlineView:(NSOutlineView*)[self tableView] setObjectValue:anObject forTableColumn:self byItem:item];
+        [dataSource outlineView:(NSOutlineView *)[self tableView] setObjectValue:anObject forTableColumn:self byItem:item];
     }
 }
 
@@ -42,7 +42,7 @@
     id  dataSource;
     
     if ((dataSource = [[self tableView] dataSource]) != nil) {
-        return [dataSource outlineView:(NSOutlineView*)[self tableView] numberOfChildrenOfItem:item];
+        return [dataSource outlineView:(NSOutlineView *)[self tableView] numberOfChildrenOfItem:item];
     }
     
     return 0;
@@ -53,7 +53,7 @@
     id  dataSource;
     
     if ((dataSource = [[self tableView] dataSource]) != nil) {
-        return [dataSource outlineView:(NSOutlineView*)[self tableView] child:index ofItem:item];
+        return [dataSource outlineView:(NSOutlineView *)[self tableView] child:index ofItem:item];
     }
     
     return nil;
@@ -64,7 +64,7 @@
     id  dataSource;
     
     if ((dataSource = [[self tableView] dataSource]) != nil) {
-        return [dataSource outlineView:(NSOutlineView*)[self tableView] isItemExpandable:item];
+        return [dataSource outlineView:(NSOutlineView *)[self tableView] isItemExpandable:item];
     }
     
     return NO;

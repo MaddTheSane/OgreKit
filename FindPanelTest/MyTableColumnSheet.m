@@ -16,7 +16,7 @@
 
 @implementation MyTableColumnSheet
 
-- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector cancelSelector:(SEL)CancelSelector endSelector:(SEL)endSelector target:(id)aTarget
+- (instancetype)initWithParentWindow:(NSWindow *)parentWindow tableColumn:(NSTableColumn *)aColumn OKSelector:(SEL)OKSelector cancelSelector:(SEL)CancelSelector endSelector:(SEL)endSelector target:(id)aTarget
 {
     self = [super init];
     if (self != nil) {
@@ -56,7 +56,7 @@
 		contextInfo:nil];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -85,12 +85,12 @@
 	[NSApp endSheet:columnSheet returnCode:0];
 }
 
-- (NSString*)changedTitle
+- (NSString *)changedTitle
 {
     return [changedTitleField stringValue];
 }
 
-- (NSTableColumn*)tableColumn
+- (NSTableColumn *)tableColumn
 {
     return _column;
 }

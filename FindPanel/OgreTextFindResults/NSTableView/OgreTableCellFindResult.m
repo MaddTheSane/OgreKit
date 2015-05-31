@@ -21,7 +21,7 @@
 
 @implementation OgreTableCellFindResult
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn *)tableColumn row:(NSInteger)rowIndex
 {
     self = [super init];
     if (self != nil) {
@@ -34,7 +34,7 @@
 }
 
 
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch 
+- (void)addMatch:(OGRegularExpressionMatch *)aMatch 
 {
     NSInteger     i, n = [aMatch count];
     
@@ -75,20 +75,20 @@
     return _childArray[index];
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [_childArray objectEnumerator]; 
 }
 
 
 // line number that matched string for the index (index番目にマッチした文字列のある行番号)
-- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
+- (NSNumber *)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
     return @(_rowIndex + 1);
 }
 
 // matched string for the index (index番目にマッチした文字列)
-- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
+- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return [[self textFindResult] missingString];
     
@@ -109,7 +109,7 @@
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
-    OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
+    OgreTableView   *tableView = (OgreTableView *)[_tableColumn tableView];
     
     [[tableView window] makeKeyAndOrderFront:self];
     return [self selectMatchedStringAtIndex:index];
@@ -119,7 +119,7 @@
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
-    OgreTableView *tableView = (OgreTableView*)[_tableColumn tableView];
+    OgreTableView *tableView = (OgreTableView *)[_tableColumn tableView];
     
     if (![tableView allowsColumnSelection]) {
         NSInteger columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];

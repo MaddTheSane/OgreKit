@@ -19,14 +19,14 @@
 /**********
  * Search *
  **********/
-- (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString
+- (NSRange)rangeOfRegularExpressionString:(NSString *)expressionString
 {
 	return [self rangeOfRegularExpressionString:expressionString 
 		options:OgreNoneOption 
 		range:NSMakeRange(0, [self length])];
 }
 
-- (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
+- (NSRange)rangeOfRegularExpressionString:(NSString *)expressionString 
 	options:(OgreOption)options
 {
 	return [self rangeOfRegularExpressionString:expressionString 
@@ -34,7 +34,7 @@
 		range:NSMakeRange(0, [self length])];
 }
 
-- (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
+- (NSRange)rangeOfRegularExpressionString:(NSString *)expressionString 
 	options:(OgreOption)options
 	range:(NSRange)searchRange
 {
@@ -55,7 +55,7 @@
  * Split *
  *********/
 // Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
-- (NSArray*)componentsSeparatedByRegularExpressionString:(NSString*)expressionString
+- (NSArray *)componentsSeparatedByRegularExpressionString:(NSString *)expressionString
 {
 	return [[OGRegularExpression regularExpressionWithString:expressionString] splitString:self];
 }
@@ -76,20 +76,21 @@
 /***********
  * Replace *
  ***********/
-- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
-	withString:(NSString*)replaceString 
+- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString *)expressionString 
+	withString:(NSString *)replaceString 
 	options:(OgreOption)options
 	range:(NSRange)searchRange
 {
-	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:expressionString
-		options:options];
+	OGRegularExpression *regEx =
+    [OGRegularExpression regularExpressionWithString:expressionString
+                                             options:options];
 	NSUInteger	numberOfReplacement = 0;
-	NSString	*replacedString = [regex replaceString:self 
-		withString:replaceString 
-		options:options 
-		range:searchRange 
-		replaceAll:YES
-		numberOfReplacement:&numberOfReplacement];
+    NSString *replacedString = [regEx replaceString:self
+                                         withString:replaceString
+                                            options:options
+                                              range:searchRange 
+                                         replaceAll:YES
+                                numberOfReplacement:&numberOfReplacement];
 	if (numberOfReplacement > 0) [self setString:replacedString];
 	return numberOfReplacement;
 }

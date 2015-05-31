@@ -19,7 +19,7 @@
 @implementation OgreFindResultLeaf
 @synthesize textFindResult = _textFindResult;
 
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch 
+- (void)addMatch:(OGRegularExpressionMatch *)aMatch 
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -addMatch: of %@ (BUG!!!)", [self className]);

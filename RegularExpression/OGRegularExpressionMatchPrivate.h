@@ -20,13 +20,13 @@
 /**************************
  * Initialization (初期化) *
  **************************/
-- (instancetype)initWithRegion:(OnigRegion*)region
+- (instancetype)initWithRegion:(OnigRegion *)region
 	index:(NSUInteger)anIndex
-	enumerator:(OGRegularExpressionEnumerator*)enumerator
+	enumerator:(OGRegularExpressionEnumerator *)enumerator
 	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;
 
 - (id<OGStringProtocol>)_targetString;
 - (NSRange)_searchRange;
-- (OnigRegion*)_region;
+- (OnigRegion *)_region;
 
 @end

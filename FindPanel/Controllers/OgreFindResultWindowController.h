@@ -30,8 +30,8 @@
     NSArray                     *_resultWindowTopLevelObjects;
 }
 
-- (instancetype)initWithTextFindResult:(OgreTextFindResult*)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
-- (void)setTextFindResult:(OgreTextFindResult*)textFindResult;
+- (instancetype)initWithTextFindResult:(OgreTextFindResult *)textFindResult liveUpdate:(BOOL)liveUpdate NS_DESIGNATED_INITIALIZER;
+- (void)setTextFindResult:(OgreTextFindResult *)textFindResult;
 
 @property (weak) IBOutlet NSWindow *window;
 

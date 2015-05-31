@@ -40,7 +40,7 @@
 }
 
 // NSCoding protocols
-- (NSDictionary*)history
+- (NSDictionary *)history
 {
 	/* If you want to save the history, etc., to return in NSDictionary. (履歴等を保存したい場合は、NSDictionaryで返す。) */
 	return @{};

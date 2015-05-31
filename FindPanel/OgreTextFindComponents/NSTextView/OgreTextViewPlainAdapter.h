@@ -27,6 +27,6 @@
 }
 
 - (instancetype)initWithTarget:(id)aTextView;
-- (NSTextStorage*)textStorage;
+- (NSTextStorage *)textStorage;
 
 @end

@@ -33,7 +33,7 @@
 /* private methods */
 - (CGFloat)gluingStrengthBetweenAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 	andAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
-	withAccepteeEdge:(NSRectEdge*)edge;
+	withAccepteeEdge:(NSRectEdge *)edge;
 - (void)attachAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee
 	toAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 	withAccepteeEdge:(NSRectEdge)edge;
@@ -41,6 +41,6 @@
 /* delegate methods of OgreAttachableWindowAcceptee */
 - (void)windowWillMove:(id)notification;
 - (void)windowDidMove:(id)notification;
-- (NSSize)windowWillResize:(NSWindow*)sender toSize:(NSSize)proposedFrameSize;
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize;
 
 @end

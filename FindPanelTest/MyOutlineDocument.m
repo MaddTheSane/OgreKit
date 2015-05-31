@@ -26,11 +26,11 @@
 
 
 /* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
-- (NSString*)windowNibName {
+- (NSString *)windowNibName {
     return @"MyOutlineDocument";
 }
 
-- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError 
+- (NSData *)dataOfType:(NSString *)type error:(NSError **)outError 
 {
     return nil;
 }
@@ -40,7 +40,7 @@
     return YES;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController*)controller
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
 	if (_fileWrapper != nil) {
         [myOutlineView reloadData];
@@ -108,7 +108,7 @@
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_fileWrapper == nil) return nil;
-    //NSLog(@"child:%d ofItem:%@", index, [item name]);
+    //NSLog(@"child:%ld ofItem:%@", (long)index, [item name]);
     
     if (item == nil) return _fileWrapper;    // root
     
@@ -143,7 +143,7 @@
 }
 
 /* drop */
-- (NSUInteger)outlineView:(NSOutlineView*)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex
+- (NSUInteger)outlineView:(NSOutlineView *)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
@@ -154,7 +154,7 @@
     return NSDragOperationNone;
 }
 
-- (BOOL)outlineView:(NSOutlineView*)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger)childIndex
+- (BOOL)outlineView:(NSOutlineView *)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger)childIndex
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     if ([pboard availableTypeFromArray:@[NSFilenamesPboardType]] != nil) {
@@ -170,13 +170,13 @@
     return NO;
 }
 
-- (void)deleteKeyDownInOutlineView:(NSOutlineView*)outlineView
+- (void)deleteKeyDownInOutlineView:(NSOutlineView *)outlineView
 {
     NSIndexSet  *selectedRowIndexes = [myOutlineView selectedRowIndexes];
     NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
-    NSUInteger  *rowIndexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * count);
+    NSUInteger  *rowIndexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * count);
     if (rowIndexes == NULL) {
         // Error
         return;

@@ -46,7 +46,7 @@
         [_undoer addRange:NSMakeRange(aRange.location, appendantLength) 
 			attributedString:[[NSAttributedString alloc] 
 				initWithAttributedString:[textStorage attributedSubstringFromRange:aRange]]];
-        //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [[textStorage attributedSubstringFromRange:aRange] string]);
+        //NSLog(@"(%lu, %lu), %@",(unsigned long) aRange.location, (unsigned long)aRange.length, [[textStorage attributedSubstringFromRange:aRange] string]);
     }
     
     // Replacement (置換)

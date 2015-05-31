@@ -42,7 +42,7 @@
     return _component; 
 }
 
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
@@ -50,7 +50,7 @@
     return [@[_component] objectEnumerator]; 
 }
 
--(NSIndexSet*)selectedIndexes
+-(NSIndexSet *)selectedIndexes
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
@@ -58,7 +58,7 @@
     return [NSIndexSet indexSetWithIndex:0]; 
 }
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
@@ -66,7 +66,7 @@
     return [[OgreFindResultRoot alloc] init]; 
 }
 
-- (OgreTextFindBranch*)parent
+- (OgreTextFindBranch *)parent
 {
     return nil;
 }
@@ -76,12 +76,12 @@
     return 0;
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
     return [_component selectedLeaf];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
     return [_component window];
 }

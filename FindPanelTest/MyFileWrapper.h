@@ -25,7 +25,7 @@
     MyFileWrapper   *_parent;
 }
 
-- (instancetype)initWithName:(NSString*)name path:(NSString*)path parent:(id)parent NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithName:(NSString *)name path:(NSString *)path parent:(id)parent NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly, copy) NSString *name;
 @property (nonatomic, readonly, copy) NSString *path;
 @property (nonatomic, readonly, copy) NSString *info;

@@ -23,7 +23,7 @@
 
 @implementation OgreTableColumnAdapter
 
-- (id)initWithTableColumn:(OgreTableColumn*)aTableColumn
+- (id)initWithTableColumn:(OgreTableColumn *)aTableColumn
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTableColumn: of %@", [self className]);
@@ -116,7 +116,7 @@
         } else {
             if (index >= [selectedRowIndexes count]) return nil;
             
-            NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedRowIndexes count]);
+            NSUInteger  *indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedRowIndexes count]);
             if (indexes == NULL) {
                 // Error (エラー)
                 return nil;
@@ -132,14 +132,14 @@
     [tableCellAdapter setIndex:index];
     [tableCellAdapter setReversed:[self isReversed]];
     
-    if ([self isTerminal] && rowIndex == [(OgreTableView*)[_tableColumn tableView] ogreSelectedRow]) {
+    if ([self isTerminal] && rowIndex == [(OgreTableView *)[_tableColumn tableView] ogreSelectedRow]) {
         [tableCellAdapter setTerminal:YES];
     }
     
     return tableCellAdapter;
 }
 
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
@@ -152,12 +152,12 @@
     } else {
         enumerator = [[OgreTextFindComponentEnumerator alloc] initWithBranch:self inSelection:(inSelection && (count > 0))];
     }
-    if ([self isTerminal]) [enumerator setTerminalIndex:[(OgreTableView*)[_tableColumn tableView] ogreSelectedRow]];
+    if ([self isTerminal]) [enumerator setTerminalIndex:[(OgreTableView *)[_tableColumn tableView] ogreSelectedRow]];
     
     return enumerator;
 }
 
--(NSIndexSet*)selectedIndexes
+-(NSIndexSet *)selectedIndexes
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
@@ -168,7 +168,7 @@
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [[_tableColumn tableView] numberOfRows])];
 }
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
@@ -176,7 +176,7 @@
     return [[OgreTableColumnFindResult alloc] initWithTableColumn:_tableColumn];
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedLeaf of %@", [self className]);
@@ -184,7 +184,7 @@
     return [[self childAtIndex:0 inSelection:YES] selectedLeaf];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -window of %@", [self className]);

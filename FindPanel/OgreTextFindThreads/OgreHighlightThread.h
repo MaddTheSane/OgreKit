@@ -18,15 +18,15 @@
 
 @interface OgreHighlightThread : OgreTextFindThread 
 {
-    OGRegularExpressionMatch    *match, *lastMatch;
-    NSEnumerator                *matchEnumerator;
-    NSUInteger                  numberOfGroups;
-    NSUInteger                  searchLength;
+    OGRegularExpressionMatch    *_match, *_lastMatch;
+    NSEnumerator                *_matchEnumerator;
+    NSUInteger                  _numberOfGroups;
+    NSUInteger                  _searchLength;
 
     /* highlight color */
-    NSMutableArray              *highlightColorArray;   // variations
+    NSMutableArray              *_highlightColorArray;   // variations
     
-    NSString                    *progressMessage, *progressMessagePlural, *remainingTimeMesssage;
+    NSString                    *_progressMessage, *_progressMessagePlural, *_remainingTimeMesssage;
 }
 
 @end
