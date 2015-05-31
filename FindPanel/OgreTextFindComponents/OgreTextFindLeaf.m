@@ -37,7 +37,7 @@
 }
 
 
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch
+- (void)addMatch:(OGRegularExpressionMatch *)aMatch
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
     NSLog(@" -addMatch: of %@ (BUG!!!)", [self className]);
@@ -106,7 +106,7 @@
 - (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection { return 0; }
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection { return nil; }
 
-- (OgreTextFindBranch*)parent
+- (OgreTextFindBranch *)parent
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	if (_parent == nil) NSLog(@"  -parent == nil of OgreTextFindLeaf (BUG?)");
@@ -114,14 +114,14 @@
     return _parent;
 }
 
-- (void)setParent:(OgreTextFindBranch*)parent
+- (void)setParent:(OgreTextFindBranch *)parent
 {
     if (_isParentRetained) [_parent autorelease];
     _parent = [parent retain];
     _isParentRetained = YES;
 }
 
-- (void)setParentNoRetain:(OgreTextFindBranch*)parent
+- (void)setParentNoRetain:(OgreTextFindBranch *)parent
 {
     if (_isParentRetained) [_parent autorelease];
     _parent = parent;
@@ -197,7 +197,7 @@
     /* do nothing */ 
 }
 
-- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor
+- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor *)highlightColor
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -highlightCharactersInRange:color: of %@ (BUG?)", [self className]);
@@ -206,7 +206,7 @@
 }
 
 
-- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThrea
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread *)aThrea
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultLeafWithThread: of %@ (BUG!!!)", [self className]);
@@ -214,13 +214,13 @@
     return nil; 
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
     [self setFirstLeaf:YES];
     return self;
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -window of %@ (BUG!!!)", [self className]);

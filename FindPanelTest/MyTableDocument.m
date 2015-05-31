@@ -41,12 +41,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
 }
 
 
-- (NSString*)windowNibName 
+- (NSString *)windowNibName 
 {
     return @"MyTableDocument";
 }
 
-- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
+- (NSData *)dataOfType:(NSString *)type error:(NSError **)outError
 {
     OGRegularExpression *escRegex = [OGRegularExpression regularExpressionWithString:@"\""];
     
@@ -77,7 +77,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     
 	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
 	if ([aString newlineCharacter] != _newlineCharacter) {
-		aString = (NSMutableString*)[OGRegularExpression replaceNewlineCharactersInString:aString 
+		aString = (NSMutableString *)[OGRegularExpression replaceNewlineCharactersInString:aString 
 			withCharacter:_newlineCharacter];
 	}
 	
@@ -96,22 +96,23 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	// I get kind of line feed code. (改行コードの種類を得る。)
 	_newlineCharacter = [aString newlineCharacter];
 	if (_newlineCharacter == OgreNonbreakingNewlineCharacter) {
-		// Is regarded as OgreUnixNewlineCharacter If there is no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
+		// Is regarded as OgreUnixNewlineCharacter, if there are no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
 		//NSLog(@"nonbreaking");
 		_newlineCharacter = OgreUnixNewlineCharacter;
 	}
 	
-	// The line feed code (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
+	// The line feed character (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
 	if (_newlineCharacter != OgreUnixNewlineCharacter) {
 		[aString replaceNewlineCharactersWithCharacter:OgreUnixNewlineCharacter];
 	}
     
-    OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:@"^(?:\"(?@[^\"]*(?:\"\"[^\"]*)*)\"(?:,[ ]*|\\t+|))+$"];
-    OGRegularExpression *rmEscRegex = [OGRegularExpression regularExpressionWithString:@"\"\""];
+    OGRegularExpression *regEx =
+    [OGRegularExpression regularExpressionWithString:@"^(?:\"(?@[^\"]*(?:\"\"[^\"]*)*)\"(?:,[ ]*|\\t+|))+$"];
+    OGRegularExpression *removeEscapeCharactersRegex = [OGRegularExpression regularExpressionWithString:@"\"\""];
     
     OGRegularExpressionMatch    *match;
     OGRegularExpressionCapture  *capture;
-    NSEnumerator                *matchEnumerator = [regex matchEnumeratorInString:aString];
+    NSEnumerator                *matchEnumerator = [regEx matchEnumeratorInString:aString];
     NSUInteger                  numberOfCaptures = 0, colIndex;
     NSMutableArray              *array;
     NSString                    *identifier;
@@ -123,7 +124,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         
         numberOfCaptures = [capture numberOfChildren];
         _dict = [[NSMutableDictionary alloc] initWithCapacity:numberOfCaptures];
-        //NSLog(@"%d", numberOfCaptures);
+        //NSLog(@"%lu", (unsigned long)numberOfCaptures);
         dictArray = [NSMutableArray arrayWithCapacity:numberOfCaptures];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
             array = [NSMutableArray arrayWithCapacity:50];
@@ -134,14 +135,14 @@ static NSString *gMyTableRowPropertyType = @"rows";
         
         _titleArray = [[NSMutableArray alloc] initWithCapacity:numberOfCaptures];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
-            [_titleArray addObject:[rmEscRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
+            [_titleArray addObject:[removeEscapeCharactersRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
         }
     }
     
     while ((match = [matchEnumerator nextObject]) != nil) {
         capture = [match captureHistory];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
-            [dictArray[colIndex] addObject:[rmEscRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
+            [dictArray[colIndex] addObject:[removeEscapeCharactersRegex replaceAllMatchesInString:[[capture childAtIndex:colIndex] string] withString:@"\""]];
         }
     }
 	
@@ -150,7 +151,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return YES;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController*)controller
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
 	if (_dict != nil) {
         //NSLog(@"%@", [_dict description]);
@@ -404,24 +405,24 @@ static NSString *gMyTableRowPropertyType = @"rows";
                                                        target:self];
 }
 
-- (void)changeTitleOfColumn:(MyTableColumnSheet*)sheet
+- (void)changeTitleOfColumn:(MyTableColumnSheet *)sheet
 {
     _useCustomSheetPosition = NO;
     NSTableHeaderCell *headerCell = [[sheet tableColumn] headerCell];
     [headerCell setStringValue:[sheet changedTitle]];
 }
 
-- (void)doNotChangeTitleOfColumn:(MyTableColumnSheet*)sheet
+- (void)doNotChangeTitleOfColumn:(MyTableColumnSheet *)sheet
 {
     _useCustomSheetPosition = NO;
 }
 
-- (void)sheetDidEnd:(MyTableColumnSheet*)sheet
+- (void)sheetDidEnd:(MyTableColumnSheet *)sheet
 {
     _sheet = nil;
 }
 
-- (NSRect)window:(NSWindow*)window willPositionSheet:(NSWindow*)sheet usingRect:(NSRect)rect
+- (NSRect)window:(NSWindow *)window willPositionSheet:(NSWindow *)sheet usingRect:(NSRect)rect
 {
     if (_useCustomSheetPosition) return _sheetPosition;
     

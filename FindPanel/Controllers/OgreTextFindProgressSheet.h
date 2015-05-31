@@ -42,17 +42,17 @@
 }
 
 /* Initialization (初期化) */
-- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithWindow:(NSWindow *)parentWindow title:(NSString *)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject NS_DESIGNATED_INITIALIZER;
 
 - (IBAction)cancel:(id)sender;
 
 /* OgreTextFindProgressDelegate protocol */
 /*
 // show progress
-- (void)setProgress:(double)progression message:(NSString*)message;
-- (void)setDonePerTotalMessage:(NSString*)message;
+- (void)setProgress:(double)progression message:(NSString *)message;
+- (void)setDonePerTotalMessage:(NSString *)message;
 // finish
-- (void)done:(double)progression message:(NSString*)message;
+- (void)done:(double)progression message:(NSString *)message;
 
 // close sheet
 - (void)close:(id)sender;
@@ -62,7 +62,7 @@
 - (void)setCancelSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject;
 
 // show error alert
-- (void)showErrorAlert:(NSString*)title message:(NSString*)errorMessage;
+- (void)showErrorAlert:(NSString *)title message:(NSString *)errorMessage;
 */
 
 @end

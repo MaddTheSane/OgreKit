@@ -27,7 +27,7 @@
     return @selector(didEndUnhighlight:);
 }
 
-- (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (void)willProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-willProcessFindingInLeaf: of %@", [self className]);
@@ -35,7 +35,7 @@
     if ([aLeaf isHighlightable]) [aLeaf unhighlight];
 }
 
-- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
+- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
     return NO; // stop
 }

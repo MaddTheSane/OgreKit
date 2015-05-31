@@ -20,7 +20,7 @@
 
 @implementation OgreTableColumnFindResult
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn
+- (id)initWithTableColumn:(OgreTableColumn *)tableColumn
 {
     self = [super init];
     if (self != nil) {
@@ -79,7 +79,7 @@
     return _flattenedComponents[index];
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [_flattenedComponents objectEnumerator]; 
 }
@@ -87,7 +87,7 @@
 - (BOOL)showMatchedString
 {
     if (_tableColumn == nil) return NO;
-    OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
+    OgreTableView   *tableView = (OgreTableView *)[_tableColumn tableView];
     
     [[tableView window] makeKeyAndOrderFront:self];
     return [self selectMatchedString];
@@ -96,7 +96,7 @@
 - (BOOL)selectMatchedString
 {
     if (_tableColumn == nil) return NO;
-    OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
+    OgreTableView   *tableView = (OgreTableView *)[_tableColumn tableView];
     
     if (![tableView allowsColumnSelection]) return YES;
     

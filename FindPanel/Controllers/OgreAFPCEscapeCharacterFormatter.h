@@ -17,7 +17,7 @@
 
 /* Formatter to the input string to one character's head (入力された文字列を頭の1文字にするformatter) */
 @protocol OgreAFPCEscapeCharacterFormatterDelegate <NSObject>
-- (NSString*)escapeCharacter;
+- (NSString *)escapeCharacter;
 - (BOOL)shouldEquateYenWithBackslash;
 @end
 
@@ -29,19 +29,19 @@
 }
 
 // Required method (必須メソッド)
-//- (NSString*)stringForObjectValue:(id)anObject;
-//- (NSAttributedString*)attributedStringForObjectValue:(id)anObject withDefaultAttributes:(NSDictionary*)attributes;
+//- (NSString *)stringForObjectValue:(id)anObject;
+//- (NSAttributedString *)attributedStringForObjectValue:(id)anObject withDefaultAttributes:(NSDictionary *)attributes;
 // Error determination (エラー判定)
-//- (BOOL)getObjectValue:(id*)obj forString:(NSString*)string errorDescription:(NSString**)error;
+//- (BOOL)getObjectValue:(id *)obj forString:(NSString *)string errorDescription:(NSString **)error;
 
 // delegate
 @property (unsafe_unretained) id<OgreAFPCEscapeCharacterFormatterDelegate> delegate;
 // Conversion (変換)
-- (NSString*)equateInString:(NSString*)string;
-- (NSAttributedString*)equateInAttributedString:(NSAttributedString*)string;
-- (NSString*)equateYenWithBackslash:(OGRegularExpressionMatch*)aMatch 
+- (NSString *)equateInString:(NSString *)string;
+- (NSAttributedString *)equateInAttributedString:(NSAttributedString *)string;
+- (NSString *)equateYenWithBackslash:(OGRegularExpressionMatch *)aMatch 
 	contextInfo:(id)contextInfo;
-- (NSAttributedString*)equateYenWithBackslashAttributed:(OGRegularExpressionMatch*)aMatch 
+- (NSAttributedString *)equateYenWithBackslashAttributed:(OGRegularExpressionMatch *)aMatch 
 	contextInfo:(id)contextInfo;
 
 @end

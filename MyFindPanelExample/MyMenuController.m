@@ -19,17 +19,17 @@
 /* Convey the change of line endings to the delegate of the main window (very shoddy) (改行コードの変更をmain windowのdelegateに伝える (非常に手抜き)) */
 - (IBAction)selectCr:(id)sender
 {
-	[(MyDocument*)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreCrNewlineCharacter];
+	[(MyDocument *)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreCrNewlineCharacter];
 }
 
 - (IBAction)selectCrLf:(id)sender
 {
-	[(MyDocument*)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreCrLfNewlineCharacter];
+	[(MyDocument *)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreCrLfNewlineCharacter];
 }
 
 - (IBAction)selectLf:(id)sender
 {
-	[(MyDocument*)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreLfNewlineCharacter];
+	[(MyDocument *)[[NSApp mainWindow] delegate] setNewlineCharacter:OgreLfNewlineCharacter];
 }
 
 @end

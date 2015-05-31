@@ -864,7 +864,7 @@
 			);
 			name = OgreKit;
 			sourceTree = "<group>";
-			usesTabs = 0;
+			usesTabs = 1;
 		};
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -1497,7 +1497,6 @@
 			);
 			path = OgreKitTests;
 			sourceTree = "<group>";
-			usesTabs = 1;
 		};
 		552BF1971B1A525900DA11E5 /* Supporting Files */ = {
 			isa = PBXGroup;

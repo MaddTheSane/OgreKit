@@ -52,10 +52,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**********
  * Search *
  **********/
-- (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString;
-- (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
+- (NSRange)rangeOfRegularExpressionString:(NSString *)expressionString;
+- (NSRange)rangeOfRegularExpressionString:(NSString *)expressionString 
 	options:(OgreOption)options;
-- (NSRange)rangeOfRegularExpressionString:(NSString*)expressionString 
+- (NSRange)rangeOfRegularExpressionString:(NSString *)expressionString 
 	options:(OgreOption)options 
 	range:(NSRange)searchRange;
 
@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Split *
  *********/
 // Divides the string matched portions, and return is housed in NSArray. (マッチした部分で文字列を分割し、NSArrayに収めて返す。)
-- (NSArray*)componentsSeparatedByRegularExpressionString:(NSString*)expressionString;
+- (NSArray *)componentsSeparatedByRegularExpressionString:(NSString *)expressionString;
 
 /*********************
  * Newline Character *
@@ -78,8 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
 /***********
  * Replace *
  ***********/
-- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString
-	withString:(NSString*)replaceString 
+- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString *)expressionString
+	withString:(NSString *)replaceString 
 	options:(OgreOption)options
 	range:(NSRange)searchRange;
 

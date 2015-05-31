@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString	* const OgreStringException;
 
 @protocol OGStringProtocol <NSObject>
-- (NSString*)string;
-- (NSAttributedString*)attributedString;
+- (NSString *)string;
+- (NSAttributedString *)attributedString;
 - (NSUInteger)length;
 
 - (id<OGStringProtocol>)substringWithRange:(NSRange)aRange;

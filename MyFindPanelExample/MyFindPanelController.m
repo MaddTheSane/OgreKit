@@ -179,7 +179,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 }
 
 // Save of history (contrary to [textFinder history]) (// 履歴の保存 (逆は[textFinder history]))
-- (NSDictionary*)history
+- (NSDictionary *)history
 {
 	return @{MyFindHistoryKey: _findHistory, 
 			MyReplaceHistoryKey: _replaceHistory, 
@@ -189,7 +189,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 }
 
 // Return of history (履歴の復帰)
-- (void)restoreHistory:(NSDictionary*)history
+- (void)restoreHistory:(NSDictionary *)history
 {
 	if (history == nil) return;
 	

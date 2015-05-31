@@ -36,15 +36,15 @@
 {
 	//NSLog(@"-[%@ setEnabled: %@]", [self title], (flag? @"YES" : @"NO"));
 	[super setEnabled:flag];
-	int	state = [self state];
+	NSInteger state = [self state];
 	[self setAllowsMixedState:!flag];
 	[self setState:state];
 }
 
 - (void)setState:(NSInteger)value
 {
-	//NSLog(@"-[%@ setState: %d]", [self title], value);
-	int	newValue = value;
+	//NSLog(@"-[%@ setState: %ld]", [self title], (long)value);
+	NSInteger newValue = value;
 	if (![self isEnabled]) {
 		[self setAllowsMixedState:YES];
 		if (value != NSOffState) {
@@ -54,13 +54,13 @@
 		[self setAllowsMixedState:NO];
 	}
 	
-	//NSLog(@"new value = %d", newValue);
+	//NSLog(@"new value = %ld", (long)newValue);
 	[super setState:newValue];
 }
 
 - (NSInteger)state
 {
-	int	value;
+	NSInteger value;
 	if ([super state] == NSOffState) {
 		value = NSOffState;
 	} else {

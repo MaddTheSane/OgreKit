@@ -19,12 +19,12 @@
 
 @interface OgreFindAllThread : OgreTextFindThread
 {
-    OGRegularExpressionMatch        *match, *lastMatch;
-    NSEnumerator                    *matchEnumerator;
-    OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>    *result;
-    NSUInteger                      searchLength;
+    OGRegularExpressionMatch        *_match, *_lastMatch;
+    NSEnumerator                    *_matchEnumerator;
+    OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>    *_result;
+    NSUInteger                      _searchLength;
     
-    NSString                        *progressMessage, *progressMessagePlural, *remainingTimeMesssage;
+    NSString                        *_progressMessage, *_progressMessagePlural, *_remainingTimeMesssage;
 }
 
 @end

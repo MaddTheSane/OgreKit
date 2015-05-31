@@ -24,18 +24,18 @@
     NSMutableArray      *_matchRangeArray, *_matchComponents;
 }
 
-- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn *)outlineColumn item:(id)item;
 
 // item name that matched string for the index (index番目にマッチした文字列のある項目名)
 - (id)nameOfMatchedStringAtIndex:(NSUInteger)index;
 // matched string at index (index番目にマッチした文字列)
-- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
+- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index;
 // I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
 // I choose the matched string for the index (index番目にマッチした文字列を選択する)
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 
 - (void)targetIsMissing;
-- (NSArray*)children;
+- (NSArray *)children;
 
 @end

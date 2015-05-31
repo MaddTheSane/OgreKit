@@ -40,7 +40,7 @@
 
 
 /* Delegate methods of the OgreTextFindThread */
-- (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread
+- (OgreTextFindLeaf *)buildStackForSelectedLeafInThread:(OgreTextFindThread *)aThread
 {
     NSEnumerator            *enumerator;
     OgreTextFindBranch      *branch;
@@ -60,7 +60,7 @@
     // table view
     branch = [enumerator nextObject];
     enumerator = [branch componentEnumeratorInSelection:[aThread inSelection]];
-    [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:[_tableView ogreSelectedColumn]];
+    [(OgreTextFindComponentEnumerator *)enumerator setStartIndex:[_tableView ogreSelectedColumn]];
     [aThread pushEnumerator:enumerator];
     [aThread pushBranch:branch];
     [branch willProcessFinding:aThread];
@@ -69,7 +69,7 @@
     // table column
     columnAdapter = [enumerator nextObject];
     enumerator = [columnAdapter componentEnumeratorInSelection:[aThread inSelection]];
-    [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:[_tableView ogreSelectedRow]];
+    [(OgreTextFindComponentEnumerator *)enumerator setStartIndex:[_tableView ogreSelectedRow]];
     [aThread pushEnumerator:enumerator];
     [aThread pushBranch:columnAdapter];
     [columnAdapter willProcessFinding:aThread];
@@ -161,7 +161,7 @@
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
             
-            NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedColumnIndexes count]);
+            NSUInteger  *indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedColumnIndexes count]);
             if (indexes == NULL) {
                 // Error (エラー)
                 return nil;
@@ -185,7 +185,7 @@
     return tableColumnAdapter;
 }
 
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
@@ -202,7 +202,7 @@
     return enumerator;
 }
 
--(NSIndexSet*)selectedIndexes
+-(NSIndexSet *)selectedIndexes
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
@@ -213,7 +213,7 @@
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [_tableView numberOfColumns])];
 }
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
@@ -221,7 +221,7 @@
     return [[OgreTableViewFindResult alloc] initWithTableView:_tableView];
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedLeaf of %@", [self className]);
@@ -245,7 +245,7 @@
     return cellAdapter;
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -window of %@", [self className]);

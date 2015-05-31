@@ -17,11 +17,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol OGMutableStringProtocol <NSObject>
-- (void)appendString:(NSString*)string;
-- (void)appendString:(NSString*)string 
+- (void)appendString:(NSString *)string;
+- (void)appendString:(NSString *)string 
 	hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
-- (void)appendAttributedString:(NSAttributedString*)string;
+- (void)appendAttributedString:(NSAttributedString *)string;
 
 - (void)appendOGString:(id<OGStringProtocol>)string;
 - (void)appendOGStringLeaveImprint:(id<OGStringProtocol>)string;

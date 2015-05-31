@@ -15,7 +15,7 @@
 
 @implementation OgreTextFindProgressSheet
 
-- (instancetype)initWithWindow:(NSWindow*)parentWindow title:(NSString*)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject
+- (instancetype)initWithWindow:(NSWindow *)parentWindow title:(NSString *)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-initWithWindow: of %@", [self className]);
@@ -63,7 +63,7 @@
 	[progressBar startAnimation:self];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-sheetDidEnd: of %@", [self className]);
@@ -153,7 +153,7 @@
 	_shouldRelease = NO;
 }
 
-- (void)setProgress:(double)progression message:(NSString*)message
+- (void)setProgress:(double)progression message:(NSString *)message
 {
 	if (progressWindow && [NSApp isActive]) {
         if (progression >= 0) {
@@ -166,7 +166,7 @@
 	}
 }
 
-- (void)done:(double)progression message:(NSString*)message
+- (void)done:(double)progression message:(NSString *)message
 {
 	if (progressWindow) {
         if (progression >= 0) {
@@ -184,7 +184,7 @@
 	}
 }
 
-- (void)setDonePerTotalMessage:(NSString*)message
+- (void)setDonePerTotalMessage:(NSString *)message
 {
 	if (progressWindow) {
         [donePerTotalTextField setStringValue:message];
@@ -192,7 +192,7 @@
 }
 
 /* show error alert */
-- (void)showErrorAlert:(NSString*)title message:(NSString*)errorMessage
+- (void)showErrorAlert:(NSString *)title message:(NSString *)errorMessage
 {
 	if (progressWindow) {
 		[_parentWindow makeKeyAndOrderFront:self];

@@ -46,7 +46,7 @@
 
 /* protocol of OgreTextFindComponent */
 /* Delegate methods of the OgreTextFindVisitor */
-- (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread
+- (OgreTextFindLeaf *)buildStackForSelectedLeafInThread:(OgreTextFindThread *)aThread
 {
     NSEnumerator        *enumerator;
     OgreTextFindBranch  *branch;
@@ -109,7 +109,7 @@
         [_undoer addRange:NSMakeRange(aRange.location, [aString length]) 
 			attributedString:[[NSAttributedString alloc] 
 				initWithAttributedString:[_textStorage attributedSubstringFromRange:aRange]]];
-        //NSLog(@"(%d, %d), %@", aRange.location, aRange.length, [[_textStorage attributedSubstringFromRange:aRange] string]);
+        //NSLog(@"(%lu, %lu), %@",(unsigned long) aRange.location, (unsigned long)aRange.length, [[_textStorage attributedSubstringFromRange:aRange] string]);
     }
     
     // Replacement (置換)
@@ -164,7 +164,7 @@
         _storageLocked = NO;
         [_textStorage endEditing];
         
-        if ([_textView isKindOfClass:[OgreTextView class]]) [(OgreTextView*)_textView ogreDidEndEditing];
+        if ([_textView isKindOfClass:[OgreTextView class]]) [(OgreTextView *)_textView ogreDidEndEditing];
     }
 }
 
@@ -174,7 +174,7 @@
         forCharacterRange:NSMakeRange(0, [[_textView string] length])];
 }
 
-- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor
+- (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor *)highlightColor
 {
     [[_textView layoutManager] 
         setTemporaryAttributes:@{NSBackgroundColorAttributeName: highlightColor} 
@@ -187,7 +187,7 @@
 - (BOOL)isEditable { return YES; }
 - (BOOL)isHighlightable { return YES; }
 
-- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread*)aThread {
+- (id <OgreFindResultCorrespondingToTextFindLeaf>)findResultLeafWithThread:(OgreTextFindThread *)aThread {
     return [[OgreTextViewFindResult alloc] initWithTextView:_textView]; 
 }
 
@@ -206,7 +206,7 @@
     [_textView scrollRangeToVisible:[_textView selectedRange]];
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
     return [_textView window];
 }
@@ -216,7 +216,7 @@
     [_textView setSelectedRange:NSMakeRange(0, 0)];
 }
 
-- (NSTextStorage*)textStorage
+- (NSTextStorage *)textStorage
 {
 	return _textStorage;
 }

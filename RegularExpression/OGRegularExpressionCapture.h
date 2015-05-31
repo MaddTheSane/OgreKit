@@ -23,15 +23,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // constants
-extern NSString	* const __nonnull OgreCaptureException;
+extern NSString	* const OgreCaptureException;
 
 
 @class OGRegularExpression, OGRegularExpressionEnumerator, OGRegularExpressionMatch, OGRegularExpressionCapture;
 
 
 @protocol OGRegularExpressionCaptureVisitor <NSObject>
-- (void)visitAtFirstCapture:(nullable OGRegularExpressionCapture*)aCapture;
-- (void)visitAtLastCapture:(nullable OGRegularExpressionCapture*)aCapture;
+- (void)visitAtFirstCapture:(nullable OGRegularExpressionCapture *)aCapture;
+- (void)visitAtLastCapture:(nullable OGRegularExpressionCapture *)aCapture;
 @end
 
 
@@ -84,7 +84,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @property (nonatomic, readonly, copy, nullable) NSArray *children;
 
 // index th child element (index番目の子要素)
-- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
+- (OGRegularExpressionCapture *)childAtIndex:(NSUInteger)index;
 
 // match
 @property (nonatomic, readonly, copy) OGRegularExpressionMatch *match;

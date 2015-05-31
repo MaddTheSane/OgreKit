@@ -28,19 +28,19 @@ extern NSString	* const OgreFormatterException;
 }
 
 // Required method (必須メソッド)
-- (nullable NSString*)stringForObjectValue:(id)anObject;
-- (nullable NSAttributedString*)attributedStringForObjectValue:(id)anObject
-	withDefaultAttributes:(NSDictionary*)attributes;
-- (nullable NSString*)editingStringForObjectValue:(id)anObject;
+- (nullable NSString *)stringForObjectValue:(id)anObject;
+- (nullable NSAttributedString *)attributedStringForObjectValue:(id)anObject
+	withDefaultAttributes:(NSDictionary *)attributes;
+- (nullable NSString *)editingStringForObjectValue:(id)anObject;
 
 // Error determination (エラー判定)
-- (BOOL)getObjectValue:(id __nonnull*__nonnull)obj forString:(NSString*)string
-	errorDescription:(NSString*__nullable*__nonnull)error;
+- (BOOL)getObjectValue:(id __nonnull*__nonnull)obj forString:(NSString *)string
+	errorDescription:(NSString *__nullable*__nonnull)error;
 
 - (instancetype)init;
 - (instancetype)initWithOptions:(OgreOption)options
 	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character NS_DESIGNATED_INITIALIZER;
+	escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, copy) NSString *escapeCharacter;
 @property (nonatomic) OgreOption options;

@@ -31,8 +31,8 @@
 	OgreTextFindRoot	*_rootAdapter;
 	
 	/* Parameters */
-	OGRegularExpression *_regex;			// regular expression
-	OGReplaceExpression *_repex;			// replace expression
+	OGRegularExpression *_regularExpression;// regular expression
+	OGReplaceExpression *_replaceExpression;// replace expression
 	NSColor				*_highlightColor;	// highlight color
 	OgreOption			_searchOptions;		// search option
 	BOOL				_inSelection;		// find scope
@@ -68,7 +68,7 @@
 /* result */
 @property (nonatomic, readonly, strong) OgreTextFindResult *result;
 - (void)addResultLeaf:(id)aResultLeaf;
-- (void)beginGraftingToBranch:(OgreTextFindBranch*)aBranch;
+- (void)beginGraftingToBranch:(OgreTextFindBranch *)aBranch;
 - (void)endGrafting;
 
 /* Configuration */
@@ -90,29 +90,29 @@
 @property (nonatomic, readonly) NSUInteger numberOfMatches;		 // number of matches
 - (void)incrementNumberOfMatches;	// _numberofMatches++
 - (void)finishingUp:(id)sender;
-- (void)exceptionRaised:(NSException*)exception;
+- (void)exceptionRaised:(NSException *)exception;
 
-- (void)pushEnumerator:(NSEnumerator*)anEnumerator;
-- (NSEnumerator*)popEnumerator;
+- (void)pushEnumerator:(NSEnumerator *)anEnumerator;
+- (NSEnumerator *)popEnumerator;
 @property (nonatomic, readonly, strong) NSEnumerator *topEnumerator;
 
 @property (nonatomic, readonly, strong) OgreTextFindBranch *rootAdapter;
 @property (nonatomic, readonly, strong) NSObject<OgreTextFindComponent,OgreTextFindTargetAdapter> *targetAdapter;
-- (void)pushBranch:(OgreTextFindBranch*)aBranch;
+- (void)pushBranch:(OgreTextFindBranch *)aBranch;
 - (OgreTextFindBranch *)popBranch;
 @property (nonatomic, readonly, strong) OgreTextFindBranch *topBranch;
 
-- (void)_setLeafProcessing:(OgreTextFindLeaf*)aLeaf;
+- (void)_setLeafProcessing:(OgreTextFindLeaf *)aLeaf;
 
 /* Methods implemented by subclasses */
 @property (nonatomic, readonly) SEL didEndSelectorForFindPanelController;
 
 - (void)willProcessFindingAll;
-- (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
-- (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
-- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
-- (void)didProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
-- (void)didProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
+- (void)willProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
+- (void)willProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
+- (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
+- (void)didProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
+- (void)didProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
 - (void)didProcessFindingAll;
 
 - (void)finalizeFindingAll;

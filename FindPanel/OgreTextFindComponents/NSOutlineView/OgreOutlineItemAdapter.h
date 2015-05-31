@@ -24,7 +24,7 @@
     NSInteger       _level;
 }
 
-- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn *)anOutlineColumn item:(id)item;
 @property (nonatomic, strong, readonly) OgreOutlineColumn *outlineColumn;
 @property (nonatomic) NSInteger level;
 - (void)expandItemEnclosingItem:(id)item;

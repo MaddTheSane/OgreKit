@@ -26,11 +26,11 @@
 
 
 /* Code that is not related to the Find Panel under from here (ここから下はFind Panelに関係しないコード) */
-- (NSString*)windowNibName {
+- (NSString *)windowNibName {
     return @"MyDocument";
 }
 
-- (NSData*)dataOfType:(NSString *)type error:(NSError **)outError
+- (NSData *)dataOfType:(NSString *)type error:(NSError **)outError
 {
 	// The line feed code (if to be replaced) is replaced, you want to save. (改行コードを(置換すべきなら)置換し、保存する。)
 	_tmpString = [textView string];
@@ -63,13 +63,13 @@
 		_tmpString = aString;
 	}
     aString = nil;
-	//NSLog(@"newline character: %d (-1:Nonbreaking 0:LF(Unix) 1:CR(Mac) 2:CR+LF(Windows) 3:UnicodeLineSeparator 4:UnicodeParagraphSeparator)", _newlineCharacter, [OgreTextFinder newlineCharacterInString:_tmpString]);
+    //NSLog(@"newline character: %ld (-1:Nonbreaking 0:LF(Unix) 1:CR(Mac) 2:CR+LF(Windows) 3:UnicodeLineSeparator 4:UnicodeParagraphSeparator)", (long)_newlineCharacter);
 	//NSLog(@"%@", [OGRegularExpression chomp:_tmpString]);
 	
     return YES;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController*)controller
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
 	if (_tmpString) {
 		[textView setString:_tmpString];

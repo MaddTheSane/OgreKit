@@ -24,12 +24,12 @@
     OgreOutlineCellMatchFindResult  *_outlineDelegateLeaf;
 }
 
-- (instancetype)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
+- (instancetype)initWithOutlineColumn:(OgreOutlineColumn *)outlineColumn item:(id)item;
 
 - (void)targetIsMissing;
 - (void)expandItemEnclosingItem:(id)item;
 
-- (void)mergeFindResult:(OgreOutlineCellFindResult*)aBranch;
-- (void)replaceFindResult:(OgreOutlineItemFindResult*)aBranch withFindResultsFromArray:(NSArray*)resultsArray;
+- (void)mergeFindResult:(OgreOutlineCellFindResult *)aBranch;
+- (void)replaceFindResult:(OgreOutlineItemFindResult *)aBranch withFindResultsFromArray:(NSArray *)resultsArray;
 
 @end

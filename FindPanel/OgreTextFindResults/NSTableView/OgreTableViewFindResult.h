@@ -21,6 +21,6 @@
     NSMutableArray  *_components;
 }
 
-- (instancetype)initWithTableView:(OgreTableView*)tableView;
+- (instancetype)initWithTableView:(OgreTableView *)tableView;
 
 @end

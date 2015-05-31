@@ -28,22 +28,22 @@
 }
 
 
-- (NSString*)foo
+- (NSString *)foo
 {
     return _foo;
 }
 
-- (void)setFoo:(NSString*)newFoo
+- (void)setFoo:(NSString *)newFoo
 {
     _foo = newFoo;
 }
 
-- (NSString*)bar
+- (NSString *)bar
 {
     return _bar;
 }
 
-- (void)setBar:(NSString*)newBar
+- (void)setBar:(NSString *)newBar
 {
     _bar = newBar;
 }

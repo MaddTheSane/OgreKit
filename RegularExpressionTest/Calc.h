@@ -21,7 +21,7 @@
     NSMutableArray  *_stack;
 }
 
-- (id)eval:(NSString*)expression;
+- (id)eval:(NSString *)expression;
 - (void)push:(id)item;
 - (id)pop;
 

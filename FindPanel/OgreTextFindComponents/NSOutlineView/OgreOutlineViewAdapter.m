@@ -43,7 +43,7 @@
 
 
 /* Delegate methods of the OgreTextFindThread */
-- (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread
+- (OgreTextFindLeaf *)buildStackForSelectedLeafInThread:(OgreTextFindThread *)aThread
 {
     NSEnumerator                *enumerator;
     OgreTextFindBranch          *branch;
@@ -66,7 +66,7 @@
     // outline view
     branch = [enumerator nextObject];
     enumerator = [branch componentEnumeratorInSelection:[aThread inSelection]];
-    [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:[_outlineView ogreSelectedColumn]];
+    [(OgreTextFindComponentEnumerator *)enumerator setStartIndex:[_outlineView ogreSelectedColumn]];
     [aThread pushEnumerator:enumerator];
     [aThread pushBranch:branch];
     [branch willProcessFinding:aThread];
@@ -76,7 +76,7 @@
     columnAdapter = [enumerator nextObject];
     enumerator = [columnAdapter componentEnumeratorInSelection:[aThread inSelection]];
     index = [path[level] integerValue];
-    [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:index];
+    [(OgreTextFindComponentEnumerator *)enumerator setStartIndex:index];
     [aThread pushEnumerator:enumerator];
     [aThread pushBranch:columnAdapter];
     [columnAdapter willProcessFinding:aThread];
@@ -88,7 +88,7 @@
         itemAdapter = [enumerator nextObject];
         enumerator = [itemAdapter componentEnumeratorInSelection:[aThread inSelection]];
         index = [path[level] integerValue] + 1 /* item's cell */;
-        [(OgreTextFindComponentEnumerator*)enumerator setStartIndex:index];
+        [(OgreTextFindComponentEnumerator *)enumerator setStartIndex:index];
         [aThread pushEnumerator:enumerator];
         [aThread pushBranch:itemAdapter];
         [itemAdapter willProcessFinding:aThread];
@@ -182,7 +182,7 @@
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
             
-            NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedColumnIndexes count]);
+            NSUInteger  *indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedColumnIndexes count]);
             if (indexes == NULL) {
                 // Error (エラー)
                 return nil;
@@ -206,7 +206,7 @@
     return outlineColumnAdapter;
 }
 
-- (NSEnumerator*)componentEnumeratorInSelection:(BOOL)inSelection
+- (NSEnumerator *)componentEnumeratorInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
@@ -224,7 +224,7 @@
     return enumerator;
 }
 
--(NSIndexSet*)selectedIndexes
+-(NSIndexSet *)selectedIndexes
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedIndexes of %@", [self className]);
@@ -235,7 +235,7 @@
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [_outlineView numberOfColumns])];
 }
 
-- (OgreFindResultBranch*)findResultBranchWithThread:(OgreTextFindThread*)aThread
+- (OgreFindResultBranch *)findResultBranchWithThread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -findResultBranchWithThread: of %@", [self className]);
@@ -243,7 +243,7 @@
     return [[OgreOutlineViewFindResult alloc] initWithOutlineView:_outlineView];
 }
 
-- (OgreTextFindLeaf*)selectedLeaf
+- (OgreTextFindLeaf *)selectedLeaf
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -selectedLeaf of %@", [self className]);
@@ -279,7 +279,7 @@
     return cellAdapter;
 }
 
-- (NSWindow*)window
+- (NSWindow *)window
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -window of %@", [self className]);

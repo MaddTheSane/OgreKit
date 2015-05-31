@@ -23,7 +23,7 @@
 
 @implementation OgreOutlineCellFindResult
 
-- (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item
+- (id)initWithOutlineColumn:(OgreOutlineColumn *)outlineColumn item:(id)item
 {
     self = [super init];
     if (self != nil) {
@@ -36,7 +36,7 @@
 }
 
 
-- (void)addMatch:(OGRegularExpressionMatch*)aMatch 
+- (void)addMatch:(OGRegularExpressionMatch *)aMatch 
 {
     NSUInteger  i, n = [aMatch count];
     
@@ -53,10 +53,10 @@
 - (void)endAddition
 {
     /* simplify */
-    [(OgreOutlineItemFindResult*)[self parent] mergeFindResult:self];
+    [(OgreOutlineItemFindResult *)[self parent] mergeFindResult:self];
 }
 
-- (NSArray*)children
+- (NSArray *)children
 {
     return _matchComponents;
 }
@@ -66,8 +66,8 @@
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
     
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
-    return [(OgreOutlineColumn*)[outlineView outlineTableColumn] ogreObjectValueForItem:_item];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
+    return [(OgreOutlineColumn *)[outlineView outlineTableColumn] ogreObjectValueForItem:_item];
 }
 
 - (id)outline 
@@ -86,7 +86,7 @@
     return _matchComponents[index];
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [_matchComponents objectEnumerator]; 
 }
@@ -98,7 +98,7 @@
 }
 
 // matched string for the index (index番目にマッチした文字列)
-- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
+- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
     
@@ -119,7 +119,7 @@
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
     
     [[outlineView window] makeKeyAndOrderFront:self];
     return [self selectMatchedStringAtIndex:index];
@@ -129,7 +129,7 @@
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
-    OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
+    OgreOutlineView *outlineView = (OgreOutlineView *)[_outlineColumn tableView];
     
     if ([outlineView allowsColumnSelection]) {
         NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
@@ -141,7 +141,7 @@
         }
     }
     
-    [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
+    [(OgreOutlineItemFindResult *)[self parent] expandItemEnclosingItem:_item];
     NSInteger rowIndex = [outlineView rowForItem:_item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];

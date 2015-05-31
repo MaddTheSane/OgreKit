@@ -31,7 +31,7 @@
     NSArray         *_sheetTopLevelObjects;
 }
 
-- (instancetype)initWithParentWindow:(NSWindow*)parentWindow tableColumn:(NSTableColumn*)aColumn OKSelector:(SEL)OKSelector cancelSelector:(SEL)CancelSelector endSelector:(SEL)endSelector target:(id)aTarget NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithParentWindow:(NSWindow *)parentWindow tableColumn:(NSTableColumn *)aColumn OKSelector:(SEL)OKSelector cancelSelector:(SEL)CancelSelector endSelector:(SEL)endSelector target:(id)aTarget NS_DESIGNATED_INITIALIZER;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)ok:(id)sender;

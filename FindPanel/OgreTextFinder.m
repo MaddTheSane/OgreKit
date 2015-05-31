@@ -210,7 +210,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     /*
         if you don't want to use OgreKit's Find Panel,
         implement the following method in the subclass or delegate of NSApplication.
-        - (void)ogreKitWillHackFindMenu:(OgreTextFinder*)textFinder
+        - (void)ogreKitWillHackFindMenu:(OgreTextFinder *)textFinder
         {
             [textFinder setShouldHackFindMenu:NO];
         }
@@ -221,7 +221,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     /*
         if you don't want to use "Replace With Styles" in the Find Panel,
         add the following method to the subclass or delegate of NSApplication.
-        - (void)ogreKitShouldUseStylesInFindPanel:(OgreTextFinder*)textFinder
+        - (void)ogreKitShouldUseStylesInFindPanel:(OgreTextFinder *)textFinder
         {
             [textFinder setShouldUseStylesInFindPanel:NO];
         }
@@ -399,7 +399,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (void)setSyntax:(OgreSyntax)syntax
 {
-    //NSLog(@"%d", [OGRegularExpression intValueForSyntax:syntax]);
+    //NSLog(@"%ld", (long)[OGRegularExpression intValueForSyntax:syntax]);
     _syntax = syntax;
 }
 
@@ -484,7 +484,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     OgreTextFindResult              *textFindResult = nil;
     
     @try {
-        OGRegularExpression *regex =
+        OGRegularExpression *regularExpression =
         [OGRegularExpression regularExpressionWithString:expressionString
                                                  options:options
                                                   syntax:[self syntax]
@@ -493,7 +493,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of thread (スレッドの生成) */
         id adapter = [self adapterForTarget:target];
         thread = [[OgreFindThread alloc] initWithComponent:adapter];
-        [thread setRegularExpression:regex];
+        [thread setRegularExpression:regularExpression];
         [thread setOptions:options];
         [thread setWrap:isWrap];
         [thread setBackward:!forward];
@@ -535,7 +535,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     OgreTextFindResult              *textFindResult = nil;
     
     @try {
-        OGRegularExpression *regex =
+        OGRegularExpression *regularExpression =
         [OGRegularExpression regularExpressionWithString:expressionString
                                                  options:options
                                                   syntax:[self syntax]
@@ -551,7 +551,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of thread (スレッドの生成) */
         id adapter = [self adapterForTarget:target];
         thread = [[OgreFindAllThread alloc] initWithComponent:adapter];
-        [thread setRegularExpression:regex];
+        [thread setRegularExpression:regularExpression];
         [thread setHighlightColor:highlightColor];
         [thread setOptions:options];
         [thread setInSelection:inSelection];
@@ -653,13 +653,13 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     OgreTextFindResult              *textFindResult = nil;
     
     @try {
-        OGRegularExpression *regex =
+        OGRegularExpression *regularExpression =
         [OGRegularExpression regularExpressionWithString:[expressionString string]
                                                  options:options
                                                   syntax:[self syntax]
                                          escapeCharacter:[self escapeCharacter]];
         
-        OGReplaceExpression *repex =
+        OGReplaceExpression *replaceExpression =
         [OGReplaceExpression replaceExpressionWithOGString:replaceString
                                                    options:options
                                                     syntax:[self syntax]
@@ -668,8 +668,8 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         // Generation of thread (スレッドの生成)
         id adapter = [self adapterForTarget:target];
         thread = [[OgreReplaceAndFindThread alloc] initWithComponent:adapter];
-        [thread setRegularExpression:regex];
-        [thread setReplaceExpression:repex];
+        [thread setRegularExpression:regularExpression];
+        [thread setReplaceExpression:replaceExpression];
         [thread setOptions:options];
         [thread setInSelection:NO];
         [thread setAsynchronous:NO];
@@ -732,19 +732,19 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     OgreTextFindResult              *textFindResult = nil;
     
     @try {
-        OGRegularExpression *regex =
+        OGRegularExpression *regularExpression =
         [OGRegularExpression regularExpressionWithString:[expressionString string]
                                                  options:options
                                                   syntax:[self syntax]
                                          escapeCharacter:[self escapeCharacter]];
         
-        OGReplaceExpression *repex =
+        OGReplaceExpression *replaceExpression =
         [OGReplaceExpression replaceExpressionWithOGString:replaceString
                                                    options:options
                                                     syntax:[self syntax]
                                            escapeCharacter:[self escapeCharacter]];
         
-        /* Generation of processing status display for the seat (処理状況表示用シートの生成) */
+        /* Generation of processing status display for the sheet (処理状況表示用シートの生成) */
         sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window]
                                                             title:OgreTextFinderLocalizedString(@"Replace All")
                                                    didEndSelector:@selector(markTargetFree:)
@@ -754,8 +754,8 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of thread (スレッドの生成) */
         id adapter = [self adapterForTarget:target];
         thread = [[OgreReplaceAllThread alloc] initWithComponent:adapter];
-        [thread setRegularExpression:regex];
-        [thread setReplaceExpression:repex];
+        [thread setRegularExpression:regularExpression];
+        [thread setReplaceExpression:replaceExpression];
         [thread setOptions:options];
         [thread setInSelection:inSelection];
         [thread setDidEndSelector:@selector(didEndThread:) toTarget:self];
@@ -831,7 +831,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
     OgreTextFindResult              *textFindResult = nil;
     
     @try {
-        OGRegularExpression *regex =
+        OGRegularExpression *regularExpression =
         [OGRegularExpression regularExpressionWithString:expressionString
                                                  options:options
                                                   syntax:[self syntax]
@@ -847,7 +847,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         /* Generation of thread (スレッドの生成) */
         id adapter = [self adapterForTarget:target];
         thread = [[OgreHighlightThread alloc] initWithComponent:adapter];
-        [thread setRegularExpression:regex];
+        [thread setRegularExpression:regularExpression];
         [thread setHighlightColor:highlightColor];
         [thread setOptions:options];
         [thread setInSelection:inSelection];

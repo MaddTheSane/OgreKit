@@ -27,11 +27,6 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
 - (void)testCaptureTree
 {
     NSString    *expr = @"(1+2)*3+4";
@@ -47,15 +42,16 @@
 - (void)testCategory
 {
 	NSString	*string = @"36.5C, 3.8C, -195.8C";
-	//NSLog(@"%@", [[string componentsSeparatedByRegularExpressionString:@"\\s*,\\s*"] description]);
 	NSMutableString *mstr = [NSMutableString stringWithString:string];
-	NSUInteger	numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
-																			withString:@"F" options:OgreNoneOption range:NSMakeRange(0, [string length])];
+	NSUInteger numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
+																			withString:@"F" options:OgreNoneOption
+																				 range:NSMakeRange(0, [string length])];
 	NSLog(@"%lu %@", (unsigned long)numberOfReplacement, mstr);
 	NSRange matchRange = [string rangeOfRegularExpressionString:@"\\s*,\\s*"];
 	NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
 }
 
+//! Substituted entrusted the process to delegate / matched split in part (デリゲートに処理を委ねた置換／マッチした部分での分割)
 - (void)testReplace
 {
     OGRegularExpression			*regex = [OGRegularExpression regularExpressionWithString:@"a*"];
@@ -89,9 +85,9 @@
 	XCTAssertEqualObjects(m1, m2);
 }
 
+//! Substitution was entrusted with processing to delegate (デリゲートに処理を委ねた置換)
 - (void)testReplaceWithDelegate
 {
-	// Substitution was entrusted with processing to delegate (デリゲートに処理を委ねた置換)
 	NSString	*targetString = @"36.5C, 3.8C, -195.8C";
 	NSLog(@"%@", targetString);
 	OGRegularExpression	*celciusRegex = [OGRegularExpression regularExpressionWithString:@"([+-]?\\d+(?:\\.\\d+)?)C\\b"];
@@ -99,19 +95,21 @@
 																delegate:self
 														 replaceSelector:@selector(fahrenheitFromCelsius:contextInfo:)
 															 contextInfo:nil];
-	NSLog(@"%@", fahrenheitString);
+	XCTAssertEqualObjects(fahrenheitString, @"97.7F, 38.8F, -320.4F");
 }
 
+//! I split a string (文字列を分割する)
 - (void)testSplitString
 {
-	// I split a string (文字列を分割する)
 	NSString	*targetString = @"36.5C, 3.8C, -195.8C";
 	OGRegularExpression	*delimiterRegex = [OGRegularExpression regularExpressionWithString:@"\\s*,\\s*"];
-	NSLog(@"%@", [[delimiterRegex splitString:targetString] description]);
+	NSArray *split = [delimiterRegex splitString:targetString];
+	NSArray *expected = @[@"36.5C", @"3.8C", @"-195.8C"];
+	XCTAssertEqualObjects(split, expected, @"Split expected to be %@, but returned %@", [expected description], [split description]);
 }
 
-// I convert Celsius to Fahrenheit. (摂氏を華氏に変換する。)
-- (NSString*)fahrenheitFromCelsius:(OGRegularExpressionMatch*)aMatch contextInfo:(id)contextInfo
+//! I convert Celsius to Fahrenheit. (摂氏を華氏に変換する。)
+- (NSString *)fahrenheitFromCelsius:(OGRegularExpressionMatch *)aMatch contextInfo:(id)contextInfo
 {
     //NSLog(@"matchedString:%@ index:%d", [aMatch matchedString], [aMatch index]);
     double	celcius = [[aMatch substringAtIndex:1] doubleValue];

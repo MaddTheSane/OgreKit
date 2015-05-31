@@ -19,7 +19,7 @@
 
 @implementation OgreTableViewFindResult
 
-- (id)initWithTableView:(OgreTableView*)tableView
+- (id)initWithTableView:(OgreTableView *)tableView
 {
     self = [super init];
     if (self != nil) {
@@ -83,7 +83,7 @@
     return _components[index];
 }
 
-- (NSEnumerator*)componetEnumeratorInSelection:(BOOL)inSelection 
+- (NSEnumerator *)componetEnumeratorInSelection:(BOOL)inSelection 
 {
     return [_components objectEnumerator]; 
 }
@@ -101,7 +101,7 @@
     return (_tableView != nil);
 }
 
-- (void)windowWillClose:(NSNotification*)aNotification
+- (void)windowWillClose:(NSNotification *)aNotification
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-windowWillClose: of %@", [self className]);

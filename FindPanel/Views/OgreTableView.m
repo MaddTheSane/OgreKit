@@ -116,7 +116,7 @@
                         object:self];
 }
 
-- (void)ogreSelectionDidChange:(NSNotification*)aNotification
+- (void)ogreSelectionDidChange:(NSNotification *)aNotification
 {
     _ogreSelectedColumn = [self selectedColumn];
     _ogreSelectedRow = [self selectedRow];

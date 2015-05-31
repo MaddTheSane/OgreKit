@@ -47,18 +47,18 @@ extern NSString	*OgreTextViewFindResultException;
 }
 
 // Initialization (初期化)
-- (instancetype)initWithTextView:(NSTextView*)textView;
+- (instancetype)initWithTextView:(NSTextView *)textView;
 
 /* pseudo-OgreFindResultLeaf  */
 // Add match (マッチを追加)
-- (void)addMatch:(OGRegularExpressionMatch*)match;
+- (void)addMatch:(OGRegularExpressionMatch *)match;
 // I want to finish adding the match. (マッチの追加を終了する。)
 //- (void)endAddition;
 
 // line number that matched string for the index (index番目にマッチした文字列のある行番号)
-- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;
+- (NSNumber *)lineOfMatchedStringAtIndex:(NSUInteger)index;
 // matched string for the index (index番目にマッチした文字列)
-- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
+- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index;
 // I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
 // I choose the matched string for the index (index番目にマッチした文字列を選択する)
@@ -68,6 +68,6 @@ extern NSString	*OgreTextViewFindResultException;
 
 // Updating results (結果の更新)
 - (void)updateOldRange:(NSRange)oldRange newRange:(NSRange)newRange;
-- (void)updateSubranges:(NSMutableArray*)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign;
+- (void)updateSubranges:(NSMutableArray *)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign;
 
 @end

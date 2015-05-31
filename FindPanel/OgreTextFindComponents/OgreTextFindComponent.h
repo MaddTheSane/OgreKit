@@ -29,7 +29,7 @@
 - (id)target;               // a target (view) wrapped by a OgreTextFindComponent
 - (id)name;
 - (id)outline;
-- (NSWindow*)window;
+- (NSWindow *)window;
 
 /* Examing behavioral attributes */
 @property (readonly, getter=isEditable) BOOL editable;
@@ -43,10 +43,10 @@
 - (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection;
 
 @property (readwrite, retain) OgreTextFindBranch *parent;
-- (void)setParentNoRetain:(OgreTextFindBranch*)parent;
+- (void)setParentNoRetain:(OgreTextFindBranch *)parent;
 @property NSInteger index;
 //@property (readonly) OgreTextFindLeaf *selectedLeaf;
-- (OgreTextFindLeaf*)selectedLeaf;
+- (OgreTextFindLeaf *)selectedLeaf;
 
 @property (getter=isTerminal) BOOL terminal;
 @property (getter=isReversed) BOOL reversed;
@@ -54,11 +54,11 @@
 @end
 
 @protocol OgreTextFindVisitor <NSObject>
-- (void)visitLeaf:(OgreTextFindLeaf*)aLeaf;
-- (void)visitBranch:(OgreTextFindBranch*)aBranch;
+- (void)visitLeaf:(OgreTextFindLeaf *)aLeaf;
+- (void)visitBranch:(OgreTextFindBranch *)aBranch;
 @end
 
 @protocol OgreTextFindTargetAdapter <NSObject>
-- (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread;
+- (OgreTextFindLeaf *)buildStackForSelectedLeafInThread:(OgreTextFindThread *)aThread;
 - (void)moveHomePosition;
 @end
