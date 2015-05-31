@@ -57,7 +57,7 @@
 "Error! Uneditable."	= "Erreur! Non éditable."; /* a target TextView is not editable */
 "Missing."				= "Absente.";			/* a found string became missing */
 
-/* Find Result Window*/
+/* Find Result Window */
 "Find Result for \"%@\""        = "Résultat de la rechercher pour \"%@\"";
 "%lu string found."				= "%lu chaîne trouvée.";
 "%lu strings found."				= "%lu chaînes trouvées.";

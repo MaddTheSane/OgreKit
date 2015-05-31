@@ -57,7 +57,7 @@
 "Error! Uneditable."	= "エラー! 編集不可";
 "Missing."				= "行方不明";
 
-/* Find Result Window*/
+/* Find Result Window */
 "Find Result for \"%@\""        = "\"%@\"の検索結果";
 "%lu string found."				= "%lu文字列を発見しました。";
 "%lu strings found."				= "%lu文字列を発見しました。";

@@ -227,7 +227,7 @@
 	if (!found) NSBeep();
 }
 
-/* live update check box clicked*/
+/* live update check box clicked */
 - (IBAction)updateLiveUpdate:(id)sender
 {
 	if (_textFindResult != nil) [grepOutlineView reloadData];
