@@ -38,9 +38,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = OgreTextFinderLocalizedString(@"%lu string highlighted.");
-    progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings highlighted.");
-    remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
+    _progressMessage = OgreTextFinderLocalizedString(@"%lu string highlighted.");
+    _progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings highlighted.");
+    _remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -59,7 +59,7 @@
     NSObject<OGStringProtocol>            *string = [aLeaf ogString];
     
     if (![aLeaf isHighlightable] || (string == nil)) {
-        matchEnumerator = nil;  // stop
+        _matchEnumerator = nil;  // stop
         return;
     }
     
@@ -73,16 +73,16 @@
         brightness: &brightness 
         alpha: &alpha];
     
-    numberOfGroups = [regEx numberOfGroups];
+    _numberOfGroups = [regEx numberOfGroups];
     NSUInteger  i;
     BOOL        simple = ([regEx syntax] == OgreSimpleMatchingSyntax);
     CGFloat     dummy;
     
-    highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
-    for (i = 0; i <= numberOfGroups; i++) {
-        [highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
+    _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:_numberOfGroups];
+    for (i = 0; i <= _numberOfGroups; i++) {
+        [_highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
             modf(hue + (simple? (CGFloat)(i - 1) : (CGFloat)i) /
-                (simple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
+                (simple? (CGFloat)_numberOfGroups : (CGFloat)(_numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
@@ -93,28 +93,28 @@
 	if (![self inSelection]) {
 		searchRange = NSMakeRange(0, [string length]);
 	}
-    searchLength = searchRange.length;
+    _searchLength = searchRange.length;
     
-    matchEnumerator = [regEx matchEnumeratorInOGString:string
-                                               options:[self options]
-                                                 range:searchRange];
+    _matchEnumerator = [regEx matchEnumeratorInOGString:string
+                                                options:[self options]
+                                                  range:searchRange];
     
     [aLeaf unhighlight];
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
 {
-    if ((match = [matchEnumerator nextObject]) == nil) return NO;   // stop
+    if ((_match = [_matchEnumerator nextObject]) == nil) return NO;   // stop
     
-    lastMatch = match;
+    _lastMatch = _match;
     
     NSUInteger  i;
     NSRange     aRange;
     
-    for(i = 0; i <= numberOfGroups; i++) {
-        aRange = [match rangeOfSubstringAtIndex:i];
+    for(i = 0; i <= _numberOfGroups; i++) {
+        aRange = [_match rangeOfSubstringAtIndex:i];
         if (aRange.length > 0) {
-            [aLeaf highlightCharactersInRange:aRange color:highlightColorArray[i]];
+            [aLeaf highlightCharactersInRange:aRange color:_highlightColorArray[i]];
         }
     }
     
@@ -153,11 +153,11 @@
 
 - (NSString*)progressMessage
 {
-    NSString    *message = [NSString stringWithFormat:(([self numberOfMatches] > 1)? progressMessagePlural : progressMessage), [self numberOfMatches]];
+    NSString    *message = [NSString stringWithFormat:(([self numberOfMatches] > 1)? _progressMessagePlural : _progressMessage), [self numberOfMatches]];
     
     if (_numberOfTotalLeaves > 0) {
         double  progressPercentage = [self progressPercentage] + 0.00000001;
-        message = [message stringByAppendingFormat:remainingTimeMesssage, (int)ceil([self processTime] * (1.0 - progressPercentage)/progressPercentage)];
+        message = [message stringByAppendingFormat:_remainingTimeMesssage, (int)ceil([self processTime] * (1.0 - progressPercentage)/progressPercentage)];
     }
     
     return message;
@@ -207,8 +207,8 @@
 {
     if (_numberOfTotalLeaves <= 0) return -1;
     
-    NSRange matchRange = [lastMatch rangeOfMatchedString];
-    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
+    NSRange matchRange = [_lastMatch rangeOfMatchedString];
+    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
 }
 
 - (double)donePercentage
@@ -220,8 +220,8 @@
             percentage = 0;
         } else {
             if (_numberOfTotalLeaves > 0) {
-                NSRange matchRange = [lastMatch rangeOfMatchedString];
-                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
+                NSRange matchRange = [_lastMatch rangeOfMatchedString];
+                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
             } else {
                 percentage = -1;    // indeterminate
             }
