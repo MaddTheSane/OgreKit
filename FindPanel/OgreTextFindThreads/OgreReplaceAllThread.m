@@ -34,9 +34,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = OgreTextFinderLocalizedString(@"%lu string replaced.");
-    progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings replaced.");
-    remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
+    _progressMessage = OgreTextFinderLocalizedString(@"%lu string replaced.");
+    _progressMessagePlural = OgreTextFinderLocalizedString(@"%lu strings replaced.");
+    _remainingTimeMesssage = OgreTextFinderLocalizedString(@"(%dsec remaining)");
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -44,7 +44,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingInBranch: of %@", [self className]);
 #endif
-    replaceExpression = [self replaceExpression];
+    //_replaceExpression = [self replaceExpression]; // redundant.
 }
 
 - (void)willProcessFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
@@ -55,7 +55,7 @@
     NSObject<OGStringProtocol>    *string = [aLeaf ogString];
     
     if (![aLeaf isEditable] || (string == nil)) {
-        aNumberOfMatches = 0;  // stop
+        _replaceAllNumberOfMatches = 0;  // stop
         return;
     }
     
@@ -66,31 +66,31 @@
 		selectedRange = NSMakeRange(0, stringLength);
 	}
     
-    matchArray = [[self regularExpression] allMatchesInOGString:string 
+    _matchArray = [[self regularExpression] allMatchesInOGString:string 
 			options: [self options] 
 			range: selectedRange];
-    aNumberOfMatches = [matchArray count];
-    aNumberOfReplaces = 0;
+    _replaceAllNumberOfMatches = [_matchArray count];
+    _replaceAllNumberOfReplaces = 0;
     
-    if (aNumberOfMatches != 0) { 
-        [aLeaf beginRegisteringUndoWithCapacity:aNumberOfMatches];
+    if (_replaceAllNumberOfMatches != 0) { 
+        [aLeaf beginRegisteringUndoWithCapacity:_replaceAllNumberOfMatches];
         [aLeaf beginEditing];
     }
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf*)aLeaf;
 {
-    if (aNumberOfReplaces >= aNumberOfMatches) return NO;   // stop
+    if (_replaceAllNumberOfReplaces >= _replaceAllNumberOfMatches) return NO;   // stop
     
-    aNumberOfReplaces++;
+    _replaceAllNumberOfReplaces++;
     [self incrementNumberOfMatches];
     
-    OGRegularExpressionMatch        *match;
+    OGRegularExpressionMatch        *_match;
     NSRange                         matchRange;
-    match = matchArray[(aNumberOfMatches - aNumberOfReplaces)];
-    matchRange = [match rangeOfMatchedString];
-    replacedString = [replaceExpression replaceMatchedOGStringOf:match];
-    [aLeaf replaceCharactersInRange:matchRange withOGString:replacedString];
+    _match = _matchArray[(_replaceAllNumberOfMatches - _replaceAllNumberOfReplaces)];
+    matchRange = [_match rangeOfMatchedString];
+    _replacedString = [_replaceExpression replaceMatchedOGStringOf:_match];
+    [aLeaf replaceCharactersInRange:matchRange withOGString:_replacedString];
     
     return YES; // continue
 }
@@ -100,7 +100,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
-    if (aNumberOfMatches != 0) {
+    if (_replaceAllNumberOfMatches != 0) {
         [aLeaf endEditing];
         [aLeaf endRegisteringUndo];
     }
@@ -128,11 +128,11 @@
 
 - (NSString*)progressMessage
 {
-    NSString    *message = [NSString stringWithFormat:(([self numberOfMatches] > 1)? progressMessagePlural : progressMessage), [self numberOfMatches]];
+    NSString    *message = [NSString stringWithFormat:(([self numberOfMatches] > 1)? _progressMessagePlural : _progressMessage), [self numberOfMatches]];
     
     if (_numberOfTotalLeaves > 0) {
         double  progressPercentage = [self progressPercentage] + 0.00000001;
-        message = [message stringByAppendingFormat:remainingTimeMesssage, (int)ceil([self processTime] * (1.0 - progressPercentage)/progressPercentage)];
+        message = [message stringByAppendingFormat:_remainingTimeMesssage, (int)ceil([self processTime] * (1.0 - progressPercentage)/progressPercentage)];
     }
     
     return message;
@@ -182,7 +182,7 @@
 {
     if (_numberOfTotalLeaves <= 0 ) return -1;
     
-    return (double)(_numberOfDoneLeaves - 1 + (double)aNumberOfReplaces/(double)aNumberOfMatches) / (double)_numberOfTotalLeaves;
+    return (double)(_numberOfDoneLeaves - 1 + (double)_replaceAllNumberOfReplaces/(double)_replaceAllNumberOfMatches) / (double)_numberOfTotalLeaves;
 }
 
 - (double)donePercentage
@@ -190,12 +190,12 @@
     if ([self isTerminated]) {
         if (_numberOfTotalLeaves <= 0 ) return -1;
         
-        return (double)(_numberOfDoneLeaves - 1 + (double)aNumberOfReplaces/(double)aNumberOfMatches) / (double)_numberOfTotalLeaves;
+        return (double)(_numberOfDoneLeaves - 1 + (double)_replaceAllNumberOfReplaces/(double)_replaceAllNumberOfMatches) / (double)_numberOfTotalLeaves;
     }
     
     return 1;
     
-    //return (double)aNumberOfReplaces/(double)aNumberOfMatches;
+    //return (double)_replaceAllNumberOfReplaces/(double)_replaceAllNumberOfMatches;
 }
 
 @end

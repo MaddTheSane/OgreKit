@@ -19,11 +19,10 @@
 
 @interface OgreReplaceAllThread : OgreTextFindThread 
 {
-    NSArray					*matchArray;
-    OGReplaceExpression		*replaceExpression;
-    NSUInteger				aNumberOfReplaces, aNumberOfMatches;
-    NSString				*progressMessage, *progressMessagePlural, *remainingTimeMesssage;
-	id<OGStringProtocol>	replacedString;
+    NSArray					*_matchArray;
+    NSUInteger				_replaceAllNumberOfReplaces, _replaceAllNumberOfMatches;
+    NSString				*_progressMessage, *_progressMessagePlural, *_remainingTimeMesssage;
+	id<OGStringProtocol>	_replacedString;
 }
 
 @end
