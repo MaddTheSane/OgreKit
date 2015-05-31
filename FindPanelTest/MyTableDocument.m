@@ -96,12 +96,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	// I get kind of line feed code. (改行コードの種類を得る。)
 	_newlineCharacter = [aString newlineCharacter];
 	if (_newlineCharacter == OgreNonbreakingNewlineCharacter) {
-		// Is regarded as OgreUnixNewlineCharacter If there is no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
+		// Is regarded as OgreUnixNewlineCharacter, if there are no line breaks. (改行のない場合はOgreUnixNewlineCharacterとみなす。)
 		//NSLog(@"nonbreaking");
 		_newlineCharacter = OgreUnixNewlineCharacter;
 	}
 	
-	// The line feed code (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
+	// The line feed character (if to be replaced) is replaced. (改行コードを(置換すべきなら)置換する。)
 	if (_newlineCharacter != OgreUnixNewlineCharacter) {
 		[aString replaceNewlineCharactersWithCharacter:OgreUnixNewlineCharacter];
 	}
