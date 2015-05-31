@@ -54,6 +54,10 @@
 	return self;
 }
 
+- (void)_setAttributedString:(NSAttributedString*)attributedString
+{
+    _attrString = [attributedString mutableCopy];
+}
 
 /* OGMutableStringProtocol */
 - (void)appendOGString:(id<OGStringProtocol>)string
