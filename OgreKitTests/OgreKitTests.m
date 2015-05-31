@@ -27,11 +27,6 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
 - (void)testCaptureTree
 {
     NSString    *expr = @"(1+2)*3+4";
