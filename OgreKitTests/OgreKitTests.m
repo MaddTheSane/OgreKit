@@ -41,14 +41,14 @@
 
 - (void)testCategory
 {
-	NSString	*string = @"36.5C, 3.8C, -195.8C";
-	NSMutableString *mstr = [NSMutableString stringWithString:string];
-	NSUInteger numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
-																			withString:@"F" options:OgreNoneOption
-																				 range:NSMakeRange(0, [string length])];
-	NSLog(@"%lu %@", (unsigned long)numberOfReplacement, mstr);
-	NSRange matchRange = [string rangeOfRegularExpressionString:@"\\s*,\\s*"];
-	NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
+    NSString	*string = @"36.5C, 3.8C, -195.8C";
+    NSMutableString *mstr = [NSMutableString stringWithString:string];
+    NSUInteger numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
+                                                                            withString:@"F" options:OgreNoneOption
+                                                                                 range:NSMakeRange(0, [string length])];
+    NSLog(@"%lu %@", (unsigned long)numberOfReplacement, mstr);
+    NSRange matchRange = [string rangeOfRegularExpressionString:@"\\s*,\\s*"];
+    NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
 }
 
 //! Substituted entrusted the process to delegate / matched split in part (デリゲートに処理を委ねた置換／マッチした部分での分割)
@@ -65,47 +65,47 @@
 
 - (void)testForInFastEnum
 {
-	OGRegularExpression			*regex = [OGRegularExpression regularExpressionWithString:@"a*"];
-	NSEnumerator				*matcher = [regex matchEnumeratorInString:@"aaaaaaa" range:NSMakeRange(1, 3)];
-	OGRegularExpressionMatch	*match;
-	NSMutableArray				*m1 = [[NSMutableArray alloc] init];
-	NSMutableArray				*m2 = [[NSMutableArray alloc] init];
-
-	for (match in matcher) {
-		NSRange matchRange = [match rangeOfMatchedString];
-		[m1 addObject:[NSValue valueWithRange:matchRange]];
-	}
-	
-	matcher = [regex matchEnumeratorInString:@"aaaaaaa" range:NSMakeRange(1, 3)];
-	while ((match = [matcher nextObject]) != nil) {
-		NSRange matchRange = [match rangeOfMatchedString];
-		[m2 addObject:[NSValue valueWithRange:matchRange]];
-	}
-	
-	XCTAssertEqualObjects(m1, m2);
+    OGRegularExpression			*regex = [OGRegularExpression regularExpressionWithString:@"a*"];
+    NSEnumerator				*matcher = [regex matchEnumeratorInString:@"aaaaaaa" range:NSMakeRange(1, 3)];
+    OGRegularExpressionMatch	*match;
+    NSMutableArray				*m1 = [[NSMutableArray alloc] init];
+    NSMutableArray				*m2 = [[NSMutableArray alloc] init];
+    
+    for (match in matcher) {
+        NSRange matchRange = [match rangeOfMatchedString];
+        [m1 addObject:[NSValue valueWithRange:matchRange]];
+    }
+    
+    matcher = [regex matchEnumeratorInString:@"aaaaaaa" range:NSMakeRange(1, 3)];
+    while ((match = [matcher nextObject]) != nil) {
+        NSRange matchRange = [match rangeOfMatchedString];
+        [m2 addObject:[NSValue valueWithRange:matchRange]];
+    }
+    
+    XCTAssertEqualObjects(m1, m2);
 }
 
 //! Substitution was entrusted with processing to delegate (デリゲートに処理を委ねた置換)
 - (void)testReplaceWithDelegate
 {
-	NSString	*targetString = @"36.5C, 3.8C, -195.8C";
-	NSLog(@"%@", targetString);
-	OGRegularExpression	*celciusRegex = [OGRegularExpression regularExpressionWithString:@"([+-]?\\d+(?:\\.\\d+)?)C\\b"];
-	NSString *fahrenheitString = [celciusRegex replaceAllMatchesInString:targetString
-																delegate:self
-														 replaceSelector:@selector(fahrenheitFromCelsius:contextInfo:)
-															 contextInfo:nil];
-	XCTAssertEqualObjects(fahrenheitString, @"97.7F, 38.8F, -320.4F");
+    NSString	*targetString = @"36.5C, 3.8C, -195.8C";
+    NSLog(@"%@", targetString);
+    OGRegularExpression	*celciusRegex = [OGRegularExpression regularExpressionWithString:@"([+-]?\\d+(?:\\.\\d+)?)C\\b"];
+    NSString *fahrenheitString = [celciusRegex replaceAllMatchesInString:targetString
+                                                                delegate:self
+                                                         replaceSelector:@selector(fahrenheitFromCelsius:contextInfo:)
+                                                             contextInfo:nil];
+    XCTAssertEqualObjects(fahrenheitString, @"97.7F, 38.8F, -320.4F");
 }
 
 //! I split a string (文字列を分割する)
 - (void)testSplitString
 {
-	NSString	*targetString = @"36.5C, 3.8C, -195.8C";
-	OGRegularExpression	*delimiterRegex = [OGRegularExpression regularExpressionWithString:@"\\s*,\\s*"];
-	NSArray *split = [delimiterRegex splitString:targetString];
-	NSArray *expected = @[@"36.5C", @"3.8C", @"-195.8C"];
-	XCTAssertEqualObjects(split, expected, @"Split expected to be %@, but returned %@", [expected description], [split description]);
+    NSString	*targetString = @"36.5C, 3.8C, -195.8C";
+    OGRegularExpression	*delimiterRegex = [OGRegularExpression regularExpressionWithString:@"\\s*,\\s*"];
+    NSArray *split = [delimiterRegex splitString:targetString];
+    NSArray *expected = @[@"36.5C", @"3.8C", @"-195.8C"];
+    XCTAssertEqualObjects(split, expected, @"Split expected to be %@, but returned %@", [expected description], [split description]);
 }
 
 //! I convert Celsius to Fahrenheit. (摂氏を華氏に変換する。)

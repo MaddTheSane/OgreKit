@@ -1511,7 +1511,6 @@
 			);
 			path = OgreKitTests;
 			sourceTree = "<group>";
-			usesTabs = 1;
 		};
 		552BF1971B1A525900DA11E5 /* Supporting Files */ = {
 			isa = PBXGroup;
