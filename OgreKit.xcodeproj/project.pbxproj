@@ -2469,6 +2469,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
 			};
@@ -2492,6 +2493,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
 			};
@@ -2519,6 +2521,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2545,6 +2548,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2627,6 +2631,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2653,6 +2658,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2728,6 +2734,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit.OgreFindPanelTest;
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2754,6 +2761,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit.OgreFindPanelTest;
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2915,6 +2923,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2943,6 +2952,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
