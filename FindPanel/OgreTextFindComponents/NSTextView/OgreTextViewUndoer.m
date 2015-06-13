@@ -21,7 +21,7 @@
     if (self != nil) {
         _tail = 0;
         _count = aCapacity;
-        _rangeArray = (NSRange *)NSZoneMalloc(nil, sizeof(NSRange) * aCapacity);
+        _rangeArray = (NSRange *)malloc(sizeof(NSRange) * aCapacity);
         if (_rangeArray == NULL) {
             // ERROR!
         }
@@ -33,7 +33,7 @@
 - (void)dealloc
 {
     //NSLog(@"dealloc %@", self);
-    NSZoneFree(nil, _rangeArray);
+    free(_rangeArray);
 }
 
 - (void)addRange:(NSRange)aRange attributedString:(NSAttributedString *)anAttributedString

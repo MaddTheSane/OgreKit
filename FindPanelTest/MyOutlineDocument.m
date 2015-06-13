@@ -176,7 +176,7 @@
     NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
-    NSUInteger  *rowIndexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * count);
+    NSUInteger  *rowIndexes = (NSUInteger *)malloc(sizeof(NSUInteger) * count);
     if (rowIndexes == NULL) {
         // Error
         return;
@@ -186,7 +186,7 @@
         id  item = [myOutlineView itemAtRow:*(rowIndexes + i)];
         [item remove];
     }
-    NSZoneFree(nil, rowIndexes);
+    free(rowIndexes);
     [myOutlineView reloadData];
 }
 

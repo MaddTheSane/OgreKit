@@ -161,14 +161,14 @@
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
             
-            NSUInteger  *indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedColumnIndexes count]);
+            NSUInteger  *indexes = (NSUInteger *)malloc(sizeof(NSUInteger) * [selectedColumnIndexes count]);
             if (indexes == NULL) {
                 // Error (エラー)
                 return nil;
             }
             [selectedColumnIndexes getIndexes:indexes maxCount:[selectedColumnIndexes count] inIndexRange:NULL];
             concreteIndex = *(indexes + index);
-            NSZoneFree(nil, indexes);
+            free(indexes);
         }
     }
     

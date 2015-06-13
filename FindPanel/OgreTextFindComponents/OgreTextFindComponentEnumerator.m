@@ -30,7 +30,7 @@
         _terminalIndex = _count - 1;
         
         if (inSelection) {
-			_indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * _count);
+			_indexes = (NSUInteger *)malloc(sizeof(NSUInteger) * _count);
             if (_indexes == NULL) {
                 // Error
                 return nil;
@@ -46,7 +46,7 @@
 
 - (void)dealloc
 {
-	if (_indexes != NULL) NSZoneFree(nil, _indexes);
+	if (_indexes != NULL) free(_indexes);
 }
 
 - (id)nextObject
