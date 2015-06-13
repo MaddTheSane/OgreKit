@@ -173,7 +173,14 @@
         }
     }
     
-    column = [_tableView tableColumns][concreteIndex];
+    NSTableColumn *tableColumn = [_tableView tableColumns][concreteIndex];
+    if ([tableColumn isKindOfClass:[OgreTableColumn class]]) {
+        column = (OgreTableColumn *)tableColumn;
+    }
+    else {
+        return nil;
+    }
+    
     tableColumnAdapter = [[OgreTableColumnAdapter alloc] initWithTableColumn:column];
     [tableColumnAdapter setParent:self];
     [tableColumnAdapter setIndex:index];

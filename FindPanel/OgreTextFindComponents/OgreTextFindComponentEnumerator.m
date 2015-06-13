@@ -52,16 +52,19 @@
 - (id)nextObject
 {
     if (_nextIndex > _terminalIndex) return nil;
-    NSUInteger    concreteIndex;
+    NSUInteger concreteIndex;
+    id aComponent = nil;
     
-    if (_inSelection) {
-        concreteIndex = _indexes[_nextIndex];
-    } else {
-        concreteIndex = _nextIndex;
-    }
-    
-    id  aComponent = [_branch childAtIndex:concreteIndex inSelection:NO];
-    _nextIndex++;
+    do {
+        if (_inSelection) {
+            concreteIndex = _indexes[_nextIndex];
+        } else {
+            concreteIndex = _nextIndex;
+        }
+        
+        aComponent = [_branch childAtIndex:concreteIndex inSelection:NO];
+        _nextIndex++;
+    } while (aComponent == nil);
     
     return aComponent;
 }

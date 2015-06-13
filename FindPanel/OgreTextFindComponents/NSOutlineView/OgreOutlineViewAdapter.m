@@ -193,7 +193,14 @@
         }
     }
     
-    column = [_outlineView tableColumns][concreteIndex];
+    NSTableColumn *tableColumn = [_outlineView tableColumns][concreteIndex];
+    if ([tableColumn isKindOfClass:[OgreOutlineColumn class]]) {
+        column = (OgreOutlineColumn *)tableColumn;
+    }
+    else {
+        return nil;
+    }
+    
     outlineColumnAdapter = [[OgreOutlineColumnAdapter alloc] initWithOutlineColumn:column];
     [outlineColumnAdapter setParent:self];
     [outlineColumnAdapter setIndex:index];
