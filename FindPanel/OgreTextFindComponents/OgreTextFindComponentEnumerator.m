@@ -60,10 +60,10 @@
         concreteIndex = _nextIndex;
     }
     
-    id  anComponent = [_branch childAtIndex:concreteIndex inSelection:NO];
+    id  aComponent = [_branch childAtIndex:concreteIndex inSelection:NO];
     _nextIndex++;
     
-    return anComponent;
+    return aComponent;
 }
 
 @end
