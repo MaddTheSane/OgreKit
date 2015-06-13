@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreTableView.h>
 #import <OgreKit/OgreTableViewAdapter.h>
+#import <OgreKit/OgreTableColumn.h>
 #import <OgreKit/OgreTableColumnAdapter.h>
 #import <OgreKit/OgreTableCellAdapter.h>
 #import <OgreKit/OgreTextFindComponentEnumerator.h>
