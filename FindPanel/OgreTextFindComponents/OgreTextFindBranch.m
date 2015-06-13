@@ -39,8 +39,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -dealloc of %@", [self className]);
 #endif
-    if (_isParentRetained) [_parent release];
-    [super dealloc];
+    _parentStrong = nil; // Technically superfluous.
 }
 
 - (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor // visitor pattern
@@ -166,16 +165,14 @@
 
 - (void)setParent:(OgreTextFindBranch *)parent
 {
-    if (_isParentRetained) [_parent autorelease];
-    _parent = [parent retain];
-    _isParentRetained = YES;
+    _parent = parent;
+    _parentStrong = parent;
 }
 
 - (void)setParentNoRetain:(OgreTextFindBranch *)parent
 {
-    if (_isParentRetained) [_parent autorelease];
     _parent = parent;
-    _isParentRetained = NO;
+    _parentStrong = nil;
 }
 
 - (OgreTextFindLeaf *)selectedLeaf
