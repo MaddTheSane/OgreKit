@@ -38,9 +38,7 @@
 
 - (void)addRange:(NSRange)aRange attributedString:(NSAttributedString *)anAttributedString
 {
-    if (_tail == _count) {
-        // ERROR
-    }
+    NSAssert(_tail != _count, @"ERROR");
     _rangeArray[_tail] = aRange;
     [_attributedStringArray addObject:anAttributedString];
     _tail++;
