@@ -148,7 +148,7 @@
 }
 
 
-/* Examing behavioral attributes */
+/* Examining behavioral attributes */
 - (BOOL)isEditable { return YES; }
 - (BOOL)isHighlightable { return NO; }
 
