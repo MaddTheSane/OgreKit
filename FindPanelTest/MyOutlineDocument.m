@@ -130,7 +130,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
 	id	identifier = [tableColumn identifier];
-    [item takeValue:object forKey:identifier];
+    [item setValue:object forKey:identifier];
 }
 
 /* displaying cell */
