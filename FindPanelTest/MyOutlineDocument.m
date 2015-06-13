@@ -57,7 +57,7 @@
         if(result == NSOKButton) {
             NSURL    *url = [openPanel URL];
             //NSLog(@"%@", path);
-            _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url absoluteString] parent:self];
+            _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url path] parent:self];
             //NSLog(@"%@", [_fileWrapper description]);
         }
         [myOutlineView reloadData];
