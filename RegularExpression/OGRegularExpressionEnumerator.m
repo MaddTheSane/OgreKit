@@ -468,7 +468,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
          NSInteger i, count = _lengthOfTargetString;
          unichar *utf16Chars = _UTF16TargetString;
          for (i = 0; i < count; i++) {
-         NSLog(@"UTF16: %04x", *(utf16Chars + i));
+         NSLog(@"UTF16: %04x", utf16Chars[i]);
          }
          }*/
         

@@ -41,7 +41,7 @@
     if (_tail == _count) {
         // ERROR
     }
-    *(_rangeArray + _tail) = aRange;
+    _rangeArray[_tail] = aRange;
     [_attributedStringArray addObject:anAttributedString];
     _tail++;
 }
@@ -64,7 +64,7 @@
     i = _count;
     while (i > 0) {
         i--;
-        aRange = *(_rangeArray + i);
+        aRange = _rangeArray[i];
         aString = _attributedStringArray[i];
         //NSLog(@"(%lu, %lu), %@", (unsigned long)aRange.location, (unsigned long)aRange.length, [aString string]);
         

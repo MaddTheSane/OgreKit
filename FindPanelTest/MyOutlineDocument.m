@@ -183,7 +183,7 @@
     }
     [selectedRowIndexes getIndexes:rowIndexes maxCount:count inIndexRange:NULL];
     for (i = 0; i < count; i++) {
-        id  item = [myOutlineView itemAtRow:*(rowIndexes + i)];
+        id  item = [myOutlineView itemAtRow:rowIndexes[i]];
         [item remove];
     }
     free(rowIndexes);

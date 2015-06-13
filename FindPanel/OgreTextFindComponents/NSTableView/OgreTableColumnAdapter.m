@@ -122,7 +122,7 @@
                 return nil;
             }
             [selectedRowIndexes getIndexes:indexes maxCount:[selectedRowIndexes count] inIndexRange:NULL];
-            rowIndex = *(indexes + index);
+            rowIndex = indexes[index];
             free(indexes);
         }
     }

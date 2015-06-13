@@ -188,7 +188,7 @@
                 return nil;
             }
             [selectedColumnIndexes getIndexes:indexes maxCount:[selectedColumnIndexes count] inIndexRange:NULL];
-            concreteIndex = *(indexes + index);
+            concreteIndex = indexes[index];
             free(indexes);
         }
     }
