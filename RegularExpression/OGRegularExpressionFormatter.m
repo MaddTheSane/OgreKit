@@ -20,6 +20,11 @@ static NSString	* const OgreEscapeCharacterKey    = @"OgreFormatterEscapeCharact
 
 NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterException";
 
+@interface NSFormatter ()
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
+@end
+
 @interface OGRegularExpressionFormatter ()
 - (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 @end
@@ -114,13 +119,13 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	}
 	
     if ([encoder allowsKeyedCoding]) {
-		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
-		[encoder encodeObject: @([self options]) forKey: OgreOptionsKey];
-		[encoder encodeObject: @(syntaxType) forKey: OgreSyntaxKey];
+		[encoder encodeObject:[self escapeCharacter] forKey:OgreEscapeCharacterKey];
+		[encoder encodeObject:@([self options]) forKey:OgreOptionsKey];
+		[encoder encodeObject:@(syntaxType) forKey:OgreSyntaxKey];
 	} else {
-		[encoder encodeObject: [self escapeCharacter]];
-		[encoder encodeObject: @([self options])];
-		[encoder encodeObject: @(syntaxType)];
+		[encoder encodeObject:[self escapeCharacter]];
+		[encoder encodeObject:@([self options])];
+		[encoder encodeObject:@(syntaxType)];
 	}
 }
 
@@ -144,7 +149,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		// NSString			*_escapeCharacter;
 		_escapeCharacter = [decoder decodeObject];
 	}
-	if(_escapeCharacter == nil) {
+	if (_escapeCharacter == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
         return nil;
@@ -156,7 +161,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	} else {
 		anObject = [decoder decodeObject];
 	}
-	if(anObject == nil) {
+	if (anObject == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
         return nil;
@@ -170,7 +175,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	} else {
 		anObject = [decoder decodeObject];
 	}
-	if(anObject == nil) {
+	if (anObject == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
         return nil;
@@ -192,15 +197,16 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 #ifdef DEBUG_OGRE
 	NSLog(@"-copyWithZone: of %@", [self className]);
 #endif
-	return [[[self class] allocWithZone:zone]
-		initWithOptions: _options 
-		syntax: _syntax 
-		escapeCharacter: _escapeCharacter];
+    return [[[self class] alloc] initWithOptions:_options
+                                          syntax:_syntax
+                                 escapeCharacter:_escapeCharacter];
 }
 
 - (instancetype)init
 {
-	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
+	return [self initWithOptions:OgreNoneOption
+                          syntax:[OGRegularExpression defaultSyntax]
+                 escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
 - (instancetype)initWithOptions:(OgreOption)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString *)character

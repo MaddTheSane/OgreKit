@@ -158,19 +158,19 @@ extern NSString	* const OgreException;
 
 + (instancetype)regularExpressionWithString:(NSString *)expressionString;
 + (instancetype)regularExpressionWithString:(NSString *)expressionString
-	options:(OgreOption)options;
+                                    options:(OgreOption)options;
 + (instancetype)regularExpressionWithString:(NSString *)expressionString
-	options:(OgreOption)options
-	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString *)character;
-	
+                                    options:(OgreOption)options
+                                     syntax:(OgreSyntax)syntax
+                            escapeCharacter:(NSString *)character;
+
 - (instancetype)initWithString:(NSString *)expressionString;
 - (instancetype)initWithString:(NSString *)expressionString
-	options:(OgreOption)options;
-- (instancetype)initWithString:(NSString *)expressionString 
-	options:(OgreOption)options
-	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
+                       options:(OgreOption)options;
+- (instancetype)initWithString:(NSString *)expressionString
+                       options:(OgreOption)options
+                        syntax:(OgreSyntax)syntax
+               escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
 
 
 /*************

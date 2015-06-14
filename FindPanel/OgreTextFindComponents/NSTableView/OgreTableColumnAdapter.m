@@ -116,14 +116,14 @@
         } else {
             if (index >= [selectedRowIndexes count]) return nil;
             
-            NSUInteger  *indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedRowIndexes count]);
+            NSUInteger  *indexes = (NSUInteger *)malloc(sizeof(NSUInteger) * [selectedRowIndexes count]);
             if (indexes == NULL) {
                 // Error (エラー)
                 return nil;
             }
             [selectedRowIndexes getIndexes:indexes maxCount:[selectedRowIndexes count] inIndexRange:NULL];
-            rowIndex = *(indexes + index);
-            NSZoneFree(nil, indexes);
+            rowIndex = indexes[index];
+            free(indexes);
         }
     }
     

@@ -19,8 +19,18 @@
 @synthesize terminalIndex = _terminalIndex;
 @synthesize startIndex = _nextIndex;
 
+- (instancetype)init
+{
+    return [self initWithBranch:nil
+                    inSelection:NO];
+}
+
 - (instancetype)initWithBranch:(OgreTextFindBranch *)aBranch inSelection:(BOOL)inSelection
 {
+    if (aBranch == nil) {
+        return nil;
+    }
+    
     self = [super init];
     if (self != nil) {
         _branch = aBranch;
@@ -30,7 +40,7 @@
         _terminalIndex = _count - 1;
         
         if (inSelection) {
-			_indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * _count);
+			_indexes = (NSUInteger *)malloc(sizeof(NSUInteger) * _count);
             if (_indexes == NULL) {
                 // Error
                 return nil;
@@ -46,24 +56,27 @@
 
 - (void)dealloc
 {
-	if (_indexes != NULL) NSZoneFree(nil, _indexes);
+	if (_indexes != NULL) free(_indexes);
 }
 
 - (id)nextObject
 {
     if (_nextIndex > _terminalIndex) return nil;
-    NSUInteger    concreteIndex;
+    NSUInteger concreteIndex;
+    id aComponent = nil;
     
-    if (_inSelection) {
-        concreteIndex = *(_indexes + _nextIndex);
-    } else {
-        concreteIndex = _nextIndex;
-    }
+    do {
+        if (_inSelection) {
+            concreteIndex = _indexes[_nextIndex];
+        } else {
+            concreteIndex = _nextIndex;
+        }
+        
+        aComponent = [_branch childAtIndex:concreteIndex inSelection:NO];
+        _nextIndex++;
+    } while (aComponent == nil);
     
-    id  anComponent = [_branch childAtIndex:concreteIndex inSelection:NO];
-    _nextIndex++;
-    
-    return anComponent;
+    return aComponent;
 }
 
 @end

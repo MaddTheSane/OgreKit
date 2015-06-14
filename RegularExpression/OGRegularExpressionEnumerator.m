@@ -303,7 +303,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 	NSString	*targetPlainString = [_targetString string];
 	_lengthOfTargetString = [targetPlainString length];
     
-	_UTF16TargetString = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * _lengthOfTargetString);
+	_UTF16TargetString = (unichar *)malloc(sizeof(unichar) * _lengthOfTargetString);
     if (_UTF16TargetString == NULL) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
         [NSException raise:NSInvalidUnarchiveOperationException format:@"fail to allocate a memory"];
@@ -454,7 +454,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
         NSString	*targetPlainString = [_targetString string];
         _lengthOfTargetString = [_targetString length];
         
-        _UTF16TargetString = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * (_lengthOfTargetString + 4));	// Symptomatic treatment of +4 to memory access violation problem of oniguruma (+4はonigurumaのmemory access violation問題への対処療法)
+        _UTF16TargetString = (unichar *)malloc(sizeof(unichar) * (_lengthOfTargetString + 4));	// Symptomatic treatment of +4 to memory access violation problem of oniguruma (+4はonigurumaのmemory access violation問題への対処療法)
         if (_UTF16TargetString == NULL) {
             // If it can not allocate memory, to generate an exception. (メモリを確保できなかった場合、例外を発生させる。)
             [NSException raise:NSMallocException format:@"fail to allocate a memory"];
@@ -468,7 +468,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
          NSInteger i, count = _lengthOfTargetString;
          unichar *utf16Chars = _UTF16TargetString;
          for (i = 0; i < count; i++) {
-         NSLog(@"UTF16: %04x", *(utf16Chars + i));
+         NSLog(@"UTF16: %04x", utf16Chars[i]);
          }
          }*/
         
@@ -506,7 +506,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 #ifdef DEBUG_OGRE
 	NSLog(@"-dealloc of %@", [self className]);
 #endif
-	NSZoneFree(nil, _UTF16TargetString);
+	free(_UTF16TargetString);
 }
 
 #pragma mark - private functions

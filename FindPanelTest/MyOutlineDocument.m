@@ -54,10 +54,10 @@
         [openPanel setCanChooseDirectories:YES];
         [openPanel setDirectoryURL:[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES]];
         result = [openPanel runModal];
-        if(result == NSOKButton) {
+        if (result == NSOKButton) {
             NSURL    *url = [openPanel URL];
             //NSLog(@"%@", path);
-            _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url absoluteString] parent:self];
+            _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url path] parent:self];
             //NSLog(@"%@", [_fileWrapper description]);
         }
         [myOutlineView reloadData];
@@ -130,7 +130,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
 	id	identifier = [tableColumn identifier];
-    [item takeValue:object forKey:identifier];
+    [item setValue:object forKey:identifier];
 }
 
 /* displaying cell */
@@ -176,17 +176,17 @@
     NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
-    NSUInteger  *rowIndexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * count);
+    NSUInteger  *rowIndexes = (NSUInteger *)malloc(sizeof(NSUInteger) * count);
     if (rowIndexes == NULL) {
         // Error
         return;
     }
     [selectedRowIndexes getIndexes:rowIndexes maxCount:count inIndexRange:NULL];
     for (i = 0; i < count; i++) {
-        id  item = [myOutlineView itemAtRow:*(rowIndexes + i)];
+        id  item = [myOutlineView itemAtRow:rowIndexes[i]];
         [item remove];
     }
-    NSZoneFree(nil, rowIndexes);
+    free(rowIndexes);
     [myOutlineView reloadData];
 }
 

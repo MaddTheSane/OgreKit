@@ -23,9 +23,9 @@
 
 @interface OgreTextFindLeaf : NSObject <OgreTextFindComponent, OgreFindResultCorrespondingToTextFindLeaf>
 {
-    OgreTextFindBranch      *_parent;
+    OgreTextFindBranch      * __weak _parent;
+    OgreTextFindBranch      *_parentStrong;
     NSInteger               _index;
-    BOOL                    _isParentRetained;
     
     BOOL                    _isTerminal;
     BOOL                    _isFirstLeaf;

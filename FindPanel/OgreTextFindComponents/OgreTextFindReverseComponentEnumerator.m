@@ -33,7 +33,7 @@
     NSUInteger    concreteIndex;
     
     if (_inSelection) {
-        concreteIndex = *(_indexes + _nextIndex);
+        concreteIndex = _indexes[_nextIndex];
     } else {
         concreteIndex = _nextIndex;
     }

@@ -169,6 +169,14 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
+- (instancetype)init
+{
+    return [self initWithString:nil
+                        options:0
+                         syntax:0
+                escapeCharacter:nil];
+}
+
 - (instancetype)initWithString:(NSString *)expressionString
 {
     return [self initWithString:expressionString
@@ -194,6 +202,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 #ifdef DEBUG_OGRE
     NSLog(@"-initWithString: of %@", [self className]);
 #endif
+    
+    if (expressionString == nil) {
+        return nil;
+    }
+    
     self = [super init];
     if (self == nil)  return nil;
     
@@ -273,7 +286,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     }
     
     lengthOfCompileTimeString = [compileTimeString length];
-    _UTF16ExpressionString = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * lengthOfCompileTimeString);
+    _UTF16ExpressionString = (unichar *)malloc(sizeof(unichar) * lengthOfCompileTimeString);
     if (_UTF16ExpressionString == NULL) {
         [NSException raise:NSMallocException format:@"fail to allocate a memory"];
     }
@@ -322,7 +335,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
         NSInteger		i, maxGroupIndex = 0;
         for (NSString *name in groupIndexForNameDictionary) {
             NSUInteger      lengthOfName = [name length];
-            unichar         *UTF16Name = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * lengthOfName);
+            unichar         *UTF16Name = (unichar *)malloc(sizeof(unichar) * lengthOfName);
             if (UTF16Name == NULL) {
                 [NSException raise:NSMallocException format:@"failed to allocate a memory"];
             }
@@ -332,7 +345,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
             int     *indexList;
             int n = onig_name_to_group_numbers(_regexBuffer, (unsigned char *)UTF16Name, (unsigned char *)(UTF16Name + lengthOfName), &indexList);
             
-            NSZoneFree(nil, UTF16Name);
+            free(UTF16Name);
             
             array = [[NSMutableArray alloc] initWithCapacity:n];
             for (i = 0; i < n; i++) {
@@ -465,7 +478,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     }
     length = [compileTimeString length];
     
-    UTF16Str = (unichar *)NSZoneMalloc(nil, sizeof(unichar) * length);
+    UTF16Str = (unichar *)malloc(sizeof(unichar) * length);
     if (UTF16Str == NULL) {
         [NSException raise:NSMallocException format:@"fail to allocate a memory"];
     }
@@ -487,7 +500,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 #endif
     
     onig_free(regexBuffer);
-    NSZoneFree(nil, UTF16Str);
+    free(UTF16Str);
     
     if (r == ONIG_NORMAL) {
         // Correct regular expression (正しい正規表現)
@@ -1936,7 +1949,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     if (_regexBuffer != NULL)  onig_free(_regexBuffer);
     
     // A string that represents the regular expression (正規表現を表す文字列)
-    NSZoneFree(nil, _UTF16ExpressionString);
+    free(_UTF16ExpressionString);
     
     // ¥の代替文字
 }

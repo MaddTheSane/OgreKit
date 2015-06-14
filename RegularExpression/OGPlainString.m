@@ -120,7 +120,7 @@ static NSString * const	OgrePlainStringKey = @"OgrePlainString";
 	}
 }
 
-- (id)initWithCoder:(NSCoder *)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
@@ -136,7 +136,7 @@ static NSString * const	OgrePlainStringKey = @"OgrePlainString";
 	} else {
 		_string = [decoder decodeObject];
 	}
-	if(_string == nil) {
+	if (_string == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}

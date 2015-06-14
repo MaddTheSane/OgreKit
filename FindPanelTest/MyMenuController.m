@@ -13,6 +13,7 @@
 
 #import "MyMenuController.h"
 #import "MyDocument.h"
+#import "MyDocumentController.h"
 
 @implementation MyMenuController
 
@@ -35,27 +36,42 @@
 /* New Document (新規ドキュメント) */
 - (IBAction)newTextDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTextDocumentType" display:YES];
+    MyDocumentController *dc = [NSDocumentController sharedDocumentController];
+    dc.untitledDocumentType = @"MyTextDocumentType";
+    [dc openUntitledDocumentAndDisplay:YES
+                                 error:NULL];
 }
 
 - (IBAction)newRTFDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyRTFDocumentType" display:YES];
+    MyDocumentController *dc = [NSDocumentController sharedDocumentController];
+    dc.untitledDocumentType = @"MyRTFDocumentType";
+    [dc openUntitledDocumentAndDisplay:YES
+                                 error:NULL];
 }
 
 - (IBAction)newTableDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTableDocumentType" display:YES];
+    MyDocumentController *dc = [NSDocumentController sharedDocumentController];
+    dc.untitledDocumentType = @"MyTableDocumentType";
+    [dc openUntitledDocumentAndDisplay:YES
+                                 error:NULL];
 }
 
 - (IBAction)newOutlineDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyOutlineDocumentType" display:YES];
+    MyDocumentController *dc = [NSDocumentController sharedDocumentController];
+    dc.untitledDocumentType = @"MyOutlineDocumentType";
+    [dc openUntitledDocumentAndDisplay:YES
+                                 error:NULL];
 }
 
 - (IBAction)newTableDocumentWithCocoaBinding:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTableDocumentWithCocoaBindingType" display:YES];
+    MyDocumentController *dc = [NSDocumentController sharedDocumentController];
+    dc.untitledDocumentType = @"MyTableDocumentWithCocoaBindingType";
+    [dc openUntitledDocumentAndDisplay:YES
+                                 error:NULL];
 }
 
 

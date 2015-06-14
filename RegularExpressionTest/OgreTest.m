@@ -82,7 +82,7 @@
 	
 	NSInteger	matches = 0;
 	while((match = [enumerator nextObject]) != nil) {
-		if(matches == 0) {
+		if (matches == 0) {
 			NSRange	range = [match rangeOfPrematchString];
 			[resultTextView insertText: [NSString stringWithFormat:@"prematch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [match prematchString]]];
 		} else {
@@ -93,11 +93,11 @@
 		for (i = 0; i < [match count]; i++) {
 			NSRange	subexpRange = [match rangeOfSubstringAtIndex:i];
 			[resultTextView insertText: [NSString stringWithFormat:@"#%lu.%ld", (unsigned long)[match index], (long)i]];
-			if([match nameOfSubstringAtIndex:i] != nil) {
+			if ([match nameOfSubstringAtIndex:i] != nil) {
 				[resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [match nameOfSubstringAtIndex:i]]];
 			}
 			[resultTextView insertText:[NSString stringWithFormat:@": (%lu-%lu)", (unsigned long)subexpRange.location, (unsigned long)subexpRange.location + subexpRange.length]];
-			if([match substringAtIndex:i] == nil) {
+			if ([match substringAtIndex:i] == nil) {
 				[resultTextView insertText:@" no match!\n"];
 			} else {
 				[resultTextView insertText:@" \""];
@@ -121,7 +121,7 @@
 		matches++;
 		lastMatch = match;
 	}
-	if(lastMatch != nil) {
+	if (lastMatch != nil) {
 		NSRange	range = [lastMatch rangeOfPostmatchString];
 		[resultTextView insertText: [NSString stringWithFormat:@"postmatch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [lastMatch postmatchString]]];
 	} else {
@@ -265,7 +265,7 @@
     aCapture = capture2;*/
     
     [resultTextView insertText:[NSString stringWithFormat:@" %@#%lu", indent, (unsigned long)[aCapture groupIndex]]];
-    if([aCapture groupName] != nil) {
+    if ([aCapture groupName] != nil) {
         [resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [aCapture groupName]]];
     }
     [resultTextView insertText:[NSString stringWithFormat:@": (%lu-%lu) \"%@\"\n",

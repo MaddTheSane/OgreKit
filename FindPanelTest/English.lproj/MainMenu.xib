@@ -470,5 +470,6 @@
         <customObject id="400" userLabel="Font Manager" customClass="NSFontManager"/>
         <customObject id="615" userLabel="OgreTextFinder" customClass="OgreTextFinder"/>
         <customObject id="621" userLabel="MyMenuController" customClass="MyMenuController"/>
+        <customObject id="cNH-ct-XIf" customClass="MyAppController"/>
     </objects>
 </document>

@@ -447,14 +447,14 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	enumerator = [_findHistory objectEnumerator];
 	while ((attrString = [enumerator nextObject]) != nil) {
 		[encodedFindHistory addObject:[attrString RTFDFromRange:NSMakeRange(0, [attrString length]) 
-			documentAttributes:nil]];
+                                             documentAttributes:@{}]];
 	}
 	
 	encodedReplaceHistory = [[NSMutableArray alloc] initWithCapacity:[_replaceHistory count]];
 	enumerator = [_replaceHistory objectEnumerator];
 	while ((attrString = [enumerator nextObject]) != nil) {
 		[encodedReplaceHistory addObject:[attrString RTFDFromRange:NSMakeRange(0, [attrString length]) 
-			documentAttributes:nil]];
+                                                documentAttributes:@{}]];
 	}
 	
 	/* If you want to keep the information of search history, etc. override this method. (検索履歴等の情報を残したい場合はこのメソッドを上書きする。) */

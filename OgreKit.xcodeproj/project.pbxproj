@@ -26,6 +26,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3D2287EC1B2C7A6600F80D49 /* MyDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2287EB1B2C7A6600F80D49 /* MyDocumentController.m */; };
+		3D2287EF1B2C7ABA00F80D49 /* MyAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2287EE1B2C7ABA00F80D49 /* MyAppController.m */; };
 		4D4F202D1142243700CD9C2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530CE0915226200475575 /* InfoPlist.strings */; };
 		4D4FC25F1142BCCD0097043F /* GC_TestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FC25D1142BCCD0097043F /* GC_TestAppDelegate.m */; };
 		4D4FC2601142BCCD0097043F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FC25E1142BCCD0097043F /* main.m */; };
@@ -97,9 +99,9 @@
 		4DC40E9209150CF50029A2A6 /* OgreTextFindRoot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D8C09150CEC0029A2A6 /* OgreTextFindRoot.h */; };
 		4DC40E9309150CF50029A2A6 /* OgreTextFindRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D8D09150CEC0029A2A6 /* OgreTextFindRoot.m */; };
 		4DC40E9409150CF50029A2A6 /* OgreTextFindBranch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D8E09150CEC0029A2A6 /* OgreTextFindBranch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DC40E9509150CF50029A2A6 /* OgreTextFindBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D8F09150CED0029A2A6 /* OgreTextFindBranch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4DC40E9509150CF50029A2A6 /* OgreTextFindBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D8F09150CED0029A2A6 /* OgreTextFindBranch.m */; };
 		4DC40E9609150CF50029A2A6 /* OgreTextFindLeaf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D9009150CED0029A2A6 /* OgreTextFindLeaf.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DC40E9709150CF50029A2A6 /* OgreTextFindLeaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D9109150CED0029A2A6 /* OgreTextFindLeaf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4DC40E9709150CF50029A2A6 /* OgreTextFindLeaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D9109150CED0029A2A6 /* OgreTextFindLeaf.m */; };
 		4DC40E9809150CF50029A2A6 /* OgreTextFindComponentEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D9209150CED0029A2A6 /* OgreTextFindComponentEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC40E9909150CF50029A2A6 /* OgreTextFindComponentEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D9309150CED0029A2A6 /* OgreTextFindComponentEnumerator.m */; };
 		4DC40E9A09150CF50029A2A6 /* OgreTextFindReverseComponentEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D9409150CED0029A2A6 /* OgreTextFindReverseComponentEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -487,6 +489,10 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		3D2287EA1B2C7A6600F80D49 /* MyDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocumentController.h; sourceTree = "<group>"; };
+		3D2287EB1B2C7A6600F80D49 /* MyDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocumentController.m; sourceTree = "<group>"; };
+		3D2287ED1B2C7ABA00F80D49 /* MyAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppController.h; sourceTree = "<group>"; };
+		3D2287EE1B2C7ABA00F80D49 /* MyAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppController.m; sourceTree = "<group>"; };
 		3D64F4A51AC0C19A003C46A9 /* FindPanelTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FindPanelTest-Info.plist"; sourceTree = "<group>"; };
 		4D4FC25B1142BCCD0097043F /* GC_Test_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GC_Test_Prefix.pch; path = GCTest/GC_Test_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		4D4FC25C1142BCCD0097043F /* GC_TestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GC_TestAppDelegate.h; path = GCTest/GC_TestAppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -1372,6 +1378,10 @@
 				4DC4105909150D550029A2A6 /* main.m */,
 				4DC4105A09150D550029A2A6 /* MyMenuController.h */,
 				4DC4105B09150D550029A2A6 /* MyMenuController.m */,
+				3D2287ED1B2C7ABA00F80D49 /* MyAppController.h */,
+				3D2287EE1B2C7ABA00F80D49 /* MyAppController.m */,
+				3D2287EA1B2C7A6600F80D49 /* MyDocumentController.h */,
+				3D2287EB1B2C7A6600F80D49 /* MyDocumentController.m */,
 			);
 			name = "Find Panel Test";
 			path = FindPanelTest;
@@ -1980,11 +1990,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DC4107309150D560029A2A6 /* main.m in Sources */,
+				3D2287EF1B2C7ABA00F80D49 /* MyAppController.m in Sources */,
 				4DC4107409150D560029A2A6 /* MyMenuController.m in Sources */,
 				4DC4107509150D560029A2A6 /* MyTextDocument.m in Sources */,
 				4DC4107609150D560029A2A6 /* MyRTFDocument.m in Sources */,
 				4DC4107709150D560029A2A6 /* MyTableDocument.m in Sources */,
 				4DC4107809150D560029A2A6 /* MyTableColumnSheet.m in Sources */,
+				3D2287EC1B2C7A6600F80D49 /* MyDocumentController.m in Sources */,
 				4DC4107909150D560029A2A6 /* MyOutlineDocument.m in Sources */,
 				4DC4107A09150D560029A2A6 /* MyFileWrapper.m in Sources */,
 				4DC4107B09150D560029A2A6 /* MyOutlineView.m in Sources */,
@@ -2456,6 +2468,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
 			};
@@ -2479,6 +2492,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
 			};
@@ -2506,6 +2520,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2532,6 +2547,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2553,6 +2569,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2614,6 +2631,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2640,6 +2658,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit;
 				PRODUCT_NAME = OgreKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -2715,6 +2734,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit.OgreFindPanelTest;
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2741,6 +2761,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = isao.sonobe.OgreKit.OgreFindPanelTest;
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -2902,6 +2923,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2930,6 +2952,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

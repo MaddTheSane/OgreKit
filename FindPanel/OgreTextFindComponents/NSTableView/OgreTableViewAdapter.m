@@ -13,6 +13,7 @@
 
 #import <OgreKit/OgreTableView.h>
 #import <OgreKit/OgreTableViewAdapter.h>
+#import <OgreKit/OgreTableColumn.h>
 #import <OgreKit/OgreTableColumnAdapter.h>
 #import <OgreKit/OgreTableCellAdapter.h>
 #import <OgreKit/OgreTextFindComponentEnumerator.h>
@@ -161,18 +162,25 @@
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
             
-            NSUInteger  *indexes = (NSUInteger *)NSZoneMalloc(nil, sizeof(NSUInteger) * [selectedColumnIndexes count]);
+            NSUInteger  *indexes = (NSUInteger *)malloc(sizeof(NSUInteger) * [selectedColumnIndexes count]);
             if (indexes == NULL) {
                 // Error (エラー)
                 return nil;
             }
             [selectedColumnIndexes getIndexes:indexes maxCount:[selectedColumnIndexes count] inIndexRange:NULL];
-            concreteIndex = *(indexes + index);
-            NSZoneFree(nil, indexes);
+            concreteIndex = indexes[index];
+            free(indexes);
         }
     }
     
-    column = [_tableView tableColumns][concreteIndex];
+    NSTableColumn *tableColumn = [_tableView tableColumns][concreteIndex];
+    if ([tableColumn isKindOfClass:[OgreTableColumn class]]) {
+        column = (OgreTableColumn *)tableColumn;
+    }
+    else {
+        return nil;
+    }
+    
     tableColumnAdapter = [[OgreTableColumnAdapter alloc] initWithTableColumn:column];
     [tableColumnAdapter setParent:self];
     [tableColumnAdapter setIndex:index];
