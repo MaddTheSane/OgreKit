@@ -123,7 +123,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	}
 }
 
-- (id)initWithCoder:(NSCoder *)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithCoder: of %@", [self className]);
