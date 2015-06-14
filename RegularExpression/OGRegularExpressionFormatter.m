@@ -149,7 +149,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		// NSString			*_escapeCharacter;
 		_escapeCharacter = [decoder decodeObject];
 	}
-	if(_escapeCharacter == nil) {
+	if (_escapeCharacter == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
         return nil;
@@ -161,7 +161,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	} else {
 		anObject = [decoder decodeObject];
 	}
-	if(anObject == nil) {
+	if (anObject == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
         return nil;
@@ -175,7 +175,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	} else {
 		anObject = [decoder decodeObject];
 	}
-	if(anObject == nil) {
+	if (anObject == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
         return nil;

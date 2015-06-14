@@ -54,7 +54,7 @@
         [openPanel setCanChooseDirectories:YES];
         [openPanel setDirectoryURL:[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES]];
         result = [openPanel runModal];
-        if(result == NSOKButton) {
+        if (result == NSOKButton) {
             NSURL    *url = [openPanel URL];
             //NSLog(@"%@", path);
             _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url path] parent:self];

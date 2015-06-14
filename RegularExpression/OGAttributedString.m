@@ -139,7 +139,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	} else {
 		_attrString = [decoder decodeObject];
 	}
-	if(_attrString == nil) {
+	if (_attrString == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}

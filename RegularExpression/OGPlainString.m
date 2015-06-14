@@ -136,7 +136,7 @@ static NSString * const	OgrePlainStringKey = @"OgrePlainString";
 	} else {
 		_string = [decoder decodeObject];
 	}
-	if(_string == nil) {
+	if (_string == nil) {
 		// Error. I raise an exception. (エラー。例外を発生させる。)
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
