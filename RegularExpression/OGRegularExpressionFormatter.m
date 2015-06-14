@@ -119,13 +119,13 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	}
 	
     if ([encoder allowsKeyedCoding]) {
-		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
-		[encoder encodeObject: @([self options]) forKey: OgreOptionsKey];
-		[encoder encodeObject: @(syntaxType) forKey: OgreSyntaxKey];
+		[encoder encodeObject:[self escapeCharacter] forKey:OgreEscapeCharacterKey];
+		[encoder encodeObject:@([self options]) forKey:OgreOptionsKey];
+		[encoder encodeObject:@(syntaxType) forKey:OgreSyntaxKey];
 	} else {
-		[encoder encodeObject: [self escapeCharacter]];
-		[encoder encodeObject: @([self options])];
-		[encoder encodeObject: @(syntaxType)];
+		[encoder encodeObject:[self escapeCharacter]];
+		[encoder encodeObject:@([self options])];
+		[encoder encodeObject:@(syntaxType)];
 	}
 }
 
@@ -197,15 +197,16 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 #ifdef DEBUG_OGRE
 	NSLog(@"-copyWithZone: of %@", [self className]);
 #endif
-	return [[[self class] allocWithZone:zone]
-		initWithOptions: _options 
-		syntax: _syntax 
-		escapeCharacter: _escapeCharacter];
+    return [[[self class] alloc] initWithOptions:_options
+                                          syntax:_syntax
+                                 escapeCharacter:_escapeCharacter];
 }
 
 - (instancetype)init
 {
-	return [self initWithOptions:OgreNoneOption syntax:[OGRegularExpression defaultSyntax] escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
+	return [self initWithOptions:OgreNoneOption
+                          syntax:[OGRegularExpression defaultSyntax]
+                 escapeCharacter:[OGRegularExpression defaultEscapeCharacter]];
 }
 
 - (instancetype)initWithOptions:(OgreOption)options syntax:(OgreSyntax)syntax escapeCharacter:(NSString *)character
