@@ -27,8 +27,8 @@ extern NSString	* const OgreFormatterException;
 
 // Required method (必須メソッド)
 - (NSString *)stringForObjectValue:(id)anObject;
-- (NSAttributedString *)attributedStringForObjectValue:(id)anObject 
-	withDefaultAttributes:(NSDictionary *)attributes;
+- (NSAttributedString *)attributedStringForObjectValue:(id)anObject
+                                 withDefaultAttributes:(NSDictionary *)attributes;
 - (NSString *)editingStringForObjectValue:(id)anObject;
 
 // Error determination (エラー判定)
@@ -37,8 +37,10 @@ extern NSString	* const OgreFormatterException;
 
 - (instancetype)init;
 - (instancetype)initWithOptions:(OgreOption)options
-	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
+                         syntax:(OgreSyntax)syntax
+                escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, copy) NSString *escapeCharacter;
 @property (nonatomic) OgreOption options;

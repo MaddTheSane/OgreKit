@@ -68,9 +68,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 
 // Initialization (初期化)
 - (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString
-	options:(OgreOption)options 
-	syntax:(OgreSyntax)syntax
-	escapeCharacter:(NSString *)character
+                         options:(OgreOption)options
+                          syntax:(OgreSyntax)syntax
+                 escapeCharacter:(NSString *)character
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithString: of %@", [self className]);
