@@ -19,8 +19,18 @@
 @implementation OgreFindResultWindowController
 @synthesize window;
 
+- (instancetype)init
+{
+    return [self initWithTextFindResult:nil
+                             liveUpdate:NO];
+}
+
 - (instancetype)initWithTextFindResult:(OgreTextFindResult *)textFindResult liveUpdate:(BOOL)liveUpdate
 {
+    if (textFindResult == nil) {
+        return nil;
+    }
+    
 	self = [super init];
 	if (self != nil) {
 		_textFindResult = textFindResult;

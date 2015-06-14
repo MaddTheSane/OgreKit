@@ -16,8 +16,19 @@
 
 @implementation MyFileWrapper
 
+- (instancetype)init
+{
+    return [self initWithName:nil
+                         path:nil
+                       parent:nil];
+}
+
 - (instancetype)initWithName:(NSString *)name path:(NSString *)path parent:(id)parent
 {
+    if (name == nil) {
+        return nil;
+    }
+    
     self = [super init];
     if (self != nil) {
         _name = name;

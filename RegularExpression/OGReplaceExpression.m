@@ -67,6 +67,14 @@ static OGRegularExpression  *gReplaceRegex = nil;
 }
 
 // Initialization (初期化)
+- (instancetype)init
+{
+    return [self initWithOGString:nil
+                          options:0
+                           syntax:0
+                  escapeCharacter:nil];
+}
+
 - (instancetype)initWithOGString:(id<OGStringProtocol>)replaceString
                          options:(OgreOption)options
                           syntax:(OgreSyntax)syntax
@@ -75,7 +83,12 @@ static OGRegularExpression  *gReplaceRegex = nil;
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithString: of %@", [self className]);
 #endif
-	self = [super init];
+
+    if (replaceString == nil) {
+        return nil;
+    }
+    
+    self = [super init];
 	if (self == nil) return nil;
 	
 	if ((replaceString == nil) || (character == nil) || ([character length] == 0)) {

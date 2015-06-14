@@ -23,11 +23,21 @@
 @implementation OgreTextFindThread
 
 /* Creating and initializing */
+- (instancetype)init
+{
+    return [self initWithComponent:nil];
+}
+
 - (instancetype)initWithComponent:(NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)aComponent;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-initWithComponent: of %@", [self className]);
 #endif
+    
+    if (aComponent == nil) {
+        return nil;
+    }
+    
 	self = [super init];
 	if (self != nil) {
 		_targetAdapter = aComponent;

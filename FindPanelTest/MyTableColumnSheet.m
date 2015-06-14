@@ -16,8 +16,22 @@
 
 @implementation MyTableColumnSheet
 
+- (instancetype)init
+{
+    return [self initWithParentWindow:nil
+                          tableColumn:nil
+                           OKSelector:NULL
+                       cancelSelector:NULL
+                          endSelector:NULL
+                               target:nil];
+}
+
 - (instancetype)initWithParentWindow:(NSWindow *)parentWindow tableColumn:(NSTableColumn *)aColumn OKSelector:(SEL)OKSelector cancelSelector:(SEL)CancelSelector endSelector:(SEL)endSelector target:(id)aTarget
 {
+    if (parentWindow == nil) {
+        return nil;
+    }
+
     self = [super init];
     if (self != nil) {
         _parentWindow = parentWindow;

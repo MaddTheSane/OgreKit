@@ -19,8 +19,18 @@
 @synthesize terminalIndex = _terminalIndex;
 @synthesize startIndex = _nextIndex;
 
+- (instancetype)init
+{
+    return [self initWithBranch:nil
+                    inSelection:NO];
+}
+
 - (instancetype)initWithBranch:(OgreTextFindBranch *)aBranch inSelection:(BOOL)inSelection
 {
+    if (aBranch == nil) {
+        return nil;
+    }
+    
     self = [super init];
     if (self != nil) {
         _branch = aBranch;

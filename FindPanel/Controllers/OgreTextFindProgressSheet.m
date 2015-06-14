@@ -15,11 +15,25 @@
 
 @implementation OgreTextFindProgressSheet
 
+- (instancetype)init
+{
+    return [self initWithWindow:nil
+                          title:nil
+                 didEndSelector:NULL
+                       toTarget:NULL
+                     withObject:nil];
+}
+
 - (instancetype)initWithWindow:(NSWindow *)parentWindow title:(NSString *)aTitle didEndSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anObject
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-initWithWindow: of %@", [self className]);
 #endif
+    
+    if (parentWindow == nil) {
+        return nil;
+    }
+    
 	self = [super init];
 	if (self) {
 		_parentWindow = parentWindow;

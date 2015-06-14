@@ -35,12 +35,23 @@
 	return [[[self class] alloc] initWithTarget:targetFindingIn thread:aThread];
 }
 
+- (instancetype)init
+{
+    return [self initWithTarget:nil
+                         thread:nil];
+}
+
 - (instancetype)initWithTarget:(id)targetFindingIn thread:(OgreTextFindThread *)aThread
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTarget: of %@", [self className]);
 #endif
-	self = [super init];
+
+    if (targetFindingIn == nil) {
+        return nil;
+    }
+    
+    self = [super init];
 	if (self != nil) {
 		_target = targetFindingIn;
         _branchStack = [[NSMutableArray alloc] init];

@@ -169,6 +169,14 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
+- (instancetype)init
+{
+    return [self initWithString:nil
+                        options:0
+                         syntax:0
+                escapeCharacter:nil];
+}
+
 - (instancetype)initWithString:(NSString *)expressionString
 {
     return [self initWithString:expressionString
@@ -194,6 +202,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 #ifdef DEBUG_OGRE
     NSLog(@"-initWithString: of %@", [self className]);
 #endif
+    
+    if (expressionString == nil) {
+        return nil;
+    }
+    
     self = [super init];
     if (self == nil)  return nil;
     

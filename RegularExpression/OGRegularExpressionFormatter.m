@@ -20,6 +20,11 @@ static NSString	* const OgreEscapeCharacterKey    = @"OgreFormatterEscapeCharact
 
 NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterException";
 
+@interface NSFormatter ()
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
+@end
+
 @interface OGRegularExpressionFormatter ()
 - (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 @end

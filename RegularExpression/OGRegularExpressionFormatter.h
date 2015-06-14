@@ -40,8 +40,6 @@ extern NSString	* const OgreFormatterException;
                          syntax:(OgreSyntax)syntax
                 escapeCharacter:(NSString *)character NS_DESIGNATED_INITIALIZER;
 
-- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
-
 @property (nonatomic, copy) NSString *escapeCharacter;
 @property (nonatomic) OgreOption options;
 @property (nonatomic) OgreSyntax syntax;
