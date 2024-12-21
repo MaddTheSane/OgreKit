@@ -38,10 +38,10 @@
 - (OgreSyntax)syntax;
 - (BOOL)isEntire;
 
-// “KØ‚È³‹K•\Œ»‚©‚Ç‚¤‚©’²‚×‚é
+// é©åˆ‡ãªæ­£è¦è¡¨ç¾ã‹ã©ã†ã‹èª¿ã¹ã‚‹
 - (BOOL)alertIfInvalidRegex;
 
-// —š—ğ‚Ì•œ‹A
+// å±¥æ­´ã®å¾©å¸°
 - (void)restoreHistory:(NSDictionary*)history;
 
 @end
