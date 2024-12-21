@@ -16,7 +16,7 @@
 
 @implementation OgreFindResultBranch
 
-- (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
+- (void)addComponent:(id<OgreTextFindComponent>)aFindResultComponent 
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -addComponent: of %@ (BUG!!!)", [self className]);

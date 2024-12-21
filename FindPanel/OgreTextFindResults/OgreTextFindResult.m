@@ -136,7 +136,7 @@
     }
 }
 
-- (NSObject <OgreTextFindComponent>*)result
+- (id<OgreTextFindComponent>)result
 {
     return _resultTree;
 }

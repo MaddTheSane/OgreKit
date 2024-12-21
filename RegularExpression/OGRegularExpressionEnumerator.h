@@ -21,7 +21,7 @@ extern NSExceptionName const OgreEnumeratorException;
 @interface OGRegularExpressionEnumerator : NSEnumerator <NSCopying, NSCoding>
 {
 	OGRegularExpression	*_regex;				// 正規表現オブジェクト
-	NSObject<OGStringProtocol>			*_targetString;			// 検索対象文字列
+	id<OGStringProtocol>			_targetString;			// 検索対象文字列
 	unichar             *_UTF16TargetString;	// UTF16での検索対象文字列
     NSUInteger			_lengthOfTargetString;	// [_targetString length]
 	NSRange				_searchRange;			// 検索範囲

@@ -25,6 +25,9 @@
     parentNode:(OGRegularExpressionCapture*)parentNode 
     match:(OGRegularExpressionMatch*)match;
 
-- (OnigCaptureTreeNode*)_captureNode;
+@end
+
+@interface OGRegularExpressionCapture ()
+@property (readonly, assign) OnigCaptureTreeNode* _captureNode;
 
 @end

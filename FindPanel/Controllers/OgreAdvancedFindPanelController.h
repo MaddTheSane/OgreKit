@@ -116,11 +116,11 @@
 
 /* settings */
 - (NSString*)escapeCharacter;
-- (BOOL)shouldEquateYenWithBackslash;
-- (BOOL)isStartFromTop;
-- (BOOL)isWrap;
-- (unsigned)options;
-- (unsigned)_options;
+@property (nonatomic, readonly) BOOL shouldEquateYenWithBackslash;
+@property (nonatomic, readonly, getter=isStartFromTop) BOOL startFromTop;
+@property (nonatomic, readonly, getter=isWrap) BOOL wrap;
+- (OgreOptions)options;
+- (OgreOptions)_options;
 - (OgreSyntax)syntax;
 
 /* find/replace history */
@@ -164,14 +164,14 @@
 @property BOOL replaceWithStylesOption;
 @property BOOL replaceFontsOption;
 @property BOOL mergeStylesOption;
-	
+
 @property BOOL regularExpressionsOption;
-	
+
 @property BOOL wrapSearchOption;
-	
+
 @property BOOL openSheetOption;
 @property BOOL closeWhenDoneOption;
-	
+
 @property BOOL atTopOriginOption;
 @property BOOL inSelectionScopeOption;
 

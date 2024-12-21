@@ -20,8 +20,9 @@ extern NSExceptionName const OgreStringException;
 - (NSString*)string;
 - (NSAttributedString*)attributedString;
 - (NSUInteger)length;
+@property (readonly) NSUInteger length;
 
-- (NSObject<OGStringProtocol>*)substringWithRange:(NSRange)aRange;
+- (id<OGStringProtocol>)substringWithRange:(NSRange)aRange;
 
 - (Class)mutableClass;
 @end

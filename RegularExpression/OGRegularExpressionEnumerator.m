@@ -33,6 +33,8 @@ static NSString	* const OgreNumberOfMatchesKey     = @"OgreEnumeratorNumberOfMat
 NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorException";
 
 @implementation OGRegularExpressionEnumerator
+@synthesize regularExpression = _regex;
+@synthesize targetString = _targetString;
 
 // 次を検索
 - (id)nextObject
@@ -186,6 +188,18 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 		[NSException raise:OgreEnumeratorException format:@"%s", s];
 	}
 	return nil;	// マッチしなかった場合
+}
+
+- (void)dealloc
+{
+#ifdef DEBUG_OGRE
+	NSLog(@"-dealloc of %@", [self className]);
+#endif
+	[_regex release];
+	NSZoneFree([self zone], _UTF16TargetString);
+	[_targetString release];
+	
+	[super dealloc];
 }
 
 - (NSArray*)allObjects

@@ -543,7 +543,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		range:searchRange] nextObject];
 }
 
-- (OGRegularExpressionMatch*)matchInOGString:(NSObject<OGStringProtocol>*)string 
+- (OGRegularExpressionMatch*)matchInOGString:(id<OGStringProtocol>)string 
 	options:(unsigned)options 
 	range:(NSRange)searchRange
 {
@@ -616,7 +616,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 
 //
-- (NSEnumerator*)matchEnumeratorInOGString:(NSObject<OGStringProtocol>*)string 
+- (NSEnumerator*)matchEnumeratorInOGString:(id<OGStringProtocol>)string 
 	options:(unsigned)options 
 	range:(NSRange)searchRange
 {
@@ -703,7 +703,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (NSArray*)allMatchesInOGString:(NSObject<OGStringProtocol>*)string
+- (NSArray*)allMatchesInOGString:(id<OGStringProtocol>)string
 	options:(unsigned)options 
 	range:(NSRange)searchRange
 {
@@ -922,8 +922,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		numberOfReplacement:numberOfReplacement] attributedString];
 }
 
-- (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString 
+- (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
+	withOGString:(id<OGStringProtocol>)replaceString 
 	options:(unsigned)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
@@ -1082,7 +1082,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		numberOfReplacement:NULL];
 }
 
-- (NSObject<OGStringProtocol>*)replaceFirstMatchInOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceFirstMatchInOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
@@ -1199,7 +1199,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (NSObject<OGStringProtocol>*)replaceAllMatchesInOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceAllMatchesInOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo
@@ -1294,7 +1294,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 
-- (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id<OGStringProtocol>)replaceOGString:(id<OGStringProtocol>)targetString 
 	delegate:(id)aDelegate 
 	replaceSelector:(SEL)aSelector 
 	contextInfo:(id)contextInfo 
@@ -1497,48 +1497,68 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	
 	// NSString			*_escapeCharacter;
     if (allowsKeyedCoding) {
-		escapeCharacter = [decoder decodeObjectForKey:OgreEscapeCharacterKey];
+		escapeCharacter = [decoder decodeObjectOfClass:[NSString class] forKey:OgreEscapeCharacterKey];
 	} else {
 		escapeCharacter = [decoder decodeObject];
 	}
 	if(escapeCharacter == nil) {
 		// エラー。例外を発生させる。
-		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		if ([decoder decodingFailurePolicy] == NSDecodingFailurePolicySetErrorAndReturn) {
+			[decoder failWithError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSCoderValueNotFoundError userInfo:nil]];
+		} else {
+			[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		}
+		return nil;
 	}
 	
 	// NSString			*_expressionString;
     if (allowsKeyedCoding) {
-		expressionString = [decoder decodeObjectForKey:OgreExpressionStringKey];
+		expressionString = [decoder decodeObjectOfClass:[NSString class] forKey:OgreExpressionStringKey];
 	} else {
 		expressionString = [decoder decodeObject];
 	}
 	if(expressionString == nil) {
 		// エラー。例外を発生させる。
-		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		if ([decoder decodingFailurePolicy] == NSDecodingFailurePolicySetErrorAndReturn) {
+			[decoder failWithError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSCoderValueNotFoundError userInfo:nil]];
+		} else {
+			[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		}
+		return nil;
 	}
 
 	// unsigned		_options;
     if (allowsKeyedCoding) {
-		anObject = [decoder decodeObjectForKey:OgreOptionsKey];
+		anObject = [decoder decodeObjectOfClass:[NSNumber class] forKey:OgreOptionsKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
 		// エラー。例外を発生させる。
-		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		if ([decoder decodingFailurePolicy] == NSDecodingFailurePolicySetErrorAndReturn) {
+			[decoder failWithError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSCoderValueNotFoundError userInfo:nil]];
+		} else {
+			[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		}
+		return nil;
 	}
 	options = [anObject unsignedIntValue];
 
 	// OnigSyntaxType		*_syntax;
 	// 要改善点。独自のsyntaxを用意した場合はencodeできない。
     if (allowsKeyedCoding) {
-		anObject = [decoder decodeObjectForKey:OgreSyntaxKey];
+		anObject = [decoder decodeObjectOfClass:[NSNumber class] forKey:OgreSyntaxKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
 	if(anObject == nil) {
 		// エラー。例外を発生させる。
-		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		if ([decoder decodingFailurePolicy] == NSDecodingFailurePolicySetErrorAndReturn) {
+			[decoder failWithError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSCoderValueNotFoundError userInfo:nil]];
+		} else {
+			[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
+		}
+		return nil;
 	}
 	syntax = [anObject intValue];
 

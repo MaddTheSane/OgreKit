@@ -843,9 +843,9 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 	}
 }
 
-- (unsigned)_options
+- (OgreOptions)_options
 {
-	unsigned	options = OgreNoneOption;
+	OgreOptions	options = OgreNoneOption;
 	
 	if ([self singleLineOption]) options |= OgreSingleLineOption;
 	if ([self multilineOption]) options |= OgreMultilineOption;
@@ -867,9 +867,9 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 	return options;
 }
 
-- (unsigned)options
+- (OgreOptions)options
 {
-	unsigned	options = [self _options];
+	OgreOptions	options = [self _options];
 	if ([toggleStyleOptionsButton state] == NSOffState) {
 		options = OgreCompileTimeOptionMask(options) | OgreSearchTimeOptionMask(options);
 	}

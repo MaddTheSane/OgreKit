@@ -28,7 +28,7 @@ extern NSExceptionName const OgreCaptureException;
 @class OGRegularExpression, OGRegularExpressionEnumerator, OGRegularExpressionMatch, OGRegularExpressionCapture;
 
 
-@protocol OGRegularExpressionCaptureVisitor
+@protocol OGRegularExpressionCaptureVisitor <NSObject>
 - (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture;
 - (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture;
 @end
@@ -63,20 +63,20 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
  * 諸情報 *
  *********/
 // グループ番号
-- (NSUInteger)groupIndex;
+@property (nonatomic, readonly) NSUInteger groupIndex;
 
 // グループ名
 - (NSString*)groupName;
 
 // 何番目の子要素であるか 0,1,2,...
-- (NSUInteger)index;
+@property (readonly) NSUInteger index;
 
 // 深さ
 // 0: root
-- (NSUInteger)level;
+@property (readonly) NSUInteger level;
 
 // 子要素の数
-- (NSUInteger)numberOfChildren;
+@property (nonatomic, readonly) NSUInteger numberOfChildren;
 
 // 子要素たち
 // return nil in the case of numberOfChildren == 0
@@ -86,7 +86,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 - (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
 
 // match
-- (OGRegularExpressionMatch*)match;
+@property (readonly, retain) OGRegularExpressionMatch* match;
 
 // description
 - (NSString*)description;

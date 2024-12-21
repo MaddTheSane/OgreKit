@@ -17,7 +17,7 @@
 
 @implementation OgreOutlineView
 
-- (NSObject <OgreTextFindComponent>*)ogreAdapter
+- (id<OgreTextFindComponent>)ogreAdapter
 {
     return [[[OgreOutlineViewAdapter alloc] initWithTarget:self] autorelease];
 }

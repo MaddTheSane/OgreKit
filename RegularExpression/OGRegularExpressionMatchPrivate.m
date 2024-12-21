@@ -55,34 +55,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-#ifdef DEBUG_OGRE
-	NSLog(@"-dealloc of %@", [self className]);
-#endif
-	[_enumerator release];
-
-	if (_region != NULL) {
-		onig_region_free(_region, 1 /* free self */);
-	}
-	
-	[super dealloc];
-}
-
-- (NSObject<OGStringProtocol>*)_targetString
-{
-    return _targetString;
-}
-
-- (NSRange)_searchRange
-{
-    return _searchRange;
-}
-
-- (OnigRegion*)_region
-{
-    return _region;
-}
-
 
 @end

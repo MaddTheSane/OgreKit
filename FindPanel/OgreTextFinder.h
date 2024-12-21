@@ -101,8 +101,8 @@
 - (OgreTextFindResult*)replace:(NSString*)expressionString 
 	withAttributedString:(NSAttributedString*)replaceString
 	options:(unsigned)options;
-- (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(unsigned)options;
 
 - (OgreTextFindResult*)replaceAndFind:(NSString*)expressionString 
@@ -115,8 +115,8 @@
 	options:(unsigned)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
-- (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(unsigned)options 
     replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap;
@@ -129,8 +129,8 @@
 	withAttributedString:(NSAttributedString*)replaceString
 	options:(unsigned)options
 	inSelection:(BOOL)inSelection;
-- (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replaceAll:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(unsigned)options
 	inSelection:(BOOL)inSelection;
 
@@ -143,7 +143,7 @@
 
 - (NSString*)selectedString;
 - (NSAttributedString*)selectedAttributedString;
-- (NSObject<OGStringProtocol>*)selectedOGString;
+- (id<OGStringProtocol>)selectedOGString;
 
 - (BOOL)isSelectionEmpty;
 

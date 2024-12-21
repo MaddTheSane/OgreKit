@@ -76,7 +76,7 @@
     return textViewAdapter;
 }
 
-- (void)willProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor
+- (void)willProcessFinding:(id <OgreTextFindVisitor>)aVisitor
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFinding: of %@", [self className]);
@@ -84,7 +84,7 @@
     /* do nothing */
 }
 
-- (void)didProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor
+- (void)didProcessFinding:(id <OgreTextFindVisitor>)aVisitor
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFinding: of %@", [self className]);
@@ -99,17 +99,17 @@
     return [_textView selectedRange];
 }
 
-- (NSObject<OGStringProtocol>*)ogString
+- (id<OGStringProtocol>)ogString
 {
     return [[[OGPlainString alloc] initWithString:[_textView string]] autorelease];
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString
+- (void)setOGString:(id<OGStringProtocol>)aString
 {
     [_textView setString:[aString string]];
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
     // Undo操作の登録
     if (_allowsUndo) {

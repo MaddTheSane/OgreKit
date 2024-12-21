@@ -16,12 +16,12 @@
 @protocol OgreTextFindVisitor;
 @class OgreTextFindLeaf, OgreTextFindBranch, OgreTextFindThread;
 
-@protocol OgreTextFindComponent
-- (void)acceptVisitor:(NSObject <OgreTextFindVisitor>*)aVisitor; // visitor pattern
+@protocol OgreTextFindComponent <NSObject>
+- (void)acceptVisitor:(id <OgreTextFindVisitor>)aVisitor; // visitor pattern
 
 /* Delegate methods of the OgreTextFindThread */
-- (void)willProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor;
-- (void)didProcessFinding:(NSObject <OgreTextFindVisitor>*)aVisitor;
+- (void)willProcessFinding:(id <OgreTextFindVisitor>)aVisitor;
+- (void)didProcessFinding:(id <OgreTextFindVisitor>)aVisitor;
 - (void)finalizeFinding;
 
 /* Getting information */
@@ -55,12 +55,12 @@
 
 @end
 
-@protocol OgreTextFindVisitor
+@protocol OgreTextFindVisitor <NSObject>
 - (void)visitLeaf:(OgreTextFindLeaf*)aLeaf;
 - (void)visitBranch:(OgreTextFindBranch*)aBranch;
 @end
 
-@protocol OgreTextFindTargetAdapter
+@protocol OgreTextFindTargetAdapter <NSObject>
 - (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread;
 - (void)moveHomePosition;
 @end

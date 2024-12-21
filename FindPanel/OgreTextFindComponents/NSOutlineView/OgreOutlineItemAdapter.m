@@ -115,7 +115,7 @@
 	NSLog(@"  -childAtIndex:%d of %@", index, [self className]);
 #endif
     OgreOutlineView                 *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
-    id adapter;
+    id<OgreTextFindComponent> adapter;
     
     if (index == 0) {
         /* self cell */
@@ -124,7 +124,7 @@
         /* child item */
         id  childItem = [_outlineColumn ogreChild:(index - 1) ofItem:_item];
         adapter = [[[OgreOutlineItemAdapter alloc] initWithOutlineColumn:_outlineColumn item:childItem] autorelease];
-        [adapter setLevel:[self level] + 1];
+        [(OgreOutlineItemAdapter*)adapter setLevel:[self level] + 1];
         
     }
     

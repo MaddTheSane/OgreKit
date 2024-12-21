@@ -16,7 +16,7 @@
 
 @implementation OgreFindResultRoot
 
-- (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
+- (void)addComponent:(id<OgreTextFindComponent>)aFindResultComponent 
 {
     [_component autorelease];
     _component = [aFindResultComponent retain];

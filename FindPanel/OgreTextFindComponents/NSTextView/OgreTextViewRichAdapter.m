@@ -23,19 +23,19 @@
 @implementation OgreTextViewRichAdapter
 
 /* Accessor methods */
-- (NSObject<OGStringProtocol>*)ogString
+- (id<OGStringProtocol>)ogString
 {
     return [[[OGAttributedString alloc] initWithAttributedString:[self textStorage]] autorelease];
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString
+- (void)setOGString:(id<OGStringProtocol>)aString
 {
 	NSTextStorage	*textStorage = [self textStorage];
     [textStorage setAttributedString:[aString attributedString]];
 	[textStorage removeAttribute:NSAttachmentAttributeName range:NSMakeRange(0, [textStorage length])];
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
 	NSTextStorage	*textStorage = [self textStorage];
     NSUInteger	appendantLength = [aString length];

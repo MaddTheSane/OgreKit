@@ -34,7 +34,7 @@ extern NSExceptionName const OgreMatchException;
 	OGRegularExpressionEnumerator	*_enumerator;	// matcher
     NSUInteger		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
 	
-	NSObject<OGStringProtocol>	*_targetString;		// 検索対象文字列
+	id<OGStringProtocol>	_targetString;			// 検索対象文字列
 	NSRange			_searchRange;					// 検索範囲
     NSUInteger		_index;							// マッチした順番
 }
@@ -43,10 +43,10 @@ extern NSExceptionName const OgreMatchException;
  * 諸情報 *
  *********/
 // マッチした順番 0,1,2,...
-- (NSUInteger)index;
+@property (readonly) NSUInteger index;
 
 // 部分文字列の数 + 1
-- (NSUInteger)count;
+@property (nonatomic, readonly) NSUInteger count;
 
 // description
 - (NSString*)description;
@@ -56,39 +56,39 @@ extern NSExceptionName const OgreMatchException;
  * 文字列 *
  *********/
 // マッチの対象になった文字列
-- (NSObject<OGStringProtocol>*)targetOGString;
+- (id<OGStringProtocol>)targetOGString;
 - (NSString*)targetString;
 - (NSAttributedString*)targetAttributedString;
 
 // マッチした文字列 \&, \0
-- (NSObject<OGStringProtocol>*)matchedOGString;
+- (id<OGStringProtocol>)matchedOGString;
 - (NSString*)matchedString;
 - (NSAttributedString*)matchedAttributedString;
 
 // index番目のsubstring \index
 //  index番目のsubstringが存在しない時には nil を返す。
-- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(NSUInteger)index;
+- (id<OGStringProtocol>)ogSubstringAtIndex:(NSUInteger)index;
 - (NSString*)substringAtIndex:(NSUInteger)index;
 - (NSAttributedString*)attributedSubstringAtIndex:(NSUInteger)index;
 
 // マッチした部分より前の文字列 \`
-- (NSObject<OGStringProtocol>*)prematchOGString;
+- (id<OGStringProtocol>)prematchOGString;
 - (NSString*)prematchString;
 - (NSAttributedString*)prematchAttributedString;
 
 // マッチした部分より後ろの文字列 \'
-- (NSObject<OGStringProtocol>*)postmatchOGString;
+- (id<OGStringProtocol>)postmatchOGString;
 - (NSString*)postmatchString;
 - (NSAttributedString*)postmatchAttributedString;
 
 // 最後にマッチした部分文字列 \+
 // 存在しないときには nil を返す。
-- (NSObject<OGStringProtocol>*)lastMatchOGSubstring;
+- (id<OGStringProtocol>)lastMatchOGSubstring;
 - (NSString*)lastMatchSubstring;
 - (NSAttributedString*)lastMatchAttributedSubstring;
 
 // マッチした部分と一つ前にマッチした部分の間の文字列 \- (独自に追加)
-- (NSObject<OGStringProtocol>*)ogStringBetweenMatchAndLastMatch;
+- (id<OGStringProtocol>)ogStringBetweenMatchAndLastMatch;
 - (NSString*)stringBetweenMatchAndLastMatch;
 - (NSAttributedString*)attributedStringBetweenMatchAndLastMatch;
 
@@ -123,7 +123,7 @@ extern NSExceptionName const OgreMatchException;
 // 名前(ラベル)がnameの部分文字列
 // 存在しない名前の場合は nil を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (NSObject<OGStringProtocol>*)ogSubstringNamed:(NSString*)name;
+- (id<OGStringProtocol>)ogSubstringNamed:(NSString*)name;
 - (NSString*)substringNamed:(NSString*)name;
 - (NSAttributedString*)attributedSubstringNamed:(NSString*)name;
 

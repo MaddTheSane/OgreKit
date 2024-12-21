@@ -21,7 +21,7 @@
 }
 
 /* methods overridden by subclass of OgreFindResultLeaf  */
-- (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent;
+- (void)addComponent:(id<OgreTextFindComponent>)aFindResultComponent;
 - (void)endAddition;
 - (OgreTextFindResult*)textFindResult;
 - (void)setTextFindResult:(OgreTextFindResult*)textFindResult;

@@ -146,7 +146,7 @@
 }
 
 
-- (NSObject<OGStringProtocol>*)ogString 
+- (id<OGStringProtocol>)ogString 
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -string of %@ (BUG!!!)", [self className]);
@@ -154,7 +154,7 @@
     return nil; 
 }
 
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString 
+- (void)setOGString:(id<OGStringProtocol>)aString 
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -setOGString: of %@ (BUG?)", [self className]);
@@ -162,7 +162,7 @@
     /* do nothing */ 
 }
 
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -replaceCharactersInRange:withOGString: of %@ (BUG?)", [self className]);

@@ -30,6 +30,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 
 @implementation OGRegularExpressionCapture
+@synthesize _captureNode;
 
 /*********
  * 諸情報 *
@@ -47,16 +48,10 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 // 何番目の子要素であるか 0,1,2,...
-- (NSUInteger)index
-{
-    return _index;
-}
+@synthesize index = _index;
 
 // 深さ
-- (NSUInteger)level
-{
-    return _level;
-}
+@synthesize level = _level;
 
 // 子要素の数
 - (NSUInteger)numberOfChildren
@@ -94,10 +89,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 
-- (OGRegularExpressionMatch*)match
-{
-    return _match;
-}
+@synthesize match = _match;
 
 
 // description
@@ -180,13 +172,13 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 *************************/
 - (void)acceptVisitor:(id <OGRegularExpressionCaptureVisitor>)aVisitor 
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    [aVisitor visitAtFirstCapture:self];
-    
-    [[self children] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:aVisitor];
-    
-    [aVisitor visitAtLastCapture:self];
-    [pool release];
+	@autoreleasepool {
+		[aVisitor visitAtFirstCapture:self];
+		
+		[[self children] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:aVisitor];
+		
+		[aVisitor visitAtLastCapture:self];
+	}
 }
 
 
@@ -300,5 +292,11 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
         match:_match];
 }
 
+- (void)dealloc
+{
+	[_parent release];
+	[_match release];
+	[super dealloc];
+}
 
 @end

@@ -22,7 +22,7 @@
 
 @implementation OGRegularExpressionEnumerator (Private)
 
-- (id) initWithOGString:(NSObject<OGStringProtocol>*)targetString 
+- (id) initWithOGString:(id<OGStringProtocol>)targetString 
 	options:(unsigned)searchOptions 
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex
@@ -85,18 +85,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-#ifdef DEBUG_OGRE
-	NSLog(@"-dealloc of %@", [self className]);
-#endif
-	[_regex release];
-	NSZoneFree([self zone], _UTF16TargetString);
-	[_targetString release];
-	
-	[super dealloc];
-}
-
 /* accessors */
 // private
 - (void)_setTerminalOfLastMatch:(NSInteger)location
@@ -117,24 +105,6 @@
 - (void)_setNumberOfMatches:(unsigned)aNumber
 {
 	_numberOfMatches = aNumber;
-}
-
-- (OGRegularExpression*)regularExpression
-{
-	return _regex;
-}
-
-- (void)setRegularExpression:(OGRegularExpression*)regularExpression
-{
-	[regularExpression retain];
-	[_regex release];
-	_regex = regularExpression;
-}
-
-// public?
-- (NSObject<OGStringProtocol>*)targetString
-{
-	return _targetString;
 }
 
 - (unichar*)UTF16TargetString

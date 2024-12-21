@@ -37,9 +37,9 @@
 - (void)setSelectedRange:(NSRange)aRange;
 - (void)jumpToSelection;
 
-- (NSObject<OGStringProtocol>*)ogString;
-- (void)setOGString:(NSObject<OGStringProtocol>*)aString;
-- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString;
+- (id<OGStringProtocol>)ogString;
+- (void)setOGString:(id<OGStringProtocol>)aString;
+- (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString;
 
 - (void)unhighlight;
 - (void)highlightCharactersInRange:(NSRange)aRange color:(NSColor*)highlightColor;

@@ -22,7 +22,7 @@
     NSRange     _ogreSelectedRange;
 }
 
-- (NSObject <OgreTextFindComponent>*)ogreAdapter;
+- (id<OgreTextFindComponent>)ogreAdapter;
 
 - (NSInteger)ogreSelectedColumn;
 - (void)ogreSetSelectedColumn:(NSInteger)column;

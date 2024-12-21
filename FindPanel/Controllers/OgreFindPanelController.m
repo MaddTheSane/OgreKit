@@ -24,15 +24,7 @@
     [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace]; // 現在表示中のDesktop SpaceにFind Panelを表示
 }
 
-- (OgreTextFinder*)textFinder
-{
-	return textFinder;
-}
-
-- (void)setTextFinder:(OgreTextFinder*)aTextFinder
-{
-	textFinder = aTextFinder;
-}
+@synthesize textFinder;
 
 
 - (IBAction)showFindPanel:(id)sender
@@ -47,17 +39,7 @@
 	[findPanel orderOut:self];
 }
 
-- (NSPanel*)findPanel
-{
-	return findPanel;
-}
-
-- (void)setFindPanel:(NSPanel*)aPanel
-{
-	[aPanel retain];
-	[findPanel release];
-	findPanel = aPanel;
-}
+@synthesize findPanel;
 
 // NSCoding protocols
 - (NSDictionary*)history

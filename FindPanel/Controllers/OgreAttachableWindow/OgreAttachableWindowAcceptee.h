@@ -15,7 +15,7 @@
 
 @protocol OgreAttachableWindowAcceptorProtocol;
 
-@protocol OgreAttachableWindowAccepteeProtocol
+@protocol OgreAttachableWindowAccepteeProtocol <NSObject>
 - (BOOL)dragging;
 - (void)setDragging:(BOOL)dragging;
 - (BOOL)resizing;

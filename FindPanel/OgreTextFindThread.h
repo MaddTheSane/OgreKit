@@ -28,7 +28,7 @@
 @interface OgreTextFindThread : NSObject <OgreTextFindVisitor>
 {
 	/* implementors */
-	NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>	*_targetAdapter;
+	id <OgreTextFindComponent, OgreTextFindTargetAdapter>	_targetAdapter;
 	OgreTextFindLeaf	*_leafProcessing;
 	NSEnumerator		*_enumeratorProcessing;
 	NSMutableArray		*_enumeratorStack;
@@ -62,7 +62,7 @@
 }
 
 /* Creating and initializing */
-- (id)initWithComponent:(NSObject <OgreTextFindComponent>*)aComponent;
+- (id)initWithComponent:(id<OgreTextFindComponent, OgreTextFindTargetAdapter>)aComponent;
 
 /* Running and stopping */
 - (void)detach;
@@ -80,25 +80,25 @@
 - (void)setRegularExpression:(OGRegularExpression*)regex;
 - (void)setReplaceExpression:(OGReplaceExpression*)repex;
 - (void)setHighlightColor:(NSColor*)highlightColor;
-- (void)setOptions:(unsigned)options;
+- (void)setOptions:(OgreOptions)options;
 - (void)setInSelection:(BOOL)inSelection;
 - (void)setAsynchronous:(BOOL)asynchronou;
 
 - (void)setDidEndSelector:(SEL)aSelector toTarget:(id)aTarget;
-- (void)setProgressDelegate:(NSObject <OgreTextFindProgressDelegate>*)aDelegate;
+- (void)setProgressDelegate:(id<OgreTextFindProgressDelegate>)aDelegate;
 
 /* Accessors */
-- (OGRegularExpression*)regularExpression;
-- (OGReplaceExpression*)replaceExpression;
-- (NSColor*)highlightColor;
-- (unsigned)options;
-- (BOOL)inSelection;
-- (NSObject <OgreTextFindProgressDelegate>*)progressDelegate;
-- (BOOL)isTerminated;
+@property (retain) OGRegularExpression* regularExpression;
+@property (retain) OGReplaceExpression* replaceExpression;
+@property (retain) NSColor* highlightColor;
+@property OgreOptions options;
+@property BOOL inSelection;
+@property (nonatomic, assign) id<OgreTextFindProgressDelegate> progressDelegate;
+@property (readonly, getter=isTerminated) BOOL terminated;
 - (NSTimeInterval)processTime;
 
 /* Protected methods */
-- (NSUInteger)numberOfMatches;		 // number of matches
+@property (readonly) NSUInteger numberOfMatches;		 // number of matches
 - (void)incrementNumberOfMatches;	// _numberofMatches++
 - (void)finishingUp:(id)sender;
 - (void)exceptionRaised:(NSException*)exception;
@@ -107,8 +107,8 @@
 - (NSEnumerator*)popEnumerator;
 - (NSEnumerator*)topEnumerator;
 
-- (OgreTextFindBranch*)rootAdapter;
-- (NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)targetAdapter;
+@property (readonly, retain) OgreTextFindBranch* rootAdapter;
+@property (readonly, retain) id<OgreTextFindComponent, OgreTextFindTargetAdapter> targetAdapter;
 - (void)pushBranch:(OgreTextFindBranch*)aBranch;
 - (OgreTextFindBranch*)popBranch;
 - (OgreTextFindBranch*)topBranch;

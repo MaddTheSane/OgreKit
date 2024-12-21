@@ -17,7 +17,7 @@
 
 @implementation OgreTextView
 
-- (NSObject <OgreTextFindComponent>*)ogreAdapter
+- (id<OgreTextFindComponent>)ogreAdapter
 {
     return [[[OgreTextViewAdapter alloc] initWithTarget:self] autorelease];
 }

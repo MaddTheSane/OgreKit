@@ -544,8 +544,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		wrap:NO];
 }
 
-- (OgreTextFindResult*)replace:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replace:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(unsigned)options
 {
 	return [self replaceAndFind:expressionString
@@ -581,8 +581,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		wrap:isWrap];
 }
 
-- (OgreTextFindResult*)replaceAndFind:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replaceAndFind:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(unsigned)options
 	replacingOnly:(BOOL)replacingOnly 
 	wrap:(BOOL)isWrap 
@@ -660,8 +660,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		inSelection:inSelection];
 }
 
-- (OgreTextFindResult*)replaceAll:(NSObject<OGStringProtocol>*)expressionString 
-	withOGString:(NSObject<OGStringProtocol>*)replaceString
+- (OgreTextFindResult*)replaceAll:(id<OGStringProtocol>)expressionString 
+	withOGString:(id<OGStringProtocol>)replaceString
 	options:(unsigned)options
 	inSelection:(BOOL)inSelection
 {
@@ -829,7 +829,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	return [[self selectedOGString] attributedString];
 }
 
-- (NSObject<OGStringProtocol>*)selectedOGString
+- (id<OGStringProtocol>)selectedOGString
 {
 	id	target = [self targetToFindIn];
 	if ((target == nil) || [self isBusyTarget:target]) return nil;

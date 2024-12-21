@@ -20,11 +20,11 @@
 
 - (id)initWithString:(NSString*)string;
 - (id)initWithAttributedString:(NSAttributedString*)attributedString;
-- (id)initWithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
+- (id)initWithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
 + (id)stringWithString:(NSString*)string;
 + (id)stringWithAttributedString:(NSAttributedString*)attributedString;
-+ (id)stringithString:(NSString*)string hasAttributesOfOGString:(NSObject<OGStringProtocol>*)ogString;
++ (id)stringithString:(NSString*)string hasAttributesOfOGString:(id<OGStringProtocol>)ogString;
 
 - (NSString*)_string;
 - (void)_setString:(NSString*)string;

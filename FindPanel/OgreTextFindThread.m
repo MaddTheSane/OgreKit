@@ -19,7 +19,7 @@
 @implementation OgreTextFindThread
 
 /* Creating and initializing */
-- (id)initWithComponent:(NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)aComponent;
+- (id)initWithComponent:(id <OgreTextFindComponent, OgreTextFindTargetAdapter>)aComponent;
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-initWithComponent: of %@", [self className]);
@@ -313,33 +313,6 @@
 
 
 /* Configuration */
-- (void)setRegularExpression:(OGRegularExpression*)regex
-{
-	[_regex autorelease];
-	_regex = [regex retain];
-}
-
-- (void)setReplaceExpression:(OGReplaceExpression*)repex
-{
-	[_repex autorelease];
-	_repex = [repex retain];
-}
-
-- (void)setHighlightColor:(NSColor*)highlightColor
-{
-	[_highlightColor autorelease];
-	_highlightColor = [highlightColor retain];
-}
-
-- (void)setOptions:(unsigned)options
-{
-	_searchOptions = options;
-}
-
-- (void)setInSelection:(BOOL)inSelection
-{
-	_inSelection = inSelection;
-}
 
 - (void)setDidEndSelector:(SEL)aSelector toTarget:(id)aTarget
 {
@@ -348,7 +321,7 @@
 	_didEndTarget = [aTarget retain];
 }
 
-- (void)setProgressDelegate:(NSObject <OgreTextFindProgressDelegate>*)aDelegate
+- (void)setProgressDelegate:(id<OgreTextFindProgressDelegate>)aDelegate
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-setProgressDelegate: of %@", [self className]);
@@ -359,45 +332,15 @@
 		withObject:nil];
 }
 
-- (NSObject <OgreTextFindProgressDelegate>*)progressDelegate
-{
-	return _progressDelegate;
-}
-
+@synthesize progressDelegate = _progressDelegate;
+@synthesize highlightColor = _highlightColor;
+@synthesize regularExpression = _regex;
+@synthesize replaceExpression = _repex;
+@synthesize options = _searchOptions;
+@synthesize inSelection = _inSelection;
 /* Accessors */
-- (OGRegularExpression*)regularExpression
-{
-	return _regex;
-}
 
-- (OGReplaceExpression*)replaceExpression
-{
-	return _repex;
-}
-
-
-- (NSColor*)highlightColor
-{
-	return _highlightColor;
-}
-
-
-- (unsigned)options
-{
-	return _searchOptions;
-}
-
-
-- (BOOL)inSelection
-{
-	return _inSelection;
-}
-
-
-- (BOOL)isTerminated
-{
-	return _terminated;
-}
+@synthesize terminated = _terminated;
 
 - (NSTimeInterval)processTime
 {
@@ -467,10 +410,7 @@
 
 
 /* Protected methods */
-- (NSUInteger)numberOfMatches
-{
-	return _numberOfMatches;
-}
+@synthesize numberOfMatches = _numberOfMatches;
 
 - (void)incrementNumberOfMatches
 {
@@ -514,15 +454,8 @@
 	return [anObject autorelease];
 }
 
-- (OgreTextFindBranch*)rootAdapter
-{
-	return _rootAdapter;
-}
-
-- (NSObject <OgreTextFindComponent, OgreTextFindTargetAdapter>*)targetAdapter
-{
-	return _targetAdapter;
-}
+@synthesize rootAdapter = _rootAdapter;
+@synthesize targetAdapter = _targetAdapter;
 
 - (void)pushBranch:(OgreTextFindBranch*)aBranch
 {

@@ -15,7 +15,7 @@
 
 @protocol OgreAttachableWindowAccepteeProtocol;
 
-@protocol OgreAttachableWindowAcceptorProtocol
+@protocol OgreAttachableWindowAcceptorProtocol <NSObject>
 - (BOOL)isAttachableAcceptorEdge:(NSRectEdge)edge toAcceptee:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee;
 @end
 

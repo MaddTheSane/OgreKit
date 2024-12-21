@@ -16,7 +16,7 @@
 
 @class OgreAttachableWindowMediator;
 
-@interface OgreFindResultWindowController : NSObject
+@interface OgreFindResultWindowController : NSObject <NSOutlineViewDataSource, NSOutlineViewDelegate>
 {
     IBOutlet NSOutlineView		*grepOutlineView;
     IBOutlet NSButton			*liveUpdateCheckBox;
@@ -37,8 +37,6 @@
 
 - (void)show;
 - (void)close;
-
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
 
 // protected method
 - (void)setupFindResultView;

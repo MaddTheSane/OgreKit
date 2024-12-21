@@ -154,12 +154,12 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 
 
 @implementation OGRegularExpressionMatch
+@synthesize _region;
+@synthesize _searchRange;
+@synthesize _targetString;
 
 // マッチした順番
-- (NSUInteger)index
-{
-	return _index;
-}
+@synthesize index = _index;
 
 // 部分文字列の数 + 1
 - (NSUInteger)count
@@ -174,7 +174,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // マッチした文字列 \&, \0
-- (NSObject<OGStringProtocol>*)matchedOGString
+- (id<OGStringProtocol>)matchedOGString
 {
 	return [self ogSubstringAtIndex:0];
 }
@@ -202,7 +202,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // index番目のsubstring \n
-- (NSObject<OGStringProtocol>*)ogSubstringAtIndex:(NSUInteger)index
+- (id<OGStringProtocol>)ogSubstringAtIndex:(NSUInteger)index
 {
 	// index番目のsubstringが存在しない時には nil を返す
 	if ( (index >= _region->num_regs) || (_region->beg[index] == -1) ){
@@ -233,7 +233,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // マッチの対象になった文字列
-- (NSObject<OGStringProtocol>*)targetOGString
+- (id<OGStringProtocol>)targetOGString
 {
 	return _targetString;
 }
@@ -249,7 +249,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // マッチした部分より前の文字列 \`
-- (NSObject<OGStringProtocol>*)prematchOGString
+- (id<OGStringProtocol>)prematchOGString
 {
 	if (_region->beg[0] == -1) {
 		// マッチした文字列が存在しない場合
@@ -291,7 +291,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // マッチした部分より後ろの文字列 \'
-- (NSObject<OGStringProtocol>*)postmatchOGString
+- (id<OGStringProtocol>)postmatchOGString
 {
 	if (_region->beg[0] == -1) {
 		// マッチした部分より後ろの文字列が存在しない場合
@@ -333,7 +333,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // マッチした文字列と一つ前にマッチした文字列の間の文字列 \-
-- (NSObject<OGStringProtocol>*)ogStringBetweenMatchAndLastMatch
+- (id<OGStringProtocol>)ogStringBetweenMatchAndLastMatch
 {
 	if (_region->beg[0] == -1) {
 		// マッチした文字列が存在しない場合
@@ -375,7 +375,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 }
 
 // 最後にマッチした部分文字列 \+
-- (NSObject<OGStringProtocol>*)lastMatchOGSubstring
+- (id<OGStringProtocol>)lastMatchOGSubstring
 {
 	NSInteger i = [self count] - 1;
 	while ( (i > 0) && (_region->beg[i] == -1) ) {
@@ -428,6 +428,19 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 	}
 }
 
+- (void)dealloc
+{
+#ifdef DEBUG_OGRE
+	NSLog(@"-dealloc of %@", [self className]);
+#endif
+	[_enumerator release];
+
+	if (_region != NULL) {
+		onig_region_free(_region, 1 /* free self */);
+	}
+	
+	[super dealloc];
+}
 
 // NSCoding protocols
 - (void)encodeWithCoder:(NSCoder*)encoder
@@ -589,7 +602,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 名前(ラベル)がnameの部分文字列 (OgreCaptureGroupOptionを指定したときに使用できる)
 // 存在しない名前の場合は nil を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
-- (NSObject<OGStringProtocol>*)ogSubstringNamed:(NSString*)name
+- (id<OGStringProtocol>)ogSubstringNamed:(NSString*)name
 {
 	NSInteger	index = [self indexOfSubstringNamed:name];
 	if (index == -1) return nil;

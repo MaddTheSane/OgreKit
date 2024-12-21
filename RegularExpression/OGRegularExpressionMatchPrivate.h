@@ -25,8 +25,10 @@
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
 	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;
 
-- (NSObject<OGStringProtocol>*)_targetString;
-- (NSRange)_searchRange;
-- (OnigRegion*)_region;
+@end
 
+@interface OGRegularExpressionMatch ()
+@property (readonly, retain) id<OGStringProtocol> _targetString;
+@property (readonly) NSRange _searchRange;
+@property (readonly) OnigRegion* _region NS_RETURNS_INNER_POINTER;
 @end

@@ -136,7 +136,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 
     if (allowsKeyedCoding) {
 		// NSString			*_escapeCharacter;
-		_escapeCharacter = [[decoder decodeObjectForKey: OgreEscapeCharacterKey] retain];
+		_escapeCharacter = [[decoder decodeObjectOfClass:[NSString class] forKey: OgreEscapeCharacterKey] retain];
 	} else {
 		// NSString			*_escapeCharacter;
 		_escapeCharacter = [[decoder decodeObject] retain];
@@ -149,7 +149,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 
 	// unsigned		_options;
     if (allowsKeyedCoding) {
-		anObject = [decoder decodeObjectForKey: OgreOptionsKey];
+		anObject = [decoder decodeObjectOfClass:[NSNumber class] forKey: OgreOptionsKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
@@ -163,7 +163,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	// OnigSyntaxType		*_syntax;
 	// 要改善点。独自のsyntaxを用意した場合はencodeできない。
     if (allowsKeyedCoding) {
-		anObject = [decoder decodeObjectForKey: OgreSyntaxKey];
+		anObject = [decoder decodeObjectOfClass:[NSNumber class] forKey: OgreSyntaxKey];
 	} else {
 		anObject = [decoder decodeObject];
 	}
@@ -209,7 +209,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	if (self) {
 		_options = options;
 		_syntax = syntax;
-		_escapeCharacter = [character retain];
+		_escapeCharacter = [character copy];
 	}
 	
 	return self;
@@ -224,36 +224,8 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	[super dealloc];
 }
 
-- (NSString*)escapeCharacter
-{
-	return _escapeCharacter;
-}
-
-- (void)setEscapeCharacter:(NSString*)character
-{
-	[_escapeCharacter autorelease];
-	_escapeCharacter = [character copy];
-}
-
-- (unsigned)options
-{
-	return _options;
-}
-
-- (void)setOptions:(unsigned)options
-{
-	_options = options;
-}
-
-- (OgreSyntax)syntax
-{
-	return _syntax;
-}
-
-- (void)setSyntax:(OgreSyntax)syntax
-{
-	_syntax = syntax;
-}
-
+@synthesize escapeCharacter = _escapeCharacter;
+@synthesize options = _options;
+@synthesize syntax = _syntax;
 
 @end

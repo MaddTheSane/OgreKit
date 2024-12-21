@@ -17,7 +17,7 @@
 
 @implementation OgreTableView
 
-- (NSObject <OgreTextFindComponent>*)ogreAdapter
+- (id<OgreTextFindComponent>)ogreAdapter
 {
     return [[[OgreTableViewAdapter alloc] initWithTarget:self] autorelease];
 }

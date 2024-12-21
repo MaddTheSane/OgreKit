@@ -68,15 +68,7 @@ static inline float	f_abs(float x)
 	[super dealloc];
 }
 
-- (float)tolerance
-{
-	return _tolerance;
-}
-
-- (void)setTolerance:(float)tolerance
-{
-	_tolerance = tolerance;
-}
+@synthesize tolerance = _tolerance;
 
 - (void)addAcceptor:(NSWindow<OgreAttachableWindowAcceptorProtocol>*)acceptor
 {

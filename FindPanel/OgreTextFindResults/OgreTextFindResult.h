@@ -18,21 +18,21 @@
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OgreTextFindProgressDelegate.h>
 
-@protocol OgreTextFindResultDelegateProtocol
+@protocol OgreTextFindResultDelegateProtocol <NSObject>
 - (void)didUpdateTextFindResult:(id)textFindResult;
 @end
 
-@protocol OgreFindResultCorrespondingToTextFindLeaf
+@protocol OgreFindResultCorrespondingToTextFindLeaf <NSObject>
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch;
 - (void)endAddition;
 @end
 
 
-typedef enum {
-	OgreTextFindResultFailure = 0, 
+typedef NS_ENUM(int, OgreTextFindResultType) {
+	OgreTextFindResultFailure = 0,
 	OgreTextFindResultSuccess = 1, 
 	OgreTextFindResultError = 2
-} OgreTextFindResultType;
+};
 
 @interface OgreTextFindResult : NSObject
 {
@@ -63,7 +63,7 @@ typedef enum {
 
 - (void)setType:(OgreTextFindResultType)resultType;
 - (BOOL)isSuccess;				/* success or failure(including error) */
-- (NSObject <OgreTextFindComponent>*)result;
+- (id<OgreTextFindComponent>)result;
 - (NSString*)findString;
 
 - (BOOL)alertIfErrorOccurred;

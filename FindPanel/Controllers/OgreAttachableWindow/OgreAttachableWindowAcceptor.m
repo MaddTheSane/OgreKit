@@ -42,7 +42,7 @@
 /* notifications */
 - (void)windowWillMove:(id)notification
 {
-	[[self childWindows] makeObjectsPerformSelector:@selector(setDragging:) withObject:NO];
+	[[self childWindows] makeObjectsPerformSelector:@selector(setDragging:) withObject:nil];
 }
 
 - (void)didAttachWindow:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee

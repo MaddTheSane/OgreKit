@@ -34,16 +34,4 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_parent release];
-    [_match release];
-    [super dealloc];
-}
-
-- (OnigCaptureTreeNode*)_captureNode
-{
-    return _captureNode;
-}
-
 @end

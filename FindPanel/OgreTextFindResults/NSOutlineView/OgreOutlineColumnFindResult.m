@@ -36,7 +36,7 @@
     [super dealloc];
 }
 
-- (void)addComponent:(NSObject <OgreTextFindComponent>*)aFindResultComponent 
+- (void)addComponent:(id<OgreTextFindComponent>)aFindResultComponent 
 {
     [_components addObject:aFindResultComponent];
 }

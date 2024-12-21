@@ -14,7 +14,7 @@
 #import <Cocoa/Cocoa.h>
 #import <OgreKit/OgreKit.h>
 
-@protocol MyOutlineViewDelegate
+@protocol MyOutlineViewDelegate <NSObject>
 - (void)deleteKeyDownInOutlineView:(NSOutlineView*)outlineView;
 @end
 

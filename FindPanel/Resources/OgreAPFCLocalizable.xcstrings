@@ -359,6 +359,9 @@
         }
       }
     },
+    "NO" : {
+
+    },
     "OK" : {
       "comment" : "the title of OK button",
       "extractionState" : "manual",
