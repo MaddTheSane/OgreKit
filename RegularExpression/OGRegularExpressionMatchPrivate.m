@@ -21,7 +21,7 @@
 
 @implementation OGRegularExpressionMatch (Private)
 
-/* ”ñŒöŠJƒƒ\ƒbƒh */
+/* éžå…¬é–‹ãƒ¡ã‚½ãƒƒãƒ‰ */
 - (id)initWithRegion:(OnigRegion*)region 
 	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
@@ -35,18 +35,18 @@
 		// match result region
 		_region = region;	// retain
 	
-		// ¶¬Žå
+		// ç”Ÿæˆä¸»
 		_enumerator = [enumerator retain];
 		
-		// ÅŒã‚Éƒ}ƒbƒ`‚µ‚½•¶Žš—ñ‚ÌI’[ˆÊ’u
+		// æœ€å¾Œã«ãƒžãƒƒãƒã—ãŸæ–‡å­—åˆ—ã®çµ‚ç«¯ä½ç½®
 		_terminalOfLastMatch = terminalOfLastMatch;
-		// ƒ}ƒbƒ`‚µ‚½‡”Ô
+		// ãƒžãƒƒãƒã—ãŸé †ç•ª
 		_index = anIndex;
 		
-		// •p”É‚É—˜—p‚·‚é‚à‚Ì‚ÍƒLƒƒƒbƒVƒ…‚·‚éB•ÛŽ‚Í‚µ‚È‚¢B
-		// ŒŸõ‘ÎÛ•¶Žš—ñ
+		// é »ç¹ã«åˆ©ç”¨ã™ã‚‹ã‚‚ã®ã¯ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚ä¿æŒã¯ã—ãªã„ã€‚
+		// æ¤œç´¢å¯¾è±¡æ–‡å­—åˆ—
 		_targetString     = [_enumerator targetString];
-		// ŒŸõ”ÍˆÍ
+		// æ¤œç´¢ç¯„å›²
 		NSRange	searchRange = [_enumerator searchRange];
 		_searchRange.location = searchRange.location;
 		_searchRange.length   = searchRange.length;

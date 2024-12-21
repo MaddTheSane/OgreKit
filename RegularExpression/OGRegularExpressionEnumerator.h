@@ -20,22 +20,22 @@ extern NSString	* const OgreEnumeratorException;
 
 @interface OGRegularExpressionEnumerator : NSEnumerator <NSCopying, NSCoding>
 {
-	OGRegularExpression	*_regex;				// ³‹K•\Œ»ƒIƒuƒWƒFƒNƒg
-	NSObject<OGStringProtocol>			*_targetString;			// ŒŸõ‘ÎÛ•¶š—ñ
-	unichar             *_UTF16TargetString;	// UTF16‚Å‚ÌŒŸõ‘ÎÛ•¶š—ñ
+	OGRegularExpression	*_regex;				// æ­£è¦è¡¨ç¾ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	NSObject<OGStringProtocol>			*_targetString;			// æ¤œç´¢å¯¾è±¡æ–‡å­—åˆ—
+	unichar             *_UTF16TargetString;	// UTF16ã§ã®æ¤œç´¢å¯¾è±¡æ–‡å­—åˆ—
     NSUInteger			_lengthOfTargetString;	// [_targetString length]
-	NSRange				_searchRange;			// ŒŸõ”ÍˆÍ
-	unsigned			_searchOptions;			// ŒŸõƒIƒvƒVƒ‡ƒ“
-	NSInteger			_terminalOfLastMatch;	// ‘O‰ñ‚Éƒ}ƒbƒ`‚µ‚½•¶š—ñ‚ÌI’[ˆÊ’u  (_region->end[0] / sizeof(unichar))
-    NSUInteger			_startLocation;			// ƒ}ƒbƒ`ŠJnˆÊ’u
-	BOOL				_isLastMatchEmpty;		// ‘O‰ñ‚Ìƒ}ƒbƒ`‚ª‹ó•¶š—ñ‚¾‚Á‚½‚©‚Ç‚¤‚©
+	NSRange				_searchRange;			// æ¤œç´¢ç¯„å›²
+	unsigned			_searchOptions;			// æ¤œç´¢ã‚ªãƒ—ã‚·ãƒ§ãƒ³
+	NSInteger			_terminalOfLastMatch;	// å‰å›ã«ãƒãƒƒãƒã—ãŸæ–‡å­—åˆ—ã®çµ‚ç«¯ä½ç½®  (_region->end[0] / sizeof(unichar))
+    NSUInteger			_startLocation;			// ãƒãƒƒãƒé–‹å§‹ä½ç½®
+	BOOL				_isLastMatchEmpty;		// å‰å›ã®ãƒãƒƒãƒãŒç©ºæ–‡å­—åˆ—ã ã£ãŸã‹ã©ã†ã‹
 	
-	unsigned			_numberOfMatches;		// ƒ}ƒbƒ`‚µ‚½”
+	unsigned			_numberOfMatches;		// ãƒãƒƒãƒã—ãŸæ•°
 }
 
-// ‘Sƒ}ƒbƒ`Œ‹‰Ê‚ğ”z—ñ‚Å•Ô‚·B
+// å…¨ãƒãƒƒãƒçµæœã‚’é…åˆ—ã§è¿”ã™ã€‚
 - (NSArray*)allObjects;
-// Ÿ‚Ìƒ}ƒbƒ`Œ‹‰Ê‚ğ•Ô‚·B
+// æ¬¡ã®ãƒãƒƒãƒçµæœã‚’è¿”ã™ã€‚
 - (id)nextObject;
 
 // description
