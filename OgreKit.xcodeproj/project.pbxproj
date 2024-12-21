@@ -257,11 +257,8 @@
 		4DC410F1091512C90029A2A6 /* OGAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC40D7109150CEC0029A2A6 /* OGAttributedString.m */; };
 		4DC410F2091512CA0029A2A6 /* OGAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D7009150CEB0029A2A6 /* OGAttributedString.h */; };
 		4DC4116D091514030029A2A6 /* OgreTextFindProgressSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.xib */; };
-		4DC4116E091514030029A2A6 /* OgreAPFCLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */; };
 		4DC4116F091514030029A2A6 /* OgreFindResultWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */; };
 		4DC41170091514030029A2A6 /* OgreAdvancedFindPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */; };
-		4DC41171091514030029A2A6 /* OgreTextFinderLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */; };
-		4DC411C9091514D70029A2A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC411C7091514D70029A2A6 /* InfoPlist.strings */; };
 		4DC411D5091515930029A2A6 /* ReadMe.rtf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40D4B09150CEA0029A2A6 /* ReadMe.rtf */; };
 		4DC411D6091515930029A2A6 /* License.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40D4C09150CEA0029A2A6 /* License.txt */; };
 		4DC411D70915159A0029A2A6 /* ReadMe.rtf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DC40D4B09150CEA0029A2A6 /* ReadMe.rtf */; };
@@ -292,6 +289,10 @@
 		4DF530C00915221700475575 /* ReplaceWithAttributesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */; };
 		4DF530C20915221700475575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF530BD0915221700475575 /* main.m */; };
 		4DF530D30915226200475575 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF530D00915226200475575 /* MainMenu.xib */; };
+		55A0F1612D16BBA800673BD9 /* OgreAPFCLocalizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 55A0F1602D16BBA800673BD9 /* OgreAPFCLocalizable.xcstrings */; };
+		55A0F1632D16BBA900673BD9 /* OgreTextFinderLocalizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 55A0F1622D16BBA900673BD9 /* OgreTextFinderLocalizable.xcstrings */; };
+		55A0F1652D16BBAA00673BD9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 55A0F1642D16BBA900673BD9 /* InfoPlist.xcstrings */; };
+		55A0F1662D16BBCE00673BD9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 55A0F1642D16BBA900673BD9 /* InfoPlist.xcstrings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -488,18 +489,10 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		4D00A990257C94C8000F6F83 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A991257C94C8000F6F83 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A992257C94C9000F6F83 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A993257C94CC000F6F83 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A994257C94CC000F6F83 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A995257C94CC000F6F83 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A996257C94D0000F6F83 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A997257C94D0000F6F83 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A998257C94D0000F6F83 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A999257C94D3000F6F83 /* ro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A99A257C94D4000F6F83 /* ro */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ro; path = ro.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A99B257C94D4000F6F83 /* ro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
 		4D00A99C257C94E0000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OgreTextFindProgressSheet.xib; sourceTree = "<group>"; };
 		4D00A99D257C94E0000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OgreFindResultWindow.xib; sourceTree = "<group>"; };
 		4D00A99E257C94E0000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
@@ -516,25 +509,14 @@
 		4D00A9A9257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		4D00A9AA257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MyFindPanel.xib; sourceTree = "<group>"; };
 		4D00A9AB257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4D00A9AC257C94E5000F6F83 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A9AD257C94E5000F6F83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A9AE257C94E5000F6F83 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A9AF257C94E8000F6F83 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A9B0257C94E8000F6F83 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A9B1257C94E8000F6F83 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A9B2257C94EB000F6F83 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A9B3257C94EB000F6F83 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A9B4257C94EB000F6F83 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A9B5257C94EE000F6F83 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
 		4D00A9B6257C94EE000F6F83 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
-		4D00A9B7257C94EF000F6F83 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
 		4D00A9B8257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4D00A9B9257C94F2000F6F83 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D00A9BA257C94F2000F6F83 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D00A9BB257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4D00A9BC257C94F2000F6F83 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4D00A9BD257C94F3000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4D00A9BE257C94F3000F6F83 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D00A9BF257C94F3000F6F83 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D00A9C0257C94F3000F6F83 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D4FC25B1142BCCD0097043F /* GC_Test_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GC_Test_Prefix.pch; sourceTree = "<group>"; };
@@ -754,6 +736,9 @@
 		4DF530BD0915221700475575 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ReplaceWithAttributesTest-Info.plist"; sourceTree = "<group>"; };
 		55A0F15F2D16B66200673BD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OgreAdvancedFindPanel.xib; sourceTree = "<group>"; };
+		55A0F1602D16BBA800673BD9 /* OgreAPFCLocalizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = OgreAPFCLocalizable.xcstrings; sourceTree = "<group>"; };
+		55A0F1622D16BBA900673BD9 /* OgreTextFinderLocalizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = OgreTextFinderLocalizable.xcstrings; sourceTree = "<group>"; };
+		55A0F1642D16BBA900673BD9 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -1272,10 +1257,10 @@
 			isa = PBXGroup;
 			children = (
 				4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.xib */,
-				4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */,
+				55A0F1602D16BBA800673BD9 /* OgreAPFCLocalizable.xcstrings */,
 				4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */,
 				4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.xib */,
-				4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */,
+				55A0F1622D16BBA900673BD9 /* OgreTextFinderLocalizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1296,7 +1281,7 @@
 		4DC40E5409150CF30029A2A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DC411C7091514D70029A2A6 /* InfoPlist.strings */,
+				55A0F1642D16BBA900673BD9 /* InfoPlist.xcstrings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1812,6 +1797,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A0F1662D16BBCE00673BD9 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1864,12 +1850,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A0F1612D16BBA800673BD9 /* OgreAPFCLocalizable.xcstrings in Resources */,
 				4DC4116D091514030029A2A6 /* OgreTextFindProgressSheet.xib in Resources */,
-				4DC4116E091514030029A2A6 /* OgreAPFCLocalizable.strings in Resources */,
+				55A0F1632D16BBA900673BD9 /* OgreTextFinderLocalizable.xcstrings in Resources */,
+				55A0F1652D16BBAA00673BD9 /* InfoPlist.xcstrings in Resources */,
 				4DC4116F091514030029A2A6 /* OgreFindResultWindow.xib in Resources */,
 				4DC41170091514030029A2A6 /* OgreAdvancedFindPanel.xib in Resources */,
-				4DC41171091514030029A2A6 /* OgreTextFinderLocalizable.strings in Resources */,
-				4DC411C9091514D70029A2A6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2132,22 +2118,6 @@
 			name = OgreTextFindProgressSheet.xib;
 			sourceTree = "<group>";
 		};
-		4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D00A990257C94C8000F6F83 /* fr */,
-				4D00A993257C94CC000F6F83 /* it */,
-				4D00A996257C94D0000F6F83 /* ja */,
-				4D00A999257C94D3000F6F83 /* ro */,
-				4D00A9AC257C94E5000F6F83 /* pt */,
-				4D00A9AF257C94E8000F6F83 /* nl */,
-				4D00A9B2257C94EB000F6F83 /* de */,
-				4D00A9B5257C94EE000F6F83 /* es */,
-				4D00A9BC257C94F2000F6F83 /* en */,
-			);
-			name = OgreAPFCLocalizable.strings;
-			sourceTree = "<group>";
-		};
 		4DC41167091514030029A2A6 /* OgreFindResultWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2171,30 +2141,6 @@
 				55A0F15F2D16B66200673BD9 /* en */,
 			);
 			name = OgreAdvancedFindPanel.xib;
-			sourceTree = "<group>";
-		};
-		4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D00A992257C94C9000F6F83 /* fr */,
-				4D00A995257C94CC000F6F83 /* it */,
-				4D00A998257C94D0000F6F83 /* ja */,
-				4D00A99B257C94D4000F6F83 /* ro */,
-				4D00A9AE257C94E5000F6F83 /* pt */,
-				4D00A9B1257C94E8000F6F83 /* nl */,
-				4D00A9B4257C94EB000F6F83 /* de */,
-				4D00A9B7257C94EF000F6F83 /* es */,
-				4D00A9BD257C94F3000F6F83 /* en */,
-			);
-			name = OgreTextFinderLocalizable.strings;
-			sourceTree = "<group>";
-		};
-		4DC411C7091514D70029A2A6 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D00A9BE257C94F3000F6F83 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		4DC4133F09151C2D0029A2A6 /* MainMenu.xib */ = {
@@ -2483,6 +2429,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = binary;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2522,6 +2469,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = binary;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2560,6 +2508,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = binary;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2605,6 +2554,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
 		};
@@ -2642,6 +2592,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -2679,6 +2630,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Default;
 		};
@@ -2716,6 +2668,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = binary;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2758,6 +2711,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = binary;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2799,6 +2753,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = binary;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
