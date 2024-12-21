@@ -1,0 +1,51 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleGetInfoString" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OgreKit version 2.1.9, Copyright (c) 2003-2020 Isao Sonobe."
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "* Name: InfoPlist.strings\n * Project: OgreKit\n *\n * Creation Date: Sep 6 2003\n * Author: Isao Sonobe <sonoisa@gmail.com>\n * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.\n * License: OgreKit License\n *\n * Encoding: UTF8\n * Tabsize: 4",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OgreKit"
+          }
+        }
+      }
+    },
+    "CFBundleShortVersionString" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OgreKit version 2.1.9"
+          }
+        }
+      }
+    },
+    "NSHumanReadableCopyright" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright (c) 2003-2020 Isao Sonobe."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

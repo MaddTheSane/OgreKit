@@ -1,0 +1,7314 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "8.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Options\"; ObjectID = \"8\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプション"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        }
+      }
+    },
+    "9.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Selection\"; ObjectID = \"9\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auswahl"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selección"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "la sélection uniquement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selection"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択範囲"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selection"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selection"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selection"
+          }
+        }
+      }
+    },
+    "11.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Wrap Search\"; ObjectID = \"11\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Umbruch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palabras completas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche en boucle"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrap Search"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "折り返す"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrap Search"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrap Search"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrap Search"
+          }
+        }
+      }
+    },
+    "16.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Scope\"; ObjectID = \"16\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bereich"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alcance"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dans..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scope"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "範囲"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scope"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scope"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scope"
+          }
+        }
+      }
+    },
+    "20.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Origin\"; ObjectID = \"20\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depuis..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始位置"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin"
+          }
+        }
+      }
+    },
+    "25.title" : {
+      "comment" : "Class = \"NSWindow\"; title = \"Find\"; ObjectID = \"25\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        }
+      }
+    },
+    "27.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Cursor\"; ObjectID = \"27\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cursor"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cursor"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "le curseur"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cursor"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カーソル"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cursor"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cursor"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cursor"
+          }
+        }
+      }
+    },
+    "29.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Top\"; ObjectID = \"29\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anfang"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "le début"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top"
+          }
+        }
+      }
+    },
+    "30.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButtonCell\"; ibShadowedToolTip = \"大／小文字の違いを無視する\"; ObjectID = \"30\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大／小文字の違いを無視する"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大／小文字の違いを無視する"
+          }
+        }
+      }
+    },
+    "30.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Ignore Case\"; ObjectID = \"30\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GR./kl. igno."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorar mayúsculas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer la casse"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大／小文字を無視"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        }
+      }
+    },
+    "31.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Entire File\"; ObjectID = \"31\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tout le fichier"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entire File"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全体"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entire File"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entire File"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entire File"
+          }
+        }
+      }
+    },
+    "43.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Search Options\"; ObjectID = \"43\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchoptionen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opciones de búsqueda"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options de recherche"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Options"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索オプション"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Options"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Options"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Options"
+          }
+        }
+      }
+    },
+    "79.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Menu\"; ObjectID = \"79\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        }
+      }
+    },
+    "96.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find Next\"; ObjectID = \"96\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weitersuchen (vorwärts)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar siguiente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher le suivant"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Next"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次を検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Next"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Next"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Next"
+          }
+        }
+      }
+    },
+    "97.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Jump to Selection\"; ObjectID = \"97\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zur Auswahl springen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la selección"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aller à la sélection"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jump to Selection"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択部分へジャンプ"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jump to Selection"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jump to Selection"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jump to Selection"
+          }
+        }
+      }
+    },
+    "98.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find Previous\"; ObjectID = \"98\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weitersuchen (rückwärts)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar anterior"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher le précédent"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Previous"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前を検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Previous"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Previous"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Previous"
+          }
+        }
+      }
+    },
+    "99.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find…\"; ObjectID = \"99\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen…"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索パネルを表示..."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find…"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find…"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find…"
+          }
+        }
+      }
+    },
+    "100.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Use Selection for Find\"; ObjectID = \"100\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Auswahl suchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar la selección para buscar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insérer dans le champ de recherche"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Find"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択部分を検索文字列に使用"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Find"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Find"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Find"
+          }
+        }
+      }
+    },
+    "102.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Replace\"; ObjectID = \"102\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ersetzen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        }
+      }
+    },
+    "103.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Replace and Find Next\"; ObjectID = \"103\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ersetzen und weitersuchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar y buscar siguiente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer et rechercher le suivant"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace and Find Next"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換して次を検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace and Find Next"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace and Find Next"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace and Find Next"
+          }
+        }
+      }
+    },
+    "104.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Replace All\"; ObjectID = \"104\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles ersetzen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar todos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout remplacer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて置換"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        }
+      }
+    },
+    "105.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find All\"; ObjectID = \"105\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles suchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar todos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout rechercher"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        }
+      }
+    },
+    "107.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Highlight\"; ObjectID = \"107\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Markieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resaltar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Surligner"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ハイライト"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        }
+      }
+    },
+    "108.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Unhighlight\"; ObjectID = \"108\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Markierung aufheben"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitar resalte"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer le surlignage"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unhighlight"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ハイライトの取り消し"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unhighlight"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unhighlight"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unhighlight"
+          }
+        }
+      }
+    },
+    "110.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find Selected Text\"; ObjectID = \"110\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auswahl suchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar texto seleccionado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher le texte sélectionné"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Selected Text"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択部分を検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Selected Text"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Selected Text"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Selected Text"
+          }
+        }
+      }
+    },
+    "344.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Clear Find/Replace Histories…\"; ObjectID = \"344\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen/Ersetzen-Verlauf löschen…"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar historial de Buscar/Reemplazar…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effacer l'historique de recherche…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find/Replace Histories…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索・置換履歴を消去..."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find/Replace Histories…"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find/Replace Histories…"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find/Replace Histories…"
+          }
+        }
+      }
+    },
+    "359.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Progress Sheet\"; ObjectID = \"359\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verlaufsanzeige"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra de progreso"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feuille de progression"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress Sheet"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "進歩状況表示"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress Sheet"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress Sheet"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress Sheet"
+          }
+        }
+      }
+    },
+    "361.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Max Number of History\"; ObjectID = \"361\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max. Zahl für Verlauf"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máx n.º en historial"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taille de l'historique"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max Number of History"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "履歴保存数"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max Number of History"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max Number of History"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max Number of History"
+          }
+        }
+      }
+    },
+    "371.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"371\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "372.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"POSIX Extended\"; ObjectID = \"372\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Erweitert"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX extendido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX étendu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Extended"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Extended"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Extended"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Extended"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Extended"
+          }
+        }
+      }
+    },
+    "374.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"POSIX Basic\"; ObjectID = \"374\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Basic"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX básico"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX simple"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Basic"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Basic"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Basic"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Basic"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIX Basic"
+          }
+        }
+      }
+    },
+    "375.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Simple Matching\"; ObjectID = \"375\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfache Treffer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coincidencia simple"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Correspondance direct"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simple Matching"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単純一致"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simple Matching"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simple Matching"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simple Matching"
+          }
+        }
+      }
+    },
+    "376.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Emacs\"; ObjectID = \"376\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emacs"
+          }
+        }
+      }
+    },
+    "377.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Ruby\"; ObjectID = \"377\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruby"
+          }
+        }
+      }
+    },
+    "378.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"GNU Regex\"; ObjectID = \"378\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regex de GNU"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GNU Regex"
+          }
+        }
+      }
+    },
+    "379.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Perl\"; ObjectID = \"379\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perl"
+          }
+        }
+      }
+    },
+    "380.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Grep\"; ObjectID = \"380\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grep"
+          }
+        }
+      }
+    },
+    "381.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Java\"; ObjectID = \"381\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java"
+          }
+        }
+      }
+    },
+    "383.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Search Syntax\"; ObjectID = \"383\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Syntax der Suche"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sintaxis de búsqueda"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Syntaxe de recherche"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Syntax"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正規表現構文"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Syntax"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Syntax"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Syntax"
+          }
+        }
+      }
+    },
+    "410.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"¥\"; ObjectID = \"410\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥"
+          }
+        }
+      }
+    },
+    "411.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"411\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "416.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Escape Character\"; ObjectID = \"416\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape-Zeichen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carácter escape"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caractère d'échappement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape Character"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エスケープ文字"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape Character"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape Character"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape Character"
+          }
+        }
+      }
+    },
+    "417.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"\\\\ (Convert ¥ to \\\\)\"; ObjectID = \"417\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ ( ¥ nach \\ konvertieren)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (Convertir ¥ en \\)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (Convertir ¥ en \\)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (Convert ¥ to \\)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (¥入力を\\に変換)"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (Convert ¥ to \\)"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (Convert ¥ to \\)"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\ (Convert ¥ to \\)"
+          }
+        }
+      }
+    },
+    "419.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"\\\\\"; ObjectID = \"419\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\\"
+          }
+        }
+      }
+    },
+    "420.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"¥ (Convert \\\\ to ¥)\"; ObjectID = \"420\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (\\ nach ¥ konvertieren)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (Convertir \\ en ¥)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (Convertir \\ en ¥)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (Convert \\ to ¥)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (\\入力を¥に変換)"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (Convert \\ to ¥)"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (Convert \\ to ¥)"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¥ (Convert \\ to ¥)"
+          }
+        }
+      }
+    },
+    "433.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Use Selection for Replace\"; ObjectID = \"433\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Auswahl Ersetzen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar la selección para reemplazar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insérer dans le champ de remplacement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Replace"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択部分を置換文字列に使用"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Replace"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Replace"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Selection for Replace"
+          }
+        }
+      }
+    },
+    "448.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSScrollView\"; ibShadowedToolTip = \"検索文字列では次のエスケープ・シーケンスが使用できる。\\n\\n\\\\0, \\\\&: マッチした文字列\\n\\\\1, \\\\2, ... \\\\9: n番目に捕獲されたグループにマッチした部分文字列\\n\\\\`: マッチした文字列より前の文字列\\n\\\\': マッチした文字列より後の文字列\\n\\\\-: 前回にマッチした文字列との間の文字列\\n\\\\+: 最も番号が大きいマッチしたグループの部分文字列\\n\\\\g<name>: 名前が name の名前付きグループにマッチした部分文字列\\n\\\\g<number>: n番目に捕獲されたグループにマッチした部分文字列\\n\\\\\\\\: エスケープ文字 \\\"\\\\\\\"\\n\\\\t: 水平タブ (0x09)\\n\\\\n: 改行文字 (0x0A)\\n\\\\r: 復帰文字 (0x0D)\\n\\\\x{HHHH}: 16-bit Unicode文字 U+HHHH\"; ObjectID = \"448\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索文字列では次のエスケープ・シーケンスが使用できる。\n\n\\0, \\&: マッチした文字列\n\\1, \\2, ... \\9: n番目に捕獲されたグループにマッチした部分文字列\n\\`: マッチした文字列より前の文字列\n\\': マッチした文字列より後の文字列\n\\-: 前回にマッチした文字列との間の文字列\n\\+: 最も番号が大きいマッチしたグループの部分文字列\n\\g<name>: 名前が name の名前付きグループにマッチした部分文字列\n\\g<number>: n番目に捕獲されたグループにマッチした部分文字列\n\\\\: エスケープ文字 \"\\\"\n\\t: 水平タブ (0x09)\n\\n: 改行文字 (0x0A)\n\\r: 復帰文字 (0x0D)\n\\x{HHHH}: 16-bit Unicode文字 U+HHHH"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索文字列では次のエスケープ・シーケンスが使用できる。\n\n\\0, \\&: マッチした文字列\n\\1, \\2, ... \\9: n番目に捕獲されたグループにマッチした部分文字列\n\\`: マッチした文字列より前の文字列\n\\': マッチした文字列より後の文字列\n\\-: 前回にマッチした文字列との間の文字列\n\\+: 最も番号が大きいマッチしたグループの部分文字列\n\\g<name>: 名前が name の名前付きグループにマッチした部分文字列\n\\g<number>: n番目に捕獲されたグループにマッチした部分文字列\n\\\\: エスケープ文字 \"\\\"\n\\t: 水平タブ (0x09)\n\\n: 改行文字 (0x0A)\n\\r: 復帰文字 (0x0D)\n\\x{HHHH}: 16-bit Unicode文字 U+HHHH"
+          }
+        }
+      }
+    },
+    "453.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"453\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "454.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item2\"; ObjectID = \"454\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        }
+      }
+    },
+    "457.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item3\"; ObjectID = \"457\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        }
+      }
+    },
+    "460.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item2\"; ObjectID = \"460\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        }
+      }
+    },
+    "461.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"461\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "462.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item3\"; ObjectID = \"462\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        }
+      }
+    },
+    "529.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Replace Options\"; ObjectID = \"529\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Options"
+          }
+        }
+      }
+    },
+    "538.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Title\"; ObjectID = \"538\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        }
+      }
+    },
+    "560.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"delimit keywords to find by white-spaces in use the Simple Matching syntax\"; ObjectID = \"560\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単純一致構文の使用時に、空白で単語を区切る"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単純一致構文の使用時に、空白で単語を区切る"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        }
+      }
+    },
+    "561.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"正規表現を使用する\"; ObjectID = \"561\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正規表現を使用する"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正規表現を使用する"
+          }
+        }
+      }
+    },
+    "619.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"extended pattern form\"; ObjectID = \"619\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extended pattern form"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張式を使用する"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version étendue des patterns."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extended pattern form"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張式を使用する"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extended pattern form"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extended pattern form"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extended pattern form"
+          }
+        }
+      }
+    },
+    "620.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"clear \\\"Single Line\\\" option which is default on in POSIXxxxx, Perl and Java.\"; ObjectID = \"620\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clear \"Single Line\" option which is default on in POSIXxxxx, Perl and Java."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIXxxxxやPerl、Java構文の使用時にデフォルトで指定される \"一行マッチ\" オプションを無効にする"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne prend pas en compte l'option \"Ligne unique\" qui est activée par défaut en mode POSIX, Perl et Java."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clear \"Single Line\" option which is default on in POSIXxxxx, Perl and Java."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POSIXxxxxやPerl、Java構文の使用時にデフォルトで指定される \"一行マッチ\" オプションを無効にする"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clear \"Single Line\" option which is default on in POSIXxxxx, Perl and Java."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clear \"Single Line\" option which is default on in POSIXxxxx, Perl and Java."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clear \"Single Line\" option which is default on in POSIXxxxx, Perl and Java."
+          }
+        }
+      }
+    },
+    "621.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"find longest match\"; ObjectID = \"621\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "find longest match"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最長マッチを探す"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le résultat le plus long."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "find longest match"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最長マッチを探す"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "find longest match"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "find longest match"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "find longest match"
+          }
+        }
+      }
+    },
+    "622.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"'^' -> '\\\\A', '$' -> '\\\\z', '\\\\Z' -> '\\\\z'\"; ObjectID = \"622\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Considère la chaine comme une ligne unique même si elle intègre des sauts de ligne."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        }
+      }
+    },
+    "623.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"delimit keywords to find by white-spaces in use the Simple Matching syntax\"; ObjectID = \"623\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単純一致構文の使用時に、空白で単語を区切る"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encadre les mots clés par des espaces (tabulation, espace, etc...) lorsque la recherche est faîte en mode \"Correspondace directe\"."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単純一致構文の使用時に、空白で単語を区切る"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        }
+      }
+    },
+    "624.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"'.' match with newline\"; ObjectID = \"624\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' match with newline"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' を改行文字にもマッチさせる"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Considère que le caractère '.' désigne aussi le cractère 'Nouvelle ligne'."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' match with newline"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' を改行文字にもマッチさせる"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' match with newline"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' match with newline"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'.' match with newline"
+          }
+        }
+      }
+    },
+    "625.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"named and no-named group captured.\"; ObjectID = \"625\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named and no-named group captured."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前付きグループ、名前なしグループを捕獲する"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture les groupes només et sans noms."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named and no-named group captured."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前付きグループ、名前なしグループを捕獲する"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named and no-named group captured."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named and no-named group captured."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named and no-named group captured."
+          }
+        }
+      }
+    },
+    "626.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"ignore empty match\"; ObjectID = \"626\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore empty match"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空マッチを無視する"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne pas afficher les correspondances qui n'existe pas/plus."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore empty match"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空マッチを無視する"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore empty match"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore empty match"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore empty match"
+          }
+        }
+      }
+    },
+    "627.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"string head isn't considered as begin of line\"; ObjectID = \"627\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string head isn't considered as begin of line"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭を行頭とみなさない"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le début de ligne est considéré comme appartenant à la ligne."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string head isn't considered as begin of line"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭を行頭とみなさない"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string head isn't considered as begin of line"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string head isn't considered as begin of line"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string head isn't considered as begin of line"
+          }
+        }
+      }
+    },
+    "628.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"ignore case (case-insensitive)\"; ObjectID = \"628\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore case (case-insensitive)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大／小文字の違いを無視する"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne pas tenir compte de la distinction majuscule/minuscule."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore case (case-insensitive)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大／小文字の違いを無視する"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore case (case-insensitive)"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore case (case-insensitive)"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ignore case (case-insensitive)"
+          }
+        }
+      }
+    },
+    "629.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"string end isn't considered as end of line\"; ObjectID = \"629\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string end isn't considered as end of line"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "末尾を行末とみなさない"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La fin de ligne n'est pas considérée comme appartenant à la ligne"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string end isn't considered as end of line"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "末尾を行末とみなさない"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string end isn't considered as end of line"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string end isn't considered as end of line"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "string end isn't considered as end of line"
+          }
+        }
+      }
+    },
+    "630.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"allow empty match being next to not empty matchs\"; ObjectID = \"630\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "allow empty match being next to not empty matchs"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空でないマッチに接する空マッチを許す"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affiche toutes les correspondances."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "allow empty match being next to not empty matchs"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空でないマッチに接する空マッチを許す"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "allow empty match being next to not empty matchs"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "allow empty match being next to not empty matchs"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "allow empty match being next to not empty matchs"
+          }
+        }
+      }
+    },
+    "631.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"named group only captured.\"; ObjectID = \"631\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named group only captured."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前付きグループのみ捕獲する"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture les groupes només uniquememnt."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named group only captured."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前付きグループのみ捕獲する"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named group only captured."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named group only captured."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "named group only captured."
+          }
+        }
+      }
+    },
+    "676.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"スタイル付き文字列に置換する\"; ObjectID = \"676\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スタイル付き文字列に置換する"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スタイル付き文字列に置換する"
+          }
+        }
+      }
+    },
+    "679.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Clear Find String Styles\"; ObjectID = \"679\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find String Styles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find String Styles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer le style du champ de recherche"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find String Styles"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索文字列のスタイルを消去"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find String Styles"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find String Styles"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Find String Styles"
+          }
+        }
+      }
+    },
+    "680.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Clear Replace String Styles\"; ObjectID = \"680\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Replace String Styles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Replace String Styles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer le style du champ de remplacement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Replace String Styles"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換文字列のスタイルを消去"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Replace String Styles"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Replace String Styles"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Replace String Styles"
+          }
+        }
+      }
+    },
+    "690.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Previous\"; ObjectID = \"690\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Précédent"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous"
+          }
+        }
+      }
+    },
+    "691.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Delimit by Whitespace\"; ObjectID = \"691\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Précédé et suivi d'espace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        }
+      }
+    },
+    "692.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Regular Expressions\"; ObjectID = \"692\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expressions régulières"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regular Expressions"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regular Expressions"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regular Expressions"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regular Expressions"
+          }
+        }
+      }
+    },
+    "693.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Next\"; ObjectID = \"693\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivant"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "694.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find All\"; ObjectID = \"694\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Leerzeich. trennen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout rechercher"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find All"
+          }
+        }
+      }
+    },
+    "695.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace All\"; ObjectID = \"695\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reguläre Ausdrücke"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout remplacer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace All"
+          }
+        }
+      }
+    },
+    "696.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace\"; ObjectID = \"696\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace"
+          }
+        }
+      }
+    },
+    "697.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Highlight\"; ObjectID = \"697\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles suchen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Surligner"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight"
+          }
+        }
+      }
+    },
+    "698.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"More Options\"; ObjectID = \"698\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles ersetzen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus d'options"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More Options"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More Options"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More Options"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More Options"
+          }
+        }
+      }
+    },
+    "699.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace & Find\"; ObjectID = \"699\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ersetzen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer et rechercher"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace & Find"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace & Find"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace & Find"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace & Find"
+          }
+        }
+      }
+    },
+    "700.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Markieren\"; ObjectID = \"700\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Markieren"
+          }
+        }
+      }
+    },
+    "701.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Mehr Optionen\"; ObjectID = \"701\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr Optionen"
+          }
+        }
+      }
+    },
+    "702.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Ersetz.&Suchen\"; ObjectID = \"702\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ersetz.&Suchen"
+          }
+        }
+      }
+    },
+    "703.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace Fonts\"; ObjectID = \"703\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer les polices"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Fonts"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Fonts"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Fonts"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Fonts"
+          }
+        }
+      }
+    },
+    "704.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Merge Styles\"; ObjectID = \"704\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fusionner les styles"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merge Styles"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merge Styles"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merge Styles"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merge Styles"
+          }
+        }
+      }
+    },
+    "705.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"With Styles\"; ObjectID = \"705\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avec le style"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Styles"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Styles"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Styles"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Styles"
+          }
+        }
+      }
+    },
+    "706.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace Fonts\"; ObjectID = \"706\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Fonts"
+          }
+        }
+      }
+    },
+    "707.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Merge Styles\"; ObjectID = \"707\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merge Styles"
+          }
+        }
+      }
+    },
+    "708.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Find:\"; ObjectID = \"708\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Styles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:"
+          }
+        }
+      }
+    },
+    "709.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Replace:\"; ObjectID = \"709\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anterior"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前を検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:"
+          }
+        }
+      }
+    },
+    "710.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Cancel\"; ObjectID = \"710\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimitar con espacio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空白で区切る"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "711.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Extend\"; ObjectID = \"711\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expresiones regulares"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Étendu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extend"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正規表現"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extend"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extend"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extend"
+          }
+        }
+      }
+    },
+    "712.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Negate Single Line\"; ObjectID = \"712\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ersetzen:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siguiente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer \"Ligne Unique\""
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negate Single Line"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次を検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negate Single Line"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negate Single Line"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negate Single Line"
+          }
+        }
+      }
+    },
+    "713.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find Longest\"; ObjectID = \"713\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar todos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher le plus long"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Longest"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Longest"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Longest"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Longest"
+          }
+        }
+      }
+    },
+    "714.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Single Line\"; ObjectID = \"714\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erweitern"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar todos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligne unique"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single Line"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて置換"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single Line"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single Line"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single Line"
+          }
+        }
+      }
+    },
+    "715.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Delimit by Whitespace\"; ObjectID = \"715\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine Zeile ablehnen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Précédé et suivi d'espace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimit by Whitespace"
+          }
+        }
+      }
+    },
+    "716.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Multiline\"; ObjectID = \"716\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Längstes suchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resaltar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiligne"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiline"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ハイライト"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiline"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiline"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiline"
+          }
+        }
+      }
+    },
+    "717.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Capture Group\"; ObjectID = \"717\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine Zeile"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más opciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capturer tous les Groupes"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture Group"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "詳細設定"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture Group"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture Group"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture Group"
+          }
+        }
+      }
+    },
+    "718.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find Not Empty\"; ObjectID = \"718\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Leerzeich. trennen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar & Buscar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher chaînes non vide"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Not Empty"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換と検索"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Not Empty"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Not Empty"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Not Empty"
+          }
+        }
+      }
+    },
+    "719.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Not Begin of Line\"; ObjectID = \"719\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehrere Zeilen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sans \"Début de ligne\""
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Begin of Line"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Begin of Line"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Begin of Line"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Begin of Line"
+          }
+        }
+      }
+    },
+    "720.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Ignore Case\"; ObjectID = \"720\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Gruppe sichern"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer la casse"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore Case"
+          }
+        }
+      }
+    },
+    "721.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Not End of Line\"; ObjectID = \"721\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suche nicht leer"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sans \"Fin de ligne\""
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not End of Line"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not End of Line"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not End of Line"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not End of Line"
+          }
+        }
+      }
+    },
+    "722.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find Empty\"; ObjectID = \"722\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht Zeilenanfang"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Fonts"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher chaîne vide"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Empty"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォントを置換"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Empty"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Empty"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Empty"
+          }
+        }
+      }
+    },
+    "723.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Don't Capture Group\"; ObjectID = \"723\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GROß/klein ignorieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merge Styles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne pas capturer les groupes"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't Capture Group"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スタイルを融合"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't Capture Group"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't Capture Group"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't Capture Group"
+          }
+        }
+      }
+    },
+    "724.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Highlight Color:\"; ObjectID = \"724\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht Zeilenende"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Styles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couleur de surlignage :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight Color:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スタイル付き"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight Color:"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight Color:"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlight Color:"
+          }
+        }
+      }
+    },
+    "725.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Close When Done\"; ObjectID = \"725\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leere Suche"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer à la fin"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close When Done"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close When Done"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close When Done"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close When Done"
+          }
+        }
+      }
+    },
+    "726.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Find:\\n\"; ObjectID = \"726\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Sichern in Gruppe"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher :\n"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:\n"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:\n"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:\n"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find:\n"
+          }
+        }
+      }
+    },
+    "727.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Replace:\\n\"; ObjectID = \"727\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Markierfarbe:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:\n"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索：\n"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:\n"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:\n"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace:\n"
+          }
+        }
+      }
+    },
+    "728.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"50\"; ObjectID = \"728\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Am Ende schließen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換：\n"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        }
+      }
+    },
+    "729.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"50\"; ObjectID = \"729\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suche:\n"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        }
+      }
+    },
+    "730.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Ersetz.:\\n\"; ObjectID = \"730\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ersetz.:\n"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extendido"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張式"
+          }
+        }
+      }
+    },
+    "731.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"50\"; ObjectID = \"731\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negar línea sola"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"単一行\"を無効にする"
+          }
+        }
+      }
+    },
+    "732.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Open Sheet\"; ObjectID = \"732\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar el más largo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la feuille"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Sheet"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最長マッチ"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Sheet"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Sheet"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Sheet"
+          }
+        }
+      }
+    },
+    "733.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Switch\"; ObjectID = \"733\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una sola línea"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単一行"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        }
+      }
+    },
+    "734.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"734\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delimitar con espacio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空白で区切る"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        }
+      }
+    },
+    "735.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"735\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Sheet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Varias líneas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ドット全文字マッチ"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        }
+      }
+    },
+    "736.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Switch\"; ObjectID = \"736\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capturar grupo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常に無名グループを捕獲"
+          }
+        }
+      }
+    },
+    "737.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"737\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar no vacío"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空マッチしない"
+          }
+        }
+      }
+    },
+    "738.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"738\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No comienzo de línea"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭を行頭とみなさない"
+          }
+        }
+      }
+    },
+    "739.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Ignorar mayúsculas\"; ObjectID = \"739\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorar mayúsculas"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大／小文字を無視"
+          }
+        }
+      }
+    },
+    "740.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"No fin de línea\"; ObjectID = \"740\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No fin de línea"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "末尾を行末とみなさない"
+          }
+        }
+      }
+    },
+    "741.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Buscar vacío\"; ObjectID = \"741\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar vacío"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "非空マッチ後に空マッチ"
+          }
+        }
+      }
+    },
+    "742.title" : {
+      "comment" : "Class = \"NSWindow\"; title = \"Find\"; ObjectID = \"742\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No capturar grupo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無名グループを捕獲しない"
+          }
+        }
+      }
+    },
+    "743.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Color de resalte:\"; ObjectID = \"743\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Color de resalte:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ハイライト色:"
+          }
+        }
+      }
+    },
+    "744.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Cerrar al acabar\"; ObjectID = \"744\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar al acabar"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了後自動的に閉じる"
+          }
+        }
+      }
+    },
+    "745.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Previous\"; ObjectID = \"745\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Previous"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar:\n"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索:\n"
+          }
+        }
+      }
+    },
+    "746.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Options\"; ObjectID = \"746\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Options"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reemplazar:\n"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置換:\n"
+          }
+        }
+      }
+    },
+    "747.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"50\"; ObjectID = \"747\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        }
+      }
+    },
+    "748.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Switch\"; ObjectID = \"748\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Switch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50"
+          }
+        }
+      }
+    },
+    "749.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Ignore Case\"; ObjectID = \"749\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ignore Case"
+          }
+        }
+      }
+    },
+    "750.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Wrap Search\"; ObjectID = \"750\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Wrap Search"
+          }
+        }
+      }
+    },
+    "751.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"delimit keywords to find by white-spaces in use the Simple Matching syntax\"; ObjectID = \"751\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        }
+      }
+    },
+    "751.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Open Sheet\"; ObjectID = \"751\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Sheet"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "シートを開く"
+          }
+        }
+      }
+    },
+    "752.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Delimit by Whitespace\"; ObjectID = \"752\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delimit by Whitespace"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch"
+          }
+        }
+      }
+    },
+    "753.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"753\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        }
+      }
+    },
+    "754.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Regular Expressions\"; ObjectID = \"754\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Regular Expressions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radio"
+          }
+        }
+      }
+    },
+    "756.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Next\"; ObjectID = \"756\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "758.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find All\"; ObjectID = \"758\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find All"
+          }
+        }
+      }
+    },
+    "759.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Scope\"; ObjectID = \"759\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scope"
+          }
+        }
+      }
+    },
+    "761.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"761\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Radio"
+          }
+        }
+      }
+    },
+    "762.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Entire File\"; ObjectID = \"762\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Entire File"
+          }
+        }
+      }
+    },
+    "763.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Selection\"; ObjectID = \"763\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selection"
+          }
+        }
+      }
+    },
+    "765.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace All\"; ObjectID = \"765\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace All"
+          }
+        }
+      }
+    },
+    "767.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace\"; ObjectID = \"767\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace"
+          }
+        }
+      }
+    },
+    "768.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Origin\"; ObjectID = \"768\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Origin"
+          }
+        }
+      }
+    },
+    "770.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Radio\"; ObjectID = \"770\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Radio"
+          }
+        }
+      }
+    },
+    "771.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Top\"; ObjectID = \"771\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Top"
+          }
+        }
+      }
+    },
+    "772.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Cursor\"; ObjectID = \"772\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cursor"
+          }
+        }
+      }
+    },
+    "774.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Highlight\"; ObjectID = \"774\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Highlight"
+          }
+        }
+      }
+    },
+    "776.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"More Options\"; ObjectID = \"776\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "More Options"
+          }
+        }
+      }
+    },
+    "778.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace & Find\"; ObjectID = \"778\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace & Find"
+          }
+        }
+      }
+    },
+    "786.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Replace Options\"; ObjectID = \"786\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace Options"
+          }
+        }
+      }
+    },
+    "788.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Merge Styles\"; ObjectID = \"788\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Merge Styles"
+          }
+        }
+      }
+    },
+    "790.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Replace Fonts\"; ObjectID = \"790\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace Fonts"
+          }
+        }
+      }
+    },
+    "792.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"With Styles\"; ObjectID = \"792\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "With Styles"
+          }
+        }
+      }
+    },
+    "793.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Title\"; ObjectID = \"793\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Title"
+          }
+        }
+      }
+    },
+    "804.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"804\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "806.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item2\"; ObjectID = \"806\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        }
+      }
+    },
+    "807.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item3\"; ObjectID = \"807\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        }
+      }
+    },
+    "810.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"810\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "811.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item2\"; ObjectID = \"811\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item2"
+          }
+        }
+      }
+    },
+    "813.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item3\"; ObjectID = \"813\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item3"
+          }
+        }
+      }
+    },
+    "815.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Find:\"; ObjectID = \"815\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find:"
+          }
+        }
+      }
+    },
+    "817.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Replace:\"; ObjectID = \"817\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace:"
+          }
+        }
+      }
+    },
+    "819.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Cancel\"; ObjectID = \"819\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "822.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Search Options\"; ObjectID = \"822\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Search Options"
+          }
+        }
+      }
+    },
+    "823.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"extended pattern form\"; ObjectID = \"823\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "extended pattern form"
+          }
+        }
+      }
+    },
+    "824.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Extend\"; ObjectID = \"824\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Extend"
+          }
+        }
+      }
+    },
+    "825.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"clear \\\"Single Line\\\" option which is default on in POSIXxxxx, Perl and Java.\"; ObjectID = \"825\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "clear \"Single Line\" option which is default on in POSIXxxxx, Perl and Java."
+          }
+        }
+      }
+    },
+    "826.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Negate Single Line\"; ObjectID = \"826\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Negate Single Line"
+          }
+        }
+      }
+    },
+    "827.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"find longest match\"; ObjectID = \"827\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "find longest match"
+          }
+        }
+      }
+    },
+    "828.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find Longest\"; ObjectID = \"828\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find Longest"
+          }
+        }
+      }
+    },
+    "829.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"'^' -> '\\\\A', '$' -> '\\\\z', '\\\\Z' -> '\\\\z'\"; ObjectID = \"829\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "'^' -> '\\A', '$' -> '\\z', '\\Z' -> '\\z'"
+          }
+        }
+      }
+    },
+    "830.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Single Line\"; ObjectID = \"830\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Single Line"
+          }
+        }
+      }
+    },
+    "831.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"delimit keywords to find by white-spaces in use the Simple Matching syntax\"; ObjectID = \"831\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "delimit keywords to find by white-spaces in use the Simple Matching syntax"
+          }
+        }
+      }
+    },
+    "832.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Delimit by Whitespace\"; ObjectID = \"832\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delimit by Whitespace"
+          }
+        }
+      }
+    },
+    "833.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"'.' match with newline\"; ObjectID = \"833\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "'.' match with newline"
+          }
+        }
+      }
+    },
+    "834.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Multiline\"; ObjectID = \"834\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Multiline"
+          }
+        }
+      }
+    },
+    "835.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"named and no-named group captured.\"; ObjectID = \"835\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "named and no-named group captured."
+          }
+        }
+      }
+    },
+    "836.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Capture Group\"; ObjectID = \"836\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Capture Group"
+          }
+        }
+      }
+    },
+    "837.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"ignore empty match\"; ObjectID = \"837\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ignore empty match"
+          }
+        }
+      }
+    },
+    "838.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find Not Empty\"; ObjectID = \"838\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find Not Empty"
+          }
+        }
+      }
+    },
+    "839.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"string head isn't considered as begin of line\"; ObjectID = \"839\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "string head isn't considered as begin of line"
+          }
+        }
+      }
+    },
+    "840.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Not Begin of Line\"; ObjectID = \"840\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Not Begin of Line"
+          }
+        }
+      }
+    },
+    "841.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"ignore case (case-insensitive)\"; ObjectID = \"841\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ignore case (case-insensitive)"
+          }
+        }
+      }
+    },
+    "842.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Ignore Case\"; ObjectID = \"842\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ignore Case"
+          }
+        }
+      }
+    },
+    "843.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"string end isn't considered as end of line\"; ObjectID = \"843\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "string end isn't considered as end of line"
+          }
+        }
+      }
+    },
+    "844.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Not End of Line\"; ObjectID = \"844\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Not End of Line"
+          }
+        }
+      }
+    },
+    "845.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"allow empty match being next to not empty matchs\"; ObjectID = \"845\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "allow empty match being next to not empty matchs"
+          }
+        }
+      }
+    },
+    "846.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Find Empty\"; ObjectID = \"846\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find Empty"
+          }
+        }
+      }
+    },
+    "847.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"named group only captured.\"; ObjectID = \"847\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "named group only captured."
+          }
+        }
+      }
+    },
+    "848.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Don't Capture Group\"; ObjectID = \"848\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Don't Capture Group"
+          }
+        }
+      }
+    },
+    "850.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Highlight Color:\"; ObjectID = \"850\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Highlight Color:"
+          }
+        }
+      }
+    },
+    "852.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Progress Sheet\"; ObjectID = \"852\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Progress Sheet"
+          }
+        }
+      }
+    },
+    "854.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Close When Done\"; ObjectID = \"854\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Close When Done"
+          }
+        }
+      }
+    },
+    "855.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Max Number of History\"; ObjectID = \"855\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Max Number of History"
+          }
+        }
+      }
+    },
+    "857.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Find:\\n\"; ObjectID = \"857\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find:\n"
+          }
+        }
+      }
+    },
+    "859.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Replace:\\n\"; ObjectID = \"859\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace:\n"
+          }
+        }
+      }
+    },
+    "861.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"50\"; ObjectID = \"861\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "50"
+          }
+        }
+      }
+    },
+    "864.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"50\"; ObjectID = \"864\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "50"
+          }
+        }
+      }
+    },
+    "866.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Search Syntax\"; ObjectID = \"866\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Search Syntax"
+          }
+        }
+      }
+    },
+    "869.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"869\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "870.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"POSIX Extended\"; ObjectID = \"870\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "POSIX Extended"
+          }
+        }
+      }
+    },
+    "871.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"POSIX Basic\"; ObjectID = \"871\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "POSIX Basic"
+          }
+        }
+      }
+    },
+    "872.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Simple Matching\"; ObjectID = \"872\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Simple Matching"
+          }
+        }
+      }
+    },
+    "873.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Emacs\"; ObjectID = \"873\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Emacs"
+          }
+        }
+      }
+    },
+    "874.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Ruby\"; ObjectID = \"874\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ruby"
+          }
+        }
+      }
+    },
+    "875.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"GNU Regex\"; ObjectID = \"875\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "GNU Regex"
+          }
+        }
+      }
+    },
+    "876.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Perl\"; ObjectID = \"876\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Perl"
+          }
+        }
+      }
+    },
+    "877.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Grep\"; ObjectID = \"877\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Grep"
+          }
+        }
+      }
+    },
+    "878.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Java\"; ObjectID = \"878\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Java"
+          }
+        }
+      }
+    },
+    "879.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Escape Character\"; ObjectID = \"879\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Escape Character"
+          }
+        }
+      }
+    },
+    "882.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"882\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "883.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"¥\"; ObjectID = \"883\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "¥"
+          }
+        }
+      }
+    },
+    "884.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"\\\\ (Convert ¥ to \\\\)\"; ObjectID = \"884\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "\\ (Convert ¥ to \\)"
+          }
+        }
+      }
+    },
+    "885.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"\\\\\"; ObjectID = \"885\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "\\"
+          }
+        }
+      }
+    },
+    "886.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"¥ (Convert \\\\ to ¥)\"; ObjectID = \"886\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "¥ (Convert \\ to ¥)"
+          }
+        }
+      }
+    },
+    "888.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Open Sheet\"; ObjectID = \"888\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open Sheet"
+          }
+        }
+      }
+    },
+    "889.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Menu\"; ObjectID = \"889\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Menu"
+          }
+        }
+      }
+    },
+    "890.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find Next\"; ObjectID = \"890\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find Next"
+          }
+        }
+      }
+    },
+    "891.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Jump to Selection\"; ObjectID = \"891\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Jump to Selection"
+          }
+        }
+      }
+    },
+    "892.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find Previous\"; ObjectID = \"892\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find Previous"
+          }
+        }
+      }
+    },
+    "893.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find…\"; ObjectID = \"893\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find…"
+          }
+        }
+      }
+    },
+    "894.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Use Selection for Find\"; ObjectID = \"894\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use Selection for Find"
+          }
+        }
+      }
+    },
+    "896.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Replace\"; ObjectID = \"896\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace"
+          }
+        }
+      }
+    },
+    "897.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Replace and Find Next\"; ObjectID = \"897\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace and Find Next"
+          }
+        }
+      }
+    },
+    "898.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Replace All\"; ObjectID = \"898\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Replace All"
+          }
+        }
+      }
+    },
+    "899.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find All\"; ObjectID = \"899\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find All"
+          }
+        }
+      }
+    },
+    "901.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Highlight\"; ObjectID = \"901\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Highlight"
+          }
+        }
+      }
+    },
+    "902.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Unhighlight\"; ObjectID = \"902\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unhighlight"
+          }
+        }
+      }
+    },
+    "904.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Find Selected Text\"; ObjectID = \"904\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Find Selected Text"
+          }
+        }
+      }
+    },
+    "906.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Clear Find/Replace Histories…\"; ObjectID = \"906\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Clear Find/Replace Histories…"
+          }
+        }
+      }
+    },
+    "907.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Use Selection for Replace\"; ObjectID = \"907\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use Selection for Replace"
+          }
+        }
+      }
+    },
+    "909.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Clear Find String Styles\"; ObjectID = \"909\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Clear Find String Styles"
+          }
+        }
+      }
+    },
+    "910.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Clear Replace String Styles\"; ObjectID = \"910\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Clear Replace String Styles"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

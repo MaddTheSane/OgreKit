@@ -55,6 +55,9 @@ $(ARM_64_DIR):
 $(UNIVERSAL_DIR):
 	mkdir $@
 
+exportloc:
+	echo Nothing to do
+
 clean:
 	rm -rf $(INTEL_64_DIR)
 	rm -rf $(ARM_64_DIR)
