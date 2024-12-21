@@ -21,8 +21,8 @@
 
 @class OgreTextFinder, OgreFindPanelController, OgreTextFindResult, OgreTextFindThread, OgreTextFindProgressSheet;
 
-@protocol OgreTextFindDataSource
-/* OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる 
+@protocol OgreTextFindDataSource <NSObject>
+/* OgreTextFinderが検索対象を知りたいときにresponder chain経由で呼ばれる
    document windowのdelegateがimplementすることを想定している */
 - (void)tellMeTargetToFindIn:(id)sender;
 @end
@@ -52,40 +52,36 @@
 + (NSBundle*)ogreKitBundle;
 
 /* Shared instance */
-+ (id)sharedTextFinder;
++ (__kindof OgreTextFinder*)sharedTextFinder;
 
 /* nib name of Find Panel/Find Panel Controller */
-- (NSString*)findPanelNibName;
+- (NSNibName)findPanelNibName;
 
 /* Show Find Panel */
 - (IBAction)showFindPanel:(id)sender;
 
 /* Startup time configurations */
 - (void)setShouldHackFindMenu:(BOOL)hack;
-- (void)setUseStylesInFindPanel:(BOOL)use;
-- (BOOL)useStylesInFindPanel;
+@property BOOL useStylesInFindPanel;
 
 /*************
  * Accessors *
  *************/
 // target to find in
+//@property (nonatomic, assign) id targetToFindIn;
 - (void)setTargetToFindIn:(id)target;
 - (id)targetToFindIn;
 
-- (void)setAdapterClassForTargetToFindIn:(Class)adapterClass;
-- (Class)adapterClassForTargetToFindIn;
+@property (assign) Class adapterClassForTargetToFindIn;
 
-// Find Panel Controller
-- (void)setFindPanelController:(OgreFindPanelController*)findPanelController;
-- (OgreFindPanelController*)findPanelController;
+/// Find Panel Controller
+@property (retain) OgreFindPanelController *findPanelController;
 
-// escape character
-- (void)setEscapeCharacter:(NSString*)character;
-- (NSString*)escapeCharacter;
+//! escape character
+@property (copy) NSString *escapeCharacter;
 
-// syntax
-- (void)setSyntax:(OgreSyntax)syntax;
-- (OgreSyntax)syntax;
+//! syntax
+@property OgreSyntax syntax;
 
 /* Find/Replace/Highlight... */
 - (OgreTextFindResult*)find:(NSString*)expressionString 

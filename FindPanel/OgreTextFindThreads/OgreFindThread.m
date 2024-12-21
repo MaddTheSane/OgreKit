@@ -167,35 +167,8 @@
     return YES; // continue
 }
 
-- (void)setWrap:(BOOL)wrap
-{
-    _wrap = wrap;
-}
-
-- (BOOL)wrap
-{
-    return _wrap;
-}
-
-- (void)setBackward:(BOOL)backward
-{
-    _backward = backward;
-}
-
-- (BOOL)backward
-{
-    return _backward;
-}
-
-- (void)setFromTop:(BOOL)fromTop
-{
-    _fromTop = fromTop;
-}
-
-- (BOOL)fromTop
-{
-    return _fromTop;
-}
-
+@synthesize wrap = _wrap;
+@synthesize backward = _backward;
+@synthesize fromTop = _fromTop;
 
 @end

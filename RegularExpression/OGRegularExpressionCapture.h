@@ -22,7 +22,7 @@
 
 
 // constants
-extern NSString	* const OgreCaptureException;
+extern NSExceptionName const OgreCaptureException;
 
 
 @class OGRegularExpression, OGRegularExpressionEnumerator, OGRegularExpressionMatch, OGRegularExpressionCapture;

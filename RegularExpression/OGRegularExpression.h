@@ -90,7 +90,7 @@ typedef enum {
 
 
 // exception name
-extern NSString	* const OgreException;
+extern NSExceptionName const OgreException;
 
 @class OGRegularExpressionMatch, OGRegularExpressionEnumerator;
 @protocol OGStringProtocol;
@@ -153,34 +153,34 @@ extern NSString	* const OgreException;
   OgreGUIYenCharacter			[NSString stringWithUTF8String:"\xc2\xa5"] Yen Mark
  */
 
-+ (id)regularExpressionWithString:(NSString*)expressionString;
-+ (id)regularExpressionWithString:(NSString*)expressionString 
-	options:(unsigned)options;
-+ (id)regularExpressionWithString:(NSString*)expressionString 
-	options:(unsigned)options 
-	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character;
++ (instancetype)regularExpressionWithString:(NSString*)expressionString;
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
+									options:(unsigned)options;
++ (instancetype)regularExpressionWithString:(NSString*)expressionString
+									options:(unsigned)options
+									 syntax:(OgreSyntax)syntax
+							escapeCharacter:(NSString*)character;
 	
-- (id)initWithString:(NSString*)expressionString;
-- (id)initWithString:(NSString*)expressionString 
-	options:(unsigned)options;
-- (id)initWithString:(NSString*)expressionString 
-	options:(unsigned)options 
-	syntax:(OgreSyntax)syntax 
-	escapeCharacter:(NSString*)character;
+- (instancetype)initWithString:(NSString*)expressionString;
+- (instancetype)initWithString:(NSString*)expressionString
+					   options:(unsigned)options;
+- (instancetype)initWithString:(NSString*)expressionString
+					   options:(unsigned)options
+						syntax:(OgreSyntax)syntax
+			   escapeCharacter:(NSString*)character;
 
 
 /*************
  * accessors *
  *************/
 // 正規表現を表している文字列をコピーして返す。変更するにはrecompileが必要。
-- (NSString*)expressionString;
+@property (readonly, copy) NSString *expressionString;
 // 現在有効なオプション。変更するにはrecompileが必要。
-- (unsigned)options;
+@property (readonly) unsigned options;
 // 現在使用している正規表現の構文。変更するにはrecompileが必要。
-- (OgreSyntax)syntax;
+@property (readonly) OgreSyntax syntax;
 // エスケープ文字 @"\\" の代替文字。変更するにはrecompileが必要。変更すると数割遅くなります。
-- (NSString*)escapeCharacter;
+@property (readonly, copy) NSString *escapeCharacter;
 
 // capture groupの数
 - (unsigned)numberOfGroups;

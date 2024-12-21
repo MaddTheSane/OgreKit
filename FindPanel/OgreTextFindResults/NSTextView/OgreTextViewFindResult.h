@@ -17,7 +17,7 @@
 #import <OgreKit/OgreFindResultBranch.h>
 #import <OgreKit/OgreTextFindResult.h>
 
-extern NSString	*OgreTextViewFindResultException;
+extern NSExceptionName OgreTextViewFindResultException;
 
 @interface OgreTextViewFindResult : OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>
 {

@@ -29,12 +29,12 @@
 - (BOOL)shouldPreprocessFindingInFirstLeaf;
 - (BOOL)preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf;
 
-- (void)setWrap:(BOOL)wrap;
-- (BOOL)wrap;
-- (void)setBackward:(BOOL)backward;
-- (BOOL)backward;
-- (void)setFromTop:(BOOL)fromTop;
-- (BOOL)fromTop;
+/// wrapped search
+@property BOOL wrap;
+/// search direction
+@property BOOL backward;
+/// search origin
+@property BOOL fromTop;
 
 // private methods
 - (BOOL)_preprocessFindingInFirstLeaf:(OgreTextFindLeaf*)aLeaf;

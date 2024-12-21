@@ -15,7 +15,7 @@
 #import <OgreKit/OGRegularExpression.h>
 
 // Exception name
-extern NSString	* const OgreFormatterException;
+extern NSExceptionName const OgreFormatterException;
 
 
 @interface OGRegularExpressionFormatter : NSFormatter <NSCopying, NSCoding>

@@ -16,7 +16,7 @@
 @class OGRegularExpression;
 
 // Exception
-extern NSString	* const OgreEnumeratorException;
+extern NSExceptionName const OgreEnumeratorException;
 
 @interface OGRegularExpressionEnumerator : NSEnumerator <NSCopying, NSCoding>
 {

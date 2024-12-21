@@ -675,13 +675,13 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 - (IBAction)clearFindReplaceHistories:(id)sender
 {
 	[findPanel makeKeyAndOrderFront:self];
-	NSBeginAlertSheet(OgreAPFCLocalizedString(@"Clear"), 
-		OgreAPFCLocalizedString(@"Yes"), 
-		OgreAPFCLocalizedString(@"No"), 
-		nil, findPanel, self, 
+	NSBeginAlertSheet(NSLocalizedStringFromTableInBundle(@"Clear", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @""),
+					  NSLocalizedStringFromTableInBundle(@"Yes", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @""),
+					  NSLocalizedStringFromTableInBundle(@"NO", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @""),
+		nil, findPanel, self,
 		@selector(clearFindPeplaceHistoriesSheetDidEnd:returnCode:contextInfo:), 
 		@selector(sheetDidDismiss:returnCode:contextInfo:), nil, 
-		OgreAPFCLocalizedString(@"Do you really want to clear find/replace histories?"));
+					  NSLocalizedStringFromTableInBundle(@"Do you really want to clear find/replace histories?", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @""));
 	_isAlertSheetOpen = YES;
 }
 
@@ -1030,7 +1030,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 	NS_HANDLER
 		// 例外処理
 		if ([[localException name] isEqualToString:OgreException]) {
-			[self showErrorAlert:OgreAPFCLocalizedString(@"Invalid Regular Expression") message:[localException reason]];
+			[self showErrorAlert:NSLocalizedStringFromTableInBundle(@"Invalid Regular Expression", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @"") message:[localException reason]];
 		} else {
 			[localException raise];
 		}
@@ -1044,7 +1044,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 {
 	NSBeep();
 	[findPanel makeKeyAndOrderFront:self];
-	NSBeginAlertSheet(title, OgreAPFCLocalizedString(@"OK"), nil, nil, findPanel, self, nil, @selector(sheetDidDismiss:returnCode:contextInfo:), nil, message);
+	NSBeginAlertSheet(title, NSLocalizedStringFromTableInBundle(@"OK", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @""), nil, nil, findPanel, self, nil, @selector(sheetDidDismiss:returnCode:contextInfo:), nil, @"%@", message);
 	_isAlertSheetOpen = YES;
 }
 
@@ -1446,7 +1446,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 #endif
 	id	sender = [notification object];
 	if (sender == moreOptionsDrawer) {
-		[moreOptionsButton setTitle:OgreAPFCLocalizedString(@"More Options")];
+		[moreOptionsButton setTitle:NSLocalizedStringFromTableInBundle(@"More Options", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 	}
 }
 
@@ -1457,7 +1457,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 #endif
 	id	sender = [notification object];
 	if (sender == moreOptionsDrawer) {
-		[moreOptionsButton setTitle:OgreAPFCLocalizedString(@"Less Options")];
+		[moreOptionsButton setTitle:NSLocalizedStringFromTableInBundle(@"Less Options", @"OgreAPFCLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 	}
 }
 
@@ -1480,7 +1480,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 }
 
 /* delegate method of OgreAdvancedFindPanel */
-- (void)findPanelFlagsChanged:(NSUInteger)modifierFlags  
+- (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags  
 {
     if ((modifierFlags & NSAlternateKeyMask) != 0) {
         // alt key pressed
@@ -1510,229 +1510,28 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 
 
 /* accessors */
-- (BOOL)singleLineOption
-{
-	return singleLineOption;
-}
-
-- (void)setSingleLineOption:(BOOL)aSingleLineOption
-{
-	singleLineOption = aSingleLineOption;
-}
-
-- (BOOL)multilineOption
-{
-	return multilineOption;
-}
-
-- (void)setMultilineOption:(BOOL)aMultilineOption
-{
-	multilineOption = aMultilineOption;
-}
-
-- (BOOL)ignoreCaseOption
-{
-	return ignoreCaseOption;
-}
-
-- (void)setIgnoreCaseOption:(BOOL)anIgnoreCaseOption
-{
-	ignoreCaseOption = anIgnoreCaseOption;
-}
-
-- (BOOL)extendOption
-{
-	return extendOption;
-}
-
-- (void)setExtendOption:(BOOL)anExtendOption
-{
-	extendOption = anExtendOption;
-}
-
-- (BOOL)findLongestOption
-{
-	return findLongestOption;
-}
-
-- (void)setFindLongestOption:(BOOL)aFindLongestOption
-{
-	findLongestOption = aFindLongestOption;
-}
-
-- (BOOL)findNotEmptyOption
-{
-	return findNotEmptyOption;
-}
-
-- (void)setFindNotEmptyOption:(BOOL)aFindNotEmptyOption
-{
-	findNotEmptyOption = aFindNotEmptyOption;
-}
-
-- (BOOL)findEmptyOption
-{
-	return findEmptyOption;
-}
-
-- (void)setFindEmptyOption:(BOOL)aFindEmptyOption
-{
-	findEmptyOption = aFindEmptyOption;
-}
-
-- (BOOL)negateSingleLineOption
-{
-	return negateSingleLineOption;
-}
-
-- (void)setNegateSingleLineOption:(BOOL)aNegateSingleLineOption
-{
-	negateSingleLineOption = aNegateSingleLineOption;
-}
-
-- (BOOL)captureGroupOption
-{
-	return captureGroupOption;
-}
-
-- (void)setCaptureGroupOption:(BOOL)aCaptureGroupOption
-{
-	captureGroupOption = aCaptureGroupOption;
-}
-
-- (BOOL)dontCaptureGroupOption
-{
-	return dontCaptureGroupOption;
-}
-
-- (void)setDontCaptureGroupOption:(BOOL)aDontCaptureGroupOption
-{
-	dontCaptureGroupOption = aDontCaptureGroupOption;
-}
-
-- (BOOL)delimitByWhitespaceOption
-{
-	return delimitByWhitespaceOption;
-}
-
-- (void)setDelimitByWhitespaceOption:(BOOL)aDelimitByWhitespaceOption
-{
-	delimitByWhitespaceOption = aDelimitByWhitespaceOption;
-}
-
-- (BOOL)notBeginOfLineOption
-{
-	return notBeginOfLineOption;
-}
-
-- (void)setNotBeginOfLineOption:(BOOL)aNotBeginOfLineOption
-{
-	notBeginOfLineOption = aNotBeginOfLineOption;
-}
-
-- (BOOL)notEndOfLineOption
-{
-	return notEndOfLineOption;
-}
-
-- (void)setNotEndOfLineOption:(BOOL)aNotEndOfLineOption
-{
-	notEndOfLineOption = aNotEndOfLineOption;
-}
-
-- (BOOL)replaceWithStylesOption
-{
-	return replaceWithStylesOption;
-}
-
-- (void)setReplaceWithStylesOption:(BOOL)aReplaceWithStylesOption
-{
-	replaceWithStylesOption = aReplaceWithStylesOption;
-}
-
-- (BOOL)replaceFontsOption
-{
-	return replaceFontsOption;
-}
-
-- (void)setReplaceFontsOption:(BOOL)aReplaceFontsOption
-{
-	replaceFontsOption = aReplaceFontsOption;
-}
-
-- (BOOL)mergeStylesOption
-{
-	return mergeStylesOption;
-}
-
-- (void)setMergeStylesOption:(BOOL)aMergeStylesOption
-{
-	mergeStylesOption = aMergeStylesOption;
-}
-
-	
-- (BOOL)regularExpressionsOption
-{
-	return regularExpressionsOption;
-}
-
-- (void)setRegularExpressionsOption:(BOOL)aRegularExpressionsOption
-{
-	regularExpressionsOption = aRegularExpressionsOption;
-}
-
-	
-- (BOOL)wrapSearchOption
-{
-	return wrapSearchOption;
-}
-
-- (void)setWrapSearchOption:(BOOL)aWrapSearchOption
-{
-	wrapSearchOption = aWrapSearchOption;
-}
-
-	
-- (BOOL)openSheetOption
-{
-	return openSheetOption;
-}
-
-- (void)setOpenSheetOption:(BOOL)anOpenSheetOption
-{
-	openSheetOption = anOpenSheetOption;
-}
-
-- (BOOL)closeWhenDoneOption
-{
-	return closeWhenDoneOption;
-}
-
-- (void)setCloseWhenDoneOption:(BOOL)aCloseWhenDoneOption
-{
-	closeWhenDoneOption = aCloseWhenDoneOption;
-}
-
-	
-- (BOOL)atTopOriginOption
-{
-	return atTopOriginOption;
-}
-
-- (void)setAtTopOriginOption:(BOOL)anAtTopOriginOption
-{
-	atTopOriginOption = anAtTopOriginOption;
-}
-
-- (BOOL)inSelectionScopeOption
-{
-	return inSelectionScopeOption;
-}
-
-- (void)setInSelectionScopeOption:(BOOL)anInSelectionScopeOption
-{
-	inSelectionScopeOption = anInSelectionScopeOption;
-}
+@synthesize singleLineOption;
+@synthesize multilineOption;
+@synthesize ignoreCaseOption;
+@synthesize extendOption;
+@synthesize findLongestOption;
+@synthesize findNotEmptyOption;
+@synthesize findEmptyOption;
+@synthesize negateSingleLineOption;
+@synthesize captureGroupOption;
+@synthesize dontCaptureGroupOption;
+@synthesize delimitByWhitespaceOption;
+@synthesize notBeginOfLineOption;
+@synthesize notEndOfLineOption;
+@synthesize replaceWithStylesOption;
+@synthesize replaceFontsOption;
+@synthesize mergeStylesOption;
+@synthesize regularExpressionsOption;
+@synthesize wrapSearchOption;
+@synthesize openSheetOption;
+@synthesize closeWhenDoneOption;
+@synthesize atTopOriginOption;
+@synthesize inSelectionScopeOption;
 
 /* delegate methods of findTextView/replaceTextView */
 - (BOOL)textView:(NSTextView*)aTextView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString*)replacementString

@@ -169,15 +169,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	_shouldHackFindMenu = hack;
 }
 
-- (void)setUseStylesInFindPanel:(BOOL)use
-{
-	_useStylesInFindPanel = use;
-}
-
-- (BOOL)useStylesInFindPanel
-{
-	return _useStylesInFindPanel;
-}
+@synthesize useStylesInFindPanel = _useStylesInFindPanel;
 
 
 - (void)appDidFinishLaunching:(NSNotification*)aNotification
@@ -214,6 +206,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	if (!_shouldHackFindMenu) return;
 	
 	/* Checking the Mac OS X version */
+	/* TODO: remove/update check! */
 	if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_0) {
 		/* On a 10.0.x or earlier system */
 		return; // use the default Find Panel
@@ -368,39 +361,9 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 /* accessors */
 
-- (void)setFindPanelController:(OgreFindPanelController*)aFindPanelController
-{
-	[findPanelController autorelease];
-	findPanelController = [aFindPanelController retain];
-}
-
-- (OgreFindPanelController*)findPanelController
-{
-	return findPanelController;
-}
-
-- (void)setEscapeCharacter:(NSString*)character
-{
-	[character retain];
-	[_escapeCharacter release];
-	_escapeCharacter = character;
-}
-
-- (NSString*)escapeCharacter
-{
-	return _escapeCharacter;
-}
-
-- (void)setSyntax:(OgreSyntax)syntax
-{
-	//NSLog(@"%d", [OGRegularExpression intValueForSyntax:syntax]);
-	_syntax = syntax;
-}
-
-- (OgreSyntax)syntax
-{
-	return _syntax;
-}
+@synthesize findPanelController;
+@synthesize escapeCharacter = _escapeCharacter;
+@synthesize syntax = _syntax;
 
 /* 検索対象 */
 - (void)setTargetToFindIn:(id)target
@@ -1033,15 +996,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	[_targetClassArray addObject:aTargetClass];
 }
 
-- (void)setAdapterClassForTargetToFindIn:(Class)adapterClass
-{
-	_adapterClassForTarget = adapterClass;
-}
-
-- (Class)adapterClassForTargetToFindIn;
-{
-	return _adapterClassForTarget;
-}
+@synthesize adapterClassForTargetToFindIn = _adapterClassForTarget;
 
 - (BOOL)hasAdapterClassForObject:(id)anObject
 {

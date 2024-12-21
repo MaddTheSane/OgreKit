@@ -364,28 +364,16 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // 正規表現を表している文字列を返す。
-- (NSString*)expressionString
-{
-	return _expressionString;
-}
+@synthesize expressionString = _expressionString;
 
 // 現在有効なオプション
-- (unsigned)options
-{
-	return _options;
-}
+@synthesize options = _options;
 
 // 現在使用している正規表現の構文
-- (OgreSyntax)syntax
-{
-	return _syntax;
-}
+@synthesize syntax = _syntax;
 
 // @"\\"の代替文字
-- (NSString*)escapeCharacter
-{
-	return _escapeCharacter;
-}
+@synthesize escapeCharacter = _escapeCharacter;
 
 
 + (BOOL)isValidExpressionString:(NSString*)expressionString

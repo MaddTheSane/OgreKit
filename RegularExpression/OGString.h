@@ -14,9 +14,9 @@
 #import <Foundation/Foundation.h>
 
 // exception name
-extern NSString	* const OgreStringException;
+extern NSExceptionName const OgreStringException;
 
-@protocol OGStringProtocol
+@protocol OGStringProtocol <NSObject>
 - (NSString*)string;
 - (NSAttributedString*)attributedString;
 - (NSUInteger)length;

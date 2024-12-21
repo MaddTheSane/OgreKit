@@ -16,7 +16,7 @@
 
 @class OGRegularExpressionMatch;
 
-extern NSString	* const OgreReplaceException;
+extern NSExceptionName const OgreReplaceException;
 
 @interface OGReplaceExpression : NSObject <NSCopying, NSCoding>
 {

@@ -70,15 +70,6 @@
     return ![self replacingOnly];
 }
 
-- (BOOL)replacingOnly
-{
-    return _replacingOnly;
-}
-
-- (void)setReplacingOnly:(BOOL)replacingOnly
-{
-    _replacingOnly = replacingOnly;
-}
-
+@synthesize replacingOnly = _replacingOnly;
 
 @end
