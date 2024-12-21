@@ -6,14 +6,18 @@ UNIVERSAL_DIR=universal
 INTEL_64_DIR=x86_64
 ARM_64_DIR=arm64
 
+# For including older build setups.
+# Currently this only includes MacPorts.
+export PATH := /opt/local/bin:$(PATH)
+
 INTEL_64_CONFIGURE_FLAGS=--disable-dependency-tracking --host=x86_64-apple-darwin$(OS_VERSION) --build=$(BUILD_ARCH)-apple-darwin$(OS_VERSION)
 ARM_64_CONFIGURE_FLAGS=--disable-dependency-tracking --host=arm64-apple-darwin$(OS_VERSION) --build=$(BUILD_ARCH)-apple-darwin$(OS_VERSION)
 
-INTEL_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
-INTEL_64_CC=/usr/bin/gcc -arch x86_64
+INTEL_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+INTEL_64_CC=/usr/bin/gcc -arch x86_64 -mmacosx-version-min=10.13
 
-ARM_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk
-ARM_64_CC=/usr/bin/gcc -arch arm64
+ARM_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+ARM_64_CC=/usr/bin/gcc -arch arm64 -mmacosx-version-min=11.0
 
 ONIG_TARGET=libonigmo.la
 LIBS_DIR=.libs
@@ -52,6 +56,9 @@ $(ARM_64_DIR):
 
 $(UNIVERSAL_DIR):
 	mkdir $@
+
+exportloc:
+	echo Nothing to do
 
 clean:
 	rm -rf $(INTEL_64_DIR)
