@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 26 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -49,7 +49,7 @@
 	BOOL				_exceptionRaised;
 	NSUInteger			_numberOfMatches;	// number of matches
 	OgreTextFindResult	*_textFindResult;	// result
-	NSInteger			_numberOfDoneLeaves,
+	NSInteger           _numberOfDoneLeaves,
 						_numberOfTotalLeaves;
 	
 	NSDate				*_processTime;		// process time

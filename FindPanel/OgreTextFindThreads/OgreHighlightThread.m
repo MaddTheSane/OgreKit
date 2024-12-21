@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: May 20 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -59,7 +59,7 @@
     NSObject<OGStringProtocol>            *string = [aLeaf ogString];
     
     if (![aLeaf isHighlightable] || (string == nil)) {
-        _matchEnumerator = nil;  // stop
+        matchEnumerator = nil;  // stop
         return;
     }
     
@@ -73,16 +73,16 @@
         brightness: &brightness 
         alpha: &alpha];
     
-    _numberOfGroups = [regEx numberOfGroups];
+    numberOfGroups = [regEx numberOfGroups];
     NSUInteger  i;
     BOOL        simple = ([regEx syntax] == OgreSimpleMatchingSyntax);
     CGFloat     dummy;
     
-    _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:_numberOfGroups];
-    for (i = 0; i <= _numberOfGroups; i++) {
+    _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
+    for (i = 0; i <= numberOfGroups; i++) {
         [_highlightColorArray addObject:[NSColor colorWithCalibratedHue: 
             modf(hue + (simple? (CGFloat)(i - 1) : (CGFloat)i) /
-                (simple? (CGFloat)_numberOfGroups : (CGFloat)(_numberOfGroups + 1)), &dummy)
+                (simple? (CGFloat)numberOfGroups : (CGFloat)(numberOfGroups + 1)), &dummy)
             saturation: saturation 
             brightness: brightness 
             alpha: alpha]];
@@ -93,9 +93,9 @@
 	if (![self inSelection]) {
 		searchRange = NSMakeRange(0, [string length]);
 	}
-    _searchLength = searchRange.length;
+    searchLength = searchRange.length;
     
-    _matchEnumerator = [regEx matchEnumeratorInOGString:string
+    matchEnumerator = [regEx matchEnumeratorInOGString:string
                                                 options:[self options]
                                                   range:searchRange];
     
@@ -104,15 +104,15 @@
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
-    if ((_match = [_matchEnumerator nextObject]) == nil) return NO;   // stop
+    if ((match = [matchEnumerator nextObject]) == nil) return NO;   // stop
     
-    _lastMatch = _match;
+    lastMatch = match;
     
     NSUInteger  i;
     NSRange     aRange;
     
-    for(i = 0; i <= _numberOfGroups; i++) {
-        aRange = [_match rangeOfSubstringAtIndex:i];
+    for(i = 0; i <= numberOfGroups; i++) {
+        aRange = [match rangeOfSubstringAtIndex:i];
         if (aRange.length > 0) {
             [aLeaf highlightCharactersInRange:aRange color:_highlightColorArray[i]];
         }
@@ -207,8 +207,8 @@
 {
     if (_numberOfTotalLeaves <= 0) return -1;
     
-    NSRange matchRange = [_lastMatch rangeOfMatchedString];
-    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
+    NSRange matchRange = [lastMatch rangeOfMatchedString];
+    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
 }
 
 - (double)donePercentage
@@ -220,8 +220,8 @@
             percentage = 0;
         } else {
             if (_numberOfTotalLeaves > 0) {
-                NSRange matchRange = [_lastMatch rangeOfMatchedString];
-                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
+                NSRange matchRange = [lastMatch rangeOfMatchedString];
+                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
             } else {
                 percentage = -1;    // indeterminate
             }

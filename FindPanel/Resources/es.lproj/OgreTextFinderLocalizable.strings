@@ -1,0 +1,80 @@
+/*
+ * Name: OgreTextFinderLocalizable.strings
+ * Project: OgreKit
+ *
+ * Creation Date: Jan 22 2004
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
+ * License: OgreKit License
+ *
+ * Encoding: UTF16
+ * Tabsize: 4
+ *
+ * Spanish localization: Juan L. Varona <jvarona@dmc.unirioja.es>
+ */
+
+"Find"			= "Buscar";	/* the title of the "Find" menu */
+"Replace"		= "Reemplazar";
+"Find All"		= "Buscar todos";
+"Replace All"   = "Reemplazar todos";
+"Highlight"		= "Resaltar";
+
+/* the titles of buttons */
+"OK"		= "OK";
+"Cancel"	= "Cancelar";
+
+/* progress messages */
+" (%dsec remaining)"        = " (Quedan %d segundos)";    // sec: second
+// Find All
+"%lu string found."          = "Encontrada %lu cadena.";
+"%lu strings found."         = "Encontradas %lu cadenas.";
+// Replace All
+"%lu string replaced."		= "Reemplazada %lu cadena.";
+"%lu strings replaced."      = "Reemplazadas %lu cadenas.";
+// Highlight
+"%lu string highlighted."    = "Resaltada %lu cadena.";
+"%lu strings highlighted."   = "Resaltadas %lu cadenas.";
+
+/* finish messages */
+// not found
+"Not found. (%.3fsec)"							= "No encontrado. (%.3f segundos)";
+"Not found. (canceled, %.3fsec)"				= "No encontrado. (Cancelado, %.3f segundos)";
+// Find All
+"%lu string found. (%.3fsec)"					= "Encontrada %lu cadena. (%.3f segundos)";
+"%lu strings found. (%.3fsec)"					= "Encontradas %lu cadenas. (%.3f segundos)";
+"%lu string found. (canceled, %.3fsec)"			= "Encontrada %lu cadena. (Cancelado, %.3f segundos)";
+"%lu strings found. (canceled, %.3fsec)"			= "Encontradas %lu cadenas. (Cancelado, %.3f segundos)";
+// Replace All
+"%lu string replaced. (%.3fsec)"					= "Reemplazada %lu cadena. (%.3f segundos)";
+"%lu strings replaced. (%.3fsec)"				= "Reemplazadas %lu cadenas. (%.3f segundos)";
+"%lu string replaced. (canceled, %.3fsec)"		= "Reemplazada %lu cadena. (Cancelado, %.3f segundos)";
+"%lu strings replaced. (canceled, %.3fsec)"		= "Reemplazadas %lu cadenas. (Cancelado, %.3f segundos)";
+// Highlight
+"%lu string highlighted. (%.3fsec)"				= "Resaltada %lu cadena. (%.3f segundos)";
+"%lu strings highlighted. (%.3fsec)"				= "Resaltadas %lu cadenas. (%.3f segundos)";
+"%lu string highlighted. (canceled, %.3fsec)"	= "Resaltada %lu cadena. (Cancelado, %.3f segundos)";
+"%lu strings highlighted. (canceled, %.3fsec)"   = "Resaltadas %lu cadenas. (Cancelado, %.3f segundos)";
+
+/* error messages */
+"Error! Uneditable."	= "¡Error! No editable."; /* a target TextView is not editable */
+"Missing."				= "Perdido.";			/* a found string became missing */
+
+/* Find Result Window */
+"Find Result for \"%@\""        = "Find Result for “%@”";
+"%lu string found."				= "Encontrada %lu cadena.";
+"%lu strings found."				= "Encontradas %lu cadenas.";
+"Found in %lu item."				= "Found in %lu item.";
+"Found in %lu items."            = "Found in %lu items.";
+"Find String: %@"               = "Secuencia a buscar: %@";
+"Line"                          = "Línea";
+"Found String"                  = "Texto encontrado";
+"Live Update"                   = "Actualizar en vivo";
+"Selected string not found."	= "No encontrada la cadena de texto seleccionada."; /* error message */
+
+/* preparation */
+"Favorites"					= "Favorites";
+"Custom Find/Replace"		= "Custom Find/Replace";
+"Definition"				= "Definition";
+"Serial (Pipe)"				= "Serial (Pipe)";
+"Parallel (Join)"			= "Parallel (Join)";
+"Multifile Find/Replace"	= "Multifile Find/Replace";

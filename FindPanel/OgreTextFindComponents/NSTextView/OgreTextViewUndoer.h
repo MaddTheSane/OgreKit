@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: May 20 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -21,7 +21,7 @@
     NSUInteger          _count, _tail;
 }
 - (instancetype)initWithCapacity:(NSUInteger)aCapacity;
-- (void)addRange:(NSRange)aRange attributedString:(NSAttributedString *)anAttributedString;
+- (void)addRange:(NSRange)aRange attributedString:(NSAttributedString*)anAttributedString;
 - (void)undoTextView:(id)aTarget jumpToSelection:(BOOL)jumpToSelection invocationTarget:(id)myself;
 @end
 

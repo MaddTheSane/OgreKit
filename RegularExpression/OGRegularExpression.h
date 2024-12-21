@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Aug 30 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2022 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -18,13 +18,13 @@
 #ifndef HAVE_CONFIG_H
 #	define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 //#define DEBUG_OGRE
 
 /* constants */
 // version string
-#define OgreVersionString	@"2.1.4"
+#define OgreVersionString	@"2.1.12"
 
 // compile time options:
 
@@ -206,10 +206,15 @@ extern NSString	* const OgreException;
 // It does not affect the instance that was created prior to the change. (変更前に作成されたインスタンスには影響を与えない。)
 + (void)setDefaultSyntax:(OgreSyntax)syntax;
 
-// I return the version string of OgreKit (OgreKitのバージョン文字列を返す)
-+ (NSString *)version;
-// I return the version string of oniguruma (onigurumaのバージョン文字列を返す)
-+ (NSString *)onigurumaVersion;
+// OgreKitのバージョン文字列を返す
++ (NSString*)version;
+// oniguruma/onigmoのバージョン文字列を返す
++ (NSString*)onigurumaVersion;
+
+/// I return the version string of OgreKit (OgreKitのバージョン文字列を返す)
+@property (class, readonly, copy) NSString *version;
+/// I return the version string of oniguruma (onigurumaのバージョン文字列を返す)
+@property (class, readonly, copy) NSString *onigurumaVersion;
 
 // description
 @property (nonatomic, readonly, copy) NSString *description;

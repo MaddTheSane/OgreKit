@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 22 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,8 +17,8 @@
 extern NSString	* const OgreStringException;
 
 @protocol OGStringProtocol <NSObject>
-- (NSString *)string;
-- (NSAttributedString *)attributedString;
+- (NSString*)string;
+- (NSAttributedString*)attributedString;
 - (NSUInteger)length;
 
 - (id<OGStringProtocol>)substringWithRange:(NSRange)aRange;

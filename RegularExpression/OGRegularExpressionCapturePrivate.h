@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 24 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -19,11 +19,11 @@
 
 @interface OGRegularExpressionCapture ()
 
-- (instancetype)initWithTreeNode:(OnigCaptureTreeNode *)captureNode
+- (instancetype)initWithTreeNode:(OnigCaptureTreeNode*)captureNode
     index:(NSUInteger)index
     level:(NSUInteger)level 
-    parentNode:(OGRegularExpressionCapture *)parentNode 
-    match:(OGRegularExpressionMatch *)match;
+    parentNode:(OGRegularExpressionCapture*)parentNode 
+    match:(OGRegularExpressionMatch*)match;
 
 - (OnigCaptureTreeNode *)_captureNode;
 

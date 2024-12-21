@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 07 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -37,7 +37,7 @@
 
 - (void)endAddition
 {
-    NSUInteger i = 0;
+    NSInteger i = 0;
     while (i < [_components count]) {
         if ([_components[i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
@@ -100,7 +100,7 @@
     
     if (![outlineView allowsColumnSelection]) return YES;
     
-    NSUInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+    NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
     if (columnIndex != -1) {
         [outlineView selectColumnIndexes:[NSIndexSet indexSetWithIndex:columnIndex] byExtendingSelection:NO];
         [outlineView scrollColumnToVisible:columnIndex];

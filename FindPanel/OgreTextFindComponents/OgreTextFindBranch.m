@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 26 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -191,25 +191,8 @@
     return nil;
 }
 
-- (BOOL)isTerminal
-{
-    return _isTerminal;
-}
-
-- (void)setTerminal:(BOOL)isTerminal
-{
-    _isTerminal = isTerminal;
-}
-
-- (BOOL)isReversed
-{
-    return _isReversed;
-}
-
-- (void)setReversed:(BOOL)isReversed
-{
-    _isReversed = isReversed;
-}
+@synthesize terminal = _isTerminal;
+@synthesize reversed = _isReversed;
 
 - (void)finalizeFinding
 {

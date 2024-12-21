@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 06 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -38,7 +38,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch *)aMatch 
 {
-    NSUInteger  i, n = [aMatch count];
+    NSInteger   i, n = [aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
@@ -91,14 +91,14 @@
     return [_matchComponents objectEnumerator]; 
 }
 
-// line number that matched string for the index (index番目にマッチした文字列のある行番号)
+// index番目にマッチした文字列のある行番号
 - (id)nameOfMatchedStringAtIndex:(NSUInteger)index
 {
     return [self name];
 }
 
-// matched string for the index (index番目にマッチした文字列)
-- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index
+// index番目にマッチした文字列
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
     
@@ -115,7 +115,7 @@
     return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
-// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
+// index番目にマッチした文字列を選択・表示する
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
@@ -125,7 +125,7 @@
     return [self selectMatchedStringAtIndex:index];
 }
 
-// I choose the matched string for the index (index番目にマッチした文字列を選択する)
+// index番目にマッチした文字列を選択する
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
@@ -141,7 +141,7 @@
         }
     }
     
-    [(OgreOutlineItemFindResult *)[self parent] expandItemEnclosingItem:_item];
+    [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
     NSInteger rowIndex = [outlineView rowForItem:_item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];

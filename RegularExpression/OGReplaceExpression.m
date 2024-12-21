@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 22 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -100,13 +100,13 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	_options = options;
 	
     NSString    *escCharacter = [NSString stringWithString:character];
-	NSInteger	specialKey = 0;
+	int			specialKey = 0;
 	NSUInteger	matchIndex = 0;
 	NSString	*controlCharacter = nil;
 	NSObject<OGStringProtocol>	*compileTimeString;
-	NSUInteger	numberOfMatches = 0;
+    NSUInteger	numberOfMatches = 0;
 	unichar		unic[ONIG_MAX_CAPTURE_HISTORY_GROUP + 1];
-	NSUInteger	numberOfHistory, indexOfHistory;
+    NSUInteger	numberOfHistory, indexOfHistory;
 	
 	NSEnumerator				*matchEnumerator;
 	OGRegularExpressionMatch	*match;
@@ -370,8 +370,8 @@ static OGRegularExpression  *gReplaceRegex = nil;
 		escapeCharacter:character];
 }
 
-// Replacement (置換)
-- (NSString *)replaceMatchedStringOf:(OGRegularExpressionMatch *)match
+// 置換
+- (NSString*)replaceMatchedStringOf:(OGRegularExpressionMatch*)match
 {
 	return [[self replaceMatchedOGStringOf:match] string];
 }

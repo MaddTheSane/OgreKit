@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: May 20 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -38,7 +38,7 @@
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(id<OGStringProtocol>)aString
 {
 	NSTextStorage	*textStorage = [self textStorage];
-	NSUInteger      appendantLength = [aString length];
+    NSUInteger	appendantLength = [aString length];
 	
     // Registration of Undo operation (Undo操作の登録)
     if (_allowsUndo) {

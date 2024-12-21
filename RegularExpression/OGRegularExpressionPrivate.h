@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 01 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -25,15 +25,15 @@ typedef NS_ENUM(int, OgreKindOfCharacter) {
 	OgreKindOfNormal
 };
 
-// Regular expression syntax (正規表現構文)
-OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;
-OnigSyntaxType  OgrePrivatePOSIXExtendedSyntax;
-OnigSyntaxType  OgrePrivateEmacsSyntax;
-OnigSyntaxType  OgrePrivateGrepSyntax;
-OnigSyntaxType  OgrePrivateGNURegexSyntax;
-OnigSyntaxType  OgrePrivateJavaSyntax;
-OnigSyntaxType  OgrePrivatePerlSyntax;
-OnigSyntaxType  OgrePrivateRubySyntax;
+// 正規表現構文
+extern OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;
+extern OnigSyntaxType  OgrePrivatePOSIXExtendedSyntax;
+extern OnigSyntaxType  OgrePrivateEmacsSyntax;
+extern OnigSyntaxType  OgrePrivateGrepSyntax;
+extern OnigSyntaxType  OgrePrivateGNURegexSyntax;
+extern OnigSyntaxType  OgrePrivateJavaSyntax;
+extern OnigSyntaxType  OgrePrivatePerlSyntax;
+extern OnigSyntaxType  OgrePrivateRubySyntax;
 
 
 @interface OGRegularExpression ()
@@ -62,13 +62,13 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 // oniguruma regular expression object
 - (regex_t*)patternBuffer;
 
-// Name of the name group number (名前がnameのgroup number)
-// I return -1 in the case of a name that does not exist. (存在しない名前の場合は-1を返す。)
-// If there are multiple sub-string with the same name I return -2. (同一の名前を持つ部分文字列が複数ある場合は-2を返す。)
-- (int)groupIndexForName:(NSString *)name;
-// The name of the index th substring (index番目の部分文字列の名前)
-// I return nil if the name does not exist. (存在しない名前の場合は nil を返す。)
-- (NSString *)nameForGroupIndex:(NSUInteger)index;
+// 名前がnameのgroup number
+// 存在しない名前の場合は-1を返す。
+// 同一の名前を持つ部分文字列が複数ある場合は-2を返す。
+- (NSInteger)groupIndexForName:(NSString*)name;
+// index番目の部分文字列の名前
+// 存在しない名前の場合は nil を返す。
+- (NSString*)nameForGroupIndex:(NSUInteger)index;
 
 
 @end

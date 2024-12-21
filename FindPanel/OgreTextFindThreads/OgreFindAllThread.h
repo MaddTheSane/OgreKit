@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: May 20 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -19,10 +19,10 @@
 
 @interface OgreFindAllThread : OgreTextFindThread
 {
-    OGRegularExpressionMatch        *_match, *_lastMatch;
-    NSEnumerator                    *_matchEnumerator;
-    OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>    *_result;
-    NSUInteger                      _searchLength;
+    OGRegularExpressionMatch        *match, *lastMatch;
+    NSEnumerator                    *matchEnumerator;
+    OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>    *result;
+    NSUInteger                      searchLength;
     
     NSString                        *_progressMessage, *_progressMessagePlural, *_remainingTimeMesssage;
 }

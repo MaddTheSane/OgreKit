@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: May 20 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -19,10 +19,11 @@
 
 @interface OgreReplaceAllThread : OgreTextFindThread 
 {
-    NSArray					*_matchArray;
-    NSUInteger				_replaceAllNumberOfReplaces, _replaceAllNumberOfMatches;
-    NSString				*_progressMessage, *_progressMessagePlural, *_remainingTimeMesssage;
-	id<OGStringProtocol>	_replacedString;
+    NSArray					*matchArray;
+    OGReplaceExpression		*repex;
+    NSUInteger				aNumberOfReplaces, aNumberOfMatches;
+    NSString				*progressMessage, *progressMessagePlural, *remainingTimeMesssage;
+	id<OGStringProtocol>	replacedString;
 }
 
 @end

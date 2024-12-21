@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 06 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -98,7 +98,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    NSInteger  count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
+    NSUInteger    count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
     
     return 1 /* self cell */ + count;
 }

@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 13 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,9 +17,9 @@
 
 @interface OgreTableView : NSTableView <OgreView>
 {
-    NSInteger	_ogreSelectedColumn;
-    NSInteger	_ogreSelectedRow;
-    NSRange		_ogreSelectedRange;
+    NSInteger   _ogreSelectedColumn;
+    NSInteger   _ogreSelectedRow;
+    NSRange     _ogreSelectedRange;
 }
 
 @property (nonatomic, readonly, strong) NSObject<OgreTextFindComponent> *ogreAdapter;

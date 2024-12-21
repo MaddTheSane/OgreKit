@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: May 20 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -47,7 +47,7 @@
 	NSLog(@" -willProcessFindingInBranch: of %@", [self className]);
 #endif
     [self beginGraftingToBranch:aBranch];
-    _lastMatch = nil;
+    lastMatch = nil;
 }
 
 - (void)willProcessFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
@@ -58,8 +58,8 @@
     NSObject<OGStringProtocol>            *string = [aLeaf ogString];
     
     if (string == nil) {
-        _matchEnumerator = nil;
-        _result = nil;
+        matchEnumerator = nil;
+        result = nil;
         return;
     }
     
@@ -67,24 +67,24 @@
 	if (![self inSelection]) {
 		searchRange = NSMakeRange(0, [string length]);
 	}
-    _searchLength = searchRange.length;
+    searchLength = searchRange.length;
     
     OGRegularExpression *regEx = [self regularExpression];
-    _matchEnumerator = [regEx matchEnumeratorInOGString:string
+    matchEnumerator = [regEx matchEnumeratorInOGString:string
                                                 options:[self options]
                                                   range:searchRange];
-    _result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
-    [self addResultLeaf:_result];
+    result = (OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>*)[aLeaf findResultLeafWithThread:self];
+    [self addResultLeaf:result];
 }
 
 - (BOOL)shouldContinueFindingInLeaf:(OgreTextFindLeaf *)aLeaf;
 {
-    if ((_match = [_matchEnumerator nextObject]) == nil) return NO;   // stop
+    if ((match = [matchEnumerator nextObject]) == nil) return NO;   // stop
     
-    _lastMatch = _match;
+    lastMatch = match;
     
     [self incrementNumberOfMatches];
-    [_result addMatch:_match];
+    [result addMatch:match];
     
     return YES; // continue
 }
@@ -94,8 +94,8 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -didProcessFindingInLeaf: of %@", [self className]);
 #endif
-    [_result endAddition];
-	_matchEnumerator = nil;
+    [result endAddition];
+	matchEnumerator = nil;
 }
 
 - (void)didProcessFindingInBranch:(OgreTextFindBranch *)aBranch;
@@ -178,8 +178,8 @@
 {
     if (_numberOfTotalLeaves <= 0) return -1;
     
-    NSRange matchRange = [_lastMatch rangeOfMatchedString];
-    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
+    NSRange matchRange = [lastMatch rangeOfMatchedString];
+    return (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
 }
 
 - (double)donePercentage
@@ -191,8 +191,8 @@
             percentage = 0;
         } else {
             if (_numberOfTotalLeaves > 0) {
-                NSRange matchRange = [_lastMatch rangeOfMatchedString];
-                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(_searchLength + 1)) / (double)_numberOfTotalLeaves;
+                NSRange matchRange = [lastMatch rangeOfMatchedString];
+                percentage = (double)(_numberOfDoneLeaves - 1 + (double)(NSMaxRange(matchRange) + 1)/(double)(searchLength + 1)) / (double)_numberOfTotalLeaves;
             } else {
                 percentage = -1;    // indeterminate
             }

@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 7 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -77,7 +77,7 @@
     enumerator = enumerator2;*/
 	
 	//[resultTextView setString:@""];
-	[resultTextView insertText: [NSString stringWithFormat:@"OgreKit version: %@, OniGuruma version: %@\n", [OGRegularExpression version], [OGRegularExpression onigurumaVersion]]];
+	[resultTextView insertText: [NSString stringWithFormat:@"OgreKit version: %@, OniGuruma/Onigmo version: %@\n", [OGRegularExpression version], [OGRegularExpression onigurumaVersion]]];
 	[resultTextView insertText: [NSString stringWithFormat:@"target string: \"%@\", escape character: \"%@\"\n", str, [OGRegularExpression defaultEscapeCharacter]]];
 	
 	NSInteger	matches = 0;

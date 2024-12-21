@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 03 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -38,7 +38,7 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 // Find Next (次を検索)
 - (id)nextObject
 {
-	OnigPosition		r;
+	OnigPosition	    r;
 	unichar             *start, *range, *end;
 	OnigRegion			*region;
 	id					match = nil;
@@ -245,20 +245,20 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 		[encoder encodeObject: _regex forKey: OgreRegexKey];
 		[encoder encodeObject: _targetString forKey: OgreSwappedTargetStringKey];
 		[encoder encodeInteger: _searchRange.location forKey: OgreStartOffsetKey];
-		[encoder encodeObject: @(_searchOptions) forKey: OgreOptionsKey];
-		[encoder encodeObject: @(_terminalOfLastMatch) forKey: OgreTerminalOfLastMatchKey];
-		[encoder encodeObject: @(_startLocation) forKey: OgreStartLocationKey];
-		[encoder encodeObject: @(_isLastMatchEmpty) forKey: OgreIsLastMatchEmptyKey];
-		[encoder encodeObject: @(_numberOfMatches) forKey: OgreNumberOfMatchesKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_searchOptions] forKey: OgreOptionsKey];
+		[encoder encodeObject: [NSNumber numberWithInteger:_terminalOfLastMatch] forKey: OgreTerminalOfLastMatchKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_startLocation] forKey: OgreStartLocationKey];
+		[encoder encodeObject: [NSNumber numberWithBool:_isLastMatchEmpty] forKey: OgreIsLastMatchEmptyKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_numberOfMatches] forKey: OgreNumberOfMatchesKey];
 	} else {
 		[encoder encodeObject: _regex];
 		[encoder encodeObject: _targetString];
-		[encoder encodeObject: @(_searchRange.location)];
-		[encoder encodeObject: @(_searchOptions)];
-		[encoder encodeObject: @(_terminalOfLastMatch)];
-		[encoder encodeObject: @(_startLocation)];
-		[encoder encodeObject: @(_isLastMatchEmpty)];
-		[encoder encodeObject: @(_numberOfMatches)];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_searchRange.location]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_searchOptions]];
+		[encoder encodeObject: [NSNumber numberWithInteger:_terminalOfLastMatch]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_startLocation]];
+		[encoder encodeObject: [NSNumber numberWithBool:_isLastMatchEmpty]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_numberOfMatches]];
 	}
 }
 
@@ -425,15 +425,28 @@ NSString	* const OgreEnumeratorException = @"OGRegularExpressionEnumeratorExcept
 // description
 - (NSString *)description
 {
-	NSDictionary	*dictionary = @{
-            @"Regular Expression": _regex,
-            @"Target String": _targetString,
-			@"Search Range": [NSString stringWithFormat:@"(%lu, %lu)", (unsigned long)_searchRange.location, (unsigned long)_searchRange.length], 
-			@"Options": [[_regex class] stringsForOptions:_searchOptions], 
-			@"Terminal of the Last Match": @(_terminalOfLastMatch), 
-			@"Start Location of the Next Search": @(_startLocation), 
-			@"Was the Last Match Empty": (_isLastMatchEmpty? @"YES" : @"NO"), 
-			@"Number Of Matches": @(_numberOfMatches)};
+	NSDictionary	*dictionary = [NSDictionary
+		dictionaryWithObjects: [NSArray arrayWithObjects: 
+			_regex, 	// 正規表現オブジェクト
+			_targetString,
+			[NSString stringWithFormat:@"(%lu, %lu)", (unsigned long)_searchRange.location, (unsigned long)_searchRange.length], 	// 検索範囲
+			[[_regex class] stringsForOptions:_searchOptions], 	// 検索オプション
+			[NSNumber numberWithInteger:_terminalOfLastMatch],	// 前回にマッチした文字列の終端位置より前の文字列の長さ
+			[NSNumber numberWithUnsignedInteger:_startLocation], 	// マッチ開始位置
+			(_isLastMatchEmpty? @"YES" : @"NO"), 	// 前回のマッチが空文字列だったかどうか
+			[NSNumber numberWithUnsignedInteger:_numberOfMatches], 
+			nil]
+		forKeys:[NSArray arrayWithObjects: 
+			@"Regular Expression", 
+            @"Target String", 
+			@"Search Range", 
+			@"Options", 
+			@"Terminal of the Last Match", 
+			@"Start Location of the Next Search", 
+			@"Was the Last Match Empty", 
+			@"Number Of Matches", 
+			nil]
+		];
 		
 	return [dictionary description];
 }

@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 20 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -261,7 +261,7 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
         
         // Initialization of the Find menu (Findメニューの初期化)
         [findMenu setTitle:titleOfFindMenu];
-        NSMenuItem  *newFindMenuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] init];
+        NSMenuItem  *newFindMenuItem = [[NSMenuItem alloc] init];
         [newFindMenuItem setTitle:titleOfFindMenu];
         [newFindMenuItem setSubmenu:findMenu];
         
@@ -287,35 +287,34 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 // name the current to the starting point to look for menu item of name. (currentを起点に名前がnameのmenu itemを探す。)
 - (NSMenuItem *)findMenuItemNamed:(NSString *)name startAt:(NSMenu *)current
 {
-    NSMenuItem  *foundMenuItem = nil;
-    if (current == nil)  return nil;
-    
-    @autoreleasepool {
-        NSInteger i, n;
-        NSMutableArray *menuArray = [NSMutableArray arrayWithObject:current];
-        while ([menuArray count] > 0) {
-            NSMenu      *aMenu = menuArray[0];
-            NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
-            if (aMenuItem != nil) {
-                // 見つかった場合
-                foundMenuItem = aMenuItem;
-                break;
-            }
-            
-            // 見つからなかった場合
-            n = [aMenu numberOfItems];
-            for (i = 0; i < n; i++) {
-                aMenuItem = [aMenu itemAtIndex:i];
-                //NSLog(@"%@", [aMenuItem title]);
-                if ([aMenuItem hasSubmenu]) {
-                    [menuArray addObject:[aMenuItem submenu]];
-                }
-            }
-            [menuArray removeObjectAtIndex:0];
-        }
-    }
-    
-    return foundMenuItem;
+	NSMenuItem  *foundMenuItem = nil;
+	if (current == nil) return nil;
+	
+	@autoreleasepool {
+	
+	NSInteger i, n;
+	NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
+	while ([menuArray count] > 0) {
+		NSMenu      *aMenu = [menuArray objectAtIndex:0];
+		NSMenuItem  *aMenuItem = [aMenu itemWithTitle:name];
+		if (aMenuItem != nil) {
+			// 見つかった場合
+			foundMenuItem = aMenuItem;
+			break;
+		}
+		
+		// 見つからなかった場合
+		n = [aMenu numberOfItems];
+		for (i=0; i<n; i++) {
+			aMenuItem = [aMenu itemAtIndex:i];
+			//NSLog(@"%@", [aMenuItem title]);
+			if ([aMenuItem hasSubmenu]) [menuArray addObject:[aMenuItem submenu]];
+		}
+		[menuArray removeObjectAtIndex:0];
+	}
+	}
+	
+	return foundMenuItem;
 }
 
 - (void)appWillTerminate:(NSNotification *)aNotification
@@ -1024,24 +1023,22 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 /* Getting and registering adapters for targets */
 - (id)adapterForTarget:(id)aTargetToFindIn
 {
-    if ([aTargetToFindIn respondsToSelector:@selector(ogreAdapter)]) {
-        return [(id <OgreView>)aTargetToFindIn ogreAdapter];
-    }
-    
-    Class anAdapterClass = [self adapterClassForTargetToFindIn];
-    
-    if (anAdapterClass == Nil) {
-        /* Searching in the adapter-target array */
-        NSInteger index, count = [_adapterClassArray count];
-        for (index = count - 1; index >= 0; index--) {
-            if ([aTargetToFindIn isKindOfClass:_targetClassArray[index]]) {
-                anAdapterClass = _adapterClassArray[index];
-                break;
-            }
-        }
-    }
-    
-    return [[anAdapterClass alloc] initWithTarget:aTargetToFindIn];
+	if ([aTargetToFindIn respondsToSelector:@selector(ogreAdapter)]) return [(id <OgreView>)aTargetToFindIn ogreAdapter];
+	
+	Class	anAdapterClass = [self adapterClassForTargetToFindIn];
+	
+	if (anAdapterClass == Nil) {
+		/* Searching in the adapter-target array */
+		NSUInteger	index, count = [_adapterClassArray count];
+		for (index = count - 1; index >= 0; index--) {
+			if ([aTargetToFindIn isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
+				anAdapterClass = [_adapterClassArray objectAtIndex:index];
+				break;
+			}
+		}
+	}
+	
+	return [[anAdapterClass alloc] initWithTarget:aTargetToFindIn];
 }
 
 - (void)registeringAdapterClass:(Class)anAdapterClass forTargetClass:(Class)aTargetClass
@@ -1062,23 +1059,19 @@ static NSString * const OgreTextFinderEscapeCharacterKey = @"Escape Character";
 
 - (BOOL)hasAdapterClassForObject:(id)anObject
 {
-    if (anObject == nil) {
-        return NO;
-    }
-    
-    if ([anObject respondsToSelector:@selector(ogreAdapter)]) {
-        return YES;
-    }
-    
-    NSInteger index, count = [_targetClassArray count];
-    for (index = count - 1; index >= 0; index--) {
-        if ([anObject isKindOfClass:_targetClassArray[index]]) {
-            return YES;
-            break;
-        }
-    }
-    
-    return NO;
+	if (anObject == nil) return NO;
+	
+	if ([anObject respondsToSelector:@selector(ogreAdapter)]) return YES;
+	
+	NSInteger index, count = [_targetClassArray count];
+	for (index = count - 1; index >= 0; index--) {
+		if ([anObject isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
+			return YES;
+			break;
+		}
+	}
+	
+	return NO;
 }
 
 @end

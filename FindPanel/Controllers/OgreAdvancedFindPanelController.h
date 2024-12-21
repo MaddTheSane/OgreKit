@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 14 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2022 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -38,7 +38,7 @@
 	NSMutableArray			*_replaceHistory;
 	IBOutlet NSPopUpButton	*findPopUpButton;
 	IBOutlet NSPopUpButton	*replacePopUpButton;
-	
+    
 	BOOL					singleLineOption;
 	BOOL					multilineOption;
 	BOOL					ignoreCaseOption;
@@ -107,11 +107,12 @@
 - (void)avoidEmptySelection;
 - (void)setStartFromCursor;
 - (IBAction)toggleStyleOptions:(id)sender;
+- (IBAction)changeWithStylesOption:(id)sender;
 
 /* delegate methods of OgreAdvancedFindPanel */
 - (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags;
-- (void)findPanelDidAddChildWindow:(NSWindow *)childWindow;
-- (void)findPanelDidRemoveChildWindow:(NSWindow *)childWindow;
+- (void)findPanelDidAddChildWindow:(NSWindow*)childWindow;
+- (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow;
 
 /* settings */
 - (NSString *)escapeCharacter;

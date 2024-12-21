@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 05 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -21,7 +21,7 @@
 
 @implementation OgreTableCellFindResult
 
-- (id)initWithTableColumn:(OgreTableColumn *)tableColumn row:(NSInteger)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
     self = [super init];
     if (self != nil) {
@@ -81,14 +81,14 @@
 }
 
 
-// line number that matched string for the index (index番目にマッチした文字列のある行番号)
-- (NSNumber *)lineOfMatchedStringAtIndex:(NSUInteger)index
+// index番目にマッチした文字列のある行番号
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
-    return @(_rowIndex + 1);
+    return [NSNumber numberWithInteger:_rowIndex + 1];
 }
 
-// matched string for the index (index番目にマッチした文字列)
-- (NSAttributedString *)matchedStringAtIndex:(NSUInteger)index
+// index番目にマッチした文字列
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return [[self textFindResult] missingString];
     
@@ -105,7 +105,7 @@
     return [[self textFindResult] highlightedStringInRange:_matchRangeArray[index] ofString:fullString];
 }
 
-// I want to select and display the matched string for the index (index番目にマッチした文字列を選択・表示する)
+// index番目にマッチした文字列を選択・表示する
 - (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;
@@ -115,7 +115,7 @@
     return [self selectMatchedStringAtIndex:index];
 }
 
-// I choose the matched string for the index (index番目にマッチした文字列を選択する)
+// index番目にマッチした文字列を選択する
 - (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_tableColumn == nil || _rowIndex >= [[_tableColumn tableView] numberOfRows]) return NO;

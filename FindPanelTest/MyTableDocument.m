@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 29 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -52,7 +52,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     
 	NSMutableString *aString = [NSMutableString string];
     NSArray         *columnArray = [tableView tableColumns];
-    OgreTableColumn *column;
+    OgreTableColumn   *column;
     NSInteger       columnIndex, numberOfColumns = [columnArray count];
     NSInteger       rowIndex, numberOfRows = [self numberOfRows];
     NSArray         *array;
@@ -112,7 +112,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     
     OGRegularExpressionMatch    *match;
     OGRegularExpressionCapture  *capture;
-    NSEnumerator                *matchEnumerator = [regEx matchEnumeratorInString:aString];
+    NSEnumerator                *matchEnumerator = [regex matchEnumeratorInString:aString];
     NSUInteger                  numberOfCaptures = 0, colIndex;
     NSMutableArray              *array;
     NSString                    *identifier;
@@ -159,9 +159,9 @@ static NSString *gMyTableRowPropertyType = @"rows";
         NSString    *identifier;
         for (i = 0; i < numberOfColumns; i++) {
             // add columns
-            identifier = [NSString stringWithFormat:@"%lu", i + 1];
+			identifier = [NSString stringWithFormat:@"%lu", i + 1];
             OgreTableColumn   *aColumn = [[OgreTableColumn alloc] initWithIdentifier:identifier];
-            NSTableHeaderCell   *headerCell=[[NSTableHeaderCell alloc] initTextCell:_titleArray[i]];
+            NSTableHeaderCell   *headerCell=[[NSTableHeaderCell alloc] initTextCell:[_titleArray objectAtIndex:i]];
             NSTextFieldCell *dataCell=[[NSTextFieldCell alloc] initTextCell:@""];
             [aColumn setHeaderCell:headerCell];
             [aColumn setDataCell:dataCell];
@@ -187,7 +187,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	_newlineCharacter = aNewlineCharacter;
 }
 
-- (NSInteger)numberOfRows
+- (NSUInteger)numberOfRows
 {
     NSEnumerator *enumerator = [_dict objectEnumerator];
     id value;
@@ -319,10 +319,10 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (IBAction)addColumn:(id)sender
 {
-    NSString    *identifier = [NSString stringWithFormat:@"%lu", (unsigned long)++_numberOfColumns];
-    
+	NSString    *identifier = [NSString stringWithFormat:@"%lu", (unsigned long)++_numberOfColumns];
+
     // create the data source corresponding to new column
-    NSInteger    i, numberOfRows = [self numberOfRows];
+    NSUInteger    i, numberOfRows = [self numberOfRows];
     NSMutableArray  *array = [NSMutableArray arrayWithCapacity:numberOfRows];
     for (i = 0; i < numberOfRows; i++) [array addObject:[NSString string]];
     _dict[identifier] = array;
@@ -385,12 +385,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
 // 
 - (void)tableViewDoubleClicked
 {
-	NSInteger clickedRowIndex = [tableView clickedRow];
-    NSInteger selectedColumn = [tableView selectedColumn];
+	NSInteger   clickedRowIndex = [tableView clickedRow];
+    NSInteger   selectedColumn = [tableView selectedColumn];
 	if ((clickedRowIndex != -1) || (selectedColumn == -1)) return;
     
-    NSArray         *columnArray = [tableView tableColumns];
-    OgreTableColumn   *aColumn = columnArray[selectedColumn];
+    NSArray     *columnArray = [tableView tableColumns];
+    OgreTableColumn   *aColumn = [columnArray objectAtIndex:selectedColumn];
     
     _sheetPosition = [[[tableView window] contentView] convertRect:[tableView frameOfCellAtColumn:selectedColumn row:0] fromView:tableView];
     _sheetPosition.origin.y += _sheetPosition.size.height + 1;

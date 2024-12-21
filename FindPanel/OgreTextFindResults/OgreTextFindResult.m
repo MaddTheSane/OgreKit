@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Apr 18 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -147,10 +147,10 @@
     return _resultTree;
 }
 
-- (void)setHighlightColor:(NSColor *)aColor regularExpression:(OGRegularExpression *)regex;
+- (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 {
     CGFloat hue, saturation, brightness, alpha;
-    CGFloat  dummy;
+    double  dummy;
     
     [[aColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
         getHue: &hue 
@@ -175,7 +175,7 @@
 // emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
 - (NSAttributedString *)highlightedStringInRange:(NSArray *)aRangeArray ofString:(NSString *)aString
 {
-	NSInteger							i, n = [aRangeArray count], delta = 0;
+	NSInteger					i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
 	NSMutableAttributedString	*highlightedString;
     
@@ -238,7 +238,7 @@
     [_delegate didUpdateTextFindResult:self];
 }
 
-- (NSAttributedString *)messageOfStringsFound:(NSUInteger)numberOfMatches
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -249,7 +249,7 @@
     return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, (unsigned long)numberOfMatches] attributes:@{NSForegroundColorAttributeName: [NSColor darkGrayColor]}];
 }
 
-- (NSAttributedString *)messageOfItemsFound:(NSUInteger)numberOfMatches
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {

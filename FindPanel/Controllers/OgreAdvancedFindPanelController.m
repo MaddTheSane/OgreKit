@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 14 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2022 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -45,6 +45,8 @@ static NSString	*OgreAFPCEnableStyleOptionsKey       = @"AFPC Enable Style Optio
 static NSString	*OgreAFPCOpenProgressSheetKey        = @"AFPC Open Progress Sheet";
 static NSString	*OgreAFPCAttributedFindHistoryKey    = @"AFPC Attributed Find History";
 static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace History";
+static NSString *OgreAFPCFindFieldFontKey            = @"AFPC Find Field Font";
+static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font";
 
 @interface OgreAdvancedFindPanelController () <OgreAFPCEscapeCharacterFormatterDelegate>
 
@@ -135,7 +137,17 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
     // disable Automatic Substitution Features
     [self disableAutomaticSubstitutions:findTextView];
     [self disableAutomaticSubstitutions:replaceTextView];
-	
+    
+    // to support darkmode
+    if (@available(macOS 10.14, *)) {
+        findTextView.usesAdaptiveColorMappingForDarkAppearance = YES;
+        replaceTextView.usesAdaptiveColorMappingForDarkAppearance = YES;
+    }
+
+    // setup the default font size of the Find/Replace text view
+    [self setDefaultFont:findTextView];
+    [self setDefaultFont:replaceTextView];
+
 	// restore history
 	[self restoreHistory:[self.textFinder history]];
 	[self.textFinder setEscapeCharacter:[self escapeCharacter]];
@@ -155,6 +167,16 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		object: maxNumOfReplaceHistoryTextField];
 }
 
+// setup the default font size of the Find or Replace text view
+- (void)setDefaultFont:(NSTextView*)textView
+{
+//    NSFont *font = [textView font];
+//    font = [NSFont fontWithDescriptor:[font fontDescriptor] size:18];
+//    [textView setFont:font];
+    
+    NSFont  *defaultFont = [self defaultFont];
+    [textView setFont:defaultFont];
+}
 
 // disable Automatic Substitution Features
 - (void)disableAutomaticSubstitutions:(NSTextView *)textView
@@ -457,8 +479,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
                                                 documentAttributes:@{}]];
 	}
 	
-	/* If you want to keep the information of search history, etc. override this method. (検索履歴等の情報を残したい場合はこのメソッドを上書きする。) */
-	return @{OgreAFPCAttributedFindHistoryKey: encodedFindHistory, 
+	/* 検索履歴等の情報を残したい場合はこのメソッドを上書きする。 */
+	return @{OgreAFPCAttributedFindHistoryKey: encodedFindHistory,
 			OgreAFPCAttributedReplaceHistoryKey: encodedReplaceHistory, 
 			OgreAFPCOptionsKey: @([self _options]), 
 			OgreAFPCSyntaxKey: @([[syntaxPopUpButton selectedItem] tag]), 
@@ -482,7 +504,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[self loadFindStringToPasteboard];
 	
 	NSMenu		*menu = [findPopUpButton menu];
-	NSInteger	i, n = [_findHistory count];
+	NSInteger   i, n = [_findHistory count];
 	NSString	*string = [attrString string];
 	for (i = 0; i < n; i++) {
 		if ([[_escapeCharacterFormatter stringForObjectValue:[_findHistory[i] string]]  isEqualToString:string]) {
@@ -498,7 +520,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	NSUInteger	start, end, contentsEnd;
 	[string getLineStart:&start
 		end:&end
-		contentsEnd:&contentsEnd 
+		contentsEnd:&contentsEnd
 		forRange:NSMakeRange(0, 0)];
 	if (start == contentsEnd) {
 		[item setTitle:@""];
@@ -519,7 +541,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)addReplaceHistory:(NSAttributedString *)string
 {
 	NSMenu	*menu = [replacePopUpButton menu];
-	NSInteger		i, n = [_replaceHistory count];
+	NSInteger   i, n = [_replaceHistory count];
 	for (i = 0; i < n; i++) {
 		if ([[_escapeCharacterFormatter attributedStringForObjectValue:_replaceHistory[i] 
 				withDefaultAttributes:nil] isEqualToAttributedString:string]) {
@@ -535,7 +557,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	NSMenuItem	*item = [[NSMenuItem alloc] init];
 	NSUInteger	start, end, contentsEnd;
 	[[string string] getLineStart:&start
-		end:&end 
+		end:&end
 		contentsEnd:&contentsEnd 
 		forRange:NSMakeRange(0, 0)];
 	if (start == contentsEnd) {
@@ -568,7 +590,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	_isAlertSheetOpen = YES;
 }
 
-- (void)clearFindPeplaceHistoriesSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
+- (void)clearFindPeplaceHistoriesSheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+{
 	if (returnCode == NSAlertDefaultReturn) {
 		_findHistory = [[NSMutableArray alloc] initWithCapacity:0];
 		_replaceHistory = [[NSMutableArray alloc] initWithCapacity:0];
@@ -594,21 +617,22 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)selectFindHistory:(id)sender
 {
 	NSMenu				*menu = [findPopUpButton menu];
-	NSInteger			selectedIndex = [menu indexOfItem:sender];
-	NSAttributedString	*attrString = _findHistory[selectedIndex - 1];
+    NSUInteger			selectedIndex = [menu indexOfItem:sender];
+	NSAttributedString	*attrString = [_findHistory objectAtIndex:(selectedIndex - 1)];
 	[self setFindString:attrString];
 }
 
 - (IBAction)selectReplaceHistory:(id)sender
 {
 	NSMenu				*menu = [replacePopUpButton menu];
-	NSInteger			selectedIndex = [menu indexOfItem:sender];
-	NSAttributedString	*attrString = _replaceHistory[selectedIndex - 1];
+    NSUInteger			selectedIndex = [menu indexOfItem:sender];
+	NSAttributedString	*attrString = [_replaceHistory objectAtIndex:(selectedIndex - 1)];
 	[self setReplaceString:attrString];
 }
 
 - (void)setFindString:(NSAttributedString *)attrString
 {
+    NSFont  *currentFont = [findTextView font];
 	NSTextStorage		*textStorage = [findTextView textStorage];
 	NSAttributedString	*findString = [_escapeCharacterFormatter attributedStringForObjectValue:attrString 
 		withDefaultAttributes:nil];
@@ -628,10 +652,14 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	// replace
 	[textStorage replaceCharactersInRange:oldRange withAttributedString:findString];
+    
+    // adjust style
+    [findTextView setFont:currentFont];
 }
 
 - (void)setReplaceString:(NSAttributedString *)attrString
 {
+    NSFont  *currentFont = [replaceTextView font];
 	NSTextStorage		*textStorage = [replaceTextView textStorage];
 	NSAttributedString	*replaceString = [_escapeCharacterFormatter attributedStringForObjectValue:attrString 
 											withDefaultAttributes:nil];
@@ -652,6 +680,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	// replace
 	[textStorage replaceCharactersInRange:oldRange withAttributedString:replaceString];
+    
+    // adjust style
+    if (![self replaceWithStylesOption]) {
+        [replaceTextView setFont:currentFont];
+    }
+    [self setRichText:[self replaceWithStylesOption] ofTextView:replaceTextView];
 }
 
 - (void)undoableReplaceCharactersInRange:(NSRange)oldRange 
@@ -790,6 +824,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[findPanel display];
 }
 
+- (IBAction)changeWithStylesOption:(id)sender
+{
+    [self setRichText:[self replaceWithStylesOption] ofTextView:replaceTextView];
+}
+
 - (IBAction)showFindPanel:(id)sender
 {
     //if (![findPanel isVisible]) [self loadFindStringFromPasteboard];
@@ -803,8 +842,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	} else {
 		[toggleStyleOptionsButton setHidden:NO];
 	}
-	
-	[findPanel makeFirstResponder:findTextView];
+
+    [findPanel makeFirstResponder:findTextView];
 	
 	// Next three lines by Koch, May 17 2005
 	NSRange    myRange;
@@ -1225,8 +1264,18 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	NSAttributedString	*selectedAttrString = [self.textFinder selectedAttributedString];
 	if (selectedAttrString != nil) {
-		[[findTextView textStorage] setAttributedString:selectedAttrString];
-		//if (sender != self) [self showFindPanel:sender];
+        [findTextView setString:[selectedAttrString string]];
+        [findTextView didChangeText];
+
+//        NSTextStorage   *textStorage = [findTextView textStorage];
+//        [textStorage beginEditing];
+//        [textStorage replaceCharactersInRange:NSMakeRange(0, [textStorage length])
+//                                   withString:[selectedAttrString string]];
+//        [self setDefaultFontSize:findTextView];
+//        [textStorage endEditing];
+//        [findTextView didChangeText];
+        
+        //if (sender != self) [self showFindPanel:sender];
 	} else {
 		NSBeep();
 	}
@@ -1242,7 +1291,18 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	NSAttributedString	*selectedAttrString = [self.textFinder selectedAttributedString];
 	if (selectedAttrString != nil) {
-		[[replaceTextView textStorage] setAttributedString:selectedAttrString];
+        if ([self replaceWithStylesOption]) {
+            // rich text
+            NSTextStorage   *textStorage = [replaceTextView textStorage];
+            [textStorage beginEditing];
+            [textStorage setAttributedString:selectedAttrString];
+            [textStorage endEditing];
+        } else {
+            // plain text
+            [replaceTextView setString:[selectedAttrString string]];
+        }
+        
+        [replaceTextView didChangeText];
 		//if (sender != self) [self showFindPanel:sender];
 	} else {
 		NSBeep();
@@ -1251,6 +1311,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 
 - (IBAction)clearFindStringStyles:(id)sender
 {
+    NSFont  *currentFont = [findTextView font];
 	NSString			*string = [findTextView string];
 	NSAttributedString	*newString = [[NSAttributedString alloc] initWithString:string];
 	if ([string length] == 0) {
@@ -1259,10 +1320,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	} else {
 		[self setFindString:newString];
 	}
+    [findTextView setFont:currentFont];
 }
 
 - (IBAction)clearReplaceStringStyles:(id)sender
 {
+    NSFont  *currentFont = [replaceTextView font];
 	NSString			*string = [replaceTextView string];
 	NSAttributedString	*newString = [[NSAttributedString alloc] initWithString:string];
 	if ([string length] == 0) {
@@ -1271,6 +1334,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	} else {
 		[self setReplaceString:newString];
 	}
+    [replaceTextView setFont:currentFont];
 }
 
 
@@ -1419,5 +1483,77 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
     [self findPanelFlagsChanged:0]; // release key
 }
 
+- (NSFont*)defaultFont
+{
+    NSFont  *plainFont = [NSFont userFixedPitchFontOfSize:18];
+    return plainFont;
+}
+
+- (NSDictionary*)defaultTextAttributesOf:(NSTextView*)textView
+{
+    NSMutableDictionary *textAttributes = [[NSMutableDictionary alloc] initWithCapacity:2];
+//    NSFont  *defaultFont = [self defaultFont];
+//    [textAttributes setObject:defaultFont forKey:NSFontAttributeName];
+    NSFont  *font = [textView font];
+    [textAttributes setObject:font forKey:NSFontAttributeName];
+    return textAttributes;
+}
+
+- (void)removeAttachmentsFrom:(NSTextView*)textView
+{
+    NSTextStorage   *attrString = [textView textStorage];
+    NSUInteger      loc = 0;
+    NSUInteger      end = [attrString length];
+    
+    [attrString beginEditing];
+    while (loc < end) {
+        NSRange attachmentRange;
+        NSTextAttachment    *attachment = [attrString attribute:NSAttachmentAttributeName
+                                                        atIndex:loc
+                                          longestEffectiveRange:&attachmentRange
+                                                        inRange:NSMakeRange(loc, end - loc)];
+        
+        if (attachment) {
+            unichar ch = [[attrString string] characterAtIndex:loc];
+            if (ch == NSAttachmentCharacter) {
+                if ([textView shouldChangeTextInRange:NSMakeRange(loc, 1) replacementString:@""]) {
+                    [attrString replaceCharactersInRange:NSMakeRange(loc, 1) withString:@""];
+                    [textView didChangeText];
+                }
+                end = [attrString length];
+            } else {
+                loc++;
+            }
+        } else {
+            loc = NSMaxRange(attachmentRange);
+        }
+    }
+    [attrString endEditing];
+}
+
+- (void)setRichText:(BOOL)isRichText ofTextView:(NSTextView*)textView
+{
+    if (!isRichText) {
+        [self removeAttachmentsFrom:textView];
+    }
+
+    [textView setRichText:isRichText];
+    [textView setImportsGraphics:isRichText];
+    [textView setDrawsBackground:YES];
+    if (!isRichText) {
+        [textView setBackgroundColor:[NSColor textBackgroundColor]];
+    }
+    [textView setUsesRuler:NO];
+    
+    if (!isRichText) {
+        NSDictionary    *textAttributes = [self defaultTextAttributesOf:textView];
+        NSUInteger  textLength = [[textView textStorage] length];
+        if (textLength > 0) {
+            [[textView textStorage] setAttributes:textAttributes
+                                            range:NSMakeRange(0, textLength)];
+        }
+        [textView setTypingAttributes:textAttributes];
+    }
+}
 
 @end

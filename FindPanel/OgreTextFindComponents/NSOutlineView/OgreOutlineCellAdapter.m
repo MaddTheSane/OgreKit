@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 06 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -199,7 +199,7 @@
         if (columnIndex != -1) [outlineView scrollColumnToVisible:columnIndex];
     }
     
-    [(OgreOutlineItemAdapter *)[self parent] expandItemEnclosingItem:item];
+    [(OgreOutlineItemAdapter*)[self parent] expandItemEnclosingItem:item];
     NSInteger rowIndex = [outlineView rowForItem:item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];

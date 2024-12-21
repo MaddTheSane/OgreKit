@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Sep 01 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,12 +17,12 @@
 
 @interface OGRegularExpressionMatch ()
 
-/**************************
- * Initialization (初期化) *
- **************************/
-- (instancetype)initWithRegion:(OnigRegion *)region
+/*********
+ * 初期化 *
+ *********/
+- (instancetype)initWithRegion:(OnigRegion*)region 
 	index:(NSUInteger)anIndex
-	enumerator:(OGRegularExpressionEnumerator *)enumerator
+	enumerator:(OGRegularExpressionEnumerator*)enumerator
 	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;
 
 - (id<OGStringProtocol>)_targetString;

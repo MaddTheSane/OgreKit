@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 24 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -33,7 +33,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 /*********
  * 諸情報 *
  *********/
-// Group number (グループ番号)
+// グループ番号
 - (NSUInteger)groupIndex
 {
     return _captureNode->group;
@@ -45,19 +45,19 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
     return [_match nameOfSubstringAtIndex:[self groupIndex]];
 }
 
-// And what number of child elements 0, 1, 2, ... (// 何番目の子要素であるか 0,1,2,...)
+// 何番目の子要素であるか 0,1,2,...
 - (NSUInteger)index
 {
     return _index;
 }
 
-// Depth (深さ)
+// 深さ
 - (NSUInteger)level
 {
     return _level;
 }
 
-// The number of child elements (子要素の数)
+// 子要素の数
 - (NSUInteger)numberOfChildren
 {
     return _captureNode->num_childs;
@@ -78,8 +78,8 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 
-// index th child element (index番目の子要素)
-- (OGRegularExpressionCapture *)childAtIndex:(NSUInteger)index
+// index番目の子要素
+- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index
 {
     if (index >= _captureNode->num_childs) {
         return nil;
@@ -185,13 +185,13 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	//[super encodeWithCoder:encoder]; NSObject does ont respond to method encodeWithCoder:
 	
    if ([encoder allowsKeyedCoding]) {
-		[encoder encodeObject: @(_index) forKey: OgreIndexKey];
-		[encoder encodeObject: @(_level) forKey: OgreLevelKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index] forKey: OgreIndexKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_level] forKey: OgreLevelKey];
 		[encoder encodeObject: _match forKey: OgreMatchKey];
 		[encoder encodeObject: _parent forKey: OgreParentKey];
 	} else {
-		[encoder encodeObject: @(_index)];
-		[encoder encodeObject: @(_level)];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_level]];
 		[encoder encodeObject: _match];
 		[encoder encodeObject: _parent];
 	}

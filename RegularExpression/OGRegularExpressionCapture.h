@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Jun 24 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -18,7 +18,7 @@
 #ifndef HAVE_CONFIG_H
 #	define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 
 // constants
@@ -53,37 +53,37 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @interface OGRegularExpressionCapture : NSObject <NSCopying, NSCoding>
 {
 	OnigCaptureTreeNode         *_captureNode;      // Oniguruma capture tree node
-	NSUInteger                  _index,             // matched order (マッチした順番)
-                                _level;             // Depth (深さ)
-	OGRegularExpressionMatch	*_match;            // Generation Lord OGRegularExpressionMatch object (生成主のOGRegularExpressionMatchオブジェクト)
-	OGRegularExpressionCapture	*_parent;           // Parent (親)
+    NSUInteger                  _index,             // マッチした順番
+                                _level;             // 深さ
+	OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト
+	OGRegularExpressionCapture	*_parent;           // 親
 }
 
 /*********
  * 諸情報 *
  *********/
-// Group number (グループ番号)
+// グループ番号
 @property (nonatomic, readonly) NSUInteger groupIndex;
 
-// Group Name (グループ名)
+// グループ名
 @property (nonatomic, readonly, copy) NSString *groupName;
 
-// And what number of child elements 0, 1, 2, ... (// 何番目の子要素であるか 0,1,2,...)
+// 何番目の子要素であるか 0,1,2,...
 @property (nonatomic, readonly) NSUInteger index;
 
 // Depth (深さ)
 // 0: root
 @property (nonatomic, readonly) NSUInteger level;
 
-// The number of child elements (子要素の数)
+// 子要素の数
 @property (nonatomic, readonly) NSUInteger numberOfChildren;
 
 // Child elements us (子要素たち)
 // return nil in the case of numberOfChildren == 0
 @property (nonatomic, readonly, copy) NSArray *children;
 
-// index th child element (index番目の子要素)
-- (OGRegularExpressionCapture *)childAtIndex:(NSUInteger)index;
+// index番目の子要素
+- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index;
 
 // match
 @property (nonatomic, readonly, copy) OGRegularExpressionMatch *match;

@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Aug 30 2003
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,7 +17,7 @@
 #ifndef HAVE_CONFIG_H
 # define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 #import <OgreKit/OGRegularExpressionPrivate.h>
 #import <OgreKit/OGRegularExpressionMatchPrivate.h>
@@ -40,20 +40,20 @@ const OgreOption	OgreFindNotEmptyOption		= ONIG_OPTION_FIND_NOT_EMPTY;
 const OgreOption	OgreNegateSingleLineOption	= ONIG_OPTION_NEGATE_SINGLELINE;
 const OgreOption	OgreDontCaptureGroupOption	= ONIG_OPTION_DONT_CAPTURE_GROUP;
 const OgreOption	OgreCaptureGroupOption		= ONIG_OPTION_CAPTURE_GROUP;
-// (ONIG_OPTION_POSIX_REGION is not used) ((ONIG_OPTION_POSIX_REGIONは使用しない))
-// OgreDelimitByWhitespaceOption when using the OgreSimpleMatchingSyntax, whether whitespace regarded as a separator of words (OgreDelimitByWhitespaceOptionはOgreSimpleMatchingSyntaxの使用時に、空白文字を単語の区切りとみなすかどうか)
-// Example: @ "AAA BBB CCC" -> @ "(AAA) | (BBB) | (CCC)" (例: @"AAA BBB CCC" -> @"(AAA)|(BBB)|(CCC)")
-const OgreOption	OgreDelimitByWhitespaceOption	= ONIG_OPTION_POSIX_REGION;
+// (ONIG_OPTION_POSIX_REGIONは使用しない)
+// OgreDelimitByWhitespaceOptionはOgreSimpleMatchingSyntaxの使用時に、空白文字を単語の区切りとみなすかどうか
+// 例: @"AAA BBB CCC" -> @"(AAA)|(BBB)|(CCC)"
+const OgreOption	OgreDelimitByWhitespaceOption	= ONIG_OPTION_NOTBOS;
 
 // search time options:
 const OgreOption	OgreNotBOLOption			= ONIG_OPTION_NOTBOL;
 const OgreOption	OgreNotEOLOption			= ONIG_OPTION_NOTEOL;
-const OgreOption	OgreFindEmptyOption			= ONIG_OPTION_POSIX_REGION << 1;
+const OgreOption	OgreFindEmptyOption			= ONIG_OPTION_NOTBOS << 1;
 
 // replace time options:
-const OgreOption	OgreReplaceWithAttributesOption	= ONIG_OPTION_POSIX_REGION << 2;
-const OgreOption	OgreReplaceFontsOption		= ONIG_OPTION_POSIX_REGION << 3;
-const OgreOption	OgreMergeAttributesOption	= ONIG_OPTION_POSIX_REGION << 4;
+const OgreOption	OgreReplaceWithAttributesOption	= ONIG_OPTION_NOTBOS << 2;
+const OgreOption	OgreReplaceFontsOption		= ONIG_OPTION_NOTBOS << 3;
+const OgreOption	OgreMergeAttributesOption	= ONIG_OPTION_NOTBOS << 4;
 
 // exception name
 NSString * const	OgreException = @"OGRegularExpressionException";
@@ -218,7 +218,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     else {
         // If expressionString is nil (expressionStringがnilの場合)
         [NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
-        return nil;
+		return nil;
     }
     
     // Options (オプション)
@@ -309,33 +309,37 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     ci.option         = (OnigOptionType)compileTimeOptions;
     ci.case_fold_flag = ONIGENC_CASE_FOLD_DEFAULT;
     
-    r = onig_new_deluxe(&_regexBuffer,
-                        (unsigned char *)_UTF16ExpressionString,
-                        (unsigned char *)(_UTF16ExpressionString + lengthOfCompileTimeString),
-                        &ci,
-                        &einfo);
-    if (r != ONIG_NORMAL) {
-        // Error. I raise an exception. (エラー。例外を発生させる。)
-        unsigned char s[ONIG_MAX_ERROR_MESSAGE_LEN];
-        onig_error_code_to_str(s, r, &einfo);
-        [NSException raise:OgreException format:@"%s", s];
-    }
-    
-    // dictionary-catching group number in the name, the creation of reverse dictionary (array) to pull the name in (group number-1) (nameでgroup numberを引く辞書、(group number-1)でnameを引く逆引き辞書(配列)の作成)
-    if ([self numberOfNames] > 0) {
-        // If you use a named group (named groupを使用する場合)
-        // Creating a dictionary (辞書の作成)
-        // Example: / (? <a> A +) (? <B> b +) (? <a> C +) / (例: /(?<a>a+)(?<b>b+)(?<a>c+)/)
-        // Structure: {"a" = (1,3), "b" = (2)} (構造: {"a" = (1,3), "b" = (2)})
-        NSMutableDictionary *groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
-        _groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
-        /*r = */onig_foreach_name(_regexBuffer, namedGroupCallback, (__bridge void *)(groupIndexForNameDictionary));    // I get a list of name (nameの一覧を得る)
-        
-        NSMutableArray	*array;
-        NSInteger		i, maxGroupIndex = 0;
-        for (NSString *name in groupIndexForNameDictionary) {
-            NSUInteger      lengthOfName = [name length];
-            unichar         *UTF16Name = (unichar *)malloc(sizeof(unichar) * lengthOfName);
+	r = onig_new_deluxe(
+        &_regexBuffer, 
+        (unsigned char*)_UTF16ExpressionString, 
+        (unsigned char*)(_UTF16ExpressionString + lengthOfCompileTimeString),
+		&ci, 
+        &einfo);
+	if (r != ONIG_NORMAL) {
+		// エラー。例外を発生させる。
+		unsigned char s[ONIG_MAX_ERROR_MESSAGE_LEN];
+		onig_error_code_to_str(s, r, &einfo);
+		[NSException raise:OgreException format:@"%s", s];
+		return nil;
+	}
+	
+	// nameでgroup numberを引く辞書、(group number-1)でnameを引く逆引き辞書(配列)の作成
+	if ([self numberOfNames] > 0) {
+		// named groupを使用する場合
+		// 辞書の作成
+		// 例: /(?<a>a+)(?<b>b+)(?<a>c+)/
+		// 構造: {"a" = (1,3), "b" = (2)}
+		NSMutableDictionary *groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
+		_groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
+        r = onig_foreach_name(_regexBuffer, namedGroupCallback, (__bridge void *)(groupIndexForNameDictionary));	// nameの一覧を得る
+		
+		NSEnumerator	*keyEnumerator = [groupIndexForNameDictionary keyEnumerator];
+		NSString		*name;
+		NSMutableArray	*array;
+		int 			i, maxGroupIndex = 0;
+		while ((name = [keyEnumerator nextObject]) != nil) {
+            NSUInteger  lengthOfName = [name length];
+			unichar     *UTF16Name = (unichar*)malloc(sizeof(unichar) * lengthOfName);
             if (UTF16Name == NULL) {
                 [NSException raise:NSMallocException format:@"failed to allocate a memory"];
             }
@@ -427,40 +431,40 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
                          syntax:(OgreSyntax)syntax
                 escapeCharacter:(NSString *)character
 {
-    NSInteger		r;
+	NSInteger		r;
     NSUInteger      length;
-    unichar         *UTF16Str;
-    OnigErrorInfo	einfo;
-    regex_t			*regexBuffer;
-    NSString		*escapeChar = nil;
-    
-    // character is I examine whether the available characters. (characterが使用可能な文字か調べる。)
-    BOOL isBackslashEscape = NO;
-    switch ([[self class] kindOfCharacter:character]) {
-        case OgreKindOfBackslash:
-            // @"\\"
-            escapeChar = OgreBackslashCharacter;
-            isBackslashEscape = YES;
-            break;
-            
-        case OgreKindOfNormal:
-            // Ordinary character (普通の文字)
-            escapeChar = [character substringWithRange:NSMakeRange(0, 1)];
-            break;
-            
-        case OgreKindOfNil:
-        case OgreKindOfEmpty:
-        case OgreKindOfSpecial:
-            // nil, space character, the case of a special character, error. (nil、空白文字、特殊文字の場合、エラー。)
-            return NO;
-            break;
-    }
-    
-    // Option (I lower if ONIG_OPTION_POSIX_REGION and OgreFindNotEmptyOption and OgreDelimitByWhitespaceOption is standing) (オプション(ONIG_OPTION_POSIX_REGIONとOgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionが立っている場合は下げる))
-    NSUInteger	compileTimeOptions = OgreCompileTimeOptionMask(options) & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
-    
-    // UTF16 is converted to a string. (In the case of OgreSimpleMatchingSyntax is converted to the regular expression (UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから))
-    NSString	*compileTimeString;
+	unichar         *UTF16Str;
+	OnigErrorInfo	einfo;
+	regex_t			*regexBuffer;
+	NSString		*escapeChar = nil;
+	
+	// characterが使用可能な文字か調べる。
+	BOOL	isBackslashEscape = NO;
+	switch ([[self class] kindOfCharacter:character]) {
+		case OgreKindOfBackslash:
+			// @"\\"
+			escapeChar = OgreBackslashCharacter;
+			isBackslashEscape = YES;
+			break;
+			
+		case OgreKindOfNormal:
+			// 普通の文字
+			escapeChar = [character substringWithRange:NSMakeRange(0,1)];
+			break;
+			
+		case OgreKindOfNil:
+		case OgreKindOfEmpty:
+		case OgreKindOfSpecial:
+			// nil、空白文字、特殊文字の場合、エラー。
+			return NO;
+			break;
+	}
+		
+	// オプション(ONIG_OPTION_POSIX_REGIONとOgreFindNotEmptyOptionとOgreDelimitByWhitespaceOptionが立っている場合は下げる)
+	unsigned	compileTimeOptions = OgreCompileTimeOptionMask(options) & ~OgreFindNotEmptyOption & ~OgreDelimitByWhitespaceOption;
+	
+	// UTF16文字列に変換する。(OgreSimpleMatchingSyntaxの場合は正規表現に変換してから)
+	NSString	*compileTimeString;
     
     if (syntax == OgreSimpleMatchingSyntax) {
         compileTimeString = [[self class] regularizeString:expressionString];
@@ -1701,33 +1705,38 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 // The string I want to convert to a safe string in the regular expression. (I make a special character) (文字列を正規表現で安全な文字列に変換する。(特殊文字をする))
 + (NSString *)regularizeString:(NSString *)string
 {
-    if (string == nil) {
-        [NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
-    }
-    
-    NSMutableString *regularizedString = [NSMutableString stringWithString:string];
-    
-    @autoreleasepool {
-        
-        NSUInteger	strlen;
-        NSRange 	searchRange, matchRange;
-        strlen = [regularizedString length];
-        searchRange = NSMakeRange(0, strlen);
-        
-        /* @ "|.?! () * + {} ^ $ [] - & #: = <> @" I saved the (@"|().?*+{}^$[]-&#:=!<>@"を退避する) */
-        while (matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange],
-               matchRange.length > 0) {
-            
-            [regularizedString insertString:OgreBackslashCharacter atIndex:matchRange.location];
-            strlen += 1;
-            searchRange.location = matchRange.location + 2;
-            searchRange.length   = strlen - searchRange.location;
-        }
-        
-        //NSLog(@"%@", regularizedString);
-        return regularizedString;
-        
-    }
+	if (string == nil) {
+		[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
+	}
+
+	NSMutableString	*regularizedString = [NSMutableString stringWithString:string];
+	
+	unsigned	counterOfAutorelease = 0;
+	@autoreleasepool {
+		
+		NSUInteger	strlen;
+		NSRange 	searchRange, matchRange;
+		strlen = [regularizedString length];
+		searchRange = NSMakeRange(0, strlen);
+		
+		/* @"|().?*+{}^$[]-&#:=!<>@"を退避する */
+		while ( matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange],
+			   matchRange.length > 0 ) {
+			
+			[regularizedString insertString:OgreBackslashCharacter atIndex:matchRange.location];
+			strlen += 1;
+			searchRange.location = matchRange.location + 2;
+			searchRange.length   = strlen - searchRange.location;
+			
+			/* release autorelease pool */
+			counterOfAutorelease++;
+			if (counterOfAutorelease % 100 == 0) {
+			}
+		}
+	}
+	
+	//NSLog(@"%@", regularizedString);
+	return regularizedString;
 }
 
 /**************
@@ -1809,127 +1818,116 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 // A newline code I unify in newlineCharacter. (改行コードをnewlineCharacterに統一する。)
 + (NSString *)replaceNewlineCharactersInString:(NSString *)aString withCharacter:(OgreNewlineCharacter)newlineCharacter;
 {
-    NSMutableString *convertedString = [NSMutableString string];
-    NSString        *aCharacter;
-    NSString        *newlineString = nil;
-    if (newlineCharacter == OgreLfNewlineCharacter) {
-        // LF
-        newlineString = @"\n";
-    }
-    else if (newlineCharacter == OgreCrNewlineCharacter) {
-        // CR
-        newlineString = @"\r";
-    }
-    else if (newlineCharacter == OgreCrLfNewlineCharacter) {
-        // CR+LF
-        newlineString = @"\r\n";
-    }
-    else if (newlineCharacter == OgreUnicodeLineSeparatorNewlineCharacter) {
-        // Unicode line separator
-        newlineString = OgrePrivateUnicodeLineSeparator;
-    }
-    else if (newlineCharacter == OgreUnicodeParagraphSeparatorNewlineCharacter) {
-        // Unicode paragraph separator
-        newlineString = OgrePrivateUnicodeParagraphSeparator;
-    }
-    else if (newlineCharacter == OgreNonbreakingNewlineCharacter) {
-        // In the case of non-breaking (改行なしの場合)
-        newlineString = @"";
-    }
-    
-    /* I replace the line feed code (改行コードを置換する) */
-    
-    @autoreleasepool {
-        
-        NSUInteger strlen = [aString length],
-        matchLocation,
-        copyLocation = 0;
-        NSRange searchRange = NSMakeRange(0, strlen),
-        matchRange;
-        while (matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange],
-               matchRange.length > 0) {
-            // Copy before the matched substring (マッチした部分より前をコピー)
-            matchLocation = matchRange.location;
-            copyLocation = searchRange.location;
-            [convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, matchLocation - copyLocation)]];
-            // Copy the desired line feed code (所望の改行コードをコピー)
-            [convertedString appendString:newlineString];
-            
-            // Later CR or LF I will in the next search range. (CR or LF以降を次の検索範囲にする。)
-            searchRange.location = matchLocation + 1;
-            searchRange.length = strlen - (matchLocation + 1);
-            
-            // Furthermore advanced by one character for the next search range if you match the CR + LF (CR+LFにマッチした場合は次の検索範囲を更に1文字進める)
-            aCharacter = [aString substringWithRange:NSMakeRange(matchLocation, 1)];
-            if ([aCharacter isEqualToString:@"\r"] && (matchLocation < (strlen - 1))) {
-                aCharacter = [aString substringWithRange:NSMakeRange(matchLocation + 1, 1)];
-                if ([aCharacter isEqualToString:@"\n"]) {
-                    searchRange.location++;
-                    searchRange.length--;
-                }
-            }
-        }
-        // Copy the rest (残りをコピー)
-        copyLocation = searchRange.location;
-        [convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, strlen - copyLocation)]];
-        
-    }
-    
-    return convertedString;
+	NSMutableString	*convertedString = [NSMutableString string];
+	NSString		*aCharacter;
+	NSString		*newlineString = nil;
+	if (newlineCharacter == OgreLfNewlineCharacter) {
+		// LF
+		newlineString = @"\n";
+	} else if (newlineCharacter == OgreCrNewlineCharacter) {
+		// CR
+		newlineString = @"\r";
+	} else if (newlineCharacter == OgreCrLfNewlineCharacter) {
+		// CR+LF
+		newlineString = @"\r\n";
+	}  else if (newlineCharacter == OgreUnicodeLineSeparatorNewlineCharacter) {
+		// Unicode line separator
+		newlineString = OgrePrivateUnicodeLineSeparator;
+	} else if (newlineCharacter == OgreUnicodeParagraphSeparatorNewlineCharacter) {
+		// Unicode paragraph separator
+		newlineString = OgrePrivateUnicodeParagraphSeparator;
+	} else if (newlineCharacter == OgreNonbreakingNewlineCharacter) {
+		// 改行なしの場合
+		newlineString = @"";
+	}
+	
+	/* 改行コードを置換する */
+	@autoreleasepool {
+		
+		NSUInteger	strlen = [aString length],
+		matchLocation,
+		copyLocation = 0;
+		NSRange 	searchRange = NSMakeRange(0, strlen),
+		matchRange;
+		while ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange],
+			   matchRange.length > 0 ) {
+			// マッチした部分より前をコピー
+			matchLocation = matchRange.location;
+			copyLocation = searchRange.location;
+			[convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, matchLocation - copyLocation)]];
+			// 所望の改行コードをコピー
+			[convertedString appendString:newlineString];
+			
+			// CR or LF以降を次の検索範囲にする。
+			searchRange.location = matchLocation + 1;
+			searchRange.length = strlen - (matchLocation + 1);
+			
+			// CR+LFにマッチした場合は次の検索範囲を更に1文字進める
+			aCharacter = [aString substringWithRange:NSMakeRange(matchLocation, 1)];
+			if ([aCharacter isEqualToString:@"\r"] && (matchLocation < (strlen - 1))) {
+				aCharacter = [aString substringWithRange:NSMakeRange(matchLocation + 1, 1)];
+				if ([aCharacter isEqualToString:@"\n"]) {
+					searchRange.location++;
+					searchRange.length--;
+				}
+			}
+			
+			/* release autorelease pool */
+		}
+		// 残りをコピー
+		copyLocation = searchRange.location;
+		[convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, strlen - copyLocation)]];
+		
+	}
+	
+	return convertedString;
 }
 
 // Examine new line code is something (改行コードが何か調べる)
 + (OgreNewlineCharacter)newlineCharacterInString:(NSString *)aString
 {
-    NSString             *aCharacter;
-    OgreNewlineCharacter newlineCharacter = OgreNonbreakingNewlineCharacter;     // no linefeeds
-    
-    /* search newline characters */
-    NSUInteger	strlen = [aString length], matchLocation;
-    NSRange 	searchRange = NSMakeRange(0, strlen);
-    NSRange 	matchRange =
-    [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet
-                             options:0
-                               range:searchRange];
-    if (matchRange.length > 0) {
-        matchLocation = matchRange.location;
-        aCharacter = [aString substringWithRange:NSMakeRange(matchLocation, 1)];
-        if ([aCharacter isEqualToString:@"\n"]) {
-            // LF
-            newlineCharacter = OgreLfNewlineCharacter;
-        }
-        else if ([aCharacter isEqualToString:@"\r"]) {
-            // CR
-            if ((matchLocation < (strlen - 1)) &&
-                [[aString substringWithRange:NSMakeRange(matchLocation + 1, 1)] isEqualToString:@"\n"]) {
-                // CR+LF
-                newlineCharacter = OgreCrLfNewlineCharacter;
-            }
-            else {
-                // CR
-                newlineCharacter = OgreCrNewlineCharacter;
-            }
-        }
-        else if ([aCharacter isEqualToString:OgrePrivateUnicodeLineSeparator]) {
-            // Unicode line separator
-            newlineCharacter = OgreUnicodeLineSeparatorNewlineCharacter;
-        }
-        else if ([aCharacter isEqualToString:OgrePrivateUnicodeParagraphSeparator]) {
-            // Unicode paragraph separator
-            newlineCharacter = OgreUnicodeParagraphSeparatorNewlineCharacter;
-        }
-        
-        
-        if ([aCharacter isEqualToString:@"\r"] && (matchLocation < (strlen - 1))) {
-            aCharacter = [aString substringWithRange:NSMakeRange(matchLocation + 1, 1)];
-            if ([aCharacter isEqualToString:@"\n"]) {
-                searchRange.location++;
-                searchRange.length--;
-            }
-        }
-    }
-    
-    return newlineCharacter;
+	NSString				*aCharacter;
+	OgreNewlineCharacter	newlineCharacter = OgreNonbreakingNewlineCharacter;	// no linefeeds
+	
+	/* search newline characters */
+	NSUInteger	strlen = [aString length], matchLocation;
+	NSRange 	searchRange = NSMakeRange(0, strlen), matchRange;
+	if ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
+			matchRange.length > 0 ) {
+		matchLocation = matchRange.location;
+		aCharacter = [aString substringWithRange:NSMakeRange(matchLocation, 1)];
+		if ([aCharacter isEqualToString:@"\n"]) {
+			// LF
+			newlineCharacter = OgreLfNewlineCharacter;
+		} else if ([aCharacter isEqualToString:@"\r"]) {
+			// CR
+			if ((matchLocation < (strlen - 1)) && 
+					[[aString substringWithRange:NSMakeRange(matchLocation + 1, 1)] isEqualToString:@"\n"]) {
+				// CR+LF
+				newlineCharacter = OgreCrLfNewlineCharacter;
+			} else {
+				// CR
+				newlineCharacter = OgreCrNewlineCharacter;
+			}
+		} else if ([aCharacter isEqualToString:OgrePrivateUnicodeLineSeparator]) {
+			// Unicode line separator
+			newlineCharacter = OgreUnicodeLineSeparatorNewlineCharacter;
+		} else if ([aCharacter isEqualToString:OgrePrivateUnicodeParagraphSeparator]) {
+			// Unicode paragraph separator
+			newlineCharacter = OgreUnicodeParagraphSeparatorNewlineCharacter;
+		}
+		
+		
+		if ([aCharacter isEqualToString:@"\r"] && (matchLocation < (strlen - 1))) {
+			aCharacter = [aString substringWithRange:NSMakeRange(matchLocation + 1, 1)];
+			if ([aCharacter isEqualToString:@"\n"]) {
+				searchRange.location++;
+				searchRange.length--;
+			}
+		}
+	}
+	
+	return newlineCharacter;
 }
 
 // remove newline characters
@@ -2107,7 +2105,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 // Name of the name group number (// 名前がnameのgroup number)
 // I return -1 in the case of a name that does not exist. (存在しない名前の場合は-1を返す。)
 // If there are multiple sub-string with the same name I return -2. (同一の名前を持つ部分文字列が複数ある場合は-2を返す。)
-- (int)groupIndexForName:(NSString *)name
+- (NSInteger)groupIndexForName:(NSString *)name
 {
     if (name == nil) {
         [NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
@@ -2138,7 +2136,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
     
     NSString        *name = _nameForGroupIndexArray[(index - 1)];
     if ([name length] == 0) {
-        return nil;     // @ "" I read to nil. (@"" は nil に読み替える。)
+        return nil;     // @"" は nil に読み替える。
     }
     return name;
 }

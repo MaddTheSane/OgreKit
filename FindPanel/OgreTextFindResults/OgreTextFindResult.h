@@ -3,8 +3,8 @@
  * Project: OgreKit
  *
  * Creation Date: Apr 18 2004
- * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
- * Copyright: Copyright (c) 2003 Isao Sonobe, All rights reserved.
+ * Author: Isao Sonobe <sonoisa@gmail.com>
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -43,8 +43,9 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 	id							_alertSheet;
     
     /* display */
-	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex: The maximum number of characters returned by (-1: unlimited) (-matchedStringAtIndex:の返す最大文字数 (-1: 無制限))
-	NSInteger                   _maxLeftMargin;				// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
+	NSString					*_title;					// target window title
+	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
+	NSInteger                   _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
     
     /* highlight color */
     NSMutableArray              *_highlightColorArray;   // variations
@@ -69,19 +70,19 @@ typedef NS_ENUM(NSInteger, OgreTextFindResultType) {
 
 @property (nonatomic, copy) NSString *title; // target window title
 
-// Matched maximum number of characters to the left of the string (-1: unlimited) (マッチした文字列の左側の最大文字数 (-1: 無制限))
+// マッチした文字列の左側の最大文字数 (-1: 無制限)
 @property (nonatomic) NSInteger maximumLeftMargin;
-// The maximum number of characters (-1: unlimited) However, ellipsis @ "..." I do not put in the count. (最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。)
+// 最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。
 @property (nonatomic) NSInteger maximumMatchedStringLength;
-- (void)setHighlightColor:(NSColor *)aColor regularExpression:(OGRegularExpression *)regex;
-// emphasize the range of aRangeArray in aString. (aString中のaRangeArrayの範囲を強調する。)
-- (NSAttributedString *)highlightedStringInRange:(NSArray *)aRangeArray ofString:(NSString *)aString;
+- (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
+// aString中のaRangeArrayの範囲を強調する。
+- (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
 @property (nonatomic, readonly, copy) NSAttributedString *missingString;
-- (NSAttributedString *)messageOfStringsFound:(NSUInteger)numberOfMatches;
-- (NSAttributedString *)messageOfItemsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches;
 
 // delegate
-@property (weak) id<OgreTextFindResultDelegate> delegate;  // Update contact (更新連絡先)
+@property (weak) id<OgreTextFindResultDelegate> delegate;  // 更新連絡先
 - (void)didUpdate;
 
 // setting of result outline view
