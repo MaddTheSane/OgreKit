@@ -29,9 +29,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = [OgreTextFinderLocalizedString(@"%d string highlighted.") retain];
-    progressMessagePlural = [OgreTextFinderLocalizedString(@"%d strings highlighted.") retain];
-    remainingTimeMesssage = [OgreTextFinderLocalizedString(@"(%dsec remaining)") retain];
+    progressMessage = [NSLocalizedStringFromTableInBundle(@"%d string highlighted.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") retain];
+    progressMessagePlural = [NSLocalizedStringFromTableInBundle(@"%d strings highlighted.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") retain];
+    remainingTimeMesssage = [NSLocalizedStringFromTableInBundle(@" (%dsec remaining)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") retain];
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -166,32 +166,32 @@
 				*cancelledMessage, *cancelledMessagePlural, 
 				*notFoundMessage, *cancelledNotFoundMessage;
     
-	notFoundMessage				= OgreTextFinderLocalizedString(@"Not found. (%.3fsec)");
-	cancelledNotFoundMessage	= OgreTextFinderLocalizedString(@"Not found. (canceled, %.3fsec)");
-    finishedMessage             = OgreTextFinderLocalizedString(@"%d string highlighted. (%.3fsec)");
-    finishedMessagePlural       = OgreTextFinderLocalizedString(@"%d strings highlighted. (%.3fsec)");
-    cancelledMessage            = OgreTextFinderLocalizedString(@"%d string highlighted. (canceled, %.3fsec)");
-    cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings highlighted. (canceled, %.3fsec)");
+	notFoundMessage				= NSLocalizedStringFromTableInBundle(@"Not found. (%.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"not found");
+	cancelledNotFoundMessage	= NSLocalizedStringFromTableInBundle(@"Not found. (canceled, %.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+    finishedMessage             = NSLocalizedStringFromTableInBundle(@"%d string highlighted. (%.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+    finishedMessagePlural       = NSLocalizedStringFromTableInBundle(@"%d strings highlighted. (%.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+    cancelledMessage            = NSLocalizedStringFromTableInBundle(@"%d string highlighted. (canceled, %.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+    cancelledMessagePlural      = NSLocalizedStringFromTableInBundle(@"%d strings highlighted. (canceled, %.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
     
     NSString    *message;
     NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();
-			message = [NSString stringWithFormat:cancelledNotFoundMessage, 
+			message = [NSString localizedStringWithFormat:cancelledNotFoundMessage,
 				[self processTime] + 0.0005 /* 四捨五入 */];
 		} else {
-			message = [NSString stringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage), 
-				count, 
+			message = [NSString localizedStringWithFormat:((count > 1)? cancelledMessagePlural : cancelledMessage),
+				count,
 				[self processTime] + 0.0005 /* 四捨五入 */];
 		}
 	} else {
 		if (count == 0) {
 			NSBeep();
-			message = [NSString stringWithFormat:notFoundMessage, 
+			message = [NSString localizedStringWithFormat:notFoundMessage,
 				[self processTime] + 0.0005 /* 四捨五入 */];
 		} else {
-			message = [NSString stringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
+			message = [NSString localizedStringWithFormat:((count > 1)? finishedMessagePlural : finishedMessage), 
 				count, 
 				[self processTime] + 0.0005 /* 四捨五入 */];
 		}

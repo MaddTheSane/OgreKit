@@ -158,7 +158,7 @@
         [[_undoManager prepareWithInvocationTarget:[_undoer autorelease]] undoTextView:_textView jumpToSelection:NO invocationTarget:_undoer];
         _undoer = nil;
         // Undo操作の登録完了
-        [_undoManager setActionName:OgreTextFinderLocalizedString(@"Replace All")];
+        [_undoManager setActionName:NSLocalizedStringFromTableInBundle(@"Replace All", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
         [_undoManager endUndoGrouping];
     }
 }

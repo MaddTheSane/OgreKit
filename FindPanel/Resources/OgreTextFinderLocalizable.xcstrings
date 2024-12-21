@@ -3,7 +3,6 @@
   "strings" : {
     " (%dsec remaining)" : {
       "comment" : "progrss messages & sec: second",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -63,7 +62,6 @@
     },
     "%d string found." : {
       "comment" : "Find All",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -123,7 +121,6 @@
     },
     "%d string found. (%.3fsec)" : {
       "comment" : "Find All",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -182,7 +179,6 @@
       }
     },
     "%d string found. (canceled, %.3fsec)" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -599,60 +595,167 @@
       }
     },
     "%d strings found." : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d Zeichenketten gefunden."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d Zeichenkette gefunden."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d Zeichenketten gefunden."
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings found."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d string found."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d strings found."
+                }
+              }
+            }
           }
         },
         "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Encontradas %d cadenas."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Encontrada %d cadena."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Encontradas %d cadenas."
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d chaînes trouvées."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d chaîne trouvée."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d chaînes trouvées."
+                }
+              }
+            }
           }
         },
         "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings found."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d string found."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings found."
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d文字列を発見しました。"
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d文字列を発見しました。"
+                }
+              }
+            }
           }
         },
         "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings found."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d string found."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings found."
+                }
+              }
+            }
           }
         },
         "pt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings found."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d string found."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings found."
+                }
+              }
+            }
           }
         },
         "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings found."
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings found."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d string found."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings found."
+                }
+              }
+            }
           }
         }
       }
@@ -721,55 +824,55 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d Zeichenketten gefunden. (Abgebrochen, %.3fSek)"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d strings found. (canceled, %.3fsec)"
+            "value" : "%d strings found. (canceled, %.3f sec)"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Encontradas %d cadenas. (Cancelado, %.3fseg)"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d chaînes trouvées. (annulé, %.3fsec)"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings found. (canceled, %.3fsec)"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d文字列を発見しました。(キャンセルされました。%.3f秒)"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings found. (canceled, %.3fsec)"
           }
         },
         "pt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings found. (canceled, %.3fsec)"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings found. (canceled, %.3fsec)"
           }
         }
@@ -839,55 +942,55 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d Zeichenketten markiert. (%.3fSek)"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d strings highlighted. (%.3fsec)"
+            "value" : "%d strings highlighted. (%.3f sec)"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Resaltadas %d cadenas. (%.3fseg)"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d chaînes surlignées. (%.3fsec)"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (%.3fsec)"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d文字列を色付けしました。(%.3f秒)"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (%.3fsec)"
           }
         },
         "pt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (%.3fsec)"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (%.3fsec)"
           }
         }
@@ -898,180 +1001,537 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d Zeichenketten markiert. (Abgebrochen, %.3fSek)"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d strings highlighted. (canceled, %.3fsec)"
+            "value" : "%d strings highlighted. (canceled, %.3f sec)"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Resaltadas %d cadenas. (Cancelado, %.3fseg)"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d chaînes surlignées. (annulé, %.3fsec)"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (canceled, %.3fsec)"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d文字列を色付けしました。(キャンセルされました。%.3f秒)"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (canceled, %.3fsec)"
           }
         },
         "pt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (canceled, %.3fsec)"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%d strings highlighted. (canceled, %.3fsec)"
           }
         }
       }
     },
     "%d strings replaced." : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d Zeichenketten gefunden."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d Zeichenketten gefunden."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d Zeichenketten gefunden."
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d string replaced."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d strings replaced."
+                }
+              }
+            }
           }
         },
         "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reemplazadas %d cadenas."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Reemplazadas %d cadenas."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reemplazadas %d cadenas."
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d chaînes remplacées."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d chaîne remplacée."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d chaînes remplacées."
+                }
+              }
+            }
           }
         },
         "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings replaced."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d strings replaced."
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d文字列を置換しました。"
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d文字列を置換しました。"
+                }
+              }
+            }
           }
         },
         "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings replaced."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d strings replaced."
+                }
+              }
+            }
           }
         },
         "pt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings replaced."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d strings replaced."
+                }
+              }
+            }
           }
         },
         "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced."
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings replaced."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%d strings replaced."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d strings replaced."
+                }
+              }
+            }
           }
         }
       }
     },
     "%d strings replaced. (%.3fsec)" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d Zeichenketten gefunden. (%.3fSek)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ Zeichenketten gefunden. (%2$.3fSek)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg Zeichenkette ersetzt. (%2$.3fSek)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg Zeichenketten gefunden. (%2$.3fSek)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg Zeichenketten gefunden. (%2$.3fSek)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced. (%.3fsec)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ strings replaced. (%2$.3fsec)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg string replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg strings replaced. (%2$.3f sec)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "No string replaced. (%2$.3f sec)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reemplazadas %d cadenas. (%.3fseg)"
+            "state" : "needs_review",
+            "value" : "Reemplazadas %#@arg1@ cadenas. (%2$.3fseg)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Reemplazada %arg cadena. (%2$.3fseg)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Reemplazadas %arg cadenas. (%2$.3fseg)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Reemplazadas %arg cadenas. (%2$.3fseg)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d chaînes remplacées. (%.3fsec)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ chaînes remplacées. (%2$.3fsec)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg chaîne remplacée. (%2$.3fsec)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg chaînes remplacées. (%2$.3fsec)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg chaînes remplacées. (%2$.3fsec)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced. (%.3fsec)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ strings replaced. (%2$.3fsec)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg string replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d文字列を置換しました。(%.3f秒)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@文字列を置換しました。(%2$.3f秒)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg文字列を置換しました。(%2$.3f秒)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg文字列を置換しました。(%2$.3f秒)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced. (%.3fsec)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ strings replaced. (%2$.3fsec)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg string replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "No string replaced. (%2$.3fsec)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "pt" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced. (%.3fsec)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ strings replaced. (%2$.3fsec)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg string replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d strings replaced. (%.3fsec)"
+            "state" : "needs_review",
+            "value" : "%#@arg1@ strings replaced. (%2$.3fsec)"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "d",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg string replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "needs_review",
+                      "value" : "%arg strings replaced. (%2$.3fsec)"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
     "%d strings replaced. (canceled, %.3fsec)" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1130,7 +1590,6 @@
       }
     },
     "Cancel" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1427,7 +1886,6 @@
       }
     },
     "Find" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1486,7 +1944,6 @@
       }
     },
     "Find All" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1546,66 +2003,64 @@
     },
     "Find Result for \"%@\"" : {
       "comment" : "Find Result Window",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Find Result for \"%@\""
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Find Result for \"%@\""
+            "value" : "Find Result for “%@”"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Find Result for \"%@\""
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Résultat de la rechercher pour \"%@\""
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Find Result for \"%@\""
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "\"%@\"の検索結果"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Find Result for \"%@\""
           }
         },
         "pt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Find Result for \"%@\""
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Find Result for \"%@\""
           }
         }
       }
     },
     "Find String: %@" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1723,66 +2178,172 @@
       }
     },
     "Found in %d items." : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Found in %d item."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Found in %d item."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         },
         "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d item."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trouvé dans %d éléments."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Trouvé dans %d élément."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Trouvé dans %d éléments."
+                }
+              }
+            }
           }
         },
         "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d item."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d項目内で発見しました。"
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%d項目内で発見しました。"
+                }
+              }
+            }
           }
         },
         "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d items."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         },
         "pt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d item."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         },
         "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Found in %d items."
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d items."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Found in %d item."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Found in %d items."
+                }
+              }
+            }
           }
         }
       }
     },
     "Found String" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1841,7 +2402,6 @@
       }
     },
     "Highlight" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1900,7 +2460,6 @@
       }
     },
     "Line" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1959,7 +2518,6 @@
       }
     },
     "Live Update" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2019,7 +2577,6 @@
     },
     "Missing." : {
       "comment" : "a found string became missing",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2138,7 +2695,6 @@
     },
     "Not found. (%.3fsec)" : {
       "comment" : "not found",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2197,7 +2753,6 @@
       }
     },
     "Not found. (canceled, %.3fsec)" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2257,7 +2812,6 @@
     },
     "OK" : {
       "comment" : "the titles of buttons",
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2434,7 +2988,6 @@
       }
     },
     "Replace All" : {
-      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {

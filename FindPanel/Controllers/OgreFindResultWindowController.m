@@ -31,7 +31,7 @@
 
 - (void)awakeFromNib
 {
-	[liveUpdateCheckBox setTitle:OgreTextFinderLocalizedString(@"Live Update")];
+	[liveUpdateCheckBox setTitle:NSLocalizedStringFromTableInBundle(@"Live Update", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 	[liveUpdateCheckBox setState:(int)_liveUpdate];
 	
 	[self setupFindResultView];
@@ -41,9 +41,9 @@
 {
 	NSTextFieldCell *headerCell;
 	headerCell = [[grepOutlineView tableColumnWithIdentifier:@"name"] headerCell];
-	[headerCell setTitle:OgreTextFinderLocalizedString(@"Line")];
+	[headerCell setTitle:NSLocalizedStringFromTableInBundle(@"Line", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 	headerCell = [[grepOutlineView tableColumnWithIdentifier:@"outline"] headerCell];
-	[headerCell setTitle:OgreTextFinderLocalizedString(@"Found String")];
+	[headerCell setTitle:NSLocalizedStringFromTableInBundle(@"Found String", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 	
 	[[grepOutlineView outlineTableColumn] setDataCell:[_textFindResult nameCell]];
 	[grepOutlineView setRowHeight:[_textFindResult rowHeight]];
@@ -55,17 +55,13 @@
 	[grepOutlineView setDoubleAction:@selector(grepOutlineViewDoubleClicked)];
 	
 	
-	[window setTitle:[NSString stringWithFormat:OgreTextFinderLocalizedString(@"Find Result for \"%@\""), [_textFindResult title]]];
+	[window setTitle:[NSString localizedStringWithFormat:NSLocalizedStringFromTableInBundle(@"Find Result for \"%@\"", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @""), [_textFindResult title]]];
 	
 	NSString	*message;
-	if ([_textFindResult numberOfMatches] > 1) {
-		message = OgreTextFinderLocalizedString(@"%d strings found.");
-	} else {
-		message = OgreTextFinderLocalizedString(@"%d string found.");
-	}
+	message = [NSString localizedStringWithFormat:NSLocalizedStringFromTableInBundle(@"%d strings found.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @""), [_textFindResult numberOfMatches]];
 	[messageField setStringValue:[NSString stringWithFormat:message, [_textFindResult numberOfMatches]]];
 	
-	message = OgreTextFinderLocalizedString(@"Find String: %@");
+	message = NSLocalizedStringFromTableInBundle(@"Find String: %@", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
 	[findStringField setStringValue:[NSString stringWithFormat:message, [_textFindResult findString]]];
 }
 

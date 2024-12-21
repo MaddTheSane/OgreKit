@@ -237,11 +237,11 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		NSLog(@"Find Menu not found in %@.nib", [self findPanelNibName]);
 	} else {
 		// Findメニューのタイトル
-		NSString    *titleOfFindMenu = OgreTextFinderLocalizedString(@"Find");
+		NSString    *titleOfFindMenu = NSLocalizedStringFromTableInBundle(@"Find", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
 		
 		// Findメニューの初期化
 		[findMenu setTitle:titleOfFindMenu];
-        NSMenuItem  *newFindMenuItem = [[[NSMenuItem allocWithZone:[NSMenu menuZone]] init] autorelease];
+        NSMenuItem  *newFindMenuItem = [[[NSMenuItem alloc] init] autorelease];
 		[newFindMenuItem setTitle:titleOfFindMenu];
 		[newFindMenuItem setSubmenu:findMenu];
 		
@@ -527,8 +527,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* 処理状況表示用シートの生成 */
 		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window] 
-			title:OgreTextFinderLocalizedString(@"Find All") 
-			didEndSelector:@selector(makeTargetFree:) 
+			title:NSLocalizedStringFromTableInBundle(@"Find All", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")
+			didEndSelector:@selector(makeTargetFree:)
 			toTarget:self 
 			withObject:target];
 		
@@ -728,8 +728,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* 処理状況表示用シートの生成 */
 		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window] 
-			title:OgreTextFinderLocalizedString(@"Replace All") 
-			didEndSelector:@selector(makeTargetFree:) 
+			title:NSLocalizedStringFromTableInBundle(@"Replace All", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")
+			didEndSelector:@selector(makeTargetFree:)
 			toTarget:self 
 			withObject:target];
 		
@@ -823,8 +823,8 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		/* 処理状況表示用シートの生成 */
 		sheet = [[OgreTextFindProgressSheet alloc] initWithWindow:[target window] 
-			title:OgreTextFinderLocalizedString(@"Highlight") 
-			didEndSelector:@selector(makeTargetFree:) 
+			title:NSLocalizedStringFromTableInBundle(@"Highlight", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")
+			didEndSelector:@selector(makeTargetFree:)
 			toTarget:self 
 			withObject:target];
 		

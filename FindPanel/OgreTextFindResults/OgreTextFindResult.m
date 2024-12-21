@@ -200,7 +200,7 @@
 	matchRange = [[aRangeArray objectAtIndex:0] rangeValue];
 	if ([aString length] < NSMaxRange(matchRange)) {
 		// matchRangeの範囲の文字列が存在しない場合
-		return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
+		return [[[NSAttributedString alloc] initWithString:NSLocalizedStringFromTableInBundle(@"Missing.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
 	}
 	lineRange = [aString lineRangeForRange:NSMakeRange(matchRange.location, 0)];
     
@@ -246,7 +246,7 @@
 
 - (NSAttributedString*)missingString
 {
-    return [[[NSAttributedString alloc] initWithString:OgreTextFinderLocalizedString(@"Missing.") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString:NSLocalizedStringFromTableInBundle(@"Missing.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") attributes:[NSDictionary dictionaryWithObject:[NSColor redColor] forKey:NSForegroundColorAttributeName]] autorelease];
 }
 
 
@@ -279,23 +279,15 @@
 - (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
-    if (numberOfMatches > 1) {
-        message = OgreTextFinderLocalizedString(@"%d strings found.");
-    } else {
-        message = OgreTextFinderLocalizedString(@"%d string found.");
-    }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
+	message = [NSString localizedStringWithFormat: NSLocalizedStringFromTableInBundle(@"%d strings found.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @""), numberOfMatches];
+    return [[[NSAttributedString alloc] initWithString:message attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
 }
 
 - (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
-    if (numberOfMatches > 1) {
-        message = OgreTextFinderLocalizedString(@"Found in %d items.");
-    } else {
-        message = OgreTextFinderLocalizedString(@"Found in %d item.");
-    }
-    return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
+	message = [NSString localizedStringWithFormat:NSLocalizedStringFromTableInBundle(@"Found in %d items.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @""), numberOfMatches];
+    return [[[NSAttributedString alloc] initWithString:message attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
 }
 
 

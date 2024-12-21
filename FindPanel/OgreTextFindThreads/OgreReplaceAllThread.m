@@ -29,9 +29,9 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -willProcessFindingAll of %@", [self className]);
 #endif
-    progressMessage = [OgreTextFinderLocalizedString(@"%d string replaced.") retain];
-    progressMessagePlural = [OgreTextFinderLocalizedString(@"%d strings replaced.") retain];
-    remainingTimeMesssage = [OgreTextFinderLocalizedString(@"(%dsec remaining)") retain];
+    progressMessage = [NSLocalizedStringFromTableInBundle(@"%d string replaced.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") retain];
+    progressMessagePlural = [NSLocalizedStringFromTableInBundle(@"%d strings replaced.", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") retain];
+	remainingTimeMesssage = [NSLocalizedStringFromTableInBundle(@" (%dsec remaining)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"") retain];
 }
 
 - (void)willProcessFindingInBranch:(OgreTextFindBranch*)aBranch;
@@ -143,13 +143,13 @@
 				*cancelledMessage, *cancelledMessagePlural, 
 				*notFoundMessage, *cancelledNotFoundMessage;
     
-	notFoundMessage				= OgreTextFinderLocalizedString(@"Not found. (%.3fsec)");
-	cancelledNotFoundMessage	= OgreTextFinderLocalizedString(@"Not found. (canceled, %.3fsec)");
-    finishedMessage             = OgreTextFinderLocalizedString(@"%d string replaced. (%.3fsec)");
-    finishedMessagePlural       = OgreTextFinderLocalizedString(@"%d strings replaced. (%.3fsec)");
-    cancelledMessage            = OgreTextFinderLocalizedString(@"%d string replaced. (canceled, %.3fsec)");
-    cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings replaced. (canceled, %.3fsec)");
-    
+	notFoundMessage				= NSLocalizedStringFromTableInBundle(@"Not found. (%.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"not found");
+	cancelledNotFoundMessage	= NSLocalizedStringFromTableInBundle(@"Not found. (canceled, %.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+	finishedMessage             = NSLocalizedStringFromTableInBundle(@"%d string replaced. (%.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+	finishedMessagePlural       = NSLocalizedStringFromTableInBundle(@"%d strings replaced. (%.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+	cancelledMessage            = NSLocalizedStringFromTableInBundle(@"%d string replaced. (canceled, %.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+	cancelledMessagePlural      = NSLocalizedStringFromTableInBundle(@"%d strings replaced. (canceled, %.3fsec)", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"");
+
     NSString    *message;
     NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {

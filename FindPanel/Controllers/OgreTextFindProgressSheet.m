@@ -42,8 +42,8 @@
 {
 	[[self retain] retain]; // close:とsheetDidEnd:のときに一度ずつreleaseされる
 	[titleTextField setStringValue:_title];
-	[button setTitle:OgreTextFinderLocalizedString(@"Cancel")];
-	[NSApp beginSheet: progressWindow 
+	[button setTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
+	[NSApp beginSheet: progressWindow
 		modalForWindow: _parentWindow 
 		modalDelegate: self
 		didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) 
@@ -90,7 +90,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-cancel: of %@", [self className]);
 #endif
-	if ([[button title] isEqualToString:OgreTextFinderLocalizedString(@"Cancel")]) {
+	if ([[button title] isEqualToString:NSLocalizedStringFromTableInBundle(@"Cancel", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")]) {
 		// Cancel
 		[_cancelTarget performSelector:_cancelSelector withObject:_cancelArgument];
 	} else {
@@ -174,7 +174,7 @@
 		[progressBar stopAnimation:self];
         
         [progressTextField setStringValue:message];
-		[button setTitle:OgreTextFinderLocalizedString(@"OK")];
+		[button setTitle:NSLocalizedStringFromTableInBundle(@"OK", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 		[button setKeyEquivalent:@"\r"];
 		[button setKeyEquivalentModifierMask:0];
 	}
@@ -196,7 +196,7 @@
         [donePerTotalTextField setStringValue:@""];
 		[progressBar setHidden:YES];
 		[progressTextField setStringValue:errorMessage];
-		[button setTitle:OgreTextFinderLocalizedString(@"OK")];
+		[button setTitle:NSLocalizedStringFromTableInBundle(@"OK", @"OgreTextFinderLocalizable", [OgreTextFinder ogreKitBundle], @"")];
 		[button setKeyEquivalent:@"\r"];
 		[button setKeyEquivalentModifierMask:0];
 	}
