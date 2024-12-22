@@ -284,7 +284,7 @@
                                     </buttonCell>
                                     <cells>
                                         <column>
-                                            <buttonCell type="check" title="Ignore Case" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" toolTip="Ignore Case ToolTip" tag="2" inset="2" id="749">
+                                            <buttonCell type="check" title="Ignore Case" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" toolTip="Ignore character case" tag="2" inset="2" id="749">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <connections>
