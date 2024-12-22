@@ -1,0 +1,51 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleGetInfoString" : {
+      "comment" : "Get Info string",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OgreFindPanelTest version 1.1.1, Copyright 2003 Isao Sonobe."
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Localized versions of Info.plist keys",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OgreFindPanelTest"
+          }
+        }
+      }
+    },
+    "CFBundleShortVersionString" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OgreFindPanelTest version 1.1.1"
+          }
+        }
+      }
+    },
+    "NSHumanReadableCopyright" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright 2003 Isao Sonobe."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
