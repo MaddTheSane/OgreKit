@@ -541,14 +541,14 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 	enumerator = [_findHistory objectEnumerator];
 	while ((attrString = [enumerator nextObject]) != nil) {
 		[encodedFindHistory addObject:[attrString RTFDFromRange:NSMakeRange(0, [attrString length]) 
-			documentAttributes:nil]];
+											 documentAttributes:@{}]];
 	}
 	
 	encodedReplaceHistory = [[[NSMutableArray alloc] initWithCapacity:[_replaceHistory count]] autorelease];
 	enumerator = [_replaceHistory objectEnumerator];
 	while ((attrString = [enumerator nextObject]) != nil) {
 		[encodedReplaceHistory addObject:[attrString RTFDFromRange:NSMakeRange(0, [attrString length]) 
-			documentAttributes:nil]];
+												documentAttributes:@{}]];
 	}
 	
 	/* 検索履歴等の情報を残したい場合はこのメソッドを上書きする。 */
@@ -1464,7 +1464,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 /* load find string from/to pasteboard */
 - (void)loadFindStringFromPasteboard
 {
-	NSPasteboard *pasteboard = [NSPasteboard pasteboardWithName:NSFindPboard];
+	NSPasteboard *pasteboard = [NSPasteboard pasteboardWithName:NSPasteboardNameFind];
 	NSString *findString = [pasteboard stringForType:NSStringPboardType];
 	if ((findString != nil) && ([findString length] > 0)) [findTextView setString:findString];
 }
@@ -1473,7 +1473,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 {
 	NSString *findString = [findTextView string];
 	if ((findString != nil) && ([findString length] > 0)) {
-		NSPasteboard *pasteboard = [NSPasteboard pasteboardWithName:NSFindPboard];
+		NSPasteboard *pasteboard = [NSPasteboard pasteboardWithName:NSPasteboardNameFind];
 		[pasteboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
 		[pasteboard setString:findString forType:NSStringPboardType];
 	}
@@ -1482,7 +1482,7 @@ static NSString *OgreAFPCReplaceFieldFontKey         = @"AFPC Replace Field Font
 /* delegate method of OgreAdvancedFindPanel */
 - (void)findPanelFlagsChanged:(NSEventModifierFlags)modifierFlags  
 {
-    if ((modifierFlags & NSAlternateKeyMask) != 0) {
+	if ((modifierFlags & NSEventModifierFlagOption) != 0) {
         // alt key pressed
         if (!_altKeyDown) {
             _altKeyDown = YES;

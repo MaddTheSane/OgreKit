@@ -34,7 +34,7 @@
 	if (self) {
 		// 検索対象文字列を保持
 		// target stringをUTF16文字列に変換する。
-		_targetString = [targetString copy];
+		_targetString = [(NSObject*)targetString copy];
 		NSString	*targetPlainString = [_targetString string];
         _lengthOfTargetString = [_targetString length];
         

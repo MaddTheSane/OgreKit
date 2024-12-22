@@ -81,7 +81,7 @@ static NSString			*OgrePrivateUnicodeParagraphSeparator = nil;
 static int namedGroupCallback(const unsigned char *name, const unsigned char *name_end, int numberOfGroups, int* listOfGroupNumbers, regex_t* reg, void* nameDict)
 {
 	// 名前 -> グループ個数
-	[(NSMutableDictionary*)nameDict setObject:[NSNumber numberWithUnsignedInt:numberOfGroups] forKey:[NSString stringWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]];
+	[(__bridge NSMutableDictionary*)nameDict setObject:[NSNumber numberWithUnsignedInt:numberOfGroups] forKey:[NSString stringWithCharacters:(unichar*)name length:((unichar*)name_end - (unichar*)name)]];
     
 	return 0;  /* 0: continue, otherwise: stop(break) */
 }
@@ -98,7 +98,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	onig_init();
 	
 	// デフォルト値の設定
-	OgrePrivateDefaultEscapeCharacter = [[NSString alloc] initWithString:@"\\"];
+	OgrePrivateDefaultEscapeCharacter = @"\\";
 	OgrePrivateDefaultSyntax = OgreRubySyntax;
 	
 	// linefeed characters of Unicode
@@ -109,8 +109,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	OgrePrivateUnicodeParagraphSeparator = [[NSString alloc] initWithCharacters:paragraphSeparator length:1];
 	
 	// 再利用可能な文字セットの生成
-	OgrePrivateUnsafeCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"|().?*+{}^$[]-&#:=!<>@\\"] retain];
-	OgrePrivateNewlineCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:[[@"\r\n" stringByAppendingString:OgrePrivateUnicodeLineSeparator] stringByAppendingString:OgrePrivateUnicodeParagraphSeparator]] retain];
+	OgrePrivateUnsafeCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"|().?*+{}^$[]-&#:=!<>@\\"];
+	OgrePrivateNewlineCharacterSet = [NSCharacterSet characterSetWithCharactersInString:[[@"\r\n" stringByAppendingString:OgrePrivateUnicodeLineSeparator] stringByAppendingString:OgrePrivateUnicodeParagraphSeparator]];
 	
 	// copy original regular expression syntax
 	onig_copy_syntax(&OgrePrivatePOSIXBasicSyntax, ONIG_SYNTAX_POSIX_BASIC);
@@ -134,21 +134,21 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 + (id)regularExpressionWithString:(NSString*)expressionString
 {
-	return [[[self alloc]
+	return [[self alloc]
 		initWithString: expressionString
 		options: OgreNoneOption
 		syntax: [[self class] defaultSyntax]
-		escapeCharacter: [[self class] defaultEscapeCharacter]] autorelease];
+		escapeCharacter: [[self class] defaultEscapeCharacter]];
 }
 
 + (id)regularExpressionWithString:(NSString*)expressionString 
 	options:(unsigned)options
 {
-	return [[[self alloc]
+	return [[self alloc]
 		initWithString: expressionString
 		options: options
 		syntax: [[self class] defaultSyntax]
-		escapeCharacter: [[self class] defaultEscapeCharacter]] autorelease];
+		escapeCharacter: [[self class] defaultEscapeCharacter]];
 }
 
 + (id)regularExpressionWithString:(NSString*)expressionString 
@@ -156,11 +156,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
-	return [[[self alloc] 
+	return [[self alloc]
 		initWithString: expressionString 
 		options: options 
 		syntax: syntax
-		escapeCharacter: character] autorelease];
+		escapeCharacter: character];
 }
 
 
@@ -198,8 +198,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		_expressionString = [expressionString copy];
 	} else {
 		// expressionStringがnilの場合
-		[self release];
 		[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
+		return nil;
 	}
 	
 	// オプション
@@ -216,27 +216,27 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	switch ([[self class] kindOfCharacter:character]) {
 		case OgreKindOfNil:
 			// nilのとき、エラー
-			[self release];
 			[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];
+			return nil;
 			break;
 		case OgreKindOfEmpty:
 			// 空白のとき、エラー
-			[self release];
 			[NSException raise:NSInvalidArgumentException format:@"empty string argument"];
+			return nil;
 			break;
 		case OgreKindOfBackslash:
 			// @"\\"
 			isBackslashEscape = YES;
-			_escapeCharacter = [OgreBackslashCharacter retain];
+			_escapeCharacter = OgreBackslashCharacter;
 			break;
 		case OgreKindOfNormal:
 			// 普通の文字
-			_escapeCharacter = [[character substringWithRange:NSMakeRange(0,1)] retain];
+			_escapeCharacter = [character substringWithRange:NSMakeRange(0,1)];
 			break;
 		case OgreKindOfSpecial:
 			// 特殊文字。エラー。
-			[self release];
 			[NSException raise:NSInvalidArgumentException format:@"invalid candidate for an escape character"];
+			return nil;
 			break;
 	}
 	
@@ -259,10 +259,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
     
     lengthOfCompileTimeString = [compileTimeString length];
-	_UTF16ExpressionString = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * lengthOfCompileTimeString);
+	_UTF16ExpressionString = (unichar*)malloc(sizeof(unichar) * lengthOfCompileTimeString);
     if (_UTF16ExpressionString == NULL) {
-        [self release];
         [NSException raise:NSMallocException format:@"fail to allocate a memory"];
+		return nil;
     }
     [compileTimeString getCharacters:_UTF16ExpressionString range:NSMakeRange(0, lengthOfCompileTimeString)];
 	
@@ -293,8 +293,8 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		// エラー。例外を発生させる。
 		unsigned char s[ONIG_MAX_ERROR_MESSAGE_LEN];
 		onig_error_code_to_str(s, r, &einfo);
-		[self release];
 		[NSException raise:OgreException format:@"%s", s];
+		return nil;
 	}
 	
 	// nameでgroup numberを引く辞書、(group number-1)でnameを引く逆引き辞書(配列)の作成
@@ -305,7 +305,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		// 構造: {"a" = (1,3), "b" = (2)}
 		NSMutableDictionary *groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
 		_groupIndexForNameDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self numberOfNames]];
-		r = onig_foreach_name(_regexBuffer, namedGroupCallback, groupIndexForNameDictionary);	// nameの一覧を得る
+		r = onig_foreach_name(_regexBuffer, namedGroupCallback, (__bridge void *)(groupIndexForNameDictionary));	// nameの一覧を得る
 		
 		NSEnumerator	*keyEnumerator = [groupIndexForNameDictionary keyEnumerator];
 		NSString		*name;
@@ -313,10 +313,10 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		int 			i, maxGroupIndex = 0;
 		while ((name = [keyEnumerator nextObject]) != nil) {
             NSUInteger  lengthOfName = [name length];
-			unichar     *UTF16Name = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * lengthOfName);
+			unichar     *UTF16Name = (unichar*)malloc(sizeof(unichar) * lengthOfName);
             if (UTF16Name == NULL) {
-                [self release];
                 [NSException raise:NSMallocException format:@"fail to allocate a memory"];
+				return nil;
             }
             [name getCharacters:UTF16Name range:NSMakeRange(0, lengthOfName)];
 
@@ -324,7 +324,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			int	*indexList;
 			int n = onig_name_to_group_numbers(_regexBuffer, (unsigned char*)UTF16Name, (unsigned char*)(UTF16Name + lengthOfName), &indexList);
 			
-            NSZoneFree([self zone], UTF16Name);
+            free(UTF16Name);
             
 			array = [[NSMutableArray alloc] initWithCapacity:n];
 			for (i = 0; i < n; i++) {
@@ -332,9 +332,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 				if (indexList[i] > maxGroupIndex) maxGroupIndex = indexList[i];
 			}
 			[_groupIndexForNameDictionary setObject:array forKey:name];
-			[array release];
 		}
-        [groupIndexForNameDictionary release];
 		
 		// 逆引き辞書の作成
 		// 例: /(?<a>a+)(?<b>b+)(?<a>c+)/
@@ -444,7 +442,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
     length = [compileTimeString length];
     
-	UTF16Str = (unichar*)NSZoneMalloc([self zone], sizeof(unichar) * length);
+	UTF16Str = (unichar*)malloc(sizeof(unichar) * length);
     if (UTF16Str == NULL) {
         [NSException raise:NSMallocException format:@"fail to allocate a memory"];
     }
@@ -466,7 +464,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 #endif
 
 	onig_free(regexBuffer);
-    NSZoneFree([self zone], UTF16Str);
+    free(UTF16Str);
     
 	if (r == ONIG_NORMAL) {
 		// 正しい正規表現
@@ -626,11 +624,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
 	
 	OGRegularExpressionEnumerator	*enumerator;
-	enumerator = [[[OGRegularExpressionEnumerator allocWithZone:[self zone]] 
+	enumerator = [[OGRegularExpressionEnumerator alloc]
 		initWithOGString:[string substringWithRange:searchRange] 
 		options:OgreSearchTimeOptionMask(options) 
 		range:searchRange 
-		regularExpression: self] autorelease];
+		regularExpression: self];
 		
 	return enumerator;
 }
@@ -939,12 +937,12 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		range:replaceRange];
 	
 	NSObject<OGStringProtocol,OGMutableStringProtocol>	*replacedString;
-	replacedString = [[[[targetString mutableClass] alloc] init] autorelease];
+	replacedString = [[[targetString mutableClass] alloc] init];
 	
 	unsigned					matches = 0;
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	if (replaceAll) {
 		while ((match = [enumerator nextObject]) != nil) {
@@ -953,12 +951,6 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			[replacedString appendOGString:[match ogStringBetweenMatchAndLastMatch]];
 			[replacedString appendOGString:[repex replaceMatchedOGStringOf:match]];
 			lastMatch = match;
-			if (matches % 100 == 0) {
-				[lastMatch retain];
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-				[lastMatch autorelease];
-			}
 		}
 	} else {
 		if ((match = [enumerator nextObject]) != nil) {
@@ -976,8 +968,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		[replacedString appendOGString:[lastMatch postmatchOGString]];
 	}
 	
-	[pool release];
-	[repex release];
+	}
 	
 	if (numberOfReplacement != NULL) *numberOfReplacement = matches;
 	return replacedString;
@@ -1308,7 +1299,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		range:replaceRange];
 	
 	NSObject<OGStringProtocol,OGMutableStringProtocol>	*replacedString;
-	replacedString = [[[[targetString mutableClass] alloc] init] autorelease];
+	replacedString = [[[targetString mutableClass] alloc] init];
 	
 	id			returnedString;
 	unsigned	matches = 0;
@@ -1321,7 +1312,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	[replaceInvocation setSelector:aSelector];
 	[replaceInvocation setArgument:&contextInfo atIndex:3];
 	
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	if (replaceAll) {
 		while ((match = [enumerator nextObject]) != nil) {
@@ -1342,13 +1333,6 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 					[replacedString appendAttributedString:(NSAttributedString*)returnedString];
 				}
 				lastMatch = match;
-			}
-			
-			if (matches % 100 == 0) {
-				[lastMatch retain];
-				[pool release];
-				pool = [[NSAutoreleasePool alloc] init];
-				[lastMatch autorelease];
 			}
 		}
 	} else {
@@ -1377,7 +1361,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		[replacedString appendOGString:[lastMatch postmatchOGString]];
 	}
 	
-	[pool release];
+	}
 	
 	if (numberOfReplacement != NULL) *numberOfReplacement = matches;
 	return replacedString;
@@ -1409,13 +1393,11 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 			break;
 		case OgreKindOfBackslash:
 			// @"\\"
-			[OgrePrivateDefaultEscapeCharacter autorelease];
-			OgrePrivateDefaultEscapeCharacter = [OgreBackslashCharacter retain];
+			OgrePrivateDefaultEscapeCharacter = OgreBackslashCharacter;
 			break;
 		case OgreKindOfNormal:
 			// 普通の文字
-			[OgrePrivateDefaultEscapeCharacter autorelease];
-			OgrePrivateDefaultEscapeCharacter = [[character substringWithRange:NSMakeRange(0,1)] retain];
+			OgrePrivateDefaultEscapeCharacter = [character substringWithRange:NSMakeRange(0,1)];
 			break;
 		case OgreKindOfSpecial:
 			// 特殊文字。エラー。
@@ -1706,8 +1688,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 	NSMutableString	*regularizedString = [NSMutableString stringWithString:string];
 	
-	unsigned	counterOfAutorelease = 0;
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	NSUInteger	strlen;
 	NSRange 	searchRange, matchRange;
@@ -1715,22 +1696,15 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	searchRange = NSMakeRange(0, strlen);
 	
 	/* @"|().?*+{}^$[]-&#:=!<>@"を退避する */
-	while ( matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange], 
-			matchRange.length > 0 ) {
+	while ( matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange],
+		   matchRange.length > 0 ) {
 
 		[regularizedString insertString:OgreBackslashCharacter atIndex:matchRange.location];
 		strlen += 1;
 		searchRange.location = matchRange.location + 2;
 		searchRange.length   = strlen - searchRange.location;
-		
-		/* release autorelease pool */
-		counterOfAutorelease++;
-		if (counterOfAutorelease % 100 == 0) {
-			[pool release];
-			pool = [[NSAutoreleasePool alloc] init];
-		}
 	}
-	[pool release];
+	}
 	
 	//NSLog(@"%@", regularizedString);
 	return regularizedString;
@@ -1788,22 +1762,15 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	OGRegularExpressionMatch	*match, *lastMatch = nil;
 	NSString	*remainingString;
 	
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	while ((match = [enumerator nextObject]) != nil) {
 		matches++;
-		if ((limit > 0) && (matches == limit)) break; 
+		if ((limit > 0) && (matches == limit)) break;
 		
 		// 単語を追加する。
 		[words addObject:[match stringBetweenMatchAndLastMatch]];
 		lastMatch = match;
-		
-		if (matches % 100 == 0) {
-			[lastMatch retain];
-			[pool release];
-			pool = [[NSAutoreleasePool alloc] init];
-			[lastMatch autorelease];
-		}
 	}
 	
 	remainingString = ((lastMatch)? [lastMatch postmatchString] : aString);
@@ -1813,7 +1780,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 		[words addObject:remainingString];
 	}
 	
-	[pool release];
+	}
 	
 	return words;
 }
@@ -1846,15 +1813,15 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	
 	/* 改行コードを置換する */
 	unsigned			counterOfAutorelease = 0;
-	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	NSUInteger	strlen = [aString length],
-				matchLocation, 
+				matchLocation,
 				copyLocation = 0;
-	NSRange 	searchRange = NSMakeRange(0, strlen), 
+	NSRange 	searchRange = NSMakeRange(0, strlen),
 				matchRange;
-	while ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
-			matchRange.length > 0 ) {
+	while ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange],
+		   matchRange.length > 0 ) {
 		// マッチした部分より前をコピー
 		matchLocation = matchRange.location;
 		copyLocation = searchRange.location;
@@ -1875,19 +1842,12 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 				searchRange.length--;
 			}
 		}
-		
-		/* release autorelease pool */
-		counterOfAutorelease++;
-		if (counterOfAutorelease % 100 == 0) {
-			[pool release];
-			pool = [[NSAutoreleasePool alloc] init];
-		}
 	}
 	// 残りをコピー
 	copyLocation = searchRange.location;
 	[convertedString appendString:[aString substringWithRange:NSMakeRange(copyLocation, strlen - copyLocation)]];
 	
-	[pool release];
+	}
 	
 	return convertedString;
 }
@@ -1943,6 +1903,20 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 + (NSString*)chomp:(NSString*)aString
 {
 	return [[self class] replaceNewlineCharactersInString:aString withCharacter:OgreNonbreakingNewlineCharacter];
+}
+
+/* 非公開メソッド */
+
+- (void)dealloc
+{
+#ifdef DEBUG_OGRE
+	NSLog(@"-dealloc of %@", [self className]);
+#endif
+	// 鬼車正規表現オブジェクト
+	if (_regexBuffer != NULL) onig_free(_regexBuffer);
+	
+	// 正規表現を表す文字列
+	free(_UTF16ExpressionString);
 }
 
 @end

@@ -37,30 +37,6 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 
 @implementation OGRegularExpression (Private)
 
-/* 非公開メソッド */
-
-- (void)dealloc
-{
-#ifdef DEBUG_OGRE
-	NSLog(@"-dealloc of %@", [self className]);
-#endif
-	// named group(逆引き)辞書
-	[_groupIndexForNameDictionary release];
-	[_nameForGroupIndexArray release];
-	
-	// 鬼車正規表現オブジェクト
-	if (_regexBuffer != NULL) onig_free(_regexBuffer);
-	
-	// 正規表現を表す文字列
-    NSZoneFree([self zone], _UTF16ExpressionString);
-	[_expressionString release];
-	
-	// \の代替文字
-	[_escapeCharacter release];
-	
-	[super dealloc];
-}
-
 // oniguruma regular expression buffer
 - (regex_t*)patternBuffer
 {

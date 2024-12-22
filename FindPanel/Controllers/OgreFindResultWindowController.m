@@ -186,7 +186,7 @@
 {
 	if (_textFindResult == nil) return [_textFindResult missingString];
 	
-	return [(id<OgreTextFindComponent>)item valueForKey:[tableColumn identifier]];
+	return [(NSObject <OgreTextFindComponent>*)item valueForKey:[tableColumn identifier]];
 }
 
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item

@@ -254,13 +254,9 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 		nil]] description];
 }
 
-- (void)textStorageWillProcessEditing:(NSNotification*)aNotification
+- (void)textStorage:(NSTextStorage *)textStorage willProcessEditing:(NSTextStorageEditActions)editedMask range:(NSRange)editedRange changeInLength:(NSInteger)changeInLength
 {
-	NSTextStorage   *textStorage = [aNotification object];
-	NSRange			editedRange = [textStorage editedRange];
-	NSInteger		changeInLength = [textStorage changeInLength];
-	
-	if ([textStorage editedMask] & NSTextStorageEditedCharacters) {
+	if (editedMask & NSTextStorageEditedCharacters) {
 		// 文字の変更の場合
 		/*NSLog(@"w: (%d, %d) -> (%d, %d)", 
 			editedRange.location, editedRange.length - changeInLength, 

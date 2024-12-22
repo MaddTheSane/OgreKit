@@ -19,7 +19,7 @@
 
 extern NSExceptionName OgreTextViewFindResultException;
 
-@interface OgreTextViewFindResult : OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>
+@interface OgreTextViewFindResult : OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf, NSTextStorageDelegate>
 {
 	NSTextView			*_textView;		// 検索対象
 	
